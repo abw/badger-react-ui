@@ -1,0 +1,16 @@
+code:not(.json-view) {
+  --code-text:   var(--grey20-10);
+  --code-back:   var(--grey20-95);
+  --code-border: var(--grey20-90);
+  color: var(--code-text);
+  background-color: var(--code-back);
+  border: 1px solid var(--code-border);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+#{$dark-theme} code {
+  --code-text:   var(--grey-70);
+  --code-back:   var(--grey-15);
+  --code-border: var(--grey-10);
+}

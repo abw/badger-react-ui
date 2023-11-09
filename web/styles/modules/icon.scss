@@ -1,0 +1,15 @@
+svg.icon {
+  overflow: visible;
+  box-sizing: content-box;
+  display: inline-block;
+  height: 1em;
+  line-height: 1;
+  overflow: visible;
+  vertical-align: -.125em;
+  &.icon-left {
+    margin-right: 0.75em;
+  }
+  &.icon-right {
+    margin-left: 0.75em;
+  }
+}

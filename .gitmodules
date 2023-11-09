@@ -1,0 +1,3 @@
+[submodule "cog-js"]
+	path = cog-js
+	url = git@gitlab.com:completelygroup/cog/cog-js.git

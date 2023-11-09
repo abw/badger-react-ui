@@ -1,0 +1,24 @@
+.alert {
+  h3 {
+    margin-bottom: 0;
+  }
+  h3 + p {
+    margin-top: 1em;
+  }
+  .alert-icon {
+    --gap-color: var(--color-90);
+    --ring-color: var(--color-80);
+    color: var(--color-50);
+    font-size: 2rem;
+    box-shadow: 0 0 0 3px var(--ring-color);
+    margin: 1rem;
+    box-shadow:
+      0 0 0 4px var(--gap-color),
+      0 0 0 8px var(--ring-color);
+    border-radius: 50%;
+  }
+}
+#{$dark-theme} .alert .alert-icon {
+  --gap-color: var(--color-10);
+  --ring-color: var(--color-30);
+}

@@ -1,0 +1,30 @@
+:where(.alert) {
+  --dismiss-color: var(--color-90);
+  --dismiss-hover: var(--color-100);
+  --transition-time: var(--unit-transition);
+}
+
+.alert {
+  &.dismissable {
+    .icon.dismiss {
+      color: var(--dismiss-color);
+      transition: var(--transition-time) color;
+      &:hover {
+        color: var(--dismiss-hover);
+      }
+    }
+  }
+  &.revealable {
+    .headline:hover {
+      --headline-back: var(--color-45);
+      transition: var(--transition-time) background-color;
+      cursor: pointer;
+    }
+    &:not(.revealed) {
+      .headline {
+        margin-bottom: 0;
+      }
+      padding-bottom: 0;
+    }
+  }
+}

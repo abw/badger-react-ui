@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/lib/*":        ["./lib/*"],
+      "@/src/*":        ["./src/*"],
+      "@/styles/*":     ["./styles/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/web/*":        ["./web/*"],
+      "@/examples/*":   ["./web/examples/*"],
+      "@/site/*":       ["./web/site/*"],
+      "@/svg/*":        ["./web/svg/*"],
+      "@/utils/*":      ["./web/utils/*"],
+      "@/ui/*":         ["./web/ui/*"],
+    }
+  }
+}
