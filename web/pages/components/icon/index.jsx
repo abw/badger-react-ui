@@ -4,6 +4,7 @@ import Name         from './_examples/name/index.jsx'
 import ClassName    from './_examples/className/index.jsx'
 import Path         from './_examples/path/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
+import IconData     from './_examples/IconData/index.jsx'
 
 const IconExamples = () =>
   <div className="prose flow">
@@ -13,6 +14,7 @@ const IconExamples = () =>
       <Name/>
       <ClassName/>
       <Path/>
+      <IconData/>
     </Sections>
   </div>
 
