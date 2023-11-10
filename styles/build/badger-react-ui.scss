@@ -1,0 +1,5 @@
+// Vite expects this to NOT have the /dist/ segment when running the dev
+// server, but sass invoked on the command line (via bin/build-css.sh) barfs
+// if it's not there.
+@import "@abw/badger-css/dist/styles/config/all.scss";
+@import "../components/all.scss";

@@ -3,14 +3,14 @@
 
 // Load the Badger CSS styles
 // See https://abw.github.io/badger-css/
-@import '@abw/badger-css/styles/badger.scss';
+// @import '@abw/badger-css/styles/badger.scss';
 
 // Load the night-and-day switcher styles
 // See https://abw.github.io/react-night-and-day/
 @import '@abw/react-night-and-day/styles/night-and-day.css';
 
 // Load the additional badger-react-ui styles
-@import '../../styles/badger-react-ui.scss';
+@import '../../styles/badger-css-react-ui.scss';
 
 // Load the site-specific styles
 @import "config/all.scss";

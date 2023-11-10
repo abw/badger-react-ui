@@ -3,31 +3,54 @@ import jsconfigPaths    from 'vite-jsconfig-paths'
 import svgr             from 'vite-plugin-svgr'
 import react            from '@vitejs/plugin-react'
 import define           from  './vite.defs.js'
-import fs               from 'node:fs'
-
-const https = {
-  key:  fs.readFileSync('etc/certs/badger-react-ui.local.wardley.org.key'),
-  cert: fs.readFileSync('etc/certs/badger-react-ui.local.wardley.org.crt'),
-}
+import copy             from 'rollup-plugin-copy'
 
 export default defineConfig({
   plugins: [
     react(),
     svgr(),
-    jsconfigPaths({ root: '../' })
+    jsconfigPaths()
   ],
-  root: 'web',
-  base: '/badger-react-ui',
-  envDir: '../',
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: './test/setup.js',
+    include: ['test/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    exclude: ['test/setup.js', 'test/lib']
+  },
   define,
   build: {
-    emptyOutDir: true,
-    outDir: '../docs'
+    minify: true,
+    sourcemap: true,
+    lib: {
+      entry: 'src/index.jsx',
+      name: '@abw/badger-react-ui',
+      fileName: 'badger-react-ui',
+    },
+    rollupOptions: {
+      external: [
+        'react',
+        'react-dom',
+        'react/jsx-runtime'
+      ],
+      output: {
+        globals: {
+          'react': 'react',
+          'react-dom': 'ReactDOM',
+          'react/jsx-runtime': 'react/jsx-runtime'
+        },
+      },
+      plugins: [
+        copy({
+          targets: [
+            {
+              src: ['styles/*', '!styles/build'],
+              dest: 'dist/styles',
+            },
+          ],
+          hook: 'writeBundle'
+        })
+      ]
+    },
   },
-  server: {
-    host: 'badger-react-ui.local.wardley.org',
-    port: 3012,
-    https
-  }
 })
-

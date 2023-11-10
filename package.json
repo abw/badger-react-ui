@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "dist/badger-react-ui.cjs",
-  "module": "dist/badger-react-ui.mjs",
+  "main": "dist/badger-react-ui.umd.cjs",
+  "module": "dist/badger-react-ui.js",
   "exports": {
     ".": {
-      "import": "./dist/badger-react-ui.mjs",
-      "require": "./dist/badger-react-ui.cjs"
+      "import": "./dist/badger-react-ui.js",
+      "require": "./dist/badger-react-ui.umd.cjs"
     },
     "./config/*": "./dist/config/*",
     "./styles/*": "./dist/styles/*"
@@ -17,10 +17,14 @@
     "dist/*"
   ],
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint 'web/**/*.{js,jsx}' 'lib/**/*.{js,jsx}'"
+    "dev": "vite --config vite.docs.js",
+    "test": "vitest --ui --coverage",
+    "build:css": "bin/build-css.sh",
+    "build:docs": "vite build --config vite.docs.js",
+    "build:lib": "vite build",
+    "build": "$npm_execpath build:css && $npm_execpath build:lib && $npm_execpath build:docs",
+    "preview": "vite preview --config vite.docs.js",
+    "lint": "eslint 'web/**/*.{js,jsx}' 'src/**/*.{js,jsx}'"
   },
   "keywords": [
     "Badger",
@@ -36,22 +40,24 @@
   "devDependencies": {
     "@abw/badger-css": "^0.2.5",
     "@abw/badger-timestamp": "^1.0.4",
+    "@abw/react-context": "^2.0.3",
     "@abw/react-night-and-day": "^0.0.6",
     "@vitejs/plugin-react": "^4.1.1",
     "eslint": "^8.36.0",
     "eslint-plugin-react": "^7.33.2",
+    "history": "^5.0.1",
     "react-syntax-highlighter": "^15.5.0",
+    "rollup-plugin-copy": "^3.5.0",
     "sass": "^1.69.5",
     "vite": "^4.5.0",
     "vite-jsconfig-paths": "^2.0.1",
-    "vite-plugin-svgr": "^4.1.0"
-  },
-  "peerDependencies": {
-    "@abw/react-context": "^2.0.3",
-    "history": "^5.0.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "vite-plugin-svgr": "^4.1.0",
     "react-router": "^6.9.0",
     "react-router-dom": "^6.9.0"
+  },
+  "peerDependencies": {
+    "@abw/badger-css": "^0.2.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
