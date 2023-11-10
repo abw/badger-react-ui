@@ -11,6 +11,7 @@
       "@/examples/*":   ["./web/examples/*"],
       "@/page/*":       ["./web/page/*"],
       "@/site/*":       ["./web/site/*"],
+      "@/snippets/*":   ["./web/snippets/*"],
       "@/svg/*":        ["./web/svg/*"],
       "@/ui/*":         ["./web/ui/*"],
       "@/utils/*":      ["./web/utils/*"],
