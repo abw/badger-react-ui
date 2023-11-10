@@ -8,10 +8,11 @@
       "@/components/*": ["./src/components/*"],
       "@/web/*":        ["./web/*"],
       "@/examples/*":   ["./web/examples/*"],
+      "@/page/*":       ["./web/page/*"],
       "@/site/*":       ["./web/site/*"],
       "@/svg/*":        ["./web/svg/*"],
-      "@/utils/*":      ["./web/utils/*"],
       "@/ui/*":         ["./web/ui/*"],
+      "@/utils/*":      ["./web/utils/*"],
     }
   }
 }

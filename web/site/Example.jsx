@@ -8,8 +8,8 @@ export const Example = ({
   children,
   className='',
   caption,
-  fixed,
   expand,
+  undent,
   language
 }) => {
   return (
@@ -19,7 +19,7 @@ export const Example = ({
           caption={caption}
           code={code||html}
           expand={expand}
-          fixed={fixed}
+          undent={undent}
           language={html ? 'html' : language}
         />
       </div>

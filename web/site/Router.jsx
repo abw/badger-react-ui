@@ -4,6 +4,7 @@ import { createBrowserRouter } from 'react-router-dom'
 
 // Read all the pages/* files and create React Router routes for them.
 const matchLayout = /\/_layout$/
+const matchIgnore = /\/_examples\//
 const routes = buildRoutes(
   import.meta.globEager('../pages/**/[a-z_]*.jsx')
 )
@@ -15,6 +16,9 @@ function buildRoutes(pages) {
 
   // build a lookup table from path to route
   const paths = routes
+    .filter(
+      route => ! route.path.match(matchIgnore)
+    )
     .reduce(
       (paths, route) => {
         paths[route.path] = route
@@ -22,6 +26,8 @@ function buildRoutes(pages) {
       },
       { }
     )
+  console.log(`paths after ignore:`, paths)
+
 
   // find all the paths that end in /_layout
   const layoutPaths = Object
@@ -86,6 +92,7 @@ function buildRoute([route, module]) {
   // console.log(`${route} => ${path}`)
   return { path, Component }
 }
+
 
 const Router = createBrowserRouter(
   [

@@ -3,7 +3,9 @@ import { Themed } from '@/src/Theme.jsx'
 // import { sizes, fasizes, alertTypes } from '../../config/index.js'
 import { Icon, classes } from '@/src/index.jsx'
 import { isNumber } from '@abw/badger-utils'
-import Controls from './Controls.jsx'
+import AlertControls from './Controls.jsx'
+import AlertHeadline from './Headline.jsx'
+import AlertContent from './Content.jsx'
 
 const Alert = ({
   title,
@@ -28,14 +30,16 @@ const Alert = ({
   openIcon,
   closedIcon,
   dismissIcon,
+  Headline=AlertHeadline,
+  Controls=AlertControls,
+  Content=AlertContent
 }) => {
   const [isRevealed, setRevealed] = useState(revealable ? revealed :true)
   const [dismissed, setDismissed] = useState(false)
   const cname = classes(
     'alert', type, size, color, className,
     {
-      icon, revealable, dismissable,
-      headline, stripe, border
+      revealable, dismissable, stripe
     },
     isRevealed ? 'revealed' : null,
     shadow ? `shadow-${shadow === true ? 1 : shadow}` : null,
@@ -62,6 +66,19 @@ const Alert = ({
     closedIcon,
     dismissIcon,
   }
+  const contentProps = {
+    title,
+    text,
+    children
+  }
+  const headlineProps = {
+    headline,
+    headIcon,
+    toggle,
+    revealable,
+    controlProps,
+    Controls,
+  }
 
   if (dismissed) {
     return null
@@ -70,25 +87,10 @@ const Alert = ({
   return (
     <div className={cname}>
       { Boolean(headline) &&
-        <div
-          className="headline flex space"
-          onClick={revealable ? toggle : null}
-        >
-          <div>
-            { Boolean(headIcon) &&
-              <Icon name={headIcon} fixedWidth className="mar-r-2" />
-            }
-            { headline}
-          </div>
-          <Controls {...controlProps}/>
-        </div>
+        <Headline {...headlineProps }/>
       }
       { isRevealed &&
-        <>
-          {/* {icon ? <Icon icon={icon} size={iconSize} className="body-icon"/> : null} */}
-          {title && <h3>{title}</h3>}
-          {text || children}
-        </>
+        <Content {...contentProps}/>
       }
     </div>
   )
