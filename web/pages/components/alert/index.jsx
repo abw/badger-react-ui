@@ -1,7 +1,5 @@
 import React        from 'react'
-import Example      from '@/site/Example.jsx'
-import AlertComp    from '@/examples/Alert/Alert.jsx'
-import AlertSrc     from '@/examples/Alert/Alert.jsx?raw'
+import Alert        from './_examples/Alert/index.jsx'
 import Title        from './_examples/title/index.jsx'
 import Text         from './_examples/text/index.jsx'
 import Headline     from './_examples/headline/index.jsx'
@@ -18,6 +16,7 @@ import Size         from './_examples/size/index.jsx'
 import Color        from './_examples/color/index.jsx'
 import Type         from './_examples/type/index.jsx'
 import Stripe       from './_examples/stripe/index.jsx'
+import Icon         from './_examples/icon/index.jsx'
 import Info         from './_examples/Info/index.jsx'
 import Success      from './_examples/Success/index.jsx'
 import Warning      from './_examples/Warning/index.jsx'
@@ -26,16 +25,7 @@ import Error        from './_examples/Error/index.jsx'
 const AlertExamples = () =>
   <div className="prose flow">
     <h1>Alert</h1>
-    <p>
-      Use the <code>Alert.jsx</code> component to render an alert.
-    </p>
-
-    <Example
-      Component={AlertComp}
-      code={AlertSrc}
-      expand
-    />
-
+    <Alert/>
     <Title/>
     <Text/>
     <Headline/>
@@ -52,6 +42,7 @@ const AlertExamples = () =>
     <Color/>
     <Type/>
     <Stripe/>
+    <Icon/>
     <Info/>
     <Success/>
     <Warning/>

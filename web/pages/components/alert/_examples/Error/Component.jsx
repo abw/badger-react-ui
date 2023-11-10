@@ -19,10 +19,11 @@ const Component = () =>
       border shadow
     />
     <Error
-      text="Stripe error alert"
+      title="Stonehenge"
+      text="Crushed by a dwarf"
+      icon="circle-exclamation"
       stripe shadow={3}
     />
-
     {/* END */}
   </div>
 

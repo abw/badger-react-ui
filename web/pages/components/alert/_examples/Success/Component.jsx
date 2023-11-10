@@ -19,8 +19,11 @@ const Component = () =>
       border shadow
     />
     <Success
-      text="Stripe success alert"
+      title="Stonehenge"
+      text="Where the banshees live..."
+      icon="circle-check"
       stripe shadow={3}
+
     />
     {/* END */}
   </div>

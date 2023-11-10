@@ -4,11 +4,11 @@ import { Themed } from '@/src/Theme.jsx'
 const AlertContent = ({
   title,
   text,
-  children
+  children,
 }) =>
   <>
     {title && <h3>{title}</h3>}
-    {text || children}
+    {text ? <p>{text}</p> : children}
   </>
 
 export default Themed(AlertContent, 'AlertContext')

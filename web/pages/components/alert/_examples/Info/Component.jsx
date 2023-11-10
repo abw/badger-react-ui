@@ -19,7 +19,9 @@ const Component = () =>
       border shadow
     />
     <Info
-      text="Stripe info alert"
+      title="Stonehenge"
+      text="Where the demons dwell"
+      icon="circle-info"
       stripe shadow={3}
     />
     {/* END */}

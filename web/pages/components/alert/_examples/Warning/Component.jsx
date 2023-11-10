@@ -19,7 +19,9 @@ const Component = () =>
       border shadow
     />
     <Warning
-      text="Stripe warning alert"
+      title="Stonehenge"
+      text="...and they do live well"
+      icon="circle-exclamation"
       stripe shadow={3}
     />
     {/* END */}

@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import { Themed } from '@/src/Theme.jsx'
-// import { sizes, fasizes, alertTypes } from '../../config/index.js'
-import { Icon, classes } from '@/src/index.jsx'
-import { isNumber } from '@abw/badger-utils'
-import AlertControls from './Controls.jsx'
-import AlertHeadline from './Headline.jsx'
-import AlertContent from './Content.jsx'
+import React, { useState }  from 'react'
+import AlertControls        from './Controls.jsx'
+import AlertHeadline        from './Headline.jsx'
+import AlertContent         from './Content.jsx'
+import AlertIcon            from './Icon.jsx'
+import {
+  borderClass, classes, radiusClass, shadowClass, Themed
+} from '@/src/index.jsx'
 
 const Alert = ({
   title,
@@ -19,11 +19,10 @@ const Alert = ({
   radius,
   shadow,
   className,
-  icon,
   text,
   children,
   onDismiss,
-  iconSize = '2x',
+  icon,
   dismissable = false,
   revealable = false,
   revealed = false,
@@ -32,9 +31,10 @@ const Alert = ({
   dismissIcon,
   Headline=AlertHeadline,
   Controls=AlertControls,
-  Content=AlertContent
+  Content=AlertContent,
+  Icon=AlertIcon,
 }) => {
-  const [isRevealed, setRevealed] = useState(revealable ? revealed :true)
+  const [isRevealed, setRevealed] = useState(revealable ? revealed : true)
   const [dismissed, setDismissed] = useState(false)
   const cname = classes(
     'alert', type, size, color, className,
@@ -42,10 +42,13 @@ const Alert = ({
       revealable, dismissable, stripe
     },
     isRevealed ? 'revealed' : null,
-    shadow ? `shadow-${shadow === true ? 1 : shadow}` : null,
-    border ? `border ${isNumber(border) ? `bdw-${border}` : ''}` : null,
-    radius ? `bdr-${radius}` : null,
+    shadowClass(shadow),
+    borderClass(border),
+    radiusClass(radius)
   )
+  // console.log(`revealable: `, revealable)
+  // console.log(`revealed: `, revealed)
+
   const open = () => setRevealed(true)
   const close = () => setRevealed(false)
   const toggle = () => setRevealed( isRevealed => ! isRevealed )
@@ -71,6 +74,11 @@ const Alert = ({
     text,
     children
   }
+  const iconProps = {
+    ...contentProps,
+    icon,
+    Content
+  }
   const headlineProps = {
     headline,
     headIcon,
@@ -89,9 +97,11 @@ const Alert = ({
       { Boolean(headline) &&
         <Headline {...headlineProps }/>
       }
-      { isRevealed &&
-        <Content {...contentProps}/>
-      }
+      { isRevealed && (
+        icon
+          ? <Icon {...iconProps}/>
+          : <Content {...contentProps}/>
+      )}
     </div>
   )
 }

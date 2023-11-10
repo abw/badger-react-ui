@@ -2,9 +2,20 @@
   --dismiss-color: var(--color-90);
   --dismiss-hover: var(--color-100);
   --transition-time: var(--unit-transition);
+  --icon-size: 2em;
+  --icon-padding: 0.125em;
+  --icon-color: var(--color-50);
+  --icon-background: var(--color-100);
+  --icon-ring-color: var(--color-70);
+  --icon-ring-width: 0.125em;
+  // --icon-gap-color: var(--color-80);
+  // --icon-gap-width: 0.125em;
 }
 
 .alert {
+  h3 {
+    font-size: 1.25em;
+  }
   &.dismissable {
     .icon.dismiss {
       color: var(--dismiss-color);
@@ -27,4 +38,26 @@
       padding-bottom: 0;
     }
   }
+  .side-icon {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5em;
+    & > .icon {
+      color: var(--icon-color);
+      background-color: var(--icon-background);
+      font-size: var(--icon-size);
+      margin: 0.25em;
+      padding: var(--icon-padding);
+      box-shadow:
+        0 0 0 var(--icon-ring-width) var(--icon-ring-color);
+      border-radius: 50%;
+    }
+  }
+}
+
+#{$dark-theme} .alert {
+  --icon-color: var(--color-40);
+  --icon-background: var(--color-0);
+  --icon-gap-color: var(--color-15);
+  --icon-ring-color: var(--color-30);
 }

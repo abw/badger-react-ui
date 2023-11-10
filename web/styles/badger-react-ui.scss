@@ -16,6 +16,9 @@
 @import "config/all.scss";
 @import "modules/all.scss";
 
+.mar-t-label {
+  margin-top: $field-label-size * 1.5 + $field-label-margin;
+}
 
 .brui-logo {
   --badger: var(--brand-30);
