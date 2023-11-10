@@ -23,7 +23,6 @@ const Component = () =>
       text="Where the banshees live..."
       icon="circle-check"
       stripe shadow={3}
-
     />
     {/* END */}
   </div>
