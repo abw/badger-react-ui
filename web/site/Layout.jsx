@@ -5,8 +5,9 @@ import Sidebar      from './Sidebar.jsx'
 import ScrollToTop  from '@/utils/ScrollToTop.js'
 import { Outlet }   from 'react-router-dom'
 import { useTheme } from '@abw/react-night-and-day'
+import Context from './Context.jsx'
 
-const Layout = () => {
+const Layout = ({ contentRef }) => {
   const { theme, variant } = useTheme()
   // const className = `${theme} ${variant}`
   return (
@@ -17,7 +18,7 @@ const Layout = () => {
         <aside>
           <Sidebar/>
         </aside>
-        <main id="content">
+        <main id="content" ref={contentRef}>
           <Outlet/>
         </main>
       </div>
@@ -26,4 +27,4 @@ const Layout = () => {
   )
 }
 
-export default Layout
+export default Context.Consumer(Layout)

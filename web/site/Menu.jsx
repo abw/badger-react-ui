@@ -1,9 +1,10 @@
 import React from 'react'
 import Link from '../ui/Link.jsx'
+import Context from './Context.jsx'
+import MenuTOC from './MenuTOC.jsx'
 import { useResolvedPath } from 'react-router-dom'
-import ScrollToId from '../utils/ScrollToId.js'
 
-const Menu = ({title, path, items}) => {
+const Menu = ({title, path, items, tocs}) => {
   const resolved = useResolvedPath()
   const open = path && resolved.pathname.slice(0, path.length) === path
 
@@ -17,18 +18,8 @@ const Menu = ({title, path, items}) => {
             return (
               <li key={item.to}>
                 <Link className="item" {...item}/>
-                { (Boolean(item.toc) && active) &&
-                  <ul className="toc">
-                    { Object.entries(item.toc).map(
-                      ([id, text]) =>
-                        <li key={id} onClick={() => ScrollToId(id)}>
-                          { text.match(/^code:/)
-                            ? <code>{text.replace(/^code:/, '')}</code>
-                            : text
-                          }
-                        </li>
-                    )}
-                  </ul>
+                { (Boolean(item.tocName) && active && tocs[item.tocName]) &&
+                  <MenuTOC toc={tocs[item.tocName]}/>
                 }
               </li>
             )
@@ -39,4 +30,4 @@ const Menu = ({title, path, items}) => {
   )
 }
 
-export default Menu
+export default Context.Consumer(Menu)

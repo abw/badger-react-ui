@@ -4,10 +4,10 @@ import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
 import Demo       from './Demo.jsx'
 
-const Alert = () =>
+const Icon = () =>
   <>
     <p>
-      Use the <code>Alert</code> component to render an alert.
+      The <code>Icon</code> component can be used to render SVG icons.
     </p>
     <Example
       Component={Component}
@@ -18,4 +18,4 @@ const Alert = () =>
     <Demo/>
   </>
 
-export default Alert
+export default Icon

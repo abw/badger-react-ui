@@ -21,32 +21,35 @@ import Info         from './_examples/Info/index.jsx'
 import Success      from './_examples/Success/index.jsx'
 import Warning      from './_examples/Warning/index.jsx'
 import Error        from './_examples/Error/index.jsx'
+import Sections     from '@/web/page/Sections.jsx'
 
 const AlertExamples = () =>
   <div className="prose flow">
     <h1>Alert</h1>
     <Alert/>
-    <Title/>
-    <Text/>
-    <Headline/>
-    <HeadIcon/>
-    <Revealable/>
-    <Revealed/>
-    <Dismissable/>
-    <OnDismiss/>
-    <ClassName/>
-    <Border/>
-    <Radius/>
-    <Shadow/>
-    <Size/>
-    <Color/>
-    <Type/>
-    <Stripe/>
-    <Icon/>
-    <Info/>
-    <Success/>
-    <Warning/>
-    <Error/>
+    <Sections tocName="alert">
+      <Title/>
+      <Text/>
+      <Headline/>
+      <HeadIcon/>
+      <Revealable/>
+      <Revealed/>
+      <Dismissable/>
+      <OnDismiss/>
+      <ClassName/>
+      <Border/>
+      <Radius/>
+      <Shadow/>
+      <Size/>
+      <Color/>
+      <Type/>
+      <Stripe/>
+      <Icon/>
+      <Info/>
+      <Success/>
+      <Warning/>
+      <Error/>
+    </Sections>
   </div>
 
 export default AlertExamples
