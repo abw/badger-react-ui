@@ -1,5 +1,5 @@
 import React        from 'react'
-import Button       from './_examples/button/index.jsx'
+import Button       from './_examples/Button/index.jsx'
 import Text         from './_examples/text/index.jsx'
 import OnClick      from './_examples/onClick/index.jsx'
 import Disabled     from './_examples/disabled/index.jsx'
@@ -19,6 +19,8 @@ import IconLeft     from './_examples/iconLeft/index.jsx'
 import IconRight    from './_examples/iconRight/index.jsx'
 import Label        from './_examples/label/index.jsx'
 import Tooltip      from './_examples/tooltip/index.jsx'
+import Type         from './_examples/type/index.jsx'
+import Content      from './_examples/Content/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
 
 const ButtonExamples = () =>
@@ -46,9 +48,8 @@ const ButtonExamples = () =>
       <IconRight/>
       <Label/>
       <Tooltip/>
-      <div>
-        type label tabIndex
-      </div>
+      <Type/>
+      <Content/>
     </Sections>
   </div>
 

@@ -17,7 +17,11 @@ const AlertHeadline = ({
   >
     <div>
       { Boolean(headIcon) &&
-        <Icon name={headIcon} fixedWidth className="mar-r-2" />
+        <Icon
+          name={headIcon}
+          fixedWidth
+          className="mar-r-2"
+        />
       }
       { headline}
     </div>

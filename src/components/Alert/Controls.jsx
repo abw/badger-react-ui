@@ -7,8 +7,6 @@ const AlertControls = ({
   dismiss,
   revealable,
   isRevealed,
-  open,
-  close,
   openIcon = 'angle-down',
   closedIcon = 'angle-left',
   dismissIcon = 'circle-cross',
@@ -27,7 +25,6 @@ const AlertControls = ({
         name={isRevealed ? openIcon : closedIcon}
         fixedWidth
         className="reveal"
-        onClick={isRevealed ? close : open}
       />
     }
   </div>

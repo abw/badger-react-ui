@@ -7,6 +7,7 @@ import Text         from './_examples/text/index.jsx'
 import Title        from './_examples/title/index.jsx'
 import Header       from './_examples/header/index.jsx'
 import Footer       from './_examples/footer/index.jsx'
+import ModalState   from './_examples/ModalState/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
 
 const ModalExamples = () =>
@@ -21,6 +22,7 @@ const ModalExamples = () =>
       <Title/>
       <Header/>
       <Footer/>
+      <ModalState/>
     </Sections>
   </div>
 

@@ -30,7 +30,7 @@ export const radiusClass = radius =>
   classInt(radius, r => `bdr-${r}`)
 
 export const classInt = (c, i) =>
-  isInteger(c)
+  isInteger(parseInt(c))
     ? maybeFunction(i, c)
     : null
 

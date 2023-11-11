@@ -47,11 +47,6 @@ const Alert = ({
     borderClass(border),
     radiusClass(radius)
   )
-  // console.log(`revealable: `, revealable)
-  // console.log(`revealed: `, revealed)
-
-  const open = () => setRevealed(true)
-  const close = () => setRevealed(false)
   const toggle = () => setRevealed( isRevealed => ! isRevealed )
   const dismiss = () => {
     setDismissed(true)
@@ -63,8 +58,6 @@ const Alert = ({
     dismissable,
     revealable,
     isRevealed,
-    open,
-    close,
     dismiss,
     openIcon,
     closedIcon,

@@ -21,6 +21,11 @@ export const ComponentsMenu = {
       tocName: 'button',
     },
     {
+      to: '/components/buttons',
+      text: 'Buttons',
+      tocName: 'buttons',
+    },
+    {
       to: '/components/icon',
       text: 'Icon',
       tocName: 'icon'

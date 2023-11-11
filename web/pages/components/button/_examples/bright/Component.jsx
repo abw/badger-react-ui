@@ -5,12 +5,12 @@ const Component = () =>
 /* START */
   <div className="flex wrap gap-4">
     <Button
-      text="Red Button"
-      color="red"
+      text="Yellow Button"
+      color="yellow"
     />
     <Button
-      text="Bright Red Button"
-      color="red"
+      text="Bright Yellow Button"
+      color="yellow"
       bright
     />
   </div>

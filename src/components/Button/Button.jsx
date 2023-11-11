@@ -18,6 +18,7 @@ const Button = ({
   border,
   radius,
   label,
+  tooltip,
   tabIndex=0,
   icon,
   iconClass,
@@ -27,6 +28,7 @@ const Button = ({
   iconRightClass,
   text,
   children,
+  Content=WithIcons,
   ...props
 }) => {
   // const content = text || children
@@ -53,9 +55,10 @@ const Button = ({
     type={type}
     disabled={disabled}
     aria-disabled={disabled}
+    data-tooltip={tooltip}
     {...props}
   >
-    <WithIcons
+    <Content
       {...bodyProps}
     />
   </button>
