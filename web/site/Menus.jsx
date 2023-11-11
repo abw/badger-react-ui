@@ -25,5 +25,10 @@ export const ComponentsMenu = {
       text: 'Icon',
       tocName: 'icon'
     },
+    {
+      to: '/components/modal',
+      text: 'Modal',
+      tocName: 'modal'
+    },
   ]
 }

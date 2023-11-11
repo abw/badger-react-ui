@@ -11,4 +11,4 @@ const AlertContent = ({
     {text ? <p>{text}</p> : children}
   </>
 
-export default Themed(AlertContent, 'AlertContext')
+export default Themed(AlertContent, 'AlertContent')
