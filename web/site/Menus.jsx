@@ -16,6 +16,11 @@ export const ComponentsMenu = {
       tocName: 'alert',
     },
     {
+      to: '/components/button',
+      text: 'Button',
+      tocName: 'button',
+    },
+    {
       to: '/components/icon',
       text: 'Icon',
       tocName: 'icon'

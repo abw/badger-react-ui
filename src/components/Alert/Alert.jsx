@@ -3,9 +3,10 @@ import AlertControls        from './Controls.jsx'
 import AlertHeadline        from './Headline.jsx'
 import AlertContent         from './Content.jsx'
 import AlertIcon            from './Icon.jsx'
+import { Themed }           from '@/src/Theme.jsx'
 import {
-  borderClass, classes, radiusClass, shadowClass, Themed
-} from '@/src/index.jsx'
+  borderClass, classes, radiusClass, shadowClass
+} from '@/src/utils/index.js'
 
 const Alert = ({
   title,

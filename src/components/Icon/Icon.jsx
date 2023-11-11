@@ -1,7 +1,9 @@
-import React from 'react'
-import IconData from './IconData.jsx'
+import React              from 'react'
+import IconData           from './IconData.jsx'
+import { Themed }         from '@/src/Theme.jsx'
 import { fail, isString } from '@abw/badger-utils'
-import { Themed } from '@/src/Theme.jsx'
+
+// TODO: fixedWidth
 
 export const DEFAULT_WIDTH  = 512
 export const DEFAULT_HEIGHT = DEFAULT_WIDTH

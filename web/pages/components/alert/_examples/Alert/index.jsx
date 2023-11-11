@@ -8,12 +8,14 @@ const Alert = () =>
   <>
     <p>
       Use the <code>Alert</code> component to render an alert.
+      Any child element will be rendered inside the alert body.
     </p>
     <Example
       Component={Component}
       code={Source}
       expand
     />
+
     <h2>Demo</h2>
     <Demo/>
   </>

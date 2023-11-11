@@ -1,4 +1,4 @@
-import React from 'react'
+import React      from 'react'
 import { Themed } from '@/src/Theme.jsx'
 
 const AlertContent = ({

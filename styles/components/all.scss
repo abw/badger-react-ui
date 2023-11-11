@@ -1,1 +1,12 @@
 @import "alert.scss";
+
+button {
+  .icon.on-left {
+    text-align: right;
+    margin-left: -0.25em;
+  }
+  .icon.on-right {
+    text-align: right;
+    margin-right: -0.25em;
+  }
+}

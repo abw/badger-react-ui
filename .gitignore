@@ -18,6 +18,7 @@ node_modules
 dist
 *.local
 /.pnp
+coverage
 .pnp.js
 
 # Temporary directories

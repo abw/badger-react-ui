@@ -1,6 +1,6 @@
 import React        from 'react'
 import AlertContent from './Content.jsx'
-import Icon         from '../Icon/Icon.jsx'
+import Icon         from '@/components/Icon/Icon.jsx'
 import { Themed }   from '@/src/Theme.jsx'
 
 const AlertIcon = ({

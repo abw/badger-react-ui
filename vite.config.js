@@ -4,6 +4,7 @@ import svgr             from 'vite-plugin-svgr'
 import react            from '@vitejs/plugin-react'
 import define           from  './vite.defs.js'
 import copy             from 'rollup-plugin-copy'
+import '@testing-library/jest-dom/vitest'
 
 export default defineConfig({
   plugins: [
@@ -16,7 +17,11 @@ export default defineConfig({
     globals: true,
     setupFiles: './test/setup.js',
     include: ['test/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-    exclude: ['test/setup.js', 'test/lib']
+    exclude: ['test/setup.js', 'test/lib'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['html']
+    },
   },
   define,
   build: {

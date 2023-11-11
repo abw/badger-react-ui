@@ -1,24 +1,37 @@
-import React from 'react'
-import Icon from './Icon.jsx'
+import React      from 'react'
+import Icon       from './Icon.jsx'
 import { Themed } from '@/src/Theme.jsx'
 
-const WithIcons = props =>
+const WithIcons = ({
+  icon,
+  iconClass,
+  iconLeft,
+  iconLeftClass='on-left',
+  iconRight,
+  iconRightClass='on-right',
+  text,
+  children
+}) =>
   <>
-    {props.icon &&
-      <Icon name={props.icon} />
-    }
-    {props.iconLeft &&
+    { Boolean(icon) &&
       <Icon
-        name={props.iconLeft}
-        className={`left on-left ${props.iconLeftClass || ''}`}
+        name={icon}
+        className={iconClass}
         fixedWidth
       />
     }
-    {props.text || props.children}
-    {props.iconRight &&
+    { Boolean(iconLeft) &&
       <Icon
-        name={props.iconRight}
-        className={`right on-right ${props.iconRightClass || ''}`}
+        name={iconLeft}
+        className={iconLeftClass}
+        fixedWidth
+      />
+    }
+    { text || children }
+    { Boolean(iconRight) &&
+      <Icon
+        name={iconRight}
+        className={iconRightClass}
         fixedWidth
       />
     }

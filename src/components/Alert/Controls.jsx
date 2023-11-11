@@ -1,6 +1,6 @@
-import React from 'react'
+import React      from 'react'
 import { Themed } from '@/src/Theme.jsx'
-import { Icon } from '@/src/index.jsx'
+import { Icon }   from '@/components/Icon/index.jsx'
 
 const AlertControls = ({
   dismissable,

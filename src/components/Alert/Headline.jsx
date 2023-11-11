@@ -1,7 +1,7 @@
-import React from 'react'
-import { Themed } from '@/src/Theme.jsx'
-import { Icon } from '@/src/index.jsx'
-import AlertControls from './Controls.jsx'
+import React          from 'react'
+import AlertControls  from './Controls.jsx'
+import { Themed }     from '@/src/Theme.jsx'
+import { Icon }       from '@/components/Icon/index.jsx'
 
 const AlertHeadline = ({
   headline,
