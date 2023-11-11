@@ -13,7 +13,7 @@ const ExampleSection = ({
   undent,
   ...props
 }) =>
-  <Section code={code} {...props}>
+  <Section code={code} title={title} {...props}>
     {children}
     <Example
       Component={Component}

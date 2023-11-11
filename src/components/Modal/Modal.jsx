@@ -3,7 +3,6 @@ import ModalClose   from './Close.jsx'
 import ModalContent from './Content.jsx'
 import { Themed }   from '@/src/Theme.jsx'
 
-
 const Modal = ({
   ref,
   open,

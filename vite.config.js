@@ -4,7 +4,6 @@ import svgr             from 'vite-plugin-svgr'
 import react            from '@vitejs/plugin-react'
 import define           from  './vite.defs.js'
 import copy             from 'rollup-plugin-copy'
-import '@testing-library/jest-dom/vitest'
 
 export default defineConfig({
   plugins: [
