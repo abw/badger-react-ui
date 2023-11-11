@@ -8,6 +8,7 @@ import Cancel       from './_examples/cancel/index.jsx'
 import CancelProps  from './_examples/cancelProps/index.jsx'
 import Confirm      from './_examples/confirm/index.jsx'
 import ConfirmProps from './_examples/confirmProps/index.jsx'
+import OnClick      from './_examples/onClick/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
 
 const ConfirmExamples = () =>
@@ -23,6 +24,7 @@ const ConfirmExamples = () =>
       <CancelProps/>
       <Confirm/>
       <ConfirmProps/>
+      <OnClick/>
     </Sections>
   </div>
 

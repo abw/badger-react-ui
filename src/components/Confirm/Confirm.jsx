@@ -32,9 +32,6 @@ const Confirm = ({
   buttonsClass,
   className=buttonsClass,
   buttonClass,
-  // promptClass,
-  //solid=false,
-  //or=false,
   onClick = () => window.alert('No confirm action defined'),
   ...props
 }) => {
