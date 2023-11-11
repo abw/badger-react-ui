@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const VisibleState = ({
+export const VisibleState = ({
   visible=false,
 } = { }) => {
   const [isVisible, setVisible] = useState(visible)
