@@ -1,6 +1,6 @@
 {
   "name": "badger-react-ui",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "type": "module",
   "main": "dist/badger-react-ui.umd.cjs",
@@ -33,6 +33,13 @@
   ],
   "author": "Andy Wardley",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abw/badger-react-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/abw/badger-react-ui/issues"
+  },
   "dependencies": {
     "@abw/badger-utils": "^1.0.21",
     "@abw/react-one-louder": "^0.0.6"
