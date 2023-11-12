@@ -1,9 +1,7 @@
-import React from 'react'
-// import Button   from '@/components/Button/Button.jsx'
-import Buttons  from '@/components/Buttons/Buttons.jsx'
-import Visible  from '@/state/Visible.jsx'
-import { Themed }   from '@/src/Theme.jsx'
-// import { Themed, preventDefault } from '../../utils/index.js'
+import React      from 'react'
+import Buttons    from '@/components/Buttons/Buttons.jsx'
+import Visible    from '@/state/Visible.jsx'
+import { Themed } from '@/src/Theme.jsx'
 
 const Confirm = ({
   initiallyRevealed=false,

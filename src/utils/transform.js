@@ -1,7 +1,16 @@
 import { fail, isString } from '@abw/badger-utils'
 import { parseAttrs } from './attrs.js'
 
-export const transformers = {
+export const nullTransform = {
+  x:      0,
+  y:      0,
+  size:   16,
+  flipX:  false,
+  flipY:  false,
+  rotate: 0
+}
+
+export const transformFunctions = {
   flip: (transform, v) => {
     if (v.match(/^y$/i)) {
       transform.flipY = ! transform.flipY
@@ -38,18 +47,9 @@ export const transformers = {
   rotate: (transform, n) =>
     transform.rotate += parseInt(n)
 }
-transformers['flop']   = transformers.flipy
-transformers['flip-x'] = transformers.flipx
-transformers['flip-y'] = transformers.flipy
-
-export const nullTransform = {
-  x:      0,
-  y:      0,
-  size:   16,
-  flipX:  false,
-  flipY:  false,
-  rotate: 0
-}
+transformFunctions['flop']   = transformFunctions.flipy
+transformFunctions['flip-x'] = transformFunctions.flipx
+transformFunctions['flip-y'] = transformFunctions.flipy
 
 export function transformData(
   transform,
@@ -62,7 +62,7 @@ export function transformData(
   return Object.entries(attrs).reduce(
     (transform, [name, value]) => {
       const lcname = name.toLowerCase()
-      const transformer = transformers[lcname]
+      const transformer = transformFunctions[lcname]
         || fail(`Invalid transform: ${lcname}`)
       transformer(transform, value)
       return transform

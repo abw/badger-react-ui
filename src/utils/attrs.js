@@ -1,3 +1,5 @@
+import { isUndefined } from '@abw/badger-utils'
+
 export function parseAttrs(string) {
   return string
     .split(/\s*[;&]\s*/)
@@ -5,7 +7,7 @@ export function parseAttrs(string) {
     .reduce(
       (attrs, attr) => {
         const [name, value] = attr.split(/\s*[:=]\s*/)
-        attrs[name] = value
+        attrs[name] = isUndefined(value) ? true : value
         return attrs
       },
       { }

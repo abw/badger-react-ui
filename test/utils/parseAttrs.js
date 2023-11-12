@@ -60,3 +60,16 @@ test(
   })
 )
 
+test(
+  'parseAttrs() should set value-less params to true',
+  () => expect(
+    parseAttrs(
+      'alpha&bravo&whisky'
+    )
+  ).toEqual({
+    alpha: true,
+    bravo: true,
+    whisky: true
+  })
+)
+
