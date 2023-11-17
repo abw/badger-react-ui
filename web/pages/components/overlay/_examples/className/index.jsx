@@ -3,19 +3,18 @@ import Example    from '@/page/ExampleSection.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
 
-const CheckboxState = () =>
+const ClassName = () =>
   <Example
-    code="CheckboxState"
+    code="className"
     Component={Component}
     Source={Source}
+    undent={6}
     expand
   >
-    <div className="cols-2">
-      <p>
-        The <code>CheckboxState</code> function can be used to generate a
-        Checkbox with internal state.
-      </p>
-    </div>
+    <p>
+      The <code>className</code> property can be used to add a CSS class
+      to the Modal <code>dialog</code> element.
+    </p>
   </Example>
 
-export default CheckboxState
+export default ClassName

@@ -11,7 +11,7 @@
     left: 0;
     width: 100%;
     height: $header-height;
-    z-index: 100;
+    z-index: 1001;
     box-shadow: 0 4px 3px -2px var(--top-shadow);
   }
   & > header > nav {

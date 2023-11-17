@@ -45,5 +45,10 @@ export const ComponentsMenu = {
       text: 'Modal',
       tocName: 'modal'
     },
+    {
+      to: '/components/overlay',
+      text: 'Overlay',
+      tocName: 'overlay'
+    },
   ]
 }

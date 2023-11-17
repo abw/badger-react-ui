@@ -30,3 +30,27 @@
     fill: var(--react-ui);
   }
 }
+
+/*-- components/overlay.scss --*/
+:where(.overlay) {
+  --color: var(--color-0);
+  --animation-time: 0.3s;
+  --backdrop-filter:   blur(1px);
+  --background-opacity: 10%;
+  --background-color: var(--color-100);
+}
+
+.overlay {
+  z-index: 999;
+  &.fixed {
+    z-index: 9999;
+  }
+  &.white {
+    --color: var(--color-0);
+    --background-color: var(--color-100);
+  }
+  &.black {
+    --color: var(--color-100);
+    --background-color: var(--color-0);
+  }
+}
