@@ -23,6 +23,8 @@ export const CodeBlock = ({
   expand=false,
   fixed=expand,
   className='',
+  highlightLines,
+  lineProps,
   undent=false
 }) => {
   const [copied, setCopied] = useState(false)
@@ -32,6 +34,12 @@ export const CodeBlock = ({
     setCopied(true)
     sleep(2000).then(() => setCopied(false))
   }
+  const highlight = highlightLines
+    ? highlighter(highlightLines)
+    : null
+
+  console.log(`CodeBlock lineProps: `, lineProps)
+
 
   return (
     <div className={`codeblock ${className} ${expanded ? 'expanded' : ''} ${fixed ? 'fixed-open' : 'expandable'}`}>
@@ -51,6 +59,8 @@ export const CodeBlock = ({
         language={language}
         showLineNumbers={true}
         useInlineStyles={false}
+        wrapLines={true}
+        lineProps={{ class: 'red bgc-50' }}
         customStyle={{
           // paddingBottom: fixed ? '1rem' : '2rem',
           // backgroundColor: isDark ? '#14191B' : '#292C2D'
@@ -88,5 +98,10 @@ export const prepareCode = (code, options={}) => {
   return code
 }
 
+const highlighter = lines => {
+  return n => n % 2
+    ? { class: 'red bgc-50' }
+    : { }
+}
 
 export default CodeBlock

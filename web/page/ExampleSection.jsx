@@ -11,6 +11,8 @@ const ExampleSection = ({
   caption=code ? <code>{code}</code> : title,
   expand,
   undent,
+  lineProps,
+  highlightLines,
   ...props
 }) =>
   <Section code={code} title={title} {...props}>
@@ -21,6 +23,8 @@ const ExampleSection = ({
       caption={caption}
       expand={expand}
       undent={undent}
+      highlightLines={highlightLines}
+      lineProps={lineProps}
     />
   </Section>
 

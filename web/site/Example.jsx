@@ -7,20 +7,24 @@ export const Example = ({
   html,
   children,
   className='',
-  caption,
-  expand,
-  undent,
-  language
+  language,
+  ...props
+  // caption,
+  // expand,
+  // undent,
 }) => {
   return (
     <div className={`example grid-2 gap-8 stack-desktop ${className}`}>
       <div className="source">
         <CodeBlock
-          caption={caption}
           code={code||html}
+          language={html ? 'html' : language}
+          {...props}
+          /*
+          caption={caption}
           expand={expand}
           undent={undent}
-          language={html ? 'html' : language}
+          */
         />
       </div>
       {/* </div> */}

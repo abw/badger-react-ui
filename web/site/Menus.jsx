@@ -26,6 +26,11 @@ export const ComponentsMenu = {
       tocName: 'buttons',
     },
     {
+      to: '/components/checkbox',
+      text: 'Checkbox',
+      tocName: 'checkbox',
+    },
+    {
       to: '/components/confirm',
       text: 'Confirm',
       tocName: 'confirm',
