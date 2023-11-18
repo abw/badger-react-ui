@@ -9,13 +9,13 @@ const ColorExample = () => {
       <Button
         onClick={show}
         color="green"
-        text="Show Black Overlay"
+        text="Show Dark Overlay"
       />
       { isVisible &&
         /* START */
-        <Overlay color="black" className="flex space top pad-6">
+        <Overlay dark className="flex space top pad-6">
           <p className="larger">
-            Black overlay
+            Dark overlay
           </p>
           <Button
             onClick={hide}

@@ -7,10 +7,12 @@ export const Overlay = ({
   className,
   style,
   fixed,
+  light,
+  dark,
   children
 }) =>
   <div
-    className={classes('overlay', className, color, { fixed })}
+    className={classes('overlay', className, color, { fixed, light, dark })}
     style={style}
   >
     {children}
