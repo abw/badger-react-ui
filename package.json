@@ -45,7 +45,7 @@
     "@abw/react-one-louder": "^0.0.6"
   },
   "devDependencies": {
-    "@abw/badger-css": "^0.2.5",
+    "@abw/badger-css": "^0.2.8",
     "@abw/badger-timestamp": "^1.0.4",
     "@abw/react-context": "^2.0.3",
     "@abw/react-night-and-day": "^0.0.6",
