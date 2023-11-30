@@ -50,5 +50,10 @@ export const ComponentsMenu = {
       text: 'Overlay',
       tocName: 'overlay'
     },
+    {
+      to: '/components/search',
+      text: 'Search',
+      tocName: 'search'
+    },
   ]
 }

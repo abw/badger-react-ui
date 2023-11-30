@@ -38,7 +38,7 @@ export const CodeBlock = ({
     ? highlighter(highlightLines)
     : null
 
-  console.log(`CodeBlock lineProps: `, lineProps)
+  // console.log(`CodeBlock lineProps: `, lineProps)
 
 
   return (
@@ -60,7 +60,7 @@ export const CodeBlock = ({
         showLineNumbers={true}
         useInlineStyles={false}
         wrapLines={true}
-        lineProps={{ class: 'red bgc-50' }}
+        // lineProps={{ class: 'red bgc-50' }}
         customStyle={{
           // paddingBottom: fixed ? '1rem' : '2rem',
           // backgroundColor: isDark ? '#14191B' : '#292C2D'

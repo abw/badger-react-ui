@@ -42,12 +42,12 @@
   },
   "dependencies": {
     "@abw/badger-utils": "^1.0.21",
-    "@abw/react-one-louder": "^0.0.6"
+    "@abw/react-one-louder": "^0.0.6",
+    "@abw/react-context": "^2.0.3"
   },
   "devDependencies": {
     "@abw/badger-css": "^0.2.8",
     "@abw/badger-timestamp": "^1.0.4",
-    "@abw/react-context": "^2.0.3",
     "@abw/react-night-and-day": "^0.0.6",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.1.0",

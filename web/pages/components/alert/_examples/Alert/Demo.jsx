@@ -40,7 +40,7 @@ const AlertDemo = () => {
   const output = `<Alert\n  ${props}\n/>`
 
   return (
-    <div className="example grid-2 gap-8 stack-desktop">
+    <div className="example grid-2 gap-h-8 stack-desktop">
       <div>
         <div className="field">
           <label>Output</label>

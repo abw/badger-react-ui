@@ -5,7 +5,7 @@ const Component = () =>
 /* START */
   <div className="flex wrap gap-4">
     <Button
-      text="Red Outline"
+      text="Red Shaded"
       color="red"
       shaded
     />
