@@ -1,3 +1,5 @@
+// NOTE: This is legacy code which is in the process of being moved out to
+// a separate @abw/badger-icon module
 import React              from 'react'
 import IconData           from './IconData.jsx'
 import { Themed }         from '@/src/Theme.jsx'
