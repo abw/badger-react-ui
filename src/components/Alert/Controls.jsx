@@ -11,7 +11,7 @@ const AlertControls = ({
   closedIcon = 'angle-left',
   dismissIcon = 'circle-cross',
 }) =>
-  <div>
+  <div className="on-right">
     { Boolean(dismissable) &&
       <Icon
         name={dismissIcon}

@@ -2,6 +2,7 @@
   --dismiss-color: var(--color-90);
   --dismiss-hover: var(--color-100);
   --transition-time: var(--unit-transition);
+  --icon-margin: 0.5em;
   --icon-size: 2em;
   --icon-padding: 0.125em;
   --icon-color: var(--color-50);
@@ -15,6 +16,16 @@
 .alert {
   h3 {
     font-size: 1.25em;
+  }
+  .headline {
+    .on-left {
+      margin-right: var(--icon-margin);
+      margin-left: calc(var(--icon-margin) + (-1 * var(--padding-h)));
+    }
+    .on-right {
+      margin-left: var(--icon-margin);
+      margin-right: calc(var(--icon-margin) + (-1 * var(--padding-h)));
+    }
   }
   &.dismissable {
     .icon.dismiss {

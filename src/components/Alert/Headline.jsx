@@ -20,7 +20,8 @@ const AlertHeadline = ({
         <Icon
           name={headIcon}
           fixedWidth
-          className="mar-r-2"
+          // className="mar-r-2"
+          className="on-left"
         />
       }
       { headline}
