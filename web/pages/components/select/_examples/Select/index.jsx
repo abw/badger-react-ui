@@ -5,11 +5,9 @@ import Source     from './Component.jsx?raw'
 
 const Select = () =>
   <>
-    <div className="cols-2 stack-desktop">
-      <p>
-        The <code>Select</code> component implements a custom select input.
-      </p>
-    </div>
+    <p className="large">
+      The <code>Select</code> component implements a custom select input.
+    </p>
     <Example
       Component={Component}
       code={Source}

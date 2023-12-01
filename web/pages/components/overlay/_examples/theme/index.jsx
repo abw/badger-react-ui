@@ -8,7 +8,7 @@ import DarkSrc    from './Dark.jsx?raw'
 
 const Theme = () =>
   <Section code="light / dark">
-    <p>
+    <p className="cols-2 stack-desktop">
       The default overlay color is white in light mode and black in dark
       mode.  You can add the <code>light</code> or <code>dark</code>{' '}
       property to explicitly set it to one or the other.

@@ -7,7 +7,7 @@ import OverlayState from './_examples/OverlayState/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
 
 const OverlayExamples = () =>
-  <div className="prose flow">
+  <div className="flow">
     <h1>Overlay</h1>
     <Sections tocName="overlay">
       <Overlay/>

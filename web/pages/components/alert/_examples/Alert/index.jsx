@@ -6,9 +6,9 @@ import Demo       from './Demo.jsx'
 
 const Alert = () =>
   <>
-    <p>
+    <p className="large">
       Use the <code>Alert</code> component to render an alert.
-      Any child element will be rendered inside the alert body.
+      Any child elements will be rendered inside the alert body.
     </p>
     <Example
       Component={Component}

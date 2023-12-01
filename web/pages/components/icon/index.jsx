@@ -5,7 +5,7 @@ import ClassName    from './_examples/className/index.jsx'
 import Size         from './_examples/size/index.jsx'
 import Color        from './_examples/color/index.jsx'
 import Path         from './_examples/path/index.jsx'
-import IconData     from './_examples/IconData/index.jsx'
+import IconLibrary  from './_examples/IconLibrary/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
 
 const IconExamples = () =>
@@ -18,7 +18,7 @@ const IconExamples = () =>
       <Size/>
       <Color/>
       <Path/>
-      <IconData/>
+      <IconLibrary/>
     </Sections>
   </div>
 

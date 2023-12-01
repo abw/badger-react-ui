@@ -24,7 +24,7 @@ import Content      from './_examples/Content/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
 
 const ButtonExamples = () =>
-  <div className="prose flow">
+  <div className="flow">
     <h1>Button</h1>
     <Button/>
 

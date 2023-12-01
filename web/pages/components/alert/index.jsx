@@ -24,7 +24,7 @@ import Error        from './_examples/Error/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
 
 const AlertExamples = () =>
-  <div className="prose flow">
+  <div className="flow">
     <h1>Alert</h1>
     <Alert/>
     <Sections tocName="alert">

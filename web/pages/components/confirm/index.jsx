@@ -12,7 +12,7 @@ import OnClick      from './_examples/onClick/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
 
 const ConfirmExamples = () =>
-  <div className="prose flow">
+  <div className="flow">
     <h1>Confirm</h1>
     <Overview/>
     <Sections tocName="confirm">

@@ -6,7 +6,7 @@ import Demo       from './Demo.jsx'
 
 const Icon = () =>
   <>
-    <p className="cols-2 stack-desktop">
+    <p className="large">
       The <code>Icon</code> component can be used to render SVG icons.
       The functionality is imported from{' '}
       <a href="https://abw.github.io/badger-icon/">Badger Icon</a> with

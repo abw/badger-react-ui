@@ -5,7 +5,7 @@ import Source     from './Component.jsx?raw'
 
 const Checkbox = () =>
   <>
-    <p>
+    <p className="large">
       The <code>Checkbox</code> component renders a checkbox with a label.
     </p>
     <Example

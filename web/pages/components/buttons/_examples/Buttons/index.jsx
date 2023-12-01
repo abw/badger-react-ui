@@ -5,7 +5,7 @@ import Source     from './Component.jsx?raw'
 
 const Buttons = () =>
   <>
-    <p>
+    <p className="large">
       The <code>Buttons</code> component can be used to render a connected
       set of buttons.
     </p>

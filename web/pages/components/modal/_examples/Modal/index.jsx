@@ -5,9 +5,12 @@ import Source     from './Component.jsx?raw'
 
 const Modal = () =>
   <>
-    <p>
+    <p className="large">
       The <code>Modal</code> component can be used to create an overlaid
-      modal dialog.  The <code>open</code> property should be used to
+      modal dialog.
+    </p>
+    <p className="cols-2 stack-desktop">
+      The <code>open</code> property should be used to
       indicate if the modal is open or not. Any child elements will be
       rendered inside the modal body.
     </p>

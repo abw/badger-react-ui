@@ -1,16 +1,18 @@
 import React      from 'react'
 import Section    from '@/page/Section.jsx'
-import { Icon, Library } from '@/components/index.jsx'
+import { Icon, IconLibrary } from '@/components/index.jsx'
 
 const LibraryExample = () =>
   <Section
-    code="Library"
+    code="IconLibrary"
   >
     <p>
-      The default set of icons is defined as <code>Library</code>
+      The default set of icons is defined as <code>IconLibrary</code>.
+      The <code>addIcon()</code> and <code>addIcons()</code> function are
+      provided for adding icons to the library.
     </p>
     <div className="grid-fill gap-4 mar-t-8">
-      { Object.keys(Library.icons).map(
+      { Object.keys(IconLibrary.icons).map(
         name =>
           <div
             key={name}

@@ -11,7 +11,7 @@ import ModalState   from './_examples/ModalState/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
 
 const ModalExamples = () =>
-  <div className="prose flow">
+  <div className="flow">
     <h1>Modal</h1>
     <Modal/>
     <Sections tocName="modal">

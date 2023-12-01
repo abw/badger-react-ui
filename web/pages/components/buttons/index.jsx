@@ -8,7 +8,7 @@ import Button       from './_examples/Button/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
 
 const ButtonsExamples = () =>
-  <div className="prose flow">
+  <div className="flow">
     <h1>Buttons</h1>
     <Buttons/>
 

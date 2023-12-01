@@ -10,7 +10,7 @@ const CheckboxState = () =>
     Source={Source}
     expand
   >
-    <div className="cols-2">
+    <div>
       <p>
         The <code>CheckboxState</code> function can be used to generate a
         Checkbox with internal state.
