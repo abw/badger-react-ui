@@ -10,7 +10,7 @@ const OnSearch = () =>
     Source={Source}
     // expand
   >
-    <p className="cols-2 stack-desktop">
+    <p>
       You should provide an <code>onSearch</code> function which will be
       passed the search input and should return an array of results.  This
       can be an asynchronous function if necessary.  For example, a function

@@ -1,7 +1,7 @@
 import { Context, Generator } from '@abw/react-context'
 import { ARROW_DOWN, ARROW_UP, BLANK, ENTER, ESCAPE } from '@/src/constants.js'
 import { debounce, doNothing, hasValue, sleep } from '@abw/badger-utils'
-import { defaultRenderer } from './Utils.js'
+import { defaultRenderer, scrollParentChild } from '@/src/utils/index.js'
 
 const inactiveState = {
   searching:  false,
@@ -224,23 +224,7 @@ class SearchContext extends Context {
   }
 
   activeRef(ref) {
-    const parent = this._resultsRef
-    if (ref && parent) {
-      const top     = ref.offsetTop
-      const bottom  = top + ref.offsetHeight
-      const pTop    = parent.scrollTop
-      const pBottom = pTop + parent.offsetHeight
-      if (top < pTop) {
-        this._resultsRef.scrollTo({
-          top: top,
-        })
-      }
-      else if (bottom > pBottom) {
-        this._resultsRef.scrollTo({
-          top: pTop + (bottom - pBottom),
-        })
-      }
-    }
+    scrollParentChild(this._resultsRef, ref)
   }
 }
 

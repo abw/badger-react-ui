@@ -1,0 +1,68 @@
+:where(.select .options) {
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color: var(--color-75);
+  --border-radius: #{$unit-radius};
+  --separator-width: 1px;
+  --separator-style: solid;
+  --separator-color: var(--color-90);
+  // --results-margin: 0.5em;
+  --options-margin: 0.5em;
+  --option-padding-v: 0.25em;
+  --option-padding-h: 0.5em;
+  --color: var(--color-10);
+  --background: var(--color-100);
+  --active-color: var(--brand-100);
+  --active-background: var(--brand-50);
+  --max-height: 50vh;
+}
+:where(#{$dark-theme} .select .options) {
+  --color: var(--color-90);
+  --background: var(--color-0);
+  --border-color: var(--color-25);
+  --separator-color: var(--color-15);
+  --active-color: var(--brand-100);
+  --active-background: var(--brand-40);
+}
+
+.select {
+  position: relative;
+  overflow: visible;
+  .options {
+    position: absolute;
+    display: block;
+    // top: calc(100% - var(--border-width));
+    // top: 100%;
+    top: calc(100% + var(--options-margin));
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
+    max-height: var(--max-height);
+    color: var(--color);
+    background-color: var(--background);
+    border: var(--border-width) var(--border-style) var(--border-color);
+    // border-top: none;
+    border-radius: var(--border-radius);
+    // border-bottom-left-radius: var(--border-radius);
+    // border-bottom-right-radius: var(--border-radius);
+    box-shadow: var(--shadow-2);
+    // padding: 0.5em;
+    .option {
+      padding: var(--option-padding-v) var(--option-padding-h);
+      border-bottom: var(--separator-width) var(--separator-style) var(--separator-color);
+      &:last-child {
+        border-bottom: none;
+      }
+      &.active {
+        background-color: var(--active-background);
+        color: var(--active-color);
+      }
+    }
+  }
+  &.selecting {
+    .input {
+      // border-bottom-left-radius: 0;
+      // border-bottom-right-radius: 0;
+    }
+  }
+}

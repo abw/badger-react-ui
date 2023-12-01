@@ -1,8 +1,8 @@
 import React          from 'react'
 import Search         from './_examples/Search/index.jsx'
-import OnSearch       from './_examples/OnSearch/index.jsx'
-import DisplayResult  from './_examples/DisplayResult/index.jsx'
-import DisplayValue   from './_examples/DisplayValue/index.jsx'
+import OnSearch       from './_examples/onSearch/index.jsx'
+import DisplayResult  from './_examples/displayResult/index.jsx'
+import DisplayValue   from './_examples/displayValue/index.jsx'
 import Sections       from '@/web/page/Sections.jsx'
 
 const SearchExamples = () =>

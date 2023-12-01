@@ -55,5 +55,10 @@ export const ComponentsMenu = {
       text: 'Search',
       tocName: 'search'
     },
+    {
+      to: '/components/select',
+      text: 'Select',
+      tocName: 'select'
+    },
   ]
 }
