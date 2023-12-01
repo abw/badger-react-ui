@@ -16,7 +16,9 @@ const ExampleSection = ({
   ...props
 }) =>
   <Section code={code} title={title} {...props}>
-    {children}
+    <div className="cols-2 stack-desktop mar-b-4">
+      {children}
+    </div>
     <Example
       Component={Component}
       code={Source}

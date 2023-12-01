@@ -20,6 +20,33 @@ export const classes = (...inputs) => joinClasses(
   )
 )
 
+export const colorClass = color => {
+  if (! color) {
+    return null
+  }
+  const [range, fore, back, foreDark, backDark] = color.split('-')
+  return classes(
+    range,
+    foregroundClass(fore),
+    backgroundClass(back),
+    foregroundDarkClass(foreDark),
+    backgroundDarkClass(backDark)
+  )
+}
+
+export const sizeColorProps = ({
+  className,
+  size,
+  color,
+  ...props
+}) => ({
+  ...props,
+  className: classes(
+    className, size,
+    colorClass(color)
+  )
+})
+
 export const borderClass = border =>
   classTrueInt(border, 'border', b => `border bdw-${b}`)
 
@@ -28,6 +55,18 @@ export const shadowClass = shadow =>
 
 export const radiusClass = radius =>
   classInt(radius, r => `bdr-${r}`)
+
+export const foregroundClass = stop =>
+  classInt(stop, s => `fgc-${s}`)
+
+export const backgroundClass = stop =>
+  classInt(stop, s => `bgc-${s}`)
+
+export const foregroundDarkClass = stop =>
+  classInt(stop, s => `fgd-${s}`)
+
+export const backgroundDarkClass = stop =>
+  classInt(stop, s => `bgd-${s}`)
 
 export const classInt = (c, i) =>
   isInteger(parseInt(c))

@@ -21,7 +21,7 @@ const Component = () =>
     <Warning
       title="Stonehenge"
       text="...and they do live well"
-      icon="circle-exclamation"
+      icon="exclamation-thick"
       stripe shadow={3}
     />
     {/* END */}

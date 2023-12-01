@@ -1,7 +1,8 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@abw/badger-css': ^0.2.8
+  '@abw/badger-css': ^0.2.9
+  '@abw/badger-icon': ^0.0.4
   '@abw/badger-timestamp': ^1.0.4
   '@abw/badger-utils': ^1.0.21
   '@abw/react-context': ^2.0.3
@@ -30,15 +31,16 @@ specifiers:
   vitest: ^0.34.6
 
 dependencies:
+  '@abw/badger-icon': 0.0.4
   '@abw/badger-utils': 1.0.21
+  '@abw/react-context': 2.0.3
   '@abw/react-one-louder': 0.0.6
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 
 devDependencies:
-  '@abw/badger-css': 0.2.8
+  '@abw/badger-css': 0.2.9
   '@abw/badger-timestamp': 1.0.4
-  '@abw/react-context': 2.0.3
   '@abw/react-night-and-day': 0.0.6_biqbaboplfbrettd7655fr4n2y
   '@testing-library/jest-dom': 6.1.4_vitest@0.34.6
   '@testing-library/react': 14.1.0_biqbaboplfbrettd7655fr4n2y
@@ -74,8 +76,8 @@ packages:
       js-yaml: 4.1.0
     dev: true
 
-  /@abw/badger-css/0.2.8:
-    resolution: {integrity: sha512-PwHt3u8akddNTrZ2u1EnCvxQxzC0pQfJAkjrU8gxdn4Qp0mb2igaAnwmnPigBqJrvSi5NBua6wst+4fJn33k4A==}
+  /@abw/badger-css/0.2.9:
+    resolution: {integrity: sha512-f7xEtYBr+SOdMurTIEvgFSUJ44XID9WY943TDXeLNJTEIxKcapbT4DuqNFE1IylA5v/eeKyY+FI4iX4vYzI28A==}
     hasBin: true
     dependencies:
       '@abw/badger': 1.2.1
@@ -87,6 +89,15 @@ packages:
       '@abw/badger-codecs': 1.0.3
       '@abw/badger-utils': 1.0.21
     dev: true
+
+  /@abw/badger-icon/0.0.4:
+    resolution: {integrity: sha512-Fc8eXEIhegakxHa5FOZ+TCJIMV3UNb1Is664Kb8vBZd3AYxqYpVBYDHSDEqWIq74wna7zuokyo8SUHGlz9Lp+w==}
+    dependencies:
+      '@abw/badger-utils': 1.0.21
+      '@abw/react-one-louder': 0.0.6
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /@abw/badger-timestamp/1.0.4:
     resolution: {integrity: sha512-7JBcF9rxwihiiEG1UQlv1/jdntg8BJmzTADAj5psTWbRNvDh4XHkdeoVnbf0nRCq08q5472mx8wbpgNzrwb2RQ==}
@@ -117,7 +128,7 @@ packages:
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-    dev: true
+    dev: false
 
   /@abw/react-night-and-day/0.0.6_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-HVvyYuRxs8soPO1c/AFQqylx6uQqe9OHvxdJVVCzOtEtDYRFyM5NGY5Ob9ugUrSkg7o1Ru8p1vDfAJ+7/nyMvQ==}

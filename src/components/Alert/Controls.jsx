@@ -9,7 +9,7 @@ const AlertControls = ({
   isRevealed,
   openIcon = 'angle-down',
   closedIcon = 'angle-left',
-  dismissIcon = 'circle-cross',
+  dismissIcon = 'circle',
 }) =>
   <div className="on-right">
     { Boolean(dismissable) &&

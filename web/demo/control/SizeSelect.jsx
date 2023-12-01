@@ -3,7 +3,8 @@ import React from 'react'
 const sizes = [
   'smallest', 'smaller', 'small',
   'medium',
-  'large', 'larger', 'largest'
+  'large', 'larger', 'largest',
+  'x2', 'x3', 'x4', 'x5', 'x6', 'x7', 'x8', 'x9', 'x10'
 ]
 
 const SizeSelect = ({ size, setSize }) =>

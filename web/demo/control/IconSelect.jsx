@@ -1,7 +1,7 @@
-import { IconData } from '@/src/index.jsx'
 import React from 'react'
+import { Library } from '@/src/index.jsx'
 
-export const icons = Object.keys(IconData)
+export const icons = Object.keys(Library.icons)
 
 const IconSelect = ({
   icon,

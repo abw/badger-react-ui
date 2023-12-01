@@ -29,7 +29,7 @@ const ColorSelect = ({
     onChange={ e => setColor(e.target.value) }
     disabled={disabled}
   >
-    <option value="" hidden disabled selected>Color</option>
+    <option value="" hidden disabled selected>Select Range</option>
     <option value="">Default</option>
     { colors.map(
       color =>

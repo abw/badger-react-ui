@@ -248,7 +248,7 @@ const TextField = ({
       />
       <div className="suffix">
         <Icon
-          name="circle-cross"
+          name="cross"
           className="hover"
           onClick={() => setValue('')}
         />

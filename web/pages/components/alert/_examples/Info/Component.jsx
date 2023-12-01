@@ -21,7 +21,7 @@ const Component = () =>
     <Info
       title="Stonehenge"
       text="Where the demons dwell"
-      icon="circle-info"
+      icon="info"
       stripe shadow={3}
     />
     {/* END */}

@@ -1,5 +1,6 @@
 import React      from 'react'
-import Icon       from './Icon.jsx'
+import { Icon } from '@abw/badger-icon'
+// import Icon       from './Icon.jsx'
 import { Themed } from '@/src/Theme.jsx'
 
 const WithIcons = ({

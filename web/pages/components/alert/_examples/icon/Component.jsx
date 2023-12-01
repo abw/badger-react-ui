@@ -5,19 +5,19 @@ const Component = () =>
 /* START */
   <div>
     <Alert
-      icon="circle-info"
+      icon="info"
       type="info"
       title="Eleven"
       text="It's one louder"
     />
     <Alert
-      icon="circle-check"
+      icon="check"
       type="success"
       title="Eleven"
       text="It's one louder"
     />
     <Alert
-      icon="circle-exclamation"
+      icon="exclamation"
       type="error"
       title="Eleven"
       text="It's one louder"

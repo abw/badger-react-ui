@@ -21,7 +21,7 @@ const Component = () =>
     <Success
       title="Stonehenge"
       text="Where the banshees live..."
-      icon="circle-check"
+      icon="check-thicker-shrink=4"
       stripe shadow={3}
     />
     {/* END */}

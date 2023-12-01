@@ -10,7 +10,7 @@ const ModalExample = () => {
       <Modal
         open={open}
         close={() => setOpen(false)}
-        closeIcon="circle-cross"
+        closeIcon="thumb"
       >
         <p>
           This is a modal with a custom

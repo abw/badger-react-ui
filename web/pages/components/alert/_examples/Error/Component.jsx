@@ -21,7 +21,7 @@ const Component = () =>
     <Error
       title="Stonehenge"
       text="Crushed by a dwarf"
-      icon="circle-exclamation"
+      icon="exclamation-thick"
       stripe shadow={3}
     />
     {/* END */}

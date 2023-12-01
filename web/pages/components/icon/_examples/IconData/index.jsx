@@ -1,16 +1,16 @@
 import React      from 'react'
 import Section    from '@/page/Section.jsx'
-import { Icon, IconData } from '@/components/index.jsx'
+import { Icon, Library } from '@/components/index.jsx'
 
-const IconDataExample = () =>
+const LibraryExample = () =>
   <Section
-    code="IconData"
+    code="Library"
   >
     <p>
-      The default set of icons is defined as <code>IconData</code>
+      The default set of icons is defined as <code>Library</code>
     </p>
     <div className="grid-fill gap-4 mar-t-8">
-      { Object.keys(IconData).map(
+      { Object.keys(Library.icons).map(
         name =>
           <div
             key={name}
@@ -23,4 +23,4 @@ const IconDataExample = () =>
     </div>
   </Section>
 
-export default IconDataExample
+export default LibraryExample
