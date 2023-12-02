@@ -22,12 +22,14 @@ import Success      from './_examples/Success/index.jsx'
 import Warning      from './_examples/Warning/index.jsx'
 import Error        from './_examples/Error/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
+import Heading from '@/web/page/Heading.jsx'
 
 const AlertExamples = () =>
   <div className="flow">
     <h1>Alert</h1>
     <Alert/>
     <Sections tocName="alert">
+      <Heading title="Properties"/>
       <Title/>
       <Text/>
       <Headline/>
@@ -45,6 +47,7 @@ const AlertExamples = () =>
       <Type/>
       <Stripe/>
       <Icon/>
+      <Heading title="Components"/>
       <Info/>
       <Success/>
       <Warning/>

@@ -6,6 +6,7 @@ import ClassName    from './_examples/className/index.jsx'
 import ButtonClass  from './_examples/buttonClass/index.jsx'
 import Button       from './_examples/Button/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
+import Heading from '@/web/page/Heading.jsx'
 
 const ButtonsExamples = () =>
   <div className="flow">
@@ -13,10 +14,12 @@ const ButtonsExamples = () =>
     <Buttons/>
 
     <Sections tocName="buttons">
+      <Heading title="Properties"/>
       <ButtonsProp/>
       <Outline/>
       <ClassName/>
       <ButtonClass/>
+      <Heading title="Components"/>
       <Button/>
     </Sections>
   </div>

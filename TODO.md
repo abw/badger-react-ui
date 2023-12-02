@@ -18,11 +18,7 @@ from form styles
 
 ## Search
 
-* NoResults
-
 ## Select
-
-* NoOptions
 
 # Website / Docs
 

@@ -9,8 +9,16 @@ const Context = ({render}) => {
     toc[key] = { text, ref }
     setTocs({ ...tocs })
   }
+  const addTocHeading = (tocName, key, heading, ref) => {
+    const toc = tocs[tocName] ||= { }
+    toc[key] = { heading, ref }
+    setTocs({ ...tocs })
+  }
   return render({
-    tocs, addToc, contentRef
+    tocs,
+    addToc,
+    addTocHeading,
+    contentRef
   })
 }
 

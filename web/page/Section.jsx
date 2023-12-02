@@ -7,7 +7,7 @@ const Section = ({
   code,
   title=code,
   children,
-  addPageToc
+  addPageToc,
 }) => {
   const elemId = idSafe(id || code || title)
   const ref = useRef()
@@ -25,7 +25,7 @@ const Section = ({
   )
   return (
     <section id={elemId} ref={ref}>
-      <h2 className={code ? 'font-mono' : ''}>{title}</h2>
+      <h3 className={code ? 'font-mono page-section' : 'page-section'}>{title}</h3>
       {children}
     </section>
   )

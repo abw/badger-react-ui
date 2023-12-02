@@ -3,6 +3,7 @@ import Context from './Context.jsx'
 
 export const MenuTOC = ({toc, contentRef}) =>
   <ul className="toc">
+    {console.log(`TOC: `, toc) }
     { Object.entries(toc).map(
       ([id, item]) =>
         <li
@@ -15,10 +16,13 @@ export const MenuTOC = ({toc, contentRef}) =>
               })
             }
           }
+          className={item.heading ? 'heading' : ''}
         >
-          { item.text.match(/^code:/)
-            ? <code>{item.text.replace(/^code:/, '')}</code>
-            : item.text
+          { item.heading
+            ? <h4>{item.heading}</h4>
+            : item.text.match(/^code:/)
+              ? <code>{item.text.replace(/^code:/, '')}</code>
+              : item.text
           }
         </li>
     )}

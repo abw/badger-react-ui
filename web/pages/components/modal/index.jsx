@@ -9,12 +9,14 @@ import Header       from './_examples/header/index.jsx'
 import Footer       from './_examples/footer/index.jsx'
 import ModalState   from './_examples/ModalState/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
+import Heading from '@/web/page/Heading.jsx'
 
 const ModalExamples = () =>
   <div className="flow">
     <h1>Modal</h1>
     <Modal/>
     <Sections tocName="modal">
+      <Heading title="Properties"/>
       <ClassName/>
       <Close/>
       <CloseIcon/>
@@ -22,6 +24,7 @@ const ModalExamples = () =>
       <Title/>
       <Header/>
       <Footer/>
+      <Heading title="Components"/>
       <ModalState/>
     </Sections>
   </div>

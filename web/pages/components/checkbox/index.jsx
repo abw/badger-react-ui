@@ -7,12 +7,14 @@ import OnChange       from './_examples/onChange/index.jsx'
 import ClassName      from './_examples/className/index.jsx'
 import CheckboxState  from './_examples/CheckboxState/index.jsx'
 import Sections       from '@/web/page/Sections.jsx'
+import Heading from '@/web/page/Heading.jsx'
 
 const CheckboxExamples = () =>
   <div className="flow">
     <h1>Checkbox</h1>
     <Overview/>
     <Sections tocName="checkbox">
+      <Heading title="Properties"/>
       <Text/>
       <Checked/>
       <CheckedText/>
@@ -27,6 +29,7 @@ const CheckboxExamples = () =>
       <ConfirmProps/>
       <OnClick/>
       */}
+      <Heading title="Components"/>
       <CheckboxState/>
     </Sections>
   </div>

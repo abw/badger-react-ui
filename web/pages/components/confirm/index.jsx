@@ -10,12 +10,14 @@ import Confirm      from './_examples/confirm/index.jsx'
 import ConfirmProps from './_examples/confirmProps/index.jsx'
 import OnClick      from './_examples/onClick/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
+import Heading from '@/web/page/Heading.jsx'
 
 const ConfirmExamples = () =>
   <div className="flow">
     <h1>Confirm</h1>
     <Overview/>
     <Sections tocName="confirm">
+      <Heading title="Properties"/>
       <Text/>
       <Color/>
       <IconRight/>
@@ -24,6 +26,7 @@ const ConfirmExamples = () =>
       <CancelProps/>
       <Confirm/>
       <ConfirmProps/>
+      <Heading title="Event Handlers"/>
       <OnClick/>
     </Sections>
   </div>

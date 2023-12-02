@@ -31,6 +31,8 @@
   --footer-back:      var(--brand-20);
   --footer-text:      var(--grey20-45);
   --footer-border:    var(--brand-20);
+  // section
+  --section-underline:var(--grey-80);
 }
 
 #{$dark-theme} {
@@ -67,4 +69,6 @@
   --footer-back:      var(--brand-5);
   --footer-text:      var(--grey20-25);
   --footer-border:    var(--brand-0);
+  // section
+  --section-underline:var(--grey-25);
 }

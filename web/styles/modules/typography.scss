@@ -18,6 +18,15 @@ h2 {
   font-size: var(--size-larger);
   margin-block-start: 2rem;
   margin-block-end: 0.5rem;
+  &.section-heading {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--section-underline);
+  }
+}
+h3.page-section {
+  margin-bottom: 1rem;
 }
 p {
   margin-block-end: 1.5rem;
