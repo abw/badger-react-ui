@@ -2,10 +2,11 @@ import React   from 'react'
 import Context from './Context.js'
 
 const SelectNoOptions = ({
-  noOptionsClass='no-options'
+  noOptionsClass='no-options',
+  noOptions='No options'
 }) =>
   <div className={noOptionsClass}>
-    No options
+    {noOptions}
   </div>
 
 export default Context.Consumer(SelectNoOptions)

@@ -13,6 +13,8 @@
   --background: var(--color-100);
   --active-color: var(--brand-100);
   --active-background: var(--brand-50);
+  --no-results-color: var(--orange-30);
+  --no-results-background: var(--orange-100);
   --max-height: 50vh;
 }
 :where(#{$dark-theme} .search .results) {
@@ -22,6 +24,8 @@
   --separator-color: var(--color-15);
   --active-color: var(--brand-100);
   --active-background: var(--brand-40);
+  --no-results-color: var(--orange-40);
+  --no-results-background: var(--orange-0);
 }
 
 .search {
@@ -50,7 +54,7 @@
     max-height: var(--max-height);
     overflow-y: scroll;
     // padding: 0.5em;
-    .result {
+    .result, .no-results {
       padding: var(--result-padding-v) var(--result-padding-h);
       border-bottom: var(--separator-width) var(--separator-style) var(--separator-color);
       &:last-child {
@@ -60,6 +64,10 @@
         background-color: var(--active-background);
         color: var(--active-color);
       }
+    }
+    .no-results {
+      color: var(--no-results-color);
+      background-color: var(--no-results-background);
     }
   }
 }

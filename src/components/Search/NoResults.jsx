@@ -2,10 +2,11 @@ import React   from 'react'
 import Context from './Context.js'
 
 const SearchNoResults = ({
-  noResultsClass='no-results'
+  noResultsClass='no-results',
+  noResults='No results'
 }) =>
   <div className={noResultsClass}>
-    No results
+    {noResults}
   </div>
 
 export default Context.Consumer(SearchNoResults)
