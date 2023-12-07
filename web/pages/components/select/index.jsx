@@ -22,6 +22,10 @@ const SelectExamples = () =>
       <Section code="placeholder">
         Set the placeholder text.  The default is <code>Search</code>.
       </Section>
+      <Section code="noOptions">
+        Set the text displayed when there are no options to select from.
+        The default is <code>No options</code>.
+      </Section>
 
       <Heading title="CSS Classes"/>
       <Section code="placeholderClass">
@@ -97,7 +101,7 @@ const SelectExamples = () =>
       <Section code="Option">
         Renders an individual option.
       </Section>
-      <Section code="NoOptions">
+      <Section code="NoOptions" id="NoOptions-component">
         Renders a message indicating that there are no options to select from.
       </Section>
     </Sections>

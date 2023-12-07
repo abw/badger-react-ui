@@ -82,7 +82,7 @@ class SelectContext extends Context {
     // Hack to hide result shortly after blur.  If we clear the results
     // immediately, or only display the results when the component is focussed
     // then the results disappear before an onClick has time to register.
-    sleep(125). then(() => this.close())
+    sleep(250). then(() => this.close())
   }
 
   onClick() {

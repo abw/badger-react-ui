@@ -17,7 +17,10 @@ const animals = [
 
 const DisplayValueExample = () => {
   const displayValue = option =>
-    `#${option.id}: ${option.name} (${option.tel})`
+    <div className="flex baseline">
+      <span className="smaller mar-r-2">#{option.id}</span>{' '}
+      {option.name} ({option.tel})
+    </div>
 
   return (
     <Select
