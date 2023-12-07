@@ -11,7 +11,7 @@ import Shadow   from './_examples/Shadow/index.jsx'
 import Color    from './_examples/Color/index.jsx'
 import Sections from '@/web/page/Sections.jsx'
 import Heading  from '@/web/page/Heading.jsx'
-import Section from '@/web/page/Section.jsx'
+import Section  from '@/web/page/Section.jsx'
 
 const DetailsExamples = () =>
   <div className="flow">
@@ -47,7 +47,6 @@ const DetailsExamples = () =>
       <Section code="Content" id="Content=component">
         Renders the content.
       </Section>
-
     </Sections>
   </div>
 
