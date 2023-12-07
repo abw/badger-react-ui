@@ -20,6 +20,7 @@ from form styles
 
 ## Select
 
-# Website / Docs
+## Details
 
-* sub-headings in menus
+* Custom icon
+
