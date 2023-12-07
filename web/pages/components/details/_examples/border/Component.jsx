@@ -10,6 +10,9 @@ const DetailsExample = () =>
     <Details summary="Bordered and Lined" border lined>
       This is the content that is revealed.
     </Details>
+    <Details summary="Wide Border" border={3} lined>
+      This is the content that is revealed.
+    </Details>
     {/* END */}
   </div>
 

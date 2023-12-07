@@ -13,9 +13,11 @@ const Border = () =>
   >
     <p>
       The <code>border</code> property can be used to add a CSS class
-      to add a border around the component.  You might also like to add
-      the <code>lined</code> property to get a line between the summary
-      and body content.
+      to add a border around the component.  By itself it will add a one
+      pixel border.  You can also set it to an integer (in pixels) for a
+      wider border.  The same border width will also be applied to the
+      line separating the summary and content when the <code>lined</code>{' '}
+      property is used.
     </p>
   </Example>
 

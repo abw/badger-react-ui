@@ -2,7 +2,7 @@ import React          from 'react'
 import DetailsSummary from './Summary.jsx'
 import DetailsContent from './Content.jsx'
 import { Themed }     from '@/src/Theme.jsx'
-import { classes, radiusClass, shadowClass }    from '@/src/utils/classes.js'
+import { classes, borderClass, radiusClass, shadowClass }    from '@/src/utils/classes.js'
 
 const Details = ({
   className,
@@ -23,9 +23,10 @@ const Details = ({
       classes(
         className,
         color,
+        borderClass(border),
         radiusClass(radius),
         shadowClass(shadow),
-        { size, color, border, lined, shaded }
+        { size, color, lined, shaded }
       )
     }
     open={open}
