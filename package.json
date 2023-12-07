@@ -47,7 +47,7 @@
     "@abw/react-one-louder": "^0.0.6"
   },
   "devDependencies": {
-    "@abw/badger-css": "^0.2.10",
+    "@abw/badger-css": "^0.2.13",
     "@abw/badger-timestamp": "^1.0.4",
     "@abw/react-night-and-day": "^0.0.6",
     "@testing-library/jest-dom": "^6.1.4",
@@ -71,7 +71,6 @@
     "vitest": "^0.34.6"
   },
   "peerDependencies": {
-    "@abw/badger-css": "^0.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
