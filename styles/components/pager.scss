@@ -1,0 +1,9 @@
+.pager {
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  .pages {
+    display: flex;
+    gap: 0.5em;
+  }
+}

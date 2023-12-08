@@ -56,6 +56,11 @@ export const ComponentsMenu = {
       tocName: 'overlay'
     },
     {
+      to: '/components/pager',
+      text: 'Pager',
+      tocName: 'pager'
+    },
+    {
       to: '/components/search',
       text: 'Search',
       tocName: 'search'
