@@ -2,7 +2,7 @@ import React   from 'react'
 import Context from './Context.js'
 
 const SelectNoOptions = ({
-  noOptionsClass='no-options',
+  noOptionsClass='none',
   noOptions='No options'
 }) =>
   <div className={noOptionsClass}>

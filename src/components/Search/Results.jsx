@@ -10,7 +10,7 @@ const SearchResults = ({
   cursor,
   selectResult,
   setCursor,
-  resultsClass='results',
+  resultsClass='menu border bdr-1',
   Result=SearchResult,
   NoResults=SearchNoResults,
 }) =>

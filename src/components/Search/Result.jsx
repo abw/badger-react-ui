@@ -9,7 +9,7 @@ const SearchResult = ({
   onClick,
   onMouseEnter,
   displayResult,
-  resultClass='result',
+  resultClass='item',
   activeClass='active'
 }) =>
   <div

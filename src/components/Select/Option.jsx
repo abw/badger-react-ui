@@ -9,7 +9,7 @@ const SelectOption = ({
   onClick,
   onMouseEnter,
   displayOption,
-  optionClass='option',
+  optionClass='item',
   activeClass='active'
 }) =>
   <div

@@ -77,11 +77,11 @@ const SelectExamples = () =>
           </Section>
           <Section code="optionsClass">
             Set the class added for the options container.
-            The default is <code>options</code>.
+            The default is <code>menu border bdr-1</code>.
           </Section>
           <Section code="optionClass">
             Set the class added to each option element.
-            The default is <code>option</code>.
+            The default is <code>item</code>.
           </Section>
           <Section code="activeClass">
             Set the class added to an option that is currently active.
@@ -89,7 +89,7 @@ const SelectExamples = () =>
           </Section>
           <Section code="noOptionsClass">
             Set the class added to the element displayed when there are no
-            options to select from. The default is <code>no-options</code>.
+            options to select from. The default is <code>none</code>.
           </Section>
         </div>
         <div className="flow">

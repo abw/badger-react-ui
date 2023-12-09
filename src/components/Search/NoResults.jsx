@@ -2,7 +2,7 @@ import React   from 'react'
 import Context from './Context.js'
 
 const SearchNoResults = ({
-  noResultsClass='no-results',
+  noResultsClass='none',
   noResults='No results'
 }) =>
   <div className={noResultsClass}>

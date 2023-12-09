@@ -7,7 +7,7 @@ import { hasValue, isArray } from '@abw/badger-utils'
 const SelectOptions = ({
   options,
   optionsRef,
-  optionsClass='options',
+  optionsClass='menu border bdr-1',
   cursor,
   selectOption,
   setCursor,

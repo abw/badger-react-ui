@@ -1,0 +1,53 @@
+// .search .results
+// .select .options
+// .dropdown .menu
+
+:where(.menu) {
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color: var(--color-75);
+  --border-radius: #{$unit-radius};
+  --separator-width: 1px;
+  --separator-style: solid;
+  --separator-color: var(--color-90);
+  --item-padding-v: 0.25em;
+  --item-padding-h: 0.5em;
+  --item-color: var(--color-10);
+  --item-background: var(--color-100);
+  --active-color: var(--brand-100);
+  --active-background: var(--brand-50);
+  --none-color: var(--orange-30);
+  --none-background: var(--orange-100);
+}
+:where(#{$dark-theme} .menu) {
+  --border-color: var(--color-25);
+  --separator-color: var(--color-15);
+  --item-color: var(--color-90);
+  --item-background: var(--color-0);
+  --active-color: var(--brand-100);
+  --active-background: var(--brand-40);
+  --none-color: var(--orange-40);
+  --none-background: var(--orange-0);
+}
+
+.menu {
+  border: var(--border-width) var(--border-style) var(--border-color);
+  border-radius: var(--border-radius);
+  .item, .none {
+    color: var(--item-color);
+    background-color: var(--item-background);
+    padding: var(--result-padding-v) var(--result-padding-h);
+    border-bottom: var(--separator-width) var(--separator-style) var(--separator-color);
+    &:last-child {
+      border-bottom: none;
+    }
+    &.active {
+      background-color: var(--active-background);
+      color: var(--active-color);
+    }
+  }
+  .none {
+    color: var(--none-color);
+    background-color: var(--none-background);
+  }
+}
