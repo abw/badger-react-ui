@@ -1,6 +1,6 @@
 export { default as Modal        } from './Modal.jsx'
 export { default as ModalClose   } from './Close.jsx'
-export { default as ModalHeader  } from './Header.jsx'
 export { default as ModalContent } from './Content.jsx'
 export { default as ModalFooter  } from './Footer.jsx'
+export { default as ModalHeader  } from './Header.jsx'
 export { default as ModalState   } from './State.jsx'
