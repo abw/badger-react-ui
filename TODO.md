@@ -16,6 +16,8 @@ from form styles
 
 # Components
 
+## Alert
+
 ## Search
 
 ## Select

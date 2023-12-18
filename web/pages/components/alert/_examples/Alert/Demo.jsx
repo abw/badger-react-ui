@@ -80,7 +80,7 @@ const Controls = ({ options, toggleOption, setOption }) => {
   const setRadius        = setOption('radius')
   const setShadow        = setOption('shadow')
   const setIcon          = setOption('icon')
-  const setHeadIcon      = setOption('headIcon')
+  const setHeadicon      = setOption('headicon')
   const toggleStripe     = toggleOption('stripe')
   const toggleRevealable = toggleOption('revealable')
 
@@ -150,8 +150,8 @@ const Controls = ({ options, toggleOption, setOption }) => {
         <div className="field">
           <label>Headline Icon</label>
           <IconSelect
-            icon={options.headIcon}
-            setIcon={setHeadIcon}
+            icon={options.headicon}
+            setIcon={setHeadicon}
             disabled={! options.headline}
           />
         </div>
@@ -187,6 +187,7 @@ const alertProps = options => {
   const textProps = [
     'headline', 'title', 'text',
     'type', 'color', 'size',
+    'headicon', 'icon'
   ]
     .filter( option => options[option] )
     .map( option => `${option}="${options[option]}"`)
