@@ -24,3 +24,12 @@ from form styles
 
 * Custom icon
 
+## Dropdown
+
+* openOnHover mode should focus trigger on hover so it can receive keyboard
+events
+
+## WithIcon
+
+The `.icon.on-left` and `.icon.on-right` classes are only defined in the
+scope of buttons in badger-css.

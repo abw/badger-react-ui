@@ -1,19 +1,76 @@
-:where(.dropdown .menu) {
+:where(.dropdown) {
   --menu-margin: 0.5em;
   --max-height: 50vh;
+  --trigger-padding:        var(--input-padding-v) var(--input-padding-h);
+  --trigger-line-height:    var(--input-line-height);
+  --trigger-border-radius:  var(--input-border-radius);
+  --trigger-border-width:   var(--input-border-width);
+  --focus-ring-outline:     0 0 0 var(--input-focus-ring-width) var(--input-focus-ring-color);
+  --focus-ring-inline:      0 0 0 var(--input-focus-ring-gap)   var(--input-focus-gap-color);
+  --focus-ring:             var(--focus-ring-inline), var(--focus-ring-outline);
+  --icon-margin:            0.5em;
+  --icon-transition:        0.3s;
+  // --icon-left-rotate:       0deg;
+  // --icon-right-rotate:      -90deg;
 }
 
-.search {
+.dropdown {
   position: relative;
   overflow: visible;
+  display: inline-block;
+  .trigger {
+    display: inline-block;
+    padding: var(--trigger-padding);
+    border-radius: var(--trigger-border-radius);
+    font-size: 1em;
+    line-height: var(--trigger-line-height);
+    cursor: pointer;
+    &:not(button):not(.button) {
+      border: var(--trigger-border-width) solid transparent;
+    }
+    .icon {
+      transition: all var(--icon-transition);
+      &.on-left, &:first-child:not(:last-child) {
+        margin-right: var(--icon-margin);
+      }
+      &.on-right, &:last-child:not(:first-child) {
+        margin-left: var(--icon-margin);
+      }
+    }
+    &:focus:not(.no-focus) {
+      --color: var(--input-focus-color);
+      --border-color: var(--input-focus-border-color);
+      --background-color: var(--input-focus-background-color);
+      outline: none;
+      box-shadow: var(--focus-ring);
+    }
+  }
+  &.open .trigger {
+    .icon {
+      transform: rotate(var(--icon-rotate, 0));
+    }
+  }
   .menu {
     position: absolute;
     display: block;
     top: calc(100% + var(--menu-margin));
     left: 0;
-    right: 0;
+    right: auto;
     overflow-y: scroll;
     max-height: var(--max-height);
     box-shadow: var(--shadow-2);
+  }
+  &.right {
+    .menu {
+      right: 0;
+      left: auto;
+    }
+  }
+  &.wide {
+    // display: block;
+    .menu {
+      left: 0;
+      right: 0;
+    }
   }
 }
