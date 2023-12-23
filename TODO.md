@@ -18,15 +18,16 @@ from form styles
 
 ## Alert
 
-## Search
+## Search / Select / Dropdown
 
-## Select
+Should use the same base context.  Some inconsistencies to iron out,
+e.g. select has options, dropdown has items (go with options); select uses
+selecting, dropdown uses isOpen (go with isOpen)
 
 ## Details
 
 * Custom icon
 
-## Dropdown
 
 ## WithIcon
 
