@@ -5,7 +5,8 @@ import { scrollParentChild } from '@/src/utils/index.js'
 
 const inactiveState = {
   isOpen:   false,
-  cursor: undefined,
+  cursor:   undefined,
+  selected: undefined,
 }
 
 class DropdownContext extends Context {
@@ -53,6 +54,7 @@ class DropdownContext extends Context {
         : null
     )
   }
+
   onMouseLeave() {
     this.debug(`onMouseLeave()`)
     this.setState(
@@ -62,6 +64,7 @@ class DropdownContext extends Context {
         : null
     )
   }
+
   onFocus() {
     this.debug(`onFocus()`)
     this.setState(
@@ -79,7 +82,8 @@ class DropdownContext extends Context {
     // Hack to hide result shortly after blur.  If we clear the results
     // immediately, or only display the results when the component is focussed
     // then the results disappear before an onClick has time to register.
-    sleep(250). then(() => this.close())
+    this.closeSoon()
+    // sleep(250).then(() => this.close())
   }
 
   onClick() {
@@ -103,20 +107,17 @@ class DropdownContext extends Context {
   close() {
     this.debug('close()')
     this.setState(
-      {
-        isOpen: false,
-        cursor: undefined,
-      },
+      inactiveState,
       this.props.onClose
     )
   }
 
-  closeSoon() {
+  closeSoon(force=false) {
     this.debug('closeSoon()')
     sleep(this.props.closeDelay)
       .then(
         () => {
-          if (! this.state.hasHover) {
+          if (force || ! this.state.hasHover) {
             this.close()
           }
         }
@@ -186,10 +187,11 @@ class DropdownContext extends Context {
     this.debug(`selectItem()`, value)
     this.setState(
       {
-        ...inactiveState
+        selected: value,
       },
       () => this.props.onSelect(value)
     )
+    this.closeSoon(true)
   }
 
   triggerRef(ref) {

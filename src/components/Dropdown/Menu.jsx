@@ -9,6 +9,7 @@ const Menu = ({
   menuRef,
   menuClass='menu border bdr-1',
   cursor,
+  selected,
   selectItem,
   setCursor,
   onMouseEnter,
@@ -31,8 +32,10 @@ const Menu = ({
           : <Item
               key={n}
               active={hasValue(cursor) && items[cursor] === item}
+              selected={selected === item}
               onClick={() => selectItem(item)}
               onMouseEnter={() => setCursor(n)}
+              className={item.className}
               {...item}
             />
     )}

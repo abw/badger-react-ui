@@ -1,1 +1,17 @@
-// moved upstream to Badger CSS
+// TODO: move upstream to Badger CSS (currently in svg.icon)
+
+:where(html) {
+  --icon-margin:      0.5em;
+  --icon-pull:        -0.125em;
+}
+
+svg.icon {
+  &.on-left {
+    margin-left: var(--icon-pull);
+    margin-right: var(--icon-margin);
+  }
+  &.on-right {
+    margin-left: var(--icon-margin);
+    margin-right: var(--icon-pull);
+  }
+}

@@ -4,7 +4,10 @@ import Sections   from '@/web/page/Sections.jsx'
 import Section    from '@/web/page/Section.jsx'
 import Split            from '@/web/site/Split.jsx'
 import Dropdown         from './_examples/Dropdown/index.jsx'
-import OnHover          from './_examples/OpenOnHover/index.jsx'
+import Text             from './_examples/text/index.jsx'
+import Items            from './_examples/items/index.jsx'
+import OnSelect         from './_examples/onSelect/index.jsx'
+import OnHover          from './_examples/openOnHover/index.jsx'
 import Right            from './_examples/right/index.jsx'
 import Wide             from './_examples/wide/index.jsx'
 import IconLeft         from './_examples/iconLeft/index.jsx'
@@ -25,6 +28,9 @@ const DropdownExamples = () =>
     {/* <Context/> */}
     <Sections tocName="dropdown">
       <Heading title="Properties"/>
+      <Text/>
+      <Items/>
+      <OnSelect/>
       <OnHover/>
       <Right/>
       <Wide/>

@@ -1,19 +1,24 @@
 import { classes } from '@/src/utils/classes.js'
 import React              from 'react'
+import WithIcons from '../Icon/WithIcons.jsx'
 
 const Item = ({
-  text,
   itemRef,
   itemClass='item no-hover',
+  className,
   onMouseEnter,
+  onClick,
   active,
+  selected,
+  ...props
 }) =>
   <div
-    className={classes(itemClass, { active })}
+    className={classes(itemClass, className, { active, selected })}
     onMouseEnter={onMouseEnter}
+    onClick={onClick}
     ref={itemRef}
   >
-    {text}
+    <WithIcons {...props}/>
   </div>
 
 

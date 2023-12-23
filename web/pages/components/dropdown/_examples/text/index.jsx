@@ -1,0 +1,20 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+const Text = () =>
+  <Example
+    code="text"
+    Component={Component}
+    Source={Source}
+    undent={2}
+    expand
+  >
+    <p>
+      The <code>text</code> property should be used to define the text
+      for the trigger.
+    </p>
+  </Example>
+
+export default Text
