@@ -1,0 +1,6 @@
+export { default as Datatable        } from './Datatable.jsx'
+export { default as DatatableContent } from './Content.jsx'
+export { default as DatatableContext } from './Context.js'
+export { default as DatatableFooter  } from './Footer.jsx'
+export { default as DatatableHeader  } from './Header.jsx'
+export { default as DatatableTable   } from './Table.jsx'

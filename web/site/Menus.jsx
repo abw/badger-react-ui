@@ -36,13 +36,18 @@ export const ComponentsMenu = {
       tocName: 'confirm',
     },
     {
+      to: '/components/datatable',
+      text: 'Datatable',
+      tocName: 'datatable',
+    },
+    {
       to: '/components/details',
       text: 'Details',
       tocName: 'details',
     },
     {
       to: '/components/dropdown',
-      text: 'Dropdown Menu',
+      text: 'Dropdown',
       tocName: 'dropdown',
     },
     {

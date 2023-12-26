@@ -3,7 +3,6 @@ import Context from './Context.jsx'
 
 export const MenuTOC = ({toc, contentRef}) =>
   <ul className="toc">
-    {console.log(`TOC: `, toc) }
     { Object.entries(toc).map(
       ([id, item]) =>
         <li

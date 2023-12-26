@@ -1,0 +1,41 @@
+:where(html) {
+  // --sorting-shade-1: var(--color-85);
+  // --sorting-shade-2: var(--color-80);
+  // --sorting-shade-3: var(--color-75);
+  // --sorting-shade-4: var(--color-70);
+  --select-background: var(--brand-50);
+  --select-color: var(--brand-100);
+}
+
+section.datatable {
+  --sorting-shade-1: var(--color-90);
+  --sorting-shade-2: var(--color-85);
+  --sorting-shade-3: var(--color-75);
+  --sorting-shade-4: var(--color-70);
+  & > header {
+    // border: 1px solid red;
+    margin-bottom: 0.5rem;
+  }
+  & > footer {
+    margin-top: 0.5rem;
+  }
+  & table {
+    thead th {
+      cursor: pointer;
+      &.sorting {
+        background-color: var(--sorting-shade-3);
+      }
+      &:hover {
+        // color: var(--select-color);
+        background-color: var(--sorting-shade-4);
+
+      }
+    }
+    tbody tr td.sorting {
+      --background-color: var(--sorting-shade-1);
+    }
+    tbody tr:nth-child(even) td.sorting {
+      --background-color: var(--sorting-shade-2);
+    }
+  }
+}
