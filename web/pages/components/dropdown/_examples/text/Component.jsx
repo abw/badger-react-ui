@@ -5,7 +5,7 @@ const DropdownExample = () =>
   /* START */
   <Dropdown
     text='The Trigger Text'
-    items={[
+    options={[
       { text: 'Item One'   },
       { text: 'Item Two'   },
       { text: 'Item Three' },

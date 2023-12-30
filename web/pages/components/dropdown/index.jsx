@@ -5,7 +5,7 @@ import Section    from '@/web/page/Section.jsx'
 import Split            from '@/web/site/Split.jsx'
 import Dropdown         from './_examples/Dropdown/index.jsx'
 import Text             from './_examples/text/index.jsx'
-import Items            from './_examples/items/index.jsx'
+import Options          from './_examples/options/index.jsx'
 import OnSelect         from './_examples/onSelect/index.jsx'
 import OnHover          from './_examples/openOnHover/index.jsx'
 import Right            from './_examples/right/index.jsx'
@@ -23,13 +23,13 @@ import IconRightRotate  from './_examples/iconRightRotate/index.jsx'
 
 const DropdownExamples = () =>
   <div className="flow">
-    <h1>Dropdown Menu</h1>
+    <h1>Dropdown</h1>
     <Dropdown/>
     {/* <Context/> */}
     <Sections tocName="dropdown">
       <Heading title="Properties"/>
       <Text/>
-      <Items/>
+      <Options/>
       <OnSelect/>
       <OnHover/>
       <Right/>

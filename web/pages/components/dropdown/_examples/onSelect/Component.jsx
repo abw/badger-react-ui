@@ -6,7 +6,7 @@ const DropdownExample = () =>
   <Dropdown
     text='Dropdown Menu'
     onSelect={item => alert(`You selected: ${item.text}`)}
-    items={[
+    options={[
       { text: 'Item One'   },
       { text: 'Item Two'   },
       { text: 'Item Three' },

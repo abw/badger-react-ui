@@ -9,7 +9,7 @@ const DropdownExample = () =>
     text='Dropdown Menu'
     iconLeft='angle-right'
     iconLeftRotate={90}
-    items={[
+    options={[
       { text: 'Item One'   },
       { text: 'Item Two'   },
       { text: 'Item Three' },

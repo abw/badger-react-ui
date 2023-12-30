@@ -219,13 +219,12 @@ class MenuContext extends Context {
     }
   }
 
-  // menuRef() in dropdown
-  optionsRef(ref){
-    this._optionsRef = ref
+  menuRef(ref){
+    this._menuRef = ref
   }
 
   activeRef(ref) {
-    scrollParentChild(this.optionsRef, ref)
+    scrollParentChild(this.menuRef, ref)
   }
 }
 

@@ -8,8 +8,7 @@ const DropdownExample = () => {
   return (
     <Dropdown
       text='Dropdown Menu'
-      onLoad={d => d.open()}
-      items={[
+      options={[
         { text: 'Item One'   },
         { text: 'Item Two'   },
         { text: 'Item Three' },

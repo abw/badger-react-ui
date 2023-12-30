@@ -8,7 +8,7 @@ const DropdownExample = () =>
   <Dropdown
     text='Dropdown Menu'
     iconLeft='angle-down'
-    items={[
+    options={[
       { text: 'Item One'   },
       { text: 'Item Two'   },
       { text: 'Item Three' },

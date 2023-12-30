@@ -54,6 +54,7 @@
     position: absolute;
     display: block;
     top: calc(100% + var(--menu-margin));
+    width: max-content;
     left: 0;
     right: auto;
     overflow-y: scroll;
@@ -69,6 +70,7 @@
   &.wide {
     // display: block;
     .menu {
+      width: 100%;
       left: 0;
       right: 0;
     }

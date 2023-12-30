@@ -3,17 +3,17 @@ import Example    from '@/page/ExampleSection.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
 
-const Items = () =>
+const Options = () =>
   <Example
-    code="items"
+    code="options"
     Component={Component}
     Source={Source}
     undent={2}
     expand
   >
     <p>
-      The <code>items</code> property should be used to define an array of
-      items to display in the menu.
+      The <code>options</code> property should be used to define an array of
+      options to display in the menu.
     </p>
     <p>
       Each element in the array should contain a <code>text</code> property
@@ -27,4 +27,4 @@ const Items = () =>
     </p>
   </Example>
 
-export default Items
+export default Options

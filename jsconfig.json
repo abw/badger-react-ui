@@ -6,6 +6,7 @@
       "@/src/*":        ["./src/*"],
       "@/styles/*":     ["./styles/*"],
       "@/components/*": ["./src/components/*"],
+      "@/context/*":    ["./src/context/*"],
       "@/state/*":      ["./src/state/*"],
       "@/web/*":        ["./web/*"],
       "@/demo/*":       ["./web/demo/*"],

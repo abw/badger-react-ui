@@ -10,6 +10,7 @@ const Content = ({
   closedClass='closed',
   isOpen,
   right,
+  size,
   wide,
   Trigger=DropdownTrigger,
   Menu=DropdownMenu
@@ -18,6 +19,7 @@ const Content = ({
     className={
       classes(
         className,
+        size,
         isOpen ? openClass : closedClass,
         { right, wide }
       )

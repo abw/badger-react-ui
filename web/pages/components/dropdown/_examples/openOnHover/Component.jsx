@@ -8,7 +8,7 @@ const DropdownExample = () =>
   <Dropdown
     openOnHover={true}
     text='Dropdown Menu'
-    items={[
+    options={[
       { text: 'Item One'   },
       { text: 'Item Two'   },
       { text: 'Item Three' },
