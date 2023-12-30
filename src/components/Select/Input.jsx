@@ -1,9 +1,9 @@
 import React    from 'react'
 import Context  from './Context.js'
+import Icon     from '../Icon/Icon.jsx'
 import { hasValue } from '@abw/badger-utils'
-import Icon from '../Icon/Icon.jsx'
 
-const SelectInput = ({
+const Input = ({
   input,
   onFocus,
   onBlur,
@@ -36,4 +36,4 @@ const SelectInput = ({
     </div>
   </div>
 
-export default Context.Consumer(SelectInput)
+export default Context.Consumer(Input)
