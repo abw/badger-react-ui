@@ -2,6 +2,7 @@ import React              from 'react'
 import Context            from './Context.js'
 import DropdownOption     from './Option.jsx'
 import DropdownSeparator  from './Separator.jsx'
+import DropdownHeading    from './Heading.jsx'
 import { hasValue }       from '@abw/badger-utils'
 
 const Menu = ({
@@ -16,6 +17,7 @@ const Menu = ({
   onMouseLeave,
   Option=DropdownOption,
   Separator=DropdownSeparator,
+  Heading=DropdownHeading,
 }) =>
   <div
     className={menuClass}
@@ -28,16 +30,21 @@ const Menu = ({
         option.separator
           ? <Separator
               key={n}
-              {...option}
-            />
-          : <Option
-              key={option.id ?? option.value ?? n}
               option={option}
-              active={hasValue(cursor) && options[cursor] === option}
-              selected={selected === option}
-              onClick={() => selectOption(option)}
-              onMouseEnter={() => setCursor(n)}
             />
+          : option.heading
+            ? <Heading
+                key={n}
+                option={option}
+              />
+            : <Option
+                key={option.id ?? option.value ?? n}
+                option={option}
+                active={hasValue(cursor) && options[cursor] === option}
+                selected={selected === option}
+                onClick={() => selectOption(option)}
+                onMouseEnter={() => setCursor(n)}
+              />
     )}
   </div>
 

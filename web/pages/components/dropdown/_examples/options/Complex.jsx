@@ -4,7 +4,7 @@ import { Dropdown } from '@/src/index.jsx'
 const DropdownExample = () =>
   /* START */
   <Dropdown
-    text='Menu Options'
+    text='Object Options'
     options={[
       {
         text: 'Star',

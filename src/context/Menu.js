@@ -1,7 +1,7 @@
 import { Context } from '@abw/react-context'
 import { ARROW_DOWN, ARROW_UP, ENTER, ESCAPE, SPACE } from '@/src/constants.js'
 import { doNothing, hasValue, sleep } from '@abw/badger-utils'
-import { scrollParentChild } from '@/src/utils/index.js'
+import { cursorFirst, cursorLast, cursorNext, cursorPrev, scrollParentChild } from '@/src/utils/index.js'
 
 // This probably needs to be made a static property as it changes from
 // on subclass to another
@@ -15,6 +15,7 @@ const inactiveState = {
 class MenuContext extends Context {
   static debug        = true
   static defaultProps = {
+    options: [ ],
     openOnHover: false,
     closeDelay: 300,
     onLoad:   doNothing,
@@ -82,7 +83,7 @@ class MenuContext extends Context {
     // Hack to hide result shortly after blur.  If we clear the results
     // immediately, or only display the results when the component is focussed
     // then the results disappear before an onClick has time to register.
-    this.closeSoon()
+    this.closeSoon(true)
   }
 
   onClick() {
@@ -92,7 +93,7 @@ class MenuContext extends Context {
       : this.open()
   }
 
-  open(cursor=0) {
+  open(cursor=this.cursorFirstIndex()) {
     this.debug(`open(${cursor})`)
     this.setState(
       {
@@ -117,7 +118,11 @@ class MenuContext extends Context {
       .then(
         () => {
           if (force || ! this.state.hasHover) {
+            console.log(`closing`)
             this.close()
+          }
+          else {
+            console.log(`NOT closing force:${force} hasHover:${this.state.hasHover}`)
           }
         }
       )
@@ -125,26 +130,25 @@ class MenuContext extends Context {
 
   onKeyDown(event) {
     this.debug(`onKeyDown(${event.key})`)
-    const cursor = this.state.cursor
 
     switch (event.key) {
       case ARROW_DOWN:
         this.state.isOpen
-          ? this.setCursor(cursor + 1)
-          : this.open()
+          ? this.setCursor(this.cursorNextIndex())
+          : this.open(this.cursorFirstIndex())
         break
 
       case ARROW_UP:
         this.state.isOpen
-          ? this.setCursor(cursor - 1)
-          : this.open(this.props.options?.length - 1)
+          ? this.setCursor(this.cursorPrevIndex())
+          : this.open(this.cursorLastIndex())
         break
 
       case ENTER:
       case SPACE:
         this.state.isOpen
           ? this.selectCursor()
-          : this.open()
+          : this.open(this.cursorFirstIndex())
         break
 
       case ESCAPE:
@@ -158,13 +162,30 @@ class MenuContext extends Context {
     event.preventDefault()
   }
 
+  menuOptions() {
+    return this.props.options
+  }
+  cursorFirstIndex() {
+    return cursorFirst(this.menuOptions())
+  }
+  cursorLastIndex() {
+    return cursorLast(this.menuOptions())
+  }
+  cursorNextIndex() {
+    return cursorNext(this.menuOptions(), this.state.cursor)
+  }
+  cursorPrevIndex() {
+    return cursorPrev(this.menuOptions(), this.state.cursor)
+  }
+
   setCursor(cursor) {
     this.debug(`setCursor(${cursor})`)
-    const { options } = this.props
-    // handle cases where cursor is less than 0 or greater than the length
-    cursor = (options && options.length)
-      ? (cursor + options.length) % options.length
-      : undefined
+    //const { options } = this.props
+    //// handle cases where cursor is less than 0 or greater than the length
+    //// TODO: skip disabled options and separators
+    //cursor = (options && options.length)
+    //  ? (cursor + options.length) % options.length
+    //  : undefined
     this.setState({ cursor })
   }
 

@@ -12,6 +12,7 @@ const Option = ({
   optionClass='item no-hover',
   activeClass='active',
   selectedClass='selected',
+  disabledClass='disabled',
   displayOption,
   // ...props
 }) =>
@@ -21,12 +22,14 @@ const Option = ({
         optionClass,
         option.className,
         active   ? activeClass   : null,
-        selected ? selectedClass : null
+        selected ? selectedClass : null,
+        option.disabled ? disabledClass : null
       )
     }
     onMouseEnter={onMouseEnter}
     onClick={onClick}
     ref={active ? activeRef : null}
+    aria-disabled={option.disabled}
   >
     {displayOption(option)}
   </div>

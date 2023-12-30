@@ -71,7 +71,7 @@ const DropdownExamples = () =>
             <code>bdr-1</code> sets the border radius to 1 unit (0.25rem or
             4px).
           </Section>
-          <Section code="itemClass">
+          <Section code="optionClass">
             Used to set the CSS class added to each dropdown menu item.
             The default value is <code>item no-hover</code>.  The{' '}
             <code>no-hover</code> class suppresses the hover styles that
@@ -93,6 +93,10 @@ const DropdownExamples = () =>
           <Section code="Menu" id="Menu-component">
             Renders the dropdown menu.  Defaults
             to <code>DropdownMenu</code>.
+          </Section>
+          <Section code="Option" id="Option-component">
+            Renders each dropdown menu option.  Defaults
+            to <code>DropdownOption</code>.
           </Section>
           <Section code="Separator" id="Separator-component">
             Renders a separator between menu items.  Defaults

@@ -4,11 +4,12 @@ import { Dropdown } from '@/src/index.jsx'
 const DropdownExample = () =>
   /* START */
   <Dropdown
-    text='The Trigger Text'
+    text='Simple Options'
     options={[
-      'Item One',
-      'Item Two',
-      'Item Three',
+      'Hello',
+      'World',
+      10,
+      11,
     ]}
   />
   /* END */

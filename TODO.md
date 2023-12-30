@@ -23,10 +23,11 @@ from form styles
 Search should use the same base context as dropdown/select.
 Some inconsistencies to iron out,
 
+Cursor should skip disabled options and separators
+
 ## Details
 
 * Custom icon
-
 
 ## WithIcon
 
