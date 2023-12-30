@@ -13,6 +13,8 @@ const animals = [
   { id: 106, name: 'Bobby Badger'  },
   { id: 107, name: 'Brenda Badger' },
   { id: 108, name: 'Brian Badger'  },
+  { id: 109, name: 'Colin Camel', disabled: true  },
+  { id: 110, name: 'Derek Donkey'  },
 ]
 
 const OptionsExample = () =>
