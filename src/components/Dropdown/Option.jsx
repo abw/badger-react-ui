@@ -1,6 +1,5 @@
 import React       from 'react'
 import Context     from './Context.js'
-import WithIcons   from '../Icon/WithIcons.jsx'
 import { classes } from '@/src/utils/classes.js'
 
 const Option = ({
@@ -13,7 +12,7 @@ const Option = ({
   optionClass='item no-hover',
   activeClass='active',
   selectedClass='selected',
-  // displayOption,
+  displayOption,
   // ...props
 }) =>
   <div
@@ -29,7 +28,7 @@ const Option = ({
     onClick={onClick}
     ref={active ? activeRef : null}
   >
-    <WithIcons {...option}/>
+    {displayOption(option)}
   </div>
 
 

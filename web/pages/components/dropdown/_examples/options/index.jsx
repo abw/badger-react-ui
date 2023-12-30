@@ -16,8 +16,9 @@ const Options = () =>
       options to display in the menu.
     </p>
     <p>
-      Each element in the array should contain a <code>text</code> property
-      which can be a string or JSX fragment.  A <code>className</code> can
+      Each element in the array can be a simple text or numerical value,
+      or an object containing a <code>text</code> property which can be a
+      string or JSX fragment.  A <code>className</code> can
       be included to set the CSS class.  The content for an element is
       rendered using the <code>WithIcon</code> component from{' '}
       <a href="https://abw.github.io/badger-icon/">Badger Icon</a> allowing

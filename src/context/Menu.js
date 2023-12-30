@@ -222,7 +222,7 @@ class MenuContext extends Context {
   }
 
   activeRef(ref) {
-    scrollParentChild(this.menuRef, ref)
+    scrollParentChild(this._menuRef, ref)
   }
 }
 

@@ -1,6 +1,6 @@
 import MenuContext from '@/src/context/Menu.js'
 import { Generator } from '@abw/react-context'
-import { defaultRenderer } from '@/src/utils/index.js'
+import { withIconsRenderer } from '@/src/utils/index.js'
 
 class DropdownContext extends MenuContext {
   static debug        = true
@@ -9,7 +9,7 @@ class DropdownContext extends MenuContext {
   static defaultProps = {
     ...this.defaultProps,
     options: [ ],
-    displayOption: defaultRenderer('displayOption'),
+    displayOption: withIconsRenderer,
   }
   static actions = [
     'onMouseEnter', 'onMouseLeave', 'onFocus', 'onBlur', 'onClick', 'onKeyDown',

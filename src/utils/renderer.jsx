@@ -1,4 +1,6 @@
+import React from 'react'
 import { isObject, isString, isNumber } from '@abw/badger-utils'
+import { WithIcons } from '../index.jsx'
 
 export const defaultRenderer = name => {
   const fallback = `HINT: define ${name}() to render this value`
@@ -10,3 +12,7 @@ export const defaultRenderer = name => {
         : fallback
 }
 
+export const withIconsRenderer = option =>
+  (isString(option) || isNumber(option))
+    ? option
+    : <WithIcons {...option}/>

@@ -13,6 +13,16 @@ const animals = [
   'Bobby Badger',
   'Brenda Badger',
   'Brian Badger',
+  'Colin Camel',
+  'David Donkey',
+  'Eddie Elephant',
+  'Franky Ferret',
+  'Gina Goat',
+  'Helen Horse',
+  'Ian Iguana',
+  'Juliet Jackdaw',
+  'Kevin Kangaroo',
+  'Linda Llama',
 ]
 
 const SelectExample = () =>

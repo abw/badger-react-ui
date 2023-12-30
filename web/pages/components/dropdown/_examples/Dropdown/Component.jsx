@@ -9,9 +9,25 @@ const DropdownExample = () => {
     <Dropdown
       text='Dropdown Menu'
       options={[
-        { text: 'Item One'   },
-        { text: 'Item Two'   },
-        { text: 'Item Three' },
+        'Alan Aardvark',
+        'Amy Aardvark',
+        'Anne Aardvark',
+        'Bart Badger',
+        'Betty Badger',
+        'Bobby Badger',
+        'Brenda Badger',
+        'Brian Badger',
+        'Colin Camel',
+        'David Donkey',
+        'Eddie Elephant',
+        'Franky Ferret',
+        'Gina Goat',
+        'Helen Horse',
+        'Ian Iguana',
+        'Juliet Jackdaw',
+        'Kevin Kangaroo',
+        'Linda Llama',
+        'Mike Monkey',
       ]}
     />
   )
