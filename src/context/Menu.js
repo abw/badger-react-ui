@@ -1,5 +1,3 @@
-// WORK IN PROGRESS - trying to create a common base class for
-// dropdown menu, select menu and search menu
 import { Context } from '@abw/react-context'
 import { ARROW_DOWN, ARROW_UP, ENTER, ESCAPE, SPACE } from '@/src/constants.js'
 import { doNothing, hasValue, sleep } from '@abw/badger-utils'

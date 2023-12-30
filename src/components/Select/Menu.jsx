@@ -4,24 +4,29 @@ import SelectOption     from './Option.jsx'
 import SelectNoOptions  from './NoOptions.jsx'
 import { hasValue, isArray } from '@abw/badger-utils'
 
-const SelectOptions = ({
+const Menu = ({
   options,
-  optionsRef,
-  optionsClass='menu border bdr-1',
+  menuRef,
+  menuClass='menu border bdr-1',
   cursor,
+  selected,
   selectOption,
   setCursor,
   Option=SelectOption,
   NoOptions=SelectNoOptions,
 }) =>
-  <div className={optionsClass} ref={optionsRef}>
+  <div
+    className={menuClass}
+    ref={menuRef}
+  >
     { (isArray(options) && options.length)
       ? options.map(
         (option, n) =>
           <Option
+            key={option.id ?? option.value ?? n}
             option={option}
             active={hasValue(cursor) && options[cursor] === option}
-            key={option.id ?? option.value ?? n}
+            selected={selected === option}
             onClick={() => selectOption(option)}
             onMouseEnter={() => setCursor(n)}
           />
@@ -30,4 +35,4 @@ const SelectOptions = ({
     }
   </div>
 
-export default Context.Consumer(SelectOptions)
+export default Context.Consumer(Menu)

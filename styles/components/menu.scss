@@ -1,14 +1,14 @@
 // NOTE: this is being moved upstream to badger-css
 :where(.menu) {
-  --select-background: var(--brand-40);
+  --select-background: var(--brand-30);
 }
 :where(#{$dark-theme} .menu) {
-  --select-background: var(--brand-30);
+  --select-background: var(--brand-20);
 }
 
 .menu {
   .item.active.selected {
-    animation: selection 0.3s;
+    animation: selection 0.3s infinite;
     @keyframes selection {
       0%, 100% {
         background-color: var(--active-background);

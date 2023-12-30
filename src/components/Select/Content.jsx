@@ -1,24 +1,31 @@
-import React         from 'react'
-import Context       from './Context.js'
-import SelectInput   from './Input.jsx'
-import SelectOptions from './Options.jsx'
+import React       from 'react'
+import Context     from './Context.js'
+import SelectInput from './Input.jsx'
+import SelectMenu  from './Menu.jsx'
 import { classes } from '@/src/utils/classes.js'
 
 const Content = ({
   onKeyDown,
-  selecting,
+  isOpen,
+
   selectClass='select',
-  selectingClass='selecting',
+  openClass='open',
+  closedClass='closed',
   Input=SelectInput,
-  Options=SelectOptions,
+  Menu=SelectMenu,
 }) =>
   <div
-    className={classes(selectClass, { [selectingClass]: selecting})}
+    className={
+      classes(
+        selectClass,
+        isOpen ? openClass : closedClass,
+      )
+    }
     onKeyDown={onKeyDown}
   >
     <Input/>
-    { Boolean(selecting) &&
-      <Options/>
+    { Boolean(isOpen) &&
+      <Menu/>
     }
   </div>
 

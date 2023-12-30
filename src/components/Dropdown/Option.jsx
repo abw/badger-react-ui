@@ -1,26 +1,36 @@
+import React       from 'react'
+import Context     from './Context.js'
+import WithIcons   from '../Icon/WithIcons.jsx'
 import { classes } from '@/src/utils/classes.js'
-import React              from 'react'
-import WithIcons from '../Icon/WithIcons.jsx'
 
 const Option = ({
-  optionRef,
-  optionClass='item no-hover',
-  className,
-  onMouseEnter,
-  onClick,
+  option,
   active,
+  activeRef,
   selected,
+  onClick,
+  onMouseEnter,
+  optionClass='item no-hover',
+  activeClass='active',
+  selectedClass='selected',
   // displayOption,
-  ...props
+  // ...props
 }) =>
   <div
-    className={classes(optionClass, className, { active, selected })}
+    className={
+      classes(
+        optionClass,
+        option.className,
+        active   ? activeClass   : null,
+        selected ? selectedClass : null
+      )
+    }
     onMouseEnter={onMouseEnter}
     onClick={onClick}
-    ref={optionRef}
+    ref={active ? activeRef : null}
   >
-    <WithIcons {...props}/>
+    <WithIcons {...option}/>
   </div>
 
 
-export default Option
+export default Context.Consumer(Option)

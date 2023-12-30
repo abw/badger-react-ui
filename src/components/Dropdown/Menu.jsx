@@ -18,7 +18,8 @@ const Menu = ({
   Separator=DropdownSeparator,
 }) =>
   <div
-    className={menuClass} ref={menuRef}
+    className={menuClass}
+    ref={menuRef}
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
   >
@@ -30,13 +31,12 @@ const Menu = ({
               {...option}
             />
           : <Option
-              key={n}
+              key={option.id ?? option.value ?? n}
+              option={option}
               active={hasValue(cursor) && options[cursor] === option}
               selected={selected === option}
               onClick={() => selectOption(option)}
               onMouseEnter={() => setCursor(n)}
-              className={option.className}
-              {...option}
             />
     )}
   </div>

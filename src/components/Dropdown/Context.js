@@ -1,4 +1,4 @@
-import MenuContext from '@/context/Menu.jsx'
+import MenuContext from '@/src/context/Menu.js'
 import { Generator } from '@abw/react-context'
 import { defaultRenderer } from '@/src/utils/index.js'
 
