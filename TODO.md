@@ -20,9 +20,8 @@ from form styles
 
 ## Search / Select / Dropdown
 
-Should use the same base context.  Some inconsistencies to iron out,
-e.g. select has options, dropdown has items (go with options); select uses
-selecting, dropdown uses isOpen (go with isOpen)
+Search should use the same base context as dropdown/select.
+Some inconsistencies to iron out,
 
 ## Details
 
