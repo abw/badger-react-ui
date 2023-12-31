@@ -3,18 +3,17 @@ import Example    from '@/page/ExampleSection.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
 
-const ClassName = () =>
+const Disabled = () =>
   <Example
-    code="className"
+    code="disabled"
     Component={Component}
     Source={Source}
     // undent={4}
     expand
   >
     <p>
-      The <code>className</code> property can be used to add a CSS class
-      to the checkbox <code>label</code> element.
+      The <code>disabled</code> property can be set to disable a checkbox.
     </p>
   </Example>
 
-export default ClassName
+export default Disabled
