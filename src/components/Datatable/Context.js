@@ -17,6 +17,9 @@ const DatatableContext = ({
   const [sortColumn, setSortColumn] = useState(props.sortColumn)
   const [sortReverse, setSortReverse] = useState(props.sortReverse ?? false)
   const [visibleColumns, setVisibleColumns] = useState(extractVisibleColumns(columns))
+  const [controlsVisible, setControlsVisible] = useState(false)
+  const showControls = () => setControlsVisible(true)
+  const hideControls = () => setControlsVisible(false)
 
   const toggleSortColumn = column => {
     if (sortColumn === column) {
@@ -28,6 +31,7 @@ const DatatableContext = ({
     }
   }
 
+
   const page = useMemo(
     () => paginate(
       sort(rows, columns, sortColumn, sortReverse),
@@ -35,8 +39,6 @@ const DatatableContext = ({
     ),
     [rows, pageNo, pageSize, sortColumn, sortReverse]
   )
-  console.log(`page:`, page)
-  console.log(`columns:`, columns)
 
 
   return render({
@@ -48,6 +50,7 @@ const DatatableContext = ({
     sortReverse, setSortReverse,
     toggleSortColumn,
     visibleColumns, setVisibleColumns,
+    controlsVisible, showControls, hideControls
   })
 }
 

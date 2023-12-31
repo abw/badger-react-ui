@@ -1,15 +1,19 @@
 import React    from 'react'
 import Context  from './Context.js'
-import DatatablePageSize from './PageSize.jsx'
+import Icon     from '../Icon/Icon.jsx'
 
 const Header = ({
   headerClass,
-  PageSize=DatatablePageSize
+  showControls,
 }) =>
   <header className={headerClass}>
-    <div className="flex space">
+    <div className="flex space middle">
       <div>pp</div>
-      <PageSize/>
+      <Icon
+        name="cog"
+        className="hover"
+        onClick={showControls}
+      />
     </div>
   </header>
 
