@@ -12,7 +12,7 @@ const inactiveState = {
 }
 
 class SelectContext extends MenuContext {
-  static debug        = true
+  static debug        = false
   static debugPrefix  = 'Select > '
   static debugColor   = 'MediumVioletRed'
   static defaultProps = {

@@ -3,7 +3,7 @@ import { Generator } from '@abw/react-context'
 import { withIconsRenderer } from '@/src/utils/index.js'
 
 class DropdownContext extends MenuContext {
-  static debug        = true
+  static debug        = false
   static debugPrefix  = 'Dropdown > '
   static debugColor   = 'MediumVioletRed'
   static defaultProps = {
