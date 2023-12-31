@@ -1,4 +1,7 @@
-import { capitalise, range, splitHash } from '@abw/badger-utils'
+import {
+  capitalise, descendingOrder, integerSort, isFunction, numberSort, range,
+  splitHash, stringSort
+} from '@abw/badger-utils'
 
 export const columnDefinitions = columns =>
   splitHash(
@@ -15,6 +18,39 @@ export const extractVisibleColumns = columns =>
   Object.keys(columns).filter(
     column => ! columns[column].hidden
   )
+
+export const sorters = {
+  string:  stringSort,
+  text:    stringSort,
+  number:  numberSort,
+  price:   numberSort,
+  pounds:  numberSort,
+  integer: integerSort,
+  id:      integerSort,
+}
+
+export const sort = (
+  rows,
+  columns,
+  sortColumn,
+  sortReverse
+) => {
+  if (! sortColumn) {
+    return rows
+  }
+  const column = columns[sortColumn]
+  const sort   = column.sort
+  const type   = column.type || 'text'
+  const sorter = isFunction(sort)
+    ? sort
+    : (sorters[type] || sorters.text)(sortColumn)
+
+  return rows.sort(
+    sortReverse
+      ? descendingOrder(sorter)
+      : sorter
+  )
+}
 
 // NOTES:
 // * pageNo is a "human readable" page number, starting at 1
@@ -44,6 +80,8 @@ export const paginate = (
     rows: items,
   }
 }
+
+
 
 
 // TODO: this need completely reworking - some of the logic and state here

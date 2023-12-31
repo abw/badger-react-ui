@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import { Generator } from '@abw/react-context'
-import { paginate, extractVisibleColumns, columnDefinitions } from './Utils.js'
+import { paginate, extractVisibleColumns, columnDefinitions, sort } from './Utils.js'
 
 const DatatableContext = ({
   render,
@@ -29,8 +29,11 @@ const DatatableContext = ({
   }
 
   const page = useMemo(
-    () => paginate(rows, pageNo, pageSize),
-    [rows, pageNo, pageSize]
+    () => paginate(
+      sort(rows, columns, sortColumn, sortReverse),
+      pageNo, pageSize,
+    ),
+    [rows, pageNo, pageSize, sortColumn, sortReverse]
   )
   console.log(`page:`, page)
   console.log(`columns:`, columns)

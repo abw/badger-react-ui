@@ -4,6 +4,7 @@ import Pager    from '@/components/Pager/Pager.jsx'
 
 const Footer = ({
   footerClass,
+  pager={},
   page,
   setPageNo,
   sortColumn
@@ -13,6 +14,7 @@ const Footer = ({
       page={page.page}
       pages={page.pages}
       setPage={n => setPageNo(n + 1)}
+      {...pager}
     />
     Sorting: {sortColumn}
   </footer>

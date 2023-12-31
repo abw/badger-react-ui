@@ -11,8 +11,7 @@ const PageSize = ({
     iconRight="angle-down"
     text='Page Size'
     size="small"
-    // wide
-    items={
+    options={
       pageSizes.map(
         n => ({ n, text: `${n} per page` })
       )

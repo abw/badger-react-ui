@@ -8,9 +8,10 @@ import { animals } from '../data.js'
 const DatatableExample = () => {
   return (
     <Datatable
-      // color="green"
+      color="brand"
       rows={animals}
       columns="id name animal role"
+      pager={{ size: 'small' }}
     />
   )
 }
