@@ -1,6 +1,7 @@
 import React from 'react'
 import Context  from './Context.js'
 import { Select, Checkbox } from '@/src/index.jsx'
+import { noValue } from '@abw/badger-utils'
 
 const Sort = ({
   sortColumn,
@@ -25,7 +26,7 @@ const Sort = ({
         text="Descending"
         checked={sortReverse}
         onChange={setSortReverse}
-        disabled={! sortColumn}
+        disabled={noValue(sortColumn)}
       />
     </div>
   </div>
