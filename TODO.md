@@ -18,6 +18,12 @@ from form styles
 
 ## Alert
 
+## Radio
+
+Renderer for option.text/option.label/option.name
+
+Matcher to detect selected option
+
 ## Search / Select / Dropdown
 
 Search should use the same base context as dropdown/select.

@@ -71,6 +71,11 @@ export const ComponentsMenu = {
       tocName: 'pager'
     },
     {
+      to: '/components/radio',
+      text: 'Radio',
+      tocName: 'radio'
+    },
+    {
       to: '/components/search',
       text: 'Search',
       tocName: 'search'
