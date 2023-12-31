@@ -10,10 +10,11 @@ const Sort = ({
   setSortReverse,
   columns
 }) =>
-  <div className="field">
-    <label>Sort By</label>
-    <div className="flex gap-2">
+  <>
+    <div className="field">
+      <label>Sort By</label>
       <Select
+        wide
         value={sortColumn}
         options={
           Object.entries(columns).map(
@@ -22,6 +23,8 @@ const Sort = ({
         }
         onSelect={option => setSortColumn(option.id)}
       />
+    </div>
+    <div className="field pad-t-label">
       <Checkbox
         text="Descending"
         checked={sortReverse}
@@ -29,6 +32,6 @@ const Sort = ({
         disabled={noValue(sortColumn)}
       />
     </div>
-  </div>
+  </>
 
 export default Context.Consumer(Sort)

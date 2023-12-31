@@ -17,7 +17,7 @@ const DatatableContext = ({
   const [sortColumn, setSortColumn] = useState(props.sortColumn)
   const [sortReverse, setSortReverse] = useState(props.sortReverse ?? false)
   const [visibleColumns, setVisibleColumns] = useState(extractVisibleColumns(columns))
-  const [controlsVisible, setControlsVisible] = useState(false)
+  const [controlsVisible, setControlsVisible] = useState(true)
   const showControls = () => setControlsVisible(true)
   const hideControls = () => setControlsVisible(false)
 

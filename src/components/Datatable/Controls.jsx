@@ -15,8 +15,10 @@ const Controls = ({
     <header>
       <h3>Data Table Controls</h3>
     </header>
-    <PageSize/>
-    <Sort/>
+    <div className="grid-3 gap-4">
+      <PageSize/>
+      <Sort/>
+    </div>
     <footer className="text-right">
       <Button
         text="OK"
