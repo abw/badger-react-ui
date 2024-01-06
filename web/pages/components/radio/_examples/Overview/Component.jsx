@@ -8,6 +8,7 @@ const RadioExample = () => {
   const [value, setValue] = useState(false)
   return (
     <Radio
+      name="tap"
       value={value}
       onChange={setValue}
       options={[

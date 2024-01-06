@@ -7,6 +7,7 @@ const ClassName = () => {
     /* START */
     <Radio
       className="grid-3 gap-2"
+      name="tap"
       value={value}
       onChange={setValue}
       options={[

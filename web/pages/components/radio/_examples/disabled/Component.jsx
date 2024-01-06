@@ -6,6 +6,7 @@ const DisabledExample = () => {
   return (
     /* START */
     <Radio
+      name="tap"
       value={value}
       onChange={setValue}
       options={[

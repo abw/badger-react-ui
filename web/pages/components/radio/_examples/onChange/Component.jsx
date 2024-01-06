@@ -7,6 +7,7 @@ const OnChangeExample = () => {
   return (
     <>
       <Radio
+        name="tap"
         value={value}
         onChange={setValue}
         options={[

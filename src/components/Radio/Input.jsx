@@ -3,6 +3,7 @@ import { Themed } from '@/src/Theme.jsx'
 import { doNothing } from '@abw/badger-utils'
 
 const Input = ({
+  name,
   option,
   tabIndex=0,
   onChange=doNothing,
@@ -10,6 +11,7 @@ const Input = ({
 }) =>
   <input
     type="radio"
+    name={name}
     disabled={option.disabled}
     aria-disabled={option.disabled}
     tabIndex={option.disabled ? -1 : tabIndex}

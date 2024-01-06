@@ -7,6 +7,7 @@ const InlineExample = () => {
     /* START */
     <Radio
       inline
+      name="tap"
       value={value}
       onChange={setValue}
       options={[
