@@ -1,18 +1,44 @@
 import {
-  capitalise, descendingOrder, integerSort, isFunction, numberSort, range,
+  capitalise, descendingOrder, fail, integerSort, isArray, isFunction, isString, numberSort, range,
   splitHash, stringSort
 } from '@abw/badger-utils'
 
-export const columnDefinitions = columns =>
-  splitHash(
-    columns,
-    k => {
-      const field = k
-      const type  = 'text'
-      const label = capitalise(field)
-      return { field, type, label }
-    }
-  )
+export const columnString = column => {
+  const field = column
+  const type  = 'text'
+  const label = capitalise(field)
+  return { field, type, label }
+}
+
+export const columnDefinition = column => {
+  if (isString(column)) {
+    column = { field: column }
+  }
+  const { field } = column
+  column.type ||= 'text'
+  column.label ||= capitalise(field)
+  return column
+}
+
+export const columnDefinitions = columns => {
+  if (isString(columns)) {
+    return splitHash(
+      columns,
+      columnDefinition
+    )
+  }
+  if (isArray(columns)) {
+    return columns.reduce(
+      (colshash, column) => {
+        const coldef = columnDefinition(column)
+        colshash[coldef.field] = coldef
+        return colshash
+      },
+      { }
+    )
+  }
+  fail(`Invalid columns definition`)
+}
 
 export const extractVisibleColumns = columns =>
   Object.keys(columns).filter(

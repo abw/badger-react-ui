@@ -1,13 +1,7 @@
-:where(html) {
-  // --sorting-shade-1: var(--color-85);
-  // --sorting-shade-2: var(--color-80);
-  // --sorting-shade-3: var(--color-75);
-  // --sorting-shade-4: var(--color-70);
-  --select-background: var(--brand-50);
-  --select-color: var(--brand-100);
-}
-
 section.datatable {
+  --header-icon-color: var(--brand-30);
+  --header-icon-opacity: 0.2;
+  --header-icon-hover-opacity: 0.5;
   --sorting-shade-1: var(--color-95);
   --sorting-shade-2: var(--color-90);
   --sorting-shade-3: var(--color-80);
@@ -20,15 +14,52 @@ section.datatable {
     margin-top: 0.5rem;
   }
   & table {
-    thead th {
+    thead {
+      font-size: $size-small;
+    }
+    thead th.heading {
       cursor: pointer;
-      &.sorting {
-        background-color: var(--sorting-shade-3);
+      .sort-icon, .filter-icon {
+        opacity: var(--header-icon-opacity);
+        transition: 0.3s opacity;
+        color: var(--header-icon-color);
       }
       &:hover {
-        // color: var(--select-color);
         background-color: var(--sorting-shade-4);
-
+        .sort-icon {
+          opacity: var(--header-icon-hover-opacity);
+        }
+      }
+      &.sorting {
+        background-color: var(--sorting-shade-3);
+        .sort-icon {
+          opacity: 1;
+        }
+      }
+      .filter-icon:hover {
+        opacity: var(--header-icon-hover-opacity);
+      }
+      &.filtering .filter-icon {
+        opacity: 1;
+      }
+      &.right .flex {
+        flex-direction: row-reverse;
+      }
+    }
+    thead tr.filters {
+      th {
+        padding: 2px 4px 2px 2px;
+        font-weight: normal;
+        svg.icon {
+          color: var(--header-icon-color);
+          opacity: var(--header-icon-opacity);
+        }
+        &.filtering svg.icon {
+          opacity: var(--header-icon-hover-opacity);
+          &:hover {
+            opacity: 1;
+          }
+        }
       }
     }
     tbody tr td.sorting {
@@ -38,4 +69,15 @@ section.datatable {
       --background-color: var(--sorting-shade-2);
     }
   }
+  .columns.menu.content {
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+#{$dark-theme} section.datatable {
+  --header-icon-color: var(--brand-70);
+  --sorting-shade-1: var(--color-10);
+  --sorting-shade-2: var(--color-15);
+  --sorting-shade-3: var(--color-20);
+  --sorting-shade-4: var(--color-25);
 }

@@ -65,6 +65,7 @@
     overflow-y: scroll;
     max-height: var(--max-height);
     box-shadow: var(--shadow-2);
+    background-color: var(--item-background);
     .separator {
       border-bottom: var(--separator-width) var(--separator-style) var(--separator-color);
     }

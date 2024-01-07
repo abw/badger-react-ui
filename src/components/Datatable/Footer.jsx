@@ -16,7 +16,7 @@ const Footer = ({
       setPage={n => setPageNo(n + 1)}
       {...pager}
     />
-    Sorting: {sortColumn}
+    sortColumn: {sortColumn}
   </footer>
 
 export default Context.Consumer(Footer)

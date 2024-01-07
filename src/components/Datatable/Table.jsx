@@ -2,6 +2,7 @@ import React              from 'react'
 import Context            from './Context.js'
 import DatatableRows      from './Rows.jsx'
 import DatatableHeadings  from './Headings.jsx'
+import DatatableFilters   from './Filters.jsx'
 import { classes }        from '@/src/utils/classes.js'
 
 const Table = ({
@@ -9,7 +10,9 @@ const Table = ({
   selectableClass='selectable',
   scrollX,
   rowClick,
+  showFilters,
   Headings=DatatableHeadings,
+  Filters=DatatableFilters,
   Rows=DatatableRows
 }) =>
   <table
@@ -22,6 +25,9 @@ const Table = ({
     )}
   >
     <Headings/>
+    { showFilters &&
+    <Filters/>
+    }
     <Rows/>
   </table>
 

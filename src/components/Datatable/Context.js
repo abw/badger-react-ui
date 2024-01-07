@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { Generator } from '@abw/react-context'
 import { paginate, extractVisibleColumns, columnDefinitions, sort } from './Utils.js'
+import { hasValue } from '@abw/badger-utils'
 
 const DatatableContext = ({
   render,
@@ -14,10 +15,12 @@ const DatatableContext = ({
 
   const [pageNo, setPageNo] = useState(props.pageNo ?? 1)
   const [pageSize, setPageSize] = useState(props.pageSize ?? 10)
+  const [showFilters, setShowFilters] = useState(false)
+  const [filters, setFilters] = useState({ })
   const [sortColumn, setSortColumn] = useState(props.sortColumn)
   const [sortReverse, setSortReverse] = useState(props.sortReverse ?? false)
   const [visibleColumns, setVisibleColumns] = useState(extractVisibleColumns(columns))
-  const [controlsVisible, setControlsVisible] = useState(true)
+  const [controlsVisible, setControlsVisible] = useState(false)
   const showControls = () => setControlsVisible(true)
   const hideControls = () => setControlsVisible(false)
 
@@ -31,6 +34,27 @@ const DatatableContext = ({
     }
   }
 
+  const toggleFilters = e => {
+    e.preventDefault()
+    e.stopPropagation()
+    setShowFilters( sf => ! sf )
+  }
+
+  const setFilter = (name, value) => {
+    setFilters(
+      filters => {
+        const newFilters = { ...filters }
+        if (hasValue(value) && value.length) {
+          newFilters[name] = value
+        }
+        else {
+          delete newFilters[name]
+        }
+        return newFilters
+      }
+    )
+    setPageNo(1)
+  }
 
   const page = useMemo(
     () => paginate(
@@ -46,6 +70,8 @@ const DatatableContext = ({
     rows, columns, page,
     pageNo, setPageNo,
     pageSize, setPageSize,
+    showFilters, toggleFilters,
+    filters, setFilter,
     sortColumn, setSortColumn,
     sortReverse, setSortReverse,
     toggleSortColumn,

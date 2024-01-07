@@ -15,3 +15,9 @@ svg.icon {
     margin-right: var(--icon-pull);
   }
 }
+.icons {
+  display: grid;
+  & > * {
+    grid-area: 1/1;
+  }
+}
