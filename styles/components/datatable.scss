@@ -2,6 +2,7 @@ section.datatable {
   --header-icon-color: var(--brand-30);
   --header-icon-opacity: 0.2;
   --header-icon-hover-opacity: 0.5;
+  --header-size: 0.875em;
   --sorting-shade-1: var(--color-95);
   --sorting-shade-2: var(--color-90);
   --sorting-shade-3: var(--color-80);
@@ -15,7 +16,7 @@ section.datatable {
   }
   & table {
     thead {
-      font-size: $size-small;
+      font-size: var(--header-size);
     }
     thead th.heading {
       cursor: pointer;

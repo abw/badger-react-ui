@@ -37,3 +37,8 @@ Some inconsistencies to iron out,
 
 The `.icon.on-left` and `.icon.on-right` classes are only defined in the
 scope of buttons in badger-css.
+
+## Sortable
+
+Adding dnd kit increased the bundle size from 68k to 148k.  Is it really
+worth it?  How hard would it be to implement just the bits we need?
