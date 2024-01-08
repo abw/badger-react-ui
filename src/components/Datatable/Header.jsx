@@ -1,16 +1,19 @@
-import React    from 'react'
-import Context  from './Context.js'
-// import Icon     from '../Icon/Icon.jsx'
-import PageSize from './PageSize.jsx'
-// import Columns  from './Columns.jsx'
+import React             from 'react'
+import Context           from './Context.js'
+import DatatableSummary  from './Summary.jsx'
+import DatatablePageSize from './PageSize.jsx'
 
 const Header = ({
   headerClass,
+  Summary=DatatableSummary,
+  PageSize=DatatablePageSize,
   // showControls,
 }) =>
   <header className={headerClass}>
     <div className="flex space middle">
-      <div>&nbsp;</div>
+      <div>
+        <Summary/>
+      </div>
       <div>
         {/* <Columns/> */}
         <PageSize/>

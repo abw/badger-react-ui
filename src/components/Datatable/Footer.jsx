@@ -6,8 +6,7 @@ const Footer = ({
   footerClass,
   pager={},
   page,
-  setPageNo,
-  sortColumn
+  setPageNo
 }) =>
   <footer className={footerClass}>
     <Pager
@@ -16,7 +15,6 @@ const Footer = ({
       setPage={n => setPageNo(n + 1)}
       {...pager}
     />
-    sortColumn: {sortColumn}
   </footer>
 
 export default Context.Consumer(Footer)

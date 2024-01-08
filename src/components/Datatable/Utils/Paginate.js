@@ -16,14 +16,27 @@ export const datatablePaginate = (
 
   // compute the indexes of the first and last items on the current page
   const firstIndex = pageSize * page
-  const lastIndex  = Math.min(firstIndex + pageSize, total - 1)
+  const lastIndex  = Math.min(firstIndex + pageSize - 1, total - 1)
   const items      = rows.slice(firstIndex, lastIndex + 1)
+
+  // all indicates that we're showing all records on a page, one when there's
+  // just one record, and none when there's none more record (e.g. because
+  // they've all been filtered out)
 
   return {
     pageSize, pages,
     page, pageNo,
+    total,
     firstIndex, lastIndex,
-    rows: items,
+    firstPage:  1,
+    lastPage:   pages,
+    thisSize:   items.length,
+    from:       firstIndex + 1,
+    to:         lastIndex + 1,
+    all:        firstIndex === lastIndex,
+    one:        total === 1,
+    none:       total === 0,
+    rows:       items,
   }
 }
 
