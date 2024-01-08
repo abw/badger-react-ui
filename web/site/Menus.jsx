@@ -85,5 +85,10 @@ export const ComponentsMenu = {
       text: 'Select',
       tocName: 'select'
     },
+    {
+      to: '/components/sortable',
+      text: 'Sortable',
+      tocName: 'sortable'
+    },
   ]
 }

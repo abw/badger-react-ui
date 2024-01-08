@@ -1,0 +1,89 @@
+/*
+$sortable-list-bg-color:     rgba($blue, 0.1) !default;
+$sortable-list-border-color: rgba($blue, 0.2) !default;
+$sortable-radius:            $unit-radius !default;
+// $sortable-radius:            10px !default;
+$sortable-moved-color:       $orange !default;
+$sortable-moved-fg-color:    darker-color($sortable-moved-color) !default;
+$sortable-moved-bg-color:    mix($white, $sortable-moved-color, 95%) !default;
+$sortable-moving-color:      $green !default;
+$sortable-moving-fg-color:   darker-color($sortable-moving-color) !default;
+$sortable-moving-bg-color:   mix($white, $sortable-moving-color, 95%) !default;
+*/
+:where(.sortable) {
+  --sortable-moving-color: var(--green-20);
+  --sortable-moving-background: var(--green-95);
+  --sortable-moving-border: var(--green-80);
+  --sortable-moved-color: var(--orange-20);
+  --sortable-moved-background: var(--orange-95);
+  --sortable-moved-border: var(--orange-80);
+}
+:where(#{$dark-theme} .sortable) {
+  --sortable-moving-color: var(--green-80);
+  --sortable-moving-background: var(--green-5);
+  --sortable-moving-border: var(--green-20);
+  --sortable-moved-color: var(--orange-80);
+  --sortable-moved-background: var(--orange-5);
+  --sortable-moved-border: var(--orange-20);
+}
+
+.sortable.list {
+  // border: 1px solid $sortable-list-border-color;
+  // border-radius: $sortable-radius;
+}
+.sortable.item {
+  display: inline-block;
+  // background-color: #fff;
+  // padding: 0.25em 0.5em 0.25em 0;
+  // font-size: 1em;
+  cursor: pointer;
+  user-select: none;
+  &.inactive {
+    opacity: 0.4;
+  }
+  &.moved {
+    --border-color: var(--sortable-moved-border);
+    color: var(--sortable-moved-color);
+    background-color: var(--sortable-moved-background);
+  }
+  &[aria-pressed='true'] {
+    --border-color: var(--sortable-moving-border);
+    color: var(--sortable-moving-color);
+    background-color: var(--sortable-moving-background);
+    z-index: 9999;
+  }
+}
+
+.sortable.list.vertical {
+  .sortable.item {
+    display: flex;
+    align-items: flex-start;
+    // border-bottom: 1px solid $sortable-list-border-color;
+    &:first-child {
+      // border-radius: $sortable-radius $sortable-radius 0 0;
+    }
+    &:nth-last-child(2) {
+      // dnd adds 2 hidden elements to the end
+      // border-radius: 0 0 $sortable-radius $sortable-radius;
+      // border-bottom: none;
+    }
+  }
+}
+
+.sortable.list.horizontal {
+  .sortable.item {
+    display: flex;
+    // border-right: 1px solid $sortable-list-border-color;
+    &:first-child {
+      // border-radius: $sortable-radius 0 0 $sortable-radius;
+    }
+    &:nth-last-child(3) {
+      // dnd adds 2 hidden elements to the end
+      // border-radius: 0 $sortable-radius $sortable-radius 0;
+      border-right: none;
+    }
+  }
+}
+tr.sortable.item {
+  display: table-row !important;
+}
