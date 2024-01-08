@@ -1,7 +1,6 @@
-import React   from 'react'
-import Context from './Context.js'
+import React            from 'react'
+import Context          from './Context.js'
 import DatatableHeading from './Heading.jsx'
-// import { Filter } from './Filters.jsx'
 
 export const Headings = ({
   columns,

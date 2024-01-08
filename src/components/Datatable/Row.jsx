@@ -1,6 +1,6 @@
-import React    from 'react'
-import Context  from './Context.js'
-import DatatableCell from './Cell.jsx'
+import React          from 'react'
+import Context        from './Context.js'
+import DatatableCell  from './Cell.jsx'
 
 const Row = ({
   row,

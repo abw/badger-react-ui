@@ -1,5 +1,5 @@
-import React    from 'react'
-import Context  from './Context.js'
+import React        from 'react'
+import Context      from './Context.js'
 import DatatableRow from './Row.jsx'
 
 const Rows = ({

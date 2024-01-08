@@ -1,3 +1,4 @@
+// DEPRECATED?
 import React from 'react'
 import Context  from './Context.js'
 import Sort     from './Sort.jsx'

@@ -1,7 +1,10 @@
 import { useState, useMemo } from 'react'
 import { Generator } from '@abw/react-context'
-import { paginate, extractVisibleColumns, columnDefinitions, sort } from './Utils.js'
 import { hasValue } from '@abw/badger-utils'
+import {
+  datatableVisibleColumns, datatableColumnDefinitions,
+  datatableSort, datatablePaginate, datatableFilter
+} from './Utils/index.js'
 
 const DatatableContext = ({
   render,
@@ -9,7 +12,7 @@ const DatatableContext = ({
   ...props
 }) => {
   const columns = useMemo(
-    () => columnDefinitions(props.columns),
+    () => datatableColumnDefinitions(props.columns),
     [props.columns]
   )
 
@@ -19,7 +22,7 @@ const DatatableContext = ({
   const [filters, setFilters] = useState({ })
   const [sortColumn, setSortColumn] = useState(props.sortColumn)
   const [sortReverse, setSortReverse] = useState(props.sortReverse ?? false)
-  const [visibleColumns, setVisibleColumns] = useState(extractVisibleColumns(columns))
+  const [visibleColumns, setVisibleColumns] = useState(datatableVisibleColumns(columns))
   const [controlsVisible, setControlsVisible] = useState(false)
   const showControls = () => setControlsVisible(true)
   const hideControls = () => setControlsVisible(false)
@@ -57,11 +60,14 @@ const DatatableContext = ({
   }
 
   const page = useMemo(
-    () => paginate(
-      sort(rows, columns, sortColumn, sortReverse),
+    () => datatablePaginate(
+      datatableSort(
+        datatableFilter(rows, columns, filters),
+        columns, sortColumn, sortReverse
+      ),
       pageNo, pageSize,
     ),
-    [rows, pageNo, pageSize, sortColumn, sortReverse]
+    [rows, columns, filters, sortColumn, sortReverse, pageNo, pageSize]
   )
 
 

@@ -1,17 +1,11 @@
 import React    from 'react'
 import Context  from './Context.js'
 import { classes } from '@/src/utils/classes.js'
-//import { propClasses } from '../../utils/index.js'
-//import displayTypes from './Display.jsx'
 
 const Cell = ({
-  // row,
   column,
   name,
-  // field,
   value,
-  // rowClick,
-  // onClick,
   cellClass,
   sortColumn,
   sortingClass='sorting'

@@ -1,8 +1,8 @@
-import React   from 'react'
-import Context from './Context.js'
-import { classes } from '@/src/utils/classes.js'
+import React        from 'react'
+import Context      from './Context.js'
+import Icon         from '@/components/Icon/Icon.jsx'
+import { classes }  from '@/src/utils/classes.js'
 import { hasValue } from '@abw/badger-utils'
-import Icon from '../Icon/Icon.jsx'
 
 export const Filter = ({
   name,
