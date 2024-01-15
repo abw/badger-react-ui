@@ -21,4 +21,5 @@ const Content = ({
     <Controls/>
   </section>
 
-export default Context.Consumer(Content)
+export const DatatableContent = Context.Consumer(Content)
+export default DatatableContent

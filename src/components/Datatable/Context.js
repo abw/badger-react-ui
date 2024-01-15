@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import { Generator } from '@abw/react-context'
-import { hasValue } from '@abw/badger-utils'
+import { hasValue, splitHash } from '@abw/badger-utils'
 import {
   datatableVisibleColumns, datatableColumnDefinitions,
   datatableSort, datatablePaginate, datatableFilter
@@ -59,6 +59,22 @@ const DatatableContext = ({
     setPageNo(1)
   }
 
+  const toggleVisibleColumn = name =>
+    setVisibleColumns(
+      visible => {
+        const isVisible = splitHash(visible)
+        console.log(`visible: `, visible)
+        console.log(`isVisible: `, isVisible)
+
+        return isVisible[name]
+          ? visible
+            .filter( item => item !== name )
+          : Object
+            .keys(columns)
+            .filter( item => item === name || isVisible[item] )
+      }
+    )
+
   const page = useMemo(
     () => datatablePaginate(
       datatableSort(
@@ -81,7 +97,7 @@ const DatatableContext = ({
     sortColumn, setSortColumn,
     sortReverse, setSortReverse,
     toggleSortColumn,
-    visibleColumns, setVisibleColumns,
+    visibleColumns, setVisibleColumns, toggleVisibleColumn,
     controlsVisible, showControls, hideControls
   })
 }

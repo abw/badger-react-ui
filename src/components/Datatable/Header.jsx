@@ -2,11 +2,13 @@ import React             from 'react'
 import Context           from './Context.js'
 import DatatableSummary  from './Summary.jsx'
 import DatatablePageSize from './PageSize.jsx'
+import DatatableColumns  from './Columns/Columns.jsx'
 
 const Header = ({
   headerClass,
   Summary=DatatableSummary,
   PageSize=DatatablePageSize,
+  Columns=DatatableColumns
   // showControls,
 }) =>
   <header className={headerClass}>
@@ -14,8 +16,8 @@ const Header = ({
       <div>
         <Summary/>
       </div>
-      <div>
-        {/* <Columns/> */}
+      <div className="flex">
+        <Columns/>
         <PageSize/>
       </div>
       {/*
@@ -28,4 +30,5 @@ const Header = ({
     </div>
   </header>
 
-export default Context.Consumer(Header)
+export const DatatableHeader = Context.Consumer(Header)
+export default DatatableHeader

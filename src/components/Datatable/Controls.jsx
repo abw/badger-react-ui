@@ -28,4 +28,5 @@ const Controls = ({
     </footer>
   </Modal>
 
-export default Context.Consumer(Controls)
+export const DatatableControls = Context.Consumer(Controls)
+export default DatatableControls

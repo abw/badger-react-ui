@@ -28,4 +28,5 @@ const Row = ({
     )}
   </tr>
 
-export default Context.Consumer(Row)
+export const DatatableRow = Context.Consumer(Row)
+export default DatatableRow

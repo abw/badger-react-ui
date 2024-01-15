@@ -8,18 +8,20 @@ const PageSize = ({
   setPageSize,
   pageSizes=[10, 25, 50, 100, 250, 500, 1000],
 }) =>
-  <Dropdown
-    right
-    iconRight="angle-down"
-    text='Page Size'
-    size="small"
-    options={
-      pageSizes.map(
-        n => ({ n, text: `${n} per page` })
-      )
-    }
-    onSelect={item => setPageSize(item.n)}
-  />
+  <div className="pagesize">
+    <Dropdown
+      right
+      iconRight="angle-down"
+      text='Page Size'
+      size="small"
+      options={
+        pageSizes.map(
+          n => ({ n, text: `${n} per page` })
+        )
+      }
+      onSelect={item => setPageSize(item.n)}
+    />
+  </div>
 /*
   <div className="field">
     <label>Page Size</label>
@@ -33,4 +35,5 @@ const PageSize = ({
 /*
 */
 
-export default Context.Consumer(PageSize)
+export const DatatablePageSize = Context.Consumer(PageSize)
+export default DatatablePageSize

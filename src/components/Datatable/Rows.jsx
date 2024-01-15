@@ -16,4 +16,5 @@ const Rows = ({
     )}
   </tbody>
 
-export default Context.Consumer(Rows)
+export const DatatableRows = Context.Consumer(Rows)
+export default DatatableRows

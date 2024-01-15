@@ -70,8 +70,14 @@ section.datatable {
       --background-color: var(--sorting-shade-2);
     }
   }
-  .columns.menu.content {
-    padding: 0.25rem 0.5rem;
+  .columns.menu {
+    .icons {
+      display: inline-grid;
+    }
+    .item:hover label {
+      color: var(--active-color); // !important;
+      transition: color 0.1s;
+    }
   }
 }
 

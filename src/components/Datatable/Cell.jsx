@@ -27,4 +27,5 @@ const Cell = ({
   )
 }
 
-export default Context.Consumer(Cell)
+export const DatatableCell = Context.Consumer(Cell)
+export default DatatableCell

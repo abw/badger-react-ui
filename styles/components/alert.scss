@@ -70,8 +70,9 @@
 }
 
 #{$dark-theme} .alert {
-  --icon-color: var(--color-40);
-  --icon-background: var(--color-0);
-  --icon-gap-color: var(--color-15);
+  --icon-color: var(--color-80);
+  --icon-background: var(--color-40);
   --icon-ring-color: var(--color-30);
+  --icon-border-color: var(--color-20);
+  // --icon-gap-color: var(--color-15);
 }

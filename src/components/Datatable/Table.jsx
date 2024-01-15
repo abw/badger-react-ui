@@ -31,4 +31,5 @@ const Table = ({
     <Rows/>
   </table>
 
-export default Context.Consumer(Table)
+export const DatatableTable = Context.Consumer(Table)
+export default DatatableTable

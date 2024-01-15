@@ -21,4 +21,5 @@ export const Filters = ({
     </tr>
   </thead>
 
-export default Context.Consumer(Filters)
+export const DatatableFilters = Context.Consumer(Filters)
+export default DatatableFilters

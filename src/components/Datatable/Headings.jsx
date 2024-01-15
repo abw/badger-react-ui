@@ -21,4 +21,5 @@ export const Headings = ({
     </tr>
   </thead>
 
-export default Context.Consumer(Headings)
+export const DatatableHeadings = Context.Consumer(Headings)
+export default DatatableHeadings

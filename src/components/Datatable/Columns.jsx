@@ -4,27 +4,25 @@ import Dropdown from '@/components/Dropdown/Dropdown.jsx'
 import DDContext from '@/components/Dropdown/Context.js'
 // import Select   from '@/components/Select/Select.jsx'
 
-const Menu = DDContext.Consumer(
-  ({
-    menuRef,
-    menuClass='columns menu content border bdr-1',
-    onMouseEnter,
-    onMouseLeave,
-  }) =>
-    <div
-      className={menuClass}
-      ref={menuRef}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
-      <div className="item">
-        TODO
-      </div>
-      <div className="item">
-        TODO
-      </div>
+const Menu = ({
+  menuRef,
+  menuClass='columns menu content border bdr-1',
+  onMouseEnter,
+  onMouseLeave,
+}) =>
+  <div
+    className={menuClass}
+    ref={menuRef}
+    onMouseEnter={onMouseEnter}
+    onMouseLeave={onMouseLeave}
+  >
+    <div className="item">
+      TODO
     </div>
-)
+    <div className="item">
+      TODO
+    </div>
+  </div>
 
 const Columns = ({
   setColumns,

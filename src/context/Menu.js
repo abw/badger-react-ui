@@ -26,6 +26,7 @@ class MenuContext extends Context {
     onOpen:   doNothing,
     onClose:  doNothing,
     onSelect: doNothing,
+    closeOnSelect: true
   }
   static initialState = {
     ...inactiveState
@@ -216,7 +217,13 @@ class MenuContext extends Context {
       this.selectState(value),
       () => this.props.onSelect(value)
     )
-    this.closeSoon(true)
+    if (this.props.closeOnSelect) {
+      console.log(`closeOnSelect is set, closing`)
+      this.closeSoon(true)
+    }
+    else {
+      console.log(`closeOnSelect is not set, NOT closing`)
+    }
   }
 
   selectState(value) {

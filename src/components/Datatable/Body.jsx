@@ -10,4 +10,5 @@ const Body = ({
     <Table/>
   </div>
 
-export default Context.Consumer(Body)
+export const DatatableBody = Context.Consumer(Body)
+export default DatatableBody
