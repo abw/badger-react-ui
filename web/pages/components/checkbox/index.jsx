@@ -6,6 +6,7 @@ import CheckedText    from './_examples/checkedText/index.jsx'
 import Disabled       from './_examples/disabled/index.jsx'
 import OnChange       from './_examples/onChange/index.jsx'
 import ClassName      from './_examples/className/index.jsx'
+import Border         from './_examples/border/index.jsx'
 import CheckboxState  from './_examples/CheckboxState/index.jsx'
 import Sections       from '@/web/page/Sections.jsx'
 import Heading from '@/web/page/Heading.jsx'
@@ -21,6 +22,7 @@ const CheckboxExamples = () =>
       <CheckedText/>
       <OnChange/>
       <ClassName/>
+      <Border/>
       <Disabled/>
       {/*
       <Color/>
