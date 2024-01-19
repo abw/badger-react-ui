@@ -11,7 +11,7 @@
   --icon-margin:            0.5em;
   --icon-transition:        0.3s;
   --body-background:        var(--color-100);
-  --body-padding:           0.25em 0.5em;
+  --body-padding:           0.5em 0.5em;
   // --icon-left-rotate:       0deg;
   // --icon-right-rotate:      -90deg;
 }
@@ -96,6 +96,10 @@
   .body {
     background-color: var(--body-background);
     padding: var(--body-padding);
+    .fluid {
+      display: block;
+      width: auto !important;
+    }
   }
   &.right {
     .menu, .body {

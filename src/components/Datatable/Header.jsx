@@ -2,6 +2,7 @@ import React             from 'react'
 import Context           from './Context.js'
 import DatatableSummary  from './Summary.jsx'
 import DatatablePageSize from './PageSize.jsx'
+// import DatatableColumns  from './Columns/Columns.jsx'
 import DatatableColumns  from './Columns/Columns.jsx'
 
 const Header = ({

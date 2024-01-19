@@ -14,8 +14,9 @@ export const datatableColumnDefinition = column => {
     column = { field: column }
   }
   const { field } = column
-  column.type ||= 'text'
+  column.type  ||= 'text'
   column.label ||= capitalise(field)
+  column.id    ||= field
   return column
 }
 

@@ -8,6 +8,7 @@ const Checkbox = ({
   size,
   color,
   border,
+  inline,
   className='checkbox',
   text,
   ref,
@@ -29,6 +30,7 @@ const Checkbox = ({
       classes(
         size, color, className,
         borderClass(border),
+        { inline }
       )
     }
     ref={ref}
