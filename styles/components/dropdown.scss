@@ -10,6 +10,8 @@
   --focus-ring:             var(--focus-ring-inline), var(--focus-ring-outline);
   --icon-margin:            0.5em;
   --icon-transition:        0.3s;
+  --body-background:        var(--color-100);
+  --body-padding:           0.25em 0.5em;
   // --icon-left-rotate:       0deg;
   // --icon-right-rotate:      -90deg;
 }
@@ -18,6 +20,10 @@
   --separator-style:        var(--item-border-style);
   --separator-color:        var(--item-border-color);
 }
+:where(#{$dark-theme} .dropdown) {
+  --body-background:        var(--color-0);
+}
+
 
 .dropdown {
   --menu-z-index: 100;
@@ -67,7 +73,7 @@
       z-index: var(--safe-z-index);
     }
   }
-  .menu {
+  .menu, .body {
     position: absolute;
     display: block;
     top: calc(100% + var(--menu-margin));
@@ -87,15 +93,19 @@
       background-color: var(--separator-color);
     }
   }
+  .body {
+    background-color: var(--body-background);
+    padding: var(--body-padding);
+  }
   &.right {
-    .menu {
+    .menu, .body {
       right: 0;
       left: auto;
     }
   }
   &.wide {
     // display: block;
-    .menu {
+    .menu, .body {
       width: 100%;
       left: 0;
       right: 0;

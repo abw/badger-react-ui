@@ -5,7 +5,7 @@ import DropdownSeparator  from './Separator.jsx'
 import DropdownHeading    from './Heading.jsx'
 import { hasValue }       from '@abw/badger-utils'
 
-const Menu = ({
+const Options = ({
   options=[],
   menuRef,
   menuClass='menu border bdr-1',
@@ -49,4 +49,4 @@ const Menu = ({
   </div>
 
 
-export default Context.Consumer(Menu)
+export default Context.Consumer(Options)

@@ -1,9 +1,9 @@
 import React from 'react'
-import { Dropdown } from '@/src/index.jsx'
+import { DropdownMenu } from '@/src/index.jsx'
 
-const DropdownExample = () =>
+const DropdownMenuExample = () =>
   /* START */
-  <Dropdown
+  <DropdownMenu
     text='Dropdown Menu'
     onSelect={item => alert(`You selected: ${item.text}`)}
     options={[
@@ -14,4 +14,4 @@ const DropdownExample = () =>
   />
   /* END */
 
-export default DropdownExample
+export default DropdownMenuExample

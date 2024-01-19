@@ -1,9 +1,9 @@
 import React from 'react'
-import { Dropdown } from '@/src/index.jsx'
+import { DropdownMenu } from '@/src/index.jsx'
 
 const DropdownExample = () =>
   /* START */
-  <Dropdown
+  <DropdownMenu
     text='Disabled Options'
     options={[
       {

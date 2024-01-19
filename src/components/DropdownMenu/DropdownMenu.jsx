@@ -3,15 +3,13 @@ import Context          from './Context.js'
 import DropdownContent  from './Content.jsx'
 import { Themed }       from '@/src/Theme.jsx'
 
-const Dropdown = ({
+const DropdownMenu = ({
   Content=DropdownContent,
-  content,
-  children,
   ...props
 }) =>
-  <Context.Provider content={content||children} {...props}>
+  <Context.Provider {...props}>
     <Content/>
   </Context.Provider>
 
-export default Themed(Dropdown, 'Dropdown')
+export default Themed(DropdownMenu, 'DropdownMenu')
 

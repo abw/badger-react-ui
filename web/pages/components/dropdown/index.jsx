@@ -5,8 +5,7 @@ import Section    from '@/web/page/Section.jsx'
 import Split            from '@/web/site/Split.jsx'
 import Dropdown         from './_examples/Dropdown/index.jsx'
 import Text             from './_examples/text/index.jsx'
-import Options          from './_examples/options/index.jsx'
-import OnSelect         from './_examples/onSelect/index.jsx'
+import Content          from './_examples/content/index.jsx'
 import OnHover          from './_examples/openOnHover/index.jsx'
 import Right            from './_examples/right/index.jsx'
 import Wide             from './_examples/wide/index.jsx'
@@ -29,8 +28,7 @@ const DropdownExamples = () =>
     <Sections tocName="dropdown">
       <Heading title="Properties"/>
       <Text/>
-      <Options/>
-      <OnSelect/>
+      <Content/>
       <OnHover/>
       <Right/>
       <Wide/>
@@ -65,23 +63,12 @@ const DropdownExamples = () =>
             The default value is <code>trigger</code>.
           </Section>
           <Section code="menuClass">
+            <b>TODO: update this!</b>
             Used to set the CSS class added to the dropdown menu container.
             The default value is <code>menu border bdr-1</code>.  The{' '}
             <code>border</code> utility class adds a border and{' '}
             <code>bdr-1</code> sets the border radius to 1 unit (0.25rem or
             4px).
-          </Section>
-          <Section code="optionClass">
-            Used to set the CSS class added to each dropdown menu item.
-            The default value is <code>item no-hover</code>.  The{' '}
-            <code>no-hover</code> class suppresses the hover styles that
-            would usually be applied to menu items.  Instead the{' '}
-            <code>active</code> class is added to the active item, selected
-            either by hovering over it or by keyboard navigation.
-          </Section>
-          <Section code="separatorClass">
-            Used to set the CSS class added to the dropdown menu separator.
-            The default value is <code>separator</code>.
           </Section>
         </div>
         <div className="flow">
@@ -90,17 +77,9 @@ const DropdownExamples = () =>
             Renders the dropdown menu trigger.  Defaults
             to <code>DropdownTrigger</code>.
           </Section>
-          <Section code="Menu" id="Menu-component">
-            Renders the dropdown menu.  Defaults
-            to <code>DropdownMenu</code>.
-          </Section>
-          <Section code="Option" id="Option-component">
-            Renders each dropdown menu option.  Defaults
-            to <code>DropdownOption</code>.
-          </Section>
-          <Section code="Separator" id="Separator-component">
-            Renders a separator between menu items.  Defaults
-            to <code>DropdownSeparator</code>.
+          <Section code="Body" id="Body-component">
+            Renders the dropdown body.  Defaults
+            to <code>DropdownBody</code>.
           </Section>
         </div>
       </Split>

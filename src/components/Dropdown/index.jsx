@@ -1,7 +1,5 @@
 export { default as Dropdown          } from './Dropdown.jsx'
 export { default as DropdownContent   } from './Content.jsx'
 export { default as DropdownContext   } from './Context.js'
-export { default as DropdownOption    } from './Option.jsx'
-export { default as DropdownMenu      } from './Menu.jsx'
-export { default as DropdownSeparator } from './Separator.jsx'
+export { default as DropdownBody      } from './Body.jsx'
 export { default as DropdownTrigger   } from './Trigger.jsx'

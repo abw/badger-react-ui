@@ -1,25 +1,22 @@
 import React from 'react'
-import { Dropdown } from '@/src/index.jsx'
+import { DropdownMenu } from '@/src/index.jsx'
 
 const DropdownExample = () =>
   /* START */
-  <Dropdown
-    text='Option Headings'
+  <DropdownMenu
+    text='Option Separators'
     options={[
-      {
-        heading: 'Single Digit Numbers'
-      },
       'One',
       'Two',
       'Three',
       {
-        heading: 'Double Digit Numbers'
+        separator: true
       },
       'Eleven',
       'Twelve',
       'Thirteen',
       {
-        heading: 'Triple Digit Numbers'
+        separator: true
       },
       'One Hundred',
       'Two Hundred',

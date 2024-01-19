@@ -6,30 +6,9 @@ import React from 'react'
 
 const DropdownExample = () => {
   return (
-    <Dropdown
-      text='Dropdown Menu'
-      options={[
-        'Alan Aardvark',
-        'Amy Aardvark',
-        'Anne Aardvark',
-        'Bart Badger',
-        'Betty Badger',
-        'Bobby Badger',
-        'Brenda Badger',
-        'Brian Badger',
-        'Colin Camel',
-        'David Donkey',
-        'Eddie Elephant',
-        'Franky Ferret',
-        'Gina Goat',
-        'Helen Horse',
-        'Ian Iguana',
-        'Juliet Jackdaw',
-        'Kevin Kangaroo',
-        'Linda Llama',
-        'Mike Monkey',
-      ]}
-    />
+    <Dropdown text='Dropdown'>
+      Hello World!
+    </Dropdown>
   )
 }
 

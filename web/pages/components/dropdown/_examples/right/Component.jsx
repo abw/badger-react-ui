@@ -7,12 +7,8 @@ const DropdownExample = () =>
   /* START */
   <Dropdown
     right
-    text='Dropdown Menu'
-    options={[
-      { text: 'Item One'   },
-      { text: 'Item Two'   },
-      { text: 'Item Three' },
-    ]}
+    text='Dropdown Right'
+    content='Hello World!'
   />
   /* END */
 

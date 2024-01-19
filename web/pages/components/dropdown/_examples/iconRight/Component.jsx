@@ -6,14 +6,9 @@ import { Dropdown } from '@/src/index.jsx'
 const DropdownExample = () =>
   /* START */
   <Dropdown
-    right
-    text='Dropdown Menu'
+    text='Dropdown iconRight'
     iconRight='angle-down'
-    options={[
-      { text: 'Item One'   },
-      { text: 'Item Two'   },
-      { text: 'Item Three' },
-    ]}
+    content='Hello World!'
   />
   /* END */
 

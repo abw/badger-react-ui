@@ -51,6 +51,11 @@ export const ComponentsMenu = {
       tocName: 'dropdown',
     },
     {
+      to: '/components/dropdown-menu',
+      text: 'Dropdown Menu',
+      tocName: 'dropdown-menu',
+    },
+    {
       to: '/components/icon',
       text: 'Icon',
       tocName: 'icon'

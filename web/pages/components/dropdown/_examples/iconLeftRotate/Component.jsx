@@ -1,20 +1,16 @@
 import React from 'react'
 import { Dropdown } from '@/src/index.jsx'
 
-// PRETEND: import { Dropdown } from '@abw/badger-react-ui
+// PRETEND: import { DropdownMenu } from '@abw/badger-react-ui
 
-const DropdownExample = () =>
+const DropdownMenuExample = () =>
   /* START */
   <Dropdown
-    text='Dropdown Menu'
+    text='Dropdown iconLeftRotate'
     iconLeft='angle-right'
     iconLeftRotate={90}
-    options={[
-      { text: 'Item One'   },
-      { text: 'Item Two'   },
-      { text: 'Item Three' },
-    ]}
+    content='Hello World!'
   />
   /* END */
 
-export default DropdownExample
+export default DropdownMenuExample

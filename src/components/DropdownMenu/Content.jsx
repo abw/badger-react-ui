@@ -1,7 +1,7 @@
 import React           from 'react'
 import Context         from './Context.js'
 import DropdownTrigger from './Trigger.jsx'
-import DropdownBody    from './Body.jsx'
+import DropdownOptions from './Options.jsx'
 import { classes } from '@/src/utils/classes.js'
 
 const Content = ({
@@ -13,7 +13,7 @@ const Content = ({
   size,
   wide,
   Trigger=DropdownTrigger,
-  Body=DropdownBody
+  Options=DropdownOptions
 }) =>
   <div
     className={
@@ -27,7 +27,7 @@ const Content = ({
   >
     <Trigger/>
     { isOpen &&
-      <Body/>
+      <Options/>
     }
   </div>
 

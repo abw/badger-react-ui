@@ -1,4 +1,5 @@
-import { Context } from '@abw/react-context'
+// import { Context } from '@abw/react-context'
+import DropdownContext from './Dropdown.js'
 import { ARROW_DOWN, ARROW_UP, ENTER, ESCAPE, SPACE } from '@/src/constants.js'
 import { doNothing, hasValue, sleep } from '@abw/badger-utils'
 import { cursorFirst, cursorLast, cursorNext, cursorPrev, scrollParentChild } from '@/src/utils/index.js'
@@ -12,11 +13,12 @@ const inactiveState = {
   selected:   undefined,
 }
 
-class MenuContext extends Context {
+class MenuContext extends DropdownContext {
   static debug        = true
   static defaultProps = {
     options: [ ],
     openOnHover: false,
+    closeOnBlur: true,
     closeDelay: 300,
     onLoad:   doNothing,
     onUnload: doNothing,
@@ -37,6 +39,7 @@ class MenuContext extends Context {
   //  'optionsRef', 'activeRef',
   //]
 
+  /*
   componentDidMount() {
     this.mounted = true
     this.props.onLoad(this)
@@ -93,7 +96,7 @@ class MenuContext extends Context {
       ? this.close()
       : this.open()
   }
-
+  */
   open(cursor=this.cursorFirstIndex()) {
     this.debug(`open(${cursor})`)
     this.setState(
@@ -104,7 +107,7 @@ class MenuContext extends Context {
       this.props.onOpen
     )
   }
-
+  /*
   close() {
     this.debug('close()')
     this.setState(
@@ -128,6 +131,7 @@ class MenuContext extends Context {
         }
       )
   }
+  */
 
   onKeyDown(event) {
     this.debug(`onKeyDown(${event.key})`)
@@ -230,6 +234,7 @@ class MenuContext extends Context {
     return { selected: value }
   }
 
+  /*
   // do we have a trigger in select/search?  I suppose so...
   triggerRef(ref) {
     this._triggerRef = ref
@@ -244,6 +249,7 @@ class MenuContext extends Context {
       this.debug('no trigger to focus')
     }
   }
+  */
 
   menuRef(ref){
     this._menuRef = ref
