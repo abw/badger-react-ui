@@ -6,6 +6,7 @@ import { extract } from '@abw/badger-utils'
 const Trigger = ({
   triggerClass='trigger',
   triggerRef,
+  safeAreaClass='safe-area',
   onMouseEnter,
   onMouseLeave,
   onKeyDown,
@@ -26,6 +27,7 @@ const Trigger = ({
     ref={triggerRef}
   >
     <WithIcons {...extract(props, /^(icon|text)/)}/>
+    <div className={safeAreaClass}></div>
   </div>
 
 export default Context.Consumer(Trigger)

@@ -7,7 +7,6 @@
 }
 
 .menu {
-  z-index: 100;
   .item.active.selected {
     animation: selection 0.3s infinite;
     @keyframes selection {

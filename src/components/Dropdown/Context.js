@@ -14,7 +14,7 @@ class DropdownContext extends MenuContext {
   static actions = [
     'onMouseEnter', 'onMouseLeave', 'onFocus', 'onBlur', 'onClick', 'onKeyDown',
     'open', 'close', 'setCursor', 'selectCursor', 'selectOption',
-    'triggerRef', 'menuRef', 'activeRef',
+    'triggerRef', 'menuRef', 'activeRef'
   ]
 }
 

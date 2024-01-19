@@ -20,10 +20,13 @@
 }
 
 .dropdown {
+  --menu-z-index: 100;
+  --safe-z-index: 99;
   position: relative;
   overflow: visible;
   display: inline-block;
   .trigger {
+    position: relative;
     display: inline-block;
     padding: var(--trigger-padding);
     border-radius: var(--trigger-border-radius);
@@ -54,6 +57,15 @@
     .icon {
       transform: rotate(var(--icon-rotate, 0));
     }
+    .safe-area {
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      height: calc(var(--menu-margin) + 10px);
+      z-index: var(--safe-z-index);
+    }
   }
   .menu {
     position: absolute;
@@ -62,6 +74,7 @@
     width: max-content;
     left: 0;
     right: auto;
+    z-index: var(--menu-z-index);
     overflow-y: scroll;
     max-height: var(--max-height);
     box-shadow: var(--shadow-2);
