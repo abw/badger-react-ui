@@ -24,7 +24,7 @@ const Summary = ({
       outline
       onClick={() => setPageNo(page.pageNo + 1)}
     />
-    <span style={{ textWrap: 'balance' }}>
+    <div style={{ textWrap: 'balance' }}>
       Page {page.pageNo}/{page.lastPage}{' '}
       { page.none
         ? 'no rows'
@@ -35,7 +35,8 @@ const Summary = ({
             : `rows ${commas(page.from)}-${commas(page.to)} of ${commas(page.total)}`
 
       }
-    </span>
+      {' '}
+    </div>
   </div>
 
 export const DatatableSummary = Context.Consumer(Summary)
