@@ -17,11 +17,10 @@ const Column = ({
     {...props}
   >
     <Checkbox
-      // border
       className="fluid flex middle"
-      key={item.field}
-      checked={isVisible[item.field]|| false}
-      onChange={() => toggleVisibleColumn(item.field)}
+      key={item.id}
+      checked={isVisible[item.id]|| false}
+      onChange={() => toggleVisibleColumn(item.id)}
       text={item.label}
     />
     <div

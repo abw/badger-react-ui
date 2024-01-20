@@ -22,6 +22,7 @@ const DatatableContext = ({
   const [filters, setFilters] = useState({ })
   const [sortColumn, setSortColumn] = useState(props.sortColumn)
   const [sortReverse, setSortReverse] = useState(props.sortReverse ?? false)
+  const [columnOrder, setColumnOrder] = useState(Object.keys(columns))
   const [visibleColumns, setVisibleColumns] = useState(datatableVisibleColumns(columns))
   const [controlsVisible, setControlsVisible] = useState(false)
   const showControls = () => setControlsVisible(true)
@@ -75,6 +76,22 @@ const DatatableContext = ({
       }
     )
 
+  const changeColumnOrder = ids => {
+    let newOrder    = [ ]
+    let newVisible  = [ ]
+    const isVisible = splitHash(visibleColumns)
+    ids.forEach(
+      name => {
+        newOrder.push(name)
+        if (isVisible[name]) {
+          newVisible.push(name)
+        }
+      }
+    )
+    setVisibleColumns(newVisible)
+    setColumnOrder(newOrder)
+  }
+
   const page = useMemo(
     () => datatablePaginate(
       datatableSort(
@@ -98,6 +115,7 @@ const DatatableContext = ({
     sortReverse, setSortReverse,
     toggleSortColumn,
     visibleColumns, setVisibleColumns, toggleVisibleColumn,
+    columnOrder, setColumnOrder, changeColumnOrder,
     controlsVisible, showControls, hideControls
   })
 }

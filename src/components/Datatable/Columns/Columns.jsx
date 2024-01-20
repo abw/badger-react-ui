@@ -4,26 +4,29 @@ import Dropdown from '@/components/Dropdown/Dropdown.jsx'
 import Column   from './Column.jsx'
 import Close    from './Close.jsx'
 import VerticalSortExample from '@/components/Sortable/Vertical.jsx'
-import { splitHash } from '@abw/badger-utils'
+import { extract, splitHash } from '@abw/badger-utils'
 
 const Columns = ({
   columns,
   visibleColumns,
   toggleVisibleColumn,
-  // setColumns,
+  columnOrder,
+  changeColumnOrder
 }) => {
   const isVisible = splitHash(visibleColumns)
-  const [items, setItems] = React.useState(
-    Object.values(columns)
+  const items = columnOrder.map(
+    id => extract(columns[id], 'id label')
   )
   const setOrder = items => {
-    setItems(items)
+    changeColumnOrder(
+      items.map( i => i.id )
+    )
   }
 
   return (
     <Dropdown
       right
-      iconRight="angle-down"
+      iconRight="square vertical-left=2 vertical-right=2"
       text='Columns'
       size="small"
       closeOnBlur={false}
@@ -37,20 +40,10 @@ const Columns = ({
           toggleVisibleColumn={toggleVisibleColumn}
         />
       </div>
-      {/*
-      { Object.values(columns).map(
-        column =>
-          <Checkbox
-            // border
-            // inline
-            className="fluid"
-            key={column.field}
-            checked={isVisible[column.field]|| false}
-            onChange={() => toggleVisibleColumn(column.field)}
-            text={column.label}
-          />
-      )}
-      */}
+      <div className="smaller mar-b-2">
+        Click checkbox to show/hide.<br/>
+        Drag handle to order.
+      </div>
       <Close/>
     </Dropdown>
   )

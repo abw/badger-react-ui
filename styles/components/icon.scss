@@ -15,9 +15,13 @@ svg.icon {
     margin-right: var(--icon-pull);
   }
 }
+// Moving up...
 .icons {
-  display: grid;
-  & > * {
-    grid-area: 1/1;
-  }
+  overflow: visible;
+  box-sizing: content-box;
+  height: 1em;
+  font-size: 1em;
+  line-height: 1;
+  vertical-align: -.125em;
+  text-align: center;
 }
