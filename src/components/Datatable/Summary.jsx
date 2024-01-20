@@ -1,22 +1,41 @@
 import React   from 'react'
 import Context from './Context.js'
 import { commas } from '@abw/badger-utils'
+import Icon from '@/components/Icon/Icon.jsx'
+import Button from '../Button/Button.jsx'
 
 const Summary = ({
   page,
-  summaryClass='small'
+  summaryClass='small flex middle gap-2',
+  setPageNo
 }) =>
   <div className={summaryClass}>
-    Page {page.pageNo} of {page.lastPage}. {' '}
-    { page.none
-      ? 'No rows.'
-      : page.one
-        ? 'One row.'
-        : page.all
-          ? `All ${commas(page.total)} rows.`
-          : `Rows ${commas(page.from)} to ${commas(page.to)} of ${commas(page.total)}.`
+    <Button
+      icon="arrow-left"
+      size="smaller"
+      disabled={page.pageNo <= page.firstPage}
+      outline
+      onClick={() => setPageNo(page.pageNo - 1)}
+    />
+    <Button
+      icon="arrow-right"
+      size="smaller"
+      disabled={page.pageNo >= page.lastPage}
+      outline
+      onClick={() => setPageNo(page.pageNo + 1)}
+    />
+    <span style={{ textWrap: 'balance' }}>
+      Page {page.pageNo}/{page.lastPage}{' '}
+      { page.none
+        ? 'no rows'
+        : page.one
+          ? 'one row'
+          : page.all
+            ? `all ${commas(page.total)} rows`
+            : `rows ${commas(page.from)}-${commas(page.to)} of ${commas(page.total)}`
 
-    }
+      }
+    </span>
   </div>
 
 export const DatatableSummary = Context.Consumer(Summary)

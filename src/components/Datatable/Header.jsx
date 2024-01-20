@@ -17,7 +17,7 @@ const Header = ({
       <div>
         <Summary/>
       </div>
-      <div className="flex">
+      <div className="flex gap-2">
         <Columns/>
         <PageSize/>
       </div>

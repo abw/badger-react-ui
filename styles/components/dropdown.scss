@@ -38,6 +38,7 @@
     border-radius: var(--trigger-border-radius);
     font-size: 1em;
     line-height: var(--trigger-line-height);
+    white-space: nowrap;
     cursor: pointer;
     &:not(button):not(.button) {
       border: var(--trigger-border-width) solid transparent;

@@ -41,7 +41,7 @@
     "url": "https://github.com/abw/badger-react-ui/issues"
   },
   "dependencies": {
-    "@abw/badger-icon": "^0.0.8",
+    "@abw/badger-icon": "^0.0.10",
     "@abw/badger-utils": "^1.0.21",
     "@abw/react-context": "^2.0.3",
     "@abw/react-one-louder": "^0.0.6",

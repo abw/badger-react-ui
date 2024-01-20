@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@abw/badger-icon':
-    specifier: ^0.0.8
-    version: 0.0.8
+    specifier: ^0.0.10
+    version: 0.0.10
   '@abw/badger-utils':
     specifier: ^1.0.21
     version: 1.0.21
@@ -135,8 +135,8 @@ packages:
       '@abw/badger-utils': 1.0.21
     dev: true
 
-  /@abw/badger-icon@0.0.8:
-    resolution: {integrity: sha512-Us7LrXd1m8YaZrWdbPswvkhu//zg2zkil2GRfGp+Kkv72Z3ERJ+Zb92jBZ0GGdSoJNGqvaakA02+3wloY9BXlw==}
+  /@abw/badger-icon@0.0.10:
+    resolution: {integrity: sha512-hxTmWAFD+Ykrs3l+Tb54pswyZJcxq/9WqUqJbHlpV0pboA3qFOyL6QNbSTjbR6eLOgLEf4NiGnaAdLg2IVF4xg==}
     dependencies:
       '@abw/badger-utils': 1.0.21
       '@abw/react-one-louder': 0.0.6

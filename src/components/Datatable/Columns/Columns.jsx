@@ -26,7 +26,7 @@ const Columns = ({
   return (
     <Dropdown
       right
-      iconRight="square vertical-left=2 vertical-right=2"
+      iconRight="square vertical-left=2.5 vertical-right=2.5"
       text='Columns'
       size="small"
       closeOnBlur={false}

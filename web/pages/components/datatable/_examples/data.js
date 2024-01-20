@@ -27,5 +27,10 @@ export const animals = [
   { name: 'Willy',      animal: 'Wombat',   id: 103, role: 'user'  },
   { name: 'Xerces',     animal: 'Xenus',    id: 201, role: 'user'  },
   { name: 'Yvonne',     animal: 'Yaz',      id: 202, role: 'user'  },
-  { name: 'Zebedee',    animal: 'Zebra',    id: 203, role: 'user'  }
+  { name: 'Zebedee',    animal: 'Zebra',    id: 203, role: 'user'  },
+  { name: 'Al',         animal: 'Zebra',    id: 301, role: 'guest' },
+  { name: 'Bob',        animal: 'Wombat',   id: 302, role: 'guest' },
+  { name: 'Chris',      animal: 'Panda',    id: 303, role: 'guest' },
+  { name: 'Kevin',      animal: 'Gerbil',   id: 304, role: 'guest' },
+  { name: 'Roland',     animal: 'Rat',      id: 305, role: 'superstar' },
 ]

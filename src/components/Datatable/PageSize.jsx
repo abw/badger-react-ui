@@ -9,7 +9,7 @@ const PageSize = ({
   <div className="pagesize">
     <DropdownMenu
       right
-      iconRight="angle-down"
+      iconRight="page"
       text='Page Size'
       size="small"
       options={
