@@ -44,12 +44,14 @@
     }
     .icon {
       transition: all var(--icon-transition);
+      /*
       &.on-left, &:first-child:not(:last-child) {
         margin-right: var(--icon-margin);
       }
       &.on-right, &:last-child:not(:first-child) {
         margin-left: var(--icon-margin);
       }
+      */
     }
     &:focus:not(.no-focus) {
       --color: var(--input-focus-color);
