@@ -6,6 +6,7 @@ import Split            from '@/web/site/Split.jsx'
 import DropdownMenu     from './_examples/DropdownMenu/index.jsx'
 import Options          from './_examples/options/index.jsx'
 import OnSelect         from './_examples/onSelect/index.jsx'
+import Link from '@/web/ui/Link.jsx'
 
 const DropdownExamples = () =>
   <div className="flow">
@@ -14,6 +15,12 @@ const DropdownExamples = () =>
     {/* <Context/> */}
     <Sections tocName="dropdown">
       <Heading title="Properties"/>
+      <p className="large">
+        All the properties supported by the{' '}
+        <Link to="/components/dropdown">Dropdown</Link> component are
+        supported.  These are the additional properties specific to
+        the <code>DropdownMenu</code>.
+      </p>
       <Options/>
       <OnSelect/>
       {/*

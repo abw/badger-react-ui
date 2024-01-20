@@ -8,6 +8,7 @@ const DropdownExample = () => {
   return (
     <DropdownMenu
       text='Dropdown Menu'
+      iconRight="angle-down"
       options={[
         'Alan Aardvark',
         'Amy Aardvark',

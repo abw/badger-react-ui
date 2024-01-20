@@ -5,6 +5,7 @@ const DropdownMenuExample = () =>
   /* START */
   <DropdownMenu
     text='Dropdown Menu'
+    iconRight="angle-down"
     onSelect={item => alert(`You selected: ${item.text}`)}
     options={[
       { text: 'Item One'   },

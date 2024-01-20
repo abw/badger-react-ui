@@ -5,6 +5,7 @@ const DropdownExample = () =>
   /* START */
   <DropdownMenu
     text='Option Separators'
+    iconRight="angle-down"
     options={[
       'One',
       'Two',

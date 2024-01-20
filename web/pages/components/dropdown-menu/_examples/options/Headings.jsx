@@ -5,6 +5,7 @@ const DropdownExample = () =>
   /* START */
   <DropdownMenu
     text='Option Headings'
+    iconRight="angle-down"
     options={[
       {
         heading: 'Single Digit Numbers'

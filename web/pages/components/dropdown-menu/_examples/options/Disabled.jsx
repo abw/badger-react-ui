@@ -5,6 +5,7 @@ const DropdownExample = () =>
   /* START */
   <DropdownMenu
     text='Disabled Options'
+    iconRight="angle-down"
     options={[
       {
         text: 'Disabled #1',
