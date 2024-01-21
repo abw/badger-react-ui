@@ -1,16 +1,16 @@
-import { Datatable } from '@/src/index.jsx'
-
-/* START */
 import React from 'react'
-// PRETEND: import { Datatable } from '@abw/badger-react-ui
+import { Datatable } from '@/src/index.jsx'
 import { animals } from '../data.js'
 
 const DatatableExample = () => {
   return (
+    /* START */
     <Datatable
+      color="brand"
       rows={animals}
       columns="id name animal role"
     />
+    /* END */
   )
 }
 
