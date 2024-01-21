@@ -1,7 +1,6 @@
 export * from './attrs.js'
 export * from './classes.js'
 export * from './cursor.js'
-export * from './functions.js'
 export * from './icon.js'
 export * from './renderer.jsx'
 export * from './scroll.js'

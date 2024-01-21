@@ -1,5 +1,4 @@
-import { hasValue, isInteger, isObject } from '@abw/badger-utils'
-import { maybeFunction } from './functions.js'
+import { hasValue, isInteger, isObject, maybeFunction } from '@abw/badger-utils'
 
 export const joinClasses = classes =>
   classes
