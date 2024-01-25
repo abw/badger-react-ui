@@ -32,5 +32,5 @@ export const animals = [
   { name: 'Bob',        animal: 'Wombat',   id: 302, role: 'guest' },
   { name: 'Chris',      animal: 'Panda',    id: 303, role: 'guest' },
   { name: 'Kevin',      animal: 'Gerbil',   id: 304, role: 'guest' },
-  { name: 'Roland',     animal: 'Rat',      id: 305, role: 'superstar' },
+  { name: 'Roland',     animal: 'Rat',      id: 1234, role: 'superstar' },
 ]

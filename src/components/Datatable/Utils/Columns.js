@@ -1,5 +1,5 @@
 import {
-  capitalise, fail, isArray, isString, splitHash
+  capitalise, fail, isArray, isObject, isString, splitHash
 } from '@abw/badger-utils'
 
 export const datatableColumnString = column => {
@@ -31,6 +31,16 @@ export const datatableColumnDefinitions = columns => {
     return columns.reduce(
       (colshash, column) => {
         const coldef = datatableColumnDefinition(column)
+        colshash[coldef.field] = coldef
+        return colshash
+      },
+      { }
+    )
+  }
+  if (isObject(columns)) {
+    return Object.entries(columns).reduce(
+      (colshash, [field, column]) => {
+        const coldef = datatableColumnDefinition({ ...column, field })
         colshash[coldef.field] = coldef
         return colshash
       },

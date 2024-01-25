@@ -8,12 +8,12 @@ const DatatableExample = () => {
     <Datatable
       color="brand"
       rows={animals}
-      columns={[
-        { field: 'id',   label: 'Ref.', type: 'number' },
-        { field: 'name', label: 'Username' },
-        { field: 'animal' },
-        { field: 'role'   },
-      ]}
+      columns={{
+        id:     { label: 'Ref.',     type: 'number' },
+        name:   { label: 'Username', type: 'string' },
+        animal: { },
+        role:   { },
+      }}
     />
     /* END */
   )

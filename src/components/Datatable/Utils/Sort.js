@@ -3,13 +3,13 @@ import {
 } from '@abw/badger-utils'
 
 export const datatableSorters = {
-  string:  stringSort,
-  text:    stringSort,
-  number:  numberSort,
-  price:   numberSort,
-  pounds:  numberSort,
-  integer: integerSort,
-  id:      integerSort,
+  string:   stringSort,
+  text:     stringSort,
+  number:   numberSort,
+  price:    numberSort,
+  currency: numberSort,
+  integer:  integerSort,
+  id:       integerSort,
 }
 
 export const datatableSort = (

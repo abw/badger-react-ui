@@ -1,17 +1,20 @@
 import React    from 'react'
 import Context  from './Context.js'
+import defaultDisplayTypes from './Display.jsx'
 import { classes } from '@/src/utils/classes.js'
 
 const Cell = ({
+  row,
   column,
   name,
   value,
   cellClass,
   sortColumn,
-  sortingClass='sorting'
+  sortingClass='sorting',
+  displayTypes=defaultDisplayTypes
 }) => {
-  // const type    = column.type    || 'text';
-  // const Display = column.display || displayTypes[type] || displayTypes.default;
+  const type    = column.type    || 'text'
+  const Display = column.display || displayTypes[type] || displayTypes.default
   const sorting = sortColumn === name
   const classname = classes(
     cellClass,
@@ -21,8 +24,14 @@ const Cell = ({
   )
   return (
     <td className={classname}>
-      {value}
-      {/* <Display row={row} column={column} name={name} field={field} value={value}/> */}
+      {/* {value} */}
+      <Display
+        row={row}
+        column={column}
+        value={value}
+        name={name}
+        field={name}
+      />
     </td>
   )
 }

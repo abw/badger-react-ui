@@ -7,6 +7,8 @@ import ArrayField     from './ArrayField.jsx'
 import ArrayFieldSrc  from './ArrayField.jsx?raw'
 import ArrayObj       from './ArrayObj.jsx'
 import ArrayObjSrc    from './ArrayObj.jsx?raw'
+import Object         from './Object.jsx'
+import ObjectSrc      from './Object.jsx?raw'
 import Section        from '@/page/Section.jsx'
 import Example        from '@/site/Example.jsx'
 
@@ -46,6 +48,8 @@ const Columns = () =>
       <p>
         When a column is defined as a string it is &quot;upgraded&quot; to
         an object in which the string is the <code>field</code> property.
+        This should (usually) correspond to a property in each row that
+        you want to display in the column.
       </p>
     </div>
     <Example
@@ -66,8 +70,11 @@ const Columns = () =>
       </p>
       <p>
         You can define different values for <code>label</code> and
-        <code>type</code> (along with other properties which we&apos;ll get
-        into soon).  In this example we set the <code>type</code> of the
+        <code>type</code> (along with other properties{' '}
+        <a href="#column-properties">detailed below</a>).
+      </p>
+      <p>
+        In this example we set the <code>type</code> of the
         first column to be <code>number</code>.  If you click on the{' '}
         <code>Id</code> column heading in one of the previous example, you
         can see that it&apos;s sorting the rows alphabetically, e.g.{' '}
@@ -85,6 +92,29 @@ const Columns = () =>
       expand={false}
       undent={2}
     />
+
+    <div className="cols-2 stack-desktop mar-b-4">
+      <p>
+        The final option is to define the columns as an object in which the
+        keys are the field names and the values contain additional configuration
+        options for the column.  These can be left empty if you&apos;re
+        happy with the default values for <code>label</code> and <code>type</code>.
+      </p>
+    </div>
+
+    <Example
+      Component={Object}
+      code={ObjectSrc}
+      caption="columns"
+      expand={false}
+      undent={2}
+    />
+
+    <p>
+      See the <a href="#column-properties">Column Properties</a> section
+      below for further information about the properties that can be added
+      to the <code>columns</code>.
+    </p>
 
     {/*
     <div className="cols-2 stack-desktop mar-b-4">
