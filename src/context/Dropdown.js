@@ -2,9 +2,7 @@ import { Context } from '@abw/react-context'
 import { ENTER, ESCAPE, SPACE } from '@/src/constants.js'
 import { doNothing, sleep } from '@abw/badger-utils'
 
-const inactiveState = {
-  isOpen: false,
-}
+
 
 class DropdownContext extends Context {
   static debug        = false
@@ -21,8 +19,11 @@ class DropdownContext extends Context {
     onOpen:   doNothing,
     onClose:  doNothing,
   }
+  static inactiveState = {
+    isOpen: false,
+  }
   static initialState = {
-    ...inactiveState
+    ...this.inactiveState
   }
 
   componentDidMount() {
@@ -97,9 +98,12 @@ class DropdownContext extends Context {
   close() {
     this.debug('close()')
     this.setState(
-      inactiveState,
+      this.closeState(),
       this.props.onClose
     )
+  }
+  closeState() {
+    return this.constructor.inactiveState
   }
 
   closeSoon(force=false) {
@@ -124,8 +128,8 @@ class DropdownContext extends Context {
       case ENTER:
       case SPACE:
         this.state.isOpen
-          ? this.selectCursor()
-          : this.open(this.cursorFirstIndex())
+          ? this.close()
+          : this.open()
         break
 
       case ESCAPE:

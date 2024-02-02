@@ -9,6 +9,7 @@ const Option = ({
   selected,
   onClick,
   onMouseEnter,
+  validOption,
   displayOption,
   optionClass='item no-hover',
   activeClass='active',
@@ -22,7 +23,7 @@ const Option = ({
         option.className,
         active   ? activeClass   : null,
         selected ? selectedClass : null,
-        option.disabled ? disabledClass : null
+        validOption(option) ? null : disabledClass,
       )
     }
     onMouseEnter={onMouseEnter}

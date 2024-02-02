@@ -4,15 +4,6 @@ import { ARROW_DOWN, ARROW_UP, ENTER, ESCAPE, SPACE } from '@/src/constants.js'
 import { doNothing, hasValue } from '@abw/badger-utils'
 import { cursorFirst, cursorLast, cursorNext, cursorPrev, scrollParentChild } from '@/src/utils/index.js'
 
-// This probably needs to be made a static property as it changes from
-// on subclass to another
-const inactiveState = {
-  // selecting:  false,
-  isOpen:     false,
-  cursor:     undefined,
-  selected:   undefined,
-}
-
 class MenuContext extends DropdownContext {
   static debug        = true
   static defaultProps = {
@@ -30,8 +21,13 @@ class MenuContext extends DropdownContext {
     onSelect: doNothing,
     closeOnSelect: true
   }
+  static inactiveState = {
+    isOpen:   false,
+    cursor:   undefined,
+    selected: undefined,
+  }
   static initialState = {
-    ...inactiveState
+    ...this.inactiveState
   }
   //static actions = [
   //  'onFocus', 'onBlur', 'onClick', 'onKeyDown',
@@ -39,65 +35,7 @@ class MenuContext extends DropdownContext {
   //  'optionsRef', 'activeRef',
   //]
 
-  /*
-  componentDidMount() {
-    this.mounted = true
-    this.props.onLoad(this)
-  }
-
-  componentWillUnmount() {
-    this.mounted = false
-    this.props.onUnload(this)
-  }
-
-  onMouseEnter() {
-    this.debug(`onMouseEnter()`)
-    this.setState(
-      { hasHover: true },
-      this.props.openOnHover
-        ? () => { this.open(); this.focusTrigger() }
-        : null
-    )
-  }
-
-  onMouseLeave() {
-    this.debug(`onMouseLeave()`)
-    this.setState(
-      { hasHover: false },
-      this.props.openOnHover
-        ? () => this.closeSoon()
-        : null
-    )
-  }
-
-  onFocus() {
-    this.debug(`onFocus()`)
-    this.setState(
-      { hasFocus: true },
-      this.props.onFocus
-    )
-  }
-
-  onBlur() {
-    this.debug(`onBlur()`)
-    this.setState(
-      { hasFocus: false },
-      this.props.onBlur
-    )
-    // Hack to hide result shortly after blur.  If we clear the results
-    // immediately, or only display the results when the component is focussed
-    // then the results disappear before an onClick has time to register.
-    this.closeSoon(true)
-  }
-
-  onClick() {
-    this.debug('onClick()')
-    this.state.isOpen
-      ? this.close()
-      : this.open()
-  }
-  */
-  open(cursor=this.cursorFirstIndex()) {
+  open(cursor=this.initialCursor() ?? this.cursorFirstIndex()) {
     this.debug(`open(${cursor})`)
     this.setState(
       {
@@ -107,31 +45,6 @@ class MenuContext extends DropdownContext {
       this.props.onOpen
     )
   }
-  /*
-  close() {
-    this.debug('close()')
-    this.setState(
-      inactiveState,
-      this.props.onClose
-    )
-  }
-
-  closeSoon(force=false) {
-    this.debug('closeSoon()')
-    sleep(this.props.closeDelay)
-      .then(
-        () => {
-          if (force || ! this.state.hasHover) {
-            console.log(`closing`)
-            this.close()
-          }
-          else {
-            console.log(`NOT closing force:${force} hasHover:${this.state.hasHover}`)
-          }
-        }
-      )
-  }
-  */
 
   onKeyDown(event) {
     this.debug(`onKeyDown(${event.key})`)
@@ -140,20 +53,20 @@ class MenuContext extends DropdownContext {
       case ARROW_DOWN:
         this.state.isOpen
           ? this.setCursor(this.cursorNextIndex())
-          : this.open(this.cursorFirstIndex())
+          : this.open(this.initialCursor() ?? this.cursorFirstIndex())
         break
 
       case ARROW_UP:
         this.state.isOpen
           ? this.setCursor(this.cursorPrevIndex())
-          : this.open(this.cursorLastIndex())
+          : this.open(this.initialCursor() ?? this.cursorLastIndex())
         break
 
       case ENTER:
       case SPACE:
         this.state.isOpen
           ? this.selectCursor()
-          : this.open(this.cursorFirstIndex())
+          : this.open(this.initialCursor() ??  this.cursorFirstIndex())
         break
 
       case ESCAPE:
@@ -170,17 +83,36 @@ class MenuContext extends DropdownContext {
   menuOptions() {
     return this.props.options
   }
+  initialCursor() {
+    // subclasses can redefine this to return this.state.cursor if they
+    // want to keep a previously selected option selected
+    return null
+  }
   cursorFirstIndex() {
-    return cursorFirst(this.menuOptions())
+    return cursorFirst(
+      this.menuOptions(),
+      this.props.validOption
+    )
   }
   cursorLastIndex() {
-    return cursorLast(this.menuOptions())
+    return cursorLast(
+      this.menuOptions(),
+      this.props.validOption
+    )
   }
   cursorNextIndex() {
-    return cursorNext(this.menuOptions(), this.state.cursor)
+    return cursorNext(
+      this.menuOptions(),
+      this.state.cursor,
+      this.props.validOption
+    )
   }
   cursorPrevIndex() {
-    return cursorPrev(this.menuOptions(), this.state.cursor)
+    return cursorPrev(
+      this.menuOptions(),
+      this.state.cursor,
+      this.props.validOption
+    )
   }
 
   setCursor(cursor) {

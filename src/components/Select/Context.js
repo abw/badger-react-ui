@@ -2,14 +2,16 @@ import MenuContext from '@/src/context/Menu.js'
 import { Generator } from '@abw/react-context'
 import { BLANK } from '@/src/constants.js'
 import { hasValue } from '@abw/badger-utils'
-import { defaultRenderer } from '@/src/utils/index.js'
+import { findOption, validOption, defaultRenderer } from '@/src/utils/index.js'
 
-const inactiveState = {
+/*
+const XXXinactiveState = {
   value:    BLANK,
   isOpen:   false,
   cursor:   undefined,
   selected: undefined,
 }
+*/
 
 class SelectContext extends MenuContext {
   static debug        = false
@@ -18,14 +20,23 @@ class SelectContext extends MenuContext {
   static defaultProps = {
     ...this.defaultProps,
     options:  [ ],
+    findOption,
+    validOption,
     displayValue:  defaultRenderer('displayValue'),
     displayOption: defaultRenderer('displayOption'),
   }
+  // NOTE: we don't want to reset the cursor or value when closing
+  static inactiveState = {
+    isOpen:   false,
+    selected: undefined,
+  }
   static initialState = {
-    ...inactiveState
+    value:  BLANK,
+    cursor: undefined,
+    ...this.inactiveState
   }
   static initialProps = {
-    value: 'initialValue',
+    // value: 'initialValue',
   }
   static actions = [
     'onFocus', 'onBlur', 'onClick', 'onKeyDown',
@@ -35,14 +46,29 @@ class SelectContext extends MenuContext {
 
   constructor(props) {
     super(props)
-    const input = this.inputValue()
+    this.debug('start value: ', this.props.value)
+    const [value, cursor] = this.props.findOption(
+      this.props.options,
+      this.props.value
+    )
+    this.debug(`value:`, value)
+    this.debug(`cursor:`, cursor)
+    const input = this.inputValue(value)
+    this.debug(`input:`, input)
+
     this.state = {
       ...this.state,
+      value,
+      cursor,
       input,
     }
   }
 
-  inputValue(value=this.props.initialValue) {
+  initialCursor() {
+    return this.state.cursor
+  }
+
+  inputValue(value=this.props.value) {
     return hasValue(value)
       ? this.props.displayValue(value)
       : null

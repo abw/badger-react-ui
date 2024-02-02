@@ -1,4 +1,4 @@
-import { isBoolean, isNumber, isString } from '@abw/badger-utils'
+import { isBoolean, isNumber, isString, noValue } from '@abw/badger-utils'
 
 export const isSimple = value =>
   isString(value) || isNumber(value) || isBoolean(value)
@@ -13,6 +13,9 @@ export const optionValue = option =>
     : (option.value ?? option.id)
 
 export const findOption = (options, value, optVal=optionValue) => {
+  if (noValue(value)) {
+    return [ ]
+  }
   const index  = options.findIndex(
     option => value === optVal(option)
   )
