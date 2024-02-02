@@ -31,7 +31,12 @@ Matcher to detect selected option
 ## Search / Select / Dropdown
 
 Search should use the same base context as dropdown/select.
-Some inconsistencies to iron out
+Some inconsistencies to iron out.
+
+Cursor doesn't get reset when closing (which is good). But if the cursor is
+moved from the current selected option and then the menu is closed and
+re-opened, the cursor will be at the moved position, not on the currently
+selected option.  This is arguably correct, but intuitively a bit weird.
 
 ## Details
 
