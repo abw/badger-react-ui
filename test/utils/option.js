@@ -1,5 +1,9 @@
 import { test, expect } from 'vitest'
-import { validOption, optionValue } from '@/src/index.jsx'
+import { validOption, optionValue, findOption } from '@/src/index.jsx'
+
+//--------------------------------------------------------------------------
+// validOption
+//--------------------------------------------------------------------------
 
 test(
   'validOption() is true for string',
@@ -136,5 +140,72 @@ test(
     optionValue({ id: false })
   ).toBe(
     false
+  )
+)
+
+//--------------------------------------------------------------------------
+// findOption
+//--------------------------------------------------------------------------
+test(
+  'findOption() for string',
+  () => expect(
+    findOption(
+      [ 'foo', 'bar', 'baz' ],
+      'foo'
+    )
+  ).toStrictEqual(
+    ['foo', 0]
+  )
+)
+test(
+  'findOption() for another string',
+  () => expect(
+    findOption(
+      [ 'foo', 'bar', 'baz' ],
+      'bar'
+    )
+  ).toStrictEqual(
+    ['bar', 1]
+  )
+)
+test(
+  'findOption() for a number',
+  () => expect(
+    findOption(
+      [ 10, 20, 30 ],
+      30
+    )
+  ).toStrictEqual(
+    [30, 2]
+  )
+)
+test(
+  'findOption() for an object by value',
+  () => expect(
+    findOption(
+      [
+        { value: 10, name: 'ten'    },
+        { value: 20, name: 'twenty' },
+        { value: 30, name: 'thirty' },
+      ],
+      20
+    )
+  ).toStrictEqual(
+    [{ value: 20, name: 'twenty' }, 1]
+  )
+)
+test(
+  'findOption() for an object by id string',
+  () => expect(
+    findOption(
+      [
+        { id: 'ten',    name: 'Dix'    },
+        { id: 'twenty', name: 'Vingt'  },
+        { id: 'thirty', name: 'Trente' },
+      ],
+      'thirty'
+    )
+  ).toStrictEqual(
+    [{ id: 'thirty', name: 'Trente' }, 2]
   )
 )
