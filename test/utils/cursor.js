@@ -1,50 +1,5 @@
 import { test, expect } from 'vitest'
-import { cursorFirst, cursorLast, cursorNext, cursorPrev, defaultOptionIsValid } from '@/src/index.jsx'
-
-test(
-  'defaultOptionIsValid() is true for string',
-  () => expect(
-    defaultOptionIsValid('foo')
-  ).toBe(
-    true
-  )
-)
-
-test(
-  'defaultOptionIsValid() is true for number',
-  () => expect(
-    defaultOptionIsValid(23)
-  ).toBe(
-    true
-  )
-)
-
-test(
-  'defaultOptionIsValid() is true for object',
-  () => expect(
-    defaultOptionIsValid({ name: 'example' })
-  ).toBe(
-    true
-  )
-)
-
-test(
-  'defaultOptionIsValid() is false for separator',
-  () => expect(
-    defaultOptionIsValid({ separator: true })
-  ).toBe(
-    false
-  )
-)
-
-test(
-  'defaultOptionIsValid() is false for disabled option',
-  () => expect(
-    defaultOptionIsValid({ disabled: true })
-  ).toBe(
-    false
-  )
-)
+import { cursorFirst, cursorLast, cursorNext, cursorPrev } from '@/src/index.jsx'
 
 //--------------------------------------------------------------------------
 // cursorFirst()
