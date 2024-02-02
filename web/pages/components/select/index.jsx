@@ -1,8 +1,10 @@
 import React          from 'react'
 import Select         from './_examples/Select/index.jsx'
 import Options        from './_examples/options/index.jsx'
+import Value          from './_examples/value/index.jsx'
 import DisplayOption  from './_examples/displayOption/index.jsx'
 import DisplayValue   from './_examples/displayValue/index.jsx'
+import ValidOption    from './_examples/validOption/index.jsx'
 import Sections       from '@/web/page/Sections.jsx'
 import Heading from '@/web/page/Heading.jsx'
 import Section from '@/web/page/Section.jsx'
@@ -15,8 +17,10 @@ const SelectExamples = () =>
     <Sections tocName="select">
       <Heading title="Properties"/>
       <Options/>
+      <Value/>
       <DisplayOption/>
       <DisplayValue/>
+      <ValidOption/>
       <Section code="disabled">
         Boolean flag to set the select input to be disabled.
       </Section>
@@ -27,6 +31,7 @@ const SelectExamples = () =>
         Set the text displayed when there are no options to select from.
         The default is <code>No options</code>.
       </Section>
+      <Heading title="Option Properties"/>
 
       <Split>
         <div>

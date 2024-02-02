@@ -29,7 +29,7 @@ const SortableExample = () => {
     <div
       ref={setNodeRef}
       style={style}
-      className={`sortable item border mar-r-2 mar-b-2 pad pad-h-2 ${item.moved ? 'moved' : ''}`}
+      className={`sortable item border mar-r-2 mar-b-2 pad pad-h-2 bgc-95 bgd-5 ${item.moved ? 'moved' : ''}`}
       {...props}
       {...listeners}
     >
