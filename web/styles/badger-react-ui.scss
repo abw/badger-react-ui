@@ -31,3 +31,15 @@
   }
 }
 
+
+// Tmp hack - upstream in badger-css
+[class*="cols-"] {
+  columns: var(--columns);
+  orphans: var(--column-orphans);
+  widows: var(--column-orphans);
+  column-gap: var(--column-gap);
+}
+
+.flow {
+  --flow-space: 2em;
+}

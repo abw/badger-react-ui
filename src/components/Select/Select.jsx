@@ -11,4 +11,5 @@ const Select = ({
     <Content/>
   </Context.Provider>
 
-export default Themed(Select, 'Select')
+const ThemedSelect = Themed(Select, 'Select')
+export default ThemedSelect

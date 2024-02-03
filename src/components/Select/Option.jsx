@@ -34,4 +34,5 @@ const Option = ({
     {displayOption(option)}
   </div>
 
-export default Context.Consumer(Option)
+export const SelectOption = Context.Consumer(Option)
+export default SelectOption

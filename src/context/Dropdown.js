@@ -74,7 +74,7 @@ class DropdownContext extends Context {
     // immediately, or only display the results when the component is focussed
     // then the results disappear before an onClick has time to register.
     if (this.props.closeOnBlur) {
-      this.closeSoon(true)
+      this.closeSoon()
     }
   }
 
@@ -111,7 +111,7 @@ class DropdownContext extends Context {
     sleep(this.props.closeDelay)
       .then(
         () => {
-          if (force || ! this.state.hasHover) {
+          if (this.closeable()) {
             this.close()
           }
           else {
@@ -119,6 +119,10 @@ class DropdownContext extends Context {
           }
         }
       )
+  }
+
+  closeable(force) {
+    return force || ! this.state.hasHover
   }
 
   onKeyDown(event) {

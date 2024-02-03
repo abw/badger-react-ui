@@ -1,7 +1,9 @@
-export { default as Select          } from './Select.jsx'
-export { default as SelectContext   } from './Context.js'
-export { default as SelectContent   } from './Content.jsx'
-export { default as SelectInput     } from './Input.jsx'
-export { default as SelectMenu      } from './Menu.jsx'
-export { default as SelectNoOptions } from './NoOptions.jsx'
-export { default as SelectOption    } from './Option.jsx'
+export { default as Select } from './Select.jsx'
+export { SelectContent     } from './Content.jsx'
+export { SelectInput       } from './Input.jsx'
+export { SelectMenu        } from './Menu.jsx'
+export { SelectNoOptions   } from './NoOptions.jsx'
+export { SelectOption      } from './Option.jsx'
+// eslint-disable-next-line react-refresh/only-export-components
+export { SelectProvider, SelectConsumer, useSelect } from './Context.js'
+

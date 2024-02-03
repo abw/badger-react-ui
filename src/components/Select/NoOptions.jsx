@@ -9,4 +9,5 @@ const NoOptions = ({
     {noOptions}
   </div>
 
-export default Context.Consumer(NoOptions)
+export const SelectNoOptions = Context.Consumer(NoOptions)
+export default SelectNoOptions

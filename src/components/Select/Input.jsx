@@ -36,4 +36,5 @@ const Input = ({
     </div>
   </div>
 
-export default Context.Consumer(Input)
+export const SelectInput = Context.Consumer(Input)
+export default SelectInput

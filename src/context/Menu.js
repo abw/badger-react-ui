@@ -1,4 +1,3 @@
-// import { Context } from '@abw/react-context'
 import DropdownContext from './Dropdown.js'
 import { ARROW_DOWN, ARROW_UP, ENTER, ESCAPE, SPACE } from '@/src/constants.js'
 import { doNothing, hasValue } from '@abw/badger-utils'
@@ -29,11 +28,6 @@ class MenuContext extends DropdownContext {
   static initialState = {
     ...this.inactiveState
   }
-  //static actions = [
-  //  'onFocus', 'onBlur', 'onClick', 'onKeyDown',
-  //  'open', 'close', 'setCursor', 'selectCursor', 'selectOption',
-  //  'optionsRef', 'activeRef',
-  //]
 
   open(cursor=this.initialCursor() ?? this.cursorFirstIndex()) {
     this.debug(`open(${cursor})`)
@@ -129,7 +123,7 @@ class MenuContext extends DropdownContext {
   selectCursor() {
     this.debug(`selectCursor()`)
     const { cursor } = this.state
-    const { options } = this.props
+    const options = this.menuOptions()
     if (options && options.length && hasValue(cursor)) {
       const value = options[cursor]
       this.debug(`selectCursor() ${cursor} =>`, value)

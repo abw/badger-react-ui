@@ -33,10 +33,25 @@ Matcher to detect selected option
 Search should use the same base context as dropdown/select.
 Some inconsistencies to iron out.
 
+## Select with search option
+
 Cursor doesn't get reset when closing (which is good). But if the cursor is
 moved from the current selected option and then the menu is closed and
 re-opened, the cursor will be at the moved position, not on the currently
 selected option.  This is arguably correct, but intuitively a bit weird.
+
+Selected a filtered search option via keyboard doesn't close component,
+leaving the selected item flashing.
+
+Add keyboard events for other keys to populate search.
+
+Styling of search in select component is different to search.
+
+Disabled option can be selected if it's the only item (cursor defaults to 0)
+
+Cursor gets lost when second option (of two) is disabled - e.g. search for
+"i" in example.
+
 
 ## Details
 

@@ -5,6 +5,7 @@ import Value          from './_examples/value/index.jsx'
 import DisplayOption  from './_examples/displayOption/index.jsx'
 import DisplayValue   from './_examples/displayValue/index.jsx'
 import ValidOption    from './_examples/validOption/index.jsx'
+import Search         from './_examples/search/index.jsx'
 import Sections       from '@/web/page/Sections.jsx'
 import Heading from '@/web/page/Heading.jsx'
 import Section from '@/web/page/Section.jsx'
@@ -21,20 +22,34 @@ const SelectExamples = () =>
       <DisplayOption/>
       <DisplayValue/>
       <ValidOption/>
-      <Section code="disabled">
+      <Section code="disabled" split>
         Boolean flag to set the select input to be disabled.
       </Section>
-      <Section code="placeholder">
-        Set the placeholder text.  The default is <code>Search</code>.
+      <Section code="placeholder" split>
+        Set the placeholder text.  The default is <code>Select</code>.
       </Section>
-      <Section code="noOptions">
+      <Section code="noOptions" split>
         Set the text displayed when there are no options to select from.
         The default is <code>No options</code>.
       </Section>
-      <Heading title="Option Properties"/>
+      <Section code="openOnHover" split>
+        Flag to indicate that the option menu should open when the cursor
+        hovers over the trigger input.  Defaults to <code>false</code>.
+      </Section>
+      <Section code="closeOnBlur" split>
+        Flag to indicate that the option menu should close when focus is lost.
+        Defaults to <code>true</code>.
+      </Section>
+      <Section code="closeDelay" split>
+        Delay (in milliseconds) before the menu is closed.  This is required
+        to ensure that any click events have been registered before the menu
+        is closed. Defaults to <code>300</code>.
+      </Section>
+      <Heading title="Option Search"/>
+      <Search/>
 
       <Split>
-        <div>
+        <div className="flow">
           <Heading title="Event Handlers"/>
           <Section code="onLoad">
             Called when the component is first loaded.  The handler is passed a

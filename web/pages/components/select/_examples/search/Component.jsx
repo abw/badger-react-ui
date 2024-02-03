@@ -13,12 +13,22 @@ const animals = [
   { id: 6, name: 'Bobby Badger'  },
   { id: 7, name: 'Brenda Badger' },
   { id: 8, name: 'Brian Badger'  },
+  { id: 9, name: 'Ignored Iguana', disabled: true },
 ]
 
-const ValueExample = () =>
-  <Select
-    options={animals}
-    value={5}
-  />
+const SearchExample = () =>
+  <>
+    <Select
+      debug
+      search
+      // onLoad={ that => that.open() }
+      options={animals}
+    />
+    {/*
+    <div className="border" style={{ height: '100px', marginLeft: '-20px' }}>
+      BENEATH
+    </div>
+    */}
+  </>
 
-export default ValueExample
+export default SearchExample

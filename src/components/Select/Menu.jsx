@@ -35,4 +35,5 @@ const Menu = ({
     }
   </div>
 
-export default Context.Consumer(Menu)
+export const SelectMenu = Context.Consumer(Menu)
+export default SelectMenu

@@ -22,7 +22,7 @@ const ValueExamples = () =>
     />
     <div className="cols-2 stack-desktop mar-b-4">
       <p>
-        When the <code>options</code> are defined as an array of object,
+        When the <code>options</code> are defined as an array of objects,
         the specified <code>value</code> should correspond to the{' '}
         <code>value</code> or <code>id</code> property of an element in
         the <code>options</code> array.
