@@ -51,7 +51,7 @@
     "@dnd-kit/utilities": "^3.2.2"
   },
   "devDependencies": {
-    "@abw/badger-css": "^0.2.18",
+    "@abw/badger-css": "^0.2.20",
     "@abw/badger-timestamp": "^1.0.4",
     "@abw/react-night-and-day": "^0.0.6",
     "@testing-library/jest-dom": "^6.2.0",

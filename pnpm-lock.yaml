@@ -38,8 +38,8 @@ dependencies:
 
 devDependencies:
   '@abw/badger-css':
-    specifier: ^0.2.18
-    version: 0.2.18
+    specifier: ^0.2.20
+    version: 0.2.20
   '@abw/badger-timestamp':
     specifier: ^1.0.4
     version: 1.0.4
@@ -121,8 +121,8 @@ packages:
       js-yaml: 4.1.0
     dev: true
 
-  /@abw/badger-css@0.2.18:
-    resolution: {integrity: sha512-wCOZSaLEdS5bUVx9f2jO/eBY0l/EzOi6XTewQRml+hqJWycVIL7zv6SVwHodb/mVg8CfIe1rVtag0hoDKo6zuw==}
+  /@abw/badger-css@0.2.20:
+    resolution: {integrity: sha512-aj4vZuHcem7bpsUbuBN9PgwWYZJILaWbMRDvuhZtbNzEG7ghxMkNSaSCnyeDmmLyq3pbyUoUJIo5WS4x9NNERA==}
     hasBin: true
     dependencies:
       '@abw/badger': 1.2.2
@@ -163,7 +163,7 @@ packages:
       '@abw/badger-utils': 1.0.23
       chokidar: 3.5.3
       commander: 11.1.0
-      dotenv: 16.3.2
+      dotenv: 16.4.1
       js-yaml: 4.1.0
       prompts: 2.4.2
     dev: true
@@ -1820,8 +1820,8 @@ packages:
       tslib: 2.6.2
     dev: true
 
-  /dotenv@16.3.2:
-    resolution: {integrity: sha512-HTlk5nmhkm8F6JcdXvHIzaorzCoziNQT9mGxLPVXW8wJF1TiGSL60ZGB4gHWabHOaMmWmhvk2/lPHfnBiT78AQ==}
+  /dotenv@16.4.1:
+    resolution: {integrity: sha512-CjA3y+Dr3FyFDOAMnxZEGtnW9KBR2M0JvvUtXNW+dYJL5ROWxP9DUHCwgFqpMk0OXCc0ljhaNTr2w/kutYIcHQ==}
     engines: {node: '>=12'}
     dev: true
 
