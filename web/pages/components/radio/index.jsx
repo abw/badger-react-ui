@@ -27,7 +27,7 @@ const RadioExamples = () =>
       <ClassName/>
       <Inline/>
       <Border/>
-      <Heading title="Options"/>
+      <Heading title="Option Properties"/>
       <Options/>
       <Disabled/>
       {/* <Text/> */}

@@ -1,7 +1,8 @@
 import React      from 'react'
-import Example    from '@/page/ExampleSection.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
+import Example    from '@/page/ExampleSection.jsx'
+import HashLink   from '@/page/HashLink.jsx'
 
 const OnChange = () =>
   <Example
@@ -13,7 +14,7 @@ const OnChange = () =>
     <p>
       The <code>onChange</code> property should be used to define a function
       to handle changes in the state.  This will typically be used to
-      update the <a href="#value" className="font-mono">value</a>.
+      update the <HashLink text="value"/>.
     </p>
   </Example>
 

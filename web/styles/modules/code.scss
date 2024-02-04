@@ -8,9 +8,13 @@ $codeblock-back-dark-to:     rgba($codeblock-back-dark, 0.9);
 
 :where(html) {
   // code
-  --code-back:            var(--grey40-95);
-  --code-text:            var(--grey40-40);
-  --code-border:          var(--grey40-85);
+  --code-back:            var(--grey20-95);
+  --code-text:            var(--grey20-40);
+  --code-border:          var(--grey20-85);
+  --code-link-back:       var(--grey40-95);
+  --code-link-text:       var(--grey40-40);
+  --code-link-border:     var(--grey40-85);
+  --code-link-hover:      var(--grey40-75);
     // codeblock
   --codeblock-back:       var(--grey-95);
   --codeblock-text:       var(--grey-50);
@@ -29,9 +33,18 @@ $codeblock-back-dark-to:     rgba($codeblock-back-dark, 0.9);
 }
 #{$dark-theme} {
   // code
-  --code-back:            var(--grey20-25);
-  --code-text:            var(--grey40-90);
+  //--code-back:            var(--grey20-25);
+  //--code-text:            var(--grey40-90);
+  //--code-border:          var(--grey20-20);
+
+  --code-back:            var(--grey20-10);
+  --code-text:            var(--grey20-70);
   --code-border:          var(--grey20-20);
+  --code-link-back:       var(--grey40-20);
+  --code-link-text:       var(--grey40-70);
+  --code-link-border:     var(--grey40-10);
+  --code-link-hover:      var(--grey40-5);
+
   // codeblock
   --codeblock-back:       var(--grey-5);
   --codeblock-text:       var(--grey40-80);
@@ -49,12 +62,24 @@ $codeblock-back-dark-to:     rgba($codeblock-back-dark, 0.9);
   --copied-text:          var(--green-90);
 }
 
-code:not(.codeblock code):not(.toc code) {
-  color: var(--code-text);
-  background-color: var(--code-back);
-  border: 1px solid var(--code-border);
+code:not(.codeblock code):not(.toc code), a.code {
+  --color: var(--code-text);
+  --background: var(--code-back);
+  --border: var(--code-border);
+  color: var(--color);
+  background-color: var(--background);
+  border: 1px solid var(--border);
   padding: 0 4px;
   border-radius: 4px;
+}
+a.code {
+  --color: var(--code-link-text);
+  --background: var(--code-link-back);
+  --border: var(--code-link-border);
+  font-family: var(--font-mono);
+  &:hover {
+    --border: var(--code-link-hover);
+  }
 }
 
 div.example {

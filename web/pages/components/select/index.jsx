@@ -19,6 +19,7 @@ const SelectExamples = () =>
       <Heading title="Properties"/>
       <Options/>
       <Value/>
+      <Search/>
       <DisplayOption/>
       <DisplayValue/>
       <ValidOption/>
@@ -45,8 +46,6 @@ const SelectExamples = () =>
         to ensure that any click events have been registered before the menu
         is closed. Defaults to <code>300</code>.
       </Section>
-      <Heading title="Option Search"/>
-      <Search/>
 
       <Split>
         <div className="flow">

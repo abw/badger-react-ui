@@ -1,7 +1,8 @@
 import React      from 'react'
-import Example    from '@/page/ExampleSection.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
+import Example    from '@/page/ExampleSection.jsx'
+import HashLink   from '@/page/HashLink.jsx'
 
 const Value = () =>
   <Example
@@ -13,7 +14,7 @@ const Value = () =>
     <p>
       The <code>value</code> property should be used to define the current
       selected value.  This should be used in conjunction with{' '}
-      <a href="#onchange" className="font-mono">onChange</a> to update the
+      <HashLink text="onChange"/> to update the
       value.
     </p>
   </Example>

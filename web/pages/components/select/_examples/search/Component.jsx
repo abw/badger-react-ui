@@ -19,16 +19,9 @@ const animals = [
 const SearchExample = () =>
   <>
     <Select
-      debug
       search
-      // onLoad={ that => that.open() }
       options={animals}
     />
-    {/*
-    <div className="border" style={{ height: '100px', marginLeft: '-20px' }}>
-      BENEATH
-    </div>
-    */}
   </>
 
 export default SearchExample
