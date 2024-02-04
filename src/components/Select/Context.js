@@ -140,7 +140,7 @@ class Context extends MenuContext {
     this.setState(
       state => ({
         options: hasValue(state.searchInput)
-          ? searchOptions(state.searchInput, options)
+          ? searchOptions(state.searchInput, this.props.options.filter(this.props.validOption))
           : options,
         cursor: 0
       })

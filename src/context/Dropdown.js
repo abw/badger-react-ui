@@ -107,11 +107,11 @@ class DropdownContext extends Context {
   }
 
   closeSoon(force=false) {
-    this.debug('closeSoon()')
+    this.debug(`closeSoon()  force:${force}`)
     sleep(this.props.closeDelay)
       .then(
         () => {
-          if (this.closeable()) {
+          if (this.closeable(force)) {
             this.close()
           }
           else {

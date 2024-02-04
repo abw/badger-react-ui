@@ -148,11 +148,11 @@ class MenuContext extends DropdownContext {
       () => this.props.onSelect(value)
     )
     if (this.props.closeOnSelect) {
-      console.log(`closeOnSelect is set, closing`)
+      this.debug(`closeOnSelect is set, closing`)
       this.closeSoon(true)
     }
     else {
-      console.log(`closeOnSelect is not set, NOT closing`)
+      this.debug(`closeOnSelect is not set, NOT closing`)
     }
   }
 

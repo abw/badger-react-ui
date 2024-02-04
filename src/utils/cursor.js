@@ -17,7 +17,7 @@ export function cursorLast(options, isValid=validOption) {
 }
 
 export function cursorNext(options, current, isValid=validOption) {
-  for (let i = 1; i < options.length; i++) {
+  for (let i = 1; i <= options.length; i++) {
     const n = (current + i) % options.length
     if (isValid(options[n])) {
       return n
@@ -27,7 +27,7 @@ export function cursorNext(options, current, isValid=validOption) {
 }
 
 export function cursorPrev(options, current, isValid=validOption) {
-  for (let i = 1; i < options.length; i++) {
+  for (let i = 1; i <= options.length; i++) {
     const n = (current + options.length - i) % options.length
     if (isValid(options[n])) {
       return n
