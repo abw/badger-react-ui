@@ -42,6 +42,9 @@ class MenuContext extends DropdownContext {
 
   onKeyDown(event) {
     this.debug(`onKeyDown(${event.key})`)
+    this.debug(`alt: `, event.altKey)
+    this.debug(`ctrl: `, event.ctrlKey)
+    this.debug(`meta: `, event.metaKey)
 
     switch (event.key) {
       case ARROW_DOWN:
@@ -77,6 +80,7 @@ class MenuContext extends DropdownContext {
   menuOptions() {
     return this.props.options
   }
+
   initialCursor() {
     // subclasses can redefine this to return this.state.cursor if they
     // want to keep a previously selected option selected

@@ -2,6 +2,7 @@ import MenuContext from '@/src/context/Menu.js'
 import { Generator } from '@abw/react-context'
 import { BLANK } from '@/src/constants.js'
 import { hasValue } from '@abw/badger-utils'
+import { ARROW_DOWN, ARROW_UP, TAB, ENTER, ESCAPE, SPACE, BACKSPACE } from '@/src/constants.js'
 import { findOption, validOption, searchOptions, defaultRenderer } from '@/src/utils/index.js'
 
 class Context extends MenuContext {
@@ -23,7 +24,6 @@ class Context extends MenuContext {
     isOpen:         false,
     selected:       undefined,
     searchInput:    undefined,
-    searchOptions:  [ ]
   }
   static initialState = {
     value:  BLANK,
@@ -87,6 +87,81 @@ class Context extends MenuContext {
     }
   }
 
+  closeState() {
+    return {
+      ...this.constructor.inactiveState,
+      options: this.props.options
+    }
+  }
+
+  onKeyDown(event) {
+    this.debug(`onKeyDown(${event.key})`)
+
+    switch (event.key) {
+      case ARROW_DOWN:
+        this.state.isOpen
+          ? this.setCursor(this.cursorNextIndex())
+          : this.open(this.initialCursor() ?? this.cursorFirstIndex())
+        break
+
+      case ARROW_UP:
+        this.state.isOpen
+          ? this.setCursor(this.cursorPrevIndex())
+          : this.open(this.initialCursor() ?? this.cursorLastIndex())
+        break
+
+      case ENTER:
+        this.state.isOpen
+          ? this.selectCursor()
+          : this.open(this.initialCursor() ??  this.cursorFirstIndex())
+        break
+
+      case ESCAPE:
+        this.close()
+        break
+
+      case BACKSPACE:
+        this.debug('backspace')
+        this.searchBackspace()
+        break
+
+      case TAB:
+        return
+
+      case SPACE:
+        if (! this.state.isOpen) {
+          this.debug('space to open')
+          this.open(this.cursorFirstIndex())
+          break
+        }
+        else if (! (this.state.searchInput ?? BLANK).length) {
+          break
+        }
+        // drop-through
+
+      // eslint-disable-next-line no-fallthrough
+      default:
+        this.debug('default keypress')
+        if (event.altKey || event.ctrlKey || event.metaKey) {
+          return
+        }
+        if (event.key.length === 1) {
+          console.log(`typed key ${event.key}`)
+          this.searchKey(event.key)
+          if (! this.state.open) {
+            this.open()
+          }
+          if (this._searchRef) {
+            this._searchRef.focus()
+          }
+          break
+        }
+        console.log(`ignored key ${event.key}`)
+        return
+    }
+    event.preventDefault()
+  }
+
   searchRef(ref) {
     this.debug('searchRef()')
     this._searchRef = ref
@@ -101,6 +176,7 @@ class Context extends MenuContext {
   blurSearch() {
     this.debug('blurSearch()')
     this.setState({ searchFocus: false })
+    this.closeSoon()
   }
 
   setSearch(searchInput) {

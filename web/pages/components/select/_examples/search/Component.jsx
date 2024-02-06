@@ -19,6 +19,7 @@ const animals = [
 const SearchExample = () =>
   <>
     <Select
+      debug
       search
       options={animals}
     />
