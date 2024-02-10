@@ -95,5 +95,10 @@ export const ComponentsMenu = {
       text: 'Sortable',
       tocName: 'sortable'
     },
+    {
+      to: '/components/spinner',
+      text: 'Spinner',
+      tocName: 'spinner'
+    },
   ]
 }
