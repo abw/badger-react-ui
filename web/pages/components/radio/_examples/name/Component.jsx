@@ -1,22 +1,22 @@
 import { Radio } from '@/src/index.jsx'
-
-/* START */
 import React, { useState } from 'react'
-// PRETEND: import { Radio } from '@abw/badger-react-ui
 
-const RadioExample = () => {
+const NameExample = () => {
   const [value, setValue] = useState(false)
   return (
+    /* START */
     <Radio
+      name="tap"
       value={value}
       onChange={setValue}
       options={[
         'David',
         'Nigel',
-        'Derek',
+        'Derek'
       ]}
     />
+    /* END */
   )
 }
 
-export default RadioExample
+export default NameExample

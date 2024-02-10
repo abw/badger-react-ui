@@ -7,7 +7,6 @@ const OnChangeExample = () => {
   return (
     <>
       <Radio
-        name="tap"
         value={value}
         onChange={setValue}
         options={[
@@ -17,7 +16,7 @@ const OnChangeExample = () => {
         ]}
       />
       { Boolean(value) &&
-        <div>
+        <div className="mar-t-2">
           Selected value: {value}
         </div>
       }

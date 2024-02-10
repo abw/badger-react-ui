@@ -1,10 +1,11 @@
-import React       from 'react'
+import React, { useId } from 'react'
 import RadioOption from './Option.jsx'
 import { Themed }  from '@/src/Theme.jsx'
 import { classes } from '@/src/utils/classes.js'
 import { isObject } from '@abw/badger-utils'
 
 const Radio = ({
+  name=useId(),
   value,
   options,
   className='radioset',
@@ -20,6 +21,7 @@ const Radio = ({
           : { value: opt, label: opt }
         return (
           <Option
+            name={name}
             key={option.value}
             option={option}
             checked={option.value === value}

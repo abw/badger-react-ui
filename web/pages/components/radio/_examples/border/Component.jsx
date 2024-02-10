@@ -9,7 +9,6 @@ const BorderExample = () => {
       {/* START */}
       <Radio
         border
-        name="tap1"
         labelClass="mar-b-2"
         value={value1}
         onChange={setValue1}
@@ -21,7 +20,6 @@ const BorderExample = () => {
       />
       <Radio
         border inline
-        name="tap2"
         labelClass="mar-r-2"
         value={value2}
         onChange={setValue2}
