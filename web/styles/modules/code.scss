@@ -8,15 +8,15 @@ $codeblock-back-dark-to:     rgba($codeblock-back-dark, 0.9);
 
 :where(html) {
   // code
-  --code-back:            var(--grey20-95);
-  --code-text:            var(--grey20-40);
-  --code-border:          var(--grey20-85);
+  --code-back:            var(--grey20-90);
+  --code-text:            var(--grey20-30);
+  --code-border:          var(--grey20-80);
   --code-link-back:       var(--brand-95);
   --code-link-text:       var(--grey40-40);
   --code-link-border:     var(--grey40-80);
   --code-link-hover:      var(--brand-70);
     // codeblock
-  --codeblock-back:       var(--grey-95);
+  --codeblock-back:       var(--grey-100);
   --codeblock-text:       var(--grey-50);
   --codeblock-caption:    var(--grey-20);
   --codeblock-border:     var(--grey20-75);
