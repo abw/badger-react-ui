@@ -20,6 +20,8 @@
     display: block;
     top: calc(100% + var(--menu-margin));
     width: 100%;
+    z-index: var(--menu-z-index, 100);
+
     //.inputs {
     //  &:focus-within {
     //    // box-shadow: none;
@@ -30,7 +32,6 @@
       background-color: var(--search-clear-background);
     }
   }
-
   .menu {
     --top: calc(100% + var(--menu-margin));
     position: absolute;
@@ -39,6 +40,7 @@
     left: 0;
     right: 0;
     overflow-y: scroll;
+    z-index: var(--menu-z-index, 100);
     max-height: var(--max-height);
     box-shadow: var(--shadow-2);
   }
