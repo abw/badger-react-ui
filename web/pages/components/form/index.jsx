@@ -5,6 +5,7 @@ import Sections     from '@/page/Sections.jsx'
 // import Section      from '@/page/Section.jsx'
 import Link         from '@/ui/Link.jsx'
 import UISelect     from './_examples/uiselect/index.jsx'
+import Search       from './_examples/search/index.jsx'
 import BasicForm    from './_examples/BasicForm.jsx'
 import BasicFormSrc from './_examples/BasicForm.jsx?raw'
 
@@ -30,6 +31,7 @@ const FormExamples = () =>
     <Sections tocName="form">
       <Heading title="Input Components"/>
       <UISelect/>
+      <Search/>
     </Sections>
   </div>
 
