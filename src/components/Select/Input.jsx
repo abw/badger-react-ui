@@ -26,10 +26,12 @@ const Input = ({
       className={inputClass}
       tabIndex={0}
     >
-      { hasValue(input)
+      { (hasValue(input) && input.length)
         ? <>{input}</>
         : <span className={placeholderClass}>{placeholder}</span>
       }
+      {/* NB: &nbsp; to prevent strange line spacing */}
+      &nbsp;
     </div>
     <div className={suffixClass}>
       <Icon name="angle-down"/>
