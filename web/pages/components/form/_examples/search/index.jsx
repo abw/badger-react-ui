@@ -1,17 +1,14 @@
 import React      from 'react'
-import Example    from '@/page/ExampleSection.jsx'
-import Component  from './Component.jsx'
-import Source     from './Component.jsx?raw'
+import Example    from '@/site/Example.jsx'
+import Search     from './Search.jsx'
+import SearchSrc  from './Search.jsx?raw'
+import Select     from './SelectValue.jsx'
+import SelectSrc  from './SelectValue.jsx?raw'
+import Section    from '@/page/Section.jsx'
 import Link       from '@/ui/Link.jsx'
 
-const Search = () =>
-  <Example
-    code="search"
-    Component={Component}
-    Source={Source}
-    // undent={2}
-    // expand
-  >
+const SearchExamples = () =>
+  <Section code="search">
     <p>
       The field <code>type</code> property can be set to <code>search</code>{' '}
       to use the <Link to="/components/search" text="Search"/> component.
@@ -19,14 +16,24 @@ const Search = () =>
       to the select component.  For example, see the <code>onSearch</code> handler
       defined below.
     </p>
+    <Example
+      Component={Search}
+      code={SearchSrc}
+    />
+
     <p>
       When an option is selected the default behaviour is to return the
-      complete option.  You can use the <code>selectValue</code> property to
+      complete option, as shown in the first field in the example below.
+      You can use the <code>selectValue</code> property to
       define a function which will accept the option and return the relevant
-      value from inside it.  This is shown in the third field below which
-      return the <code>value</code> property from the option instead of the
-      select option object.
+      value from inside it.  This is shown in the second field in the example
+      below which returns the <code>value</code> property from the option
+      instead of the selected option object.
     </p>
-  </Example>
+    <Example
+      Component={Select}
+      code={SelectSrc}
+    />
+  </Section>
 
-export default Search
+export default SearchExamples
