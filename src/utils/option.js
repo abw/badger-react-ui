@@ -1,4 +1,4 @@
-import { hasValue, isBoolean, isNumber, isString, noValue } from '@abw/badger-utils'
+import { hasValue, isBoolean, isNumber, isObject, isString, noValue } from '@abw/badger-utils'
 
 export const isSimple = value =>
   isString(value) || isNumber(value) || isBoolean(value)
@@ -28,10 +28,14 @@ export const searchOptions = (search, options) => {
   const lcwords = search.toLowerCase().split(/\s+/)
   return options.filter(
     option => {
-      if (option.fixed) {
+      const object = isObject(option)
+      const cmp = object
+        ? option.search ?? option.text ?? option.label ?? option.name ?? option.value
+        : option
+      if (object && option.fixed) {
+        // allow options to always be shown
         return true
       }
-      const cmp = option.search ?? option.text ?? option.label ?? option.name ?? option.value
       if (hasValue(cmp)) {
         const lccmp = cmp.toString().toLowerCase()
         return lcwords.every(
