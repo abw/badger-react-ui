@@ -46,10 +46,9 @@ class SearchContext extends Context {
 
   constructor(props) {
     super(props)
-    const input = this.inputValue()
     this.state = {
       ...this.state,
-      input,
+      ...this.valueState(),
       searching: false,
     }
 
@@ -66,7 +65,18 @@ class SearchContext extends Context {
     this.mounted = false
     this.props.onUnload(this)
   }
-  inputValue(value=this.props.initialValue) {
+  componentDidUpdate(prevProps) {
+    if (this.props.value !== prevProps.value) {
+      this.debug(`value has changed from ${prevProps.value} to ${this.props.value}`)
+      this.setState(this.valueState())
+    }
+  }
+  valueState(value=this.props.value) {
+    const input = this.inputValue(value)
+    return { value, input }
+  }
+
+  inputValue(value=this.props.value) {
     return hasValue(value)
       ? this.props.displayValue(value)
       : BLANK

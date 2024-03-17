@@ -21,7 +21,7 @@ const FormExamples = () =>
       Component={BasicForm}
       code={BasicFormSrc}
       caption="Form"
-      expand
+      // expand
     />
     <p>
       There are a few enhancements.  First, the buttons are rendered using

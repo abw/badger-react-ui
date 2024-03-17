@@ -10,6 +10,7 @@ const Search = ({
   <UISearch
     {...field}
     onSelect={option => field.onChange(selectValue(option))}
+    onReset={field.reset}
   />
 
 export default Search
