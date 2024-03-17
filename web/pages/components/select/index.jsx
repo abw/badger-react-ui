@@ -6,6 +6,7 @@ import DisplayOption  from './_examples/displayOption/index.jsx'
 import DisplayValue   from './_examples/displayValue/index.jsx'
 import ValidOption    from './_examples/validOption/index.jsx'
 import Search         from './_examples/search/index.jsx'
+import SearchOptions  from './_examples/searchOptions/index.jsx'
 import Sections       from '@/web/page/Sections.jsx'
 import Heading from '@/web/page/Heading.jsx'
 import Section from '@/web/page/Section.jsx'
@@ -19,10 +20,11 @@ const SelectExamples = () =>
       <Heading title="Properties"/>
       <Options/>
       <Value/>
-      <Search/>
       <DisplayOption/>
       <DisplayValue/>
       <ValidOption/>
+      <Search/>
+      <SearchOptions/>
       <Section code="disabled" split>
         Boolean flag to set the select input to be disabled.
       </Section>

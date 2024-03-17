@@ -16,30 +16,10 @@ const animals = [
   { id: 9, name: 'Ignored Iguana', disabled: true },
 ]
 
-const names = [
-  'Alan Aardvark',
-  'Amy Aardvark' ,
-  'Anne Aardvark',
-  'Bart Badger'  ,
-  'Betty Badger' ,
-  'Bobby Badger' ,
-  'Brenda Badger',
-  'Brian Badger' ,
-  'Ignored Iguana',
-]
-
 const SearchExample = () =>
-  <div className="grid-1 gap-2">
-    <Select
-      debug
-      search
-      options={animals}
-    />
-    <Select
-      debug
-      search
-      options={names}
-    />
-  </div>
+  <Select
+    search
+    options={animals}
+  />
 
 export default SearchExample
