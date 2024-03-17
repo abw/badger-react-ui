@@ -1,5 +1,6 @@
 :where(.select) {
   --menu-margin: 0.5em;
+  // --menu-margin: 0em;
   --max-height: 50vh;
   --search-margin: 0.5em;
   --search-clear-color: var(--brand-10);
@@ -18,22 +19,17 @@
     // margin-top: var(--search-margin);
     position: absolute;
     display: block;
-    top: calc(100% + var(--menu-margin));
+    top: calc(100% + var(--menu-margin) - var(--input-border-width));
     width: 100%;
     z-index: var(--menu-z-index, 100);
-
-    //.inputs {
-    //  &:focus-within {
-    //    // box-shadow: none;
-    //  }
-    //}
+    box-shadow: var(--shadow-2);
     .suffix.clear:hover {
       color: var(--search-clear-color);
       background-color: var(--search-clear-background);
     }
   }
   .menu {
-    --top: calc(100% + var(--menu-margin));
+    --top: calc(100% + var(--menu-margin) - var(--input-border-width));
     position: absolute;
     display: block;
     top: var(--top);
@@ -44,13 +40,43 @@
     max-height: var(--max-height);
     box-shadow: var(--shadow-2);
   }
+  &.open .search .inputs {
+    border-bottom: 1px solid var(--border-color);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-style: solid;
+    outline: none;
+    .prefix, .suffix {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  &.open .inputs {
+    box-shadow: var(--focus-ring);
+  }
+  &.open .search:has(:focus) .inputs {
+    box-shadow: none;
+  }
+  &.open .search .inputs {
+    box-shadow: none;
+  }
+  &.open:has(.search) .menu {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    .item:first-child {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+
   &:has(.search) .menu {
+    border-top: 0;
     --top: calc(
         100% +
         1em * var(--input-line-height) +
-        2 * var(--input-border-width) +
+        1 * var(--input-border-width) +
         2 * var(--input-padding-v) +
-        2 * var(--menu-margin)
+        1 * var(--menu-margin)
     );
   }
 }
