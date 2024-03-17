@@ -9,12 +9,10 @@ const Dropdown = () =>
       The <code>Dropdown</code> component can be used to display content
       that is visible when the user clicks on the trigger.
     </p>
-    <div className="cols-2 stack-desktop">
-      <p>
-        The default behaviour is to open the dropdown when the user
-        clicks on the trigger.
-      </p>
-    </div>
+    <p>
+      The default behaviour is to open the dropdown when the user
+      clicks on the trigger.
+    </p>
     <Example
       Component={Component}
       code={Source}

@@ -7,25 +7,21 @@ import DescTable from '@/web/site/DescTable.jsx'
 const Pager = () =>
   <>
     <h2>Context</h2>
-    <div className="cols-2 stack-desktop">
-      <p>
-        A react context is created which provides the items listed below.
-        Any other properties passed in to the component will also be
-        accessible to child components.
-      </p>
-      <p>
-        Values are provided for the 0-based indexes of the first, last,
-        previous, next and current pages.
-        For example, the lowest value for <code>page</code> is{' '}
-        <code>0</code> and the highest value is <code>pages - 1</code>.
-      </p>
-      <p>
-        Their counterparts are also provided in &quot;human readable&quot;
-        1-based form with a <code>No</code> suffix.  For example, the values
-        for <code>pageNo</code> range from <code>1</code> to <code>pages</code>,
-        and will always be one more than <code>page</code>.
-      </p>
-    </div>
+    <p>
+      A react context is created which provides the items listed below.
+      Any other properties passed in to the component will also be
+      accessible to child components.
+    </p>
+    <p>
+      Values are provided for the 0-based indexes of the first, last,
+      previous, next and current pages.
+      For example, the lowest value for <code>page</code> is{' '}
+      <code>0</code> and the highest value is <code>pages - 1</code>.
+      Their counterparts are also provided in &quot;human readable&quot;
+      1-based form with a <code>No</code> suffix.  For example, the values
+      for <code>pageNo</code> range from <code>1</code> to <code>pages</code>,
+      and will always be one more than <code>page</code>.
+    </p>
     <DescTable
       items={[
         ['pages',   'The total number of pages, as passed into the component as a property.'],
@@ -43,23 +39,21 @@ const Pager = () =>
       ]}
     />
 
-    <h2>Custom Component</h2>
-    <div className="cols-2 stack-desktop">
-      <p>
-        You can provide your own components to render certain elements
-        of the pager widget. These will be passed relevant parameters as
-        properties and can use the <code>usePager()</code> hook
-        to access the full pager context, including any additional properties
-        that you pass to the <code>Pager</code> component.
-      </p>
-      <p>
-        In this example we define a custom <code>MyPageButton</code> component
-        to replace the <code>Page</code> component that renders the numbered
-        page buttons.  Instead of displaying page numbers it shows alphabetical
-        ranges for each button, defined in a custom <code>pageRanges</code> {' '}
-        property.
-      </p>
-    </div>
+    <h2>Custom Components</h2>
+    <p>
+      You can provide your own components to render certain elements
+      of the pager widget. These will be passed relevant parameters as
+      properties and can use the <code>usePager()</code> hook
+      to access the full pager context, including any additional properties
+      that you pass to the <code>Pager</code> component.
+    </p>
+    <p>
+      In this example we define a custom <code>MyPageButton</code> component
+      to replace the <code>Page</code> component that renders the numbered
+      page buttons.  Instead of displaying page numbers it shows alphabetical
+      ranges for each button, defined in a custom <code>pageRanges</code> {' '}
+      property.
+    </p>
 
     <Example
       Component={Component}

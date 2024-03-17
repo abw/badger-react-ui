@@ -15,18 +15,16 @@ const Select = () =>
     />
 
     <h2>Context</h2>
-    <div className="cols-2 stack-desktop">
-      <p>
-        A react context is created which provides the items listed below.
-        Any other properties passed in to the component will also be
-        accessible to child components.
-      </p>
-      <p>
-        Custom components can be wrapped with the <code>SelectConsumer</code>{' '}
-        higher order component to receive these items as properties.  Or you
-        can use the <code>useSelect</code> hook to access them.
-      </p>
-    </div>
+    <p>
+      A react context is created which provides the items listed below.
+      Any other properties passed in to the component will also be
+      accessible to child components.
+    </p>
+    <p>
+      Custom components can be wrapped with the <code>SelectConsumer</code>{' '}
+      higher order component to receive these items as properties.  Or you
+      can use the <code>useSelect</code> hook to access them.
+    </p>
     <DescTable
       items={[
         ['close',         'Handler to close the menu.'],
@@ -50,7 +48,6 @@ const Select = () =>
         ['value',         'The value of the current selected option.'],
       ]}
     />
-
   </>
 
 export default Select

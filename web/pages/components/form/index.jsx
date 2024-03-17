@@ -26,7 +26,9 @@ const FormExamples = () =>
     <p>
       There are a few enhancements.  First, the buttons are rendered using
       the <Link to="/components/button" text="Button"/> component, allowing
-      them to include icons and all the styling properties.
+      them to include icons and all the styling properties.  Secondly, there
+      are <code>type</code> bindings which allow you to use more advanced
+      components for field inputs.  These are described below.
     </p>
     <Sections tocName="form">
       <Heading title="Input Components"/>

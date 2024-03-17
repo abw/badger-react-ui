@@ -32,22 +32,20 @@ const Options = () =>
       undent={2}
     />
 
-    <div className="cols-2 stack-desktop mar-b-4">
-      <p>
-        An element in the <code>options</code> array can also be an object.
-        It should contain a <code>text</code> property which can be a
-        string or JSX fragment. A <code>className</code> can be included to
-        add a CSS class to the option.
-      </p>
-      <p>
-        The content for an element is rendered using the <code>WithIcon</code>{' '}
-        component from{' '}
-        <a href="https://abw.github.io/badger-icon/">Badger Icon</a> allowing
-        you to include <code>iconLeft</code> and <code>iconRight</code> properties
-        to add icons to either side, along with <code>iconLeftClass</code> and{' '}
-        <code>iconRightClass</code> to set CSS classes for those icons.
-      </p>
-    </div>
+    <p>
+      An element in the <code>options</code> array can also be an object.
+      It should contain a <code>text</code> property which can be a
+      string or JSX fragment. A <code>className</code> can be included to
+      add a CSS class to the option.
+    </p>
+    <p>
+      The content for an element is rendered using the <code>WithIcon</code>{' '}
+      component from{' '}
+      <a href="https://abw.github.io/badger-icon/">Badger Icon</a> allowing
+      you to include <code>iconLeft</code> and <code>iconRight</code> properties
+      to add icons to either side, along with <code>iconLeftClass</code> and{' '}
+      <code>iconRightClass</code> to set CSS classes for those icons.
+    </p>
     <Example
       Component={Complex}
       code={ComplexSrc}
@@ -56,13 +54,11 @@ const Options = () =>
       undent={2}
     />
 
-    <div className="cols-2 stack-desktop mar-b-4">
-      <p>
-        An object in the <code>options</code> array can have a{' '}
-        <code>disabled</code> property set to <code>true</code> to disable
-        the option.
-      </p>
-    </div>
+    <p>
+      An object in the <code>options</code> array can have a{' '}
+      <code>disabled</code> property set to <code>true</code> to disable
+      the option.
+    </p>
     <Example
       Component={Disabled}
       code={DisabledSrc}
@@ -71,13 +67,11 @@ const Options = () =>
       undent={2}
     />
 
-    <div className="cols-2 stack-desktop mar-b-4">
-      <p>
-        An object in the <code>options</code> array can have a{' '}
-        <code>separator</code> property set to <code>true</code> to create
-        a separator.
-      </p>
-    </div>
+    <p>
+      An object in the <code>options</code> array can have a{' '}
+      <code>separator</code> property set to <code>true</code> to create
+      a separator.
+    </p>
     <Example
       Component={Separators}
       code={SepsSrc}
@@ -86,12 +80,10 @@ const Options = () =>
       undent={2}
     />
 
-    <div className="cols-2 stack-desktop mar-b-4">
-      <p>
-        An object in the <code>options</code> array can have a{' '}
-        <code>heading</code> property to create a section heading.
-      </p>
-    </div>
+    <p>
+      An object in the <code>options</code> array can have a{' '}
+      <code>heading</code> property to create a section heading.
+    </p>
     <Example
       Component={Headings}
       code={HeadingsSrc}

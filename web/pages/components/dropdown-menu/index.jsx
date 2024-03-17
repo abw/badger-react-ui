@@ -13,7 +13,7 @@ const DropdownExamples = () =>
     <h1>Dropdown Menu</h1>
     <DropdownMenu/>
     {/* <Context/> */}
-    <Sections tocName="dropdown">
+    <Sections tocName="dropdown-menu">
       <Heading title="Properties"/>
       <p className="large">
         All the properties supported by the{' '}
