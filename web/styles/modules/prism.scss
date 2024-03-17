@@ -1,13 +1,13 @@
 .codeblock .prismjs {
   --shell: var(--brown-40);
-  --yaml: var(--violet-40);
+  --yaml: var(--indigo-40);
   --comment: var(--grey-50);
   --punctuation: var(--grey20-60);
   --tag: var(--blue-50);
-  --attr-name: var(--violet-40);
-  --attr-value: var(--purple-50);
-  --string: var(--purple-50);
-  --function: var(--purple-20);
+  --attr-name: var(--indigo-40);
+  --attr-value: var(--teal-50);
+  --string: var(--teal-50);
+  --function: var(--teal-20);
   --variable: var(--maroon-30);
   --keyword: var(--brand-20);
   --property: var(--indigo-40);
@@ -74,12 +74,12 @@
     --comment: var(--grey-50);
     --punctuation: var(--grey20-40);
     --tag: var(--blue-50);
-    --attr-name: var(--violet-60);
-    --attr-value: var(--purple-70);
-    --string: var(--purple-65);
-    --function: var(--purple-80);
+    --attr-name: var(--indigo-60);
+    --attr-value: var(--teal-70);
+    --string: var(--teal-65);
+    --function: var(--teal-80);
     --variable: var(--maroon-70);
-    --keyword: var(--violet-70);
+    --keyword: var(--indigo-70);
     --property: var(--indigo-60);
     --selector: var(--teal-60);
   }
