@@ -1,5 +1,6 @@
 import { addInputType } from '@abw/badger-form'
-import UISelect from './Input/Select.jsx'
+import Select from './Input/Select.jsx'
+import Search from './Input/Search.jsx'
 // TODO: add input adapters for UI select, search, dropdown
 export {
   Form, Field, Fields, Fieldset, Errors, Status, Debug,
@@ -7,7 +8,8 @@ export {
   UseField, UseForm, useField, useForm
 } from '@abw/badger-form'
 
-addInputType('uiselect', UISelect)
+addInputType('uiselect', Select)
+addInputType('search', Search)
 
 export * from './Control/index.js'
 
