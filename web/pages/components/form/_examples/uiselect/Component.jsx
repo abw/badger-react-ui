@@ -17,6 +17,19 @@ const UISelectExample = () =>
       ]}
     />
     <Field
+      name="animal2"
+      type="uiselect"
+      label="Animal with custom placeholder"
+      placeholder="Select an animal"
+      options={[
+        'Ant',
+        'Badger',
+        'Cat',
+        'Dog',
+        'Elephant'
+      ]}
+    />
+    <Field
       name="badger"
       type="uiselect"
       label="Badger"
