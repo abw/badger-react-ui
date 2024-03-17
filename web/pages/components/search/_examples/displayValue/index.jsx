@@ -8,7 +8,7 @@ const DisplayValue = () =>
     code="displayValue"
     Component={Component}
     Source={Source}
-    expand
+    // expand
   >
     <p>
       When a result is selected the same rules will be applied to display

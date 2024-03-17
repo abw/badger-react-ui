@@ -8,7 +8,7 @@ const DisplayResult = () =>
     code="displayResult"
     Component={Component}
     Source={Source}
-    expand
+    // expand
   >
     <p>
       If a result is a text string then it will be displayed as the result.
