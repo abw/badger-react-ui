@@ -1,20 +1,18 @@
-import React  from 'react'
-import Reset  from './Reset.jsx'
+import React from 'react'
+import Cancel from './Cancel.jsx'
 import Submit from './Submit.jsx'
 import { flexGapSpaceClasses } from '@abw/badger-form'
-// import { Themed } from '../Theme.jsx'
 
-const ResetSubmit = ({
+const CancelSubmit = ({
   className,
   gap=4,
   space=false,
-  reset={},
+  cancel={},
   submit={}
 }) =>
   <div className={flexGapSpaceClasses({ className, gap, space }, 'controls')}>
-    <Reset  {...reset}/>
+    <Cancel {...cancel}/>
     <Submit {...submit}/>
   </div>
 
-export default ResetSubmit
-// export default Themed(ResetSubmit, 'Form.ResetSubmit')
+export default CancelSubmit
