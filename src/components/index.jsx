@@ -1,4 +1,5 @@
 export * from './Alert/index.jsx'
+export * from './Badge/index.jsx'
 export * from './Button/index.jsx'
 export * from './Buttons/index.jsx'
 export * from './Checkbox/index.jsx'

@@ -16,6 +16,11 @@ export const ComponentsMenu = {
       tocName: 'alert',
     },
     {
+      to: '/components/badge',
+      text: 'Badge',
+      tocName: 'badge',
+    },
+    {
       to: '/components/button',
       text: 'Button',
       tocName: 'button',
