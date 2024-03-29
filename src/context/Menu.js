@@ -4,7 +4,7 @@ import { doNothing, hasValue } from '@abw/badger-utils'
 import { cursorFirst, cursorLast, cursorNext, cursorPrev, scrollParentChild } from '@/src/utils/index.js'
 
 class MenuContext extends DropdownContext {
-  static debug        = true
+  static debug        = false
   static defaultProps = {
     options: [ ],
     openOnHover: false,
