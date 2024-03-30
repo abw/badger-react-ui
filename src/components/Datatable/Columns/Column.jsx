@@ -13,11 +13,11 @@ const Column = ({
 }) =>
   <div
     ref={setNodeRef} style={style}
-    className={`sortable item flex middle border mar-b-2 ${item.moved ? 'moved' : ''}`}
+    className={`sortable item flex middle outline pad-v-none pad-h-1 border mar-b-2 ${item.moved ? 'moved' : ''}`}
     {...props}
   >
     <Checkbox
-      className="fluid flex middle"
+      className="fluid flex middle no-focus"
       key={item.id}
       checked={isVisible[item.id]|| false}
       onChange={() => toggleVisibleColumn(item.id)}

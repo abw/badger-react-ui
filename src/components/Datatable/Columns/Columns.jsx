@@ -3,7 +3,7 @@ import Context  from '../Context.js'
 import Dropdown from '@/components/Dropdown/Dropdown.jsx'
 import Column   from './Column.jsx'
 import Close    from './Close.jsx'
-import VerticalSortExample from '@/components/Sortable/Vertical.jsx'
+import VerticalSort from '@/components/Sortable/Vertical.jsx'
 import { extract, splitHash } from '@abw/badger-utils'
 
 const Columns = ({
@@ -32,7 +32,7 @@ const Columns = ({
       closeOnBlur={false}
     >
       <div className="sortable list vertical">
-        <VerticalSortExample
+        <VerticalSort
           items={items}
           Item={Column}
           setOrder={setOrder}
