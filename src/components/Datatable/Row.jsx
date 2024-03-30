@@ -1,14 +1,17 @@
 import React          from 'react'
 import Context        from './Context.js'
 import DatatableCell  from './Cell.jsx'
+import { doNothing } from '@abw/badger-utils'
 
 const Row = ({
   row,
   columns,
+  rowClass,
+  onRowClick=doNothing,
   visibleColumns,
   Cell=DatatableCell
 }) =>
-  <tr>
+  <tr className={rowClass} onClick={() => onRowClick(row)}>
     { visibleColumns.map(
       name => {
         const column = columns[name]

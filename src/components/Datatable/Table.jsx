@@ -9,7 +9,7 @@ const Table = ({
   tableClass='celled striped table',
   selectableClass='selectable',
   scrollX,
-  rowClick,
+  onRowClick,
   showFilters,
   Headings=DatatableHeadings,
   Filters=DatatableFilters,
@@ -20,7 +20,7 @@ const Table = ({
       tableClass,
       scrollX ? 'nowrap' : 'wide',
       {
-        [selectableClass]: rowClick,
+        [selectableClass]: onRowClick,
       }
     )}
   >

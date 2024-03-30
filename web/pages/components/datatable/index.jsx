@@ -7,6 +7,7 @@ import Datatable  from './_examples/Datatable/index.jsx'
 import Rows       from './_examples/rows/index.jsx'
 import Columns     from './_examples/columns/index.jsx'
 import Color      from './_examples/color/index.jsx'
+import OnRowClick from './_examples/onRowClick/index.jsx'
 import Pager      from './_examples/pager/index.jsx'
 import Label      from './_examples/columns/label/index.jsx'
 import Display    from './_examples/columns/display/index.jsx'
@@ -20,6 +21,7 @@ const DatatableExamples = () =>
       <Heading title="Properties"/>
       <Rows/>
       <Columns/>
+      <OnRowClick/>
       <Color/>
       <Pager/>
       <Heading title="Column Properties"/>
