@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@abw/badger-form':
-    specifier: ^0.2.1
-    version: 0.2.1(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^1.0.0
+    version: 1.0.0(react-dom@18.2.0)(react@18.2.0)
   '@abw/badger-icon':
     specifier: ^0.0.11
     version: 0.0.11
@@ -41,8 +41,8 @@ dependencies:
 
 devDependencies:
   '@abw/badger-css':
-    specifier: ^0.2.22
-    version: 0.2.22
+    specifier: ^1.0.1
+    version: 1.0.1
   '@abw/badger-timestamp':
     specifier: ^1.0.4
     version: 1.0.4
@@ -124,22 +124,22 @@ packages:
       js-yaml: 4.1.0
     dev: true
 
-  /@abw/badger-css@0.2.22:
-    resolution: {integrity: sha512-gAKjoU1F5r0GkvnpnTKY5AbF8fXUoqkAn3PpH1BABuhjiBmGuGd/BzCaS1fxfqamte25h4BsZ54SCfiR55cz8A==}
+  /@abw/badger-css@1.0.1:
+    resolution: {integrity: sha512-nBaVAnB0r5FnBxXGxvpvuW7oHtlOMMZ5tjkL+coVjXU+lpHjGAyu/PUU8ZdL4R2Dybw3PIfs+a6NffhbSJLK0g==}
     hasBin: true
     dependencies:
-      '@abw/badger': 1.2.2
+      '@abw/badger': 1.2.4
     dev: true
 
-  /@abw/badger-filesystem@1.0.5:
-    resolution: {integrity: sha512-EXQvMJhGEbsGzBltfc6tQJEA/hsZfKrqFdHDoMWCdp2ZmZWadJ6dXvdcW0szpAsszBNO3HlF5F0KApOdU3vD9w==}
+  /@abw/badger-filesystem@1.0.6:
+    resolution: {integrity: sha512-WiMn0WRb49sYBFXxZHpLSPtQ75jlayjMKkQuCAEOkQj19H5EDCFSe86c79dE0TeHaqmMEFxUcFQulrNetWN7EQ==}
     dependencies:
       '@abw/badger-codecs': 1.0.3
       '@abw/badger-utils': 1.0.25
     dev: true
 
-  /@abw/badger-form@0.2.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-yjDhd2jJuMqaPgNf3tZPM+e+wK2S6zaRDY/KKYKJ37Ohud7HTNFMlUMgKZ7ZZPvRRz+CBL+I0gTj3oLqToiVhA==}
+  /@abw/badger-form@1.0.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-8KC04fEr+QyNMPFqRONRaotgovpKRYgmDkojmFKWCi9pmc+RoQQtKXIz2qi55Qx3rGoMR1Ye+MJm0K2cKxBH5A==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -164,20 +164,26 @@ packages:
       '@abw/badger-utils': 1.0.25
     dev: true
 
+  /@abw/badger-timestamp@1.0.5:
+    resolution: {integrity: sha512-Kt/FvmcdQj4XTJdn7tuma0IeL/HHd5mGe6orV8uziMbvsA+542AhJ3G5B33/5TX9wFXUnOHaK+CRzGUQknWNBA==}
+    dependencies:
+      '@abw/badger-utils': 1.0.25
+    dev: true
+
   /@abw/badger-utils@1.0.25:
     resolution: {integrity: sha512-glGZ47pC7jFmKFZ7FcbqQZhHD0mS+PmickhREirily+k3bWzew7SA72+02HWM8uCwBOP0rLK0BfqrGJ+8a7fgg==}
 
-  /@abw/badger@1.2.2:
-    resolution: {integrity: sha512-Xp8/jPxzskdaR2Jmmo+uZTCulD73FXjIq70KhQ5V5rGo2cfrBzAj1JBkaUPd3roBlWOwfirKmyJmf+ZP9AdXIQ==}
+  /@abw/badger@1.2.4:
+    resolution: {integrity: sha512-6QWQFlrK2s7pL/FT34Nw6aXYIqcZl6+QnZfha9NBEu32Smb3tA1lVVajsfQu3+qZDR8Ik7kyWN0AucKv9K+jgA==}
     hasBin: true
     dependencies:
       '@abw/badger-codecs': 1.0.3
-      '@abw/badger-filesystem': 1.0.5
-      '@abw/badger-timestamp': 1.0.4
+      '@abw/badger-filesystem': 1.0.6
+      '@abw/badger-timestamp': 1.0.5
       '@abw/badger-utils': 1.0.25
-      chokidar: 3.5.3
+      chokidar: 3.6.0
       commander: 11.1.0
-      dotenv: 16.4.1
+      dotenv: 16.4.5
       js-yaml: 4.1.0
       prompts: 2.4.2
     dev: true
@@ -1611,6 +1617,21 @@ packages:
       fsevents: 2.3.3
     dev: true
 
+  /chokidar@3.6.0:
+    resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
+    engines: {node: '>= 8.10.0'}
+    dependencies:
+      anymatch: 3.1.3
+      braces: 3.0.2
+      glob-parent: 5.1.2
+      is-binary-path: 2.1.0
+      is-glob: 4.0.3
+      normalize-path: 3.0.0
+      readdirp: 3.6.0
+    optionalDependencies:
+      fsevents: 2.3.3
+    dev: true
+
   /color-convert@1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
     dependencies:
@@ -1841,8 +1862,8 @@ packages:
       tslib: 2.6.2
     dev: true
 
-  /dotenv@16.4.1:
-    resolution: {integrity: sha512-CjA3y+Dr3FyFDOAMnxZEGtnW9KBR2M0JvvUtXNW+dYJL5ROWxP9DUHCwgFqpMk0OXCc0ljhaNTr2w/kutYIcHQ==}
+  /dotenv@16.4.5:
+    resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
     engines: {node: '>=12'}
     dev: true
 

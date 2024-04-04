@@ -41,7 +41,7 @@
     "url": "https://github.com/abw/badger-react-ui/issues"
   },
   "dependencies": {
-    "@abw/badger-form": "^0.2.1",
+    "@abw/badger-form": "^1.0.0",
     "@abw/badger-icon": "^0.0.11",
     "@abw/badger-utils": "^1.0.25",
     "@abw/react-context": "^2.0.3",
@@ -52,7 +52,7 @@
     "@dnd-kit/utilities": "^3.2.2"
   },
   "devDependencies": {
-    "@abw/badger-css": "^0.2.22",
+    "@abw/badger-css": "^1.0.1",
     "@abw/badger-timestamp": "^1.0.4",
     "@abw/react-night-and-day": "^0.0.6",
     "@testing-library/jest-dom": "^6.2.0",
