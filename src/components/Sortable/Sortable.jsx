@@ -70,6 +70,7 @@ export const Sortable = ({
               item={item}
               Item={Item}
               {...props}
+              role="drag"
             />
           )}
         </List>

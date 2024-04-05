@@ -66,8 +66,6 @@ worth it?  How hard would it be to implement just the bits we need?
 
 # Utilities
 
-* Storage
-
 # Documentation
 
 Document context for Dropdown, Dropdown menu, Search, Datatable
