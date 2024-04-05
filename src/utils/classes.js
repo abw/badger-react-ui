@@ -78,16 +78,10 @@ export const shadowClass = shadow =>
   classTrueInt(shadow, 'shadow-1', s => `shadow-${s}`)
 
 export const paddingClass = padding =>
-  classTrueVHTRBL(
-    padding,
-    'pad',
-  )
+  classTrueVHTRBL(padding, 'pad')
 
 export const marginClass = margin =>
-  classTrueVHTRBL(
-    margin,
-    'mar',
-  )
+  classTrueVHTRBL(margin, 'mar')
 
 export const radiusClass = radius =>
   classInt(radius, r => `bdr-${r}`)
