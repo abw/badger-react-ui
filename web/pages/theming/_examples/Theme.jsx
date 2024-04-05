@@ -1,8 +1,8 @@
-import { Theme, Select, Button } from '@/src/index.jsx'
+import { Theme, Select, Button, Spinner } from '@/src/index.jsx'
 
 /* START */
 import React from 'react'
-// PRETEND: import { Theme, Select, Button } from '@abw/badger-react-ui
+// PRETEND: import { Theme, Select, Button, Spinner } from '@abw/badger-react-ui
 
 const BorderClassExamples = () => {
   const myTheme = {
@@ -12,6 +12,10 @@ const BorderClassExamples = () => {
     Button: {
       color: 'green',
       iconRight: 'check'
+    },
+    Spinner: {
+      color: 'violet',
+      icon: 'star'
     }
   }
   return (
@@ -22,8 +26,9 @@ const BorderClassExamples = () => {
           { value: 11, text: 'eleven' },
         ]}
       />
-      <div className="flex space mar-t-2">
+      <div className="flex space middle mar-t-2">
         <Button text="OK"/>
+        <Spinner size="larger"/>
         <Button text="Not OK" color="red" iconRight="thumb-down"/>
       </div>
     </Theme.Provider>

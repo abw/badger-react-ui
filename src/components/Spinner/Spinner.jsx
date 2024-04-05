@@ -2,6 +2,7 @@ import React from 'react'
 import Icon from '@/components/Icon/Icon.jsx'
 import { classes } from '@/src/utils/classes.js'
 import { isBoolean } from '@abw/badger-utils'
+import { Themed }    from '@/src/Theme.jsx'
 
 const iconParts = (mods, classes) =>
   [
@@ -89,4 +90,4 @@ const Spinner = ({
 }
 
 
-export default Spinner
+export default Themed(Spinner, 'Spinner')
