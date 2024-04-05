@@ -129,3 +129,15 @@ export const UtilitiesMenu = {
     },
   ]
 }
+
+export const ThemingMenu = {
+  title:  'Theming',
+  path: '/theming',
+  items: [
+    {
+      to: '/theming',
+      text: "It's One Louder",
+      tocName: 'theming',
+    },
+  ]
+}
