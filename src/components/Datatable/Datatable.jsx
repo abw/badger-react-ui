@@ -11,6 +11,5 @@ const Datatable = ({
     <Content/>
   </Context.Provider>
 
-export const BRUIDatatable = Themed(Datatable, 'Datatable')
-export default BRUIDatatable
+export default Themed(Datatable, 'Datatable')
 
