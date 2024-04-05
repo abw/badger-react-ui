@@ -1,9 +1,10 @@
 /* eslint-disable quotes */
-import { Form, Field, ResetSubmit, Debug, Button } from '@/src/index.jsx'
+import { Form, Field, ResetSubmit, Debug, Button, Submitting } from '@/src/index.jsx'
+import { sleep } from '@abw/badger-utils'
 
 /* START */
 import React from 'react'
-// PRETEND: import { Form, Field, ResetSubmit, Button, Debug } from '@abw/badger-react-ui
+// PRETEND: import { Form, Field, ResetSubmit, Button, Debug, Submitting } from '@abw/badger-react-ui
 
 const instruments = [
   'Guitar',
@@ -32,8 +33,16 @@ const searchQuotes = input =>
       .indexOf(input.toLowerCase()) >= 0
   )
 
+const onSubmit = () => sleep(2000).then(
+  () => ({ ok: 'All is good' })
+)
+
 const FormExample = () =>
-  <Form>
+  <Form
+    className="relative"
+    onSubmit={onSubmit}
+    resetOnSuccess
+  >
     <Field
       name="email"
       label="Email address"
@@ -72,6 +81,7 @@ const FormExample = () =>
         text: 'Register'
       }}
     />
+    <Submitting/>
     { form =>
       <Button
         text="Set Example Form Values"
