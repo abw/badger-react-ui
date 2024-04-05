@@ -146,7 +146,7 @@ class Context extends MenuContext {
           return
         }
         if (event.key.length === 1) {
-          console.log(`typed key ${event.key}`)
+          this.debug(`typed key ${event.key}`)
           this.searchKey(event.key)
           if (! this.state.open) {
             this.open()
@@ -156,7 +156,7 @@ class Context extends MenuContext {
           }
           break
         }
-        console.log(`ignored key ${event.key}`)
+        this.debug(`ignored key ${event.key}`)
         return
     }
     event.preventDefault()
