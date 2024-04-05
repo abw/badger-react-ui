@@ -1,8 +1,8 @@
-import React  from 'react'
-import Reset  from './Reset.jsx'
-import Submit from './Submit.jsx'
+import React      from 'react'
+import Reset      from './Reset.jsx'
+import Submit     from './Submit.jsx'
+import { Themed } from '@/src/Theme.jsx'
 import { flexGapSpaceClasses } from '@abw/badger-form'
-// import { Themed } from '../Theme.jsx'
 
 const ResetSubmit = ({
   className,
@@ -16,5 +16,4 @@ const ResetSubmit = ({
     <Submit {...submit}/>
   </div>
 
-export default ResetSubmit
-// export default Themed(ResetSubmit, 'Form.ResetSubmit')
+export default Themed(ResetSubmit, 'ResetSubmit')

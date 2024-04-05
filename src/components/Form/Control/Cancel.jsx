@@ -1,5 +1,6 @@
 import React          from 'react'
 import DefaultButton  from '@/components/Button/Button.jsx'
+import { Themed }     from '@/src/Theme.jsx'
 
 const Cancel = ({
   text='Cancel',
@@ -13,5 +14,4 @@ const Cancel = ({
     {...props}
   />
 
-export default Cancel
-// export default Themed(Cancel, 'Cancel')
+export default Themed(Cancel, 'Cancel')

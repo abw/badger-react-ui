@@ -1,7 +1,7 @@
 import React          from 'react'
 import DefaultButton  from '@/components/Button/Button.jsx'
 import { useForm }    from '@abw/badger-form'
-// import { Themed } from '../Theme.jsx'
+import { Themed }     from '@/src/Theme.jsx'
 
 const Submit = ({
   type='submit',
@@ -23,5 +23,4 @@ const Submit = ({
   )
 }
 
-export default Submit
-// export default Themed(Submit, 'Form.Submit')
+export default Themed(Submit, 'Submit')

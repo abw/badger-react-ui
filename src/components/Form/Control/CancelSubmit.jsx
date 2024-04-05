@@ -1,6 +1,7 @@
-import React from 'react'
-import Cancel from './Cancel.jsx'
-import Submit from './Submit.jsx'
+import React      from 'react'
+import Cancel     from './Cancel.jsx'
+import Submit     from './Submit.jsx'
+import { Themed } from '@/src/Theme.jsx'
 import { flexGapSpaceClasses } from '@abw/badger-form'
 
 const CancelSubmit = ({
@@ -15,4 +16,4 @@ const CancelSubmit = ({
     <Submit {...submit}/>
   </div>
 
-export default CancelSubmit
+export default Themed(CancelSubmit, 'CancelSubmit')
