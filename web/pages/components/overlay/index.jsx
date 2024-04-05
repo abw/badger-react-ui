@@ -5,7 +5,7 @@ import Theme        from './_examples/theme/index.jsx'
 import Custom       from './_examples/custom/index.jsx'
 import OverlayState from './_examples/OverlayState/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
-import Heading from '@/web/page/Heading.jsx'
+import Heading      from '@/web/page/Heading.jsx'
 
 const OverlayExamples = () =>
   <div className="flow">

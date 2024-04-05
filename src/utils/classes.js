@@ -1,4 +1,4 @@
-import { hasValue, isInteger, isObject, maybeFunction } from '@abw/badger-utils'
+import { hasValue, isInteger, isObject, maybeFunction, splitList } from '@abw/badger-utils'
 
 export const joinClasses = classes =>
   classes
@@ -46,11 +46,48 @@ export const sizeColorProps = ({
   )
 })
 
+export const styleProps = ({
+  className,
+  size,
+  color,
+  border,
+  radius,
+  shadow,
+  pad,
+  mar,
+  padding=pad,
+  margin=mar,
+  ...props
+}) => ({
+  ...props,
+  className: classes(
+    className, size,
+    colorClass(color),
+    borderClass(border),
+    radiusClass(radius),
+    shadowClass(shadow),
+    paddingClass(padding),
+    marginClass(margin),
+  )
+})
+
 export const borderClass = border =>
   classTrueInt(border, 'border', b => `border bdw-${b}`)
 
 export const shadowClass = shadow =>
   classTrueInt(shadow, 'shadow-1', s => `shadow-${s}`)
+
+export const paddingClass = padding =>
+  classTrueVHTRBL(
+    padding,
+    'pad',
+  )
+
+export const marginClass = margin =>
+  classTrueVHTRBL(
+    margin,
+    'mar',
+  )
 
 export const radiusClass = radius =>
   classInt(radius, r => `bdr-${r}`)
@@ -72,6 +109,13 @@ export const classInt = (c, i) =>
     ? maybeFunction(i, c)
     : null
 
+export const classTrue = (c, t, f) =>
+  c === true
+    ? t
+    : hasValue(c)
+      ? maybeFunction(f, c)
+      : null
+
 export const classTrueInt = (c, t, i) =>
   c === true
     ? t
@@ -79,3 +123,21 @@ export const classTrueInt = (c, t, i) =>
       ? maybeFunction(i, c)
       : null
 
+export const classTrueVHTRBL = (c, prefix) =>
+  classTrue(
+    c,
+    prefix,
+    v => classVHTRBL(prefix, splitList(v))
+  )
+
+export const classVHTRBL = (prefix, values) =>
+  values.length === 2
+    ? fixValues(prefix, ['v', 'h'], values)
+    : values.length === 4
+      ? fixValues(prefix, ['t', 'r', 'b', 'l'], values)
+      : values.map( v => `${prefix}-${v}` ).join(' ')
+
+export const fixValues = (prefix, midfixes, values) =>
+  values
+    .map( (v, n) => `${prefix}-${midfixes[n]}-${v}` )
+    .join(' ')

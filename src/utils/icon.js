@@ -1,3 +1,4 @@
+// DEPRECATED - now imported from badger-icon
 import { fail, isString, noValue } from '@abw/badger-utils'
 import { parseAttrs } from './attrs.js'
 import { joinClasses } from './classes.js'

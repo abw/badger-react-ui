@@ -20,7 +20,7 @@ from form styles
 
 ## Datatable
 
-Column select and sort
+Column select, sort and filter.  Storage key
 
 ## Radio
 
@@ -50,7 +50,6 @@ Search input can be obscured by next field - fixed by z-index but hard-coded
 Put search inside menu fixed to top.  Drop shadow for menu doesn't extend
 around search.
 
-
 ## Details
 
 * Custom icon
@@ -64,6 +63,10 @@ scope of buttons in badger-css.
 
 Adding dnd kit increased the bundle size from 68k to 148k.  Is it really
 worth it?  How hard would it be to implement just the bits we need?
+
+# Utilities
+
+* Storage
 
 # Documentation
 

@@ -112,3 +112,20 @@ export const ComponentsMenu = {
     },
   ]
 }
+
+export const UtilitiesMenu = {
+  title:  'Utilities',
+  path: '/utilities',
+  items: [
+    {
+      to: '/utilities/classes',
+      text: 'CSS Classes',
+      tocName: 'classes',
+    },
+    {
+      to: '/utilities/storage',
+      text: 'Storage',
+      tocName: 'storage',
+    },
+  ]
+}
