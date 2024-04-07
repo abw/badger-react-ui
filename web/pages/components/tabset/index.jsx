@@ -3,6 +3,7 @@ import Heading    from '@/web/page/Heading.jsx'
 import Sections   from '@/web/page/Sections.jsx'
 import Tabset     from './_examples/Tabset/index.jsx'
 import Tabs       from './_examples/Tabs/index.jsx'
+import StorageKey from './_examples/StorageKey/index.jsx'
 import Lined      from './_examples/Lined/index.jsx'
 import Solid      from './_examples/Solid/index.jsx'
 import Color      from './_examples/Color/index.jsx'
@@ -19,19 +20,13 @@ const TabsetExamples = () =>
     <Sections tocName="tabset">
       <Heading title="Properties"/>
       <Tabs/>
+      <StorageKey/>
       <Lined/>
       <Solid/>
       <Color/>
       <Size/>
       <Center/>
       <Right/>
-      <Section code="storageKey">
-        The name of a key to use in local storage for saving the tab state.
-        This should usually be unique for each tabset.  e.g. a tabset on
-        your home page could use <code>home-tabs</code> and a tabset on
-        your &quot;Contact Us&quot; page could use <code>contact-tabs</code>.
-      </Section>
-
       <Section code="tabsetClass">
         The CSS class added to the tabset container.  This defaults
         to <code>tabset</code>.

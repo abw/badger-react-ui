@@ -1,6 +1,7 @@
 import React from 'react'
 import TabBody from './Body.jsx'
 import WithIcons from '@/components/Icon/WithIcons.jsx'
+import Storage from '@/src/utils/storage.js'
 import { classes } from '@/src/utils/classes.js'
 import { doNothing } from '@abw/badger-utils'
 
