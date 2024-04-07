@@ -27,6 +27,7 @@ class SearchContext extends Context {
     onFocus: doNothing,
     onBlur: doNothing,
     onReset: doNothing,
+    onClear: doNothing,
     onSelect: doNothing,
     displayValue: defaultRenderer('displayValue'),
     displayResult: defaultRenderer('displayResult'),
@@ -40,7 +41,7 @@ class SearchContext extends Context {
   }
   static actions = [
     'onFocus', 'onBlur', 'onChange', 'onKeyDown',
-    'reset', 'selectResult', 'setCursor', 'selectCursor',
+    'reset', 'clear', 'selectResult', 'setCursor', 'selectCursor',
     'resultsRef', 'activeRef',
   ]
 
@@ -149,7 +150,7 @@ class SearchContext extends Context {
     this.debug('reset()')
     const value = this.props.initialValue
     const input = this.inputValue(value)
-    this.debug(`reset() [input:${input}] from value: `, value)
+    // this.debug(`reset() [input:${input}] from value: `, value)
     this.setState(
       {
         value,
@@ -157,6 +158,18 @@ class SearchContext extends Context {
         ...inactiveState,
       },
       this.props.onReset
+    )
+  }
+
+  clear() {
+    this.debug('clear()')
+    this.setState(
+      {
+        value: undefined,
+        input: BLANK,
+        ...inactiveState,
+      },
+      this.props.onClear
     )
   }
 
@@ -238,4 +251,6 @@ class SearchContext extends Context {
   }
 }
 
-export default Generator(SearchContext)
+const generated = Generator(SearchContext)
+export const useSearch = generated.Use
+export default generated

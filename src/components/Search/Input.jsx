@@ -7,7 +7,7 @@ const SearchInput = ({
   onFocus,
   onBlur,
   onChange,
-  reset,
+  clear,
   placeholder='Search',
   clearIcon='cross',
   searchIcon='search',
@@ -34,7 +34,7 @@ const SearchInput = ({
       disabled={disabled}
       className={inputClass}
     />
-    <div className={suffixClass} onClick={reset}>
+    <div className={suffixClass} onClick={clear}>
       <Icon name={searching ? searchingIcon : clearIcon}/>
     </div>
   </div>

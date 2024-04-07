@@ -22,8 +22,7 @@ const animals = [
 ]
 
 const OnSelectExample = () => {
-  const [search1, setSearch1] = React.useState()
-  const [search2, setSearch2] = React.useState()
+  const [search, setSearch] = React.useState()
 
   const onSearch = input =>
     animals.filter(
@@ -36,21 +35,13 @@ const OnSelectExample = () => {
   return (
     <div className="grid-2 gap-2">
       <Search
-        onLoad={setSearch1}
+        onLoad={setSearch}
         onSearch={onSearch}
+        value="Brian Badger"
       />
       <Button
-        onClick={() => search1?.reset()}
-        text="Reset"
-      />
-      <Search
-        onLoad={setSearch2}
-        onSearch={onSearch}
-        value="Ben Badger"
-      />
-      <Button
-        onClick={() => search2?.reset()}
-        text="Reset"
+        onClick={() => search?.clear()}
+        text="Clear"
       />
     </div>
   )
