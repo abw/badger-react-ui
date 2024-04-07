@@ -2,8 +2,8 @@ import { useState, useMemo } from 'react'
 import { Generator } from '@abw/react-context'
 import { hasValue, splitHash } from '@abw/badger-utils'
 import {
-  datatableVisibleColumns, datatableColumnDefinitions,
-  datatableSort, datatablePaginate, datatableFilter
+  datatableColumnDefinitions,
+  datatableSort, datatablePaginate, datatableFilter, State
 } from './Utils/index.js'
 
 const DatatableContext = ({
@@ -15,26 +15,21 @@ const DatatableContext = ({
     () => datatableColumnDefinitions(props.columns),
     [props.columns]
   )
+  const state = State({ ...props, columns })
 
-  const [pageNo, setPageNo] = useState(props.pageNo ?? 1)
-  const [pageSize, setPageSize] = useState(props.pageSize ?? 10)
   const [showFilters, setShowFilters] = useState(false)
   const [filters, setFilters] = useState({ })
-  const [sortColumn, setSortColumn] = useState(props.sortColumn)
-  const [sortReverse, setSortReverse] = useState(props.sortReverse ?? false)
-  const [columnOrder, setColumnOrder] = useState(Object.keys(columns))
-  const [visibleColumns, setVisibleColumns] = useState(datatableVisibleColumns(columns))
   const [controlsVisible, setControlsVisible] = useState(false)
   const showControls = () => setControlsVisible(true)
   const hideControls = () => setControlsVisible(false)
 
   const toggleSortColumn = column => {
-    if (sortColumn === column) {
-      setSortReverse( reverse => ! reverse )
+    if (state.sortColumn === column) {
+      state.setSortReverse(! state.sortReverse)
     }
     else {
-      setSortColumn(column)
-      setSortReverse(false)
+      state.setSortColumn(column)
+      state.setSortReverse(false)
     }
   }
 
@@ -57,29 +52,25 @@ const DatatableContext = ({
         return newFilters
       }
     )
-    setPageNo(1)
+    state.setPageNo(1)
   }
 
-  const toggleVisibleColumn = name =>
-    setVisibleColumns(
-      visible => {
-        const isVisible = splitHash(visible)
-        console.log(`visible: `, visible)
-        console.log(`isVisible: `, isVisible)
-
-        return isVisible[name]
-          ? visible
-            .filter( item => item !== name )
-          : Object
-            .keys(columns)
-            .filter( item => item === name || isVisible[item] )
-      }
+  const toggleVisibleColumn = name => {
+    const isVisible = splitHash(state.visibleColumns)
+    state.setVisibleColumns(
+      isVisible[name]
+        ? state.visibleColumns
+          .filter( item => item !== name )
+        : Object
+          .keys(columns)
+          .filter( item => item === name || isVisible[item] )
     )
+  }
 
   const changeColumnOrder = ids => {
     let newOrder    = [ ]
     let newVisible  = [ ]
-    const isVisible = splitHash(visibleColumns)
+    const isVisible = splitHash(state.visibleColumns)
     ids.forEach(
       name => {
         newOrder.push(name)
@@ -88,35 +79,35 @@ const DatatableContext = ({
         }
       }
     )
-    setVisibleColumns(newVisible)
-    setColumnOrder(newOrder)
+    state.setVisibleColumns(newVisible)
+    state.setColumnOrder(newOrder)
   }
 
   const page = useMemo(
     () => datatablePaginate(
       datatableSort(
         datatableFilter(rows, columns, filters),
-        columns, sortColumn, sortReverse
+        columns, state.sortColumn, state.sortReverse
       ),
-      pageNo, pageSize,
+      state.pageNo, state.pageSize,
     ),
-    [rows, columns, filters, sortColumn, sortReverse, pageNo, pageSize]
+    [
+      rows, columns, filters,
+      state.sortColumn, state.sortReverse, state.pageNo, state.pageSize
+    ]
   )
 
 
   return render({
     ...props,
     rows, columns, page,
-    pageNo, setPageNo,
-    pageSize, setPageSize,
     showFilters, toggleFilters,
     filters, setFilter,
-    sortColumn, setSortColumn,
-    sortReverse, setSortReverse,
     toggleSortColumn,
-    visibleColumns, setVisibleColumns, toggleVisibleColumn,
-    columnOrder, setColumnOrder, changeColumnOrder,
-    controlsVisible, showControls, hideControls
+    controlsVisible, showControls, hideControls,
+    toggleVisibleColumn,
+    changeColumnOrder,
+    ...state
   })
 }
 

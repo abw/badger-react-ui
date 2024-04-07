@@ -1,3 +1,5 @@
+import { hasValue } from '@abw/badger-utils'
+
 function LocalStorage() {
   let store = { }
   return {
@@ -15,9 +17,22 @@ export const prefixKey = (prefix, key) => [prefix, key].join('-')
 
 export function Storage(prefix) {
   return {
-    get: key    => JSON.parse(
-      Store.getItem(prefixKey(prefix, key))
-    ),
+    get: (key, defaultValue) => {
+      const value = Store.getItem(
+        prefixKey(prefix, key)
+      )
+      if (hasValue(value)) {
+        return JSON.parse(value)
+      }
+      if (hasValue(defaultValue)) {
+        Store.setItem(
+          prefixKey(prefix, key),
+          JSON.stringify(defaultValue)
+        )
+        return defaultValue
+      }
+      return null
+    },
     set: (key, value) => Store.setItem(
       prefixKey(prefix, key),
       JSON.stringify(value)

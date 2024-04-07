@@ -9,6 +9,7 @@ const DatatableExample = () =>
   <Datatable
     rows={animals}
     columns="id name animal role"
+    storageKey="badger-datatable-animals-demo1"
   />
 
 export default DatatableExample
