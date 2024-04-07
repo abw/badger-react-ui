@@ -22,6 +22,8 @@ from form styles
 
 Column select, sort and filter.  Storage key
 
+Headings wrap
+
 ## Radio
 
 Renderer for option.text/option.label/option.name
@@ -35,6 +37,11 @@ Some inconsistencies to iron out.
 
 The gap between input and menu can be confusing when there are other form
 component poking through the gap.
+
+## Select
+
+Reset resets the search to the initialValue when it should be to nothing.
+e.g. a form with an existing option can't be cleared
 
 ## Select with search option
 

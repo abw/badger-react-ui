@@ -110,6 +110,11 @@ export const ComponentsMenu = {
       text: 'Spinner',
       tocName: 'spinner'
     },
+    {
+      to: '/components/tabset',
+      text: 'Tabset',
+      tocName: 'tabset'
+    },
   ]
 }
 
