@@ -20,7 +20,8 @@ from form styles
 
 ## Datatable
 
-Column select, sort and filter.  Storage key
+Column select, sort and filter.  Storage key may need some further work as
+it (probably) won't work when columns definitions change.
 
 Headings wrap
 
@@ -37,11 +38,6 @@ Some inconsistencies to iron out.
 
 The gap between input and menu can be confusing when there are other form
 component poking through the gap.
-
-## Select
-
-Reset resets the search to the initialValue when it should be to nothing.
-e.g. a form with an existing option can't be cleared
 
 ## Select with search option
 
