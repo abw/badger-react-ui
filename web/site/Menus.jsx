@@ -135,6 +135,18 @@ export const UtilitiesMenu = {
   ]
 }
 
+export const HooksMenu = {
+  title:  'Hooks',
+  path: '/hooks',
+  items: [
+    {
+      to: '/hooks/useComplexState',
+      text: 'useComplexState',
+      tocName: 'useComplexState',
+    },
+  ]
+}
+
 export const ThemingMenu = {
   title:  'Theming',
   path: '/theming',
