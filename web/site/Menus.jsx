@@ -144,6 +144,11 @@ export const HooksMenu = {
       text: 'useComplexState',
       tocName: 'useComplexState',
     },
+    {
+      to: '/hooks/useRenderCount',
+      text: 'useRenderCount',
+      tocName: 'useRenderCount',
+    },
   ]
 }
 
