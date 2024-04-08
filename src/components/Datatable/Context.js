@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { Generator } from '@abw/react-context'
 import { doNothing, hasValue, splitHash } from '@abw/badger-utils'
 import { Storage, useComplexState } from '@/src/index.jsx'
@@ -54,43 +54,77 @@ const DatatableContext = ({
     [props.columns, props.sortColumn, props.sortReverse, savedState]
   )
 
-  const [state, setters] = useComplexState(
-    {
-      pageNo: savedState.pageNo ?? props.pageNo ?? 1,
-      pageSize: savedState.pageSize ?? props.pageSize ?? 10,
-      sortColumn,
-      sortReverse,
-      columnOrder,
-      visibleColumns,
-    },
-    {
-      onChange: state => {
-        Debug(`state changed: `, state)
-        if (store) {
-          store.set(storageItem, state)
-        }
-        return state
-      }
-    }
-  )
-  Debug(`state: `, state)
-  Debug(`setters: `, setters)
+  // Define the state for the various options we need to track
+  const [state, setters] = useComplexState({
+    pageNo: savedState.pageNo ?? props.pageNo ?? 1,
+    pageSize: savedState.pageSize ?? props.pageSize ?? 10,
+    sortColumn,
+    sortReverse,
+    columnOrder,
+    visibleColumns,
+  })
 
-  const [showFilters, setShowFilters] = useState(false)
-  const [filters, setFilters] = useState({ })
-  const [controlsVisible, setControlsVisible] = useState(false)
-  const showControls = () => setControlsVisible(true)
-  const hideControls = () => setControlsVisible(false)
+  // Save any state changes back to the store, if defined
+  useEffect(
+    () => {
+      if (store) {
+        Debug(`Saving state in local storage:`, state)
+        store.set(storageItem, state)
+      }
+    },
+    [state, store]
+  )
 
   const toggleSortColumn = column => {
     if (state.sortColumn === column) {
+      Debug(`Sort column already set to ${column}, changing direction`)
       setters.setSortReverse( reverse => ! reverse )
     }
     else {
+      Debug(`Setting sort column to ${column}`)
       setters.setSortColumn(column)
       setters.setSortReverse(false)
     }
   }
+
+  const toggleVisibleColumn = name => setters.setVisibleColumns(
+    visible => {
+      const isVisible = splitHash(visible)
+      const result = isVisible[name]
+        ? visible
+          .filter( item => item !== name )
+        : Object
+          .keys(columns)
+          .filter( item => item === name || isVisible[item] )
+      Debug(`New visible columns:`, result)
+      return result
+    }
+  )
+
+  const changeColumnOrder = ids => {
+    let newOrder    = [ ]
+    let newVisible  = [ ]
+    const isVisible = splitHash(state.visibleColumns)
+    ids.forEach(
+      name => {
+        newOrder.push(name)
+        if (isVisible[name]) {
+          newVisible.push(name)
+        }
+      }
+    )
+    Debug(`New order of all columns:`, newOrder)
+    Debug(`New order of visible columns:`, newVisible)
+    setters.setVisibleColumns(newVisible)
+    setters.setColumnOrder(newOrder)
+  }
+
+  // Additional UI state variables for filters
+  const [showFilters, setShowFilters] = useState(false)
+  const [filters, setFilters] = useState({ })
+  //const [controlsVisible, setControlsVisible] = useState(false)
+  //const showControls = () => setControlsVisible(true)
+  //const hideControls = () => setControlsVisible(false)
 
   const toggleFilters = e => {
     e.preventDefault()
@@ -111,39 +145,10 @@ const DatatableContext = ({
         return newFilters
       }
     )
-    state.setPageNo(1)
+    setters.setPageNo(1)
   }
 
-  const toggleVisibleColumn = name => {
-    setters.setVisibleColumns(
-      visible => {
-        const isVisible = splitHash(visible)
-        return isVisible[name]
-          ? visible
-            .filter( item => item !== name )
-          : Object
-            .keys(columns)
-            .filter( item => item === name || isVisible[item] )
-      }
-    )
-  }
-
-  const changeColumnOrder = ids => {
-    let newOrder    = [ ]
-    let newVisible  = [ ]
-    const isVisible = splitHash(state.visibleColumns)
-    ids.forEach(
-      name => {
-        newOrder.push(name)
-        if (isVisible[name]) {
-          newVisible.push(name)
-        }
-      }
-    )
-    setters.setVisibleColumns(newVisible)
-    setters.setColumnOrder(newOrder)
-  }
-
+  // Filter, sort and paginate the rows
   const page = useMemo(
     () => datatablePaginate(
       datatableSort(
@@ -164,7 +169,6 @@ const DatatableContext = ({
     showFilters, toggleFilters,
     filters, setFilter,
     toggleSortColumn,
-    controlsVisible, showControls, hideControls,
     toggleVisibleColumn,
     changeColumnOrder,
     ...state,

@@ -8,7 +8,6 @@ const Pager = () =>
     code="storageKey"
     Component={Component}
     Source={Source}
-    undent={4}
     expand
   >
     <p>
