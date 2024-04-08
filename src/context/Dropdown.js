@@ -115,7 +115,7 @@ class DropdownContext extends Context {
             this.close()
           }
           else {
-            console.log(`NOT closing force:${force} hasHover:${this.state.hasHover}`)
+            this.debug(`NOT closing force:${force} hasHover:${this.state.hasHover}`)
           }
         }
       )
