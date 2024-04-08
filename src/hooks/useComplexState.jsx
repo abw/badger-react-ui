@@ -1,5 +1,6 @@
-import { capitalize, maybeFunction } from '@abw/badger-utils'
 import { useState } from 'react'
+import { maybeFunction } from '@abw/badger-utils'
+import { capitalFirstLetter } from '../utils/text.js'
 
 export const useComplexState = (values, options={ }) => {
   const { onChange } = options
@@ -11,7 +12,7 @@ export const useComplexState = (values, options={ }) => {
 
   const setters = Object.keys(values).reduce(
     (setters, key) => {
-      const setter = `set${capitalize(key)}`
+      const setter = `set${capitalFirstLetter(key)}`
       setters[setter] = value => setState(
         oldState => {
           const newState = {

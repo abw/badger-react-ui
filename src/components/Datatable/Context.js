@@ -1,21 +1,80 @@
 import { useState, useMemo } from 'react'
 import { Generator } from '@abw/react-context'
-import { hasValue, splitHash } from '@abw/badger-utils'
+import { doNothing, hasValue, splitHash } from '@abw/badger-utils'
+import { Storage, useComplexState } from '@/src/index.jsx'
 import {
   datatableColumnDefinitions,
-  datatableSort, datatablePaginate, datatableFilter, State
+  datatableVisibleColumns,
+  datatableSort, datatablePaginate, datatableFilter,
+  datatableSortColumn,
+  datatableColumnOrder,
 } from './Utils/index.js'
 
 const DatatableContext = ({
   render,
   rows=[],
+  storageKey,
+  storageItem='state',
+  debug,
   ...props
 }) => {
-  const columns = useMemo(
-    () => datatableColumnDefinitions(props.columns),
-    [props.columns]
+  const Debug = debug
+    ? console.log
+    : doNothing
+
+  // If we have a storageKey defined then create a store and load any
+  // previously saved state
+  const [store, savedState] = useMemo(
+    () => {
+      const store = storageKey && Storage(storageKey)
+      const savedState = store
+        ? store.get(storageItem, { })
+        : { }
+      return [store, savedState]
+    },
+    [storageKey]
   )
-  const state = State({ ...props, columns })
+
+  // Expand any simple column definition, e.g. 'id name email', into an object
+  // mapping column names to a definition object, e.g { id: { ... }, etc }
+  const [columns, visibleColumns, columnOrder, sortColumn, sortReverse] = useMemo(
+    () => {
+      const columns = datatableColumnDefinitions(props.columns)
+      return [
+        columns,
+        datatableVisibleColumns(columns, savedState.visibleColumns),
+        datatableColumnOrder(columns, savedState.columnOrder),
+        ...datatableSortColumn(
+          columns,
+          savedState.sortColumn ?? props.sortColumn,
+          savedState.sortReverse ?? props.sortReverse
+        )
+      ]
+    },
+    [props.columns, props.sortColumn, props.sortReverse, savedState]
+  )
+
+  const [state, setters] = useComplexState(
+    {
+      pageNo: savedState.pageNo ?? props.pageNo ?? 1,
+      pageSize: savedState.pageSize ?? props.pageSize ?? 10,
+      sortColumn,
+      sortReverse,
+      columnOrder,
+      visibleColumns,
+    },
+    {
+      onChange: state => {
+        Debug(`state changed: `, state)
+        if (store) {
+          store.set(storageItem, state)
+        }
+        return state
+      }
+    }
+  )
+  Debug(`state: `, state)
+  Debug(`setters: `, setters)
 
   const [showFilters, setShowFilters] = useState(false)
   const [filters, setFilters] = useState({ })
@@ -25,11 +84,11 @@ const DatatableContext = ({
 
   const toggleSortColumn = column => {
     if (state.sortColumn === column) {
-      state.setSortReverse(! state.sortReverse)
+      setters.setSortReverse( reverse => ! reverse )
     }
     else {
-      state.setSortColumn(column)
-      state.setSortReverse(false)
+      setters.setSortColumn(column)
+      setters.setSortReverse(false)
     }
   }
 
@@ -56,14 +115,16 @@ const DatatableContext = ({
   }
 
   const toggleVisibleColumn = name => {
-    const isVisible = splitHash(state.visibleColumns)
-    state.setVisibleColumns(
-      isVisible[name]
-        ? state.visibleColumns
-          .filter( item => item !== name )
-        : Object
-          .keys(columns)
-          .filter( item => item === name || isVisible[item] )
+    setters.setVisibleColumns(
+      visible => {
+        const isVisible = splitHash(visible)
+        return isVisible[name]
+          ? visible
+            .filter( item => item !== name )
+          : Object
+            .keys(columns)
+            .filter( item => item === name || isVisible[item] )
+      }
     )
   }
 
@@ -79,8 +140,8 @@ const DatatableContext = ({
         }
       }
     )
-    state.setVisibleColumns(newVisible)
-    state.setColumnOrder(newOrder)
+    setters.setVisibleColumns(newVisible)
+    setters.setColumnOrder(newOrder)
   }
 
   const page = useMemo(
@@ -97,7 +158,6 @@ const DatatableContext = ({
     ]
   )
 
-
   return render({
     ...props,
     rows, columns, page,
@@ -107,7 +167,8 @@ const DatatableContext = ({
     controlsVisible, showControls, hideControls,
     toggleVisibleColumn,
     changeColumnOrder,
-    ...state
+    ...state,
+    ...setters
   })
 }
 

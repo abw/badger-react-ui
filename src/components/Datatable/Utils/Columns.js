@@ -50,8 +50,42 @@ export const datatableColumnDefinitions = columns => {
   fail(`Invalid columns definition`)
 }
 
-export const datatableVisibleColumns = columns =>
-  Object.keys(columns).filter(
-    column => ! columns[column].hidden
-  )
+export const datatableVisibleColumns = (columns, saved) => {
+  // If we have a saved (in local storage) list of visible columns then we
+  // must assert that they are all still defined in the columns schema.
+  // It's possible that the list of columns has changed since we last stored
+  // the visible columns (or the user isn't using a unique storage key).
+  // Otherwise we look for all columns that don't have the hidden flag set.
+  if (saved) {
+    const visible = saved
+      .filter( column => columns[column] )
+    if (visible.length) {
+      return visible
+    }
+  }
+  return Object.keys(columns)
+    .filter( column => ! columns[column].hidden )
+}
+
+export const datatableColumnOrder = (columns, saved) => {
+  // Similar to the above, if we have a saved list of the column order then we
+  // must assert that they are all still defined in the columns schema.
+  if (saved) {
+    const order = saved.filter( column => columns[column] )
+    if (order.length) {
+      return order
+    }
+  }
+  return Object.keys(columns)
+}
+
+export const datatableSortColumn = (columns, savedColumn, savedReverse) => {
+  // Similar to the above, if we have a saved value for the sort column
+  // (and optional reverse order flag) then we must assert that the column
+  // is still valid are all still defined in the columns schema.
+  if (savedColumn && columns[savedColumn]) {
+    return [savedColumn, savedReverse]
+  }
+  return [null, null]
+}
 
