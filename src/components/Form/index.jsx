@@ -4,7 +4,9 @@ import * as BadgerForm from '@abw/badger-form'
 import { addInputType } from '@abw/badger-form'
 import { Themed }     from '@/src/Theme.jsx'
 export {
-  UseField, UseForm, useField, useForm
+  UseField, UseForm, useField, useForm,
+  inputClasses, statusClasses, fieldClass,
+  addInputType
 } from '@abw/badger-form'
 
 addInputType('uiselect', Select)
