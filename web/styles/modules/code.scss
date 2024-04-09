@@ -14,7 +14,9 @@ $codeblock-back-dark-to:     rgba($codeblock-back-dark, 0.9);
   --code-link-back:       var(--brand-95);
   --code-link-text:       var(--grey40-40);
   --code-link-border:     var(--grey40-80);
-  --code-link-hover:      var(--brand-70);
+  --code-hover-back:      var(--brand-90);
+  --code-hover-text:      var(--brand-30);
+  --code-hover-border:    var(--brand-70);
     // codeblock
   --codeblock-back:       var(--grey-100);
   --codeblock-text:       var(--grey-50);
@@ -44,6 +46,9 @@ $codeblock-back-dark-to:     rgba($codeblock-back-dark, 0.9);
   --code-link-text:       var(--grey40-70);
   --code-link-border:     var(--grey40-10);
   --code-link-hover:      var(--grey40-5);
+  --code-hover-back:      var(--brand-30);
+  --code-hover-text:      var(--brand-90);
+  --code-hover-border:    var(--brand-30);
 
   // codeblock
   --codeblock-back:       var(--grey-5);
@@ -73,12 +78,15 @@ code:not(.codeblock code):not(.toc code), a.code {
   border-radius: 4px;
 }
 a.code {
-  --color: var(--code-link-text);
-  --background: var(--code-link-back);
-  --border: var(--code-link-border);
+  color: var(--code-link-text);
+  background-color: var(--code-link-back);
+  border-color: var(--code-link-border);
   font-family: var(--font-mono);
+  transition: all 300ms;
   &:hover {
-    --border: var(--code-link-hover);
+    color: var(--code-hover-text);
+    background-color: var(--code-hover-back);
+    border-color: var(--code-hover-border);
   }
 }
 
