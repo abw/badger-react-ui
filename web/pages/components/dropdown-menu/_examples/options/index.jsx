@@ -14,7 +14,7 @@ import Example      from '@/site/Example.jsx'
 
 const Options = () =>
   <Section code="options">
-    <div className="cols-2 stack-desktop mar-b-4">
+    <div className="mar-b-4">
       <p>
         The <code>options</code> property should be used to define an array of
         options to display in the menu.

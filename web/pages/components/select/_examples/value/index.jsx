@@ -9,25 +9,21 @@ import Example        from '@/site/Example.jsx'
 
 const ValueExamples = () =>
   <Section code="value">
-    <div className="cols-2 stack-desktop mar-b-4">
-      <p>
-        The <code>value</code> property can be used to pre-select a value.
-      </p>
-    </div>
+    <p>
+      The <code>value</code> property can be used to pre-select a value.
+    </p>
     <Example
       Component={Strings}
       code={StringsSrc}
       caption="value"
       expand={false}
     />
-    <div className="cols-2 stack-desktop mar-b-4">
-      <p>
-        When the <code>options</code> are defined as an array of objects,
-        the specified <code>value</code> should correspond to the{' '}
-        <code>value</code> or <code>id</code> property of an element in
-        the <code>options</code> array.
-      </p>
-    </div>
+    <p>
+      When the <code>options</code> are defined as an array of objects,
+      the specified <code>value</code> should correspond to the{' '}
+      <code>value</code> or <code>id</code> property of an element in
+      the <code>options</code> array.
+    </p>
     <Example
       Component={Value}
       code={ValueSrc}

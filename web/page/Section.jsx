@@ -27,7 +27,7 @@ const Section = ({
   return (
     <section id={elemId} ref={ref}>
       <h3 className={code ? 'font-mono page-section' : 'page-section'}>{title}</h3>
-      <div className={split ? 'cols-2 stack-desktop' : ''}>
+      <div className={split ? 'columns-2 stack-desktop' : ''}>
         {children}
       </div>
     </section>

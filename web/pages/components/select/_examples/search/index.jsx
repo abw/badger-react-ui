@@ -8,33 +8,29 @@ import Section    from '@/page/Section.jsx'
 
 const Search = () =>
   <Section code="search">
-    <div className="cols-2 stack-desktop mar-b-4">
-      <p>
-        The <code>search</code> property can be set to enable searching of
-        options.  In the simple case this can work where the{' '}
-        <code>options</code> are all strings.  The default search function
-        will case-insensitively match options that contain all of the words
-        entered in the search input.
-      </p>
-      <p>
-        Try entering <code>aa an</code> in the search input in the
-        example below. It will match options that contain both <code>aa</code>{' '}
-        (e.g all the <b>Aa</b>rdvarks) and <code>an</code> (Al<b>an</b> Aardvark,{' '}
-        <b>An</b>ne Aardvark and Bri<b>an</b> Badger).
-      </p>
-    </div>
+    <p>
+      The <code>search</code> property can be set to enable searching of
+      options.  In the simple case this can work where the{' '}
+      <code>options</code> are all strings.  The default search function
+      will case-insensitively match options that contain all of the words
+      entered in the search input.
+    </p>
+    <p>
+      Try entering <code>aa an</code> in the search input in the
+      example below. It will match options that contain both <code>aa</code>{' '}
+      (e.g all the <b>Aa</b>rdvarks) and <code>an</code> (Al<b>an</b> Aardvark,{' '}
+      <b>An</b>ne Aardvark and Bri<b>an</b> Badger).
+    </p>
     <Example
       Component={Strings}
       code={StringsSrc}
     />
-    <div className="cols-2 stack-desktop mar-b-4">
-      <p>
-        If the <code>options</code> are an array of objects then it will
-        look for a <code>search</code>, <code>text</code>, <code>label</code>,{' '}
-        <code>name</code> or <code>value</code> property in each object and
-        use that.
-      </p>
-    </div>
+    <p>
+      If the <code>options</code> are an array of objects then it will
+      look for a <code>search</code>, <code>text</code>, <code>label</code>,{' '}
+      <code>name</code> or <code>value</code> property in each object and
+      use that.
+    </p>
     <Example
       Component={Objects}
       code={ObjectsSrc}
