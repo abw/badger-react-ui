@@ -98,6 +98,20 @@ export const foregroundDarkClass = stop =>
 export const backgroundDarkClass = stop =>
   classInt(stop, s => `bgd-${s}`)
 
+export const gapClass = gap =>
+  classInt(
+    gap,
+    g => {
+      const gaps = splitList(g)
+      console.log(`gap: ${g} gaps:`, gaps)
+
+      return gaps.length === 2
+        ? fixValues('gap', ['v', 'h'], gaps)
+        : `gap-${g}`
+    }
+  )
+
+
 export const classInt = (c, i) =>
   isInteger(parseInt(c))
     ? maybeFunction(i, c)

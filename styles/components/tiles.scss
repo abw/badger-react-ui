@@ -1,0 +1,16 @@
+:where(.tiles) {
+  --tile-min-width: 100px;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--tile-min-width), 1fr));
+@for $n from 2 through 16 {
+  & > .cols-#{$n} {
+    grid-column: auto / span #{$n};
+  }
+  & > .rows-#{$n} {
+    grid-row: auto / span #{$n};
+  }
+}
+}

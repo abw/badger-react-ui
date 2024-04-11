@@ -116,6 +116,11 @@ export const ComponentsMenu = {
       tocName: 'tabset'
     },
     {
+      to: '/components/tiles',
+      text: 'Tiles',
+      tocName: 'tiles'
+    },
+    {
       to: '/components/toggle',
       text: 'Toggle',
       tocName: 'toggle'
