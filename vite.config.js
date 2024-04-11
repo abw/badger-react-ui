@@ -24,7 +24,7 @@ export default defineConfig({
   },
   define,
   build: {
-    minify: true,
+    // minify: true,
     sourcemap: true,
     lib: {
       entry: 'src/index.jsx',
