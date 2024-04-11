@@ -4,6 +4,7 @@ import WithIcons from '@/components/Icon/WithIcons.jsx'
 import Storage from '@/src/utils/storage.js'
 import { classes } from '@/src/utils/classes.js'
 import { doNothing } from '@abw/badger-utils'
+import { Themed }    from '@/src/Theme.jsx'
 
 const Tabset = ({
   tabs,
@@ -77,4 +78,4 @@ const Tabset = ({
   )
 }
 
-export default Tabset
+export default Themed(Tabset, 'Tabset')
