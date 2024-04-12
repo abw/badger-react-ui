@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite'
-import jsconfigPaths    from 'vite-jsconfig-paths'
+// import jsconfigPaths    from 'vite-jsconfig-paths'
 import svgr             from 'vite-plugin-svgr'
-import react            from '@vitejs/plugin-react'
+import react            from '@vitejs/plugin-react-swc'
+// import react            from '@vitejs/plugin-react'
 import define           from  './vite.defs.js'
 import fs               from 'node:fs'
 
@@ -14,7 +15,7 @@ export default defineConfig({
   plugins: [
     react(),
     svgr(),
-    jsconfigPaths({ root: '../' })
+    // jsconfigPaths({ root: '../' })
   ],
   root: 'web',
   base: '/badger-react-ui',
