@@ -5,6 +5,7 @@
   "type": "module",
   "main": "dist/badger-react-ui.umd.cjs",
   "module": "dist/badger-react-ui.js",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/badger-react-ui.js",

@@ -51,6 +51,10 @@ export default defineConfig({
               src: ['styles/*', '!styles/build'],
               dest: 'dist/styles',
             },
+            {
+              src: ['src/index.d.ts'],
+              dest: 'dist',
+            },
           ],
           hook: 'writeBundle'
         })
