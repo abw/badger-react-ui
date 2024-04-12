@@ -43,7 +43,7 @@
   "dependencies": {
     "@abw/badger-form": "^1.0.0",
     "@abw/badger-icon": "^0.0.11",
-    "@abw/badger-utils": "^1.0.25",
+    "@abw/badger-utils": "^1.0.26",
     "@abw/react-context": "^2.0.3",
     "@abw/react-one-louder": "^0.0.6",
     "@dnd-kit/core": "^6.1.0",

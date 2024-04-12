@@ -1,7 +1,4 @@
-import { hasValue, isBoolean, isNumber, isObject, isString, noValue } from '@abw/badger-utils'
-
-export const isSimple = value =>
-  isString(value) || isNumber(value) || isBoolean(value)
+import { hasValue, isObject, isSimple, noValue } from '@abw/badger-utils'
 
 export const validOption = option =>
   isSimple(option) ||
