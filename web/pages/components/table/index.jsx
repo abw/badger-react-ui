@@ -7,6 +7,7 @@ import HeadRows   from './_examples/headRows/index.jsx'
 import FootRows   from './_examples/footRows/index.jsx'
 import Headings   from './_examples/headings/index.jsx'
 import Footings   from './_examples/footings/index.jsx'
+import ClassName  from './_examples/className/index.jsx'
 import Border     from './_examples/border/index.jsx'
 import Color      from './_examples/color/index.jsx'
 import Compressed from './_examples/compressed/index.jsx'
@@ -35,6 +36,7 @@ const TableExamples = () =>
       <FootRows/>
       <Footings/>
       <Heading title="Styling Properties"/>
+      <ClassName/>
       <Lined/>
       <Celled/>
       <Shaded/>
