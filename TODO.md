@@ -67,6 +67,9 @@ scope of buttons in badger-css.
 Adding dnd kit increased the bundle size from 68k to 148k.  Is it really
 worth it?  How hard would it be to implement just the bits we need?
 
+DndContext creates a div which causes warning when used in a table - should
+be possible to separate context from content.
+
 # Utilities
 
 # Documentation

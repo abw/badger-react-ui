@@ -9,6 +9,7 @@ import CancelProps  from './_examples/cancelProps/index.jsx'
 import Confirm      from './_examples/confirm/index.jsx'
 import ConfirmProps from './_examples/confirmProps/index.jsx'
 import OnClick      from './_examples/onClick/index.jsx'
+import Modal        from './_examples/modal/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
 import Heading from '@/web/page/Heading.jsx'
 
@@ -26,6 +27,7 @@ const ConfirmExamples = () =>
       <CancelProps/>
       <Confirm/>
       <ConfirmProps/>
+      <Modal/>
       <Heading title="Event Handlers"/>
       <OnClick/>
     </Sections>
