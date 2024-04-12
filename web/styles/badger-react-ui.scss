@@ -35,6 +35,10 @@ $brand-color: 'violet';
     fill: var(--react-ui);
   }
 }
+#{$dark-theme} .brui-logo {
+  --badger: var(--brand-50);
+  --react-ui: var(--brand-70);
+}
 
 
 // Tmp hack - upstream in badger-css
