@@ -8,10 +8,13 @@ const CancelSubmit = ({
   className,
   gap=4,
   space=false,
+  size,
   cancel={},
   submit={}
 }) =>
-  <div className={flexGapSpaceClasses({ className, gap, space }, 'controls')}>
+  <div
+    className={flexGapSpaceClasses({ className, gap, space }, size, 'controls')}
+  >
     <Cancel {...cancel}/>
     <Submit {...submit}/>
   </div>

@@ -103,8 +103,6 @@ export const gapClass = gap =>
     gap,
     g => {
       const gaps = splitList(g)
-      console.log(`gap: ${g} gaps:`, gaps)
-
       return gaps.length === 2
         ? fixValues('gap', ['v', 'h'], gaps)
         : `gap-${g}`

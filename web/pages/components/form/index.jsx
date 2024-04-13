@@ -5,6 +5,8 @@ import Sections     from '@/page/Sections.jsx'
 // import Section      from '@/page/Section.jsx'
 import Link         from '@/ui/Link.jsx'
 import Submitting   from './_examples/submitting/index.jsx'
+import CancelSubmit from './_examples/CancelSubmit/index.jsx'
+import ResetSubmit  from './_examples/ResetSubmit/index.jsx'
 import UISelect     from './_examples/uiselect/index.jsx'
 import Search       from './_examples/search/index.jsx'
 import BasicForm    from './_examples/BasicForm.jsx'
@@ -35,8 +37,10 @@ const FormExamples = () =>
       <Heading title="Input Components"/>
       <UISelect/>
       <Search/>
-      <Heading title="Additional Component"/>
+      <Heading title="Additional Components"/>
       <Submitting/>
+      <CancelSubmit/>
+      <ResetSubmit/>
     </Sections>
   </div>
 
