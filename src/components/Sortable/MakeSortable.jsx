@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import SortableItem from './SortableItem.jsx'
 import {
   DndContext, closestCenter,
   KeyboardSensor, PointerSensor,
@@ -9,17 +10,41 @@ import {
   rectSortingStrategy,
   SortableContext,
   sortableKeyboardCoordinates,
+  verticalListSortingStrategy,
+  horizontalListSortingStrategy,
 } from '@dnd-kit/sortable'
-import { restrictToParentElement } from '@dnd-kit/modifiers'
-import SortableItem from './SortableItem.jsx'
+import {
+  restrictToParentElement, restrictToWindowEdges,
+  restrictToVerticalAxis, restrictToHorizontalAxis
+} from '@dnd-kit/modifiers'
+import { lookupVariant } from '@/src/utils/variant.js'
+
+const variants = {
+  default: {
+    modifiers: [restrictToParentElement],
+    strategy: rectSortingStrategy,
+  },
+  vertical: {
+    modifiers: [restrictToVerticalAxis, restrictToWindowEdges, restrictToParentElement],
+    strategy: verticalListSortingStrategy
+  },
+  horizontal: {
+    modifiers: [restrictToHorizontalAxis, restrictToWindowEdges, restrictToParentElement],
+    strategy: horizontalListSortingStrategy
+  }
+}
 
 export const MakeSortable = ({
   items,
   setOrder,
   List=({children}) => children,
   Item,
-  modifiers=[restrictToParentElement],
-  strategy=rectSortingStrategy,
+  vertical,
+  horizontal,
+  variant,
+  options = lookupVariant({ variant, horizontal, vertical }, variants),
+  modifiers = options.modifiers,
+  strategy = options.strategy,
   Overlay,
   ...props
 }) => {
