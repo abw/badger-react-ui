@@ -31,7 +31,8 @@ $sortable-moving-bg-color:   mix($white, $sortable-moving-color, 95%) !default;
   // border: 1px solid $sortable-list-border-color;
   // border-radius: $sortable-radius;
 }
-.sortable.item {
+.sortable.item,
+.sortable .item {
   display: inline-block;
   // background-color: #fff;
   // padding: 0.25em 0.5em 0.25em 0;
@@ -84,6 +85,28 @@ $sortable-moving-bg-color:   mix($white, $sortable-moving-color, 95%) !default;
     }
   }
 }
+
+// Special cases for tables
 tr.sortable.item {
   display: table-row !important;
+}
+table.sortable {
+  tr.item {
+    display: table-row !important;
+  }
+  tr.moved {
+    td, th {
+      --border-color: var(--sortable-moved-border);
+      color: var(--sortable-moved-color);
+      background-color: var(--sortable-moved-background);
+    }
+  }
+}
+.sortable.item[aria-pressed='true'] {
+  td, th {
+    --border-color: var(--sortable-moving-border);
+    color: var(--sortable-moving-color);
+    background-color: var(--sortable-moving-background);
+    z-index: 9999;
+  }
 }

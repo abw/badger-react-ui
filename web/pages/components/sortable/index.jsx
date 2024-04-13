@@ -6,6 +6,7 @@ import Split      from '@/web/site/Split.jsx'
 import Sortable   from './_examples/Sortable/index.jsx'
 import Vertical   from './_examples/Vertical/index.jsx'
 import Horizontal from './_examples/Horizontal/index.jsx'
+import MakeSortable from './_examples/MakeSortable/index.jsx'
 
 const SortableExamples = () =>
   <div className="flow">
@@ -15,6 +16,8 @@ const SortableExamples = () =>
     <Vertical/>
     <h1>Horizontal Sort</h1>
     <Horizontal/>
+    <h1>MakeSortable</h1>
+    <MakeSortable/>
     <Sections tocName="sortable">
       <Split>
         <div className="flow">

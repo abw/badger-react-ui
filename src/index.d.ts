@@ -163,6 +163,8 @@ declare module '@abw/badger-react-ui' {
   export function Sortable()
   export function HorizontalSort()
   export function VerticalSort()
+  export function MakeSortable()
+  export function SortableItem()
   // Spinner
   export function Spinner()
   // Table
