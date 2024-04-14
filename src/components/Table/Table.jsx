@@ -1,8 +1,9 @@
 import React from 'react'
-import TableHead from './Head.jsx'
-import TableBody from './Body.jsx'
-import TableFoot from './Foot.jsx'
+import Columns from './Columns.jsx'
+import Rows from './Rows.jsx'
 import { borderClass, classes, colorClass, radiusClass, shadowClass } from '@/src/utils/classes.js'
+import { splitHash } from '@abw/badger-utils'
+import { capitalFirstLetter } from '@/src/utils/text.js'
 
 /**
  * Generate an HTML table.
@@ -43,12 +44,10 @@ const Table = ({
   headings,
   rows,
   footings,
+  columns,
   bodyRows = rows,
   headRows = headings && [headings],
   footRows = footings && [footings],
-  Head=TableHead,
-  Body=TableBody,
-  Foot=TableFoot,
   ...props
 }) => {
   const cls = classes(
@@ -61,12 +60,23 @@ const Table = ({
   )
   return (
     <table className={cls}>
-      { Boolean(headRows) &&
-        <Head headRows={headRows} {...props}/>
-      }
-      <Body bodyRows={bodyRows} {...props}/>
-      { Boolean(footRows) &&
-        <Foot footRows={footRows} {...props}/>
+      { columns
+        ? <Columns
+            columns={
+              splitHash(
+                columns,
+                k => ({ head: capitalFirstLetter(k) })
+              )
+            }
+            rows={rows}
+            {...props}
+          />
+        : <Rows
+            headRows={headRows}
+            bodyRows={bodyRows}
+            footRows={footRows}
+            {...props}
+          />
       }
     </table>
   )

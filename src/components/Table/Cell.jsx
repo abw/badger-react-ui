@@ -11,6 +11,7 @@ const Cell = ({
         { maybeFunction(text, props) }
       </th>
     : <td {...props}>
+        {console.log(`cell ${text} props: `, props)}
         { maybeFunction(text, props) }
       </td>
 
