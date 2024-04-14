@@ -1,11 +1,15 @@
 import React      from 'react'
-import Example    from '@/site/Example.jsx'
+import Example    from '@/page/ExampleSection.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
 
-const Sortable = () =>
-  <>
-    <p className="large">
+const MakeSortable = () =>
+  <Example
+    code="MakeSortable"
+    Component={Component}
+    Source={Source}
+  >
+    <p>
       The above components are implemented using <code>MakeSortable</code>.
     </p>
     <p>
@@ -25,10 +29,6 @@ const Sortable = () =>
       then insert the <code>Content</code> where you want the sortable items
       to appear.
     </p>
-    <Example
-      Component={Component}
-      code={Source}
-    />
-  </>
+  </Example>
 
-export default Sortable
+export default MakeSortable

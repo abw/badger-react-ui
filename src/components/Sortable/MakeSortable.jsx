@@ -17,9 +17,9 @@ import {
   restrictToParentElement, restrictToWindowEdges,
   restrictToVerticalAxis, restrictToHorizontalAxis
 } from '@dnd-kit/modifiers'
-import { lookupVariant } from '@/src/utils/variant.js'
+// import { lookupVariant } from '@/src/utils/variant.js'
 
-const variants = {
+const directions = {
   default: {
     modifiers: [restrictToParentElement],
     strategy: rectSortingStrategy,
@@ -39,10 +39,9 @@ export const MakeSortable = ({
   setOrder,
   List=({children}) => children,
   Item,
-  vertical,
-  horizontal,
-  variant,
-  options = lookupVariant({ variant, horizontal, vertical }, variants),
+  direction,
+  // options = lookupVariant({ variant, horizontal, vertical }, variants),
+  options = directions[direction] || directions.default,
   modifiers = options.modifiers,
   strategy = options.strategy,
   Overlay,

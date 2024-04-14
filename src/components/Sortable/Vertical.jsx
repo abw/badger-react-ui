@@ -4,7 +4,7 @@ import Sortable from './Sortable.jsx'
 export const VerticalSort = ({...props}) =>
   <Sortable
     {...props}
-    variant="vertical"
+    direction="vertical"
   />
 
 export default VerticalSort
