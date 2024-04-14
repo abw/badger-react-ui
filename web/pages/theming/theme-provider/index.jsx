@@ -1,11 +1,11 @@
-import React from 'react'
-import Example    from '@/site/Example.jsx'
-import Theme      from './_examples/Theme.jsx'
-import ThemeSrc   from './_examples/Theme.jsx?raw'
+import React        from 'react'
+import Example      from '@/site/Example.jsx'
+import Component    from './_examples/Theme.jsx'
+import Source       from './_examples/Theme.jsx?raw'
 
-const Theming = () =>
+const ThemeProvider = () =>
   <div className="flow">
-    <h1>Theming</h1>
+    <h1>Theme Provider</h1>
     <p className="large">
       The components can be themed using{' '}
       <a href="https://abw.github.io/react-one-louder/">react-one-louder</a>.
@@ -28,10 +28,9 @@ const Theming = () =>
       example.
     </p>
     <Example
-      Component={Theme}
-      code={ThemeSrc}
-      expand
+      Component={Component}
+      code={Source}
     />
   </div>
 
-export default Theming
+export default ThemeProvider

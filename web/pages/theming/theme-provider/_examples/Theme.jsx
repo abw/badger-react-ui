@@ -4,7 +4,7 @@ import { Theme, Select, Button, Spinner } from '@/src/index.jsx'
 import React from 'react'
 // PRETEND: import { Theme, Select, Button, Spinner } from '@abw/badger-react-ui
 
-const BorderClassExamples = () => {
+const ThemeExamples = () => {
   const myTheme = {
     Select: {
       placeholder: 'Pick one'
@@ -35,4 +35,4 @@ const BorderClassExamples = () => {
   )
 }
 
-export default BorderClassExamples
+export default ThemeExamples

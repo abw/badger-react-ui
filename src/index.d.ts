@@ -201,4 +201,5 @@ declare module '@abw/badger-react-ui' {
   export function backgroundDarkClass()
   export function gapClass()
   export function lookupVariant()
+  export function themedProps()
 }

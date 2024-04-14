@@ -172,8 +172,18 @@ export const ThemingMenu = {
   path: '/theming',
   items: [
     {
-      to: '/theming',
-      text: "It's One Louder",
+      to: '/theming/theme-provider',
+      text: 'Theme Provider',
+      tocName: 'theming',
+    },
+    {
+      to: '/theming/theming-function',
+      text: 'Theming Function',
+      tocName: 'theming',
+    },
+    {
+      to: '/theming/themedProps',
+      text: 'themedProps',
       tocName: 'theming',
     },
   ]
