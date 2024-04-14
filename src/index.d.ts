@@ -169,6 +169,8 @@ declare module '@abw/badger-react-ui' {
   export function Spinner()
   // Table
   export function Table()
+  export function TableRows()
+  export function TableColumns()
   export function TableHead()
   export function TableBody()
   export function TableFoot()

@@ -1,5 +1,5 @@
 import React from 'react'
-import Cell from '../Cell.jsx'
+import Cell from './Cell.jsx'
 import { cellProps } from '../Utils.js'
 
 const Row = ({
@@ -18,7 +18,6 @@ const Row = ({
             th={cell.th ?? false}
             row={row}
             {...cell}
-            {...row}
           />
         )
       }

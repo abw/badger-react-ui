@@ -14,7 +14,8 @@ const Compressed = () =>
     <p>
       The <code>compressed</code> property is a shortcut to add the{' '}
       <code>compressed</code> CSS class which reduces the padding in each
-      cell.
+      cell.  The <code>compact</code> property is provided as an alias for
+      this for backward compatibility with previous versions.
     </p>
   </Example>
 

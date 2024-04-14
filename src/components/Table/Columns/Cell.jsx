@@ -4,14 +4,15 @@ import { maybeFunction } from '@abw/badger-utils'
 const Cell = ({
   th,
   text,
+  row,
   ...props
 }) =>
   th
     ? <th {...props}>
-        { maybeFunction(text, props) }
+        { maybeFunction(text, { row, text }) }
       </th>
     : <td {...props}>
-        { maybeFunction(text, props) }
+        { maybeFunction(text, { row, text }) }
       </td>
 
 export default Cell
