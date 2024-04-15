@@ -15,7 +15,7 @@ const DatatableExample = () =>
     ]}
     columns={{
       name: {
-        filter: ({ row, search }) => filterStringContains({
+        filter: ({ row, search }) => filterStringContains({// [!code highlight:4]
           search,
           value: `${row.forename} ${row.surname}`
         }),

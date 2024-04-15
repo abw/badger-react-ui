@@ -1,20 +1,21 @@
 import React from 'react'
-import { useState } from 'react'
-import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter'
-import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx'
-import css from 'react-syntax-highlighter/dist/esm/languages/prism/css'
-import scss from 'react-syntax-highlighter/dist/esm/languages/prism/scss'
-import bash from 'react-syntax-highlighter/dist/esm/languages/prism/bash'
-import yaml from 'react-syntax-highlighter/dist/esm/languages/prism/yaml'
-import json from 'react-syntax-highlighter/dist/esm/languages/prism/json'
 import { sleep } from '@abw/badger-utils'
+import { useState } from 'react'
+import { createCssVariablesTheme, getHighlighter } from 'shiki'
+import { transformerNotationHighlight } from '@shikijs/transformers'
 
-SyntaxHighlighter.registerLanguage('jsx', jsx)
-SyntaxHighlighter.registerLanguage('json', json)
-SyntaxHighlighter.registerLanguage('css', css)
-SyntaxHighlighter.registerLanguage('scss', scss)
-SyntaxHighlighter.registerLanguage('bash', bash)
-SyntaxHighlighter.registerLanguage('yaml', yaml)
+const cssvars = 'css-variables'
+const cssVarsTheme = createCssVariablesTheme({
+  name: cssvars,
+  variablePrefix: '--shiki-',
+  variableDefaults: {},
+  fontStyle: true
+})
+
+const highlighter = getHighlighter({
+  themes: [cssVarsTheme],
+  langs: ['html', 'javascript', 'jsx', 'json', 'css', 'scss', 'bash', 'yaml'],
+})
 
 export const CodeBlock = ({
   code,
@@ -24,22 +25,65 @@ export const CodeBlock = ({
   fixed=expand,
   className='',
   highlightLines,
-  lineProps,
   undent=false
 }) => {
   const [copied, setCopied] = useState(false)
   const [expanded, setExpanded] = useState(expand)
+  const [markup, setMarkup] = useState('Loading...')
   const copy = () => {
     navigator.clipboard.writeText(code)
     setCopied(true)
     sleep(2000).then(() => setCopied(false))
   }
-  const highlight = highlightLines
-    ? highlighter(highlightLines)
-    : null
+  const removeLineEndings = {
+    code(code) {
+      // remove any newlines as long as the preceding line isn't a blank line,
+      const children = code.children
+      // console.log(`children: `, children)
+      code.children = code.children.filter(
+        (line, n) => !(
+          line.type === 'text'
+          && line.value === '\n'
+          && (n > 0 && children[n-1].children?.length > 0)
+        )
+      )
+    },
+  }
+  React.useEffect(
+    () => {
+      const transformers = [ removeLineEndings ]
 
-  // console.log(`CodeBlock lineProps: `, lineProps)
-
+      if (highlightLines) {
+        // console.log(`highlight lines: ${highlightLines}`)
+        const [a, b] = highlightLines.split('-')
+        const start = parseInt(a)
+        const end = b ? parseInt(b) : start
+        transformers.push({
+          line(node, line) {
+            if (line >= start && line <= (end ?? start)) {
+              this.addClassToHast(node, 'highlighted')
+            }
+          }
+        })
+      }
+      highlighter.then(
+        highlighter => setMarkup(
+          highlighter.codeToHtml(
+            prepareCode(code, { undent }),
+            {
+              lang: language,
+              theme: cssvars,
+              transformers: [
+                transformerNotationHighlight(),
+                ...transformers
+              ],
+            }
+          )
+        )
+      )
+    },
+    [code, language, highlightLines]
+  )
 
   return (
     <div className={`codeblock ${className} ${expanded ? 'expanded' : ''} ${fixed ? 'fixed-open' : 'expandable'}`}>
@@ -55,19 +99,7 @@ export const CodeBlock = ({
           { copied ? 'Copied' : 'Copy' }
         </div>
       </div>
-      <SyntaxHighlighter
-        language={language}
-        showLineNumbers={true}
-        useInlineStyles={false}
-        wrapLines={true}
-        // lineProps={{ class: 'red bgc-50' }}
-        customStyle={{
-          // paddingBottom: fixed ? '1rem' : '2rem',
-          // backgroundColor: isDark ? '#14191B' : '#292C2D'
-        }}
-      >
-        {prepareCode(code, { undent })}
-      </SyntaxHighlighter>
+      <div dangerouslySetInnerHTML={{ __html: markup }} />
     </div>
   )
 }
@@ -98,10 +130,10 @@ export const prepareCode = (code, options={}) => {
   return code
 }
 
-const highlighter = lines => {
-  return n => n % 2
-    ? { class: 'red bgc-50' }
-    : { }
-}
+//const highlighter = lines => {
+//  return n => n % 2
+//    ? { class: 'red bgc-50' }
+//    : { }
+//}
 
 export default CodeBlock

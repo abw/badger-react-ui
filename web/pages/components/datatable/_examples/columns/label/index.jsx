@@ -8,6 +8,7 @@ const Label = () =>
     code="label"
     Component={Component}
     Source={Source}
+    highlightLines="4-5"
     undent={4}
     expand
   >

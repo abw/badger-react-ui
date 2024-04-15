@@ -1,0 +1,130 @@
+.codeblock .shiki {
+  --shiki-foreground: var(--codeblock-text);
+  --shiki-background: var(--codeblock-back);
+  --shiki-token-constant: var(--blue-50);
+  --shiki-token-string: var(--brand-60);
+  --shiki-token-string-expression: var(--shiki-token-string);
+  --shiki-token-comment: var(--grey-60);
+  --shiki-token-keyword: var(--grey40-60);
+  --shiki-token-parameter: var(--indigo-40);
+  --shiki-token-function: var(--indigo-40);
+  --shiki-token-punctuation: var(--grey20-70);
+  --shiki-token-link: var(--blue-60);
+  --shiki-highlight-background: var(--grey20-95);
+  --shiki-highlight-foreground: var(--brand-30);
+  --padding: 1rem;
+  font-family: var(--font-mono);
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  padding: var(--padding);
+  span.line {
+    display: block;
+  }
+  span.line.highlighted {
+    background-color: var(--shiki-highlight-background);
+    margin: 0 calc(0rem - var(--padding));
+    padding: 0 var(--padding);
+    // margin: 0 -24px;
+    //padding: 2px 24px;
+    //width: calc(100% + 48px);
+    //display: inline-block;
+  }
+  //--shell: var(--brown-40);
+  //--yaml: var(--indigo-40);
+  //--comment: var(--grey-50);
+  //--punctuation: var(--grey20-60);
+  //--tag: var(--blue-50);
+  //--attr-name: var(--indigo-40);
+  //--attr-value: var(--teal-50);
+  //--string: var(--teal-50);
+  //--function: var(--teal-20);
+  //--variable: var(--maroon-30);
+  //--keyword: var(--brand-20);
+  //--property: var(--indigo-40);
+  //--selector: var(--teal-30);
+  //color: var(--grey20-50);
+
+  /*
+  .language-shell {
+    color: var(--shell);
+  }
+  .language-yaml {
+    color: var(--yaml);
+  }
+
+  .comment {
+    color: var(--comment);
+  }
+  .tag {
+    color: var(--tag);
+  }
+  .attr-name {
+    color: var(--attr-name);
+  }
+  .attr-value {
+    color: var(--attr-value);
+  }
+  .punctuation {
+    color: var(--punctuation);
+  }
+  .function {
+    color: var(--function);
+  }
+  .variable {
+    color: var(--variable);
+  }
+  .keyword,
+  .key {
+    color: var(--keyword);
+  }
+  .string {
+    color: var(--string);
+  }
+  .property {
+    color: var(--property);
+  }
+  .selector {
+    color: var(--selector);
+  }
+  */
+}
+
+#{$dark-theme} {
+  .codeblock .shiki {
+    --shiki-foreground: var(--codeblock-text);
+    --shiki-background: var(--codeblock-back);
+    --shiki-token-constant: var(--blue-50);
+    --shiki-token-string: var(--brand-60);
+    --shiki-token-string-expression: var(--shiki-token-string);
+    --shiki-token-comment: var(--grey-40);
+    --shiki-token-keyword: var(--grey40-50);
+    --shiki-token-parameter: var(--indigo-60);
+    --shiki-token-function: var(--indigo-70);
+    --shiki-token-punctuation: var(--grey20-40);
+    --shiki-token-link: var(--blue-40);
+    --shiki-highlight-background: var(--grey20-15);
+    --shiki-highlight-foreground: var(--brand-70);
+  }
+  /*
+  .codeblock .prismjs {
+    --background: var(--grey-15);
+    --border: var(--grey-25);
+    --color: var(--grey-50);
+    --shell: var(--brown-60);
+    --comment: var(--grey-50);
+    --punctuation: var(--grey20-40);
+    --tag: var(--blue-50);
+    --attr-name: var(--indigo-60);
+    --attr-value: var(--teal-70);
+    --string: var(--teal-65);
+    --function: var(--teal-80);
+    --variable: var(--maroon-70);
+    --keyword: var(--indigo-70);
+    --property: var(--indigo-60);
+    --selector: var(--teal-60);
+  }
+  */
+}

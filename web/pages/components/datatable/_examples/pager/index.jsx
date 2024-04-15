@@ -9,6 +9,7 @@ const Pager = () =>
     code="pager"
     Component={Component}
     Source={Source}
+    highlightLines="4"
     undent={4}
     expand
   >

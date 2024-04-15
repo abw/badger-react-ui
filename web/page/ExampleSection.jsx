@@ -9,6 +9,7 @@ const ExampleSection = ({
   code,
   title,
   caption=code ? <code>{code}</code> : title,
+  language,
   expand,
   undent,
   lineProps,
@@ -25,6 +26,7 @@ const ExampleSection = ({
       caption={caption}
       expand={expand}
       undent={undent}
+      language={language}
       highlightLines={highlightLines}
       lineProps={lineProps}
     />

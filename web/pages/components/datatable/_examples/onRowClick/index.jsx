@@ -8,6 +8,7 @@ const OnRowClick = () =>
     code="onRowClick"
     Component={Component}
     Source={Source}
+    highlightLines="4-6"
     undent={4}
     expand
   >

@@ -26,6 +26,7 @@ const Columns = () =>
       Component={String}
       code={StringSrc}
       caption="columns"
+      highlightLines="4"
       expand={false}
       undent={2}
     />
@@ -36,6 +37,7 @@ const Columns = () =>
       Component={Array}
       code={ArraySrc}
       caption="columns"
+      highlightLines="4-9"
       expand={false}
       undent={2}
     />
@@ -50,6 +52,7 @@ const Columns = () =>
       Component={ArrayField}
       code={ArrayFieldSrc}
       caption="columns"
+      highlightLines="4-9"
       expand={false}
       undent={2}
     />
@@ -81,6 +84,7 @@ const Columns = () =>
       Component={ArrayObj}
       code={ArrayObjSrc}
       caption="columns"
+      highlightLines="4-9"
       expand={false}
       undent={2}
     />
@@ -96,6 +100,7 @@ const Columns = () =>
       Component={Object}
       code={ObjectSrc}
       caption="columns"
+      highlightLines="4-9"
       expand={false}
       undent={2}
     />

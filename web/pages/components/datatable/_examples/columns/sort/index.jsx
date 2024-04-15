@@ -8,6 +8,7 @@ const Sort = () =>
     code="sort"
     Component={Component}
     Source={Source}
+    highlightLines="12"
     undent={2}
     expand
   >

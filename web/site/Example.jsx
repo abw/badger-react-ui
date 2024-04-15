@@ -20,11 +20,6 @@ export const Example = ({
           code={code||html}
           language={html ? 'html' : language}
           {...props}
-          /*
-          caption={caption}
-          expand={expand}
-          undent={undent}
-          */
         />
       </div>
       {/* </div> */}

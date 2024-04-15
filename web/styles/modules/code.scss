@@ -19,7 +19,7 @@ $codeblock-back-dark-to:     rgba($codeblock-back-dark, 0.9);
   --code-hover-border:    var(--brand-70);
     // codeblock
   --codeblock-back:       var(--grey-100);
-  --codeblock-text:       var(--grey-50);
+  --codeblock-text:       var(--grey40-30);
   --codeblock-caption:    var(--grey-20);
   --codeblock-border:     var(--grey20-75);
   --codeblock-back-from:  #{$codeblock-back-light-from};
@@ -125,7 +125,7 @@ div.output {
 
 div.codeblock {
   font-size: 0.9rem;
-  padding: 0;
+  // padding: 0.5rem;
   padding-bottom: 1.5rem;
   overflow: visible;
   color: var(--codeblock-text);
