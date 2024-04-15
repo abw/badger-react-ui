@@ -8,6 +8,7 @@ const DisplayResult = () =>
     code="displayResult"
     Component={Component}
     Source={Source}
+    highlightLines="16-24,38"
     // expand
   >
     <p>

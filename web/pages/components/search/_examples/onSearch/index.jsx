@@ -8,6 +8,7 @@ const OnSearch = () =>
     code="onSearch"
     Component={Component}
     Source={Source}
+    highlightLines="22-31,34"
     // expand
   >
     <p>

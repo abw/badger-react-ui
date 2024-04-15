@@ -8,6 +8,7 @@ const Clear = () =>
     code="clear"
     Component={Component}
     Source={Source}
+    highlightLines="39-42"
   >
     <p>
       You can use the <code>onLoad</code> property to save a reference

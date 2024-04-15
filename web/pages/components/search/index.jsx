@@ -15,10 +15,11 @@ const SearchExamples = () =>
     <Search/>
     <Sections tocName="search">
       <Heading title="Properties"/>
-      <OnSearch/>
-      <OnSelect/>
       <DisplayResult/>
       <DisplayValue/>
+      <Heading title="Event Handlers"/>
+      <OnSearch/>
+      <OnSelect/>
       <Heading title="Functions"/>
       <Clear/>
       <Reset/>

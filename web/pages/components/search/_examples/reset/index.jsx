@@ -8,6 +8,7 @@ const Reset = () =>
     code="reset"
     Component={Component}
     Source={Source}
+    highlightLines="39-42,48-51"
   >
     <p>
       You can call the <code>reset</code> method on the search object to
