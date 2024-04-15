@@ -8,8 +8,9 @@ const Solid = () =>
     code="solid"
     Component={Component}
     Source={Source}
+    highlightLines="2,9"
     expand
-    undent={2}
+    undent={4}
   >
     <p>
       The <code>solid</code> property can be used to render the tabs using

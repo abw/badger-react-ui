@@ -8,6 +8,7 @@ const Lined = () =>
     code="lined"
     Component={Component}
     Source={Source}
+    highlightLines="2"
     expand
     undent={2}
   >

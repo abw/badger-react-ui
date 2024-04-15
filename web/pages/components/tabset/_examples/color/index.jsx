@@ -8,6 +8,7 @@ const Color = () =>
     code="color"
     Component={Component}
     Source={Source}
+    highlightLines="18-21"
     expand
   >
     <p>

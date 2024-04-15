@@ -8,6 +8,7 @@ const Size = () =>
     code="size"
     Component={Component}
     Source={Source}
+    highlightLines="18-19"
     expand
   >
     <p>

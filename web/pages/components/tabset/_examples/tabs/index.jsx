@@ -8,6 +8,7 @@ const Tabs = () =>
     code="tabs"
     Component={Component}
     Source={Source}
+    highlightLines="11-31,36"
     expand
   >
     <p>

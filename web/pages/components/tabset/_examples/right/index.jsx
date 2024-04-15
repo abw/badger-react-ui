@@ -8,6 +8,7 @@ const Right = () =>
     code="right"
     Component={Component}
     Source={Source}
+    highlightLines="2"
     expand
     undent={2}
   >
