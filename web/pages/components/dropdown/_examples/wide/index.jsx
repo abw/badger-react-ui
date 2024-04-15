@@ -8,6 +8,7 @@ const Wide = () =>
     code="wide"
     Component={Component}
     Source={Source}
+    highlightLines="4"
     undent={2}
     expand
   >

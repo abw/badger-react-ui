@@ -8,6 +8,7 @@ const IconRightRotate = () =>
     code="iconRightRotate"
     Component={Component}
     Source={Source}
+    highlightLines="5"
     undent={2}
     expand
   >

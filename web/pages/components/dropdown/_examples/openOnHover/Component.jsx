@@ -6,9 +6,9 @@ import { Dropdown } from '@/src/index.jsx'
 const DropdownExample = () =>
   /* START */
   <Dropdown
-    openOnHover={true}
     text='Dropdown openOnHover'
     content='Hello World!'
+    openOnHover={true}
   />
   /* END */
 
