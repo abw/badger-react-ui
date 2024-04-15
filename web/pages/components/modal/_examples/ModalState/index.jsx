@@ -8,6 +8,7 @@ const ModalState = () =>
     code="ModalState"
     Component={Component}
     Source={Source}
+    highlightLines="5"
     expand
   >
     <p>

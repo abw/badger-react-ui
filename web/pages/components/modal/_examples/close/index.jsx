@@ -8,6 +8,7 @@ const Close = () =>
     code="close"
     Component={Component}
     Source={Source}
+    highlightLines="3"
     undent={6}
     expand
   >

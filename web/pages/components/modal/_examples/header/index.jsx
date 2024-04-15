@@ -8,6 +8,7 @@ const Header = () =>
     code="header"
     Component={Component}
     Source={Source}
+    highlightLines="5-12"
     undent={6}
     expand
   >

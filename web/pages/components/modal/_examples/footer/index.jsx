@@ -8,6 +8,7 @@ const Footer = () =>
     code="footer"
     Component={Component}
     Source={Source}
+    highlightLines="6-16"
     undent={6}
     expand
   >

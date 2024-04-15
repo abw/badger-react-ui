@@ -8,6 +8,7 @@ const Title = () =>
     code="title"
     Component={Component}
     Source={Source}
+    highlightLines="5"
     undent={6}
     expand
   >

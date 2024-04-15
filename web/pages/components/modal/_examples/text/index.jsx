@@ -8,6 +8,7 @@ const Text = () =>
     code="text"
     Component={Component}
     Source={Source}
+    highlightLines="4"
     undent={6}
     expand
   >

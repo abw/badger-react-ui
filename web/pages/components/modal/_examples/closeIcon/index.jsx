@@ -8,6 +8,7 @@ const CloseIcon = () =>
     code="closeIcon"
     Component={Component}
     Source={Source}
+    highlightLines="4"
     undent={6}
     expand
   >
