@@ -8,8 +8,9 @@ const Gap = () =>
     code="gap"
     Component={Component}
     Source={Source}
+    highlightLines="1,5,9"
     expand
-    undent={2}
+    undent={4}
   >
     <p>
       The <code>gap</code> property can be used to define the gap between

@@ -8,6 +8,7 @@ const Cols = () =>
     code="cols"
     Component={Component}
     Source={Source}
+    highlightLines="2,7-8"
     expand
     undent={2}
   >

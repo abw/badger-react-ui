@@ -8,6 +8,7 @@ const MinWidth = () =>
     code="minWidth"
     Component={Component}
     Source={Source}
+    highlightLines="3"
     expand
     undent={2}
   >

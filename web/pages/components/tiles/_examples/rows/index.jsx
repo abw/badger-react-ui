@@ -8,6 +8,7 @@ const Rows = () =>
     code="rows"
     Component={Component}
     Source={Source}
+    highlightLines="2,5"
     expand
     undent={2}
   >
