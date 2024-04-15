@@ -28,6 +28,7 @@ const Options = () =>
       Component={Values}
       code={ValuesSrc}
       caption="options"
+      highlightLines="4-9"
       expand={false}
       undent={2}
     />
@@ -50,6 +51,7 @@ const Options = () =>
       Component={Complex}
       code={ComplexSrc}
       caption="options"
+      highlightLines="4-26"
       expand={false}
       undent={2}
     />
@@ -63,6 +65,7 @@ const Options = () =>
       Component={Disabled}
       code={DisabledSrc}
       caption="options"
+      highlightLines="7,14,21"
       expand={false}
       undent={2}
     />
@@ -76,6 +79,7 @@ const Options = () =>
       Component={Separators}
       code={SepsSrc}
       caption="options"
+      highlightLines="8,12"
       expand={false}
       undent={2}
     />
@@ -88,6 +92,7 @@ const Options = () =>
       Component={Headings}
       code={HeadingsSrc}
       caption="options"
+      highlightLines="5,9,13"
       expand={false}
       undent={2}
     />

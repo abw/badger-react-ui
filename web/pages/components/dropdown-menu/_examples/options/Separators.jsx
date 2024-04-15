@@ -10,15 +10,11 @@ const DropdownExample = () =>
       'One',
       'Two',
       'Three',
-      {
-        separator: true
-      },
+      { separator: true },
       'Eleven',
       'Twelve',
       'Thirteen',
-      {
-        separator: true
-      },
+      { separator: true },
       'One Hundred',
       'Two Hundred',
       'Three Hundred',

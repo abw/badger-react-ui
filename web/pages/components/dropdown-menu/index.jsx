@@ -22,6 +22,7 @@ const DropdownExamples = () =>
         the <code>DropdownMenu</code>.
       </p>
       <Options/>
+      <Heading title="Event Handlers"/>
       <OnSelect/>
       {/*
       <ClassName/>
