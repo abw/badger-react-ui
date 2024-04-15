@@ -8,7 +8,7 @@ const Display = () =>
     code="display"
     Component={Component}
     Source={Source}
-    undent={4}
+    undent={2}
     expand
   >
     <p>

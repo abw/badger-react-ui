@@ -8,7 +8,7 @@ const Type = () =>
     code="type"
     Component={Component}
     Source={Source}
-    undent={4}
+    undent={2}
     expand
   >
     <p>
@@ -18,7 +18,7 @@ const Type = () =>
     <p>
       The default value is <code>string</code> which will display (and sort)
       values as strings.  You can also set it to <code>number</code>,{' '}
-      <code>currency</code>, <code>boolean</code>, and others... (TODO)
+      <code>currency</code> or <code>boolean</code>.
     </p>
   </Example>
 

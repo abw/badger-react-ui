@@ -14,6 +14,7 @@ import Label      from './_examples/columns/label/index.jsx'
 import Display    from './_examples/columns/display/index.jsx'
 import Type       from './_examples/columns/type/index.jsx'
 import Sort       from './_examples/columns/sort/index.jsx'
+import Filter     from './_examples/columns/filter/index.jsx'
 
 const DatatableExamples = () =>
   <div className="flow">
@@ -32,6 +33,7 @@ const DatatableExamples = () =>
       <Type/>
       <Display/>
       <Sort/>
+      <Filter/>
     </Sections>
   </div>
 

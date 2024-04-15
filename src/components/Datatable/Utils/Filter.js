@@ -1,13 +1,13 @@
-import { hasValue } from '@abw/badger-utils'
+import { hasValue, isBoolean, isString } from '@abw/badger-utils'
 
-const filterStringExact = ({ value, search }) =>
+export const filterStringExact = ({ value, search }) =>
   // we have to do woolly string searching because the value returned from a select
   // component is always a string
   hasValue(value)
     ? value.toString() === search.toString()
     : false
 
-const filterStringContains = ({ value, search }) => {
+export const filterStringContains = ({ value, search }) => {
   // more complicate string search that looks for all words in the input
   // anywhere in the string, e.g. "foo bar" should match against "bar and foo"
   const words = search.toLowerCase().split(/\s+/)
@@ -23,23 +23,27 @@ const filterStringContains = ({ value, search }) => {
   }
 }
 
-const filterInteger = ({ value, search }) =>
+export const filterInteger = ({ value, search }) =>
   //console.log('filterInteger(%o, %o, %o) [%s][%o] == [%s][%o]', row, field, search, typeof match, match, typeof search, search);
   hasValue(value)
     ? (parseInt(value) === parseInt(search))
     : false
 
-const filterFloat = ({value, search }) =>
+export const filterFloat = ({value, search }) =>
   //console.log('filterFloat(%o, %o, %o) [%s][%o] == [%s][%o]', row, field, search, typeof match, match, typeof search, search);
   hasValue(value)
     ? (parseFloat(value) === parseFloat(search))
     : false
 
-const filterBoolean = ({ value=false, search }) => {
-  // the problem here is that a select input can't have options with true/false values, and
-  // values of 0/1 get converted to strings.
-  const bsrch = parseInt(search) !== 0
-  // console.log('filterBoolean [%o] vs [%o]', match, bsrch);
+export const filterBoolean = ({ value=false, search }) => {
+  // The problem here is that a vanilla select input can't have options with
+  // true/false values, and values of 0/1 get converted to strings.
+  // So if the search value is a string then we parse it as an integer and
+  // compare it to 0.
+  const bsrch = isString(search)
+    ? parseInt(search) !== 0
+    : Boolean(search)
+  // console.log('filterBoolean [%o] vs [%o]', value, bsrch);
   return value === bsrch
 }
 
@@ -71,7 +75,7 @@ export const datatableFilter = (rows, columns, filters) => {
         const value  = row[field]
         const type   = column.filterType || column.type
         const filter = column.filter || datatableFilterTypes[type] || datatableFilterTypes.text
-        if (hasValue(search) && search.length) {
+        if (hasValue(search) && (isBoolean(search) || search.length)) {
           return filter({ row, field, value, search })
         }
         else {

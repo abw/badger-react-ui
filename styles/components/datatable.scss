@@ -15,6 +15,7 @@ section.datatable {
     margin-top: 0.5rem;
   }
   & table {
+    overflow: visible;
     thead {
       font-size: var(--header-size);
     }

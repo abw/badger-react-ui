@@ -1,5 +1,5 @@
 import React from 'react'
-import { Datatable } from '@/src/index.jsx'
+import { Datatable, filterStringContains } from '@/src/index.jsx'
 import { multiSort } from '@abw/badger-utils'
 
 const DatatableExample = () =>
@@ -15,6 +15,10 @@ const DatatableExample = () =>
     ]}
     columns={{
       name: {
+        filter: ({ row, search }) => filterStringContains({
+          search,
+          value: `${row.forename} ${row.surname}`
+        }),
         sort: multiSort('surname forename'),
         display: ({ row }) =>
           <>

@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from 'react'
 import { Generator } from '@abw/react-context'
-import { doNothing, hasValue, splitHash } from '@abw/badger-utils'
+import { doNothing, hasValue, isBoolean, splitHash } from '@abw/badger-utils'
 import { Storage, useComplexState } from '@/src/index.jsx'
 import {
   datatableColumnDefinitions,
@@ -136,7 +136,7 @@ const DatatableContext = ({
     setFilters(
       filters => {
         const newFilters = { ...filters }
-        if (hasValue(value) && value.length) {
+        if (hasValue(value) && (isBoolean(value) || value.length)) {
           newFilters[name] = value
         }
         else {
