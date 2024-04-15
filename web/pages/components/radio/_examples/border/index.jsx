@@ -8,6 +8,7 @@ const Border = () =>
     code="border"
     Component={Component}
     Source={Source}
+    highlightLines="2,13-14"
     undent={4}
     expand
   >

@@ -9,6 +9,7 @@ const Name = () =>
     Component={Component}
     Source={Source}
     undent={4}
+    highlightLines="2"
     expand
   >
     <p>

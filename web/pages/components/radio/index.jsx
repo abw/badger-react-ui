@@ -18,7 +18,6 @@ const RadioExamples = () =>
     <Sections tocName="radio">
       <Heading title="Properties"/>
       <Value/>
-      <OnChange/>
       <Name/>
       <ClassName/>
       <Inline/>
@@ -26,6 +25,8 @@ const RadioExamples = () =>
       <Heading title="Option Properties"/>
       <Options/>
       <Disabled/>
+      <Heading title="Event Handlers"/>
+      <OnChange/>
     </Sections>
   </div>
 

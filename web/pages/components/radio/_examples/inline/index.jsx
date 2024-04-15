@@ -8,6 +8,7 @@ const Inline = () =>
     code="inline"
     Component={Component}
     Source={Source}
+    highlightLines="2"
     undent={4}
     expand
   >

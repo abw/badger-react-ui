@@ -9,6 +9,7 @@ const Value = () =>
     code="value"
     Component={Component}
     Source={Source}
+    highlightLines="5"
     expand
   >
     <p>

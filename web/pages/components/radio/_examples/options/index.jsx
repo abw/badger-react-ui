@@ -8,6 +8,7 @@ const Options = () =>
     code="options"
     Component={Component}
     Source={Source}
+    highlightLines="4-8"
     undent={4}
     expand
   >

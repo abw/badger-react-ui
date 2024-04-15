@@ -8,6 +8,7 @@ const Disabled = () =>
     code="disabled"
     Component={Component}
     Source={Source}
+    highlightLines="20,25,30,35"
     undent={4}
     expand
   >
