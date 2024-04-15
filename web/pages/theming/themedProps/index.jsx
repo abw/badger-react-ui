@@ -17,6 +17,8 @@ const ThemedProps = () =>
     <Example
       Component={Component}
       code={Source}
+      highlightLines="23-25"
+      expand
     />
   </div>
 

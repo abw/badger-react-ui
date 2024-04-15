@@ -30,6 +30,9 @@ const ThemeProvider = () =>
     <Example
       Component={Component}
       code={Source}
+      highlightLines="5-17,19,31"
+      expand
+
     />
   </div>
 

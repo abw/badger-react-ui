@@ -14,6 +14,9 @@ const ThemingFunction = () =>
     <Example
       Component={Component}
       code={Source}
+      highlightLines="24-25"
+      expand
+
     />
   </div>
 
