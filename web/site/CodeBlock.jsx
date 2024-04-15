@@ -1,8 +1,11 @@
 import React from 'react'
 import { isFunction, range, sleep, splitList } from '@abw/badger-utils'
 import { useState } from 'react'
-import { createCssVariablesTheme, getHighlighter } from 'shiki'
+// import { createCssVariablesTheme, getHighlighter } from 'shiki'
+import { createCssVariablesTheme } from 'shiki'
+import { getHighlighterCore } from 'shiki/core'
 import { transformerNotationHighlight } from '@shikijs/transformers'
+import getWasm from 'shiki/wasm'
 
 const cssvars = 'css-variables'
 const cssVarsTheme = createCssVariablesTheme({
@@ -12,9 +15,20 @@ const cssVarsTheme = createCssVariablesTheme({
   fontStyle: true
 })
 
-const highlighter = getHighlighter({
+const highlighter = getHighlighterCore({
   themes: [cssVarsTheme],
-  langs: ['html', 'javascript', 'jsx', 'json', 'css', 'scss', 'bash', 'yaml'],
+  langs: [
+    // 'html', 'javascript', 'jsx', 'json', 'css', 'scss', 'bash', 'yaml'
+    import('shiki/langs/html.mjs'),
+    import('shiki/langs/javascript.mjs'),
+    import('shiki/langs/jsx.mjs'),
+    import('shiki/langs/json.mjs'),
+    import('shiki/langs/css.mjs'),
+    import('shiki/langs/scss.mjs'),
+    import('shiki/langs/bash.mjs'),
+    import('shiki/langs/yaml.mjs')
+  ],
+  loadWasm: getWasm
 })
 
 export const CodeBlock = ({
