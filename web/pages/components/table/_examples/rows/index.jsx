@@ -8,6 +8,7 @@ const Rows = () =>
     code="rows"
     Component={Component}
     Source={Source}
+    highlightLines="4-20,25"
     expand
   >
     <p>

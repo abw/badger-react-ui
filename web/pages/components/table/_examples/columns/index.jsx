@@ -36,6 +36,7 @@ const Columns = () =>
     <Example
       Component={Component}
       code={Source}
+      highlightLines="4-26,63"
     />
     <p>
       For simple cases you can specify the <code>columns</code> as an array
@@ -45,6 +46,7 @@ const Columns = () =>
     <Example
       Component={String}
       code={StringSrc}
+      highlightLines="3"
       undent={2}
     />
   </Section>

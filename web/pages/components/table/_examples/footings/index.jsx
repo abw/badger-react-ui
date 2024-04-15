@@ -8,6 +8,7 @@ const Footings = () =>
     code="footings"
     Component={Component}
     Source={Source}
+    highlightLines="12-15,22"
     expand
   >
     <p>

@@ -8,6 +8,7 @@ const FootRows = () =>
     code="footRows"
     Component={Component}
     Source={Source}
+    highlightLines="7-14,28"
     expand
   >
     <p>

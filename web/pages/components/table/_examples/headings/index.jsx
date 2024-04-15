@@ -8,6 +8,7 @@ const Headings = () =>
     code="headings"
     Component={Component}
     Source={Source}
+    highlightLines="4,16"
     expand
   >
     <p>

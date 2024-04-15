@@ -8,6 +8,7 @@ const Expanded = () =>
     code="expanded"
     Component={Component}
     Source={Source}
+    highlightLines="2"
     expand
     undent={2}
   >

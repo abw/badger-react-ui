@@ -8,6 +8,7 @@ const HeadRows = () =>
     code="headRows"
     Component={Component}
     Source={Source}
+    highlightLines="4-12,24"
     expand
   >
     <p>

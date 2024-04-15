@@ -8,6 +8,7 @@ const ClassName = () =>
     code="className"
     Component={Component}
     Source={Source}
+    highlightLines="2"
     expand
     undent={2}
   >

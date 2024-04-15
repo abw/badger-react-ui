@@ -8,6 +8,7 @@ const Celled = () =>
     code="celled"
     Component={Component}
     Source={Source}
+    highlightLines="2"
     expand
     undent={2}
   >
