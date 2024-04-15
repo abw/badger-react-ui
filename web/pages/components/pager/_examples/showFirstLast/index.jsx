@@ -8,6 +8,7 @@ const ShowFirstLast = () =>
     code="showFirstLast"
     Component={Component}
     Source={Source}
+    highlightLines="4"
     undent={4}
   >
     <p>

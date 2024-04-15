@@ -8,7 +8,8 @@ const Size = () =>
     code="size"
     Component={Component}
     Source={Source}
-    undent={4}
+    highlightLines="4,10"
+    undent={6}
   >
     <p>
       The <code>size</code> property can be used to set the size to one

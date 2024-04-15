@@ -11,11 +11,13 @@ const Component = () => {
         page={page} setPage={setPage}
         color="red"
       />
+
       <Pager
         pages={11}
         page={page} setPage={setPage}
         color="green"
       />
+
       <Pager
         pages={11}
         page={page} setPage={setPage}

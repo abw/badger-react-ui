@@ -1,10 +1,11 @@
 import React      from 'react'
 import Pager      from './_examples/Pager/index.jsx'
 import Context    from './_examples/Context/index.jsx'
-import ClassName from './_examples/className/index.jsx'
+import ClassName  from './_examples/className/index.jsx'
 import Color      from './_examples/color/index.jsx'
 import Size       from './_examples/size/index.jsx'
-import Icons      from './_examples/icons/index.jsx'
+import PrevIcon   from './_examples/prevIcon/index.jsx'
+import NextIcon   from './_examples/nextIcon/index.jsx'
 import FirstLast  from './_examples/showFirstLast/index.jsx'
 import Heading    from '@/web/page/Heading.jsx'
 import Sections   from '@/web/page/Sections.jsx'
@@ -21,7 +22,8 @@ const PagerExamples = () =>
       <ClassName/>
       <Color/>
       <Size/>
-      <Icons/>
+      <PrevIcon/>
+      <NextIcon/>
       <FirstLast/>
       <Split>
         <div className="flow">

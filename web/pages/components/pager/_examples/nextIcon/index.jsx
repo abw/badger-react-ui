@@ -8,6 +8,7 @@ const NextIcon = () =>
     code="nextIcon"
     Component={Component}
     Source={Source}
+    highlightLines="4"
     undent={4}
   >
     <p>

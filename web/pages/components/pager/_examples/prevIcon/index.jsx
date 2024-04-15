@@ -3,17 +3,18 @@ import Example    from '@/page/ExampleSection.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
 
-const Icons = () =>
+const PrevIcon = () =>
   <Example
-    code="prevIcon / nextIcon"
+    code="prevIcon"
     Component={Component}
     Source={Source}
+    highlightLines="4"
     undent={4}
   >
     <p>
-      The <code>prevIcon</code> and <code>nextIcon</code> properties can be
-      used to set the icons for the previous and next page button.
+      The <code>prevIcon</code> property can be used to set the icon for
+      the previous page button.
     </p>
   </Example>
 
-export default Icons
+export default PrevIcon

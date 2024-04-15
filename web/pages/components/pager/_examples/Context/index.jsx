@@ -58,6 +58,7 @@ const Pager = () =>
     <Example
       Component={Component}
       code={Source}
+      highlightLines="4-18,34"
       // expand
     />
   </>

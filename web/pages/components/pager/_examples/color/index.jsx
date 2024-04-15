@@ -8,7 +8,8 @@ const Color = () =>
     code="color"
     Component={Component}
     Source={Source}
-    undent={4}
+    highlightLines="4,10,16"
+    undent={6}
   >
     <p>
       The <code>color</code> property can be used to set the color range

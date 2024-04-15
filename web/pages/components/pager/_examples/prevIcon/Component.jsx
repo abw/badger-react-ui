@@ -9,7 +9,6 @@ const Component = () => {
       pages={11}
       page={page} setPage={setPage}
       prevIcon="angle-left"
-      nextIcon="angle-right"
     />
     /* END */
   )
