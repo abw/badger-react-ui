@@ -8,6 +8,7 @@ const ValidOption = () =>
     code="validOption"
     Component={Component}
     Source={Source}
+    highlightLines="19"
     expand
   >
     <p>

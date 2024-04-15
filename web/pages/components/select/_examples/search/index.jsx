@@ -24,6 +24,8 @@ const Search = () =>
     <Example
       Component={Strings}
       code={StringsSrc}
+      highlightLines="18"
+
     />
     <p>
       If the <code>options</code> are an array of objects then it will
@@ -34,6 +36,7 @@ const Search = () =>
     <Example
       Component={Objects}
       code={ObjectsSrc}
+      highlightLines="18"
     />
   </Section>
 

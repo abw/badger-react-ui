@@ -8,6 +8,7 @@ const DisplayOption = () =>
     code="displayOption"
     Component={Component}
     Source={Source}
+    highlightLines="16-24,29"
     expand
   >
     <p>

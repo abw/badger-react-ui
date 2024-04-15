@@ -16,6 +16,7 @@ const ValueExamples = () =>
       Component={Strings}
       code={StringsSrc}
       caption="value"
+      highlightLines="18"
       expand={false}
     />
     <p>
@@ -28,6 +29,7 @@ const ValueExamples = () =>
       Component={Value}
       code={ValueSrc}
       caption="value"
+      highlightLines="18"
       expand={false}
     />
   </Section>

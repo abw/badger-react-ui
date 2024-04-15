@@ -8,6 +8,7 @@ const SearchOptions = () =>
     code="searchOptions"
     Component={Component}
     Source={Source}
+    highlightLines="15-21,37"
     expand
   >
     <p>

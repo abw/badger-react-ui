@@ -8,6 +8,7 @@ const DisplayValue = () =>
     code="displayValue"
     Component={Component}
     Source={Source}
+    highlightLines="16-20,25"
     expand
   >
     <p>
