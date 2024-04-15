@@ -17,6 +17,8 @@ const Submitting = () =>
     <Example
       Component={Defaults}
       code={DefaultsSrc}
+      highlightLines="29"
+
     />
     <p>
       The <code>size</code> property can be used to set the overall size.
@@ -28,6 +30,7 @@ const Submitting = () =>
     <Example
       Component={Custom}
       code={CustomSrc}
+      highlightLines="29-37"
     />
   </Section>
 

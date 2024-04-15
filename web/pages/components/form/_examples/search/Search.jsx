@@ -33,8 +33,8 @@ const SearchExample = () =>
   <Form>
     <Field
       name="animal"
-      type="search"
       label="Animal"
+      type="search"
       onSearch={onSearch}
     />
     <Debug/>

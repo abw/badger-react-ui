@@ -19,6 +19,7 @@ const SearchExamples = () =>
     <Example
       Component={Search}
       code={SearchSrc}
+      highlightLines="34-35"
     />
 
     <p>
@@ -33,6 +34,7 @@ const SearchExamples = () =>
     <Example
       Component={Select}
       code={SelectSrc}
+      highlightLines="46"
     />
   </Section>
 

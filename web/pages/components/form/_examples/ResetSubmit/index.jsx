@@ -14,6 +14,7 @@ const ResetSubmit = () =>
     <Example
       Component={Classes}
       code={ClassesSrc}
+      highlightLines="18-29"
     />
   </Section>
 

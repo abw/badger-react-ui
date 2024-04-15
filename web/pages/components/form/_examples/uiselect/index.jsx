@@ -18,6 +18,7 @@ const UISelect = () =>
     <Example
       Component={Simple}
       code={SimpleSrc}
+      highlightLines="5"
     />
     <p>
       You can define additional properties in the field that will be forwarded
@@ -27,6 +28,7 @@ const UISelect = () =>
     <Example
       Component={Search}
       code={SearchSrc}
+      highlightLines="6"
     />
     <p>
       When an option is selected the default behaviour is to return the
@@ -42,6 +44,7 @@ const UISelect = () =>
     <Example
       Component={Select}
       code={SelectSrc}
+      highlightLines="7"
     />
   </Section>
 
