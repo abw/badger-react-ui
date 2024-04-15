@@ -8,6 +8,7 @@ const Fixed = () =>
     code="fixed"
     Component={Component}
     Source={Source}
+    highlightLines="2"
     undent={8}
   >
     <p>

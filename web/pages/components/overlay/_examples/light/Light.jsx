@@ -13,7 +13,10 @@ const ColorExample = () => {
       />
       { isVisible &&
         /* START */
-        <Overlay light className="flex space top pad-6">
+        <Overlay
+          light
+          className="flex space top pad-6"
+        >
           <p className="larger">
             Light overlay
           </p>

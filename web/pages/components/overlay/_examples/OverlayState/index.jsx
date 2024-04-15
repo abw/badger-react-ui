@@ -8,6 +8,7 @@ const OverlayState = () =>
     code="OverlayState"
     Component={Component}
     Source={Source}
+    highlightLines="5"
     expand
   >
     <p>

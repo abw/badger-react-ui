@@ -8,6 +8,7 @@ const Custom = () =>
     title="Custom Colors"
     Component={Component}
     Source={Source}
+    highlightLines="3-7"
     undent={8}
   >
     <p>

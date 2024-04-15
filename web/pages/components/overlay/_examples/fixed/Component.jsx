@@ -13,7 +13,10 @@ const OverlayExample = () => {
       />
       { isVisible &&
         /* START */
-        <Overlay fixed className="flex center middle">
+        <Overlay
+          fixed
+          className="flex center middle"
+        >
           <div className="max-width-40rem">
             <p className="larger">
               I do not, for one, think that the problem was that the
