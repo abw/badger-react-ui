@@ -8,6 +8,7 @@ const Confirm = () =>
     code="confirm"
     Component={Component}
     Source={Source}
+    highlightLines="4-8"
     undent={2}
     expand
   >

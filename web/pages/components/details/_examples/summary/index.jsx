@@ -8,6 +8,7 @@ const Summary = () =>
     code="summary"
     Component={Component}
     Source={Source}
+    highlightLines="2,9-14"
     undent={4}
     expand
   >

@@ -8,6 +8,7 @@ const Dark = () =>
     code="dark"
     Component={Component}
     Source={Source}
+    highlightLines="9"
     undent={2}
     expand
   >

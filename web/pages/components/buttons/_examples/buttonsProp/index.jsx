@@ -8,6 +8,7 @@ const Buttons = () =>
     code="buttons"
     Component={Component}
     Source={Source}
+    highlightLines="2-5"
     undent={4}
     expand
   >

@@ -8,6 +8,7 @@ const Dismissable = () =>
     code="dismissable"
     Component={Component}
     Source={Source}
+    highlightLines="4"
     undent={2}
     expand
   >

@@ -8,6 +8,7 @@ const Color = () =>
     code="color"
     Component={Component}
     Source={Source}
+    highlightLines={ line => line % 4 === 0 }
     undent={2}
   >
     <p>

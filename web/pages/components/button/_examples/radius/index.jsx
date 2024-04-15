@@ -8,6 +8,7 @@ const Radius = () =>
     code="radius"
     Component={Component}
     Source={Source}
+    highlightLines="5,10,15,20"
     undent={2}
   >
     <p>

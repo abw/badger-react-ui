@@ -8,7 +8,8 @@ const OnChange = () =>
     code="onChange"
     Component={Component}
     Source={Source}
-    // undent={4}
+    highlightLines="4"
+    undent={4}
     expand
   >
     <p>

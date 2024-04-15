@@ -8,6 +8,7 @@ const Icon = () =>
     code="icon"
     Component={Component}
     Source={Source}
+    highlightLines="3,9,15"
     undent={2}
     expand
   >

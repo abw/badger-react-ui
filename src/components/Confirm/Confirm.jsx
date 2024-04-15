@@ -32,6 +32,7 @@ const Confirm = ({
   className=buttonsClass,
   buttonClass,
   modal,
+  modalClass,
   onClick = () => window.alert('No confirm action defined'),
   ...props
 }) => {
@@ -72,6 +73,7 @@ const Confirm = ({
           isVisible={isVisible}
           confirm={confirmProps}
           cancel={cancelProps}
+          modalClass={modalClass}
           {...props}
         />
       </>

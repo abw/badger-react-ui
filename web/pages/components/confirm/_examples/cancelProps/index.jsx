@@ -9,6 +9,7 @@ const Cancel = () =>
     code="cancelXXX"
     Component={Component}
     Source={Source}
+    highlightLines="4-6"
     undent={2}
     expand
   >

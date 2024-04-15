@@ -8,6 +8,7 @@ const Headline = () =>
     code="headline"
     Component={Component}
     Source={Source}
+    highlightLines="2"
     undent={2}
     expand
   >

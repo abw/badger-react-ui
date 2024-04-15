@@ -8,6 +8,7 @@ const IconLeft = () =>
     code="iconLeft"
     Component={Component}
     Source={Source}
+    highlightLines="4"
     undent={2}
   >
     <p>

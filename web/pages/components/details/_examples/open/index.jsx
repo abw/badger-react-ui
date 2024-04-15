@@ -8,7 +8,8 @@ const Open = () =>
     code="open"
     Component={Component}
     Source={Source}
-    undent={4}
+    highlightLines="3"
+    undent={2}
     expand
   >
     <p>

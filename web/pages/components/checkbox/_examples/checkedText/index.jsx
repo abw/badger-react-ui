@@ -5,16 +5,16 @@ import Source     from './Component.jsx?raw'
 
 const Checked = () =>
   <Example
-    code="checkedText / uncheckedText"
+    code="checkedText"
     Component={Component}
     Source={Source}
-    // undent={4}
+    highlightLines="3"
+    undent={4}
     expand
   >
     <p>
-      The <code>checkedText</code> and <code>uncheckedText</code> properties
-      can be used to provide different text for the checked and unchecked
-      states.
+      The <code>checkedText</code> property can be used to provide different
+      text for the checked state.
     </p>
   </Example>
 

@@ -8,6 +8,7 @@ const Warning = () =>
     code="Warning"
     Component={Component}
     Source={Source}
+    highlightLines="3,6,10,15"
     undent={2}
     expand
   >

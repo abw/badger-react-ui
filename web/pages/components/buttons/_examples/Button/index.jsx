@@ -8,6 +8,7 @@ const Button = () =>
     code="Button"
     Component={Component}
     Source={Source}
+    highlightLines="4-7,15"
     expand
   >
     <p>

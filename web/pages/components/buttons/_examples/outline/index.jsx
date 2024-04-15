@@ -9,6 +9,7 @@ const Outline = () =>
     code="outline"
     Component={Component}
     Source={Source}
+    highlightLines="2"
     undent={4}
     expand
   >

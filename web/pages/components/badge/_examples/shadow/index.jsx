@@ -8,6 +8,7 @@ const Shadow = () =>
     code="shadow"
     Component={Component}
     Source={Source}
+    highlightLines={ line => line % 5 === 0 }
     undent={2}
   >
     <p>

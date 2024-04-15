@@ -3,6 +3,7 @@ import Overview       from './_examples/Overview/index.jsx'
 import Text           from './_examples/text/index.jsx'
 import Checked        from './_examples/checked/index.jsx'
 import CheckedText    from './_examples/checkedText/index.jsx'
+import UncheckedText  from './_examples/uncheckedText/index.jsx'
 import Disabled       from './_examples/disabled/index.jsx'
 import OnChange       from './_examples/onChange/index.jsx'
 import ClassName      from './_examples/className/index.jsx'
@@ -20,7 +21,7 @@ const CheckboxExamples = () =>
       <Text/>
       <Checked/>
       <CheckedText/>
-      <OnChange/>
+      <UncheckedText/>
       <ClassName/>
       <Border/>
       <Disabled/>
@@ -33,6 +34,8 @@ const CheckboxExamples = () =>
       <ConfirmProps/>
       <OnClick/>
       */}
+      <Heading title="Event Handlers"/>
+      <OnChange/>
       <Heading title="Components"/>
       <CheckboxState/>
     </Sections>

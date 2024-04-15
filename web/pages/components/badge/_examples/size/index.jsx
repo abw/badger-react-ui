@@ -7,6 +7,7 @@ const Size = () =>
   <Example
     code="size"
     Component={Component}
+    highlightLines={ line => line % 4 === 0 }
     Source={Source}
     undent={2}
   >

@@ -9,6 +9,7 @@ const Revealed = () =>
     Component={Component}
     Source={Source}
     undent={2}
+    highlightLines="5"
     expand
   >
     <p>

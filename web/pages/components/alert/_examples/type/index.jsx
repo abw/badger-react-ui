@@ -8,6 +8,7 @@ const Type = () =>
     code="type"
     Component={Component}
     Source={Source}
+    highlightLines={ line => line % 4 === 0 }
     undent={2}
     expand
   >

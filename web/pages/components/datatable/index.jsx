@@ -24,7 +24,6 @@ const DatatableExamples = () =>
       <Heading title="Properties"/>
       <Rows/>
       <Columns/>
-      <OnRowClick/>
       <Color/>
       <Pager/>
       <StorageKey/>
@@ -34,6 +33,8 @@ const DatatableExamples = () =>
       <Display/>
       <Sort/>
       <Filter/>
+      <Heading title="Event Handlers"/>
+      <OnRowClick/>
     </Sections>
   </div>
 

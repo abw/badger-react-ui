@@ -10,9 +10,11 @@
   --shiki-token-function: var(--indigo-40);
   --shiki-token-punctuation: var(--grey20-70);
   --shiki-token-link: var(--blue-60);
-  --shiki-highlight-background: var(--grey20-95);
+  --shiki-highlight-background: var(--grey-95);
   --shiki-highlight-foreground: var(--brand-30);
+  --shiki-highlight-border: var(--grey20-85);
   --padding: 1rem;
+  --highlight-border-width: 0rem;
   font-family: var(--font-mono);
   white-space: pre;
   word-spacing: normal;
@@ -26,7 +28,8 @@
   span.line.highlighted {
     background-color: var(--shiki-highlight-background);
     margin: 0 calc(0rem - var(--padding));
-    padding: 0 var(--padding);
+    padding: 0 calc(var(--padding) - var(--highlight-border-width));
+    border-left: var(--highlight-border-width) solid var(--shiki-highlight-border);
     // margin: 0 -24px;
     //padding: 2px 24px;
     //width: calc(100% + 48px);
@@ -107,6 +110,7 @@
     --shiki-token-link: var(--blue-40);
     --shiki-highlight-background: var(--grey20-15);
     --shiki-highlight-foreground: var(--brand-70);
+    --shiki-highlight-border: var(--brand-50);
   }
   /*
   .codeblock .prismjs {

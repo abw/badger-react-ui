@@ -37,7 +37,6 @@ const AlertExamples = () =>
       <Revealable/>
       <Revealed/>
       <Dismissable/>
-      <OnDismiss/>
       <ClassName/>
       <Border/>
       <Radius/>
@@ -47,6 +46,8 @@ const AlertExamples = () =>
       <Type/>
       <Stripe/>
       <Icon/>
+      <Heading title="Event Handlers"/>
+      <OnDismiss/>
       <Heading title="Components"/>
       <Info/>
       <Success/>

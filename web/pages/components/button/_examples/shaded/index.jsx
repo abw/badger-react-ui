@@ -8,6 +8,7 @@ const Shaded = () =>
     code="shaded"
     Component={Component}
     Source={Source}
+    highlightLines="5,10,15"
     undent={2}
     expand
   >

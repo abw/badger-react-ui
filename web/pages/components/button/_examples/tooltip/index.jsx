@@ -8,6 +8,7 @@ const Tooltip = () =>
     code="tooltip"
     Component={Component}
     Source={Source}
+    highlightLines="3-4"
     undent={2}
     expand
   >

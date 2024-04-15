@@ -16,6 +16,7 @@ const Badge = () =>
     <Example
       Component={Component}
       code={Source}
+      caption="Badge"
       expand
     />
   </>

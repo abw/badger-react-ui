@@ -10,8 +10,12 @@ import Confirm      from './_examples/confirm/index.jsx'
 import ConfirmProps from './_examples/confirmProps/index.jsx'
 import OnClick      from './_examples/onClick/index.jsx'
 import Modal        from './_examples/modal/index.jsx'
+import ModalClass   from './_examples/modalClass/index.jsx'
+import Prompt       from './_examples/prompt/index.jsx'
+import Title        from './_examples/title/index.jsx'
+import Header       from './_examples/header/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
-import Heading from '@/web/page/Heading.jsx'
+import Heading      from '@/web/page/Heading.jsx'
 
 const ConfirmExamples = () =>
   <div className="flow">
@@ -27,7 +31,12 @@ const ConfirmExamples = () =>
       <CancelProps/>
       <Confirm/>
       <ConfirmProps/>
+      <Heading title="Modal Properties"/>
       <Modal/>
+      <Prompt/>
+      <Title/>
+      <Header/>
+      <ModalClass/>
       <Heading title="Event Handlers"/>
       <OnClick/>
     </Sections>

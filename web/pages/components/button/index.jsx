@@ -31,7 +31,6 @@ const ButtonExamples = () =>
     <Sections tocName="button">
       <Heading title="Properties"/>
       <Text/>
-      <OnClick/>
       <Disabled/>
       <Color/>
       <Bright/>
@@ -50,6 +49,8 @@ const ButtonExamples = () =>
       <Label/>
       <Tooltip/>
       <Type/>
+      <Heading title="Event Handlers"/>
+      <OnClick/>
       <Heading title="Components"/>
       <Content/>
     </Sections>

@@ -8,6 +8,7 @@ const Stripe = () =>
     code="stripe"
     Component={Component}
     Source={Source}
+    highlightLines="5,11,17,23,29"
     undent={2}
     expand
   >

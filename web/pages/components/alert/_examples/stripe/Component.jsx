@@ -6,27 +6,32 @@ const Component = () =>
   <div>
     <Alert
       text="Stripe Alert"
-      stripe shadow={4}
+      shadow={4}
+      stripe
     />
     <Alert
       text="Info Stripe Alert"
       type="info"
-      stripe shadow={4}
+      shadow={4}
+      stripe
     />
     <Alert
       text="Success Stripe Alert"
       type="success"
-      stripe shadow={4}
+      shadow={4}
+      stripe
     />
     <Alert
       text="Warning Stripe Alert"
       type="warning"
-      stripe shadow={4}
+      shadow={4}
+      stripe
     />
     <Alert
       text="Error Stripe Alert"
       type="error"
-      stripe shadow={4}
+      shadow={4}
+      stripe
     />
   </div>
 /* END */

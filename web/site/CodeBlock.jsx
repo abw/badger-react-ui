@@ -1,5 +1,5 @@
 import React from 'react'
-import { sleep } from '@abw/badger-utils'
+import { isFunction, range, sleep, splitList } from '@abw/badger-utils'
 import { useState } from 'react'
 import { createCssVariablesTheme, getHighlighter } from 'shiki'
 import { transformerNotationHighlight } from '@shikijs/transformers'
@@ -35,36 +35,14 @@ export const CodeBlock = ({
     setCopied(true)
     sleep(2000).then(() => setCopied(false))
   }
-  const removeLineEndings = {
-    code(code) {
-      // remove any newlines as long as the preceding line isn't a blank line,
-      const children = code.children
-      // console.log(`children: `, children)
-      code.children = code.children.filter(
-        (line, n) => !(
-          line.type === 'text'
-          && line.value === '\n'
-          && (n > 0 && children[n-1].children?.length > 0)
-        )
-      )
-    },
-  }
   React.useEffect(
     () => {
       const transformers = [ removeLineEndings ]
 
       if (highlightLines) {
-        // console.log(`highlight lines: ${highlightLines}`)
-        const [a, b] = highlightLines.split('-')
-        const start = parseInt(a)
-        const end = b ? parseInt(b) : start
-        transformers.push({
-          line(node, line) {
-            if (line >= start && line <= (end ?? start)) {
-              this.addClassToHast(node, 'highlighted')
-            }
-          }
-        })
+        transformers.push(
+          lineHighlighter(highlightLines)
+        )
       }
       highlighter.then(
         highlighter => setMarkup(
@@ -128,6 +106,55 @@ export const prepareCode = (code, options={}) => {
     code = code.replaceAll(match, '')
   }
   return code
+}
+
+const removeLineEndings = {
+  code(code) {
+    // remove any newlines as long as the preceding line isn't a blank line,
+    const children = code.children
+    // console.log(`children: `, children)
+    code.children = code.children.filter(
+      (line, n) => !(
+        line.type === 'text'
+        && line.value === '\n'
+        && (n > 0 && children[n-1].children?.length > 0)
+      )
+    )
+  },
+}
+
+const lineHighlighter = highlightLines => {
+  // highlightLines can be a single line, e.g. "7", a range of lines,
+  // e.g. "7-9", or multiple lines/ranges, e.g. "7,11-12,15-18".
+  // Or it can be a function which is passed a line and returns true/false
+  const highlighter = isFunction(highlightLines)
+    ? highlightLines
+    : makeHighlighter(highlightLines)
+
+  return {
+    line(node, line) {
+      if (highlighter(line)) {
+        this.addClassToHast(node, 'highlighted')
+      }
+    }
+  }
+}
+
+const makeHighlighter = highlightLines => {
+  const lineRanges = splitList(highlightLines)
+  const highlines = lineRanges.reduce(
+    (highlines, lineRange)  => {
+      const [a, b] = lineRange.split('-')
+      const start = parseInt(a)
+      const end = b ? parseInt(b) : start
+      range(start, end).forEach(
+        line => highlines[line] = true
+      )
+      return highlines
+    },
+    { }
+  )
+  return line => highlines[line]
 }
 
 //const highlighter = lines => {

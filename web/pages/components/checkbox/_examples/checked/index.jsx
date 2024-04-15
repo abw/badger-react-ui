@@ -8,7 +8,8 @@ const Checked = () =>
     code="checked"
     Component={Component}
     Source={Source}
-    // undent={4}
+    highlightLines="3"
+    undent={4}
     expand
   >
     <p>
