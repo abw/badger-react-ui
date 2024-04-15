@@ -8,6 +8,7 @@ const InactiveProps = () =>
     code="inactiveProps"
     Component={Component}
     Source={Source}
+    highlightLines="2-4"
     expand
     undent={4}
   >

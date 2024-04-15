@@ -8,6 +8,7 @@ const FindSelectedIndex = () =>
     code="findSelectedIndex"
     Component={Component}
     Source={Source}
+    highlightLines="17-20,27"
     expand
   >
     <p>

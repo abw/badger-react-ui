@@ -8,6 +8,7 @@ const OnSelect = () =>
     code="onSelect"
     Component={Component}
     Source={Source}
+    highlightLines="20"
     expand
   >
     <p>

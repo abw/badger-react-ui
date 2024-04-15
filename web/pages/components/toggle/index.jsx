@@ -23,12 +23,13 @@ const ToggleExamples = () =>
       <Heading title="Properties"/>
       <Options/>
       <Selected/>
-      <OnSelect/>
       <FindSelected/>
       <Size/>
       <Color/>
       <ActiveProps/>
       <InactiveProps/>
+      <Heading title="Event Handlers"/>
+      <OnSelect/>
       <Heading title="Components"/>
       <ToggleState/>
       <UseToggle/>

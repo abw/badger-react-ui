@@ -9,6 +9,7 @@ const Options = () =>
     code="options"
     Component={Component}
     Source={Source}
+    highlightLines="6-17,21"
     expand
   >
     <p>
