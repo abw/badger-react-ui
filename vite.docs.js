@@ -23,7 +23,7 @@ export default defineConfig({
   build: {
     emptyOutDir: true,
     outDir: '../docs',
-    chunkSizeWarningLimit: 900
+    chunkSizeWarningLimit: 1600
   },
   server: {
     host: 'badger-react-ui.local.wardley.org',
