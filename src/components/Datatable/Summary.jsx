@@ -1,8 +1,7 @@
-import React   from 'react'
-import Context from './Context.js'
+import React    from 'react'
+import Context  from './Context.js'
+import Button   from '../Button/Button.jsx'
 import { commas } from '@abw/badger-utils'
-import Icon from '@/components/Icon/Icon.jsx'
-import Button from '../Button/Button.jsx'
 
 const Summary = ({
   page,
