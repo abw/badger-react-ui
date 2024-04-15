@@ -13,6 +13,7 @@ import StorageKey from './_examples/storageKey/index.jsx'
 import Label      from './_examples/columns/label/index.jsx'
 import Display    from './_examples/columns/display/index.jsx'
 import Type       from './_examples/columns/type/index.jsx'
+import Sort       from './_examples/columns/sort/index.jsx'
 
 const DatatableExamples = () =>
   <div className="flow">
@@ -27,9 +28,10 @@ const DatatableExamples = () =>
       <Pager/>
       <StorageKey/>
       <Heading title="Column Properties"/>
+      <Label/>
       <Type/>
       <Display/>
-      <Label/>
+      <Sort/>
     </Sections>
   </div>
 
