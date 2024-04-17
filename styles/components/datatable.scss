@@ -86,8 +86,9 @@ section.datatable {
     &.selectable tbody tr:hover {
       td, th {
         & > * {
-          background-color: var(--selectable-background);
+          background-color: transparent;
           color: var(--selectable-color);
+          transition: background-color 0.3s ease;
         }
         & > .badge, & > button, & > .button, & > .inverse {
           border-color: color-mix(in srgb, var(--selectable-color), transparent 30%);
