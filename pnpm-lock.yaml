@@ -9,8 +9,8 @@ dependencies:
     specifier: ^1.0.1
     version: 1.0.1(react-dom@18.2.0)(react@18.2.0)
   '@abw/badger-icon':
-    specifier: ^0.0.11
-    version: 0.0.11
+    specifier: ^0.0.12
+    version: 0.0.12
   '@abw/badger-utils':
     specifier: ^1.0.26
     version: 1.0.26
@@ -152,8 +152,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@abw/badger-icon@0.0.11:
-    resolution: {integrity: sha512-WApQ0LYN0WIgLAM+2D4WdJKQfEks6FIkQh7lKErm/7Jlu47YEpMdhnX3/uxmjzerpcVbucpOG0WO73R4bt263Q==}
+  /@abw/badger-icon@0.0.12:
+    resolution: {integrity: sha512-CaQPmNZFPob16cdpSYQbQpfIv5OSx+d/0WysRrYXcaEdqEHYfg5GgfnLEH3ZRv1jDY4m8O6oKOUzKCY0m/X5rA==}
     dependencies:
       '@abw/badger-utils': 1.0.26
       '@abw/react-one-louder': 0.0.6

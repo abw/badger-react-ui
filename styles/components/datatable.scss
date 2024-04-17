@@ -8,7 +8,17 @@ section.datatable {
   --sorting-shade-3: var(--color-80);
   --sorting-shade-4: var(--color-75);
   & > header {
-    // border: 1px solid red;
+    .controls {
+      .filtering.trigger path {
+        fill: var(--brand-75);
+      }
+      .trigger:hover {
+        cursor: pointer;
+        path, rect {
+          fill: var(--brand-85);
+        }
+      }
+    }
     margin-bottom: 0.5rem;
   }
   & > footer {
@@ -38,14 +48,11 @@ section.datatable {
           opacity: 1;
         }
       }
-      .filter-icon:hover {
-        opacity: var(--header-icon-hover-opacity);
-      }
-      &.filtering .filter-icon {
-        opacity: 1;
-      }
-      &.right .flex {
+      &.text-right .flex {
         flex-direction: row-reverse;
+      }
+      &.text-center .flex {
+        padding-left: 1em;
       }
     }
     thead tr.filters {
@@ -67,7 +74,7 @@ section.datatable {
     tbody tr td.sorting {
       --background-color: var(--sorting-shade-1);
     }
-    tbody tr:nth-child(even) td.sorting {
+    &.striped tbody tr:nth-child(even) td.sorting {
       --background-color: var(--sorting-shade-2);
     }
   }

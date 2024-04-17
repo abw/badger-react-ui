@@ -2,7 +2,7 @@ import React        from 'react'
 import Context      from './Context.js'
 import Icon         from '@/components/Icon/Icon.jsx'
 import { classes }  from '@/src/utils/classes.js'
-import { hasValue } from '@abw/badger-utils'
+import { alignClasses } from './Utils/Align.js'
 
 export const Heading = ({
   name,
@@ -15,48 +15,32 @@ export const Heading = ({
   unsortedIcon='arrows',
   sortIconClass=`sort-icon`,
   sortingClass='sorting',
-  showFilters,
-  toggleFilters,
-  filters,
-  filteringClass='filtering',
-  filterIcon='filter',
-  filteringIcon='filter-solid',
-  filterIconClass='filter-icon',
   headingClass='heading',
-  rightClass='right'
 }) => {
   const sorting = name === sortColumn
   const reverse = sorting && sortReverse
-  const filtering = hasValue(filters[name])
   return (
     <th
       className={
         classes(
           headingClass,
-          column.right ? rightClass : null,
-          showFilters ? filteringClass : null,    // TODO: filters[column]
-          filtering ? filteringClass : null,
-          sorting ? sortingClass : null
+          sorting && sortingClass,
+          column.right && alignClasses.right,
+          column.center && alignClasses.center,
+          column.align && alignClasses[column.align]
         )}
       onClick={() => toggleSortColumn(name)}
     >
       <div className="flex space middle">
-        <span className="label">{column.label}</span>
-        <div className="flex gap-1">
-          <Icon
-            className={filterIconClass}
-            name={filtering ? filteringIcon : filterIcon}
-            onClick={toggleFilters}
-          />
-          <Icon
-            className={sortIconClass}
-            name={
-              sorting
-                ? reverse ? sortUpIcon : sortDownIcon
-                : unsortedIcon
-            }
-          />
-        </div>
+        <span className="wide label">{column.heading}</span>
+        <Icon
+          className={sortIconClass}
+          name={
+            sorting
+              ? reverse ? sortUpIcon : sortDownIcon
+              : unsortedIcon
+          }
+        />
       </div>
     </th>
   )

@@ -35,17 +35,17 @@ export const filterFloat = ({value, search }) =>
     ? (parseFloat(value) === parseFloat(search))
     : false
 
-export const filterBoolean = ({ value=false, search }) => {
+export const coerceBoolean = value =>
+  isString(value)
+    ? Boolean(parseInt(value))
+    : Boolean(value)
+
+export const filterBoolean = ({ value=false, search }) =>
   // The problem here is that a vanilla select input can't have options with
   // true/false values, and values of 0/1 get converted to strings.
   // So if the search value is a string then we parse it as an integer and
   // compare it to 0.
-  const bsrch = isString(search)
-    ? parseInt(search) !== 0
-    : Boolean(search)
-  // console.log('filterBoolean [%o] vs [%o]', value, bsrch);
-  return value === bsrch
-}
+  coerceBoolean(value) === coerceBoolean(search)
 
 export const datatableFilterTypes = {
   string:  filterStringContains,

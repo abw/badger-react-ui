@@ -14,9 +14,10 @@ export const datatableColumnDefinition = column => {
     column = { field: column }
   }
   const { field } = column
-  column.type  ||= 'text'
-  column.label ||= capitalise(field)
-  column.id    ||= field
+  column.type    ||= 'text'
+  column.label   ||= capitalise(field)  // original name, but I kept using heading
+  column.heading ||= column.label,
+  column.id      ||= field
   return column
 }
 

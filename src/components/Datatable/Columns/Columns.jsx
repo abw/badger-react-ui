@@ -11,6 +11,9 @@ const Columns = ({
   visibleColumns,
   toggleVisibleColumn,
   columnOrder,
+  columnsText='Columns',
+  columnsHelpClick='Click checkbox to show/hide.',
+  columnsHelpDrag='Drag handle to order.',
   changeColumnOrder
 }) => {
   const isVisible = splitHash(visibleColumns)
@@ -26,8 +29,8 @@ const Columns = ({
   return (
     <Dropdown
       right
-      iconRight="square vertical-left=2.5 vertical-right=2.5"
-      text='Columns'
+      iconRight="columns"
+      text={columnsText}
       size="small"
       closeOnBlur={false}
     >
@@ -41,8 +44,8 @@ const Columns = ({
         />
       </div>
       <div className="smaller mar-b-2">
-        Click checkbox to show/hide.<br/>
-        Drag handle to order.
+        {columnsHelpClick}<br/>
+        {columnsHelpDrag}
       </div>
       <Close/>
     </Dropdown>

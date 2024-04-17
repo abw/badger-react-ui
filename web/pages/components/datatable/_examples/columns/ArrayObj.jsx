@@ -8,8 +8,8 @@ const DatatableExample = () =>
     color="brand"
     rows={animals}
     columns={[
-      { field: 'id',   label: 'Ref.', type: 'number' },
-      { field: 'name', label: 'Username' },
+      { field: 'id',   heading: 'Ref.', type: 'number' },
+      { field: 'name', heading: 'Username' },
       { field: 'animal' },
       { field: 'role'   },
     ]}

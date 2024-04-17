@@ -3,19 +3,19 @@ import Example    from '@/page/ExampleSection.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
 
-const ClassName = () =>
+const TableClass = () =>
   <Example
-    code="className"
+    code="tableClass"
     Component={Component}
     Source={Source}
-    highlightLines="10,13,17,21"
-    undent={4}
+    highlightLines="3"
+    undent={2}
     expand
   >
     <p>
-      The <code>className</code> property can be used to add a CSS class
-      to the column.
+      The <code>tableClass</code> property can be used to set the CSS class
+      for the table.  The default value is <code>celled shaded</code>.
     </p>
   </Example>
 
-export default ClassName
+export default TableClass

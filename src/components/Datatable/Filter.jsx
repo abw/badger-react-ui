@@ -12,7 +12,7 @@ export const Filter = ({
   setFilter,
   filterClass='filter',
   filteringClass='filtering',
-  clearFilterIcon='cross'
+  clearFilterIcon='cross',
 }) => {
   const Component = column.filterComponent
     || Components[column.type]
@@ -30,6 +30,7 @@ export const Filter = ({
         <Component
           value={filters[name] ?? ''}
           setFilter={value => setFilter(name, value)}
+          column={column}
         />
         <Icon
           name={clearFilterIcon}

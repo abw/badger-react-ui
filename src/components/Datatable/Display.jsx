@@ -1,10 +1,12 @@
-import { commas, capitalize, currency, hasValue } from '@abw/badger-utils'
+import { formatNumber, capitalize, currency, hasValue } from '@abw/badger-utils'
+import { coerceBoolean } from './Utils/Filter.js'
+import { FALSE, TRUE } from '@/src/constants.js'
 
 export const displayText = ({value}) =>
   hasValue(value) ? value : ''
 
 export const displayNumber = ({value}) =>
-  hasValue(value) ? commas(value) : ''
+  hasValue(value) ? formatNumber(value) : ''
 
 export const displayCurrency = ({value}) =>
   hasValue(value) ? currency(value) : ''
@@ -12,9 +14,11 @@ export const displayCurrency = ({value}) =>
 export const displayTitle = ({value}) =>
   hasValue(value) ? capitalize(value) : ''
 
-export const displayBoolean = ({value}) =>
+export const displayBoolean = ({value, column}) =>
   hasValue(value)
-    ? value ? 'true' : 'false'
+    ? coerceBoolean(value)
+      ? (column.trueText  ?? TRUE)
+      : (column.falseText ?? FALSE)
     : ''
 
 /*

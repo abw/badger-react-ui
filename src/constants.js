@@ -7,5 +7,7 @@ export const ENTER      = 'Enter'
 export const SPACE      = ' '
 export const ESCAPE     = 'Escape'
 export const BACKSPACE  = 'Backspace'
+export const TRUE       = 'True'
+export const FALSE      = 'False'
 export const DEFAULT_ICON_WIDTH  = 512
 export const DEFAULT_ICON_HEIGHT = 512

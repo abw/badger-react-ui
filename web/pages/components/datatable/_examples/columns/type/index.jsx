@@ -17,9 +17,13 @@ const Type = () =>
       data type is used in the corresponding field in each row.
     </p>
     <p>
-      The default value is <code>string</code> which will display (and sort)
-      values as strings.  You can also set it to <code>number</code>,{' '}
+      The default value is <code>text</code> which will display (and sort)
+      values as text.  You can also set it to <code>number</code>,{' '}
       <code>currency</code> or <code>boolean</code>.
+    </p>
+    <p>
+      See the <a href="#column-types">Column Types</a> section
+      below for further information.
     </p>
   </Example>
 

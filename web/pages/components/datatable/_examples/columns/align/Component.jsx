@@ -13,18 +13,16 @@ const DatatableExample = () => {
       columns={{
         id:     {
           type: 'number',
-          className: 'text-right'
+          align: 'right'
         },
-        name: {
-          className: 'bold',
-        },
+        name: { },
         salary: {
           type: 'currency',
-          className: 'text-right'
+          align: 'right'
         },
         admin: {
           type: 'boolean',
-          className: 'text-center'
+          align: 'center'
         }
       }}
     />

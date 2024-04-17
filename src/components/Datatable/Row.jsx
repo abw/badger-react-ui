@@ -1,7 +1,7 @@
 import React          from 'react'
 import Context        from './Context.js'
 import DatatableCell  from './Cell.jsx'
-import { doNothing } from '@abw/badger-utils'
+import { doNothing, maybeFunction } from '@abw/badger-utils'
 
 const Row = ({
   row,
@@ -11,7 +11,7 @@ const Row = ({
   visibleColumns,
   Cell=DatatableCell
 }) =>
-  <tr className={rowClass} onClick={() => onRowClick(row)}>
+  <tr className={maybeFunction(rowClass, row)} onClick={() => onRowClick(row)}>
     { visibleColumns.map(
       name => {
         const column = columns[name]

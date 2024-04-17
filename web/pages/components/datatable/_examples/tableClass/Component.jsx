@@ -5,15 +5,10 @@ import { animals } from '../data.js'
 const DatatableExample = () =>
   /* START */
   <Datatable
-    color="brand"
+    tableClass="lined"
     rows={animals}
-    columns={{
-      id:     { heading: 'Ref.',     type: 'number' },
-      name:   { heading: 'Username', type: 'string' },
-      animal: { },
-      role:   { },
-    }}
+    columns="id name animal role"
   />
-  /* END */
 
 export default DatatableExample
+

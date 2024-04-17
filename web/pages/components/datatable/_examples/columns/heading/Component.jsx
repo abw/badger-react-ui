@@ -8,8 +8,8 @@ const DatatableExample = () => {
     <Datatable
       rows={animals}
       columns={{
-        id:   { label: 'User ID' },
-        name: { label: 'User Name' }
+        id:   { heading: 'User ID' },
+        name: { heading: 'User Name' }
       }}
     />
     /* END */

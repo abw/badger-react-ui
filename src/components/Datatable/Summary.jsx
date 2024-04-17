@@ -5,7 +5,7 @@ import { commas } from '@abw/badger-utils'
 
 const Summary = ({
   page,
-  summaryClass='small flex middle gap-2',
+  summaryClass='small flex space middle gap-2',
   setPageNo
 }) =>
   <div className={summaryClass}>
@@ -15,13 +15,6 @@ const Summary = ({
       disabled={page.pageNo <= page.firstPage}
       outline
       onClick={() => setPageNo(page.pageNo - 1)}
-    />
-    <Button
-      icon="arrow-right"
-      size="smaller"
-      disabled={page.pageNo >= page.lastPage}
-      outline
-      onClick={() => setPageNo(page.pageNo + 1)}
     />
     <div style={{ textWrap: 'balance' }}>
       Page {page.pageNo}/{page.lastPage}{' '}
@@ -36,6 +29,13 @@ const Summary = ({
       }
       {' '}
     </div>
+    <Button
+      icon="arrow-right"
+      size="smaller"
+      disabled={page.pageNo >= page.lastPage}
+      outline
+      onClick={() => setPageNo(page.pageNo + 1)}
+    />
   </div>
 
 export const DatatableSummary = Context.Consumer(Summary)

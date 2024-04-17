@@ -2,6 +2,7 @@ import React    from 'react'
 import Context  from './Context.js'
 import defaultDisplayTypes from './Display.jsx'
 import { classes } from '@/src/utils/classes.js'
+import { alignClasses } from './Utils/Align.js'
 
 const Cell = ({
   row,
@@ -20,7 +21,9 @@ const Cell = ({
     cellClass,
     column.className,
     sorting ? sortingClass : null,
-    column.right ? 'text-right' : null,
+    column.right && alignClasses.right,
+    column.center && alignClasses.center,
+    column.align && alignClasses[column.align]
   )
   return (
     <td className={classname}>

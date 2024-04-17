@@ -5,6 +5,7 @@ import DropdownMenu from '@/components/DropdownMenu/DropdownMenu.jsx'
 const PageSize = ({
   setPageSize,
   pageSizes=[10, 25, 50, 100, 250, 500, 1000],
+  pageSizeText = n => `${n} per page`
 }) =>
   <div className="pagesize">
     <DropdownMenu
@@ -14,7 +15,7 @@ const PageSize = ({
       size="small"
       options={
         pageSizes.map(
-          n => ({ n, text: `${n} per page` })
+          n => ({ n, text: pageSizeText(n) })
         )
       }
       onSelect={item => setPageSize(item.n)}

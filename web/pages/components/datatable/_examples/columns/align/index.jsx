@@ -3,19 +3,19 @@ import Example    from '@/page/ExampleSection.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
 
-const Label = () =>
+const Align = () =>
   <Example
-    code="label"
+    code="align"
     Component={Component}
     Source={Source}
-    highlightLines="4-5"
     undent={4}
     expand
   >
     <p>
-      The <code>label</code> property can be used to define the label that
-      appears in the column heading.
+      The <code>align</code> property can be used to specify the alignment
+      of cells.  The default value is <code>left</code> or you can set it
+      to <code>center</code> or <code>right</code>.
     </p>
   </Example>
 
-export default Label
+export default Align

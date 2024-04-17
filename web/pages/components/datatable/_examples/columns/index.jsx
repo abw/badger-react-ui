@@ -60,12 +60,12 @@ const Columns = () =>
     <p>
       The column object will be augmented with some additional properties:{' '}
       <code>id</code> (the same value as the field, for sorting purposes),{' '}
-      <code>label</code> used as the label heading and defaulting to a
-      capitalised version of the <code>field</code>,
-      and <code>type</code> defaulting to <code>string</code>.
+      <code>heading</code> (or <code>label</code>) used as the column heading
+      and defaulting to a capitalised version of the <code>field</code>,
+      and <code>type</code> defaulting to <code>text</code>.
     </p>
     <p>
-      You can define different values for <code>label</code> and
+      You can define different values for <code>heading</code> and
       <code>type</code> (along with other properties{' '}
       <a href="#column-properties">detailed below</a>).
     </p>
@@ -93,7 +93,7 @@ const Columns = () =>
       The final option is to define the columns as an object in which the
       keys are the field names and the values contain additional configuration
       options for the column.  These can be left empty if you&apos;re
-      happy with the default values for <code>label</code> and <code>type</code>.
+      happy with the default values for <code>heading</code> and <code>type</code>.
     </p>
 
     <Example

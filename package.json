@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@abw/badger-form": "^1.0.1",
-    "@abw/badger-icon": "^0.0.11",
+    "@abw/badger-icon": "^0.0.12",
     "@abw/badger-utils": "^1.0.26",
     "@abw/react-context": "^2.0.3",
     "@abw/react-one-louder": "^0.0.6",

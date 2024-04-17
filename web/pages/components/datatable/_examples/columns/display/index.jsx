@@ -8,7 +8,7 @@ const Display = () =>
     code="display"
     Component={Component}
     Source={Source}
-    highlightLines="6-7"
+    highlightLines="6-8"
     undent={2}
     expand
   >

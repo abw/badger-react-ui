@@ -6,7 +6,7 @@ import DatatableFilters   from './Filters.jsx'
 import { classes }        from '@/src/utils/classes.js'
 
 const Table = ({
-  tableClass='celled striped table',
+  tableClass='celled striped',
   selectableClass='selectable',
   scrollX,
   onRowClick,

@@ -3,19 +3,17 @@ import Example    from '@/page/ExampleSection.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
 
-const ClassName = () =>
+const Type = () =>
   <Example
-    code="className"
+    code="text"
     Component={Component}
     Source={Source}
-    highlightLines="10,13,17,21"
-    undent={4}
+    undent={2}
     expand
   >
     <p>
-      The <code>className</code> property can be used to add a CSS class
-      to the column.
+      The default column <code>type</code> is <code>text</code>.
     </p>
   </Example>
 
-export default ClassName
+export default Type
