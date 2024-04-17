@@ -13,6 +13,7 @@ const PageSize = ({
       iconRight="page"
       text='Page Size'
       size="small"
+      triggerClass="trigger pad-v-none"
       options={
         pageSizes.map(
           n => ({ n, text: pageSizeText(n) })

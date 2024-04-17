@@ -3,6 +3,7 @@ section.datatable {
   --header-icon-opacity: 0.2;
   --header-icon-hover-opacity: 0.5;
   --header-size: 0.875em;
+  --filters-shade: var(--color-95);
   --sorting-shade-1: var(--color-95);
   --sorting-shade-2: var(--color-90);
   --sorting-shade-3: var(--color-80);
@@ -57,8 +58,13 @@ section.datatable {
     }
     thead tr.filters {
       th {
-        padding: 2px 4px 2px 2px;
+        // padding: 2px 4px 2px 2px;
+        padding: 0px 4px 0px 0px;
+        input, select, label, .inputs {
+          border-color: transparent;
+        }
         font-weight: normal;
+        background-color: var(--filters-shade);
         svg.icon {
           color: var(--header-icon-color);
           opacity: var(--header-icon-opacity);

@@ -1,25 +1,38 @@
-import React             from 'react'
-import Context           from './Context.js'
-import DatatableSummary  from './Summary.jsx'
-import DatatablePageSize from './PageSize.jsx'
-import DatatableColumns  from './Columns/Columns.jsx'
-import DatatableFiltering from './Filtering.jsx'
+import React              from 'react'
+import Context            from './Context.js'
+import DatatableSummary   from './Summary.jsx'
+import DatatableControls  from './Controls.jsx'
+import Button             from '@/components/Button/Button.jsx'
 
 const Header = ({
-  headerClass,
+  page,
+  setPageNo,
+  prevIcon='arrow-left',
+  nextIcon='arrow-right',
+  navSize='smaller',
+  headerClass='small flex space bottom gap-2',
   Summary=DatatableSummary,
-  PageSize=DatatablePageSize,
-  Columns=DatatableColumns,
-  Filtering=DatatableFiltering,
-  controlsClass='controls flex center gap-2'
+  Controls=DatatableControls,
 }) =>
   <header className={headerClass}>
-    <div className={controlsClass}>
-      <Filtering/>
-      <Columns/>
-      <PageSize/>
+    <Button
+      icon={prevIcon}
+      size={navSize}
+      disabled={page.pageNo <= page.firstPage}
+      outline
+      onClick={() => setPageNo(page.pageNo - 1)}
+    />
+    <div>
+      <Summary/>
+      <Controls/>
     </div>
-    <Summary/>
+    <Button
+      icon={nextIcon}
+      size={navSize}
+      disabled={page.pageNo >= page.lastPage}
+      outline
+      onClick={() => setPageNo(page.pageNo + 1)}
+    />
   </header>
 
 export const DatatableHeader = Context.Consumer(Header)

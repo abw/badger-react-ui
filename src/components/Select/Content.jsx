@@ -15,12 +15,14 @@ const Content = ({
   Input=SelectInput,
   Search=SelectSearch,
   Menu=SelectMenu,
+  wide
 }) =>
   <div
     className={
       classes(
         selectClass,
         isOpen ? openClass : closedClass,
+        { wide }
       )
     }
     onKeyDown={onKeyDown}

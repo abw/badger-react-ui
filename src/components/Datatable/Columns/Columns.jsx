@@ -33,6 +33,7 @@ const Columns = ({
       text={columnsText}
       size="small"
       closeOnBlur={false}
+      triggerClass="trigger pad-v-none"
     >
       <div className="sortable list vertical">
         <VerticalSort

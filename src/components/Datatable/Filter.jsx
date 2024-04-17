@@ -3,7 +3,7 @@ import Context      from './Context.js'
 import Icon         from '@/components/Icon/Icon.jsx'
 import Components   from './Filter/index.jsx'
 import { classes }  from '@/src/utils/classes.js'
-import { hasValue } from '@abw/badger-utils'
+import { hasValue, isBoolean } from '@abw/badger-utils'
 
 export const Filter = ({
   name,
@@ -12,6 +12,7 @@ export const Filter = ({
   setFilter,
   filterClass='filter',
   filteringClass='filtering',
+  filterIcon='filter',
   clearFilterIcon='cross',
 }) => {
   const Component = column.filterComponent
@@ -31,9 +32,14 @@ export const Filter = ({
           value={filters[name] ?? ''}
           setFilter={value => setFilter(name, value)}
           column={column}
+          placeholder={column.filterPlaceholder || 'Filter'}
         />
         <Icon
-          name={clearFilterIcon}
+          name={
+            (isBoolean(filters[name]) || filters[name])
+              ? clearFilterIcon
+              : filterIcon
+          }
           onClick={() => setFilter(name, null)}
         />
       </div>

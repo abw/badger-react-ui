@@ -8,7 +8,7 @@ const DatatableExample = () => {
     <Datatable
       rows={animals}
       columns="id name animal role"
-      pager={{ size: 'small', color: 'blue' }}
+      pager={{ size: 'smaller', color: 'blue' }}
     />
     /* END */
   )

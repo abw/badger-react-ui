@@ -6,13 +6,15 @@ const Footer = ({
   footerClass,
   pager={},
   page,
-  setPageNo
+  setPageNo,
+  pagerSize='small'
 }) =>
   <footer className={footerClass}>
     <Pager
       page={page.page}
       pages={page.pages}
       setPage={n => setPageNo(n + 1)}
+      size={pagerSize}
       {...pager}
     />
   </footer>
