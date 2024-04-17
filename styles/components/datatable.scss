@@ -83,6 +83,18 @@ section.datatable {
     &.striped tbody tr:nth-child(even) td.sorting {
       --background-color: var(--sorting-shade-2);
     }
+    &.selectable tbody tr:hover {
+      td, th {
+        & > * {
+          background-color: var(--selectable-background);
+          color: var(--selectable-color);
+        }
+        & > .badge, & > button, & > .button, & > .inverse {
+          border-color: color-mix(in srgb, var(--selectable-color), transparent 30%);
+          background-color: color-mix(in srgb, var(--selectable-color), transparent 80%);
+        }
+      }
+    }
   }
   .columns.menu {
     .icons {
