@@ -84,7 +84,7 @@ export const marginClass = margin =>
   classTrueVHTRBL(margin, 'mar')
 
 export const radiusClass = radius =>
-  classInt(radius, r => `bdr-${r}`)
+  classTrueInt(radius, 'bdr-1', r => `bdr-${r}`)
 
 export const foregroundClass = stop =>
   classInt(stop, s => `fgc-${s}`)

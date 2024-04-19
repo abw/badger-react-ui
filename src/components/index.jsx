@@ -1,3 +1,4 @@
+export * from './Accordion/index.jsx'
 export * from './Alert/index.jsx'
 export * from './Badge/index.jsx'
 export * from './Button/index.jsx'

@@ -5,6 +5,8 @@ import Link from '@/ui/Link.jsx'
 export const CodeLink = (to, text) => (props={}) =>
   <Link to={to} className="code" {...props}>{text}</Link>
 
-export const ButtonLink = CodeLink('/components/button', 'Button')
-export const ButtonsLink = CodeLink('/components/buttons', 'Buttons')
-export const IconLink = CodeLink('/components/icon', 'Icon')
+export const AccordionLink  = CodeLink('/components/accordion', 'Accordion')
+export const ButtonLink     = CodeLink('/components/button', 'Button')
+export const ButtonsLink    = CodeLink('/components/buttons', 'Buttons')
+export const DetailsLink    = CodeLink('/components/details', 'Details')
+export const IconLink       = CodeLink('/components/icon', 'Icon')

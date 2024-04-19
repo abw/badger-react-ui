@@ -11,6 +11,11 @@ export const ComponentsMenu = {
   path: '/components',
   items: [
     {
+      to: '/components/accordion',
+      text: 'Accordion',
+      tocName: 'accordion',
+    },
+    {
       to: '/components/alert',
       text: 'Alert',
       tocName: 'alert',
