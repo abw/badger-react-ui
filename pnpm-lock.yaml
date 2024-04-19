@@ -41,8 +41,8 @@ dependencies:
 
 devDependencies:
   '@abw/badger-css':
-    specifier: ^1.0.10
-    version: 1.0.10
+    specifier: ^1.0.12
+    version: 1.0.12
   '@abw/badger-timestamp':
     specifier: ^1.0.4
     version: 1.0.4
@@ -127,8 +127,8 @@ packages:
       js-yaml: 4.1.0
     dev: true
 
-  /@abw/badger-css@1.0.10:
-    resolution: {integrity: sha512-jvT/3z/zK5O04AZLWdVCmnmX05QxUPR10ucR+oza+6jRoetz2UfJyOl44JoUT8Vild6Zfgzckklbulljrwo4TA==}
+  /@abw/badger-css@1.0.12:
+    resolution: {integrity: sha512-n/dR8Zzp6OO1vlIXWS9d8pj0MF3uMjrfDCCn0S3PjN+1bT8wWi/X653y5zg13MvEYdmi9r6GMoqhgcknNQXqVw==}
     hasBin: true
     dependencies:
       '@abw/badger': 1.2.4

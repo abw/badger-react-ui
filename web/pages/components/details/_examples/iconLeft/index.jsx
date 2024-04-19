@@ -3,19 +3,19 @@ import Example    from '@/page/ExampleSection.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
 
-const Summary = () =>
+const IconLeft = () =>
   <Example
-    code="summary"
+    code="iconLeft"
     Component={Component}
     Source={Source}
-    highlightLines="2,9-16"
-    undent={4}
+    highlightLines="3"
+    undent={2}
     expand
   >
     <p>
-      The <code>summary</code> property is used to set the summary text.
-      It can be a text string or any JSX content.
+      The <code>iconLeft</code> property can be used to define the icon
+      displayed on the left.
     </p>
   </Example>
 
-export default Summary
+export default IconLeft

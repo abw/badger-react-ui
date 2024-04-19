@@ -7,7 +7,7 @@ const Details = () =>
   <>
     <p className="large">
       The <code>Details</code> component displays a summary with
-      revealable content using the native HTML <code>details</code> element.
+      revealable content.
     </p>
     <Example
       Component={Component}

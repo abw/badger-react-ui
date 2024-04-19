@@ -1,0 +1,28 @@
+:where(.details) {
+  --icon-transition: 0.3s;
+}
+.details {
+  .summary {
+    display: flex;
+    gap: 0.25em;
+    align-items: center;
+    .icon {
+      transition: all var(--icon-transition);
+    }
+    .icon.on-right {
+      margin-right: var(--body-padding);
+    }
+  }
+  &.open .summary {
+    .icon {
+      transform: rotate(var(--icon-rotate, 0));
+    }
+  }
+}
+.details .summary .summary-text {
+  // border: 1px solid red;
+}
+.details.wide-summary .summary .summary-text {
+  flex-grow: 1;
+  // border: 1px solid red;
+}

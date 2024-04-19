@@ -1,6 +1,5 @@
 import React      from 'react'
 import { Icon } from '@abw/badger-icon'
-// import Icon       from './Icon.jsx'
 import { Themed } from '@/src/Theme.jsx'
 import { rotateStyle } from '@/src/utils/styles.js'
 
@@ -13,6 +12,8 @@ const WithIcons = ({
   iconRight,
   iconRightClass='on-right',
   iconRightRotate,
+  spanText,
+  spanClass,
   text,
   children
 }) =>
@@ -32,7 +33,12 @@ const WithIcons = ({
         fixedWidth
       />
     }
-    { text || children }
+    { spanText
+      ? <span className={spanClass??''}>
+          {text || children}
+        </span>
+      : (text || children)
+    }
     { Boolean(iconRight) &&
       <Icon
         name={iconRight}
