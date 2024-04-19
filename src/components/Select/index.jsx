@@ -5,5 +5,8 @@ export { SelectMenu        } from './Menu.jsx'
 export { SelectNoOptions   } from './NoOptions.jsx'
 export { SelectOption      } from './Option.jsx'
 // eslint-disable-next-line react-refresh/only-export-components
-export { SelectProvider, SelectConsumer, useSelect } from './Context.js'
+export {
+  default as SelectContext,
+  SelectProvider, SelectConsumer, useSelect
+} from './Context.js'
 

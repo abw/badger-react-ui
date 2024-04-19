@@ -16,12 +16,16 @@ from form styles
 
 # Components
 
+## Accordion
+
+Implemented as wrapper around details with flag to define it multiple
+leaves can be open or just one.
+
 ## Alert
 
 ## Datatable
 
-Column select, sort and filter.  Storage key may need some further work as
-it (probably) won't work when columns definitions change.
+Storage key seems to be overriding changes to columns.
 
 Headings wrap
 
@@ -53,10 +57,6 @@ Search input can be obscured by next field - fixed by z-index but hard-coded
 Put search inside menu fixed to top.  Drop shadow for menu doesn't extend
 around search.
 
-## Details
-
-* Custom icon
-
 ## WithIcon
 
 The `.icon.on-left` and `.icon.on-right` classes are only defined in the
@@ -71,6 +71,8 @@ DndContext creates a div which causes warning when used in a table - should
 be possible to separate context from content.
 
 # Utilities
+
+Document `WithIcon`
 
 # Documentation
 

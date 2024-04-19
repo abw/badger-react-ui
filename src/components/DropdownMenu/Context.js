@@ -19,5 +19,5 @@ class DropdownContext extends MenuContext {
 }
 
 const generated = Generator(DropdownContext)
-export const useDropdown = generated.Use
+export const useDropdownMenu = generated.Use
 export default generated

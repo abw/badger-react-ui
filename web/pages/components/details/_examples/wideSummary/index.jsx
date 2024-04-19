@@ -15,7 +15,9 @@ const WideSummary = () =>
     <p>
       The <code>wideSummary</code> property can be set to make the summary
       text expand to the full width of the container.  It&apos;t useful if
-      you want the <code>iconRight</code> to be way over on the right.
+      you want the <code>iconRight</code> to be way over on the right, or
+      if you have a custom <code>summary</code> with some detail you want
+      displayed on the right.
     </p>
   </Example>
 

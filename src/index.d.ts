@@ -67,16 +67,22 @@ declare module '@abw/badger-react-ui' {
     rows: any;
   };
   export function datatableSort(rows: any, columns: any, sortColumn: any, sortReverse: any): any;
+  export function useDatatable()
+
   // Details
   export function Details()
+  export function DetailsContainer()
   export function DetailsSummary()
   export function DetailsContent()
+  export function DetailsContext()
+  export function useDetails()
   // Dropdown
   export function Dropdown()
   export function DropdownContent()
   export function DropdownContext()
   export function DropdownBody()
   export function DropdownTrigger()
+  export function useDropdown()
   //DropdownMenu
   export function DropdownMenu()
   export function DropdownMenuContent()
@@ -85,6 +91,7 @@ declare module '@abw/badger-react-ui' {
   export function DropdownMenuOptions()
   export function DropdownMenuSeparator()
   export function DropdownMenuTrigger()
+  export function useDropdownMenu()
   // Form
   export function Form()
   export function Field()

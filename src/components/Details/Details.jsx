@@ -12,12 +12,13 @@ const defaults = {
 
 const Details = ({
   native,
+  open,
   Container = native
     ? NativeContainer
     : DetailsContainer,
   ...props
 }) =>
-  <Context.Provider>
+  <Context.Provider open={open}>
     <Container {...defaults} {...props}/>
   </Context.Provider>
 

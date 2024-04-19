@@ -6,11 +6,9 @@
     display: flex;
     gap: 0.25em;
     align-items: center;
+    padding-right: var(--body-padding);
     .icon {
       transition: all var(--icon-transition);
-    }
-    .icon.on-right {
-      margin-right: var(--body-padding);
     }
   }
   &.open .summary {

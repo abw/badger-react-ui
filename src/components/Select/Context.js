@@ -231,7 +231,6 @@ class Context extends MenuContext {
   menuOptions() {
     return this.state.options
   }
-
 }
 
 export const SelectContext = Generator(Context)
