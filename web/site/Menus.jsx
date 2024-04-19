@@ -147,6 +147,11 @@ export const UtilitiesMenu = {
       text: 'Storage',
       tocName: 'storage',
     },
+    {
+      to: '/utilities/with-icons',
+      text: 'WithIcons',
+      tocName: 'withicons',
+    },
   ]
 }
 

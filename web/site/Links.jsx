@@ -7,3 +7,4 @@ export const CodeLink = (to, text) => (props={}) =>
 
 export const ButtonLink = CodeLink('/components/button', 'Button')
 export const ButtonsLink = CodeLink('/components/buttons', 'Buttons')
+export const IconLink = CodeLink('/components/icon', 'Icon')

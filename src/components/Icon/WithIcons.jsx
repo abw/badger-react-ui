@@ -1,35 +1,28 @@
 import React      from 'react'
-import { Icon } from '@abw/badger-icon'
+import Icon       from './Icon.jsx'
 import { Themed } from '@/src/Theme.jsx'
-import { rotateStyle } from '@/src/utils/styles.js'
+import { iconProps } from '@/src/utils/icon.js'
 
 const WithIcons = ({
   icon,
-  iconClass,
   iconLeft,
-  iconLeftClass='on-left',
-  iconLeftRotate,
   iconRight,
-  iconRightClass='on-right',
-  iconRightRotate,
   spanText,
   spanClass,
   text,
-  children
+  children,
+  ...props
 }) =>
   <>
     { Boolean(icon) &&
       <Icon
-        name={icon}
-        className={iconClass}
+        {...iconProps({ icon, ...props }) }
         fixedWidth
       />
     }
     { Boolean(iconLeft) &&
       <Icon
-        name={iconLeft}
-        className={iconLeftClass}
-        style={rotateStyle('--icon-rotate', iconLeftRotate)}
+        { ...iconProps( { iconLeft, ...props }, { side: 'Left' } ) }
         fixedWidth
       />
     }
@@ -41,9 +34,7 @@ const WithIcons = ({
     }
     { Boolean(iconRight) &&
       <Icon
-        name={iconRight}
-        className={iconRightClass}
-        style={rotateStyle('--icon-rotate', iconRightRotate)}
+        {...iconProps({ iconRight, ...props }, { side: 'Right' }) }
         fixedWidth
       />
     }

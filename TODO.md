@@ -54,25 +54,12 @@ Styling of search in select component is different to search.
 
 Search input can be obscured by next field - fixed by z-index but hard-coded
 
-Put search inside menu fixed to top.  Drop shadow for menu doesn't extend
-around search.
-
-## WithIcon
-
-The `.icon.on-left` and `.icon.on-right` classes are only defined in the
-scope of buttons in badger-css.
-
 ## Sortable
 
 Adding dnd kit increased the bundle size from 68k to 148k.  Is it really
 worth it?  How hard would it be to implement just the bits we need?
 
-DndContext creates a div which causes warning when used in a table - should
-be possible to separate context from content.
-
 # Utilities
-
-Document `WithIcon`
 
 # Documentation
 

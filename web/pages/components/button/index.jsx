@@ -22,7 +22,7 @@ import Tooltip      from './_examples/tooltip/index.jsx'
 import Type         from './_examples/type/index.jsx'
 import Content      from './_examples/Content/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
-import Heading from '@/web/page/Heading.jsx'
+import Heading      from '@/web/page/Heading.jsx'
 
 const ButtonExamples = () =>
   <div className="flow">
