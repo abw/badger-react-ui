@@ -121,6 +121,10 @@ class SearchContext extends Context {
 
   onKeyDown(event) {
     this.debug(`onKeyDown(${event.key})`)
+    if (this.props.disabled) {
+      return
+    }
+
     const cursor = this.state.cursor
 
     switch (event.key) {

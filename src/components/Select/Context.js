@@ -96,6 +96,9 @@ class Context extends MenuContext {
 
   onKeyDown(event) {
     this.debug(`onKeyDown(${event.key})`)
+    if (this.props.disabled) {
+      return
+    }
 
     switch (event.key) {
       case ARROW_DOWN:

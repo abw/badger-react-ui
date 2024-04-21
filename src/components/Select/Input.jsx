@@ -17,11 +17,11 @@ const Input = ({
 }) =>
   <div
     className={inputsClass}
-    onClick={onClick}
+    onClick={disabled ? null : onClick}
   >
     <div
-      onFocus={onFocus}
-      onBlur={onBlur}
+      onFocus={disabled ? null : onFocus}
+      onBlur={disabled ? null : onBlur}
       disabled={disabled}
       className={inputClass}
       tabIndex={0}

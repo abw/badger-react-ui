@@ -34,7 +34,7 @@ const SearchInput = ({
       disabled={disabled}
       className={inputClass}
     />
-    <div className={suffixClass} onClick={clear}>
+    <div className={suffixClass} onClick={disabled ? null : clear}>
       <Icon name={searching ? searchingIcon : clearIcon}/>
     </div>
   </div>
