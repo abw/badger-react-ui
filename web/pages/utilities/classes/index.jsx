@@ -9,6 +9,7 @@ import Margin       from './_examples/marginClass/index.jsx'
 import Grid         from './_examples/gridClass/index.jsx'
 import Gap          from './_examples/gapClass/index.jsx'
 import StyleProps   from './_examples/styleProps/index.jsx'
+import StylePropsC  from './_examples/stylePropsClasses/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
 // import Heading      from '@/web/page/Heading.jsx'
 
@@ -26,6 +27,7 @@ const ClassesExamples = () =>
       <Gap/>
       <Grid/>
       <StyleProps/>
+      <StylePropsC/>
     </Sections>
   </div>
 
