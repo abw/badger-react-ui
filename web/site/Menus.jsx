@@ -138,6 +138,24 @@ export const ComponentsMenu = {
   ]
 }
 
+export const ElementsMenu = {
+  title:  'Elements',
+  path: '/elements',
+  items: [
+    {
+      to: '/elements/div',
+      text: 'Div',
+      tocName: 'div',
+    },
+    {
+      to: '/elements/flex',
+      text: 'Flex',
+      tocName: 'flex',
+    },
+  ]
+}
+
+
 export const UtilitiesMenu = {
   title:  'Utilities',
   path: '/utilities',

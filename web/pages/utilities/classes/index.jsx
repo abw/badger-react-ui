@@ -6,6 +6,7 @@ import Shadow       from './_examples/shadowClass/index.jsx'
 import Color        from './_examples/colorClass/index.jsx'
 import Padding      from './_examples/paddingClass/index.jsx'
 import Margin       from './_examples/marginClass/index.jsx'
+import Grid         from './_examples/gridClass/index.jsx'
 import Gap          from './_examples/gapClass/index.jsx'
 import StyleProps   from './_examples/styleProps/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
@@ -23,6 +24,7 @@ const ClassesExamples = () =>
       <Padding/>
       <Margin/>
       <Gap/>
+      <Grid/>
       <StyleProps/>
     </Sections>
   </div>

@@ -46,36 +46,52 @@ export const sizeColorProps = ({
   )
 })
 
-export const styleProps = ({
-  className,
-  size,
-  color,
-  border,
-  radius,
-  shadow,
-  pad,
-  mar,
-  padding=pad,
-  margin=mar,
-  ...props
-}) => ({
+export const styleProps = (
+  {
+    className,
+    size,
+    color,
+    border,
+    radius,
+    shadow,
+    grid,
+    gap,
+    pad,
+    mar,
+    padding=pad,
+    margin=mar,
+    ...props
+  },
+  ...more
+) => ({
   ...props,
   className: classes(
+    ...more,
     className, size,
     colorClass(color),
     borderClass(border),
     radiusClass(radius),
     shadowClass(shadow),
+    gridClass(grid),
+    gapClass(gap),
     paddingClass(padding),
     marginClass(margin),
   )
 })
+
+export const stylePropsClasses = (...args) => {
+  const { className, ...rest } = styleProps(...args)
+  return classes(className, rest)
+}
 
 export const borderClass = border =>
   classTrueInt(border, 'border', b => `border bdw-${b}`)
 
 export const shadowClass = shadow =>
   classTrueInt(shadow, 'shadow-1', s => `shadow-${s}`)
+
+export const gridClass = grid =>
+  classTrue(grid, 'grid-1', g => `grid-${g}`)
 
 export const paddingClass = padding =>
   classTrueVHTRBL(padding, 'pad')
@@ -99,8 +115,9 @@ export const backgroundDarkClass = stop =>
   classInt(stop, s => `bgd-${s}`)
 
 export const gapClass = gap =>
-  classInt(
+  classTrueInt(
     gap,
+    'gap-1',
     g => {
       const gaps = splitList(g)
       return gaps.length === 2
