@@ -16,8 +16,9 @@ class Context extends MenuContext {
     findOption,
     validOption,
     searchOptions,
-    displayValue:  defaultRenderer('displayValue'),
-    displayOption: defaultRenderer('displayOption'),
+    displayValue:   defaultRenderer('displayValue'),
+    displayOption:  defaultRenderer('displayOption'),
+    displayHeading: defaultRenderer('displayHeading'),
   }
   // NOTE: we don't want to reset the cursor or value when closing
   static inactiveState = {

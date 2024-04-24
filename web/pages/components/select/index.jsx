@@ -1,6 +1,11 @@
 import React          from 'react'
+import Sections       from '@/web/page/Sections.jsx'
+import Heading        from '@/web/page/Heading.jsx'
+import Section        from '@/web/page/Section.jsx'
+import Split          from '@/web/site/Split.jsx'
 import Select         from './_examples/Select/index.jsx'
 import Options        from './_examples/options/index.jsx'
+import Headings       from './_examples/heading/index.jsx'
 import Value          from './_examples/value/index.jsx'
 import DisplayOption  from './_examples/displayOption/index.jsx'
 import DisplayValue   from './_examples/displayValue/index.jsx'
@@ -8,10 +13,8 @@ import ValidOption    from './_examples/validOption/index.jsx'
 import Search         from './_examples/search/index.jsx'
 import SearchOptions  from './_examples/searchOptions/index.jsx'
 import Disabled       from './_examples/disabled/index.jsx'
-import Sections       from '@/web/page/Sections.jsx'
-import Heading from '@/web/page/Heading.jsx'
-import Section from '@/web/page/Section.jsx'
-import Split from '@/web/site/Split.jsx'
+import Separator      from './_examples/separator/index.jsx'
+import Indent         from './_examples/indent/index.jsx'
 
 const SelectExamples = () =>
   <div className="flow">
@@ -47,6 +50,10 @@ const SelectExamples = () =>
         to ensure that any click events have been registered before the menu
         is closed. Defaults to <code>300</code>.
       </Section>
+      <Heading title="Option Properties"/>
+      <Headings/>
+      <Separator/>
+      <Indent/>
 
       <Split>
         <div className="flow">
