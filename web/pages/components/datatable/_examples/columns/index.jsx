@@ -92,8 +92,10 @@ const Columns = () =>
     <p>
       The final option is to define the columns as an object in which the
       keys are the field names and the values contain additional configuration
-      options for the column.  These can be left empty if you&apos;re
-      happy with the default values for <code>heading</code> and <code>type</code>.
+      options for the column.  These can be defined as empty objects or a
+      true value if you&apos;re happy with the default values for{' '}
+      <code>heading</code> and <code>type</code>.  You can also explicitly set
+      a column to <code>false</code> if you don&apos;t want it displayed.
     </p>
 
     <Example

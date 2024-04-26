@@ -8,10 +8,10 @@ const DataTableExample = () =>
     color="brand"
     rows={animals}
     columns={{
-      id:     { heading: 'Ref.',     type: 'number' },
-      name:   { heading: 'Username', type: 'string' },
-      animal: { },
-      role:   { },
+      id:     { heading: 'Ref.', type: 'number' },
+      name:   { },
+      animal: true,
+      role:   false,
     }}
   />
   /* END */

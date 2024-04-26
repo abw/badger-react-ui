@@ -1,5 +1,5 @@
 import {
-  capitalise, fail, isArray, isObject, isString, splitHash
+  capitalise, fail, isArray, isBoolean, isObject, isString, splitHash
 } from '@abw/badger-utils'
 
 export const datatableColumnString = column => {
@@ -41,7 +41,15 @@ export const datatableColumnDefinitions = columns => {
   if (isObject(columns)) {
     return Object.entries(columns).reduce(
       (colshash, [field, column]) => {
-        const coldef = datatableColumnDefinition({ ...column, field })
+        // allow a column to be marked as false to prevent inclusion
+        if (isBoolean(column) && ! column) {
+          return colshash
+        }
+        const coldef = datatableColumnDefinition({
+          // column can also be any true value which might not be iterable
+          ...(isObject(column) ? column : { }),
+          field
+        })
         colshash[coldef.field] = coldef
         return colshash
       },
