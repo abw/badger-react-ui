@@ -50,6 +50,7 @@ export const filterBoolean = ({ value=false, search }) =>
 export const datatableFilterTypes = {
   string:  filterStringContains,
   text:    filterStringContains,
+  id:      filterStringContains,
   number:  filterStringContains,
   price:   filterStringContains,
   pounds:  filterStringContains,

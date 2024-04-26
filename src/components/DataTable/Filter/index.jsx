@@ -9,6 +9,7 @@ export const datatableFilterComponents = {
   default: Text,
   string:  Text,
   text:    Text,
+  id:      Number,
   number:  Number,
   integer: Number,
   float:   Number,

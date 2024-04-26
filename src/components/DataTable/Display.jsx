@@ -43,6 +43,7 @@ export const displayBoolean = Themed(
 export const displayTypes = {
   default:    displayText,
   text:       displayText,
+  id:         displayText,
   number:     displayNumber,
   price:      displayCurrency,
   currency:   displayCurrency,
