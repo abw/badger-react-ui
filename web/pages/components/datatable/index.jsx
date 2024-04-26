@@ -20,6 +20,7 @@ import ClassName  from './_examples/columns/className/index.jsx'
 import Align      from './_examples/columns/align/index.jsx'
 import Sort       from './_examples/columns/sort/index.jsx'
 import Filter     from './_examples/columns/filter/index.jsx'
+import FilterComp from './_examples/columns/filterComponent/index.jsx'
 import Text       from './_examples/column-type/text/index.jsx'
 import Number     from './_examples/column-type/number/index.jsx'
 import Currency   from './_examples/column-type/currency/index.jsx'
@@ -46,6 +47,7 @@ const DataTableExamples = () =>
       <Align/>
       <Display/>
       <Filter/>
+      <FilterComp/>
       <Sort/>
       <Heading title="Column Types"/>
       <Text/>
