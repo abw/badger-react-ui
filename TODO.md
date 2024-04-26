@@ -25,21 +25,11 @@ leaves can be open or just one.
 
 ## Datatable
 
-[X] Rename this (back) to DataTable (capital T) for my own sanity.
-
-Select type with options for filtering (also enum type?)
-
-Ability to pass additional data which is forwarded to display functions
-
 Storage key seems to be overriding changes to columns.
 
 Headings wrap
 
 Option in columns pull-down to reset columns
-
-Change onRowClick to receive ({ row }) instead of just (row)?
-
-Shortcut for column: { name: true } vs { name: { } }
 
 ## Radio
 
