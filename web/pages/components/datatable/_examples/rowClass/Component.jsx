@@ -1,7 +1,7 @@
 import React from 'react'
-import { Datatable } from '@/src/index.jsx'
+import { DataTable } from '@/src/index.jsx'
 
-const DatatableExample = () => {
+const DataTableExample = () => {
   /* START */
   const statusClasses = {
     'Done':         'green',
@@ -9,7 +9,7 @@ const DatatableExample = () => {
     'Failed':       'red'
   }
   return (
-    <Datatable
+    <DataTable
       rows={[
         { text: 'Write code',          status: 'Done' },
         { text: 'Write documentation', status: 'In progress' },
@@ -19,11 +19,11 @@ const DatatableExample = () => {
       columns="text status"
       tableClass="lined shaded"
       rowClass={
-        row => statusClasses[row.status] || ''
+        ({ row }) => statusClasses[row.status] || ''
       }
     />
   )
   /* END */
 }
 
-export default DatatableExample
+export default DataTableExample

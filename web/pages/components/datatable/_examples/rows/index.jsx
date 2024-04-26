@@ -11,7 +11,7 @@ const Rows = () =>
       can contain any data.
     </p>
     <p>
-      In these examples we&apos;re using this data for the <code>rows</code>
+      In these examples we&apos;re using this data for the <code>rows</code>{' '}
       unless otherwise shown.
     </p>
     <div className="example">

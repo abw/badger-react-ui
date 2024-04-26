@@ -19,5 +19,5 @@ const Footer = ({
     />
   </footer>
 
-export const DatatableFooter = Context.Consumer(Footer)
-export default DatatableFooter
+export const DataTableFooter = Context.Consumer(Footer)
+export default DataTableFooter

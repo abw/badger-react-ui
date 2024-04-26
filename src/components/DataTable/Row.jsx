@@ -1,17 +1,21 @@
 import React          from 'react'
 import Context        from './Context.js'
-import DatatableCell  from './Cell.jsx'
+import DataTableCell  from './Cell.jsx'
 import { doNothing, maybeFunction } from '@abw/badger-utils'
 
 const Row = ({
   row,
   columns,
   rowClass,
+  extra={},
   onRowClick=doNothing,
   visibleColumns,
-  Cell=DatatableCell
+  Cell=DataTableCell
 }) =>
-  <tr className={maybeFunction(rowClass, row)} onClick={() => onRowClick(row)}>
+  <tr
+    className={maybeFunction(rowClass, { row, ...extra })}
+    onClick={() => onRowClick({ row, ...extra })}
+  >
     { visibleColumns.map(
       name => {
         const column = columns[name]
@@ -31,5 +35,5 @@ const Row = ({
     )}
   </tr>
 
-export const DatatableRow = Context.Consumer(Row)
-export default DatatableRow
+export const DataTableRow = Context.Consumer(Row)
+export default DataTableRow

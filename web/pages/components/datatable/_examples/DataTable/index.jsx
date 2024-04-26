@@ -2,13 +2,31 @@ import React      from 'react'
 import Example    from '@/site/Example.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
+import { Warning } from '@/src/components/index.jsx'
 
-const Datatable = () =>
+const DataTable = () =>
   <>
     <p className="large">
-      The <code>Datatable</code> component can be used to display, sort, filter
+      The <code>DataTable</code> component can be used to display, sort, filter
       and page sets of data.
     </p>
+    <Warning title="Important Note" border icon="exclamation">
+      <p>
+      There were some breaking changes in version 1.1.0.
+      </p>
+      <p>
+        This component was previously called <code>Datatable</code> and has
+        been renamed to{' '} <code>DataTable</code> (note the capital T).
+        The old name is still supported as an alias but will be removed at
+        some point in the future
+      </p>
+      <p>
+        The{' '} <code>onRowClick</code> function has also change.  It was
+        previously passed the <code>row</code> as an argument.  It is now
+        passed an object containing the <code>row</code> property, along with
+        any other items defined using the <code>extra</code> property.
+      </p>
+    </Warning>
     <p>
       The two mandatory properties are <code>rows</code> and <code>columns</code>.
       The <code>rows</code> should be an array of objects containing the
@@ -38,4 +56,4 @@ const Datatable = () =>
     />
   </>
 
-export default Datatable
+export default DataTable

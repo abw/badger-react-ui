@@ -8,8 +8,8 @@ $codeblock-back-dark-to:     rgba($codeblock-back-dark, 0.9);
 
 :where(html) {
   // code
-  --code-back:            var(--grey20-90);
-  --code-text:            var(--grey20-30);
+  --code-back:            var(--grey20-100);
+  --code-text:            var(--grey20-20);
   --code-border:          var(--grey20-80);
   --code-link-back:       var(--brand-95);
   --code-link-text:       var(--grey40-40);
@@ -40,8 +40,8 @@ $codeblock-back-dark-to:     rgba($codeblock-back-dark, 0.9);
   //--code-border:          var(--grey20-20);
 
   --code-back:            var(--grey20-10);
-  --code-text:            var(--grey20-70);
-  --code-border:          var(--grey20-20);
+  --code-text:            var(--grey20-80);
+  --code-border:          var(--grey20-30);
   --code-link-back:       var(--grey40-20);
   --code-link-text:       var(--grey40-70);
   --code-link-border:     var(--grey40-10);
@@ -76,6 +76,14 @@ code:not(.codeblock code):not(.toc code), a.code {
   padding: 0 4px;
   border-radius: 4px;
 }
+div.alert {
+  code:not(.codeblock code):not(.toc code), a.code {
+    --color: var(--color-20);
+    --background: var(--color-100);
+    --border: var(--color-80);
+  }
+}
+
 a.code {
   color: var(--code-link-text);
   background-color: var(--code-link-back);
@@ -219,5 +227,13 @@ div.output {
   h4.caption {
     color: var(--output-text);
     // hsl($dev-hue, 40%, 30%);
+  }
+}
+
+#{$dark-theme} div.alert {
+  code:not(.codeblock code):not(.toc code), a.code {
+    --color: var(--color-80);
+    --background: var(--color-10);
+    --border: var(--color-30);
   }
 }

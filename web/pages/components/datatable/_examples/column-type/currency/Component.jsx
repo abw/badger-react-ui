@@ -1,9 +1,9 @@
 import React from 'react'
-import { Datatable } from '@/src/index.jsx'
+import { DataTable } from '@/src/index.jsx'
 
-const DatatableExample = () =>
+const DataTableExample = () =>
   /* START */
-  <Datatable
+  <DataTable
     rows={[
       { name: 'Alan',    salary: 123456 },
       { name: 'Brian',   salary: 45678  },
@@ -16,4 +16,4 @@ const DatatableExample = () =>
   />
   /* END */
 
-export default DatatableExample
+export default DataTableExample

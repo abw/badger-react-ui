@@ -20,5 +20,5 @@ const Summary = ({
     {' '}
   </div>
 
-export const DatatableSummary = Context.Consumer(Summary)
-export default DatatableSummary
+export const DataTableSummary = Context.Consumer(Summary)
+export default DataTableSummary

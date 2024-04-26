@@ -47,5 +47,5 @@ export const Heading = ({
 }
 
 
-export const DatatableHeading = Context.Consumer(Heading)
-export default DatatableHeading
+export const DataTableHeading = Context.Consumer(Heading)
+export default DataTableHeading

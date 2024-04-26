@@ -1,12 +1,12 @@
 import React   from 'react'
 import Context from './Context.js'
-import DatatableFilter from './Filter.jsx'
+import DataTableFilter from './Filter.jsx'
 
 export const Filters = ({
   columns,
   filtersClass='filters',
   visibleColumns,
-  Filter=DatatableFilter,
+  Filter=DataTableFilter,
 }) =>
   <thead>
     <tr className={filtersClass}>
@@ -21,5 +21,5 @@ export const Filters = ({
     </tr>
   </thead>
 
-export const DatatableFilters = Context.Consumer(Filters)
-export default DatatableFilters
+export const DataTableFilters = Context.Consumer(Filters)
+export default DataTableFilters

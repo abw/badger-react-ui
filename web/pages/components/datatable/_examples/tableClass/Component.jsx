@@ -1,14 +1,14 @@
 import React from 'react'
-import { Datatable } from '@/src/index.jsx'
+import { DataTable } from '@/src/index.jsx'
 import { animals } from '../data.js'
 
-const DatatableExample = () =>
+const DataTableExample = () =>
   /* START */
-  <Datatable
+  <DataTable
     tableClass="lined"
     rows={animals}
     columns="id name animal role"
   />
 
-export default DatatableExample
+export default DataTableExample
 

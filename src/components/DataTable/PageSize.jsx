@@ -23,5 +23,5 @@ const PageSize = ({
     />
   </div>
 
-export const DatatablePageSize = Context.Consumer(PageSize)
-export default DatatablePageSize
+export const DataTablePageSize = Context.Consumer(PageSize)
+export default DataTablePageSize

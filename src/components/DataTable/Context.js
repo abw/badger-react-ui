@@ -10,7 +10,7 @@ import {
   datatableColumnOrder,
 } from './Utils/index.js'
 
-const DatatableContext = ({
+const DataTableContext = ({
   render,
   rows=[],
   storageKey,
@@ -176,6 +176,6 @@ const DatatableContext = ({
   })
 }
 
-const generated = Generator(DatatableContext)
-export const useDatatable = generated.Use
+const generated = Generator(DataTableContext)
+export const useDataTable = generated.Use
 export default generated

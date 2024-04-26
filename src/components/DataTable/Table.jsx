@@ -1,8 +1,8 @@
 import React              from 'react'
 import Context            from './Context.js'
-import DatatableRows      from './Rows.jsx'
-import DatatableHeadings  from './Headings.jsx'
-import DatatableFilters   from './Filters.jsx'
+import DataTableRows      from './Rows.jsx'
+import DataTableHeadings  from './Headings.jsx'
+import DataTableFilters   from './Filters.jsx'
 import { classes }        from '@/src/utils/classes.js'
 
 const Table = ({
@@ -11,9 +11,9 @@ const Table = ({
   scrollX,
   onRowClick,
   showFilters,
-  Headings=DatatableHeadings,
-  Filters=DatatableFilters,
-  Rows=DatatableRows
+  Headings=DataTableHeadings,
+  Filters=DataTableFilters,
+  Rows=DataTableRows
 }) =>
   <table
     className={classes(
@@ -31,5 +31,5 @@ const Table = ({
     <Rows/>
   </table>
 
-export const DatatableTable = Context.Consumer(Table)
-export default DatatableTable
+export const DataTableTable = Context.Consumer(Table)
+export default DataTableTable

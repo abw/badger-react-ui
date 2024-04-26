@@ -1,7 +1,7 @@
 import React              from 'react'
 import Context            from './Context.js'
-import DatatableSummary   from './Summary.jsx'
-import DatatableControls  from './Controls.jsx'
+import DataTableSummary   from './Summary.jsx'
+import DataTableControls  from './Controls.jsx'
 import Button             from '@/components/Button/Button.jsx'
 
 const Header = ({
@@ -11,8 +11,8 @@ const Header = ({
   nextIcon='arrow-right',
   navSize='smaller',
   headerClass='small flex space bottom gap-2',
-  Summary=DatatableSummary,
-  Controls=DatatableControls,
+  Summary=DataTableSummary,
+  Controls=DataTableControls,
 }) =>
   <header className={headerClass}>
     <Button
@@ -35,5 +35,5 @@ const Header = ({
     />
   </header>
 
-export const DatatableHeader = Context.Consumer(Header)
-export default DatatableHeader
+export const DataTableHeader = Context.Consumer(Header)
+export default DataTableHeader

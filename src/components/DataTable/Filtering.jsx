@@ -27,5 +27,5 @@ export const Filtering = ({
   )
 }
 
-export const DatatableFiltering = Context.Consumer(Filtering)
-export default DatatableFiltering
+export const DataTableFiltering = Context.Consumer(Filtering)
+export default DataTableFiltering

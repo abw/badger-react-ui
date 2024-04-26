@@ -1,16 +1,16 @@
 import React             from 'react'
 import Context           from './Context.js'
-import DatatableHeader   from './Header.jsx'
-import DatatableBody     from './Body.jsx'
-import DatatableFooter   from './Footer.jsx'
+import DataTableHeader   from './Header.jsx'
+import DataTableBody     from './Body.jsx'
+import DataTableFooter   from './Footer.jsx'
 import { classes } from '@/src/utils/classes.js'
 
 const Content = ({
   color,
   className='datatable',
-  Header=DatatableHeader,
-  Body=DatatableBody,
-  Footer=DatatableFooter,
+  Header=DataTableHeader,
+  Body=DataTableBody,
+  Footer=DataTableFooter,
 }) =>
   <section className={classes(className, color)}>
     <Header/>
@@ -18,5 +18,5 @@ const Content = ({
     <Footer/>
   </section>
 
-export const DatatableContent = Context.Consumer(Content)
-export default DatatableContent
+export const DataTableContent = Context.Consumer(Content)
+export default DataTableContent

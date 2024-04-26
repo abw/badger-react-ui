@@ -1,11 +1,11 @@
 import React from 'react'
-import { Datatable } from '@/src/index.jsx'
+import { DataTable } from '@/src/index.jsx'
 import { animals } from '../../data.js'
 
-const DatatableExample = () => {
+const DataTableExample = () => {
   return (
     /* START */
-    <Datatable
+    <DataTable
       rows={animals}
       columns={{
         id:   { heading: 'User ID' },
@@ -16,4 +16,4 @@ const DatatableExample = () => {
   )
 }
 
-export default DatatableExample
+export default DataTableExample

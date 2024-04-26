@@ -1,10 +1,10 @@
 import React        from 'react'
 import Context      from './Context.js'
-import DatatableRow from './Row.jsx'
+import DataTableRow from './Row.jsx'
 
 const Rows = ({
   page,
-  Row=DatatableRow
+  Row=DataTableRow
 }) =>
   <tbody>
     { page.rows.map(
@@ -16,5 +16,5 @@ const Rows = ({
     )}
   </tbody>
 
-export const DatatableRows = Context.Consumer(Rows)
-export default DatatableRows
+export const DataTableRows = Context.Consumer(Rows)
+export default DataTableRows

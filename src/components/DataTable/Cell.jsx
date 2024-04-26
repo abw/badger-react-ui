@@ -9,6 +9,7 @@ const Cell = ({
   column,
   name,
   value,
+  extra={},
   cellClass,
   sortColumn,
   sortingClass='sorting',
@@ -34,10 +35,11 @@ const Cell = ({
         value={value}
         name={name}
         field={name}
+        {...extra}
       />
     </td>
   )
 }
 
-export const DatatableCell = Context.Consumer(Cell)
-export default DatatableCell
+export const DataTableCell = Context.Consumer(Cell)
+export default DataTableCell

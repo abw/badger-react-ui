@@ -1,10 +1,10 @@
 import React from 'react'
-import { Datatable } from '@/src/index.jsx'
+import { DataTable } from '@/src/index.jsx'
 import { multiSort } from '@abw/badger-utils'
 
-const DatatableExample = () =>
+const DataTableExample = () =>
   /* START */
-  <Datatable
+  <DataTable
     rows={[
       { forename: 'Ant',     surname: 'Walker'  },
       { forename: 'Dog',     surname: 'Walker'  },
@@ -25,4 +25,4 @@ const DatatableExample = () =>
   />
   /* END */
 
-export default DatatableExample
+export default DataTableExample

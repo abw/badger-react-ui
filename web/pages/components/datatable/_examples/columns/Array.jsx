@@ -1,10 +1,10 @@
 import React from 'react'
-import { Datatable } from '@/src/index.jsx'
+import { DataTable } from '@/src/index.jsx'
 import { animals } from '../data.js'
 
-const DatatableExample = () =>
+const DataTableExample = () =>
   /* START */
-  <Datatable
+  <DataTable
     color="brand"
     rows={animals}
     columns={[
@@ -16,4 +16,4 @@ const DatatableExample = () =>
   />
   /* END */
 
-export default DatatableExample
+export default DataTableExample

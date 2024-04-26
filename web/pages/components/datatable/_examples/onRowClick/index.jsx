@@ -18,6 +18,10 @@ const OnRowClick = () =>
       will have the <code>selectable</code> CSS class added to highlight the
       hovered row.
     </p>
+    <p>
+      The function will be passed an object containing the <code>row</code> and
+      and items defined as <code>extra</code>.
+    </p>
   </Example>
 
 export default OnRowClick

@@ -1,12 +1,12 @@
 import React            from 'react'
 import Context          from './Context.js'
-import DatatableHeading from './Heading.jsx'
+import DataTableHeading from './Heading.jsx'
 
 export const Headings = ({
   columns,
   headingsClass='headings',
   visibleColumns,
-  Heading=DatatableHeading,
+  Heading=DataTableHeading,
 }) =>
   <thead>
     <tr className={headingsClass}>
@@ -21,5 +21,5 @@ export const Headings = ({
     </tr>
   </thead>
 
-export const DatatableHeadings = Context.Consumer(Headings)
-export default DatatableHeadings
+export const DataTableHeadings = Context.Consumer(Headings)
+export default DataTableHeadings
