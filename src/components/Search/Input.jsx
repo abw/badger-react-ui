@@ -8,6 +8,8 @@ const SearchInput = ({
   onBlur,
   onChange,
   clear,
+  autocomplete,
+  autoComplete=autocomplete,
   placeholder='Search',
   clearIcon='cross',
   searchIcon='search',
@@ -33,6 +35,7 @@ const SearchInput = ({
       onChange={onChange}
       disabled={disabled}
       className={inputClass}
+      autoComplete={autoComplete}
     />
     <div className={suffixClass} onClick={disabled ? null : clear}>
       <Icon name={searching ? searchingIcon : clearIcon}/>
