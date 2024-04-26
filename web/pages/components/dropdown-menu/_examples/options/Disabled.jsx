@@ -20,6 +20,7 @@ const DropdownExample = () =>
       },
       {
         text: 'Enabled #4',
+        disabled: false,
       },
       {
         text: 'Disabled #5',
