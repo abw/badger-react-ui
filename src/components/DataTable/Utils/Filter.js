@@ -47,7 +47,7 @@ export const filterBoolean = ({ value=false, search }) =>
   // compare it to 0.
   coerceBoolean(value) === coerceBoolean(search)
 
-export const datatableFilterTypes = {
+export const dataTableFilterTypes = {
   string:  filterStringContains,
   text:    filterStringContains,
   id:      filterStringContains,
@@ -60,7 +60,7 @@ export const datatableFilterTypes = {
   float:   filterFloat,
 }
 
-export const datatableFilter = (rows, columns, filters) => {
+export const dataTableFilter = (rows, columns, filters) => {
   const fkeys = Object.keys(filters)
 
   if (fkeys.length === 0) {
@@ -75,7 +75,7 @@ export const datatableFilter = (rows, columns, filters) => {
         const field  = column.field || fkey
         const value  = row[field]
         const type   = column.filterType || column.type
-        const filter = column.filter || datatableFilterTypes[type] || datatableFilterTypes.text
+        const filter = column.filter || dataTableFilterTypes[type] || dataTableFilterTypes.text
         if (hasValue(search) && (isBoolean(search) || search.length)) {
           return filter({ row, field, value, search })
         }

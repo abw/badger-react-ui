@@ -2,14 +2,14 @@ import {
   capitalise, fail, isArray, isBoolean, isObject, isString, splitHash
 } from '@abw/badger-utils'
 
-export const datatableColumnString = column => {
+export const dataTableColumnString = column => {
   const field = column
   const type  = 'text'
   const label = capitalise(field)
   return { field, type, label }
 }
 
-export const datatableColumnDefinition = column => {
+export const dataTableColumnDefinition = column => {
   if (isString(column)) {
     column = { field: column }
   }
@@ -21,17 +21,17 @@ export const datatableColumnDefinition = column => {
   return column
 }
 
-export const datatableColumnDefinitions = columns => {
+export const dataTableColumnDefinitions = columns => {
   if (isString(columns)) {
     return splitHash(
       columns,
-      datatableColumnDefinition
+      dataTableColumnDefinition
     )
   }
   if (isArray(columns)) {
     return columns.reduce(
       (colshash, column) => {
-        const coldef = datatableColumnDefinition(column)
+        const coldef = dataTableColumnDefinition(column)
         colshash[coldef.field] = coldef
         return colshash
       },
@@ -45,7 +45,7 @@ export const datatableColumnDefinitions = columns => {
         if (isBoolean(column) && ! column) {
           return colshash
         }
-        const coldef = datatableColumnDefinition({
+        const coldef = dataTableColumnDefinition({
           // column can also be any true value which might not be iterable
           ...(isObject(column) ? column : { }),
           field
@@ -59,7 +59,7 @@ export const datatableColumnDefinitions = columns => {
   fail(`Invalid columns definition`)
 }
 
-export const datatableVisibleColumns = (columns, saved) => {
+export const dataTableVisibleColumns = (columns, saved) => {
   // If we have a saved (in local storage) list of visible columns then we
   // must assert that they are all still defined in the columns schema.
   // It's possible that the list of columns has changed since we last stored
@@ -76,7 +76,7 @@ export const datatableVisibleColumns = (columns, saved) => {
     .filter( column => ! columns[column].hidden )
 }
 
-export const datatableColumnOrder = (columns, saved) => {
+export const dataTableColumnOrder = (columns, saved) => {
   // Similar to the above, if we have a saved list of the column order then we
   // must assert that they are all still defined in the columns schema.
   if (saved) {
@@ -88,7 +88,7 @@ export const datatableColumnOrder = (columns, saved) => {
   return Object.keys(columns)
 }
 
-export const datatableSortColumn = (columns, savedColumn, savedReverse) => {
+export const dataTableSortColumn = (columns, savedColumn, savedReverse) => {
   // Similar to the above, if we have a saved value for the sort column
   // (and optional reverse order flag) then we must assert that the column
   // is still valid are all still defined in the columns schema.

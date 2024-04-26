@@ -53,5 +53,5 @@ const Columns = ({
   )
 }
 
-export const DatatableColumns = Context.Consumer(Columns)
-export default DatatableColumns
+export const DataTableColumns = Context.Consumer(Columns)
+export default DataTableColumns

@@ -3,11 +3,11 @@ import { Generator } from '@abw/react-context'
 import { doNothing, hasValue, isBoolean, splitHash } from '@abw/badger-utils'
 import { Storage, useComplexState } from '@/src/index.jsx'
 import {
-  datatableColumnDefinitions,
-  datatableVisibleColumns,
-  datatableSort, datatablePaginate, datatableFilter,
-  datatableSortColumn,
-  datatableColumnOrder,
+  dataTableColumnDefinitions,
+  dataTableVisibleColumns,
+  dataTableSort, dataTablePaginate, dataTableFilter,
+  dataTableSortColumn,
+  dataTableColumnOrder,
 } from './Utils/index.js'
 
 const DataTableContext = ({
@@ -39,12 +39,12 @@ const DataTableContext = ({
   // mapping column names to a definition object, e.g { id: { ... }, etc }
   const [columns, visibleColumns, columnOrder, sortColumn, sortReverse] = useMemo(
     () => {
-      const columns = datatableColumnDefinitions(props.columns)
+      const columns = dataTableColumnDefinitions(props.columns)
       return [
         columns,
-        datatableVisibleColumns(columns, savedState.visibleColumns),
-        datatableColumnOrder(columns, savedState.columnOrder),
-        ...datatableSortColumn(
+        dataTableVisibleColumns(columns, savedState.visibleColumns),
+        dataTableColumnOrder(columns, savedState.columnOrder),
+        ...dataTableSortColumn(
           columns,
           savedState.sortColumn ?? props.sortColumn,
           savedState.sortReverse ?? props.sortReverse
@@ -150,9 +150,9 @@ const DataTableContext = ({
 
   // Filter, sort and paginate the rows
   const page = useMemo(
-    () => datatablePaginate(
-      datatableSort(
-        datatableFilter(rows, columns, filters),
+    () => dataTablePaginate(
+      dataTableSort(
+        dataTableFilter(rows, columns, filters),
         columns, state.sortColumn, state.sortReverse
       ),
       state.pageNo, state.pageSize,

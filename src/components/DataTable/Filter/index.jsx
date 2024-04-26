@@ -5,7 +5,7 @@ import Text     from './Text.jsx'
 export const filterComponents = {
   text: Text
 }
-export const datatableFilterComponents = {
+export const dataTableFilterComponents = {
   default: Text,
   string:  Text,
   text:    Text,
@@ -19,4 +19,4 @@ export const datatableFilterComponents = {
   boolean: Boolean,
 }
 
-export default datatableFilterComponents
+export default dataTableFilterComponents

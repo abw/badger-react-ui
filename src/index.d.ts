@@ -17,38 +17,40 @@ declare module '@abw/badger-react-ui' {
   export function CheckboxState()
   // Confirm
   export function Confirm()
-  // Datatable
-  export function Datatable()
-  export function DatatableBody()
-  export function DatatableCell()
-  export function DatatableContent()
-  export function DatatableContext()
-  export function DatatableControls()
-  export function DatatableFilter()
-  export function DatatableFiltering()
-  export function DatatableFilters()
-  export function DatatableFooter()
-  export function DatatableHeader()
-  export function DatatableHeading()
-  export function DatatableHeadings()
-  export function DatatablePageSize()
-  export function DatatableRow()
-  export function DatatableRows()
-  export function DatatableSummary()
-  export function DatatableTable()
-  export function datatableColumnString(column: any)
-  export function datatableColumnDefinition(column: any)
-  export function datatableColumnDefinitions(columns: any)
-  export function datatableVisibleColumns(columns: any, saved: any)
-  export function datatableColumnOrder(columns: any, saved: any)
-  export function datatableSortColumn(columns: any, savedColumn: any, savedReverse: any)
-  export function datatableFilter(rows: any, columns: any, filters: any)
+  // DataTable
+  export function DataTable()
+  export function DataTableBody()
+  export function DataTableCell()
+  export function DataTableContent()
+  export function DataTableContext()
+  export function DataTableControls()
+  export function DataTableFilter()
+  export function DataTableFiltering()
+  export function DataTableFilters()
+  export function DataTableFooter()
+  export function DataTableHeader()
+  export function DataTableHeading()
+  export function DataTableHeadings()
+  export function DataTablePageSize()
+  export function DataTableRow()
+  export function DataTableRows()
+  export function DataTableSummary()
+  export function DataTableTable()
+  export function dataTableColumnString(column: any)
+  export function dataTableColumnDefinition(column: any)
+  export function dataTableColumnDefinitions(columns: any)
+  export function dataTableVisibleColumns(columns: any, saved: any)
+  export function dataTableColumnOrder(columns: any, saved: any)
+  export function dataTableSortColumn(columns: any, savedColumn: any, savedReverse: any)
+  export function dataTableFilter(rows: any, columns: any, filters: any)
+  export function dataTableSort(rows: any, columns: any, sortColumn: any, sortReverse: any): any;
+  export function useDataTable()
   export function filterStringContains()
   export function filterStringExact()
   export function filterBoolean()
   export function filterInteger()
   export function filterFloat()
-  export function datatablePaginate(rows: any, pageNo?: number, pageSize?: any): {
+  export function dataTablePaginate(rows: any, pageNo?: number, pageSize?: any): {
     pageSize: any;
     pages: number;
     page: number;
@@ -66,8 +68,6 @@ declare module '@abw/badger-react-ui' {
     none: boolean;
     rows: any;
   };
-  export function datatableSort(rows: any, columns: any, sortColumn: any, sortReverse: any): any;
-  export function useDatatable()
 
   // Details
   export function Details()

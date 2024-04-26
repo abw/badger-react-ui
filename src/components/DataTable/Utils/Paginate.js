@@ -1,7 +1,7 @@
 // NOTES:
 // * pageNo is a "human readable" page number, starting at 1
 // * page is the "machine readable" page number, starting at 0
-export const datatablePaginate = (
+export const dataTablePaginate = (
   rows,
   pageNo=1,
   pageSize=rows.length

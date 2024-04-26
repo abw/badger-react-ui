@@ -2,7 +2,7 @@ import {
   descendingOrder, integerSort, isFunction, numberSort, stringSort
 } from '@abw/badger-utils'
 
-export const datatableSorters = {
+export const dataTableSorters = {
   string:   stringSort,
   text:     stringSort,
   number:   numberSort,
@@ -12,7 +12,7 @@ export const datatableSorters = {
   id:       integerSort,
 }
 
-export const datatableSort = (
+export const dataTableSort = (
   rows,
   columns,
   sortColumn,
@@ -26,7 +26,7 @@ export const datatableSort = (
   const type   = column.type || 'text'
   const sorter = isFunction(sort)
     ? sort
-    : (datatableSorters[type] || datatableSorters.text)(sortColumn)
+    : (dataTableSorters[type] || dataTableSorters.text)(sortColumn)
 
   return rows.sort(
     sortReverse

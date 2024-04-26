@@ -47,7 +47,7 @@ export const ComponentsMenu = {
     },
     {
       to: '/components/datatable',
-      text: 'Datatable',
+      text: 'DataTable',
       tocName: 'datatable',
     },
     {
