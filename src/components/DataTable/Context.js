@@ -168,6 +168,7 @@ const DataTableContext = ({
     rows, columns, page,
     showFilters, toggleFilters,
     filters, setFilter,
+    hasFilters: Object.keys(filters).length,
     toggleSortColumn,
     toggleVisibleColumn,
     changeColumnOrder,

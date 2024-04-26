@@ -4,19 +4,31 @@ section.datatable {
   --header-icon-hover-opacity: 0.5;
   --header-size: 0.875em;
   --filters-shade: var(--color-95);
+  --filtering-color: var(--brand-70);
+  --filtering-hover: var(--brand-80);
+  --has-filters-color: var(--red-60);
+  --has-filters-hover: var(--red-50);
   --sorting-shade-1: var(--color-95);
   --sorting-shade-2: var(--color-90);
   --sorting-shade-3: var(--color-80);
   --sorting-shade-4: var(--color-75);
   & > header {
     .controls {
-      .filtering.trigger path {
-        fill: var(--brand-75);
-      }
       .trigger:hover {
         cursor: pointer;
         path, rect {
-          fill: var(--brand-85);
+          fill: var(--filtering-hover);
+        }
+      }
+      .filtering.trigger path {
+        fill: var(--filtering-color);
+      }
+      .has-filters.trigger path {
+        fill: var(--has-filters-color);
+      }
+      .has-filters.trigger:hover {
+        path, rect {
+          fill: var(--has-filters-hover);
         }
       }
     }
