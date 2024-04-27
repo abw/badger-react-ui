@@ -16,7 +16,7 @@ section.datatable {
   --sorting-shade-4: var(--color-75);
   --filtering-mix: 5%;
   --filtering-stripe: var(--color-50);
-  --filtering-gradient-width: 10px;
+  --filtering-gradient-width: 4px;
   --filtering-gradient-angle: 30deg;
   --filtering-gradient-angle1: calc(90deg + var(--filtering-gradient-angle));
   --filtering-gradient-angle2: calc(90deg - var(--filtering-gradient-angle));
@@ -184,5 +184,5 @@ section.datatable {
   --has-filters-color: var(--red-40);
   --no-rows-color: var(--red-80);
   --no-rows-background: var(--red-15);
-  --filtering-mix: 8%;
+  --filtering-mix: 10%;
 }
