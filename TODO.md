@@ -32,9 +32,7 @@ Headings wrap
 Option in columns pull-down to reset columns
 
 Select option in header can't overflow so gets hidden when the table has no
-entries.
-
-No Rows. Pager shows empty button
+entries.  NOTE: I think this is now fixed in badger-css?
 
 ## Radio
 
