@@ -3,6 +3,8 @@ import Context  from './Context.js'
 import defaultDisplayTypes from './Display.jsx'
 import { classes } from '@/src/utils/classes.js'
 import { alignClasses } from './Utils/Align.js'
+import { FILTERING, SORTING } from './Constants.js'
+import { hasValue } from '@abw/badger-utils'
 
 const Cell = ({
   row,
@@ -11,8 +13,10 @@ const Cell = ({
   value,
   extra={},
   cellClass,
+  filters,
   sortColumn,
-  sortingClass='sorting',
+  sortingClass=SORTING,
+  filteringClass=FILTERING,
   displayTypes=defaultDisplayTypes
 }) => {
   const type    = column.type    || 'text'
@@ -22,13 +26,13 @@ const Cell = ({
     cellClass,
     column.className,
     sorting ? sortingClass : null,
+    hasValue(filters[name]) ? filteringClass : null,
     column.right && alignClasses.right,
     column.center && alignClasses.center,
     column.align && alignClasses[column.align]
   )
   return (
     <td className={classname}>
-      {/* {value} */}
       <Display
         row={row}
         column={column}

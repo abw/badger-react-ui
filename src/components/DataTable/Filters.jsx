@@ -1,12 +1,13 @@
 import React   from 'react'
 import Context from './Context.js'
-import DataTableFilter from './Filter.jsx'
+import DefaultFilter from './Filter.jsx'
+import { FILTERS } from './Constants.js'
 
 export const Filters = ({
   columns,
-  filtersClass='filters',
+  filtersClass=FILTERS,
   visibleColumns,
-  Filter=DataTableFilter,
+  Filter=DefaultFilter,
 }) =>
   <thead>
     <tr className={filtersClass}>

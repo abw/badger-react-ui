@@ -3,6 +3,7 @@ import Context      from './Context.js'
 import Icon         from '@/components/Icon/Icon.jsx'
 import Components   from './Filter/index.jsx'
 import { classes }  from '@/src/utils/classes.js'
+import { CROSS, FILTER, FILTERING } from './Constants.js'
 import { hasValue, isBoolean } from '@abw/badger-utils'
 
 export const Filter = ({
@@ -10,10 +11,10 @@ export const Filter = ({
   column,
   filters,
   setFilter,
-  filterClass='filter',
-  filteringClass='filtering',
-  filterIcon='filter',
-  clearFilterIcon='cross',
+  filterClass=FILTER,
+  filteringClass=FILTERING,
+  filterIcon=FILTER,
+  clearFilterIcon=CROSS,
 }) => {
   const Component = column.filterComponent
     || Components[column.type]

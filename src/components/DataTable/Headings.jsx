@@ -1,12 +1,13 @@
-import React            from 'react'
-import Context          from './Context.js'
-import DataTableHeading from './Heading.jsx'
+import React          from 'react'
+import Context        from './Context.js'
+import DefaultHeading from './Heading.jsx'
+import { HEADINGS }   from './Constants.js'
 
 export const Headings = ({
   columns,
-  headingsClass='headings',
+  headingsClass=HEADINGS,
   visibleColumns,
-  Heading=DataTableHeading,
+  Heading=DefaultHeading,
 }) =>
   <thead>
     <tr className={headingsClass}>

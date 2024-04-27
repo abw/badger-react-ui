@@ -3,10 +3,13 @@ import Context      from './Context.js'
 import Icon         from '@/components/Icon/Icon.jsx'
 import { classes }  from '@/src/utils/classes.js'
 import { alignClasses } from './Utils/Align.js'
+import { FILTERING, HEADING, SORTING } from './Constants.js'
+import { hasValue } from '@abw/badger-utils'
 
 export const Heading = ({
   name,
   column,
+  filters,
   sortColumn,
   sortReverse,
   toggleSortColumn,
@@ -14,8 +17,9 @@ export const Heading = ({
   sortDownIcon='arrow-down',
   unsortedIcon='arrows',
   sortIconClass=`sort-icon`,
-  sortingClass='sorting',
-  headingClass='heading',
+  sortingClass=SORTING,
+  headingClass=HEADING,
+  filteringClass=FILTERING
 }) => {
   const sorting = name === sortColumn
   const reverse = sorting && sortReverse
@@ -24,7 +28,8 @@ export const Heading = ({
       className={
         classes(
           headingClass,
-          sorting && sortingClass,
+          sorting ? sortingClass : null,
+          hasValue(filters[name]) ? filteringClass : null,
           column.right && alignClasses.right,
           column.center && alignClasses.center,
           column.align && alignClasses[column.align]

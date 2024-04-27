@@ -3,18 +3,19 @@ import Context      from './Context.js'
 import Icon         from '@/components/Icon/Icon.jsx'
 import { inflect, maybeFunction }  from '@abw/badger-utils'
 import { classes }  from '@/src/utils/classes.js'
+import { FILTER, FILTERING, FILTER_ICON, HAS_FILTERS } from './Constants.js'
 
 export const Filtering = ({
   showFilters,
   toggleFilters,
   hasFilters,
-  filterIcon='filter',
+  filterIcon=FILTER,
   filterText = n => n ? inflect(n, 'Filter') : 'Filter',
-  filteringIcon='filter',
-  filterIconClass='filter-icon',
+  filteringIcon=FILTER,
+  filterIconClass=FILTER_ICON,
   filterTriggerClass='small flex gap-2 middle trigger',
-  filteringClass='filtering',
-  hasFiltersClass='has-filters'
+  filteringClass=FILTERING,
+  hasFiltersClass=HAS_FILTERS
 }) => {
   return (
     <div

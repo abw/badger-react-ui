@@ -1,8 +1,9 @@
-import React          from 'react'
-import Context        from './Context.js'
+import React       from 'react'
+import Context     from './Context.js'
+import { NO_ROWS } from './Constants.js'
 
 const NoRows = ({
-  noRowsClass='no-rows',
+  noRowsClass=NO_ROWS,
   noRowsText='No rows selected',
   visibleColumns,
 }) =>
