@@ -21,7 +21,7 @@ const Column = ({
       key={item.id}
       checked={isVisible[item.id]|| false}
       onChange={() => toggleVisibleColumn(item.id)}
-      text={item.label}
+      text={item.heading}
     />
     <div
       {...listeners}

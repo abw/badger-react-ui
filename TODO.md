@@ -31,6 +31,9 @@ Headings wrap
 
 Option in columns pull-down to reset columns
 
+Select option in header can't overflow so gets hidden when the table has no
+entries.
+
 ## Radio
 
 Renderer for option.text/option.label/option.name
