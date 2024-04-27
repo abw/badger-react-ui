@@ -149,8 +149,9 @@ section.datatable {
     &.striped tbody tr:nth-child(even) td.sorting {
       --background-color: var(--sorting-shade-2);
     }
-    &.selectable tbody tr:hover {
+    &.selectable tbody tr:hover:not(.unselectable) {
       td, th {
+        --background-color: var(--selectable-background);
         & > * {
           background-color: transparent;
           color: var(--selectable-color);
