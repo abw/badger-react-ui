@@ -34,6 +34,7 @@ declare module '@abw/badger-react-ui' {
   export function DataTablePageSize()
   export function DataTableRow()
   export function DataTableRows()
+  export function DataTableNoRows()
   export function DataTableSummary()
   export function DataTableTable()
   export function dataTableColumnString(column: any)
