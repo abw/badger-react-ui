@@ -4,14 +4,15 @@ import defaultDisplayTypes from './Display.jsx'
 import { classes } from '@/src/utils/classes.js'
 import { alignClasses } from './Utils/Align.js'
 import { FILTERING, SORTING } from './Constants.js'
-import { hasValue } from '@abw/badger-utils'
+import { hasValue, maybeFunction } from '@abw/badger-utils'
 
 const Cell = ({
   row,
   column,
   name,
   value,
-  extra={},
+  rowIndex,
+  cellIndex,
   cellClass,
   filters,
   sortColumn,
@@ -24,7 +25,7 @@ const Cell = ({
   const sorting = sortColumn === name
   const classname = classes(
     cellClass,
-    column.className,
+    maybeFunction(column.className, { row, column, value, name, rowIndex, cellIndex }),
     sorting ? sortingClass : null,
     hasValue(filters[name]) ? filteringClass : null,
     column.right && alignClasses.right,
@@ -39,7 +40,8 @@ const Cell = ({
         value={value}
         name={name}
         field={name}
-        {...extra}
+        rowIndex={rowIndex}
+        cellIndex={cellIndex}
       />
     </td>
   )

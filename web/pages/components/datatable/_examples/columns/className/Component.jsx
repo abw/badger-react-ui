@@ -24,7 +24,10 @@ const DataTableExample = () => {
         },
         admin: {
           type: 'boolean',
-          className: 'text-center'
+          className: ({ value }) =>
+            value
+              ? 'bold red fgc-50 text-center'
+              : 'text-center'
         }
       }}
     />

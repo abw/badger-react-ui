@@ -9,7 +9,7 @@ const FilterComponent = () =>
     code="filterComponent"
     Component={Component}
     Source={Source}
-    highlightLines="13-21"
+    highlightLines="13-20"
     undent={2}
     expand
   >

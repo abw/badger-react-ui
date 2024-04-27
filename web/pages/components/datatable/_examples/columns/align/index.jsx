@@ -9,6 +9,7 @@ const Align = () =>
     Component={Component}
     Source={Source}
     undent={4}
+    highlightLines="10,15,19"
     expand
   >
     <p>

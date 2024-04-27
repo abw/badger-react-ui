@@ -20,12 +20,6 @@ const DataTable = () =>
         The old name is still supported as an alias but will be removed at
         some point in the future
       </p>
-      <p>
-        The{' '} <code>onRowClick</code> function has also change.  It was
-        previously passed the <code>row</code> as an argument.  It is now
-        passed an object containing the <code>row</code> property, along with
-        any other items defined using the <code>extra</code> property.
-      </p>
     </Warning>
     <p>
       The two mandatory properties are <code>rows</code> and <code>columns</code>.

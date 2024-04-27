@@ -9,6 +9,7 @@ const Type = () =>
     Component={Component}
     Source={Source}
     undent={2}
+    highlightLines="8"
     expand
   >
     <p>

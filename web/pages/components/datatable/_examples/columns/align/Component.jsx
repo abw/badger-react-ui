@@ -15,7 +15,7 @@ const DataTableExample = () => {
           type: 'number',
           align: 'right'
         },
-        name: { },
+        name: true,
         salary: {
           type: 'currency',
           align: 'right'

@@ -19,8 +19,8 @@ const OnRowClick = () =>
       hovered row.
     </p>
     <p>
-      The function will be passed an object containing the <code>row</code> and
-      and items defined as <code>extra</code>.
+      The function will be passed an object containing the <code>row</code>{' '}
+      and <code>rowIndex</code> as properties.
     </p>
   </Example>
 

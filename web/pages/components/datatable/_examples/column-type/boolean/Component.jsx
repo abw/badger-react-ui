@@ -15,12 +15,12 @@ const DataTableExample = () =>
     columns={{
       name:    { },
       isadmin: {
+        heading: 'Admin',
         type:    'boolean',
-        heading: 'Admin'
       },
       isdev:   {
-        type:      'boolean',
         heading:   'Developer',
+        type:      'boolean',
         trueText:  'Developer',
         falseText: 'Mortal'
       },

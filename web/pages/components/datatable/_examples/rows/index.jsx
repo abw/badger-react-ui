@@ -1,6 +1,6 @@
 import React        from 'react'
 import Section      from '@/page/Section.jsx'
-import RowsSrc      from '../data.js?raw'
+import RowsSrc      from '../animals.js?raw'
 import CodeBlock from '@/web/site/CodeBlock.jsx'
 
 const Rows = () =>

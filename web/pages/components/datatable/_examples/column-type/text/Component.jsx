@@ -9,7 +9,9 @@ const DataTableExample = () =>
       { name: 'Brian'   },
       { name: 'Charlie' },
     ]}
-    columns="name"
+    columns={{
+      name: { type: 'text' }
+    }}
   />
   /* END */
 

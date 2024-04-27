@@ -8,7 +8,7 @@ const TableClass = () =>
     code="tableClass"
     Component={Component}
     Source={Source}
-    highlightLines="3"
+    highlightLines="4"
     undent={2}
     expand
   >

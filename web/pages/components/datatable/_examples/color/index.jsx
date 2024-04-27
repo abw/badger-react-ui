@@ -8,7 +8,7 @@ const Color = () =>
     code="color"
     Component={Component}
     Source={Source}
-    highlightLines="2"
+    highlightLines="4"
     undent={4}
     expand
   >

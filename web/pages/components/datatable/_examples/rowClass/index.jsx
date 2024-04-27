@@ -15,8 +15,8 @@ const RowClass = () =>
     <p>
       The <code>rowClass</code> property can be used to add a CSS class for
       a row based on some property.  It can be a static string or a function
-      that will be passed the <code>row</code> as an argument and should
-      return a string.
+      that will be passed an object containing the <code>row</code> and{' '}
+      <code>rowIndex</code> as properties and should return a string.
     </p>
   </Example>
 

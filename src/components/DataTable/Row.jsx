@@ -5,19 +5,19 @@ import { doNothing, maybeFunction } from '@abw/badger-utils'
 
 const Row = ({
   row,
+  rowIndex,
   columns,
   rowClass,
-  extra={},
   onRowClick=doNothing,
   visibleColumns,
   Cell=DataTableCell
 }) =>
   <tr
-    className={maybeFunction(rowClass, { row, ...extra })}
-    onClick={() => onRowClick({ row, ...extra })}
+    className={maybeFunction(rowClass, { row, rowIndex })}
+    onClick={() => onRowClick({ row, rowIndex })}
   >
     { visibleColumns.map(
-      name => {
+      (name, cellIndex) => {
         const column = columns[name]
         const field  = column.field ?? name
         const value  = row[field]
@@ -25,6 +25,8 @@ const Row = ({
           <Cell
             key={name}
             row={row}
+            rowIndex={rowIndex}
+            index={cellIndex}
             name={name}
             field={field}
             column={column}

@@ -9,10 +9,12 @@ const Type = () =>
     Component={Component}
     Source={Source}
     undent={2}
+    highlightLines="8"
     expand
   >
     <p>
-      The default column <code>type</code> is <code>text</code>.
+      The default column <code>type</code> is <code>text</code>.  You don&apos;t
+      need to specify it but you can if you like being explicit.
     </p>
   </Example>
 

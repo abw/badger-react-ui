@@ -34,3 +34,5 @@ export const animals = [
   { name: 'Kevin',      animal: 'Gerbil',   id: 304, role: 'guest' },
   { name: 'Roland',     animal: 'Rat',      id: 1234, role: 'superstar' },
 ]
+
+export default animals

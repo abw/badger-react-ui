@@ -45,6 +45,7 @@ declare module '@abw/badger-react-ui' {
   export function dataTableSortColumn(columns: any, savedColumn: any, savedReverse: any)
   export function dataTableFilter(rows: any, columns: any, filters: any)
   export function dataTableSort(rows: any, columns: any, sortColumn: any, sortReverse: any): any;
+  export function DataTableConsumer()
   export function useDataTable()
   export function filterStringContains()
   export function filterStringExact()

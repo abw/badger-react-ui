@@ -1,11 +1,10 @@
 import React from 'react'
 import { DataTable } from '@/src/index.jsx'
-import { animals } from '../data.js'
+import animals from '../animals.js'
 
 const DataTableExample = () =>
   /* START */
   <DataTable
-    color="brand"
     rows={animals}
     columns={{
       id:     { heading: 'Ref.', type: 'number' },

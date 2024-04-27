@@ -179,4 +179,5 @@ const DataTableContext = ({
 
 const generated = Generator(DataTableContext)
 export const useDataTable = generated.Use
+export const DataTableConsumer = generated.Consumer
 export default generated

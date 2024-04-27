@@ -11,10 +11,11 @@ const Rows = ({
   <tbody>
     { page.rows.length
       ? page.rows.map(
-        (row, n) =>
+        (row, rowIndex) =>
           <Row
-            key={row.id ?? n}
+            key={row.id ?? rowIndex}
             row={row}
+            rowIndex={rowIndex}
           />
       )
       : <NoRows/>
