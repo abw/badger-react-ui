@@ -10,13 +10,15 @@ const Footer = ({
   pagerSize='small'
 }) =>
   <footer className={footerClass}>
-    <Pager
-      page={page.page}
-      pages={page.pages}
-      setPage={n => setPageNo(n + 1)}
-      size={pagerSize}
-      {...pager}
-    />
+    { page.total > 0 &&
+      <Pager
+        page={page.page}
+        pages={page.pages}
+        setPage={n => setPageNo(n + 1)}
+        size={pagerSize}
+        {...pager}
+      />
+    }
   </footer>
 
 export const DataTableFooter = Context.Consumer(Footer)
