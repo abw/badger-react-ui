@@ -18,7 +18,7 @@ export const dataTableSort = (
   sortColumn,
   sortReverse
 ) => {
-  if (! sortColumn) {
+  if (! sortColumn || ! columns[sortColumn]) {
     return rows
   }
   const column = columns[sortColumn]

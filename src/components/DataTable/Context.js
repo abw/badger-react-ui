@@ -39,6 +39,7 @@ const DataTableContext = ({
   // mapping column names to a definition object, e.g { id: { ... }, etc }
   const [columns, visibleColumns, columnOrder, sortColumn, sortReverse] = useMemo(
     () => {
+      Debug(`computing columns: `, props.columns)
       const columns = dataTableColumnDefinitions(props.columns)
       return [
         columns,
@@ -63,6 +64,17 @@ const DataTableContext = ({
     columnOrder,
     visibleColumns,
   })
+
+  useEffect(
+    () => {
+      Debug(`columns have changed: `, columns)
+      setters.setSortColumn(sortColumn)
+      setters.setSortReverse(sortReverse)
+      setters.setColumnOrder(columnOrder)
+      setters.setVisibleColumns(visibleColumns)
+    },
+    [sortColumn, sortReverse, columnOrder, visibleColumns]
+  )
 
   // Save any state changes back to the store, if defined
   useEffect(
@@ -122,9 +134,6 @@ const DataTableContext = ({
   // Additional UI state variables for filters
   const [showFilters, setShowFilters] = useState(false)
   const [filters, setFilters] = useState({ })
-  //const [controlsVisible, setControlsVisible] = useState(false)
-  //const showControls = () => setControlsVisible(true)
-  //const hideControls = () => setControlsVisible(false)
 
   const toggleFilters = e => {
     e.preventDefault()

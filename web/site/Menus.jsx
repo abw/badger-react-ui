@@ -216,3 +216,15 @@ export const ThemingMenu = {
     },
   ]
 }
+
+export const TestingMenu = {
+  title:  'Testing',
+  path: '/testing',
+  items: [
+    {
+      to: '/testing/datatable-columns',
+      text: 'DataTable Columns',
+      tocName: 'datatableColumns',
+    },
+  ]
+}

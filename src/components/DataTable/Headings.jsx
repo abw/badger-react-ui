@@ -11,14 +11,17 @@ export const Headings = ({
 }) =>
   <thead>
     <tr className={headingsClass}>
-      { visibleColumns.map(
-        name =>
-          <Heading
-            key={name}
-            name={name}
-            column={columns[name]}
-          />
-      )}
+      { visibleColumns
+        .filter( name => columns[name] )
+        .map(
+          name =>
+            <Heading
+              key={name}
+              name={name}
+              column={columns[name]}
+            />
+        )
+      }
     </tr>
   </thead>
 

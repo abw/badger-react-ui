@@ -16,25 +16,28 @@ const Row = ({
     className={maybeFunction(rowClass, { row, rowIndex })}
     onClick={() => onRowClick({ row, rowIndex })}
   >
-    { visibleColumns.map(
-      (name, cellIndex) => {
-        const column = columns[name]
-        const field  = column.field ?? name
-        const value  = row[field]
-        return (
-          <Cell
-            key={name}
-            row={row}
-            rowIndex={rowIndex}
-            index={cellIndex}
-            name={name}
-            field={field}
-            column={column}
-            value={value}
-          />
-        )
-      }
-    )}
+    { visibleColumns
+      .filter( name => columns[name] )
+      .map(
+        (name, cellIndex) => {
+          const column = columns[name]
+          const field  = column.field ?? name
+          const value  = row[field]
+          return (
+            <Cell
+              key={name}
+              row={row}
+              rowIndex={rowIndex}
+              index={cellIndex}
+              name={name}
+              field={field}
+              column={column}
+              value={value}
+            />
+          )
+        }
+      )
+    }
   </tr>
 
 export const DataTableRow = Context.Consumer(Row)

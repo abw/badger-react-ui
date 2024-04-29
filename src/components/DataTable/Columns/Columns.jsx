@@ -17,9 +17,11 @@ const Columns = ({
   changeColumnOrder
 }) => {
   const isVisible = splitHash(visibleColumns)
-  const items = columnOrder.map(
-    id => extract(columns[id], 'id heading')
-  )
+  const items = columnOrder
+    .filter( name => columns[name] )
+    .map(
+      id => extract(columns[id], 'id heading')
+    )
   const setOrder = items => {
     changeColumnOrder(
       items.map( i => i.id )

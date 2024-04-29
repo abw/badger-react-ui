@@ -80,7 +80,15 @@ export const dataTableColumnOrder = (columns, saved) => {
   // Similar to the above, if we have a saved list of the column order then we
   // must assert that they are all still defined in the columns schema.
   if (saved) {
-    const order = saved.filter( column => columns[column] )
+    const order = saved
+      .filter( column => columns[column] )
+    // we must also add on any new columns
+    const orderHas = splitHash(order)
+    order.push(
+      ...Object
+        .keys(columns)
+        .filter( column => ! orderHas[column] )
+    )
     if (order.length) {
       return order
     }

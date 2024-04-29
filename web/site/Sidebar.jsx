@@ -1,6 +1,9 @@
 import React from 'react'
 import Menu from './Menu.jsx'
-import { ComponentsMenu, ElementsMenu, GettingStartedMenu, HooksMenu, ThemingMenu, UtilitiesMenu } from './Menus.jsx'
+import {
+  ComponentsMenu, ElementsMenu, GettingStartedMenu, HooksMenu,
+  TestingMenu, ThemingMenu, UtilitiesMenu
+} from './Menus.jsx'
 
 const Sidebar = () =>
   <>
@@ -10,6 +13,9 @@ const Sidebar = () =>
     <Menu {...UtilitiesMenu}/>
     <Menu {...HooksMenu}/>
     <Menu {...ThemingMenu}/>
+    { Boolean(import.meta.env.DEV) &&
+      <Menu {...TestingMenu}/>
+    }
   </>
 
 export default Sidebar

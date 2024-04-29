@@ -11,14 +11,17 @@ export const Filters = ({
 }) =>
   <thead>
     <tr className={filtersClass}>
-      { visibleColumns.map(
-        name =>
-          <Filter
-            key={name}
-            name={name}
-            column={columns[name]}
-          />
-      )}
+      { visibleColumns
+        .filter( name => columns[name] )
+        .map(
+          name =>
+            <Filter
+              key={name}
+              name={name}
+              column={columns[name]}
+            />
+        )
+      }
     </tr>
   </thead>
 

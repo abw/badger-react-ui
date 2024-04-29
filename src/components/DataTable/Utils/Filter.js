@@ -61,7 +61,9 @@ export const dataTableFilterTypes = {
 }
 
 export const dataTableFilter = (rows, columns, filters) => {
-  const fkeys = Object.keys(filters)
+  const fkeys = Object
+    .keys(filters)
+    .filter( name => columns[name] )
 
   if (fkeys.length === 0) {
     return rows

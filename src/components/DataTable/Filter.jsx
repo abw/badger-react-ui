@@ -25,7 +25,9 @@ export const Filter = ({
       className={
         classes(
           filterClass,
-          hasValue(filters[name]) ? filteringClass : null,
+          hasValue(filters?.[name])
+            ? filteringClass
+            : null,
         )}
     >
       <div className="flex space middle gap-1">
