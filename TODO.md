@@ -25,14 +25,9 @@ leaves can be open or just one.
 
 ## Datatable
 
-Storage key seems to be overriding changes to columns.
-
 Headings wrap
 
 Option in columns pull-down to reset columns
-
-Select option in header can't overflow so gets hidden when the table has no
-entries.  NOTE: I think this is now fixed in badger-css?
 
 ## Radio
 

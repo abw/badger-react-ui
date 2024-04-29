@@ -5,6 +5,7 @@ import {
 export const dataTableSorters = {
   string:   stringSort,
   text:     stringSort,
+  select:   stringSort,
   number:   numberSort,
   price:    numberSort,
   currency: numberSort,

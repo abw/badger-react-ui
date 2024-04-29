@@ -17,6 +17,7 @@ export const Filter = ({
   clearFilterIcon=CROSS,
 }) => {
   const Component = column.filterComponent
+    || Components[column.filterType]
     || Components[column.type]
     || Components.default
 

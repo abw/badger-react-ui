@@ -226,5 +226,10 @@ export const TestingMenu = {
       text: 'DataTable Columns',
       tocName: 'datatableColumns',
     },
+    {
+      to: '/testing/datatable-select',
+      text: 'DataTable select',
+      tocName: 'datatableSelect',
+    },
   ]
 }
