@@ -8,23 +8,21 @@ import Text             from './_examples/text/index.jsx'
 import Content          from './_examples/content/index.jsx'
 import OnHover          from './_examples/openOnHover/index.jsx'
 import Right            from './_examples/right/index.jsx'
+import Button           from './_examples/button/index.jsx'
 import Wide             from './_examples/wide/index.jsx'
+import Placement        from './_examples/placement/index.jsx'
+import Offset           from './_examples/offset/index.jsx'
+import Icon             from './_examples/icon/index.jsx'
+import IconRotate       from './_examples/iconRotate/index.jsx'
 import IconLeft         from './_examples/iconLeft/index.jsx'
 import IconLeftRotate   from './_examples/iconLeftRotate/index.jsx'
 import IconRight        from './_examples/iconRight/index.jsx'
 import IconRightRotate  from './_examples/iconRightRotate/index.jsx'
-// import Context    from './_examples/Context/index.jsx'
-// import ClassName  from './_examples/className/index.jsx'
-// import Color      from './_examples/color/index.jsx'
-// import Size       from './_examples/size/index.jsx'
-// import Icons      from './_examples/icons/index.jsx'
-// import FirstLast  from './_examples/showFirstLast/index.jsx'
 
 const DropdownExamples = () =>
   <div className="flow">
     <h1>Dropdown</h1>
     <Dropdown/>
-    {/* <Context/> */}
     <Sections tocName="dropdown">
       <Heading title="Properties"/>
       <Text/>
@@ -32,17 +30,15 @@ const DropdownExamples = () =>
       <OnHover/>
       <Right/>
       <Wide/>
+      <Placement/>
+      <Offset/>
+      <Button/>
+      <Icon/>
+      <IconRotate/>
       <IconLeft/>
       <IconLeftRotate/>
       <IconRight/>
       <IconRightRotate/>
-      {/*
-      <ClassName/>
-      <Color/>
-      <Size/>
-      <Icons/>
-      <FirstLast/>
-      */}
       <Split>
         <div className="flow">
           <Heading title="CSS Classes"/>
@@ -58,9 +54,18 @@ const DropdownExamples = () =>
             Used to set the CSS class added to the dropdown container when
             the menu is closed.  The default value is <code>closed</code>.
           </Section>
+          <Section code="size">
+            Used to add a size to the CSS class added to the dropdown container.
+          </Section>
           <Section code="triggerClass">
             Used to set the CSS class added to the dropdown trigger.
             The default value is <code>trigger</code>.
+          </Section>
+          <Section code="triggerColor">
+            Used to add a color to the CSS class for the dropdown trigger.
+          </Section>
+          <Section code="triggerSize">
+            Used to add a size to the CSS class for the dropdown trigger.
           </Section>
           <Section code="menuClass">
             <b>TODO: update this!</b>

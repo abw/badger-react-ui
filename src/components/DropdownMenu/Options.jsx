@@ -3,12 +3,15 @@ import Context            from './Context.js'
 import DropdownOption     from './Option.jsx'
 import DropdownSeparator  from './Separator.jsx'
 import DropdownHeading    from './Heading.jsx'
+import { mergeRefs }      from '@/src/utils/refs.js'
 import { hasValue }       from '@abw/badger-utils'
 
 const Options = ({
   options=[],
-  menuRef,
   menuClass='menu border bdr-1',
+  menuRef,
+  floatingRef,
+  floatingStyle,
   cursor,
   selected,
   selectOption,
@@ -21,9 +24,10 @@ const Options = ({
 }) =>
   <div
     className={menuClass}
-    ref={menuRef}
+    ref={mergeRefs([menuRef, floatingRef])}
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
+    style={floatingStyle}
   >
     { options.map(
       (option, n) =>

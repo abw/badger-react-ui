@@ -1,18 +1,17 @@
-import React      from 'react'
-import Heading    from '@/web/page/Heading.jsx'
-import Sections   from '@/web/page/Sections.jsx'
-import Section    from '@/web/page/Section.jsx'
-import Split            from '@/web/site/Split.jsx'
-import DropdownMenu     from './_examples/DropdownMenu/index.jsx'
-import Options          from './_examples/options/index.jsx'
-import OnSelect         from './_examples/onSelect/index.jsx'
-import Link from '@/web/ui/Link.jsx'
+import React        from 'react'
+import Heading      from '@/web/page/Heading.jsx'
+import Sections     from '@/web/page/Sections.jsx'
+import Section      from '@/web/page/Section.jsx'
+import Split        from '@/web/site/Split.jsx'
+import Link         from '@/web/ui/Link.jsx'
+import DropdownMenu from './_examples/DropdownMenu/index.jsx'
+import Options      from './_examples/options/index.jsx'
+import OnSelect     from './_examples/onSelect/index.jsx'
 
 const DropdownExamples = () =>
   <div className="flow">
     <h1>Dropdown Menu</h1>
     <DropdownMenu/>
-    {/* <Context/> */}
     <Sections tocName="dropdown-menu">
       <Heading title="Properties"/>
       <p className="large">
@@ -24,13 +23,6 @@ const DropdownExamples = () =>
       <Options/>
       <Heading title="Event Handlers"/>
       <OnSelect/>
-      {/*
-      <ClassName/>
-      <Color/>
-      <Size/>
-      <Icons/>
-      <FirstLast/>
-      */}
       <Split>
         <div className="flow">
           <Heading title="CSS Classes"/>
@@ -49,6 +41,10 @@ const DropdownExamples = () =>
         </div>
         <div className="flow">
           <Heading title="Components"/>
+          <Section code="Trigger" id="Trigger-component">
+            Renders the dropdown trigger.  Defaults
+            to <code>DropdownMenuTrigger</code>.
+          </Section>
           <Section code="Options" id="Options-component">
             Renders the dropdown menu options.  Defaults
             to <code>DropdownMenuOptions</code>.
@@ -60,6 +56,10 @@ const DropdownExamples = () =>
           <Section code="Separator" id="Separator-component">
             Renders a separator between menu items.  Defaults
             to <code>DropdownMenuSeparator</code>.
+          </Section>
+          <Section code="Heading" id="Heading-component">
+            Renders a heading item.  Defaults
+            to <code>DropdownMenuHeading</code>.
           </Section>
         </div>
       </Split>

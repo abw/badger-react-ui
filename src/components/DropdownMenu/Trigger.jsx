@@ -1,11 +1,18 @@
-import React    from 'react'
-import Context  from './Context.js'
-import WithIcons from '../Icon/WithIcons.jsx'
-import { extract } from '@abw/badger-utils'
+import React          from 'react'
+import Context        from './Context.js'
+import WithIcons      from '../Icon/WithIcons.jsx'
+import { extract }    from '@abw/badger-utils'
+import { mergeRefs }  from '@/src/utils/refs.js'
+import { classes }    from '@/src/utils/classes.js'
 
 const Trigger = ({
   triggerClass='trigger',
   triggerRef,
+  triggerColor,
+  triggerSize,
+  button,
+  icon,
+  floatingRef,
   safeAreaClass='safe-area',
   onMouseEnter,
   onMouseLeave,
@@ -16,7 +23,7 @@ const Trigger = ({
   ...props
 }) =>
   <div
-    className={triggerClass}
+    className={classes(triggerClass, triggerColor, triggerSize, { button, icon })}
     onClick={onClick}
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
@@ -24,9 +31,9 @@ const Trigger = ({
     onFocus={onFocus}
     onBlur={onBlur}
     tabIndex={0}
-    ref={triggerRef}
+    ref={mergeRefs([triggerRef, floatingRef])}
   >
-    <WithIcons {...extract(props, /^(icon|text)/)}/>
+    <WithIcons icon={icon} {...extract(props, /^(icon|text)/)}/>
     <div className={safeAreaClass}></div>
   </div>
 

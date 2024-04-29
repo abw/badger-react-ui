@@ -25,25 +25,31 @@
   display: inline-block;
   .trigger {
     position: relative;
-    display: inline-block;
-    padding: var(--trigger-padding);
-    border-radius: var(--trigger-border-radius);
-    font-size: 1em;
-    line-height: var(--trigger-line-height);
     white-space: nowrap;
     cursor: pointer;
     &:not(button):not(.button) {
+      display: inline-block;
+      padding: var(--trigger-padding);
+      border-radius: var(--trigger-border-radius);
+      font-size: 1em;
+      line-height: var(--trigger-line-height);
       border: var(--trigger-border-width) solid transparent;
+      &:focus:not(.no-focus) {
+        --color: var(--input-focus-color);
+        --border-color: var(--input-focus-border-color);
+        --background-color: var(--input-focus-background-color);
+        outline: none;
+        box-shadow: var(--focus-ring);
+      }
+    }
+    &.button.icon svg.icon {
+      // undo the margin tweaks because we have the div.safe-area which
+      // means the icon is no longer the only child
+      margin-left: 0;
+      margin-right: 0;
     }
     .icon {
       transition: all var(--icon-transition);
-    }
-    &:focus:not(.no-focus) {
-      --color: var(--input-focus-color);
-      --border-color: var(--input-focus-border-color);
-      --background-color: var(--input-focus-background-color);
-      outline: none;
-      box-shadow: var(--focus-ring);
     }
   }
   &.open .trigger {
@@ -61,9 +67,10 @@
     }
   }
   .menu, .body {
-    position: absolute;
-    display: block;
-    top: calc(100% + var(--menu-margin));
+    // Now using floating-ui
+    // position: absolute;
+    // display: block;
+    // top: calc(100% + var(--menu-margin));
     width: max-content;
     left: 0;
     right: auto;

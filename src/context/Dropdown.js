@@ -2,8 +2,6 @@ import { Context } from '@abw/react-context'
 import { ENTER, ESCAPE, SPACE } from '@/src/constants.js'
 import { doNothing, sleep } from '@abw/badger-utils'
 
-
-
 class DropdownContext extends Context {
   static debug        = false
   static defaultProps = {
