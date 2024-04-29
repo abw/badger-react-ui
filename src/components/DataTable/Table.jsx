@@ -19,7 +19,7 @@ const Table = ({
   <table
     className={classes(
       tableClass,
-      scrollX ? 'nowrap' : 'wide',
+      scrollX ? 'wide nowrap' : 'wide',
       {
         [selectableClass]: onRowClick,
       }
