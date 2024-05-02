@@ -152,6 +152,11 @@ export const ElementsMenu = {
       text: 'Flex',
       tocName: 'flex',
     },
+    {
+      to: '/elements/grid',
+      text: 'Grid',
+      tocName: 'grid',
+    },
   ]
 }
 

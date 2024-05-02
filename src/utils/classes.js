@@ -55,6 +55,7 @@ export const styleProps = (
     radius,
     shadow,
     grid,
+    stack,
     gap,
     pad,
     mar,
@@ -74,6 +75,7 @@ export const styleProps = (
     shadowClass(shadow),
     gridClass(grid),
     gapClass(gap),
+    stackClass(stack),
     paddingClass(padding),
     marginClass(margin),
   )
@@ -92,6 +94,9 @@ export const shadowClass = shadow =>
 
 export const gridClass = grid =>
   classTrue(grid, 'grid-1', g => `grid-${g}`)
+
+export const stackClass = stack =>
+  stack ? `stack-${stack}` : null
 
 export const paddingClass = padding =>
   classTrueVHTRBL(padding, 'pad')
