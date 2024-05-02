@@ -4,7 +4,7 @@ import Context from './Context.jsx'
 import MenuTOC from './MenuTOC.jsx'
 import { useResolvedPath } from 'react-router-dom'
 
-const Menu = ({title, path, items, tocs}) => {
+const Menu = ({title, path, items, tocs, closeSidebar}) => {
   const resolved = useResolvedPath()
   const open = path && resolved.pathname.slice(0, path.length) === path
 
@@ -16,7 +16,7 @@ const Menu = ({title, path, items, tocs}) => {
           item => {
             const active = resolved.pathname === item.to
             return (
-              <li key={item.to}>
+              <li key={item.to} onClick={closeSidebar}>
                 <Link className="item" {...item}/>
                 { (Boolean(item.tocName) && active && tocs[item.tocName]) &&
                   <MenuTOC toc={tocs[item.tocName]}/>
