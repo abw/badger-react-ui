@@ -188,14 +188,19 @@ export const HooksMenu = {
       tocName: 'useComplexState',
     },
     {
+      to: '/hooks/useContainer',
+      text: 'useContainer',
+      tocName: 'useContainer',
+    },
+    {
       to: '/hooks/useRenderCount',
       text: 'useRenderCount',
       tocName: 'useRenderCount',
     },
     {
-      to: '/hooks/useWidth',
-      text: 'useWidth',
-      tocName: 'useWidth',
+      to: '/hooks/useWindow',
+      text: 'useWindow',
+      tocName: 'useWindow',
     },
   ]
 }

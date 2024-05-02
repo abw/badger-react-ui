@@ -20,7 +20,7 @@ const defaults = {
 }
 
 export const widthBreakpoint = (
-  width,
+  width=0,
   options = { }
 ) => {
   const config = { ...defaults, ...options }

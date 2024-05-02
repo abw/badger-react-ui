@@ -23,11 +23,22 @@ leaves can be open or just one.
 
 ## Alert
 
-## Datatable
+## DataTable
 
 Headings wrap
 
 Option in columns pull-down to reset columns
+
+Option to NOT display filter or allow column to be sorted
+
+Should the filter/columns selectors be Details that open up?
+
+## DataTables
+
+(note the plural) - variant of DataTable that displays each row as a
+separate table (or other layout), for times when you have a large number
+of columns.  Would be nice if this was built into DataTable so it could
+switch between one and the other on a responsive breakpoint.
 
 ## Radio
 

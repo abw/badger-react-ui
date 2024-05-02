@@ -1,15 +1,19 @@
 import { useState, useEffect } from 'react'
-import { widthBreakpoint, elementWidth } from '@/src/utils/breakpoint.js'
+import { widthBreakpoint } from '@/src/utils/breakpoint.js'
 
-export const useWidth = (options={}) => {
+export const useWindow = (options={}) => {
   const element = options.element || window
   const [width, setWidth] = useState(false)
+  const [height, setHeight] = useState(false)
   const [breakpoint, setBreakpoint] = useState(false)
 
   const getWidthAndBreakpoint = () => {
-    const ew = elementWidth(element)
-    setWidth(ew)
-    const bp = widthBreakpoint(ew, options)
+    if (! element) {
+      return
+    }
+    setWidth(element.innerWidth)
+    setHeight(element.innerHeight)
+    const bp = widthBreakpoint(element.innerWidth, options)
     setBreakpoint(bp)
   }
 
@@ -28,7 +32,7 @@ export const useWidth = (options={}) => {
     [ ]
   )
 
-  return { width, breakpoint }
+  return { width, height, breakpoint }
 }
 
-export default useWidth
+export default useWindow

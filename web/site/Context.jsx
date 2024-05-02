@@ -1,12 +1,12 @@
 import { useRef, useState } from 'react'
 import { Generator } from '@abw/react-context'
-import { useWidth, MOBILE, TABLET } from '@/src/index.jsx'
+import { useWindow, MOBILE, TABLET } from '@/src/index.jsx'
 import { useTheme } from '@abw/react-night-and-day'
 import { NO_SIDEBAR, SIDEBAR } from './Constants.jsx'
 
 const SiteContext = ({render}) => {
   // Sidebar
-  const { width, breakpoint } = useWidth()
+  const { width, breakpoint } = useWindow()
   const { theme, variant, setVariant } = useTheme()
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
