@@ -7,11 +7,11 @@ const UseWindow = () =>
   <div className="flow">
     <h1>useWindow</h1>
     <p className="large">
-      The hook can be used to monitor the width of the browser window.
+      The hook can be used to monitor the width and height of the browser window.
     </p>
     <p>
-      As well as returning the window width in pixels it also returns the
-      breakpoint name corresponding to that width.
+      As well as returning the window width and height in pixels it also
+      returns the breakpoint name corresponding to the width.
     </p>
     <Example
       Component={Component}

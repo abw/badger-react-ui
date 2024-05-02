@@ -8,7 +8,10 @@ const UseWidthExample = () => {
   const { ref, width, height, breakpoint } = useContainer()
 
   return (
-    <div className="flex wrap center start gap-4 pad-4 small border" ref={ref}>
+    <div
+      ref={ref}
+      className="flex wrap center start gap-4 pad-4 small border"
+    >
       <div className="inverse green pad-a-2 flex middle gap-2 bdr-1">
         <Icon name="arrows-right"/>
         Width:<span className="font-mono">{width}px</span>
