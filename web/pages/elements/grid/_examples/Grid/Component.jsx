@@ -5,7 +5,7 @@ import React from 'react'
 // PRETEND: import { Div, Grid } from '@abw/badger-react-ui
 
 const GridExample = () =>
-  <div className="grid-1 gap-6">
+  <Grid gap="8">
     <Grid gap>
       <A/> <B/> <C/>
     </Grid>
@@ -15,7 +15,7 @@ const GridExample = () =>
     <Grid cols={4} gap={2} tablet={3} mobile={2} border pad="2">
       <A/> <B/> <C/> <D/>
     </Grid>
-  </div>
+  </Grid>
 
 const Tile = props =>
   <Div inverse  pad="1 2" {...props}/>

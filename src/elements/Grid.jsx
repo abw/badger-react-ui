@@ -10,10 +10,8 @@ export const Grid = ({
   ...props
 }) => {
   // grok grid props
-  const { ref, width, breakpoint } = useContainer()
+  const { ref, breakpoint } = useContainer()
   const [gridProp, otherProps] = extractGridProp(props, breakpoint)
-
-  console.log(`width is ${width}, breakpoint is ${breakpoint}, grid class is ${gridProp}`)
 
   return (
     <div
