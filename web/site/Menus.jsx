@@ -192,6 +192,11 @@ export const HooksMenu = {
       text: 'useRenderCount',
       tocName: 'useRenderCount',
     },
+    {
+      to: '/hooks/useWidth',
+      text: 'useWidth',
+      tocName: 'useWidth',
+    },
   ]
 }
 

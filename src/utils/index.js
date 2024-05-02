@@ -1,4 +1,5 @@
 export * from './attrs.js'
+export * from './breakpoint.js'
 export * from './classes.js'
 export * from './cursor.js'
 export * from './icon.js'
