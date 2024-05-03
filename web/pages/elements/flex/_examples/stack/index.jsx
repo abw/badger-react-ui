@@ -10,7 +10,7 @@ const FlexExample = () =>
     Source={Source}
     highlightLines="1"
     expand
-    undent={2}
+    undent={4}
   >
     <p>
       The <code>stack</code> property allows you to define the stacking
