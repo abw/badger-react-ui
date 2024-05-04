@@ -147,6 +147,7 @@ div.codeblock {
     margin: 0 !important;
     max-height: 18rem;
     overflow-y: scroll;
+    overscroll-behavior: contain;
     transition: all 0.5s;
   }
   h4.caption {
