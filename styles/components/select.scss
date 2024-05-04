@@ -89,7 +89,5 @@
 // already inside a .inputs container
 .inputs .select .inputs {
   border: none;
-  &:focus-within {
-    box-shadow: none;
-  }
+  box-shadow: none;
 }
