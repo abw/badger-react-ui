@@ -62,13 +62,15 @@ section.datatable {
       );
       background-color: var(--background-color);
       background-image: var(--header-gradient);
-      cursor: pointer;
+      &.sortable {
+        cursor: pointer;
+      }
       .sort-icon, .filter-icon {
         opacity: var(--header-icon-opacity);
         transition: 0.3s opacity;
         color: var(--header-icon-color);
       }
-      &:hover {
+      &.sortable:hover {
         --background-color: var(--sorting-shade-4);
         .sort-icon {
           opacity: var(--header-icon-hover-opacity);

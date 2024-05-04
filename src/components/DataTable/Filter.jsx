@@ -21,6 +21,10 @@ export const Filter = ({
     || Components[column.type]
     || Components.default
 
+  if (! column.filterable) {
+    return <th/>
+  }
+
   return (
     <th
       className={

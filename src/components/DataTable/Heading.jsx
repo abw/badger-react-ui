@@ -21,31 +21,39 @@ export const Heading = ({
   headingClass=HEADING,
   filteringClass=FILTERING
 }) => {
-  const sorting = name === sortColumn
-  const reverse = sorting && sortReverse
+  const sorting  = name === sortColumn
+  const reverse  = sorting && sortReverse
+  const sortable = column.sortable
+  const onClick  = sortable
+    ? () => toggleSortColumn(name)
+    : null
+
   return (
     <th
       className={
         classes(
           headingClass,
           sorting ? sortingClass : null,
+          { sortable },
           hasValue(filters[name]) ? filteringClass : null,
           column.right && alignClasses.right,
           column.center && alignClasses.center,
           column.align && alignClasses[column.align]
         )}
-      onClick={() => toggleSortColumn(name)}
+      onClick={onClick}
     >
       <div className="flex space middle">
         <span className="wide label">{column.heading}</span>
-        <Icon
-          className={sortIconClass}
-          name={
-            sorting
-              ? reverse ? sortUpIcon : sortDownIcon
-              : unsortedIcon
-          }
-        />
+        { Boolean(column.sortable) &&
+          <Icon
+            className={sortIconClass}
+            name={
+              sorting
+                ? reverse ? sortUpIcon : sortDownIcon
+                : unsortedIcon
+            }
+          />
+        }
       </div>
     </th>
   )

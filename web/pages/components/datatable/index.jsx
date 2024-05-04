@@ -16,9 +16,11 @@ import Display      from './_examples/columns/display/index.jsx'
 import ClassName    from './_examples/columns/className/index.jsx'
 import Align        from './_examples/columns/align/index.jsx'
 import Sort         from './_examples/columns/sort/index.jsx'
+import Sortable     from './_examples/columns/sortable/index.jsx'
 import Filter       from './_examples/columns/filter/index.jsx'
 import FilterType   from './_examples/columns/filterType/index.jsx'
 import FilterComp   from './_examples/columns/filterComponent/index.jsx'
+import Filterable   from './_examples/columns/filterable/index.jsx'
 import Text         from './_examples/column-type/text/index.jsx'
 import Number       from './_examples/column-type/number/index.jsx'
 import Id           from './_examples/column-type/id/index.jsx'
@@ -50,7 +52,9 @@ const DataTableExamples = () =>
       <Filter/>
       <FilterType/>
       <FilterComp/>
+      <Filterable/>
       <Sort/>
+      <Sortable/>
       <Heading title="Column Types"/>
       <Text/>
       <Number/>

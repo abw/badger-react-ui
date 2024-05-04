@@ -31,16 +31,7 @@ Headings wrap
 
 Option in columns pull-down to reset columns
 
-Option to NOT display filter or allow column to be sorted
-
 Should the filter/columns selectors be Details that open up?
-
-## DataTables
-
-(note the plural) - variant of DataTable that displays each row as a
-separate table (or other layout), for times when you have a large number
-of columns.  Would be nice if this was built into DataTable so it could
-switch between one and the other on a responsive breakpoint.
 
 ## Details
 
@@ -75,6 +66,9 @@ Search input can be obscured by next field - fixed by z-index but hard-coded
 
 Adding dnd kit increased the bundle size from 68k to 148k.  Is it really
 worth it?  How hard would it be to implement just the bits we need?
+UPDATE: after adding badger-form, badger-icon and floating-ui it's now at
+around 250k.  So dnd kit is around 30% of the total which is more tolerable
+than the 55% when I first added it.
 
 # Utilities
 
