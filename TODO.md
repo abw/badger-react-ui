@@ -9,6 +9,8 @@ the context returned from `getContext()`
 
 * Have `Children` for headless components which will render functions.
 
+* Cleanup constants
+
 ## Styling
 
 * Search and Select should share styles for results/options and should inherit
@@ -39,6 +41,10 @@ Should the filter/columns selectors be Details that open up?
 separate table (or other layout), for times when you have a large number
 of columns.  Would be nice if this was built into DataTable so it could
 switch between one and the other on a responsive breakpoint.
+
+## Details
+
+Add sliding animation like Drawer
 
 ## Radio
 
