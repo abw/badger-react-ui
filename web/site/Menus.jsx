@@ -51,6 +51,11 @@ export const ComponentsMenu = {
       tocName: 'datatable',
     },
     {
+      to: '/components/datatables',
+      text: 'DataTables',
+      tocName: 'datatables',
+    },
+    {
       to: '/components/details',
       text: 'Details',
       tocName: 'details',

@@ -51,7 +51,7 @@ section.datatable {
     thead {
       font-size: var(--header-size);
     }
-    thead th.heading {
+    th.heading {
       --header-stripe: var(--background-color);
       --header-gradient: repeating-linear-gradient(
         var(--filtering-gradient-angle1),
@@ -127,7 +127,7 @@ section.datatable {
       background-color: var(--background-color);
       background-image: var(--cell-gradient);
     }
-    tbody tr:nth-child(even) td {
+    tbody tr:nth-child(odd) td {
       --filtering-gradient-angle1: var(--filtering-gradient-angle2);
     }
     tbody tr.no-rows td {
@@ -187,3 +187,4 @@ section.datatable {
   --no-rows-background: var(--red-15);
   --filtering-mix: 10%;
 }
+

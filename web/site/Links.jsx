@@ -12,6 +12,7 @@ export const MakeCodeLink = (to, text) => props =>
 export const AccordionLink  = MakeCodeLink('/components/accordion', 'Accordion')
 export const ButtonLink     = MakeCodeLink('/components/button', 'Button')
 export const ButtonsLink    = MakeCodeLink('/components/buttons', 'Buttons')
+export const DataTableLink  = MakeCodeLink('/components/datatable', 'DataTable')
 export const DetailsLink    = MakeCodeLink('/components/details', 'Details')
 export const IconLink       = MakeCodeLink('/components/icon', 'Icon')
 export const SelectLink     = MakeCodeLink('/components/select', 'Select')

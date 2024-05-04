@@ -84,3 +84,12 @@
     );
   }
 }
+
+// hack for datatables filters where the select component is
+// already inside a .inputs container
+.inputs .select .inputs {
+  border: none;
+  &:focus-within {
+    box-shadow: none;
+  }
+}
