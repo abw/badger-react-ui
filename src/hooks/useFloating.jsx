@@ -27,7 +27,7 @@ export const useFloating = ({
   matchWidth,
   matchHeight,
   right
-}) => {
+} = { }) => {
   const middleware = [
     fuiOffset(parseInt(offset))
   ]
@@ -44,7 +44,5 @@ export const useFloating = ({
       : 'bottom-start')
   })
 }
-
-
 
 export default useFloating

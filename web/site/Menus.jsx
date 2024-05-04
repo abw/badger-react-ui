@@ -198,6 +198,11 @@ export const HooksMenu = {
       tocName: 'useContainer',
     },
     {
+      to: '/hooks/useFloating',
+      text: 'useFloating',
+      tocName: 'useFloating',
+    },
+    {
       to: '/hooks/useRenderCount',
       text: 'useRenderCount',
       tocName: 'useRenderCount',

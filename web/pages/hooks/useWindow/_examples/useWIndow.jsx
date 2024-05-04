@@ -8,20 +8,19 @@ const UseWindowExample = () => {
   const { width, height, breakpoint } = useWindow()
 
   return (
-    <div className="flex gap-4 center start small">
-      <div className="inverse green pad-a-2 flex gap-2 middle font-mono bdr-1">
-        <Icon name="arrows-right"/>
-        {width}px
-      </div>
-      <div className="inverse teal pad-a-2 font-mono bdr-1">
-        {breakpoint}
-      </div>
-      <div className="inverse blue pad-a-2 flex gap-2 middle font-mono bdr-1">
-        <Icon name="arrows"/>
-        {height}px
-      </div>
+    <div className="flex gap-4 wrap center start small">
+      <Tag item={width} px label="Width" color="green" icon="arrows-right"/>
+      <Tag item={breakpoint} color="teal"/>
+      <Tag item={height} px label="Height" color="blue" icon="arrows"/>
     </div>
   )
 }
+
+const Tag = ({ item, label, color, icon, px }) =>
+  <div className={`inverse ${color} pad-a-2 flex middle gap-2 bdr-1`}>
+    { icon && <Icon name={icon}/> }
+    { label && <span>{label}:</span> }
+    <span className="font-mono">{item}{ px && 'px' }</span>
+  </div>
 
 export default UseWindowExample

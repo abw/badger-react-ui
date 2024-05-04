@@ -16,6 +16,7 @@ const UseWindow = () =>
     <Example
       Component={Component}
       code={Source}
+      expand
     />
   </div>
 

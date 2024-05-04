@@ -12,13 +12,20 @@ const UseContainer = () =>
     </p>
     <p>
       It returns a <code>ref</code> which should be attached to the element
-      you want to monitor.  It also returns the element width and height
-      in pixels (rounded to the nearest integer) and the breakpoint name
-      corresponding to the width.
+      you want to monitor.  It also returns the element <code>width</code> and{' '}
+      <code>height</code> in pixels (rounded to the nearest integer) and the{' '}
+      <code>breakpoint</code> name corresponding to the width.
+    </p>
+    <p>
+      The <code>width</code> and <code>height</code> refer to the size of the
+      element&apos;s content area.  That is the internal size inside any borders
+      or padding. The <code>boxWidth</code> and <code>boxHeight</code> are also
+      provided if you want the external size.
     </p>
     <Example
       Component={Component}
       code={Source}
+      expand
     />
   </div>
 
