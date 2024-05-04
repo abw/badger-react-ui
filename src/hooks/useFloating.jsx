@@ -1,7 +1,7 @@
 import { useFloating as useFUI, offset as fuiOffset } from '@floating-ui/react'
 
 export const useFloating = ({
-  offset=8,
+  offset=0,
   placement,
   right
 }) => useFUI({

@@ -11,7 +11,7 @@ const Content = ({
   openClass='open',
   closedClass='closed',
   placement,
-  offset,
+  offset=8,
   isOpen,
   right,
   size,

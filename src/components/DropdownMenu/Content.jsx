@@ -12,7 +12,7 @@ const Content = ({
   isOpen,
   size,
   wide,
-  offset,
+  offset=8,
   placement,
   right,
   Trigger=DropdownTrigger,
