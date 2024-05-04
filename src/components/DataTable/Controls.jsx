@@ -8,7 +8,7 @@ const Controls = ({
   PageSize=DataTablePageSize,
   Columns=DataTableColumns,
   Filtering=DataTableFiltering,
-  controlsClass='controls flex center gap-2 mar-b-1'
+  controlsClass='controls flex center wrap gap-2 mar-b-1'
 }) =>
   <div className={controlsClass}>
     <Filtering/>
