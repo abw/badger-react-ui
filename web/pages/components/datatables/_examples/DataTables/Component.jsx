@@ -12,7 +12,6 @@ const DataTablesExample = () =>
       id: {
         heading: 'ID',
         type: 'id',
-        // align: 'right',
       },
       name: { } ,
       animal: { },

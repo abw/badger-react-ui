@@ -15,7 +15,7 @@ export const Filters = ({
   <div className={filtersClass}>
     <Tiles minWidth={minFilterWidth} gap={filterGap}>
       { visibleColumns
-        .filter( name => columns[name] )
+        .filter( name => columns[name]?.filterable )
         .map(
           name =>
             <Filter

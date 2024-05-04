@@ -29,10 +29,15 @@ const Row = ({
   filteringClass=FILTERING,
   displayTypes=defaultDisplayTypes
 }) => {
-  const type    = column.type    || 'text'
-  const Display = column.display || displayTypes[type] || displayTypes.default
-  const sorting = sortColumn === name
-  const reverse = sorting && sortReverse
+  const type     = column.type    || 'text'
+  const Display  = column.display || displayTypes[type] || displayTypes.default
+  const sorting  = sortColumn === name
+  const reverse  = sorting && sortReverse
+  const sortable = column.sortable
+  const onClick  = sortable
+    ? () => toggleSortColumn(name)
+    : null
+
   const sharedClasses = [
     sorting ? sortingClass : null,
     hasValue(filters[name]) ? filteringClass : null,
@@ -43,6 +48,7 @@ const Row = ({
   const headclass = classes(
     'split-3',
     headingClass,
+    { sortable },
     ...sharedClasses
   )
   const cellclass = classes(
@@ -50,19 +56,22 @@ const Row = ({
     maybeFunction(column.className, { row, column, value, name, rowIndex, cellIndex }),
     ...sharedClasses
   )
+
   return (
     <tr>
-      <th className={headclass} onClick={() => toggleSortColumn(name)}>
+      <th className={headclass} onClick={onClick}>
         <div className="flex space middle">
           <span className="wide label">{column.heading}</span>
-          <Icon
-            className={sortIconClass}
-            name={
-              sorting
-                ? reverse ? sortUpIcon : sortDownIcon
-                : unsortedIcon
-            }
-          />
+          { Boolean(sortable) &&
+            <Icon
+              className={sortIconClass}
+              name={
+                sorting
+                  ? reverse ? sortUpIcon : sortDownIcon
+                  : unsortedIcon
+              }
+            />
+          }
         </div>
       </th>
       <td className={cellclass}>
