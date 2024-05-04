@@ -10,7 +10,7 @@ const Columns = ({
   columns,
   visibleColumns,
   toggleVisibleColumn,
-  columnOrder,
+  columnOrder=Object.keys(columns),
   columnsText='Columns',
   columnsHelpClick='Click checkbox to show/hide.',
   columnsHelpDrag='Drag handle to order.',

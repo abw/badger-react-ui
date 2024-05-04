@@ -68,6 +68,13 @@ const FormExample = () =>
       onSearch={searchQuotes}
     />
     <Field
+      label="Volume"
+      name="volume"
+      type="range"
+      min={0} max={11}
+      required
+    />
+    <Field
       name="terms"
       type="checkbox"
       text="I like badgers"
