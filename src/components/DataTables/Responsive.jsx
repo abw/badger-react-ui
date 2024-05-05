@@ -2,12 +2,13 @@ import React from 'react'
 import DataTable from '../DataTable/DataTable.jsx'
 import Body from './Body.jsx'
 import { useContainer } from '@/src/index.jsx'
+import { parseSize } from '@/src/utils/size.js'
 
 const DataTables = ({
   breakpoint,
   ...props
 }) => {
-  const minPx = parseInt(breakpoint)
+  const minPx = parseSize(breakpoint)
   const { ref, width } = useContainer()
   return (
     <div ref={ref}>
