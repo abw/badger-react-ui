@@ -99,6 +99,7 @@ const FormExample = () =>
             password: 'eleven',
             instrument: 'Guitar',
             quote: 'These go up to eleven',
+            volume: 11,
             terms: true
           })
         }

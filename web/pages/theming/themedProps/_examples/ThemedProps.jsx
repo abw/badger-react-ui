@@ -15,7 +15,7 @@ const ThemedPropsExamples = () => {
     edit: {
       color: 'blue',
       iconRight: 'pen',
-      text: 'Add'
+      text: 'Edit'
     },
     cancel: {
       color: 'grey outline',
