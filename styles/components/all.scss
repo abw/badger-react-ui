@@ -2,7 +2,6 @@
 @import "datatable.scss";
 @import "details.scss";
 @import "dropdown.scss";
-// @import "icon.scss";
 @import "menu.scss";
 @import "pager.scss";
 @import "search.scss";
@@ -10,13 +9,3 @@
 @import "sortable.scss";
 @import "tiles.scss";
 
-XXXbutton {
-  .icon.on-left {
-    text-align: right;
-    margin-left: -0.25em;
-  }
-  .icon.on-right {
-    text-align: right;
-    margin-right: -0.25em;
-  }
-}
