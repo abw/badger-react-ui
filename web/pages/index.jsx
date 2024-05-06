@@ -22,7 +22,7 @@ const Index = () =>
       </div>
       <p>
         This is Open Source Software and you&apos;re welcome to use it.
-        But be warned that it is also Opiniated and Selfish Software.
+        But be warned that it is also Opinionated and Selfish Software.
       </p>
       <p>
         I wrote it for me to help my get my job done.  It provides a
