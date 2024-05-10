@@ -21,12 +21,10 @@ const floatingMatchHeight = floatingMatch(
   ref => ({ height: `${ref.height}px` })
 )
 
-export const useFloating = ({
+export const floatingMiddleware = ({
   offset=0,
-  placement,
   matchWidth,
   matchHeight,
-  right
 } = { }) => {
   const middleware = [
     fuiOffset(parseInt(offset))
@@ -37,12 +35,25 @@ export const useFloating = ({
   if (matchHeight) {
     middleware.push(floatingMatchHeight)
   }
-  return useFUI({
-    middleware,
-    placement: placement || (right
-      ? 'bottom-end'
-      : 'bottom-start')
-  })
+  return middleware
 }
+
+export const floatingPlacement = ({
+  placement,
+  defaultPlacement,
+  right,
+  vertical='bottom'
+} = { }) =>
+  placement || defaultPlacement ||
+    ( right
+      ? `${vertical}-end`
+      : `${vertical}-start`
+    )
+
+export const useFloating = props =>
+  useFUI({
+    middleware: floatingMiddleware(props),
+    placement: floatingPlacement(props)
+  })
 
 export default useFloating
