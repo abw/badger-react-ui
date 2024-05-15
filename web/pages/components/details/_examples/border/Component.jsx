@@ -25,6 +25,11 @@ const DetailsExample = () =>
       border={3}
     >
       This is the content that is revealed.
+      <Details
+        summary="Inner Details"
+        lined border
+        content="Inner Content"
+      />
     </Details>
     {/* END */}
   </div>

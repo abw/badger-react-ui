@@ -11,7 +11,7 @@
       transition: all var(--icon-transition);
     }
   }
-  &.open .summary {
+  &.open > .summary {
     .icon {
       transform: rotate(var(--icon-rotate, 0));
     }
