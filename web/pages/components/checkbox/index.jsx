@@ -8,6 +8,9 @@ import Disabled       from './_examples/disabled/index.jsx'
 import OnChange       from './_examples/onChange/index.jsx'
 import ClassName      from './_examples/className/index.jsx'
 import Border         from './_examples/border/index.jsx'
+import Switch         from './_examples/switch/index.jsx'
+import Round          from './_examples/round/index.jsx'
+import Square         from './_examples/square/index.jsx'
 import CheckboxState  from './_examples/CheckboxState/index.jsx'
 import Sections       from '@/web/page/Sections.jsx'
 import Heading from '@/web/page/Heading.jsx'
@@ -24,16 +27,10 @@ const CheckboxExamples = () =>
       <UncheckedText/>
       <ClassName/>
       <Border/>
+      <Switch/>
+      <Round/>
+      <Square/>
       <Disabled/>
-      {/*
-      <Color/>
-      <IconRight/>
-      <Cancel/>
-      <CancelProps/>
-      <Confirm/>
-      <ConfirmProps/>
-      <OnClick/>
-      */}
       <Heading title="Event Handlers"/>
       <OnChange/>
       <Heading title="Components"/>
