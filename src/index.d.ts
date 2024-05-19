@@ -122,7 +122,7 @@ declare module '@abw/badger-react-ui' {
   export function addInputType()
   // Icon
   export function Icon()
-  export function WithIcon()
+  export function WithIcons()
   export function Icons()
   export function iconLibrary()
   export function addIcon()
