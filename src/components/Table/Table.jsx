@@ -4,6 +4,7 @@ import Rows from './Rows.jsx'
 import { borderClass, classes, colorClass, radiusClass, shadowClass } from '@/src/utils/classes.js'
 import { splitHash } from '@abw/badger-utils'
 import { capitalFirstLetter } from '@/src/utils/text.js'
+import { Themed }    from '@/src/Theme.jsx'
 
 /**
  * Generate an HTML table.
@@ -83,4 +84,4 @@ const Table = ({
   )
 }
 
-export default Table
+export default Themed(Table, 'Table')
