@@ -155,7 +155,7 @@ section.datatable {
     &.selectable tbody tr:hover:not(.unselectable) {
       td, th {
         --background-color: var(--selectable-background);
-        & > * {
+        & > *:not(dialog) {
           background-color: transparent;
           color: var(--selectable-color);
           transition: background-color 0.3s ease;
