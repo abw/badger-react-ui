@@ -79,7 +79,7 @@ class SearchContext extends Context {
 
   inputValue(value=this.props.value) {
     return hasValue(value)
-      ? this.props.displayValue(value)
+      ? (this.props.displayValue(value) ?? BLANK)
       : BLANK
   }
 
