@@ -12,6 +12,9 @@ const Modal = ({
   closeIcon='cross',
   Close=ModalClose,
   Content=ModalContent,
+  style={},
+  maxWidth,
+  maxHeight,
   ...props
 }) => {
   ref ||= useRef(null)
@@ -29,10 +32,21 @@ const Modal = ({
     [open]
   )
 
+  const styles = {
+    ...style
+  }
+  if (maxWidth) {
+    styles['--max-width'] = maxWidth
+  }
+  if (maxHeight) {
+    styles['--max-height'] = maxHeight
+  }
+
   return (
     <dialog
       ref={ref}
       className={className}
+      style={styles}
     >
       { Boolean(close) &&
         <Close
