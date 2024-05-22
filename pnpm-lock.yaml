@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@abw/badger-css':
-    specifier: ^1.1.6
-    version: 1.1.6
+    specifier: ^1.1.8
+    version: 1.1.8
   '@abw/badger-form':
     specifier: ^1.0.2
     version: 1.0.2(react-dom@18.3.1)(react@18.3.1)
@@ -130,8 +130,8 @@ packages:
       js-yaml: 4.1.0
     dev: false
 
-  /@abw/badger-css@1.1.6:
-    resolution: {integrity: sha512-navyDl0Feho2RqbeYiHYa/I1n51IHpphgIMIQU9lSZSIw6WVo5vqeXiTqtH/LCfJOJ8Ackl355B+r4WjlxYuDA==}
+  /@abw/badger-css@1.1.8:
+    resolution: {integrity: sha512-kSLqRWBuDmxJ6tLyppD+Yhhhmb47tPavdxanHy9olWz3ApcDp7/efjt0Ad7Femc8RXiHpfqhAgq6pJ6Uqq8Ecg==}
     hasBin: true
     dependencies:
       '@abw/badger': 1.2.4
