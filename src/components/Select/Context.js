@@ -69,21 +69,24 @@ class Context extends MenuContext {
       options,
       v
     )
-    const input = this.inputValue(value)
-    return { value, cursor, input, options }
+    // v1.1.17 - getting rid of input and having the Input.jsx component
+    // render it using displayValue()
+    // const input = this.inputValue(value)
+    // return { value, cursor, input, options }
+    return { value, cursor, options }
   }
 
-  inputValue(value=this.props.value) {
-    return hasValue(value)
-      ? this.props.displayValue(value)
-      : null
-  }
+  //inputValue(value=this.props.value) {
+  //  return hasValue(value)
+  //    ? this.props.displayValue(value)
+  //    : null
+  //}
 
   selectState(value) {
-    const input = this.inputValue(value)
+    // const input = this.inputValue(value)
     return {
       value,
-      input,
+      // input,
       selected: value
     }
   }

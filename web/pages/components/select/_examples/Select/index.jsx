@@ -2,6 +2,8 @@ import React      from 'react'
 import Example    from '@/site/Example.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
+import Complex    from './Complex.jsx'
+import ComplexSrc from './Complex.jsx?raw'
 import DescTable  from '@/web/site/DescTable.jsx'
 
 const Select = () =>
@@ -12,6 +14,14 @@ const Select = () =>
     <Example
       Component={Component}
       code={Source}
+    />
+    <p>
+      One of the advantages of a custom select component over the native HTML
+      element is that it can display complex data with formatting.
+    </p>
+    <Example
+      Component={Complex}
+      code={ComplexSrc}
     />
 
     <h2>Context</h2>
@@ -31,7 +41,7 @@ const Select = () =>
         ['cursor',        <>The index of the currently selected option in the <code>options</code> array</>],
         ['disabled',      'Boolean flag indicating if the input is disabled'],
         ['displayOption', 'Function to display the content for an option'],
-        ['input',         'The current input value displayed in the field.'],
+        // ['input',         'The current input value displayed in the field.'],
         ['isOpen',        'Boolean flag indicating if the menu of options is displayed.'],
         ['menuRef',       'A React reference for the menu container.'],
         ['onBlur',        'Handler for blur events.'],
