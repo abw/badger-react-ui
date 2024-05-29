@@ -23,12 +23,12 @@ export const Layout        = Themed(BadgerForm.Layout,    'Layout')
 export const Label         = Themed(BadgerForm.Label,     'Label')
 export const Input         = Themed(BadgerForm.Input,     'Input')
 export const Message       = Themed(BadgerForm.Message,   'Message')
-export const CheckboxInput = Themed(BadgerForm.Checkbox,  'CheckboxInput')
-export const HiddenInput   = Themed(BadgerForm.Hidden,    'HiddenInput')
-export const RadioInput    = Themed(BadgerForm.Radio,     'RadioInput')
-export const SelectInput   = Themed(BadgerForm.Select,    'SelectInput')
-export const TextInput     = Themed(BadgerForm.Text,      'TextInput')
-export const TextAreaInput = Themed(BadgerForm.TextArea,  'TextAreaInput')
+export const CheckboxField = Themed(BadgerForm.Checkbox,  'CheckboxField')
+export const HiddenField   = Themed(BadgerForm.Hidden,    'HiddenField')
+export const RadioField    = Themed(BadgerForm.Radio,     'RadioField')
+export const SelectField   = Themed(BadgerForm.Select,    'SelectField')
+export const TextField     = Themed(BadgerForm.Text,      'TextField')
+export const TextAreaField = Themed(BadgerForm.TextArea,  'TextAreaField')
 
 export { default as Submitting } from './Submitting.jsx'
 export * from './Control/index.js'
