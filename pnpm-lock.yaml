@@ -6,14 +6,14 @@ settings:
 
 dependencies:
   '@abw/badger-css':
-    specifier: ^1.1.11
-    version: 1.1.11
+    specifier: ^1.1.12
+    version: 1.1.12
   '@abw/badger-form':
     specifier: ^1.0.2
     version: 1.0.2(react-dom@18.3.1)(react@18.3.1)
   '@abw/badger-icon':
-    specifier: ^0.1.1
-    version: 0.1.1
+    specifier: ^0.1.2
+    version: 0.1.2
   '@abw/badger-utils':
     specifier: ^1.1.0
     version: 1.1.0
@@ -130,8 +130,8 @@ packages:
       js-yaml: 4.1.0
     dev: false
 
-  /@abw/badger-css@1.1.11:
-    resolution: {integrity: sha512-bfJdB2eMS/QDArfIxZtNPhusXi+LC64RafOdd4JNEh988GrPEU8K0PYtEG+4DWabwBfIn05vg8b9yjUFXNb7bw==}
+  /@abw/badger-css@1.1.12:
+    resolution: {integrity: sha512-rr6YkbfhKUxKyMR1iV2n+yspkDoi+WGjGN6FPdl3QdU2EWcHGCSNk1nBQ2TlhpAjln0tcNNNBuZKjsTqL2S30A==}
     hasBin: true
     dependencies:
       '@abw/badger': 1.2.4
@@ -155,8 +155,8 @@ packages:
       react-dom: 18.3.1(react@18.3.1)
     dev: false
 
-  /@abw/badger-icon@0.1.1:
-    resolution: {integrity: sha512-PQ98UFT7ag09cHO4K6QF0UBR7bsXhWyi8Zo0yvVL86FMD9edeSPER9+8mkZ9aDHHHXYSs5MM3X5e8S/9PjSbqQ==}
+  /@abw/badger-icon@0.1.2:
+    resolution: {integrity: sha512-ApB56qC8Cjih37RYvO/0cYX+AyifpGmJ2vJmYFyXnsteYzrENwTmN0x3PEkt/mHGJXB0K898FV5yHP2WuKLC+g==}
     dependencies:
       '@abw/badger-utils': 1.1.0
       '@abw/react-one-louder': 0.0.6
