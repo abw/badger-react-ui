@@ -159,6 +159,7 @@ class SearchContext extends Context {
       {
         value,
         input,
+        error: null,
         ...inactiveState,
       },
       this.props.onReset
@@ -170,6 +171,7 @@ class SearchContext extends Context {
     this.setState(
       {
         value: undefined,
+        error: null,
         input: BLANK,
         ...inactiveState,
       },
@@ -193,10 +195,22 @@ class SearchContext extends Context {
       {
         search:    input,
         searching: true,
+        error:     null,
       },
-      async () => this.searchResults(
-        await onSearch(input, this)
-      )
+      async () => {
+        try {
+          this.searchResults(
+            await onSearch(input, this)
+          )
+        }
+        catch (e) {
+          this.setState({
+            searching: false,
+            results: null,
+            error: e.message ?? e
+          })
+        }
+      }
     )
   }
 
@@ -242,7 +256,10 @@ class SearchContext extends Context {
 
   clearResults() {
     if (this.mounted) {
-      this.setState({ results: null })
+      this.setState({
+        results: null,
+        error:   null
+      })
     }
   }
 

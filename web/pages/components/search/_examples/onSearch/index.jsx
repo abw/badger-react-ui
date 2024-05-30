@@ -17,6 +17,10 @@ const OnSearch = () =>
       can be an asynchronous function if necessary.  For example, a function
       which makes an API request to fetch the matching results.
     </p>
+    <p>
+      If your function throws an error (try entering &quot;throw&quot; as a
+      search option) then it will be caught and displayed as an error.
+    </p>
   </Example>
 
 export default OnSearch

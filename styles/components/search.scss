@@ -24,5 +24,9 @@
     overflow-y: scroll;
     max-height: var(--max-height);
     box-shadow: var(--shadow-2);
+    .error.item {
+      background-color: var(--red-50);
+      color: var(--red-100);
+    }
   }
 }
