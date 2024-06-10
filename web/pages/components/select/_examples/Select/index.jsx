@@ -38,7 +38,7 @@ const Select = () =>
     <DescTable
       items={[
         ['close',         'Handler to close the menu.'],
-        ['cursor',        <>The index of the currently selected option in the <code>options</code> array</>],
+        ['cursor',        'The index of the currently selected option in the `options` array'],
         ['disabled',      'Boolean flag indicating if the input is disabled'],
         ['displayOption', 'Function to display the content for an option'],
         // ['input',         'The current input value displayed in the field.'],
@@ -50,7 +50,7 @@ const Select = () =>
         ['onKeyDown',     'Handler for keyboard events.'],
         ['open',          'Handler to open the menu.'],
         ['options',       'The array of selection options.'],
-        ['selected',      <>The selected element in the <code>options</code> array</>],
+        ['selected',      'The selected element in the `options` array'],
         ['selectCursor',  'Handler to select the option indexed by the cursor.'],
         ['selectOption',  'Handler to select an option.'],
         ['setCursor',     'Handler to set the cursor'],

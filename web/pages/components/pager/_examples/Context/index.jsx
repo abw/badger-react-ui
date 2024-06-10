@@ -27,7 +27,7 @@ const Pager = () =>
         ['pages',   'The total number of pages, as passed into the component as a property.'],
         ['page',    'The index (0 based) of the current page, as passed into the component as a property.'],
         ['setPage', 'The function for setting a page index, as passed into the component as a property.'],
-        ['pageNo',  <>The current page number (1 based), effectively one louder than <code>page</code>.  e.g. if <code>page</code> is ten then this goes up to eleven.</> ],
+        ['pageNo',  'The current page number (1 based), effectively one louder than `page`.  e.g. if `page` is ten then this goes up to eleven.' ],
         ['firstPage',  'The index (0 based) of the first page.  This is always 0 but is included for completeness.'],
         ['firstPageNo',  'The number (1 based) of the first page.  This is always 1 but is included for completeness.'],
         ['lastPage',     'The index (0 based) of the last page.'],
