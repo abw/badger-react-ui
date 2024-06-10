@@ -256,5 +256,10 @@ export const TestingMenu = {
       text: 'DataTable select',
       tocName: 'datatableSelect',
     },
+    {
+      to: '/testing/accordion-select',
+      text: 'Accordion Select',
+      tocName: 'accordionSelect',
+    },
   ]
 }
