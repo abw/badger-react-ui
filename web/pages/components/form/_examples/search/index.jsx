@@ -5,13 +5,13 @@ import SearchSrc  from './Search.jsx?raw'
 import Select     from './SelectValue.jsx'
 import SelectSrc  from './SelectValue.jsx?raw'
 import Section    from '@/page/Section.jsx'
-import Link       from '@/ui/Link.jsx'
+import { SearchLink } from '@/web/site/Links.jsx'
 
 const SearchExamples = () =>
   <Section code="search">
     <p>
       The field <code>type</code> property can be set to <code>search</code>{' '}
-      to use the <Link to="/components/search" text="Search"/> component.
+      to use the <SearchLink/> component.
       You can define additional properties in the field that will be forwarded
       to the select component.  For example, see the <code>onSearch</code> handler
       defined below.

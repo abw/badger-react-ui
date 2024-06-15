@@ -7,7 +7,6 @@ import SearchSrc  from './Search.jsx?raw'
 import Select     from './SelectValue.jsx'
 import SelectSrc  from './SelectValue.jsx?raw'
 import Section    from '@/page/Section.jsx'
-// import Link       from '@/ui/Link.jsx'
 import { SelectLink } from '@/web/site/Links.jsx'
 
 const UISelect = () =>

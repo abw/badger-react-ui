@@ -13,6 +13,7 @@ import MultiSelect  from './_examples/multiselect/index.jsx'
 import Search       from './_examples/search/index.jsx'
 import BasicForm    from './_examples/BasicForm.jsx'
 import BasicFormSrc from './_examples/BasicForm.jsx?raw'
+import { ButtonLink } from '@/web/site/Links.jsx'
 
 const FormExamples = () =>
   <div className="flow">
@@ -67,7 +68,7 @@ const FormExamples = () =>
 
     <p>
       There are a few enhancements.  First, the buttons are rendered using
-      the <Link to="/components/button" text="Button"/> component, allowing
+      the <ButtonLink/> component, allowing
       them to include icons and all the styling properties.  Secondly, there
       are <code>type</code> bindings which allow you to use more advanced
       components for field inputs.  These are described below.
