@@ -7,14 +7,13 @@ import SearchSrc  from './Search.jsx?raw'
 import Select     from './SelectValue.jsx'
 import SelectSrc  from './SelectValue.jsx?raw'
 import Section    from '@/page/Section.jsx'
-// import Link       from '@/ui/Link.jsx'
-import { SelectLink } from '@/web/site/Links.jsx'
+import { MultiSelectLink } from '@/web/site/Links.jsx'
 
 const UISelect = () =>
-  <Section code="uiselect">
+  <Section code="multiselect">
     <p>
-      The field <code>type</code> property can be set to <code>uiselect</code>{' '}
-      to use the <SelectLink/> component.
+      The field <code>type</code> property can be set to <code>multiselect</code>{' '}
+      to use the <MultiSelectLink/> component.
     </p>
     <Example
       Component={Simple}
@@ -32,9 +31,9 @@ const UISelect = () =>
       highlightLines="6"
     />
     <p>
-      When an option is selected the default behaviour is to return the
-      complete option.  This can be seen in the debugging panel in the previous
-      example.
+      When an option is selected the default behaviour is to add the
+      complete option to the selected value array.  This can be seen in the
+      debugging panel in the previous example.
     </p>
     <p>
       You can use the <code>selectValue</code> property to

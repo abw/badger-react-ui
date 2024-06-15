@@ -1,3 +1,4 @@
+import MultiSelect from './Input/MultiSelect.jsx'
 import Select from './Input/Select.jsx'
 import Search from './Input/Search.jsx'
 import * as BadgerForm from '@abw/badger-form'
@@ -9,6 +10,7 @@ export {
   addInputType
 } from '@abw/badger-form'
 
+addInputType('multiselect', MultiSelect)
 addInputType('uiselect', Select)
 addInputType('search', Search)
 

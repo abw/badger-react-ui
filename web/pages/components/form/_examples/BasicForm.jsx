@@ -26,6 +26,16 @@ const quotes = [
   "What's wrong with being sexy?"
 ]
 
+const songs = [
+  "Stonehenge",
+  "Hell Hole",
+  "Sex Farm",
+  "Tonight I'm Gonna Rock You",
+  "Big Bottom",
+  "Heavy Duty",
+  "Rock and Roll Creation",
+]
+
 const searchQuotes = input =>
   quotes.filter(
     quote => quote
@@ -59,6 +69,12 @@ const FormExample = () =>
       type="uiselect"
       label="Instrument"
       options={instruments}
+    />
+    <Field
+      name="songs"
+      type="multiselect"
+      label="Favourite Songs"
+      options={songs}
     />
     <Field
       name="quote"

@@ -9,12 +9,13 @@ export const CodeLink = ({ to, text, ...props }) =>
 export const MakeCodeLink = (to, text) => props =>
   <CodeLink to={to} text={text} {...props}>{text}</CodeLink>
 
-export const AccordionLink  = MakeCodeLink('/components/accordion', 'Accordion')
-export const ButtonLink     = MakeCodeLink('/components/button', 'Button')
-export const ButtonsLink    = MakeCodeLink('/components/buttons', 'Buttons')
-export const DataTableLink  = MakeCodeLink('/components/datatable', 'DataTable')
-export const DetailsLink    = MakeCodeLink('/components/details', 'Details')
-export const IconLink       = MakeCodeLink('/components/icon', 'Icon')
-export const SelectLink     = MakeCodeLink('/components/select', 'Select')
-export const DivLink        = MakeCodeLink('/elements/div', 'Div')
-export const FlexLink       = MakeCodeLink('/elements/flex', 'Flex')
+export const AccordionLink   = MakeCodeLink('/components/accordion', 'Accordion')
+export const ButtonLink      = MakeCodeLink('/components/button', 'Button')
+export const ButtonsLink     = MakeCodeLink('/components/buttons', 'Buttons')
+export const DataTableLink   = MakeCodeLink('/components/datatable', 'DataTable')
+export const DetailsLink     = MakeCodeLink('/components/details', 'Details')
+export const IconLink        = MakeCodeLink('/components/icon', 'Icon')
+export const SelectLink      = MakeCodeLink('/components/select', 'Select')
+export const MultiSelectLink = MakeCodeLink('/components/multiselect', 'MultiSelect')
+export const DivLink         = MakeCodeLink('/elements/div', 'Div')
+export const FlexLink        = MakeCodeLink('/elements/flex', 'Flex')
