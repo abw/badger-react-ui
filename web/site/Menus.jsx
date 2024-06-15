@@ -86,6 +86,11 @@ export const ComponentsMenu = {
       tocName: 'modal'
     },
     {
+      to: '/components/multiselect',
+      text: 'MultiSelect',
+      tocName: 'multiselect'
+    },
+    {
       to: '/components/overlay',
       text: 'Overlay',
       tocName: 'overlay'

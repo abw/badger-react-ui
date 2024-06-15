@@ -1,0 +1,54 @@
+.multiselect {
+  --selection-color: var(--grey-20);
+  --selection-border: var(--grey-80);
+  --selection-background: var(--grey-95);
+  --selection-radius: 0.25rem;
+  --selection-padding: 0.25em 0.5em;
+  --unselect-color: var(--red-20);
+  --unselect-border: var(--red-80);
+  --unselect-background: var(--red-95);
+  .option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    & > .icon, & > .no-icon {
+      flex-basis: 1.5rem;
+    }
+    & > :first-child {
+      flex-basis: 100%;
+    }
+  }
+  .selections {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    .selection {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: var(--size-small);
+      color: var(--selection-color);
+      background-color: var(--selection-background);
+      border: 1px solid var(--selection-border);
+      border-radius: var(--selection-radius);
+      padding: var(--selection-padding);
+      &:hover {
+        cursor: pointer;
+        color: var(--unselect-color);
+        background-color: var(--unselect-background);
+        border-color: var(--unselect-border);
+      }
+    }
+  }
+}
+#{$dark-theme} .multiselect {
+  --selection-color: var(--grey-80);
+  --selection-border: var(--grey-20);
+  --selection-background: var(--grey-10);
+  --unselect-color: var(--red-90);
+  --unselect-border: var(--red-25);
+  --unselect-background: var(--red-10);
+}
