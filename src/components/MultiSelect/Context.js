@@ -1,6 +1,6 @@
 import { Generator, Context as Base } from '@abw/react-context'
 import { optionValue, findOption, defaultRenderer } from '@/src/utils/index.js'
-import { hasValue } from '@abw/badger-utils'
+import { doNothing, hasValue } from '@abw/badger-utils'
 
 class Context extends Base {
   static debug        = false
@@ -10,6 +10,7 @@ class Context extends Base {
     findOption,
     optionValue,
     displaySelection: defaultRenderer('displaySelection'),
+    onChange: doNothing,
   }
   static actions = [
     'onSelect', 'optionIsSelected', 'selectMultiOption', 'unselectMultiOption'
@@ -26,8 +27,6 @@ class Context extends Base {
         return selected
       }
     )
-    console.log(`resolved values: `, resolved)
-
     this.state = {
       values: resolved
     }
@@ -54,11 +53,13 @@ class Context extends Base {
       return false
     }
     this.debug(`unselecting item at ${index}:`, selected)
-    this.setState({
-      values: this.state.values.filter(
-        (_, n) => n !== index
-      )
-    })
+    const values = this.state.values.filter(
+      (_, n) => n !== index
+    )
+    this.setState(
+      { values },
+      () => this.props.onChange(values)
+    )
     return true
   }
   selectMultiOption(option) {
@@ -71,9 +72,11 @@ class Context extends Base {
       return false
     }
     this.debug(`selecting item at ${index}:`, select)
-    this.setState({
-      values: [ ...this.state.values, select ]
-    })
+    const values = [ ...this.state.values, select ]
+    this.setState(
+      { values },
+      () => this.props.onChange(values)
+    )
     return true
   }
 }
