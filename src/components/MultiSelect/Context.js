@@ -27,6 +27,8 @@ class Context extends Base {
         return selected
       }
     )
+    //console.log(`values: `, values)
+    //console.log(`resolved values: `, resolved)
     this.state = {
       values: resolved
     }
