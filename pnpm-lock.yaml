@@ -9,8 +9,8 @@ dependencies:
     specifier: ^1.1.13
     version: 1.1.13
   '@abw/badger-form':
-    specifier: ^1.0.2
-    version: 1.0.2(react-dom@18.3.1)(react@18.3.1)
+    specifier: ^1.0.3
+    version: 1.0.3(react-dom@18.3.1)(react@18.3.1)
   '@abw/badger-icon':
     specifier: ^0.1.2
     version: 0.1.2
@@ -144,8 +144,8 @@ packages:
       '@abw/badger-utils': 1.1.0
     dev: false
 
-  /@abw/badger-form@1.0.2(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-qLBKepoSOSyntEZGTpYpCBAQEsKNgCc0FCBuoyYJoNTcY53Ddc+dRVCZj/wW7PsKShAdZ++vVrOfmI9zZb+rfg==}
+  /@abw/badger-form@1.0.3(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-D7vxr9BjScvIba+UkWdss9kzAiUfdqiydZeyDVs1+uFTnh7/O1zDZ6E16QciGwO5IXpnvQHmNLUGfA6m8nHq/w==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
