@@ -8,7 +8,7 @@ const OnChange = () =>
     code="onChange"
     Component={Component}
     Source={Source}
-    highlightLines="5-13,18"
+    highlightLines="4-5,10"
     expand
   >
     <p>
