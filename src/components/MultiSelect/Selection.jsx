@@ -7,12 +7,14 @@ const Selection = ({
   displaySelection,
   unselectMultiOption,
   selectionClass='selection',
-  unselectIcon='cross'
+  unselectIcon='cross',
+  dragHandle
 }) =>
   <div
     className={selectionClass}
     onClick={() => unselectMultiOption(selection)}
   >
+    {dragHandle}
     <WithIcons
       iconRight={unselectIcon}
     >

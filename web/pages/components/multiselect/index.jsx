@@ -8,6 +8,7 @@ import DisplayOption    from './_examples/displayOption/index.jsx'
 import DisplaySelection from './_examples/displaySelection/index.jsx'
 import SelectedIcon     from './_examples/selectedIcon/index.jsx'
 import UnselectedIcon   from './_examples/unselectedIcon/index.jsx'
+import Sortable         from './_examples/sortable/index.jsx'
 import OnChange         from './_examples/onChange/index.jsx'
 import { SelectLink }   from '@/web/site/Links.jsx'
 
@@ -23,6 +24,7 @@ const MultiSelectExamples = () =>
       </p>
       <Options/>
       <Values/>
+      <Sortable/>
       <SelectedIcon/>
       <UnselectedIcon/>
       <DisplayOption/>

@@ -13,7 +13,8 @@ class Context extends Base {
     onChange: doNothing,
   }
   static actions = [
-    'onSelect', 'optionIsSelected', 'selectMultiOption', 'unselectMultiOption'
+    'onSelect', 'optionIsSelected', 'selectMultiOption', 'unselectMultiOption',
+    'setValues'
   ]
   constructor(props) {
     super(props)
@@ -58,10 +59,7 @@ class Context extends Base {
     const values = this.state.values.filter(
       (_, n) => n !== index
     )
-    this.setState(
-      { values },
-      () => this.props.onChange(values)
-    )
+    this.setValues(values)
     return true
   }
   selectMultiOption(option) {
@@ -75,11 +73,15 @@ class Context extends Base {
     }
     this.debug(`selecting item at ${index}:`, select)
     const values = [ ...this.state.values, select ]
+    this.setValues(values)
+    return true
+  }
+  setValues(values) {
+    this.debug('setValues:', values)
     this.setState(
       { values },
       () => this.props.onChange(values)
     )
-    return true
   }
 }
 

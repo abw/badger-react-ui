@@ -3,12 +3,15 @@ import Context from './Context.js'
 import DefaultOption from './Option.jsx'
 import DefaultSelect from '../Select/Select.jsx'
 import DefaultSelections from './Selections.jsx'
+import DefaultSortSelections from './SortSelections.jsx'
 
 const Content = ({
   className='multiselect',
+  sortable,
   Option=DefaultOption,
   Select=DefaultSelect,
   Selections=DefaultSelections,
+  SortSelections=DefaultSortSelections,
   ...props
 }) =>
   <div className={className}>
@@ -18,7 +21,10 @@ const Content = ({
         option => <Option option={option}/>
       }
     />
-    <Selections/>
+    { sortable
+      ? <SortSelections/>
+      : <Selections/>
+    }
   </div>
 
 export const MultiSelectContent = Context.Consumer(Content)
