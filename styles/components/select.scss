@@ -43,6 +43,8 @@
     z-index: var(--menu-z-index, 100);
     max-height: var(--max-height);
     box-shadow: var(--shadow-2);
+    background-color: var(--background-color);
+
   }
   &.open .search .inputs {
     border-bottom: 1px solid var(--border-color);

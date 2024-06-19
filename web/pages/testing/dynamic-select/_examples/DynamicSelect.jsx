@@ -1,6 +1,5 @@
 import React from 'react'
 import { Button, Select } from '@/src/index.jsx'
-import { hasValue } from '@abw/badger-utils'
 
 const animals = [
   { id: 'alan',  name: 'Alan Aardvark' },
@@ -19,26 +18,27 @@ const tap = [
 
 const DynamicSelect = () => {
   const [options, setOptions] = React.useState(animals)
+  const [option, setOption] = React.useState(null)
   const [using, setUsing] = React.useState('Animals')
-  const [value, setValue] = React.useState(null)
-  const onSelect = option => setValue(option.name)
+  const onSelect = option => setOption(option)
   const changeOptions = (using, options) => {
     setUsing(using)
     setOptions(options)
   }
   return (
     <>
-      <Select
-        search
-        options={options}
-        onSelect={onSelect}
-      />
+      <div className="field">
+        <label>{using}</label>
+        <Select
+          search
+          options={options}
+          onSelect={onSelect}
+          debug
+        />
+      </div>
       <p>
-        Options: {using}
-      </p>
-      <p>
-        {value
-          ? `You have selected: ${value}`
+        {option
+          ? <>You have selected <b>#{option.id}: {option.name}</b></>
           : 'Select an option'
         }
       </p>

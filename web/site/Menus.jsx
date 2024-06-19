@@ -271,5 +271,10 @@ export const TestingMenu = {
       text: 'Dynamic Select',
       tocName: 'dynamicSelect',
     },
+    {
+      to: '/testing/select-opacity',
+      text: 'Select Opacity',
+      tocName: 'selectOpacity',
+    },
   ]
 }
