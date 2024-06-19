@@ -266,5 +266,10 @@ export const TestingMenu = {
       text: 'Accordion Select',
       tocName: 'accordionSelect',
     },
+    {
+      to: '/testing/dynamic-select',
+      text: 'Dynamic Select',
+      tocName: 'dynamicSelect',
+    },
   ]
 }

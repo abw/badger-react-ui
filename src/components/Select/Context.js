@@ -53,9 +53,20 @@ class Context extends MenuContext {
   }
 
   componentDidUpdate(prevProps) {
+    let newState
+    if (this.props.options !== prevProps.options) {
+      this.debug(`options have changed, current value is`, this.state.value)
+      newState = this.valueState(this.state.value)
+    }
     if (this.props.value !== prevProps.value) {
       this.debug(`value has changed from ${prevProps.value} to ${this.props.value}`)
-      this.setState(this.valueState())
+      newState = this.valueState()
+    }
+    if (newState) {
+      this.setState(
+        newState,
+        () => this.props.onSelect(newState.value)
+      )
     }
   }
 
@@ -75,12 +86,6 @@ class Context extends MenuContext {
     // return { value, cursor, input, options }
     return { value, cursor, options }
   }
-
-  //inputValue(value=this.props.value) {
-  //  return hasValue(value)
-  //    ? this.props.displayValue(value)
-  //    : null
-  //}
 
   selectState(value) {
     // const input = this.inputValue(value)

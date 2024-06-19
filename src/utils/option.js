@@ -13,8 +13,9 @@ export const findOption = (options, value, optVal=optionValue) => {
   if (noValue(value)) {
     return [ ]
   }
+  const valueOrId = optVal(value)
   const index  = options.findIndex(
-    option => value === optVal(option)
+    option => valueOrId === optVal(option)
   )
   return index >= 0
     ? [options[index], index]
