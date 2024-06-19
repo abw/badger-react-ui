@@ -19,7 +19,13 @@ const Items = () =>
     </p>
     <p>
       Each item should define a <code>summary</code> and main <code>content</code>,
-      which can either be strings or JSX fragments.  Any other properties will
+      which can either be strings or JSX fragments.
+      If your <code>items</code> list is dynamic and the elements can change
+      (or change order) based on external factors, then you should also include
+      a <code>key</code> or <code>id</code> property in each element.
+    </p>
+    <p>
+      Any other properties will
       be forwarded on to the <DetailsLink/> component.
     </p>
   </Example>

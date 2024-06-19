@@ -24,7 +24,7 @@ const Accordion = ({
     { items.map(
       (item, n) =>
         <Details
-          key={item.id||n}
+          key={item.key??item.id??n}
           radius={radius}
           {...props}
           {...item}
