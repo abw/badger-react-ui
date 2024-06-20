@@ -276,5 +276,10 @@ export const TestingMenu = {
       text: 'Select Opacity',
       tocName: 'selectOpacity',
     },
+    {
+      to: '/testing/range',
+      text: 'Range',
+      tocName: 'range',
+    },
   ]
 }
