@@ -94,13 +94,6 @@
       --shadow-size: var(--shadow-focus-size);
       --shadow-color: var(--shadow-focus-color);
     }
-    &.min {
-      left: 0%;
-    }
-    &.max {
-      --translate-x: -1em;
-      left: 100%;
-    }
   }
 }
 #{$dark-theme} .range {

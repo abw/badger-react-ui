@@ -1,4 +1,4 @@
-import { isFunction, fail, isInteger, identity, isBoolean } from '@abw/badger-utils'
+import { isFunction, isObject, fail, isInteger, identity, isBoolean } from '@abw/badger-utils'
 
 export const clamp = (n, min, max) =>
   Math.min(Math.max(n, min), max)
@@ -26,6 +26,15 @@ export const valueRounder = round => {
     const multiplier = Math.pow(10, round || 0)
     return value => Math.round(value * multiplier) / multiplier
   }
+  /*
+  if (isObject(round)) {
+    const steps = isArray(round.values)
+      ? round.values.length
+      : round.steps
+    if (steps) {
+      return value => Math.round(value * multiplier) / multiplier
+  }
+  */
   fail(`Invalid argument passed to valueRounder() (${round})`)
 }
 

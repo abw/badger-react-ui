@@ -14,40 +14,43 @@ class Context extends Base {
     value: 0,
   }
   static actions = [
-    'selectionRef', 'thumbsRef', 'thumbRef', 'onMouseDown'
+    // 'selectionRef',
+    'thumbsRef', 'onMouseDown'
   ]
   constructor(props) {
     super(props)
-    this.rounder = valueRounder(props.round)
+    //if (props.values) {
+    //  this.roundValue = valueRounder()
+    //}
+    this.roundValue = valueRounder(props.round)
     const percent = this.valuePercent()
     // console.log(`props: `, this.props)
     console.log(`${props.value} is ${percent}% between ${props.min} and ${props.max}`)
 
     // console.log(`valuePercent: `, valuePercent)
     this.state = {
-      value: this.rounder(this.props.value),
+      value: this.roundValue(this.props.value),
       percent: this.valuePercent(),
       ...this.state,
-      valuePercent
     }
   }
   percentValue(percent=0) {
     const { min, max } = this.props
     const range = max - min
-    return this.rounder(min + range * percent / 100)
+    return this.roundValue(min + range * percent / 100)
   }
   valuePercent(value=this.props.value, min=this.props.min, max=this.props.max) {
     return valuePercent(value, min, max)
   }
-  selectionRef(ref){
-    this._selectionRef = ref
-  }
+  //selectionRef(ref){
+  //  this._selectionRef = ref
+  //}
   thumbsRef(ref){
     this._thumbsRef = ref
   }
-  thumbRef(ref){
-    this._thumbRef = ref
-  }
+  //thumbRef(ref){
+  //  this._thumbRef = ref
+  //}
   onMouseDown(e) {
     const thumb = e.target
     const { clientX } = e
@@ -71,15 +74,10 @@ class Context extends Base {
     this.setState({ thumbDrag })
 
     const mouseMove = e => {
+      e.preventDefault()
       const offset = e.clientX - thumbDrag.initialX
       const newX = clamp(thumbDrag.thumbMid + offset - thumbDrag.thumbsLeft, 0, thumbDrag.thumbsWidth)
-      const newpos = newX * 100 / thumbDrag.thumbsWidth
-      const value = this.percentValue(newpos)
-      const percent = this.valuePercent(value)
-      // console.log(`newpost:${newpos}  value:${value}  percent:${percent}`)
-      this.setState({ value, percent })
-      // console.log(`move: ${offset} newX: ${newX}`)
-      e.preventDefault()
+      this.setPercent(newX * 100 / thumbDrag.thumbsWidth)
     }
     window.addEventListener(
       'mousemove',
@@ -93,7 +91,22 @@ class Context extends Base {
       }
     )
   }
-
+  setPercent(newPercent) {
+    const value = this.percentValue(newPercent)
+    const percent = this.valuePercent(value)
+    this.setState(
+      { value, percent },
+      () => this.props.onChange(value)
+    )
+  }
+  setValue(newValue) {
+    const value = this.roundValue(newValue)
+    const percent = this.valuePercent(value)
+    this.setState(
+      { value, percent },
+      () => this.props.onChange(value)
+    )
+  }
 }
 
 export const RangeContext = Generator(Context)
