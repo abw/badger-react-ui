@@ -3,7 +3,7 @@ import Context from './Context.js'
 import { classes } from '@/src/utils/index.js'
 
 const Thumb = ({
-  className='thumb',
+  className='range-thumb',
   thumbRef,
   thumbDrag,
   onMouseDown,

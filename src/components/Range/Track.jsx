@@ -4,7 +4,7 @@ import DefaultSelection from './Selection.jsx'
 import DefaultThumbs from './Thumbs.jsx'
 
 const Track = ({
-  trackClass='track',
+  trackClass='range-track',
   Selection=DefaultSelection,
   Thumbs=DefaultThumbs,
   trackRef

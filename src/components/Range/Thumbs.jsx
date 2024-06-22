@@ -3,7 +3,7 @@ import Context from './Context.js'
 import DefaultThumb from './Thumb.jsx'
 
 const Thumbs = ({
-  thumbsClass='thumbs',
+  thumbsClass='range-thumbs',
   Thumb=DefaultThumb,
   thumbsRef,
 }) =>

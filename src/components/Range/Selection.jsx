@@ -2,7 +2,7 @@ import React from 'react'
 import Context from './Context.js'
 
 const Selection = ({
-  className='selection',
+  className='range-selection',
   selectionRef
 }) =>
   <div className={className} ref={selectionRef}/>

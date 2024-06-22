@@ -40,3 +40,9 @@ export const valueRounder = round => {
 
 export const valuePercent = (value, min, max) =>
   (value - min) * 100 / (max - min)
+
+export const roundStep = (value, step, min=0, max=100) => {
+  const l = Math.clamp(value, min, max)
+  const n = Math.round((l - min) / step)
+  return min + n * step
+}

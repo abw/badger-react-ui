@@ -1,10 +1,10 @@
 .range {
   // --accent-color: var(--input-accent-color);
   --accent-color: var(--brand-50);
-  --background-color: var(--grey20-90);
   --background-color: transparent;
+  --background-color: var(--brand-100);
   // --border-color: var(--grey-70);
-  --border-color: var(--grey-70);
+  --border-color: var(--brand-80);
   --border-width: 1px;
 
 
@@ -33,13 +33,32 @@
   --min-pos: 0%;
   --max-pos: 100%;
   width: 100%;
-  height: 1em;
-  // border: 1px solid red;
-  position: relative;
-  background-color: var(--background-color);
-  // border: var(--border-width) solid var(--border-color);
-  border-radius: 0.5em;
-  .track {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.5rem;
+  .range-output {
+    width: 100%;
+    min-height: 1.5em;
+    position: relative;
+    .range-value {
+      position: absolute;
+      line-height: 1;
+      bottom: 0.25em;
+      &.thumb {
+        left: var(--pos);
+        transform: translateX(calc(0% - var(--pos)))
+      }
+    }
+  }
+  .range-slider {
+    width: 100%;
+    height: 1em;
+    position: relative;
+    background-color: var(--background-color);
+    //border: var(--border-width) solid var(--border-color);
+    border-radius: 0.5em;
+  }
+  .range-track {
     position: absolute;
     left: var(--track-offset);
     right: var(--track-offset);
@@ -50,7 +69,7 @@
     // border: 1px solid var(--track-border);
     background-color: var(--track-background);
     overflow: visible;
-    .selection {
+    .range-selection {
       position: absolute;
       top: 0;
       bottom: 0;
@@ -62,7 +81,7 @@
       border-radius: 0.5em;
       background-color: var(--track-fill);
     }
-    .thumbs {
+    .range-thumbs {
       position: absolute;
       left: 0.125em;
       right: 0.125em;
@@ -75,7 +94,7 @@
     }
     // background-color: var(--accent-color);
   }
-  .thumb {
+  .range-thumb {
     --translate-x: calc(0px - var(--thumb-half));
     // --translate-x: 0;
     position: absolute;

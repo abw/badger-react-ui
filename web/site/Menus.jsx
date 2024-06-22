@@ -106,6 +106,11 @@ export const ComponentsMenu = {
       tocName: 'radio'
     },
     {
+      to: '/components/range',
+      text: 'Range',
+      tocName: 'range'
+    },
+    {
       to: '/components/search',
       text: 'Search',
       tocName: 'search'
