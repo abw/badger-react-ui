@@ -21,6 +21,7 @@ const Option = ({
       classes(
         optionClass,
         option.className,
+        option.indent ? `indent-${option.indent}` : null,
         active   ? activeClass   : null,
         selected ? selectedClass : null,
         option.disabled ? disabledClass : null
