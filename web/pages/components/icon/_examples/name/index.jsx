@@ -17,8 +17,18 @@ const Name = () =>
     </p>
     <p>
       Additional modifiers and classes can be added to the name to apply
-      styles and transformations.  See the Badger Icon documentation for
-      further details.
+      styles and transformations.  e.g. <code>arrow-right</code> rotates
+      the <code>arrow</code> icon through 90&deg; so that it points to the
+      right.
+    </p>
+    <p>
+      The <code>name</code> can include multiple icons, each of which can
+      have dashed modifiers and dotted CSS classes.  Each should be separated
+      by whitespace.  The separate icons will be stack on top of each other
+      to create a composite icon.
+    </p>
+    <p>
+      See the Badger Icon documentation for further details.
     </p>
   </Example>
 
