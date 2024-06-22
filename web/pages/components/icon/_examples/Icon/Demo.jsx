@@ -1,5 +1,6 @@
 import React, { useState }  from 'react'
 import { Icon }             from '@/src/index.jsx'
+import CheckOption          from '@/demo/control/CheckOption.jsx'
 import IconSelect           from '@/demo/control/IconSelect.jsx'
 import SizeSelect           from '@/demo/control/SizeSelect.jsx'
 import ColorSelect          from '@/demo/control/ColorSelect.jsx'
@@ -11,7 +12,7 @@ import CodeBlock            from '@/site/CodeBlock.jsx'
 const IconDemo = () => {
   const [n, setN] = useState(0)
   const [options, setOptions] = useState({
-    name: 'bars',
+    name: 'arrow',
   })
   const toggleOption = name => () => {
     setOptions(
@@ -64,7 +65,7 @@ const IconDemo = () => {
   )
 }
 
-const Controls = ({ options, setOption }) => {
+const Controls = ({ options, setOption, toggleOption }) => {
   const setName       = setOption('name')
   const setSize       = setOption('size')
   const setColor      = setOption('color')
@@ -74,6 +75,9 @@ const Controls = ({ options, setOption }) => {
   const setBackDark   = setOption('backgroundDark')
   const setRotation   = setOption('rotation')
   const setThickness  = setOption('thickness')
+  const toggleSquare  = toggleOption('square')
+  const toggleFlipX   = toggleOption('flipx')
+  const toggleFlipY   = toggleOption('flipy')
 
   return (
     <div>
@@ -149,6 +153,26 @@ const Controls = ({ options, setOption }) => {
           />
         </div>
       </div>
+      <div className="field">
+        <label>Options</label>
+        <div className="grid-3 gap-4 gap-v-0 stack-mobile top">
+          <CheckOption
+            checked={options.square || false}
+            toggle={toggleSquare}
+            label="Square"
+          />
+          <CheckOption
+            checked={options.flipx || false}
+            toggle={toggleFlipX}
+            label="Flip X"
+          />
+          <CheckOption
+            checked={options.flipy || false}
+            toggle={toggleFlipY}
+            label="Flip Y"
+          />
+        </div>
+      </div>
     </div>
   )
 }
@@ -167,6 +191,11 @@ const iconProps = options => {
   const modifiers = ['rotation', 'thickness']
     .filter( option => options[option] )
     .map( option => options[option] )
+
+  modifiers.push(
+    ...['square', 'flipx', 'flipy']
+      .filter( option => options[option] )
+  )
   if (modifiers.length) {
     props.name = props.name + modifiers.map( m => `-${m}` ).join('')
   }
