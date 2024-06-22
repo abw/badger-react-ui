@@ -28,7 +28,8 @@ const Name = () =>
       to create a composite icon.
     </p>
     <p>
-      See the Badger Icon documentation for further details.
+      See the <a href="https://abw.github.io/badger-icon/">Badger Icon</a> documentation
+      for further details.
     </p>
   </Example>
 

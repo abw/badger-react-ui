@@ -15,9 +15,6 @@ addIcons(
   myLibrary
 )
 
-console.log(`myLibrary: `, myLibrary);
-
-
 const themeOptions = {
   Icon: {
     library: myLibrary

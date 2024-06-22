@@ -4,6 +4,8 @@ import IconSelect           from '@/demo/control/IconSelect.jsx'
 import SizeSelect           from '@/demo/control/SizeSelect.jsx'
 import ColorSelect          from '@/demo/control/ColorSelect.jsx'
 import StopSelect           from '@/demo/control/StopSelect.jsx'
+import RotationSelect       from '@/demo/control/IconRotationSelect.jsx'
+import ThicknessSelect      from '@/demo/control/IconThicknessSelect.jsx'
 import CodeBlock            from '@/site/CodeBlock.jsx'
 
 const IconDemo = () => {
@@ -70,6 +72,8 @@ const Controls = ({ options, setOption }) => {
   const setBackground = setOption('background')
   const setForeDark   = setOption('foregroundDark')
   const setBackDark   = setOption('backgroundDark')
+  const setRotation   = setOption('rotation')
+  const setThickness  = setOption('thickness')
 
   return (
     <div>
@@ -130,16 +134,27 @@ const Controls = ({ options, setOption }) => {
             // disabled={! options.color}
           />
         </div>
-
+        <div className="field">
+          <label>Rotation</label>
+          <RotationSelect
+            rotation={options.rotation}
+            setRotation={setRotation}
+          />
+        </div>
+        <div className="field">
+          <label>Thickness</label>
+          <ThicknessSelect
+            thickness={options.thickness}
+            setThickness={setThickness}
+          />
+        </div>
       </div>
     </div>
   )
 }
 
 const iconProps = options => {
-  const props = [
-    'name', 'size', //'color', 'foreground', 'background',
-  ]
+  const props = ['name', 'size']
     .filter( option => options[option] )
     .reduce(
       (props, option) => {
@@ -148,6 +163,13 @@ const iconProps = options => {
       },
       { }
     )
+
+  const modifiers = ['rotation', 'thickness']
+    .filter( option => options[option] )
+    .map( option => options[option] )
+  if (modifiers.length) {
+    props.name = props.name + modifiers.map( m => `-${m}` ).join('')
+  }
 
   const color = [
     'color', 'foreground', 'background', 'foregroundDark', 'backgroundDark'
