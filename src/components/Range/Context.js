@@ -1,6 +1,7 @@
 import { Generator, Context as Base } from '@abw/react-context'
 import { clamp, valuePercent, valueRounder } from '@/src/utils/index.js'
 import { doNothing } from '@abw/badger-utils'
+import { hasValue } from '@abw/badger-utils'
 
 class Context extends Base {
   static debug        = true
@@ -11,7 +12,7 @@ class Context extends Base {
     round: false,
     min: 0,
     max: 100,
-    value: 0,
+    // value: 0,
   }
   static actions = [
     // 'selectionRef',
@@ -33,6 +34,12 @@ class Context extends Base {
       percent: this.valuePercent(),
       ...this.state,
     }
+  }
+  valueState(props=this.props) {
+    let { min=0, max=100, value, step } = props
+    value = hasValue(value)
+      ? clamp(value, min, max)
+      : min + (max - min) / 2
   }
   percentValue(percent=0) {
     const { min, max } = this.props
