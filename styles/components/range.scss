@@ -3,31 +3,29 @@
   --accent-color: var(--brand-50);
   --background-color: transparent;
   --background-color: var(--brand-100);
-  // --border-color: var(--grey-70);
   --border-color: var(--brand-80);
   --border-width: 1px;
-
-
   --track-height: 0.5em;
   --track-half: calc(var(--track-height) / 2);
   --track-offset: calc(var(--thumb-half) - var(--track-half));
   --track-border: var(--brand-80);
   --track-background: var(--brand-75);
   --track-fill: var(--brand-50);
-
   --thumb-size: 1em;
   --thumb-half: calc(var(--thumb-size) / 2);
   --thumb-opacity: 1;
-
-  // --thumb-size: 2em;
-  // --thumb-half: calc(var(--thumb-size) / 2);
   --thumbs-offset: calc(var(--thumb-half) - var(--track-offset));
-
   --thumb-background: var(--accent-color);
   --shadow-color: color-mix(in srgb, var(--accent-color), black 40%);
   --shadow-focus-color: color-mix(in srgb, var(--accent-color), transparent 70%);
   --shadow-size: 0px;
   --shadow-focus-size: 8px;
+  --step-color: var(--brand-50);
+  --step-background: var(--brand-90);
+  --step-hover-color: var(--brand-30);
+  --step-hover-background: var(--brand-80);
+  --step-disabled-color: var(--grey-70);
+  --step-disabled-background: var(--grey-95);
   --z-index: 100;
   --percent: 50%;
   --min-percent: 0%;
@@ -43,15 +41,15 @@
       text-align: center;
     }
     .disabled {
-      color: var(--grey-70);
-      background-color: var(--grey-95);
+      color: var(--step-disabled-color);
+      background-color: var(--step-disabled-background);
     }
     .clickable {
-      color: var(--brand-50);
-      background-color: var(--brand-90);
+      color: var(--step-color);
+      background-color: var(--step-background);
       &:hover {
-        color: var(--brand-40);
-        background-color: var(--brand-80);
+        color: var(--step-hover-color);
+        background-color: var(--step-hover-background);
         cursor: pointer;
       }
     }
@@ -148,7 +146,17 @@
   }
 }
 #{$dark-theme} .range {
-  --empty-color: var(--brand-20);
+  --background-color: var(--brand-0);
+  // --empty-color: var(--brand-20);
   --border-color: var(--brand-30);
-  --fill-color: var(--brand-50);
+  --track-background: var(--brand-25);
+  --track-fill: var(--brand-50);
+  --shadow-color: color-mix(in srgb, var(--accent-color), white 40%);
+  --shadow-focus-color: color-mix(in srgb, var(--accent-color), transparent 55%);
+  --step-color: var(--brand-60);
+  --step-background: var(--brand-15);
+  --step-hover-color: var(--brand-70);
+  --step-hover-background: var(--brand-25);
+  --step-disabled-color: var(--grey-30);
+  --step-disabled-background: var(--grey-5);
 }
