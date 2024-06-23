@@ -42,8 +42,13 @@ class Context extends Base {
     })
   }
   setNormalisedValue(normal) {
+    // this.debug(`setNormalisedValue(${normal})`)
     const value = this.normalToValue(normal)
-    const percent = multiply(this.valueToNormal(value), 100)
+    // this.debug(`value: ${value}`)
+    normal = this.valueToNormal(value)
+    // this.debug(`normal: ${normal}`)
+    const percent = multiply(100, normal).toFixed(2)
+    // this.debug(`percent: ${percent}`)
     this.setState({
       normal, value, percent, input: value
     })
