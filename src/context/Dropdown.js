@@ -139,7 +139,7 @@ class DropdownContext extends Context {
         break
 
       default:
-        console.log(`ignored key ${event.key}`)
+        this.debug(`ignored key ${event.key}`)
         return
     }
     event.preventDefault()

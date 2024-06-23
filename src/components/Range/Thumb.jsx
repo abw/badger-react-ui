@@ -7,11 +7,14 @@ const Thumb = ({
   thumbRef,
   thumbDrag,
   onMouseDown,
+  onKeyDown
 }) =>
   <div
     className={classes(className, { dragging: thumbDrag })}
     ref={thumbRef}
     onMouseDown={onMouseDown}
+    onKeyDown={onKeyDown}
+    tabIndex="0"
   />
 
 export const RangeThumb = Context.Consumer(Thumb)

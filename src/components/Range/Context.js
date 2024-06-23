@@ -2,6 +2,8 @@ import { Generator, Context as Base } from '@abw/react-context'
 import { valuePercent } from '@/src/utils/index.js'
 import { doNothing, clamp, multiply, divide } from '@abw/badger-utils'
 import { initRange } from './Utils.js'
+import { ANY, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT } from '@/src/constants.js'
+import { ARROW_UP } from 'dist/badger-react-ui.js'
 
 class Context extends Base {
   static debug        = false
@@ -11,7 +13,8 @@ class Context extends Base {
     onChange: doNothing,
   }
   static actions = [
-    'thumbsRef', 'onMouseDown', 'setValue', 'setInput'
+    'thumbsRef', 'onMouseDown', 'onKeyDown',
+    'setValue', 'setInput', 'stepUp', 'stepDown'
   ]
   constructor(props) {
     super(props)
@@ -41,6 +44,22 @@ class Context extends Base {
       normal, value, percent
     })
   }
+  step() {
+    const step = this.state.step
+    return step === ANY
+      ? 1
+      : step
+  }
+  stepUp() {
+    const newValue = this.state.value + this.step()
+    this.setValue(newValue)
+    this.setInput(newValue)
+  }
+  stepDown() {
+    const newValue = this.state.value - this.step()
+    this.setValue(newValue)
+    this.setInput(newValue)
+  }
   setNormalisedValue(normal) {
     // this.debug(`setNormalisedValue(${normal})`)
     const value = this.normalToValue(normal)
@@ -59,6 +78,27 @@ class Context extends Base {
   thumbsRef(ref){
     this._thumbsRef = ref
   }
+  onKeyDown(event) {
+    this.debug(`onKeyDown(${event.key})`)
+
+    switch (event.key) {
+      case ARROW_LEFT:
+      case ARROW_DOWN:
+        this.stepDown()
+        break
+
+      case ARROW_RIGHT:
+      case ARROW_UP:
+        this.stepUp()
+        break
+
+      default:
+        this.debug(`ignored key ${event.key}`)
+        return
+    }
+    event.preventDefault()
+  }
+
   onMouseDown(e) {
     const thumb = e.target
     const { clientX } = e
