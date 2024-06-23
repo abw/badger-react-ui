@@ -15,6 +15,9 @@ test(
     expect(range.normalToValue(0)).toBe(0)
     expect(range.normalToValue(0.2)).toBe(20)
     expect(range.normalToValue(1.1)).toBe(100)
+    expect(range.valueToNormal(50)).toBe(0.5)
+    expect(range.valueToNormal(25)).toBe(0.25)
+    expect(range.valueToNormal(-25)).toBe(0)
   }
 )
 
@@ -49,6 +52,10 @@ test(
     expect(range.normalToValue(0)).toBe(100)
     expect(range.normalToValue(0.2)).toBe(120)
     expect(range.normalToValue(1.1)).toBe(200)
+    expect(range.valueToNormal(100)).toBe(0)
+    expect(range.valueToNormal(150)).toBe(0.5)
+    expect(range.valueToNormal(151)).toBe(0.51)
+    expect(range.valueToNormal(200)).toBe(1)
   }
 )
 

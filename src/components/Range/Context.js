@@ -1,63 +1,59 @@
 import { Generator, Context as Base } from '@abw/react-context'
-import { clamp, valuePercent, valueRounder } from '@/src/utils/index.js'
-import { doNothing } from '@abw/badger-utils'
-import { hasValue } from '@abw/badger-utils'
+import { valuePercent } from '@/src/utils/index.js'
+import { doNothing, clamp, multiply, divide } from '@abw/badger-utils'
+import { initRange } from './Utils.js'
 
 class Context extends Base {
-  static debug        = true
+  static debug        = false
   static debugPrefix  = 'Range > '
   static debugColor   = 'rebeccapurple'
   static defaultProps = {
     onChange: doNothing,
-    round: false,
-    min: 0,
-    max: 100,
-    // value: 0,
   }
   static actions = [
-    // 'selectionRef',
-    'thumbsRef', 'onMouseDown'
+    'thumbsRef', 'onMouseDown', 'setValue', 'setInput'
   ]
   constructor(props) {
     super(props)
-    //if (props.values) {
-    //  this.roundValue = valueRounder()
-    //}
-    this.roundValue = valueRounder(props.round)
-    const percent = this.valuePercent()
-    // console.log(`props: `, this.props)
-    console.log(`${props.value} is ${percent}% between ${props.min} and ${props.max}`)
-
-    // console.log(`valuePercent: `, valuePercent)
+    const { normalToValue, valueToNormal, quantize, ...state } = initRange(props)
+    this.quantize = quantize
+    this.normalToValue = normalToValue
+    this.valueToNormal = valueToNormal
     this.state = {
-      value: this.roundValue(this.props.value),
-      percent: this.valuePercent(),
       ...this.state,
+      ...state,
+      input: state.value,
     }
   }
-  valueState(props=this.props) {
-    let { min=0, max=100, value, step } = props
-    value = hasValue(value)
-      ? clamp(value, min, max)
-      : min + (max - min) / 2
+  setInput(input) {
+    this.setState(
+      {
+        input
+      },
+      () => this.setValue(input)
+    )
   }
-  percentValue(percent=0) {
-    const { min, max } = this.props
-    const range = max - min
-    return this.roundValue(min + range * percent / 100)
+  setValue(value) {
+    value = this.quantize(value)
+    const normal = this.valueToNormal(value)
+    const percent = multiply(normal, 100)
+    this.setState({
+      normal, value, percent
+    })
+  }
+  setNormalisedValue(normal) {
+    const value = this.normalToValue(normal)
+    const percent = multiply(this.valueToNormal(value), 100)
+    this.setState({
+      normal, value, percent, input: value
+    })
   }
   valuePercent(value=this.props.value, min=this.props.min, max=this.props.max) {
     return valuePercent(value, min, max)
   }
-  //selectionRef(ref){
-  //  this._selectionRef = ref
-  //}
   thumbsRef(ref){
     this._thumbsRef = ref
   }
-  //thumbRef(ref){
-  //  this._thumbRef = ref
-  //}
   onMouseDown(e) {
     const thumb = e.target
     const { clientX } = e
@@ -84,7 +80,9 @@ class Context extends Base {
       e.preventDefault()
       const offset = e.clientX - thumbDrag.initialX
       const newX = clamp(thumbDrag.thumbMid + offset - thumbDrag.thumbsLeft, 0, thumbDrag.thumbsWidth)
-      this.setPercent(newX * 100 / thumbDrag.thumbsWidth)
+      this.setNormalisedValue(
+        divide(newX, thumbDrag.thumbsWidth)
+      )
     }
     window.addEventListener(
       'mousemove',
@@ -96,22 +94,6 @@ class Context extends Base {
         this.setState({ thumbDrag: null })
         window.removeEventListener('mousemove', mouseMove)
       }
-    )
-  }
-  setPercent(newPercent) {
-    const value = this.percentValue(newPercent)
-    const percent = this.valuePercent(value)
-    this.setState(
-      { value, percent },
-      () => this.props.onChange(value)
-    )
-  }
-  setValue(newValue) {
-    const value = this.roundValue(newValue)
-    const percent = this.valuePercent(value)
-    this.setState(
-      { value, percent },
-      () => this.props.onChange(value)
     )
   }
 }

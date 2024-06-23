@@ -1,6 +1,6 @@
 import { ANY } from '@/src/constants.js'
-import { add, clamp, coerceNumber, multiply } from '@/src/utils/math.js'
-import { isNull, hasValue, isFunction } from '@abw/badger-utils'
+import { coerceNumber } from '@/src/utils/math.js'
+import { isNull, hasValue, isFunction, add, subtract, multiply, divide, clamp } from '@abw/badger-utils'
 
 export const initRange = (props={}) => {
   let { min=0, max=100, value, step, quantize } = props
@@ -46,10 +46,21 @@ export const initRange = (props={}) => {
         )
       )
     )
+  const valueToNormal = value =>
+    divide(
+      subtract(
+        clamp(value, min, max),
+        min
+      ),
+      range
+    )
+
+  const normal  = valueToNormal(value)
+  const percent = multiply(normal, 100)
 
   return {
-    min, max, range, value, step, quantize,
-    normalToValue
+    min, max, range, value, step, quantize, normal, percent,
+    normalToValue, valueToNormal
   }
 }
 

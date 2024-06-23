@@ -29,13 +29,17 @@
   --shadow-size: 0px;
   --shadow-focus-size: 8px;
   --z-index: 100;
-  --pos: 100%;
-  --min-pos: 0%;
-  --max-pos: 100%;
+  --percent: 50%;
+  --min-percent: 0%;
+  --max-percent: 100%;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 0.5rem;
+  .range-input {
+    width: 100%;
+    text-align: center;
+  }
   .range-output {
     width: 100%;
     min-height: 1.5em;
@@ -45,8 +49,8 @@
       line-height: 1;
       bottom: 0.25em;
       &.thumb {
-        left: var(--pos);
-        transform: translateX(calc(0% - var(--pos)))
+        left: var(--percent);
+        transform: translateX(calc(0% - var(--percent)))
       }
     }
   }
@@ -76,7 +80,7 @@
       left: 0;
       // right: 0;
       // right: calc(100% - var(--pos));
-      width: var(--pos);
+      width: var(--percent);
       border-color: var(--track-fill);
       border-radius: 0.5em;
       background-color: var(--track-fill);
@@ -107,7 +111,7 @@
     transition: box-shadow 300ms, opacity 300ms;
     background-color: var(--thumb-background);
     opacity: var(--thumb-opacity);
-    left: var(--pos);
+    left: var(--percent);
     &:hover, &:focus, &.dragging {
       opacity: 1;
       --shadow-size: var(--shadow-focus-size);

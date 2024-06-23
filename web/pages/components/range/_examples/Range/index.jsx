@@ -2,6 +2,8 @@ import React      from 'react'
 import Example    from '@/site/Example.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
+import InOut      from './InOut.jsx'
+import InOutSrc   from './InOut.jsx?raw'
 import MinMax     from './MinMax.jsx'
 import MinMaxSrc  from './MinMax.jsx?raw'
 import DescTable  from '@/web/site/DescTable.jsx'
@@ -17,12 +19,17 @@ const Range = () =>
     />
     <p>
       The custom range component offers the same functionality as the native
-      HTML and in addition, has additional display options.
+      HTML input with some additional functionality and display options.
     </p>
+    <Example
+      Component={InOut}
+      code={InOutSrc}
+      undent={2}
+    />
     <p>
-      Another advantages of a custom range component over the native HTML
+      Another advantages of this custom range component over the native HTML
       element is that it supports a double-ended range where both the minimum
-      and maximum value can be set.
+      and maximum values can be set.
     </p>
     <Example
       Component={MinMax}
