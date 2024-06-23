@@ -15,8 +15,8 @@ dependencies:
     specifier: ^0.1.3
     version: 0.1.3
   '@abw/badger-utils':
-    specifier: ^1.1.0
-    version: 1.1.0
+    specifier: ^1.1.1
+    version: 1.1.1
   '@abw/react-context':
     specifier: ^2.0.3
     version: 2.0.3
@@ -126,7 +126,7 @@ packages:
   /@abw/badger-codecs@1.0.3:
     resolution: {integrity: sha512-baUQcCcYcnEkTq+LEJotDluwVX2uBA332/u2fPaZrQwp7UhmqxOV7hIJ4sZel6JpaXtp9VWXU9LvZlhOB59+Gw==}
     dependencies:
-      '@abw/badger-utils': 1.1.0
+      '@abw/badger-utils': 1.1.1
       js-yaml: 4.1.0
     dev: false
 
@@ -141,7 +141,7 @@ packages:
     resolution: {integrity: sha512-WiMn0WRb49sYBFXxZHpLSPtQ75jlayjMKkQuCAEOkQj19H5EDCFSe86c79dE0TeHaqmMEFxUcFQulrNetWN7EQ==}
     dependencies:
       '@abw/badger-codecs': 1.0.3
-      '@abw/badger-utils': 1.1.0
+      '@abw/badger-utils': 1.1.1
     dev: false
 
   /@abw/badger-form@1.0.3(react-dom@18.3.1)(react@18.3.1):
@@ -158,7 +158,7 @@ packages:
   /@abw/badger-icon@0.1.3:
     resolution: {integrity: sha512-LbTdGnVViW12/WiZTlbTPAVnghowc1L36A1TKShIsIOdFibJXHzLMUgYVX85QXsoes6bXMcO98w1dSRwnCnmpA==}
     dependencies:
-      '@abw/badger-utils': 1.1.0
+      '@abw/badger-utils': 1.1.1
       '@abw/react-one-louder': 0.0.6
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -167,17 +167,17 @@ packages:
   /@abw/badger-timestamp@1.0.4:
     resolution: {integrity: sha512-7JBcF9rxwihiiEG1UQlv1/jdntg8BJmzTADAj5psTWbRNvDh4XHkdeoVnbf0nRCq08q5472mx8wbpgNzrwb2RQ==}
     dependencies:
-      '@abw/badger-utils': 1.1.0
+      '@abw/badger-utils': 1.1.1
     dev: true
 
   /@abw/badger-timestamp@1.0.5:
     resolution: {integrity: sha512-Kt/FvmcdQj4XTJdn7tuma0IeL/HHd5mGe6orV8uziMbvsA+542AhJ3G5B33/5TX9wFXUnOHaK+CRzGUQknWNBA==}
     dependencies:
-      '@abw/badger-utils': 1.1.0
+      '@abw/badger-utils': 1.1.1
     dev: false
 
-  /@abw/badger-utils@1.1.0:
-    resolution: {integrity: sha512-qH4n/qk8KDHGgDjOyyrKTM650OuRLDFfi6eh3ZLonPI7PSrgM/nGuba0n70rzW2grL2pJmkzJXNVabHh0dmQkw==}
+  /@abw/badger-utils@1.1.1:
+    resolution: {integrity: sha512-hgYDLqhTmVOSnbfi95ITz+RunSDu/7Nn9evJzWHbm4nqm0hGpBy6tfRoGcSLwp4XNa2eHBtQpDFovXU2Pho2zA==}
 
   /@abw/badger@1.2.4:
     resolution: {integrity: sha512-6QWQFlrK2s7pL/FT34Nw6aXYIqcZl6+QnZfha9NBEu32Smb3tA1lVVajsfQu3+qZDR8Ik7kyWN0AucKv9K+jgA==}
@@ -186,7 +186,7 @@ packages:
       '@abw/badger-codecs': 1.0.3
       '@abw/badger-filesystem': 1.0.6
       '@abw/badger-timestamp': 1.0.5
-      '@abw/badger-utils': 1.1.0
+      '@abw/badger-utils': 1.1.1
       chokidar: 3.6.0
       commander: 11.1.0
       dotenv: 16.4.5
