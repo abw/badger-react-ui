@@ -10,6 +10,7 @@ const Component = () =>
     <Icon name="arrow"/>
     <Icon name="arrow-right"/>
     <Icon name="arrow-down-thicker.red.fgc-50"/>
+    <Icon name="square.green.flc-50.stc-30 check-thicker-shrink=6.fgc-100"/>
   </div>
 /* END */
 

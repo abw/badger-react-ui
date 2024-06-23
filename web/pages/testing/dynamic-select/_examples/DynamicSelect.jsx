@@ -33,7 +33,7 @@ const DynamicSelect = () => {
           search
           options={options}
           onSelect={onSelect}
-          debug
+          // debug
         />
       </div>
       <p>

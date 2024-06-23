@@ -1,11 +1,4 @@
-// export { default as Icon } from './Icon.jsx'
-import { Icons, Library as IconLibrary, addIcon, addIcons } from '@abw/badger-icon'
+import { Library as IconLibrary, addIcon, addIcons } from '@abw/badger-icon'
 export { default as Icon } from './Icon.jsx'
 export { default as WithIcons } from './WithIcons.jsx'
-
-addIcons({
-  github: 'path-fill-stroke=none:M256,0C115,0 0,115 0,256C0,369 73,465 175,499C188,501 193,493 193,487C193,481 192,460 192,439C128,451 111,423 106,409C103,402 91,379 80,373C71,368 58,356 80,356C100,356 114,374 119,382C142,421 179,410 194,403C196,387 203,375 210,369C153,363 93,340 93,243C93,215 103,192 120,174C117,167 108,141 122,106C122,106 144,99 193,132C213,126 235,124 257,124C278,124 300,126 321,132C370,99 391,106 391,106C405,141 396,167 394,174C410,192 420,214 420,243C420,341 360,363 303,369C312,377 320,392 320,416C320,451 320,478 320,487C320,493 325,501 338,499C439,465 512,369 512,256C512,115 397,0 256,0Z',
-})
-
-export { Icons, IconLibrary, addIcon, addIcons }
-// export * from './IconData.jsx'
+export { IconLibrary, addIcon, addIcons }
