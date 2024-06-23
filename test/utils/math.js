@@ -1,4 +1,71 @@
 import { test, expect } from 'vitest'
+import { multiply, divide, add, sub } from '@/src/index.jsx'
+
+test(
+  'multiply(3.0, 2.2)',
+  () => {
+    expect(multiply(3.0, 2.2)).toBe(6.6)
+  }
+)
+
+test(
+  'multiply(-3.14, 3)',
+  () => {
+    expect(multiply(-3.14, 3)).toBe(-9.42)
+  }
+)
+
+test(
+  'divide(6.6, 2.2)',
+  () => {
+    expect(divide(6.6, 2.2)).toBe(3)
+  }
+)
+
+test(
+  'divide(-14.08, 3.2)',
+  () => {
+    expect(divide(-14.08, 3.2)).toBe(-4.4)
+  }
+)
+
+test(
+  'add(2.2, 2.2, 2.2)',
+  () => {
+    expect(add(2.2, 2.2, 2.2)).toBe(6.6)
+  }
+)
+
+test(
+  'add(-3.14, -3.14, -3.14)',
+  () => {
+    expect(add(-3.14, -3.14, -3.14)).toBe(-9.42)
+  }
+)
+
+test(
+  'sub(6.6, 2.2)',
+  () => {
+    expect(sub(6.6, 2.2)).toBe(4.4)
+  }
+)
+
+test(
+  'sub(3.14, 9.42)',
+  () => {
+    expect(sub(3.14, 9.42)).toBe(-6.28)
+  }
+)
+
+test(
+  'sub(-3.14, 6.28)',
+  () => {
+    expect(sub(-3.14, 6.28)).toBe(-9.42)
+  }
+)
+
+
+/*
 import { valueRounder } from '@/src/index.jsx'
 import { valuePercent } from '@/src/index.jsx'
 
@@ -99,3 +166,4 @@ test(
     expect(valuePercent(38, 20, 40)).toBe(90)
   }
 )
+*/

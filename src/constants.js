@@ -1,5 +1,6 @@
 export const DASH       = '-'
 export const BLANK      = ''
+export const ANY        = 'any'
 export const ARROW_DOWN = 'ArrowDown'
 export const ARROW_UP   = 'ArrowUp'
 export const TAB        = 'Tab'
