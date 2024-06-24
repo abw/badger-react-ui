@@ -3,6 +3,7 @@ import Context from './Context.js'
 import DefaultSlider from './Slider.jsx'
 import DefaultInput from './Input.jsx'
 import DefaultOutput from './Output.jsx'
+import DefaultLimits from './Limits.jsx'
 import DefaultDebug from './Debug.jsx'
 import { classes } from '@/src/utils/classes.js'
 // import DefaultSelection from './Selection.jsx'
@@ -14,21 +15,27 @@ const Content = ({
   Slider=DefaultSlider,
   Input=DefaultInput,
   Output=DefaultOutput,
+  Limits=DefaultLimits,
   Debug=DefaultDebug,
   debug,
   showInput,
-  showOutput,
+  showOutput, // old
+  showValue,  // new
+  showLimits,
   percent,
 }) =>
   <div
     className={classes(rangeClass, className)}
     style={{ '--percent': `${percent}%` }}
   >
-    { Boolean(showOutput) &&
+    { (showOutput || showValue) &&
       <Output/>
     }
     <Slider/>
-    { Boolean(showInput) &&
+    { Boolean(showLimits) &&
+      <Limits/>
+    }
+    { (showInput && ! showLimits) &&
       <Input/>
     }
     { Boolean(debug) &&

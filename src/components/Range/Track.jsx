@@ -7,9 +7,10 @@ const Track = ({
   trackClass='range-track',
   Selection=DefaultSelection,
   Thumbs=DefaultThumbs,
+  onClick,
   trackRef
 }) =>
-  <div className={trackClass} ref={trackRef}>
+  <div className={trackClass} ref={trackRef} onClick={onClick}>
     <Selection/>
     <Thumbs/>
   </div>

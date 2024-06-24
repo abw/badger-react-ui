@@ -13,7 +13,7 @@ class Context extends Base {
     onChange: doNothing,
   }
   static actions = [
-    'thumbsRef', 'onMouseDown', 'onKeyDown',
+    'trackRef', 'thumbsRef', 'onMouseDown', 'onKeyDown', 'onClick', 'noClick',
     'setValue', 'setInput', 'stepUp', 'stepDown'
   ]
   constructor(props) {
@@ -78,6 +78,9 @@ class Context extends Base {
   thumbsRef(ref){
     this._thumbsRef = ref
   }
+  trackRef(ref){
+    this._trackRef = ref
+  }
   onKeyDown(event) {
     this.debug(`onKeyDown(${event.key})`)
 
@@ -135,11 +138,28 @@ class Context extends Base {
     )
     window.addEventListener(
       'mouseup',
-      () => {
+      e => {
+        e.preventDefault()
+        e.stopPropagation()
         this.setState({ thumbDrag: null })
         window.removeEventListener('mousemove', mouseMove)
       }
     )
+  }
+  onClick(e) {
+    const track = this._trackRef
+    if (! track) {
+      return
+    }
+    const { clientX: clickX } = e
+    const { left: trackLeft, width: trackWidth } = this._trackRef.getBoundingClientRect()
+    const normal = (clickX - trackLeft) / trackWidth
+    this.debug(`click at ${clickX} from ${trackLeft} with width ${trackWidth}: ${normal}`)
+    this.setNormalisedValue(normal)
+  }
+  noClick(e) {
+    e.preventDefault()
+    e.stopPropagation()
   }
 }
 

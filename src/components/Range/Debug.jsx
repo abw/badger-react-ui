@@ -6,9 +6,10 @@ const Debug = ({
   value,
   percent,
   step,
+  steps
 }) =>
   <div>
-    {min} to {max} step:{step} - value:{value} ({percent}%)
+    {min} to {max} step:{step} steps:{steps} - value:{value} ({percent}%)
   </div>
 
 export const RangeDebug = Context.Consumer(Debug)

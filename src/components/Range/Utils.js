@@ -30,6 +30,10 @@ export const initRange = (props={}) => {
     step = 1
   }
 
+  const steps = step === ANY
+    ? null
+    : divide(range, step)
+
   // create a quantizing function which snaps a value to the range and an
   // integer number of steps
   quantize = rangeQuantizer({ min, max, step, quantize })
@@ -59,7 +63,7 @@ export const initRange = (props={}) => {
   const percent = multiply(normal, 100)
 
   return {
-    min, max, range, value, step, quantize, normal, percent,
+    min, max, range, value, step, steps, quantize, normal, percent,
     normalToValue, valueToNormal
   }
 }

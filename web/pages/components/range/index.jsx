@@ -4,6 +4,11 @@ import Heading        from '@/web/page/Heading.jsx'
 import Section        from '@/web/page/Section.jsx'
 import Split          from '@/web/site/Split.jsx'
 import Range          from './_examples/Range/index.jsx'
+import ShowTicks      from './_examples/showTicks/index.jsx'
+import ShowValue      from './_examples/showValue/index.jsx'
+import ValueLocation  from './_examples/valueLocation/index.jsx'
+import ShowLimits     from './_examples/showLimits/index.jsx'
+import ShowInput      from './_examples/showInput/index.jsx'
 //import Value          from './_examples/value/index.jsx'
 //import DisplayValue   from './_examples/displayValue/index.jsx'
 
@@ -12,6 +17,12 @@ const RangeExamples = () =>
     <h1>Range</h1>
     <Range/>
     <Sections tocName="range">
+      <Heading title="Properties"/>
+      <ShowTicks/>
+      <ShowValue/>
+      <ValueLocation/>
+      <ShowLimits/>
+      <ShowInput/>
       <Split>
         <div className="flow">
           <Heading title="Event Handlers"/>

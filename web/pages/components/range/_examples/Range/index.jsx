@@ -49,7 +49,15 @@ const Range = () =>
     </p>
     <DescTable
       items={[
+        ['min',           'The minimum value'],
+        ['max',           'The maximum value'],
+        ['range',         'The range from `min` to `max`'],
+        ['step',          'The step size or `any` if there is no stepping'],
+        ['steps',         'The number of steps covering the range'],
         ['value',         'The current input value.'],
+        ['normal',        'The `value` normalised to the range `0` to `1`'],
+        ['percent',       'The `value` as a percentage of the range'],
+        ['quantize',      'A function to quantize a `value` to any defined `step`'],
       ]}
     />
   </>
