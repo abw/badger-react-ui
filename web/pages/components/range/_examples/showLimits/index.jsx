@@ -9,6 +9,7 @@ const ShowLimits = () =>
     Component={Component}
     Source={Source}
     undent={2}
+    highlightLines="2"
     expand
   >
     <p>

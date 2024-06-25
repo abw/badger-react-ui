@@ -5,6 +5,7 @@ const RangeExample = () =>
   /* START */
   <Range
     showValue
+    displayValue={value => `${value}%`}
   />
   /* END */
 

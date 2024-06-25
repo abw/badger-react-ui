@@ -8,7 +8,7 @@ const ValueLocation = () =>
     code="valueLocation"
     Component={Component}
     Source={Source}
-    // highlightLines="2,13-14"
+    highlightLines="6,10,14"
     undent={4}
     expand
   >
@@ -17,6 +17,9 @@ const ValueLocation = () =>
       alignment of the current value.  The default value is <code>thumb</code> which
       will align the value with the draggable &quot;thumb&quot;.  It can
       also be set to <code>left</code>, <code>center</code> or <code>right</code>.
+    </p>
+    <p>
+      This option only has an effect when <a href="#showvalue" className="code">showValue</a> is set.
     </p>
   </Example>
 

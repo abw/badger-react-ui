@@ -5,10 +5,11 @@ import { classes } from '@/src/utils/classes.js'
 const Value = ({
   valueClass='range-value',
   valueLocation='thumb',
-  value
+  value,
+  displayValue
 }) =>
   <div className={classes(valueClass, valueLocation)}>
-    {value}
+    {displayValue(value)}
   </div>
 
 export const RangeValue = Context.Consumer(Value)

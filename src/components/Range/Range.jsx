@@ -5,11 +5,21 @@ import { Themed } from '@/src/Theme.jsx'
 
 const Range = ({
   Content=RangeContent,
+  children,
   ...props
 }) =>
   <Context.Provider {...props}>
-    <Content/>
+    <Content>
+      {children}
+    </Content>
   </Context.Provider>
 
 const ThemedRange = Themed(Range, 'Range')
 export default ThemedRange
+
+
+/*
+      ? <Context.Children>
+          {children}
+        </Context.Children>
+*/

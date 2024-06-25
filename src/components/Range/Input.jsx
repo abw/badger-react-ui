@@ -1,7 +1,6 @@
 import React from 'react'
 import Context from './Context.js'
 import Icon from '../Icon/Icon.jsx'
-// import DefaultValue from './Value.jsx'
 
 const Input = ({
   inputClass='range-input field',
@@ -13,7 +12,6 @@ const Input = ({
   stepUp,
   stepDown,
   value
-  // Value=DefaultValue,
 }) =>
   <div className={inputClass}>
     <div className="inputs inline">

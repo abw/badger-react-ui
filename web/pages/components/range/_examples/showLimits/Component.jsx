@@ -3,7 +3,9 @@ import { Range } from '@/src/index.jsx'
 
 const RangeExample = () =>
   /* START */
-  <Range showLimits/>
+  <Range
+    showLimits
+  />
   /* END */
 
 export default RangeExample

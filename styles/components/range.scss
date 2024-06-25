@@ -44,16 +44,67 @@
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 0.75rem;
-  .range-limits {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    line-height: 1;
-    user-select: none;
-    // font-size: var(--size-small);
-    .range-limit {
-      font-size: var(--limit-size);
-      color: var(--limit-color);
+  .range-slider {
+    width: 100%;
+    height: 1em;
+    position: relative;
+    background-color: var(--background-color);
+    //border: var(--border-width) solid var(--border-color);
+    border-radius: 0.5em;
+  }
+  .range-track {
+    cursor: pointer;
+    position: absolute;
+    left: var(--track-offset);
+    right: var(--track-offset);
+    top: 50%;
+    transform: translateY(-50%);
+    height: var(--track-height);
+    border-radius: var(--track-half);
+    // border: 1px solid var(--track-border);
+    // border: 1px solid red;
+    background-color: var(--track-background);
+    overflow: visible;
+    .range-selection {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      // right: 0;
+      // right: calc(100% - var(--pos));
+      width: var(--percent);
+      border-color: var(--track-fill);
+      border-radius: 0.5em;
+      background-color: var(--track-fill);
+    }
+    .range-thumbs {
+      position: absolute;
+      left: 0.125em;
+      right: 0.125em;
+      left: var(--thumbs-offset);
+      right: var(--thumbs-offset);
+      top: 2px;
+      bottom: 2px;
+    }
+  }
+  .range-thumb {
+    --translate-x: calc(0px - var(--thumb-half));
+    position: absolute;
+    top: 50%;
+    transform: translate(var(--translate-x), -50%);
+    width:  var(--thumb-size);
+    height: var(--thumb-size);
+    border-radius: var(--thumb-half);
+    box-shadow: 0 0 0 var(--shadow-size) var(--shadow-color);
+    transition: box-shadow 300ms, opacity 300ms;
+    background-color: var(--thumb-background);
+    opacity: var(--thumb-opacity);
+    left: var(--percent);
+    &:hover, &:focus, &.dragging {
+      outline: none;
+      opacity: 1;
+      --shadow-size: var(--shadow-focus-size);
+      --shadow-color: var(--shadow-focus-color);
     }
   }
   .range-ticks {
@@ -71,6 +122,18 @@
       background-color: var(--tick-color);
       border-radius: var(--tick-radius);
       // content: "";
+    }
+  }
+  .range-limits {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    line-height: 1;
+    user-select: none;
+    // font-size: var(--size-small);
+    .range-limit {
+      font-size: var(--limit-size);
+      color: var(--limit-color);
     }
   }
   .range-input {
@@ -122,73 +185,6 @@
         left: 50%;
         transform: translateX(-50%);
       }
-    }
-  }
-  .range-slider {
-    width: 100%;
-    height: 1em;
-    position: relative;
-    background-color: var(--background-color);
-    //border: var(--border-width) solid var(--border-color);
-    border-radius: 0.5em;
-  }
-  .range-track {
-    cursor: pointer;
-    position: absolute;
-    left: var(--track-offset);
-    right: var(--track-offset);
-    top: 50%;
-    transform: translateY(-50%);
-    height: var(--track-height);
-    border-radius: var(--track-half);
-    // border: 1px solid var(--track-border);
-    // border: 1px solid red;
-    background-color: var(--track-background);
-    overflow: visible;
-    .range-selection {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      // right: 0;
-      // right: calc(100% - var(--pos));
-      width: var(--percent);
-      border-color: var(--track-fill);
-      border-radius: 0.5em;
-      background-color: var(--track-fill);
-    }
-    .range-thumbs {
-      position: absolute;
-      left: 0.125em;
-      right: 0.125em;
-      left: var(--thumbs-offset);
-      right: var(--thumbs-offset);
-      top: 2px;
-      bottom: 2px;
-      // background-color: white;
-
-    }
-    // background-color: var(--accent-color);
-  }
-  .range-thumb {
-    --translate-x: calc(0px - var(--thumb-half));
-    // --translate-x: 0;
-    position: absolute;
-    top: 50%;
-    transform: translate(var(--translate-x), -50%);
-    width:  var(--thumb-size);
-    height: var(--thumb-size);
-    border-radius: var(--thumb-half);
-    box-shadow: 0 0 0 var(--shadow-size) var(--shadow-color);
-    transition: box-shadow 300ms, opacity 300ms;
-    background-color: var(--thumb-background);
-    opacity: var(--thumb-opacity);
-    left: var(--percent);
-    &:hover, &:focus, &.dragging {
-      outline: none;
-      opacity: 1;
-      --shadow-size: var(--shadow-focus-size);
-      --shadow-color: var(--shadow-focus-color);
     }
   }
 }

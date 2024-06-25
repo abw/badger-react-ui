@@ -1,9 +1,10 @@
 import { Generator, Context as Base } from '@abw/react-context'
-import { valuePercent } from '@/src/utils/index.js'
+import { classes, valuePercent } from '@/src/utils/index.js'
 import { doNothing, clamp, multiply, divide } from '@abw/badger-utils'
 import { initRange } from './Utils.js'
 import { ANY, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT } from '@/src/constants.js'
 import { ARROW_UP } from 'dist/badger-react-ui.js'
+import { identity } from '@abw/badger-utils'
 
 class Context extends Base {
   static debug        = false
@@ -11,6 +12,7 @@ class Context extends Base {
   static debugColor   = 'rebeccapurple'
   static defaultProps = {
     onChange: doNothing,
+    displayValue: identity
   }
   static actions = [
     'trackRef', 'thumbsRef', 'onMouseDown', 'onKeyDown', 'onClick', 'noClick',
@@ -161,12 +163,22 @@ class Context extends Base {
     e.preventDefault()
     e.stopPropagation()
   }
+  getRenderProps() {
+    const context = this.getContext()
+    const { percent, className, rangeClass='range' } = context
+    context.rangeProps = {
+      className: classes(rangeClass, className),
+      style: { '--percent': `${percent}%` }
+    }
+    return context
+  }
 }
 
 export const RangeContext = Generator(Context)
 export const {
   Provider: RangeProvider,
   Consumer: RangeConsumer,
+  Children: RangeChildren,
   Use:      useRange
 } = RangeContext
 export default RangeContext

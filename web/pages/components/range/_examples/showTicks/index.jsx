@@ -9,6 +9,7 @@ const ShowTicks = () =>
     Component={Component}
     Source={Source}
     undent={2}
+    highlightLines="3"
     expand
   >
     <p>

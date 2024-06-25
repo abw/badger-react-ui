@@ -110,7 +110,7 @@ export const prepareCode = (code, options={}) => {
     // and the // PRETEND: prefix
     .replaceAll(/\/\/\s*PRETEND:\s/g, '')
     // also cleanup {/* PRETEND: some stuff */}
-    .replaceAll(/{?\/\*\s*PRETEND:\s(.*?)\s+\*\/}?/g, '$1')
+    .replaceAll(/{?\/\*\s*PRETEND:\s(.*?)\s+\*\/}?/gs, '$1')
     // .replaceAll(/\/\*\s*REAL\s*\*\/.*?\/\*\s*UNREAL\s*\*\//g, '')
     // .replaceAll(/{\/\*\s*(UN?)PRETEND\s*\*\/}/g, '')
     .replace(/\n+$/, '')

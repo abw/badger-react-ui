@@ -3,14 +3,8 @@ import Context from './Context.js'
 
 const Selection = ({
   className='range-selection',
-  // selectionRef,
-  // noClick
 }) =>
-  <div
-    className={className}
-    // ref={selectionRef}
-    // onClick={noClick}
-  />
+  <div className={className}/>
 
 export const RangeSelection = Context.Consumer(Selection)
 export default RangeSelection

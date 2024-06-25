@@ -8,7 +8,7 @@ const ShowValue = () =>
     code="showValue"
     Component={Component}
     Source={Source}
-    // highlightLines="2,13-14"
+    highlightLines="2"
     undent={2}
     expand
   >
