@@ -9,10 +9,12 @@ import Min            from './_examples/min/index.jsx'
 import Max            from './_examples/max/index.jsx'
 import Step           from './_examples/step/index.jsx'
 import ShowTicks      from './_examples/showTicks/index.jsx'
+import TickStep       from './_examples/tickStep/index.jsx'
 import DisplayValue   from './_examples/displayValue/index.jsx'
 import ShowValue      from './_examples/showValue/index.jsx'
 import ValueLocation  from './_examples/valueLocation/index.jsx'
 import ShowLimits     from './_examples/showLimits/index.jsx'
+import ShowScale      from './_examples/showScale/index.jsx'
 import ShowInput      from './_examples/showInput/index.jsx'
 import Children       from './_examples/children/index.jsx'
 //import Value          from './_examples/value/index.jsx'
@@ -32,6 +34,8 @@ const RangeExamples = () =>
       <ValueLocation/>
       <DisplayValue/>
       <ShowTicks/>
+      <TickStep/>
+      <ShowScale/>
       <ShowLimits/>
       <ShowInput/>
       <Children/>

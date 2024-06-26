@@ -5,15 +5,24 @@ import { range } from '@abw/badger-utils'
 const Ticks = ({
   ticksClass='range-ticks',
   tickClass='range-tick',
-  steps
+  scaleValueClass='range-scale-value',
+  tickSteps,
+  showScale,
+  displayValue,
+  normalToValue,
 }) =>
   <div
     className={ticksClass}
-    style={{ '--steps': steps }}
   >
-    { range(0, steps).map(
+    { range(0, tickSteps).map(
       n =>
-        <div className={tickClass} key={n}></div>
+        <div className={tickClass} key={n}>
+          { Boolean(showScale) &&
+            <div className={scaleValueClass}>
+              {displayValue(normalToValue(n / tickSteps))}
+            </div>
+          }
+        </div>
     )}
   </div>
 

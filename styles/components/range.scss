@@ -15,7 +15,7 @@
   --step-disabled-background: var(--grey-95);
   --tick-color: var(--track-border);
   --value-color: var(--grey-20);
-  --limit-color: var(--grey-40);
+  --scale-color: var(--grey-40);
 }
 #{$dark-theme} .range {
   --track-background: var(--brand-15);
@@ -59,12 +59,13 @@
   --tick-radius: 1px;
   --tick-offset: calc(0px - var(--tick-length));
   --value-size: var(--size-medium);
-  --limit-size: var(--size-smaller);
+  --scale-size: var(--size-smaller);
+  --gap: 0.75rem;
   // box-sizing: content-box;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 0.75rem;
+  gap: var(--gap);
   // border: 1px dashed red;
   .range-slider {
     width: 100%;
@@ -129,40 +130,45 @@
       --shadow-color: var(--shadow-focus-color);
     }
   }
-  .range-ticks {
-    position: absolute;
-    top: var(--tick-offset);
-    bottom: var(--tick-offset);
-    // left: var(--track-offset);
-    // right: var(--track-offset);
-    left: var(--ticks-offset);
-    right: var(--ticks-offset);
-    // padding: 0 var(--track-offset);
-    display: flex;
-    justify-content: space-between;
-    .range-tick {
-      height: 100%;
-      width: var(--tick-width);
-      background-color: var(--tick-color);
-      border-radius: var(--tick-radius);
-      // content: "";
-    }
-  }
   .range-limits {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     line-height: 1;
     user-select: none;
-    // font-size: var(--size-small);
-    .range-limit {
-      font-size: var(--limit-size);
-      color: var(--limit-color);
+  }
+  .range-scale-value {
+    font-size: var(--scale-size);
+    color: var(--scale-color);
+  }
+  .range-ticks {
+    position: absolute;
+    top: var(--tick-offset);
+    bottom: var(--tick-offset);
+    left: var(--ticks-offset);
+    right: var(--ticks-offset);
+    display: flex;
+    justify-content: space-between;
+    .range-tick {
+      position: relative;
+      height: 100%;
+      width: var(--tick-width);
+      background-color: var(--tick-color);
+      border-radius: var(--tick-radius);
+      .range-scale-value {
+        position: absolute;
+        left: 0;
+        bottom: calc(0px - var(--gap) - var(--scale-size));
+        transform: translateX(-50%);
+      }
     }
   }
   .range-input {
     width: 100%;
     text-align: center;
+    &.range-has-scale {
+      margin-top: calc(var(--gap) * 2);
+    }
     input {
       text-align: center;
     }

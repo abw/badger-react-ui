@@ -1,10 +1,12 @@
 import { Generator, Context as Base } from '@abw/react-context'
-import { classes, valuePercent } from '@/src/utils/index.js'
-import { doNothing, clamp, multiply, divide } from '@abw/badger-utils'
+import { anyPropsChanged, classes, valuePercent } from '@/src/utils/index.js'
+import { doNothing, clamp, multiply, divide, identity, splitList } from '@abw/badger-utils'
+import { ANY, ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT } from '@/src/constants.js'
 import { initRange } from './Utils.js'
-import { ANY, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT } from '@/src/constants.js'
-import { ARROW_UP } from 'dist/badger-react-ui.js'
-import { identity } from '@abw/badger-utils'
+
+const WATCH_PROPS = splitList(
+  'min max value step tickStep quantize'
+)
 
 class Context extends Base {
   static debug        = false
@@ -20,16 +22,29 @@ class Context extends Base {
   ]
   constructor(props) {
     super(props)
-    const { normalToValue, valueToNormal, quantize, ...state } = initRange(props)
-    this.quantize = quantize
-    this.normalToValue = normalToValue
-    this.valueToNormal = valueToNormal
+    const state = this.initProps(props)
     this.state = {
       ...this.state,
       ...state,
       input: state.value,
     }
   }
+  initProps(props) {
+    const { normalToValue, valueToNormal, quantize, ...state } = initRange(props)
+    this.quantize = quantize
+    this.normalToValue = normalToValue
+    this.valueToNormal = valueToNormal
+    return state
+  }
+  componentDidUpdate(prevProps) {
+    if (anyPropsChanged(WATCH_PROPS, this.props, prevProps)) {
+      this.debug(`props have changed`)
+      this.setState(
+        this.initProps(this.props)
+      )
+    }
+  }
+
   setInput(input) {
     this.setState(
       {
@@ -165,10 +180,15 @@ class Context extends Base {
   }
   getRenderProps() {
     const context = this.getContext()
-    const { percent, className, rangeClass='range' } = context
+    const { normal, percent, className, rangeClass='range' } = context
+    context.quantize = this.quantize
+    context.normalToValue = this.normalToValue
     context.rangeProps = {
       className: classes(rangeClass, className),
-      style: { '--percent': `${percent}%` }
+      style: {
+        '--position': normal,
+        '--percent': `${percent}%`
+      }
     }
     return context
   }

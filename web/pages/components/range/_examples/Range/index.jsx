@@ -2,8 +2,8 @@ import React      from 'react'
 import Example    from '@/site/Example.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
-import InOut      from './InOut.jsx'
-import InOutSrc   from './InOut.jsx?raw'
+import Extras     from './Extras.jsx'
+import ExtrasSrc  from './Extras.jsx?raw'
 import MinMax     from './MinMax.jsx'
 import MinMaxSrc  from './MinMax.jsx?raw'
 import DescTable  from '@/web/site/DescTable.jsx'
@@ -20,10 +20,12 @@ const Range = () =>
     <p>
       The custom range component offers the same functionality as the native
       HTML input with some additional functionality and display options.
+      Furthermore, the custom component is <i>considerably</i> easier to
+      style consistently across browsers.
     </p>
     <Example
-      Component={InOut}
-      code={InOutSrc}
+      Component={Extras}
+      code={ExtrasSrc}
       undent={2}
     />
     <p>

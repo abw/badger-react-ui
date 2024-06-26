@@ -4,20 +4,20 @@ import DefaultInput from './Input.jsx'
 
 const Limits = ({
   limitsClass='range-limits',
-  limitClass='range-limit',
+  scaleValueClass='range-scale-value',
   Input=DefaultInput,
   showInput,
   min,
   max
 }) =>
   <div className={limitsClass}>
-    <div className={limitClass}>
+    <div className={scaleValueClass}>
       {min}
     </div>
     { Boolean(showInput) &&
-      <Input/>
+      <Input inLimits/>
     }
-    <div className={limitClass}>
+    <div className={scaleValueClass}>
       {max}
     </div>
   </div>

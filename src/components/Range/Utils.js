@@ -1,9 +1,11 @@
 import { ANY } from '@/src/constants.js'
 import { coerceNumber } from '@/src/utils/math.js'
-import { isNull, hasValue, isFunction, add, subtract, multiply, divide, clamp } from '@abw/badger-utils'
+import {
+  isNull, hasValue, isFunction, add, subtract, multiply, divide, clamp
+} from '@abw/badger-utils'
 
 export const initRange = (props={}) => {
-  let { min=0, max=100, value, step, quantize } = props
+  let { min=0, max=100, value, step, tickStep, quantize } = props
 
   // Coerce min and max to numbers and calculate the range
   min = coerceNumber(min)
@@ -34,6 +36,11 @@ export const initRange = (props={}) => {
     ? null
     : divide(range, step)
 
+  tickStep ??= step
+  const tickSteps = tickStep === ANY
+    ? null
+    : divide(range, tickStep)
+
   // create a quantizing function which snaps a value to the range and an
   // integer number of steps
   quantize = rangeQuantizer({ min, max, step, quantize })
@@ -63,7 +70,8 @@ export const initRange = (props={}) => {
   const percent = multiply(normal, 100)
 
   return {
-    min, max, range, value, step, steps, quantize, normal, percent,
+    min, max, range, value, step, steps, tickStep, tickSteps,
+    quantize, normal, percent,
     normalToValue, valueToNormal
   }
 }

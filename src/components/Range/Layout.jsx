@@ -15,6 +15,7 @@ const Layout = ({
   debug,
   showInput,
   showValue,
+  showScale,
   showLimits,
 }) =>
   <>
@@ -22,7 +23,7 @@ const Layout = ({
       <Output/>
     }
     <Slider/>
-    { Boolean(showLimits) &&
+    { (showLimits && ! showScale) &&
       <Limits/>
     }
     { (showInput && ! showLimits) &&
