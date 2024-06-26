@@ -14,7 +14,8 @@ class Context extends Base {
   static debugColor   = 'rebeccapurple'
   static defaultProps = {
     onChange: doNothing,
-    displayValue: identity
+    displayValue: identity,
+    color: 'brand'
   }
   static actions = [
     'trackRef', 'thumbsRef', 'onMouseDown', 'onKeyDown', 'onClick', 'noClick',
@@ -180,11 +181,11 @@ class Context extends Base {
   }
   getRenderProps() {
     const context = this.getContext()
-    const { normal, percent, className, rangeClass='range' } = context
+    const { normal, percent, className, rangeClass='range', color, size } = context
     context.quantize = this.quantize
     context.normalToValue = this.normalToValue
     context.rangeProps = {
-      className: classes(rangeClass, className),
+      className: classes(rangeClass, className, color, size),
       style: {
         '--position': normal,
         '--percent': `${percent}%`

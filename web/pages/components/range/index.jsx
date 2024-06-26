@@ -16,6 +16,8 @@ import ValueLocation  from './_examples/valueLocation/index.jsx'
 import ShowLimits     from './_examples/showLimits/index.jsx'
 import ShowScale      from './_examples/showScale/index.jsx'
 import ShowInput      from './_examples/showInput/index.jsx'
+import Color          from './_examples/color/index.jsx'
+import Size           from './_examples/size/index.jsx'
 import Children       from './_examples/children/index.jsx'
 //import Value          from './_examples/value/index.jsx'
 //import DisplayValue   from './_examples/displayValue/index.jsx'
@@ -38,6 +40,8 @@ const RangeExamples = () =>
       <ShowScale/>
       <ShowLimits/>
       <ShowInput/>
+      <Color/>
+      <Size/>
       <Children/>
       <Split>
         <div className="flow">

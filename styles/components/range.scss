@@ -1,16 +1,17 @@
 // Temporary hack to update values in badger-css (which will be updated soon)
 .range {
   --position: 0.5;
-  --accent-color: var(--input-accent-color, var(--brand-50));
-  --track-background: var(--brand-85);
-  --track-border: var(--brand-70);
-  --track-fill: var(--brand-50);
+  // --accent-color: var(--input-accent-color, var(--color-50));
+  --accent-color: var(--color-50);
+  --track-background: var(--color-85);
+  --track-border: var(--color-70);
+  --track-fill: var(--color-50);
   --shadow-color: color-mix(in srgb, var(--accent-color), black 40%);
   --shadow-focus-color: color-mix(in srgb, var(--accent-color), transparent 70%);
-  --step-color: var(--brand-50);
-  --step-background: var(--brand-90);
-  --step-hover-color: var(--brand-30);
-  --step-hover-background: var(--brand-80);
+  --step-color: var(--color-50);
+  --step-background: var(--color-90);
+  --step-hover-color: var(--color-30);
+  --step-hover-background: var(--color-80);
   --step-disabled-color: var(--grey-70);
   --step-disabled-background: var(--grey-95);
   --tick-color: var(--track-border);
@@ -18,15 +19,15 @@
   --scale-color: var(--grey-40);
 }
 #{$dark-theme} .range {
-  --track-background: var(--brand-15);
-  --track-border: var(--brand-35);
-  --track-fill: var(--brand-50);
+  --track-background: var(--color-15);
+  --track-border: var(--color-35);
+  --track-fill: var(--color-50);
   --shadow-color: color-mix(in srgb, var(--accent-color), white 40%);
   --shadow-focus-color: color-mix(in srgb, var(--accent-color), transparent 55%);
-  --step-color: var(--brand-60);
-  --step-background: var(--brand-15);
-  --step-hover-color: var(--brand-70);
-  --step-hover-background: var(--brand-25);
+  --step-color: var(--color-60);
+  --step-background: var(--color-15);
+  --step-hover-color: var(--color-70);
+  --step-hover-background: var(--color-25);
   --step-disabled-color: var(--grey-30);
   --step-disabled-background: var(--grey-5);
   --value-color: var(--grey-80);
