@@ -18,7 +18,7 @@ class Context extends Base {
     color: 'brand'
   }
   static actions = [
-    'trackRef', 'thumbsRef', 'onMouseDown', 'onKeyDown', 'onClick', 'noClick',
+    'trackRef', 'thumbsRef', 'onMouseDown', 'onKeyDown', 'onClick',
     'setValue', 'setInput', 'stepUp', 'stepDown'
   ]
   constructor(props) {
@@ -174,10 +174,6 @@ class Context extends Base {
     const normal = (clickX - trackLeft) / trackWidth
     this.debug(`click at ${clickX} from ${trackLeft} with width ${trackWidth}: ${normal}`)
     this.setNormalisedValue(normal)
-  }
-  noClick(e) {
-    e.preventDefault()
-    e.stopPropagation()
   }
   getRenderProps() {
     const context = this.getContext()
