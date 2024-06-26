@@ -1,5 +1,5 @@
 import { Generator, Context as Base } from '@abw/react-context'
-import { anyPropsChanged, classes, valuePercent } from '@/src/utils/index.js'
+import { anyPropsChanged, classes } from '@/src/utils/index.js'
 import { doNothing, clamp, multiply, divide, identity, splitList } from '@abw/badger-utils'
 import { ANY, ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT } from '@/src/constants.js'
 import { initRange } from './Utils.js'
@@ -90,9 +90,9 @@ class Context extends Base {
       normal, value, percent, input: value
     })
   }
-  valuePercent(value=this.props.value, min=this.props.min, max=this.props.max) {
-    return valuePercent(value, min, max)
-  }
+  //valuePercent(value=this.props.value, min=this.props.min, max=this.props.max) {
+  //  return valuePercent(value, min, max)
+  //}
   thumbsRef(ref){
     this._thumbsRef = ref
   }

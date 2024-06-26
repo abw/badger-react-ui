@@ -3,19 +3,18 @@ import Context from './Context.js'
 import { classes } from '@/src/utils/index.js'
 
 const Thumb = ({
-  thumbClass='range-thumb',
-  // thumbRef,
+  className='range-thumb',
   thumbDrag,
   onMouseDown,
   onKeyDown
 }) =>
   <div
-    className={classes(thumbClass, { dragging: thumbDrag })}
-    // ref={thumbRef}
+    className={classes(className, { dragging: thumbDrag })}
+    ref={thumbRef}
     onMouseDown={onMouseDown}
     onKeyDown={onKeyDown}
     tabIndex="0"
   />
 
-export const RangeThumb = Context.Consumer(Thumb)
-export default RangeThumb
+export const RangeMinMaxThumb = Context.Consumer(Thumb)
+export default RangeMinMaxThumb

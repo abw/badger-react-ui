@@ -218,4 +218,49 @@
       }
     }
   }
+  &.min-max {
+    --min-position: 0.25;
+    --max-position: 0.75;
+    --min-percent: 25%;
+    --max-percent: 75%;
+    .range-track {
+      .range-selection {
+        left: calc(var(--selection-border-offset) + var(--min-percent));
+        // width: calc(var(--percent) + var(--thumb-size) * (1 - var(--position)));
+        width: auto;
+        right: calc(100% - var(--max-percent));
+      }
+    }
+    .range-thumb {
+      &.min {
+        left: var(--min-percent);
+      }
+      &.max {
+        left: var(--max-percent);
+      }
+    }
+    .range-inputs {
+      display: flex;
+      justify-content: space-between;
+      .range-input {
+        width: auto;
+      }
+    }
+    .range-output {
+      .range-value {
+        &.thumb.min {
+          --percent: var(--min-percent);
+        }
+        &.thumb.max {
+          --percent: var(--max-percent);
+        }
+      }
+    }
+    &.debug {
+      border: 1px dashed red;
+      .range-inputs {
+        border: 1px dashed rebeccapurple;
+      }
+    }
+  }
 }

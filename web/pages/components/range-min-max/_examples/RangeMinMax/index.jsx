@@ -4,41 +4,28 @@ import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
 import Extras     from './Extras.jsx'
 import ExtrasSrc  from './Extras.jsx?raw'
-// import MinMax     from './MinMax.jsx'
-// import MinMaxSrc  from './MinMax.jsx?raw'
 import DescTable  from '@/web/site/DescTable.jsx'
+import { RangeLink } from '@/web/site/Links.jsx'
 
-const Range = () =>
+const RangeMinMax = () =>
   <>
     <p className="large">
-      The <code>Range</code> component implements a custom range input.
+      The <code>RangeMinMax</code> component implements a custom range input
+      that allows you to set a minimum and maximum value.
     </p>
     <Example
       Component={Component}
       code={Source}
     />
     <p>
-      The custom range component offers the same functionality as the native
-      HTML input with some additional functionality and display options.
-      Furthermore, the custom component is <i>considerably</i> easier to
-      style consistently across browsers.
+      It has similar functionality to the <RangeLink/> component.
     </p>
     <Example
       Component={Extras}
       code={ExtrasSrc}
       undent={2}
     />
-    {/*
-    <p>
-      Another advantages of this custom range component over the native HTML
-      element is that it supports a double-ended range where both the minimum
-      and maximum values can be set.
-    </p>
-    <Example
-      Component={MinMax}
-      code={MinMaxSrc}
-    />
-    */}
+
     <h2>Context</h2>
     <p>
       A react context is created which provides the items listed below.
@@ -46,9 +33,9 @@ const Range = () =>
       accessible to child components.
     </p>
     <p>
-      Custom components can be wrapped with the <code>RangeConsumer</code>{' '}
+      Custom components can be wrapped with the <code>RangeMinMaxConsumer</code>{' '}
       higher order component to receive these items as properties.  Or you
-      can use the <code>useRange</code> hook to access them.
+      can use the <code>useRangeMinMax</code> hook to access them.
     </p>
     <DescTable
       items={[
@@ -76,4 +63,4 @@ const Range = () =>
     />
   </>
 
-export default Range
+export default RangeMinMax

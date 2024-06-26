@@ -3,7 +3,7 @@ import Context from './Context.js'
 import Icon from '../Icon/Icon.jsx'
 import { classes } from '@/src/utils/classes.js'
 
-const Input = ({
+const InputMin = ({
   inputClass='range-input field',
   hasScaleClass='range-has-scale',
   showTicks,
@@ -12,11 +12,11 @@ const Input = ({
   min,
   max,
   step,
-  input,
-  setInput,
-  stepUp,
-  stepDown,
-  value
+  minInput,
+  setMinInput,
+  stepMinUp,
+  stepMinDown,
+  minValue
 }) =>
   <div
     className={
@@ -29,8 +29,8 @@ const Input = ({
   >
     <div className="inputs inline">
       <div
-        className={`prefix shaded lined ${value > min ? 'clickable' : 'disabled'}`}
-        onClick={value > min ? stepDown : null}
+        className={`prefix shaded lined ${minValue > min ? 'clickable' : 'disabled'}`}
+        onClick={minValue > min ? stepMinDown : null}
       >
         <Icon name="minus"/>
       </div>
@@ -39,18 +39,18 @@ const Input = ({
         min={min}
         max={max}
         step={step}
-        value={input}
+        value={minInput}
         className="inline"
-        onChange={e => setInput(e.target.value)}
+        onChange={e => setMinInput(e.target.value)}
       />
       <div
-        className={`suffix shaded lined ${value < max ? 'clickable' : 'disabled'}`}
-        onClick={value < max ? stepUp : null}
+        className={`suffix shaded lined ${minValue < max ? 'clickable' : 'disabled'}`}
+        onClick={minValue < max ? stepMinUp : null}
       >
         <Icon name="plus"/>
       </div>
     </div>
   </div>
 
-export const RangeInput = Context.Consumer(Input)
-export default RangeInput
+export const RangeMinMaxInputMin = Context.Consumer(InputMin)
+export default RangeMinMaxInputMin
