@@ -9,6 +9,9 @@ export const CodeLink = ({ to, text, ...props }) =>
 export const MakeCodeLink = (to, text) => props =>
   <CodeLink to={to} text={text} {...props}>{text}</CodeLink>
 
+export const CodeHashLink = ({ id, text=id }) =>
+  <a href={`#${id.toLowerCase()}`} className="code">{text}</a>
+
 export const AccordionLink   = MakeCodeLink('/components/accordion', 'Accordion')
 export const ButtonLink      = MakeCodeLink('/components/button', 'Button')
 export const ButtonsLink     = MakeCodeLink('/components/buttons', 'Buttons')
