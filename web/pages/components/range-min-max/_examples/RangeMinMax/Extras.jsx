@@ -10,7 +10,6 @@ const RangeMinMaxExample = () =>
     min={100} max={200} step={10}
     minRange={20} maxRange={70}
     showValues showTicks showScale showInputs
-    // debug
   />
   /* END */
 
