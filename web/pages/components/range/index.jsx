@@ -18,6 +18,8 @@ import ShowScale      from './_examples/showScale/index.jsx'
 import ShowInput      from './_examples/showInput/index.jsx'
 import Color          from './_examples/color/index.jsx'
 import Size           from './_examples/size/index.jsx'
+import ClassName      from './_examples/className/index.jsx'
+import Style          from './_examples/style/index.jsx'
 import Children       from './_examples/children/index.jsx'
 //import Value          from './_examples/value/index.jsx'
 //import DisplayValue   from './_examples/displayValue/index.jsx'
@@ -42,6 +44,8 @@ const RangeExamples = () =>
       <ShowInput/>
       <Color/>
       <Size/>
+      <ClassName/>
+      <Style/>
       <Children/>
       <Split>
         <div className="flow">

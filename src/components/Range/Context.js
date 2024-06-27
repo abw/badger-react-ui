@@ -1,5 +1,5 @@
 import { Generator, Context as Base } from '@abw/react-context'
-import { anyPropsChanged, classes } from '@/src/utils/index.js'
+import { anyPropsChanged, classes, extractStyleProps } from '@/src/utils/index.js'
 import { doNothing, clamp, multiply, divide, identity, splitList } from '@abw/badger-utils'
 import { ANY, ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT } from '@/src/constants.js'
 import { initRange } from './Utils.js'
@@ -177,15 +177,26 @@ class Context extends Base {
   }
   getRenderProps() {
     const context = this.getContext()
-    const { normal, percent, className, rangeClass='range', color, size } = context
+    const {
+      normal, percent,
+      className, rangeClass='range', hasScaleClass='range-has-scale',
+      color, size, showScale
+    } = context
     context.quantize = this.quantize
     context.normalToValue = this.normalToValue
     context.rangeProps = {
-      className: classes(rangeClass, className, color, size),
-      style: {
-        '--position': normal,
-        '--percent': `${percent}%`
-      }
+      className: classes(
+        rangeClass, className, color, size,
+        { [hasScaleClass]: showScale }
+      ),
+      style: extractStyleProps(
+        { },
+        this.props,
+        {
+          '--position': normal,
+          '--percent': `${percent}%`
+        }
+      )
     }
     return context
   }
