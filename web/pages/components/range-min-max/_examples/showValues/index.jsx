@@ -3,19 +3,19 @@ import Example    from '@/page/ExampleSection.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
 
-const ShowInput = () =>
+const RangeExample = () =>
   <Example
-    code="showInput"
+    code="showValues"
     Component={Component}
     Source={Source}
-    undent={2}
     highlightLines="2"
+    undent={2}
     expand
   >
     <p>
-      The <code>showInput</code> property can be specified to display an
-      input below the slider to allow a precise value to be entered.
+      The <code>showValues</code> property (or <code>showValue</code> as an alias)
+      can be specified to display the current values above their respective slider thumbs.
     </p>
   </Example>
 
-export default ShowInput
+export default RangeExample

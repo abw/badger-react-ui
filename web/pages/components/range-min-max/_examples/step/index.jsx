@@ -3,9 +3,9 @@ import Example    from '@/page/ExampleSection.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
 
-const ShowInput = () =>
+const RangeExample = () =>
   <Example
-    code="showInput"
+    code="step"
     Component={Component}
     Source={Source}
     undent={2}
@@ -13,9 +13,10 @@ const ShowInput = () =>
     expand
   >
     <p>
-      The <code>showInput</code> property can be specified to display an
-      input below the slider to allow a precise value to be entered.
+      The <code>step</code> property can be used to set a step for the values.
+      The default value is <code>1</code>.  You can set this to <code>any</code>{' '}
+      to allow any value to be entered.
     </p>
   </Example>
 
-export default ShowInput
+export default RangeExample

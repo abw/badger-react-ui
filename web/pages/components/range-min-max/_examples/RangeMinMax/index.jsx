@@ -5,7 +5,7 @@ import Source     from './Component.jsx?raw'
 import Extras     from './Extras.jsx'
 import ExtrasSrc  from './Extras.jsx?raw'
 import DescTable  from '@/web/site/DescTable.jsx'
-import { CodeHashLink, RangeLink } from '@/web/site/Links.jsx'
+import { RangeLink } from '@/web/site/Links.jsx'
 
 const RangeMinMax = () =>
   <>
@@ -53,9 +53,9 @@ const RangeMinMax = () =>
         ['maxNormal',     'The `maxValue` normalised to the range `0` to `1`'],
         ['minPercent',    'The `minValue` as a percentage of the range'],
         ['maxPercent',    'The `maxValue` as a percentage of the range'],
-        ['onClick',       'Mouse click handler for the `Track` component'],
-        ['onMouseDownMin','Mouse handler for the `ThumbMin` component'],
-        ['onMouseDownMax','Mouse handler for the `ThumbMax` component'],
+        ['onClick',       'Click handler for the `Track` component'],
+        ['onDragMin',     'Drag handler for the `ThumbMin` component'],
+        ['onDragMax',     'Drag handler for the `ThumbMax` component'],
         ['onKeyDownMin',  'Keyboard handler for the `ThumbMin` component'],
         ['onKeyDownMax',  'Keyboard handler for the `ThumbMax` component'],
         ['setMinValue',   'Function to set the `minValue`'],

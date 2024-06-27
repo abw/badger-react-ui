@@ -3,9 +3,9 @@ import Example    from '@/page/ExampleSection.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
 
-const ShowInput = () =>
+const RangeExample = () =>
   <Example
-    code="showInput"
+    code="max"
     Component={Component}
     Source={Source}
     undent={2}
@@ -13,9 +13,9 @@ const ShowInput = () =>
     expand
   >
     <p>
-      The <code>showInput</code> property can be specified to display an
-      input below the slider to allow a precise value to be entered.
+      The <code>max</code> property can be used to set the maximum value for
+      the range.  The default value is <code>100</code>.
     </p>
   </Example>
 
-export default ShowInput
+export default RangeExample

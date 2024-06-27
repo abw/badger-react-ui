@@ -2,7 +2,7 @@ import React          from 'react'
 import Sections       from '@/web/page/Sections.jsx'
 import Heading        from '@/web/page/Heading.jsx'
 import Section        from '@/web/page/Section.jsx'
-import Split          from '@/web/site/Split.jsx'
+// import Split          from '@/web/site/Split.jsx'
 import Range          from './_examples/Range/index.jsx'
 import Value          from './_examples/value/index.jsx'
 import Min            from './_examples/min/index.jsx'
@@ -21,6 +21,7 @@ import Size           from './_examples/size/index.jsx'
 import ClassName      from './_examples/className/index.jsx'
 import Style          from './_examples/style/index.jsx'
 import Children       from './_examples/children/index.jsx'
+import PropsTable from '@/web/site/PropsTable.jsx'
 //import Value          from './_examples/value/index.jsx'
 //import DisplayValue   from './_examples/displayValue/index.jsx'
 
@@ -47,30 +48,39 @@ const RangeExamples = () =>
       <ClassName/>
       <Style/>
       <Children/>
-      <Split>
-        <div className="flow">
-          <Heading title="Event Handlers"/>
-          <Section code="onChanged">
-            Called when the value is changed.
-          </Section>
-        </div>
-        <div className="flow">
-          <Heading title="CSS Classes"/>
-          <Section code="className">
-            Add an additional class to the range container.
-            There is no default value but the <code>rangeClass</code> is
-            also added to this container.
-          </Section>
-          <Section code="rangeClass">
-            Set the main class for the range container.
-            The default is <code>range</code>.
-          </Section>
-          <Section code="sliderClass">
-            Set the class for the range slider component.
-            The default is <code>slider</code>.
-          </Section>
-        </div>
-      </Split>
+      <Heading title="Event Handlers"/>
+      <Section code="onChange">
+        Called when the value is changed.  Passed the new value as an argument.
+      </Section>
+
+      <Heading title="CSS Classes"/>
+      <p>
+        The following properties can be used to change the CSS classes used
+        for different range components and elements.
+      </p>
+      <PropsTable
+        items={[
+          ['rangeClass', 'range', 'Main range container'],
+          ['hasScaleClass', 'range-has-scale', 'Additional class added to container when `showScale` is set'],
+          ['outputClass', 'range-output', 'Container for output value'],
+          ['valueClass', 'range-value', 'Class for output value'],
+          ['sliderClass', 'range-slider', 'Container for slider'],
+          ['trackClass', 'range-track', 'Container for slider track'],
+          ['selectionClass', 'range-selection', 'Selected part of range'],
+          ['thumbsClass', 'range-thumbs', 'Container for thumb'],
+          ['thumbClass', 'range-thumb', 'Class for thumb'],
+          ['ticksClass', 'range-ticks', 'Container for ticks'],
+          ['tickClass', 'range-tick', 'Class for each tick'],
+          ['limitsClass', 'range-limits', 'Container for scale limits'],
+          ['scaleValueClass', 'range-scale-value', 'Class for each value in limits or scale values'],
+          ['inputClass', 'range-input', 'Container for input'],
+          ['inputInputsClass', 'inputs inline', 'Container for input and stepping buttons'],
+          ['inputPrefixClass', 'prefix shaded lined', 'Class for `stepDown` prefix button'],
+          ['inputSuffixClass', 'suffix shaded lined', 'Class for `stepUp` suffix button'],
+          ['stepClass', 'step', 'Class for both `stepDown` and `stepUp` input buttons'],
+          ['disabledClass', 'disabled', 'Additional class for step buttons when disabled'],
+        ]}
+      />
     </Sections>
   </div>
 

@@ -2,10 +2,16 @@ import React from 'react'
 import Context from './Context.js'
 import { classes } from '@/src/utils/classes.js'
 
+const locations = {
+  limits: 'right'
+}
+
 const ValueMax = ({
   valueClass='range-value',
   maxClass='max',
-  maxValueLocation='thumb',
+  valueLocation='thumb',
+  valueLocations=valueLocation,
+  maxValueLocation=locations[valueLocations] || valueLocations,
   maxValue,
   displayValue
 }) =>

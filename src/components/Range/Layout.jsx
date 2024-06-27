@@ -14,6 +14,7 @@ const Layout = ({
   Debug=DefaultDebug,
   debug,
   showInput,
+  showInputs=showInput,
   showValue,
   showScale,
   showLimits,
@@ -26,7 +27,7 @@ const Layout = ({
     { (showLimits && ! showScale) &&
       <Limits/>
     }
-    { (showInput && ! showLimits) &&
+    { (showInputs && ! showLimits) &&
       <Input/>
     }
     { Boolean(debug) &&

@@ -7,6 +7,7 @@ const Limits = ({
   scaleValueClass='range-scale-value',
   Input=DefaultInput,
   showInput,
+  showInputs=showInput,
   displayValue,
   min,
   max
@@ -15,7 +16,7 @@ const Limits = ({
     <div className={scaleValueClass}>
       {displayValue(min)}
     </div>
-    { Boolean(showInput) &&
+    { Boolean(showInputs) &&
       <Input inLimits/>
     }
     <div className={scaleValueClass}>

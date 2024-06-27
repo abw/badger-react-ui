@@ -3,19 +3,19 @@ import Example    from '@/page/ExampleSection.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
 
-const ShowInput = () =>
+const RangeExample = () =>
   <Example
-    code="showInput"
+    code="size"
     Component={Component}
     Source={Source}
-    undent={2}
-    highlightLines="2"
+    undent={4}
+    // highlightLines="2"
     expand
   >
     <p>
-      The <code>showInput</code> property can be specified to display an
-      input below the slider to allow a precise value to be entered.
+      The <code>size</code> property can be used to set the size to any of
+      the standard sizes.  The default value is equivalent to <code>medium</code>.
     </p>
   </Example>
 
-export default ShowInput
+export default RangeExample

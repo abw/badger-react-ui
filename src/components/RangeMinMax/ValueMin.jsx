@@ -2,10 +2,16 @@ import React from 'react'
 import Context from './Context.js'
 import { classes } from '@/src/utils/classes.js'
 
+const locations = {
+  limits: 'left'
+}
+
 const ValueMin = ({
   valueClass='range-value',
   minClass='min',
-  minValueLocation='thumb',
+  valueLocation='thumb',
+  valueLocations=valueLocation,
+  minValueLocation=locations[valueLocations] || valueLocations,
   minValue,
   displayValue
 }) =>
