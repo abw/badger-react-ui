@@ -5,7 +5,7 @@ import { ANY, ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT } from '@/src/consta
 import { initRangeMinMax } from './Utils.js'
 
 const WATCH_PROPS = splitList(
-  'min max minValue maxValue step tickStep quantize'
+  'min max minValue maxValue minRange maxRange step tickStep quantize'
 )
 
 class Context extends Base {
@@ -15,6 +15,8 @@ class Context extends Base {
   static defaultProps = {
     onChange: doNothing,
     displayValue: identity,
+    // minRange: 0,
+    // maxRange: 0,
     color: 'brand'
   }
   static actions = [
@@ -49,37 +51,73 @@ class Context extends Base {
       )
     }
   }
+  minValueLimits() {
+    const { maxValue, min, max, minRange, maxRange } = this.state
+    return [
+      clamp(maxValue - maxRange, min, max),
+      clamp(maxValue - minRange, min, max)
+    ]
+  }
+  maxValueLimits() {
+    const { minValue, min, max, minRange, maxRange } = this.state
+    return [
+      clamp(minValue + minRange, min, max),
+      clamp(minValue + maxRange, min, max)
+    ]
+  }
   setMinInput(minInput) {
     this.setState(
-      {
-        minInput
-      },
+      { minInput },
       () => this.setMinValue(minInput)
     )
   }
   setMaxInput(maxInput) {
     this.setState(
-      {
-        maxInput
-      },
+      { maxInput },
       () => this.setMaxValue(maxInput)
     )
   }
   setMinValue(minValue) {
-    minValue = this.quantize(minValue)
+    minValue = this.quantize(minValue, ...this.minValueLimits())
     const minNormal = this.valueToNormal(minValue)
     const minPercent = multiply(minNormal, 100)
     this.setState({
       minNormal, minValue, minPercent
     })
+    return minValue
   }
   setMaxValue(maxValue) {
-    maxValue = this.quantize(maxValue)
+    maxValue = this.quantize(maxValue, ...this.maxValueLimits())
     const maxNormal = this.valueToNormal(maxValue)
     const maxPercent = multiply(maxNormal, 100)
     this.setState({
       maxNormal, maxValue, maxPercent
     })
+    return maxValue
+  }
+  setNormalisedMinValue(minNormal) {
+    const minValue = clamp(
+      this.normalToValue(minNormal),
+      ...this.minValueLimits()
+    )
+    minNormal = this.valueToNormal(minValue)
+    const minPercent = multiply(100, minNormal).toFixed(2)
+    this.setState({
+      minNormal, minValue, minPercent, minInput: minValue
+    })
+    return minValue
+  }
+  setNormalisedMaxValue(maxNormal) {
+    const maxValue = clamp(
+      this.normalToValue(maxNormal),
+      ...this.maxValueLimits()
+    )
+    maxNormal = this.valueToNormal(maxValue)
+    const maxPercent = multiply(100, maxNormal).toFixed(2)
+    this.setState({
+      maxNormal, maxValue, maxPercent, maxInput: maxValue
+    })
+    return maxValue
   }
   step() {
     const step = this.state.step
@@ -106,22 +144,6 @@ class Context extends Base {
     const newValue = this.state.maxValue - this.step()
     this.setMaxValue(newValue)
     this.setMaxInput(newValue)
-  }
-  setNormalisedMinValue(minNormal) {
-    const minValue = this.normalToValue(minNormal)
-    minNormal = this.valueToNormal(minValue)
-    const minPercent = multiply(100, minNormal).toFixed(2)
-    this.setState({
-      minNormal, minValue, minPercent, minInput: minValue
-    })
-  }
-  setNormalisedMaxValue(maxNormal) {
-    const maxValue = this.normalToValue(maxNormal)
-    maxNormal = this.valueToNormal(maxValue)
-    const maxPercent = multiply(100, maxNormal).toFixed(2)
-    this.setState({
-      maxNormal, maxValue, maxPercent, maxInput: maxValue
-    })
   }
   thumbsRef(ref){
     this._thumbsRef = ref

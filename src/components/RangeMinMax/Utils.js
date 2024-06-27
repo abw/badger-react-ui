@@ -5,7 +5,7 @@ import {
 } from '@abw/badger-utils'
 
 export const initRangeMinMax = (props={}) => {
-  let { min=0, max=100, minValue, maxValue, step, tickStep, quantize } = props
+  let { min=0, max=100, minValue, maxValue, minRange, maxRange, step, tickStep, quantize } = props
 
   // Coerce min and max to numbers and calculate the range
   min = coerceNumber(min)
@@ -21,6 +21,12 @@ export const initRangeMinMax = (props={}) => {
   maxValue = hasValue(maxValue)
     ? clamp(coerceNumber(maxValue), min, max)
     : min + range * 3 / 4
+  minRange = hasValue(minRange)
+    ? clamp(coerceNumber(minRange), 0, range)
+    : 0
+  maxRange = hasValue(maxRange)
+    ? clamp(coerceNumber(maxRange), 0, range)
+    : range
 
   // An explicit step value can be 'any' or null (which is changed to 'any')
   // to indicate no stepping, or it should be coerced to a number.  If no step
@@ -62,10 +68,10 @@ export const initRangeMinMax = (props={}) => {
         )
       )
     )
-  const valueToNormal = value =>
+  const valueToNormal = (value, clampMin=min, clampMax=max) =>
     divide(
       subtract(
-        clamp(value, min, max),
+        clamp(value, clampMin, clampMax),
         min
       ),
       range
@@ -77,7 +83,8 @@ export const initRangeMinMax = (props={}) => {
   const maxPercent = multiply(maxNormal, 100)
 
   return {
-    min, max, range, minValue, maxValue, step, steps, tickStep, tickSteps,
+    min, max, range, minValue, maxValue, minRange, maxRange,
+    step, steps, tickStep, tickSteps,
     quantize, minNormal, maxNormal, minPercent, maxPercent,
     normalToValue, valueToNormal
   }
@@ -87,16 +94,18 @@ export const rangeMinMaxQuantizer = ({ min, max, step, quantize }) => {
   // quantize can be a custom function, but the output must be clamped to
   // the range
   if (isFunction(quantize)) {
-    return value => clamp(quantize(value), min, max)
+    return (value, clampMin=min, clampMax=max) =>
+      clamp(quantize(value), clampMin, clampMax)
   }
   // if the step is set to ANY then we only clamp the value to the range
   if (step === ANY) {
-    return value => clamp(value, min, max)
+    return (value, clampMin=min, clampMax=max) =>
+      clamp(value, clampMin, clampMax)
   }
 
   // otherwise we return a function which rounds to the nearest step
-  return value => {
-    value = clamp(value, min, max)
+  return (value, clampMin=min, clampMax=max) => {
+    value = clamp(value, clampMin, clampMax)
     const steps = Math.round((value - min) / step)
     return add(
       min,

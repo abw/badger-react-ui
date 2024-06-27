@@ -5,7 +5,7 @@ import Source     from './Component.jsx?raw'
 import Extras     from './Extras.jsx'
 import ExtrasSrc  from './Extras.jsx?raw'
 import DescTable  from '@/web/site/DescTable.jsx'
-import { RangeLink } from '@/web/site/Links.jsx'
+import { CodeHashLink, RangeLink } from '@/web/site/Links.jsx'
 
 const RangeMinMax = () =>
   <>
@@ -18,7 +18,8 @@ const RangeMinMax = () =>
       code={Source}
     />
     <p>
-      It has similar functionality to the <RangeLink/> component.
+      It has similar functionality to the <RangeLink/> component but both ends
+      of the range can be dragged or updated using the inputs.
     </p>
     <Example
       Component={Extras}
