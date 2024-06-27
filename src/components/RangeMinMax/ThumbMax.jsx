@@ -3,14 +3,15 @@ import Context from './Context.js'
 import { classes } from '@/src/utils/index.js'
 
 const ThumbMax = ({
-  className='range-thumb max',
-  thumbDragMax,
-  onMouseDownMax,
+  thumbClass='range-thumb',
+  maxClass='max',
+  draggingMax,
+  onDragMax,
   onKeyDownMax
 }) =>
   <div
-    className={classes(className, { dragging: thumbDragMax })}
-    onMouseDown={onMouseDownMax}
+    className={classes(thumbClass, maxClass, { dragging: draggingMax })}
+    onPointerDown={onDragMax}
     onKeyDown={onKeyDownMax}
     tabIndex="0"
   />

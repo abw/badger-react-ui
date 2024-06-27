@@ -18,7 +18,7 @@ class Context extends Base {
     color: 'brand'
   }
   static actions = [
-    'trackRef', 'thumbsRef', 'onMouseDown', 'onKeyDown', 'onClick',
+    'trackRef', 'thumbsRef', 'onDrag', 'onKeyDown', 'onClick',
     'setValue', 'setInput', 'stepUp', 'stepDown'
   ]
   constructor(props) {
@@ -120,7 +120,7 @@ class Context extends Base {
     event.preventDefault()
   }
 
-  onMouseDown(e) {
+  onDrag(e) {
     const thumb = e.target
     const { clientX } = e
     const { left: thumbLeft, width: thumbWidth } = thumb.getBoundingClientRect()
@@ -139,28 +139,30 @@ class Context extends Base {
       thumbDrag.thumbsWidth = thumbsWidth
       thumbDrag.thumbPos = (thumbMid - thumbsLeft) * 100 / thumbsWidth
     }
-    this.debug('thumbDrag: ', thumbDrag)
+    this.debug('drag start: ', thumbDrag)
     this.setState({ thumbDrag })
 
     const mouseMove = e => {
-      e.preventDefault()
       const offset = e.clientX - thumbDrag.initialX
       const newX = clamp(thumbDrag.thumbMid + offset - thumbDrag.thumbsLeft, 0, thumbDrag.thumbsWidth)
+      this.debug(`drag`)
       this.setNormalisedValue(
         divide(newX, thumbDrag.thumbsWidth)
       )
+      e.preventDefault()
     }
     window.addEventListener(
-      'mousemove',
+      'pointermove',
       mouseMove
     )
     window.addEventListener(
-      'mouseup',
+      'pointerup',
       e => {
         e.preventDefault()
         e.stopPropagation()
+        this.debug(`mouseUp`)
         this.setState({ thumbDrag: null })
-        window.removeEventListener('mousemove', mouseMove)
+        window.removeEventListener('pointermove', mouseMove)
       }
     )
   }

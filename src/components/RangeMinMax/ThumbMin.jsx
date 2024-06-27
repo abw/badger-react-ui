@@ -3,14 +3,15 @@ import Context from './Context.js'
 import { classes } from '@/src/utils/index.js'
 
 const ThumbMin = ({
-  className='range-thumb min',
-  thumbDragMin,
-  onMouseDownMin,
+  thumbClass='range-thumb',
+  minClass='min',
+  draggingMin,
+  onDragMin,
   onKeyDownMin
 }) =>
   <div
-    className={classes(className, { dragging: thumbDragMin })}
-    onMouseDown={onMouseDownMin}
+    className={classes(thumbClass, minClass, { dragging: draggingMin })}
+    onPointerDown={onDragMin}
     onKeyDown={onKeyDownMin}
     tabIndex="0"
   />

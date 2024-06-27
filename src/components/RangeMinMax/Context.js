@@ -21,7 +21,7 @@ class Context extends Base {
     'trackRef', 'thumbsRef',
     'setMinValue', 'setMaxValue', 'setMinInput', 'setMaxInput',
     'stepMinUp', 'stepMaxUp', 'stepMinDown', 'stepMaxDown',
-    'onMouseDownMin', 'onMouseDownMax', 'onKeyDownMin', 'onKeyDownMax',
+    'onDragMin', 'onDragMax', 'onKeyDownMin', 'onKeyDownMax',
     'onClick',
   ]
   constructor(props) {
@@ -183,13 +183,13 @@ class Context extends Base {
       () => this.stepMaxUp(),
     )
   }
-  onMouseDownMin(e) {
+  onDrag(e, name, set) {
     const thumb = e.target
     const { clientX } = e
     const { left: thumbLeft, width: thumbWidth } = thumb.getBoundingClientRect()
     const thumbMid = thumbLeft + (thumbWidth / 2)
     const thumbOffset = thumbLeft - clientX
-    const thumbDragMin = {
+    const thumbDrag = {
       initialX: clientX,
       thumbLeft,
       thumbMid,
@@ -198,77 +198,48 @@ class Context extends Base {
 
     if (this._thumbsRef) {
       const { left: thumbsLeft, width: thumbsWidth } = this._thumbsRef.getBoundingClientRect()
-      thumbDragMin.thumbsLeft = thumbsLeft
-      thumbDragMin.thumbsWidth = thumbsWidth
-      thumbDragMin.thumbPos = (thumbMid - thumbsLeft) * 100 / thumbsWidth
+      thumbDrag.thumbsLeft = thumbsLeft
+      thumbDrag.thumbsWidth = thumbsWidth
+      thumbDrag.thumbPos = (thumbMid - thumbsLeft) * 100 / thumbsWidth
     }
-    this.debug('thumbDragMin: ', thumbDragMin)
-    this.setState({ thumbDragMin })
+    this.debug('drag start: ', thumbDrag)
+    this.setState({ [name]: thumbDrag })
 
     const mouseMove = e => {
       e.preventDefault()
-      const offset = e.clientX - thumbDragMin.initialX
-      const newX = clamp(thumbDragMin.thumbMid + offset - thumbDragMin.thumbsLeft, 0, thumbDragMin.thumbsWidth)
-      this.setNormalisedMinValue(
-        divide(newX, thumbDragMin.thumbsWidth)
+      const offset = e.clientX - thumbDrag.initialX
+      const newX = clamp(thumbDrag.thumbMid + offset - thumbDrag.thumbsLeft, 0, thumbDrag.thumbsWidth)
+      this.debug(`drag`)
+      set(
+        divide(newX, thumbDrag.thumbsWidth)
       )
     }
     window.addEventListener(
-      'mousemove',
+      'pointermove',
       mouseMove
     )
     window.addEventListener(
-      'mouseup',
+      'pointerup',
       e => {
         e.preventDefault()
         e.stopPropagation()
-        this.setState({ thumbDragMin: null })
-        window.removeEventListener('mousemove', mouseMove)
+        this.setState({ [name]: null })
+        window.removeEventListener('pointermove', mouseMove)
       }
     )
   }
-  onMouseDownMax(e) {
-    const thumb = e.target
-    const { clientX } = e
-    const { left: thumbLeft, width: thumbWidth } = thumb.getBoundingClientRect()
-    const thumbMid = thumbLeft + (thumbWidth / 2)
-    const thumbOffset = thumbLeft - clientX
-    const thumbDragMax = {
-      initialX: clientX,
-      thumbLeft,
-      thumbMid,
-      thumbOffset,
-    }
-
-    if (this._thumbsRef) {
-      const { left: thumbsLeft, width: thumbsWidth } = this._thumbsRef.getBoundingClientRect()
-      thumbDragMax.thumbsLeft = thumbsLeft
-      thumbDragMax.thumbsWidth = thumbsWidth
-      thumbDragMax.thumbPos = (thumbMid - thumbsLeft) * 100 / thumbsWidth
-    }
-    this.debug('thumbDragMax: ', thumbDragMax)
-    this.setState({ thumbDragMax })
-
-    const mouseMove = e => {
-      e.preventDefault()
-      const offset = e.clientX - thumbDragMax.initialX
-      const newX = clamp(thumbDragMax.thumbMid + offset - thumbDragMax.thumbsLeft, 0, thumbDragMax.thumbsWidth)
-      this.setNormalisedMaxValue(
-        divide(newX, thumbDragMax.thumbsWidth)
-      )
-    }
-    window.addEventListener(
-      'mousemove',
-      mouseMove
+  onDragMin(e) {
+    this.onDrag(
+      e,
+      'draggingMin',
+      value => this.setNormalisedMinValue(value)
     )
-    window.addEventListener(
-      'mouseup',
-      e => {
-        e.preventDefault()
-        e.stopPropagation()
-        this.setState({ thumbDragMax: null })
-        window.removeEventListener('mousemove', mouseMove)
-      }
+  }
+  onDragMax(e) {
+    this.onDrag(
+      e,
+      'draggingMax',
+      value => this.setNormalisedMaxValue(value)
     )
   }
   onClick(e) {
@@ -279,8 +250,27 @@ class Context extends Base {
     const { clientX: clickX } = e
     const { left: trackLeft, width: trackWidth } = this._trackRef.getBoundingClientRect()
     const normal = (clickX - trackLeft) / trackWidth
+    const { minNormal, maxNormal } = this.state
     this.debug(`click at ${clickX} from ${trackLeft} with width ${trackWidth}: ${normal}`)
-    // this.setNormalisedValue(normal)
+
+    if (normal < minNormal) {
+      this.debug(`click below minimum`)
+      return this.setNormalisedMinValue(normal)
+    }
+    else if (normal > maxNormal) {
+      this.debug(`click above maximum`)
+      return this.setNormalisedMaxValue(normal)
+    }
+    const dMin = normal - minNormal
+    const dMax = maxNormal - normal
+    if (dMin < dMax) {
+      this.debug(`click between, closer to minimum`)
+      return this.setNormalisedMinValue(normal)
+    }
+    else {
+      this.debug(`click between, closer to maximum`)
+      return this.setNormalisedMaxValue(normal)
+    }
   }
   getRenderProps() {
     const context = this.getContext()

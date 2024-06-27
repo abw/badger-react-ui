@@ -4,15 +4,13 @@ import { classes } from '@/src/utils/index.js'
 
 const Thumb = ({
   thumbClass='range-thumb',
-  // thumbRef,
   thumbDrag,
-  onMouseDown,
+  onDrag,
   onKeyDown
 }) =>
   <div
     className={classes(thumbClass, { dragging: thumbDrag })}
-    // ref={thumbRef}
-    onMouseDown={onMouseDown}
+    onPointerDown={onDrag}
     onKeyDown={onKeyDown}
     tabIndex="0"
   />

@@ -2,12 +2,13 @@
 .range {
   --position: 0.5;
   // --accent-color: var(--input-accent-color, var(--color-50));
-  --accent-color: var(--color-50);
+  // --accent-color: var(--color-50);
   --track-background: var(--color-85);
   --track-border: var(--color-70);
   --track-fill: var(--color-50);
-  --shadow-color: color-mix(in srgb, var(--accent-color), black 20%);
-  --shadow-focus-color: color-mix(in srgb, var(--accent-color), transparent 70%);
+  --thumb-color: var(--track-fill);
+  --shadow-color: color-mix(in srgb, var(--thumb-color), black 20%);
+  --shadow-focus-color: color-mix(in srgb, var(--thumb-color), transparent 70%);
   --step-color: var(--color-50);
   --step-background: var(--color-90);
   --step-hover-color: var(--color-30);
@@ -22,8 +23,8 @@
   --track-background: var(--color-15);
   --track-border: var(--color-35);
   --track-fill: var(--color-50);
-  --shadow-color: color-mix(in srgb, var(--accent-color), white 20%);
-  --shadow-focus-color: color-mix(in srgb, var(--accent-color), transparent 55%);
+  --shadow-color: color-mix(in srgb, var(--thumb-color), white 20%);
+  --shadow-focus-color: color-mix(in srgb, var(--thumb-color), transparent 55%);
   --step-color: var(--color-60);
   --step-background: var(--color-15);
   --step-hover-color: var(--color-70);
@@ -46,7 +47,6 @@
   // --thumbs-offset: calc(var(--thumb-half) - var(--track-offset));
   --thumbs-offset: calc(var(--thumb-half) - var(--track-border-width));
   // --selection-offset: var(--thumbs-offset);
-  --thumb-background: var(--track-fill);
   --shadow-size: 0px;
   --shadow-focus-size: 8px;
   --z-index: 100;
@@ -67,6 +67,7 @@
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: var(--gap);
+  touch-action: none;
   // border: 1px dashed red;
   &.range-has-scale {
     padding-bottom: 1.5em;
@@ -75,11 +76,6 @@
     width: 100%;
     height: 1em;
     position: relative;
-    // background-color: var(--background-color);
-    // border: var(--border-width) solid var(--border-color);
-    // border-radius: 0.5em;
-    // border: 1px solid red;
-    // border: 1px dashed green;
   }
   .range-track {
     cursor: pointer;
@@ -112,8 +108,6 @@
     }
   }
   .range-thumb {
-    // --translate-x: calc(0px - var(--thumb-half));
-    // transform: translate(var(--translate-x), -50%);
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -122,7 +116,7 @@
     border-radius: var(--thumb-half);
     box-shadow: 0 0 0 var(--shadow-size) var(--shadow-color);
     transition: box-shadow 300ms, opacity 300ms;
-    background-color: var(--thumb-background);
+    background-color: var(--thumb-color);
     opacity: var(--thumb-opacity);
     left: var(--percent);
     // left: calc(var(--percent) + var(--thumbs-offset));
@@ -176,14 +170,14 @@
     input {
       text-align: center;
     }
-    .disabled {
-      color: var(--step-disabled-color);
-      background-color: var(--step-disabled-background);
-    }
-    .clickable {
+    .step {
       color: var(--step-color);
       background-color: var(--step-background);
-      &:hover {
+      &.disabled {
+        color: var(--step-disabled-color);
+        background-color: var(--step-disabled-background);
+      }
+      &:hover:not(.disabled) {
         color: var(--step-hover-color);
         background-color: var(--step-hover-background);
         cursor: pointer;
