@@ -15,8 +15,6 @@ class Context extends Base {
   static defaultProps = {
     onChange: doNothing,
     displayValue: identity,
-    // minRange: 0,
-    // maxRange: 0,
     color: 'brand'
   }
   static actions = [
@@ -288,12 +286,19 @@ class Context extends Base {
     const context = this.getContext()
     const {
       minNormal, maxNormal, minPercent, maxPercent,
-      className, rangeClass='range min-max', color, size
+      className, rangeClass='range min-max', hasScaleClass='range-has-scale',
+      showScale, color, size
     } = context
     context.quantize = this.quantize
     context.normalToValue = this.normalToValue
     context.rangeProps = {
-      className: classes(rangeClass, className, color, size),
+      className: classes(
+        rangeClass,
+        className,
+        color,
+        size,
+        { [hasScaleClass]: showScale }
+      ),
       style: {
         '--min-position': minNormal,
         '--max-position': maxNormal,

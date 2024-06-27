@@ -4,15 +4,16 @@ import Context from './Context.js'
 const Limits = ({
   limitsClass='range-limits',
   scaleValueClass='range-scale-value',
+  displayValue,
   min,
   max
 }) =>
   <div className={limitsClass}>
     <div className={scaleValueClass}>
-      {min}
+      {displayValue(min)}
     </div>
     <div className={scaleValueClass}>
-      {max}
+      {displayValue(max)}
     </div>
   </div>
 
