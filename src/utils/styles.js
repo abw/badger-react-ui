@@ -10,3 +10,20 @@ export function rotateStyle(prop, value, style={}) {
     ? style
     : null
 }
+
+export const extractStyleProps = (spec, props, more={}) =>
+  ({
+    ...Object
+      .entries(spec)
+      .reduce(
+        (style, [key, sprop]) => {
+          const value = props[key]
+          if (hasValue(value)) {
+            style[sprop] = value
+          }
+          return style
+        },
+        props.style || { },
+      ),
+    ...more
+  })
