@@ -6,6 +6,7 @@ const RangeExample = () =>
   <RangeMinMax
     step={10}
     showValue
+    showLimits
   />
   /* END */
 

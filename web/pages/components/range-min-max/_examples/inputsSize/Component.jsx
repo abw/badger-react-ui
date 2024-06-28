@@ -5,11 +5,18 @@ const RangeExample = () =>
   <div className="grid-1 gap-4">
     {/* START */}
     <RangeMinMax
-      showValues
+      minValue={10} maxValue={30}
+      showInputs
     />
     <RangeMinMax
-      showValue
-      valueLocations="limits"
+      minValue={20} maxValue={40}
+      showInputs
+      inputsSize="smaller"
+    />
+    <RangeMinMax
+      minValue={30} maxValue={50}
+      showInputs
+      inputsSize="large"
     />
     {/* END */}
   </div>

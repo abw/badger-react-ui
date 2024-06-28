@@ -2,20 +2,20 @@ import React from 'react'
 import Context from './Context.js'
 import { classes } from '@/src/utils/classes.js'
 
-const locations = {
-  limits: 'right'
+const alignment = {
+  space: 'right'
 }
 
 const ValueMax = ({
   valueClass='range-value',
   maxClass='max',
-  valueLocation='thumb',
-  valueLocations=valueLocation,
-  maxValueLocation=locations[valueLocations] || valueLocations,
+  alignValue='thumb',
+  alignValues=alignValue,
+  alignMaxValue=alignment[alignValues] || alignValues,
   maxValue,
   displayValue
 }) =>
-  <div className={classes(valueClass, maxClass, maxValueLocation)}>
+  <div className={classes(valueClass, maxClass, alignMaxValue)}>
     {displayValue(maxValue)}
   </div>
 

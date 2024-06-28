@@ -2,20 +2,20 @@ import React from 'react'
 import Context from './Context.js'
 import { classes } from '@/src/utils/classes.js'
 
-const locations = {
-  limits: 'left'
+const alignment = {
+  space: 'left'
 }
 
 const ValueMin = ({
   valueClass='range-value',
   minClass='min',
-  valueLocation='thumb',
-  valueLocations=valueLocation,
-  minValueLocation=locations[valueLocations] || valueLocations,
+  alignValue='thumb',
+  alignValues=alignValue,
+  alignMinValue=alignment[alignValues] || alignValues,
   minValue,
   displayValue
 }) =>
-  <div className={classes(valueClass, minClass, minValueLocation)}>
+  <div className={classes(valueClass, minClass, alignMinValue)}>
     {displayValue(minValue)}
   </div>
 

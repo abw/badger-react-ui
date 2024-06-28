@@ -10,7 +10,7 @@ const RangeExample = () =>
     Source={Source}
     undent={4}
     // highlightLines="2"
-    expand
+    // expand
   >
     <p>
       The <code>color</code> property can be used to set the color to any of

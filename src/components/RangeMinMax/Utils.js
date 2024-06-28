@@ -90,6 +90,7 @@ export const initRangeMinMax = (props={}) => {
 
   return {
     min, max, range, minValue, maxValue, minRange, maxRange,
+    minInput: minValue, maxInput: maxValue,
     step, steps, tickStep, tickSteps,
     quantize, minNormal, maxNormal, minPercent, maxPercent,
     normalToValue, valueToNormal

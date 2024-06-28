@@ -6,6 +6,7 @@ const RangeExample = () =>
   <RangeMinMax
     maxValue={50}
     showValues
+    showLimits
   />
   /* END */
 

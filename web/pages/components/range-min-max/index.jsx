@@ -1,7 +1,7 @@
 import React          from 'react'
 import Sections       from '@/web/page/Sections.jsx'
 import Heading        from '@/web/page/Heading.jsx'
-//import Section        from '@/web/page/Section.jsx'
+// import Section        from '@/web/page/Section.jsx'
 //import Split          from '@/web/site/Split.jsx'
 import RangeMinMax    from './_examples/RangeMinMax/index.jsx'
 import MinValue       from './_examples/minValue/index.jsx'
@@ -10,15 +10,19 @@ import Min            from './_examples/min/index.jsx'
 import Max            from './_examples/max/index.jsx'
 import Step           from './_examples/step/index.jsx'
 import ShowValues     from './_examples/showValues/index.jsx'
-import ValueLocations from './_examples/valueLocations/index.jsx'
+import AlignValues    from './_examples/alignValues/index.jsx'
 import DisplayValue   from './_examples/displayValue/index.jsx'
 import ShowTicks      from './_examples/showTicks/index.jsx'
 import TickStep       from './_examples/tickStep/index.jsx'
 import ShowScale      from './_examples/showScale/index.jsx'
 import ShowLimits     from './_examples/showLimits/index.jsx'
 import ShowInputs     from './_examples/showInputs/index.jsx'
+import AlignInputs    from './_examples/alignInputs/index.jsx'
+import InputsSize     from './_examples/inputsSize/index.jsx'
 import Color          from './_examples/color/index.jsx'
 import Size           from './_examples/size/index.jsx'
+import Context        from './_examples/Context.jsx'
+import Children       from './_examples/children/index.jsx'
 
 
 const RangeMinMaxExamples = () =>
@@ -27,21 +31,26 @@ const RangeMinMaxExamples = () =>
     <RangeMinMax/>
     <Sections tocName="rangeMinMax">
       <Heading title="Properties"/>
-      <MinValue/>
-      <MaxValue/>
       <Min/>
       <Max/>
       <Step/>
+      <MinValue/>
+      <MaxValue/>
       <ShowValues/>
-      <ValueLocations/>
+      <AlignValues/>
       <DisplayValue/>
       <ShowTicks/>
       <TickStep/>
       <ShowScale/>
       <ShowLimits/>
       <ShowInputs/>
+      <AlignInputs/>
+      <InputsSize/>
       <Color/>
       <Size/>
+      <Heading title="Context"/>
+      <Context/>
+      <Children/>
       {/*
       <Children/>
       <Split>

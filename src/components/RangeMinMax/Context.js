@@ -15,13 +15,14 @@ class Context extends Base {
   static defaultProps = {
     onChange: doNothing,
     displayValue: identity,
-    minNormal: 0.25,
-    maxNormal: 0.75,
+    minNormal: 0,
+    maxNormal: 1,
     color: 'brand'
   }
   static actions = [
     'trackRef', 'thumbsRef',
-    'setMinValue', 'setMaxValue', 'setMinInput', 'setMaxInput',
+    'setMinValue', 'setMaxValue', 'setValues',
+    'setMinInput', 'setMaxInput',
     'stepMinUp', 'stepMaxUp', 'stepMinDown', 'stepMaxDown',
     'onDragMin', 'onDragMax', 'onKeyDownMin', 'onKeyDownMax',
     'onClick',
@@ -94,6 +95,10 @@ class Context extends Base {
       maxNormal, maxValue, maxPercent
     })
     return maxValue
+  }
+  setValues(minValue, maxValue) {
+    this.setMinValue(minValue)
+    this.setMaxValue(maxValue)
   }
   setNormalisedMinValue(minNormal) {
     const minValue = clamp(

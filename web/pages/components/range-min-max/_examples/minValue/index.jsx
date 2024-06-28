@@ -2,6 +2,7 @@ import React      from 'react'
 import Example    from '@/page/ExampleSection.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
+import { CodeHashLink } from '@/web/site/Links.jsx'
 
 const RangeExample = () =>
   <Example
@@ -15,10 +16,12 @@ const RangeExample = () =>
     <p>
       The <code>minValue</code> property can be used to set the initial minimum
       value.
-      The default range is from 0{' '}
-      (<a href="#min" className="code">min</a>) to 100{' '}
-      (<a href="#max" className="code">max</a>).  If a <code>minValue</code> is
-      not specified then it will default to one quarter of the range.{' '}
+    </p>
+    <p>
+      The default value is the <CodeHashLink id="min"/> value of the range, i.e.
+      0%. This can be changed by setting the <code>minNormal</code> property.
+      This is a normalised (0-1) value, defaulting to <code>0</code>, indicating
+      the proportion of the range that the <code>minValue</code> should default to.
     </p>
     <p>
       If a specified <code>minValue</code> is outside of the range then it will be

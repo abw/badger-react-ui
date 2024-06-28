@@ -4,8 +4,9 @@ import { RangeMinMax } from '@/src/index.jsx'
 const RangeExample = () =>
   /* START */
   <RangeMinMax
-    min={50}
+    min={-100}
     showValues
+    showLimits
   />
   /* END */
 
