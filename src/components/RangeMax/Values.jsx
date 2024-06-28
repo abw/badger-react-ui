@@ -1,6 +1,6 @@
 import React from 'react'
-import Context from '../RangeMinMax/Context.js'
-import DefaultValueMax from '../RangeMinMax/ValueMax.jsx'
+import Context from '../Range/Context.js'
+import DefaultValueMax from '../Range/ValueMax.jsx'
 
 const Values = ({
   valuesClass='range-values',

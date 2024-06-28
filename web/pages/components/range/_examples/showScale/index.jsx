@@ -10,7 +10,7 @@ const RangeExample = () =>
     Component={Component}
     Source={Source}
     undent={4}
-    highlightLines="4"
+    highlightLines="5,11-12"
     expand
   >
     <p>

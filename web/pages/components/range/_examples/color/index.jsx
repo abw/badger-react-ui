@@ -9,8 +9,9 @@ const RangeExample = () =>
     Component={Component}
     Source={Source}
     undent={4}
+    highlightLines="2,6,10,14,18,22,26,30,34,38,42,46,50"
     // highlightLines="2"
-    expand
+    // expand
   >
     <p>
       The <code>color</code> property can be used to set the color to any of

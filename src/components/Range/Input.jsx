@@ -19,11 +19,10 @@ const Input = ({
   min,
   max,
   step,
-  input,
-  setInput,
   stepUp,
   stepDown,
-  value
+  input,
+  setInput
 }) =>
   <div
     className={
@@ -36,8 +35,8 @@ const Input = ({
   >
     <div className={inputInputsClass}>
       <div
-        className={classes(inputPrefixClass, stepClass, value > min ? null : disabledClass)}
-        onClick={value > min ? stepDown : null}
+        className={classes(inputPrefixClass, stepClass, stepDown ? null : disabledClass)}
+        onClick={stepDown}
       >
         <Icon name={stepDownIcon}/>
       </div>
@@ -51,8 +50,8 @@ const Input = ({
         onChange={e => setInput(e.target.value)}
       />
       <div
-        className={classes(inputSuffixClass, stepClass, value < max ? null : disabledClass)}
-        onClick={value < max ? stepUp : null}
+        className={classes(inputSuffixClass, stepClass, stepUp ? null : disabledClass)}
+        onClick={stepUp}
       >
         <Icon name={stepUpIcon}/>
       </div>

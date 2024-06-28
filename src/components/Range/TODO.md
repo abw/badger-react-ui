@@ -1,3 +1,4 @@
 # TODO
 
-* onChange
+* drag range
+

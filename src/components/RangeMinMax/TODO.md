@@ -1,4 +1,0 @@
-# TODO
-
-* drag range
-

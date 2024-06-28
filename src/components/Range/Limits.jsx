@@ -1,13 +1,9 @@
 import React from 'react'
 import Context from './Context.js'
-import DefaultInput from './Input.jsx'
 
 const Limits = ({
   limitsClass='range-limits',
   scaleValueClass='range-scale-value',
-  Input=DefaultInput,
-  showInput,
-  showInputs=showInput,
   displayValue,
   min,
   max
@@ -16,9 +12,6 @@ const Limits = ({
     <div className={scaleValueClass}>
       {displayValue(min)}
     </div>
-    { Boolean(showInputs) &&
-      <Input inLimits/>
-    }
     <div className={scaleValueClass}>
       {displayValue(max)}
     </div>

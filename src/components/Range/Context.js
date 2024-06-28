@@ -1,12 +1,18 @@
 import { Generator, Context as Base } from '@abw/react-context'
-import { anyPropsChanged, classes, extractStyleProps } from '@/src/utils/index.js'
+import { anyPropsChanged, classes } from '@/src/utils/index.js'
 import { doNothing, clamp, multiply, divide, identity, splitList } from '@abw/badger-utils'
 import { ANY, ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT } from '@/src/constants.js'
-import { initRange } from './Utils.js'
+import { initRange, RangeNormalClick, rangeMinNormalClick, rangeMaxNormalClick } from './Utils.js'
+import { isFunction } from '@abw/badger-utils'
 
 const WATCH_PROPS = splitList(
-  'min max value step tickStep quantize'
+  'min max minValue maxValue minRange maxRange step tickStep quantize'
 )
+const NORMAL_CLICK = {
+  minMax: RangeNormalClick,
+  min: rangeMinNormalClick,
+  max: rangeMaxNormalClick,
+}
 
 class Context extends Base {
   static debug        = false
@@ -15,19 +21,31 @@ class Context extends Base {
   static defaultProps = {
     onChange: doNothing,
     displayValue: identity,
+    normalClick: 'minMax',
+    minNormal: 0,
+    maxNormal: 1,
     color: 'brand'
   }
   static actions = [
-    'trackRef', 'thumbsRef', 'onDrag', 'onKeyDown', 'onClick',
-    'setValue', 'setInput', 'stepUp', 'stepDown'
+    'trackRef', 'thumbsRef',
+    'setMinValue', 'setMaxValue', 'setValues',
+    'setMinInput', 'setMaxInput',
+    'stepMinUp', 'stepMaxUp', 'stepMinDown', 'stepMaxDown',
+    'onDragMin', 'onDragMax', 'onKeyDownMin', 'onKeyDownMax',
+    'onClick',
   ]
   constructor(props) {
     super(props)
     const state = this.initProps(props)
+    const normalClick = props.normalClick
+    this.normalClick = isFunction(normalClick)
+      ? normalClick
+      : NORMAL_CLICK[normalClick] || NORMAL_CLICK.minMax
     this.state = {
       ...this.state,
       ...state,
-      input: state.value,
+      minInput: state.minValue,
+      maxInput: state.maxValue,
     }
   }
   initProps(props) {
@@ -45,22 +63,89 @@ class Context extends Base {
       )
     }
   }
-
-  setInput(input) {
+  minValueLimits() {
+    const { maxValue, min, max, minRange, maxRange } = this.state
+    return [
+      clamp(maxValue - maxRange, min, max),
+      clamp(maxValue - minRange, min, max)
+    ]
+  }
+  maxValueLimits() {
+    const { minValue, min, max, minRange, maxRange } = this.state
+    return [
+      clamp(minValue + minRange, min, max),
+      clamp(minValue + maxRange, min, max)
+    ]
+  }
+  setMinInput(minInput) {
     this.setState(
-      {
-        input
-      },
-      () => this.setValue(input)
+      { minInput },
+      () => this.setMinValue(minInput)
     )
   }
-  setValue(value) {
-    value = this.quantize(value)
-    const normal = this.valueToNormal(value)
-    const percent = multiply(normal, 100)
-    this.setState({
-      normal, value, percent
-    })
+  setMaxInput(maxInput) {
+    this.setState(
+      { maxInput },
+      () => this.setMaxValue(maxInput)
+    )
+  }
+  setMinValue(minValue) {
+    minValue = this.quantize(minValue, ...this.minValueLimits())
+    const minNormal = this.valueToNormal(minValue)
+    const minPercent = multiply(minNormal, 100)
+    this.setState(
+      {
+        minNormal, minValue, minPercent
+      },
+      () => this.onChange()
+    )
+    return minValue
+  }
+  setMaxValue(maxValue) {
+    maxValue = this.quantize(maxValue, ...this.maxValueLimits())
+    const maxNormal = this.valueToNormal(maxValue)
+    const maxPercent = multiply(maxNormal, 100)
+    this.setState(
+      {
+        maxNormal, maxValue, maxPercent
+      },
+      () => this.onChange()
+    )
+    return maxValue
+  }
+  setValues(minValue, maxValue) {
+    this.setMinValue(minValue)
+    this.setMaxValue(maxValue)
+  }
+  setNormalisedMinValue(minNormal) {
+    const minValue = clamp(
+      this.normalToValue(minNormal),
+      ...this.minValueLimits()
+    )
+    minNormal = this.valueToNormal(minValue)
+    const minPercent = multiply(100, minNormal).toFixed(2)
+    this.setState(
+      {
+        minNormal, minValue, minPercent, minInput: minValue
+      },
+      () => this.onChange()
+    )
+    return minValue
+  }
+  setNormalisedMaxValue(maxNormal) {
+    const maxValue = clamp(
+      this.normalToValue(maxNormal),
+      ...this.maxValueLimits()
+    )
+    maxNormal = this.valueToNormal(maxValue)
+    const maxPercent = multiply(100, maxNormal).toFixed(2)
+    this.setState(
+      {
+        maxNormal, maxValue, maxPercent, maxInput: maxValue
+      },
+      () => this.onChange()
+    )
+    return maxValue
   }
   step() {
     const step = this.state.step
@@ -68,49 +153,44 @@ class Context extends Base {
       ? 1
       : step
   }
-  stepUp() {
-    const newValue = this.state.value + this.step()
-    this.setValue(newValue)
-    this.setInput(newValue)
+  stepMinUp() {
+    const newValue = this.state.minValue + this.step()
+    // this.setMinValue(newValue)
+    this.setMinInput(newValue)
   }
-  stepDown() {
-    const newValue = this.state.value - this.step()
-    this.setValue(newValue)
-    this.setInput(newValue)
+  stepMaxUp() {
+    const newValue = this.state.maxValue + this.step()
+    // this.setMaxValue(newValue)
+    this.setMaxInput(newValue)
   }
-  setNormalisedValue(normal) {
-    // this.debug(`setNormalisedValue(${normal})`)
-    const value = this.normalToValue(normal)
-    // this.debug(`value: ${value}`)
-    normal = this.valueToNormal(value)
-    // this.debug(`normal: ${normal}`)
-    const percent = multiply(100, normal).toFixed(2)
-    // this.debug(`percent: ${percent}`)
-    this.setState({
-      normal, value, percent, input: value
-    })
+  stepMinDown() {
+    const newValue = this.state.minValue - this.step()
+    // this.setMinValue(newValue)
+    this.setMinInput(newValue)
   }
-  //valuePercent(value=this.props.value, min=this.props.min, max=this.props.max) {
-  //  return valuePercent(value, min, max)
-  //}
+  stepMaxDown() {
+    const newValue = this.state.maxValue - this.step()
+    // this.setMaxValue(newValue)
+    this.setMaxInput(newValue)
+  }
   thumbsRef(ref){
     this._thumbsRef = ref
   }
   trackRef(ref){
     this._trackRef = ref
   }
-  onKeyDown(event) {
+  onKeyDown(event, down, up) {
     this.debug(`onKeyDown(${event.key})`)
 
     switch (event.key) {
       case ARROW_LEFT:
       case ARROW_DOWN:
-        this.stepDown()
+        down()
         break
 
       case ARROW_RIGHT:
       case ARROW_UP:
-        this.stepUp()
+        up()
         break
 
       default:
@@ -119,8 +199,21 @@ class Context extends Base {
     }
     event.preventDefault()
   }
-
-  onDrag(e) {
+  onKeyDownMin(event) {
+    this.onKeyDown(
+      event,
+      () => this.stepMinDown(),
+      () => this.stepMinUp(),
+    )
+  }
+  onKeyDownMax(event) {
+    this.onKeyDown(
+      event,
+      () => this.stepMaxDown(),
+      () => this.stepMaxUp(),
+    )
+  }
+  onDrag(e, name, set) {
     const thumb = e.target
     const { clientX } = e
     const { left: thumbLeft, width: thumbWidth } = thumb.getBoundingClientRect()
@@ -140,16 +233,16 @@ class Context extends Base {
       thumbDrag.thumbPos = (thumbMid - thumbsLeft) * 100 / thumbsWidth
     }
     this.debug('drag start: ', thumbDrag)
-    this.setState({ thumbDrag })
+    this.setState({ [name]: thumbDrag })
 
     const mouseMove = e => {
+      e.preventDefault()
       const offset = e.clientX - thumbDrag.initialX
       const newX = clamp(thumbDrag.thumbMid + offset - thumbDrag.thumbsLeft, 0, thumbDrag.thumbsWidth)
       this.debug(`drag`)
-      this.setNormalisedValue(
+      set(
         divide(newX, thumbDrag.thumbsWidth)
       )
-      e.preventDefault()
     }
     window.addEventListener(
       'pointermove',
@@ -160,10 +253,23 @@ class Context extends Base {
       e => {
         e.preventDefault()
         e.stopPropagation()
-        this.debug(`mouseUp`)
-        this.setState({ thumbDrag: null })
+        this.setState({ [name]: null })
         window.removeEventListener('pointermove', mouseMove)
       }
+    )
+  }
+  onDragMin(e) {
+    this.onDrag(
+      e,
+      'draggingMin',
+      value => this.setNormalisedMinValue(value)
+    )
+  }
+  onDragMax(e) {
+    this.onDrag(
+      e,
+      'draggingMax',
+      value => this.setNormalisedMaxValue(value)
     )
   }
   onClick(e) {
@@ -174,31 +280,65 @@ class Context extends Base {
     const { clientX: clickX } = e
     const { left: trackLeft, width: trackWidth } = this._trackRef.getBoundingClientRect()
     const normal = (clickX - trackLeft) / trackWidth
+    const { minNormal, maxNormal } = this.state
     this.debug(`click at ${clickX} from ${trackLeft} with width ${trackWidth}: ${normal}`)
-    this.setNormalisedValue(normal)
+
+    // Delegate to custom function which can be switch using the normalClick
+    // property so that RangeMin and RangeMax can change the behaviour.  It's
+    // a bit of a hack but easier than subclasses the whole context.
+    this.normalClick(
+      normal, minNormal, maxNormal,
+      normal => this.setNormalisedMinValue(normal),
+      normal => this.setNormalisedMaxValue(normal),
+    )
+    /*
+    if (normal < minNormal) {
+      this.debug(`click below minimum`)
+      return this.setNormalisedMinValue(normal)
+    }
+    else if (normal > maxNormal) {
+      this.debug(`click above maximum`)
+      return this.setNormalisedMaxValue(normal)
+    }
+    const dMin = normal - minNormal
+    const dMax = maxNormal - normal
+    if (dMin < dMax) {
+      this.debug(`click between, closer to minimum`)
+      return this.setNormalisedMinValue(normal)
+    }
+    else {
+      this.debug(`click between, closer to maximum`)
+      return this.setNormalisedMaxValue(normal)
+    }
+    */
+  }
+  onChange() {
+    const { minValue, maxValue } = this.state
+    this.props.onChange(minValue, maxValue)
   }
   getRenderProps() {
     const context = this.getContext()
     const {
-      normal, percent,
-      className, rangeClass='range', hasScaleClass='range-has-scale',
-      color, size, showScale
+      minNormal, maxNormal, minPercent, maxPercent,
+      className, rangeClass='range min-max', hasScaleClass='range-has-scale',
+      showScale, color, size
     } = context
     context.quantize = this.quantize
     context.normalToValue = this.normalToValue
     context.rangeProps = {
       className: classes(
-        rangeClass, className, color, size,
+        rangeClass,
+        className,
+        color,
+        size,
         { [hasScaleClass]: showScale }
       ),
-      style: extractStyleProps(
-        { },
-        this.props,
-        {
-          '--position': normal,
-          '--percent': `${percent}%`
-        }
-      )
+      style: {
+        '--min-position': minNormal,
+        '--max-position': maxNormal,
+        '--min-percent': `${minPercent}%`,
+        '--max-percent': `${maxPercent}%`,
+      }
     }
     return context
   }

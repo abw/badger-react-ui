@@ -4,8 +4,9 @@ import { Range } from '@/src/index.jsx'
 const RangeExample = () =>
   /* START */
   <Range
-    min={50}
-    showValue
+    min={-100}
+    showValues
+    showLimits
   />
   /* END */
 

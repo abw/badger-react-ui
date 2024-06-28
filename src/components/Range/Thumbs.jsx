@@ -1,18 +1,21 @@
 import React from 'react'
 import Context from './Context.js'
-import DefaultThumb from './Thumb.jsx'
+import DefaultThumbMin from './ThumbMin.jsx'
+import DefaultThumbMax from './ThumbMax.jsx'
 
 const Thumbs = ({
   thumbsClass='range-thumbs',
-  Thumb=DefaultThumb,
+  ThumbMin=DefaultThumbMin,
+  ThumbMax=DefaultThumbMax,
   thumbsRef,
 }) =>
   <div
     className={thumbsClass}
     ref={thumbsRef}
   >
-    <Thumb/>
+    <ThumbMin/>
+    <ThumbMax/>
   </div>
 
-export const RangeThumb = Context.Consumer(Thumbs)
-export default RangeThumb
+export const RangeThumbs = Context.Consumer(Thumbs)
+export default RangeThumbs

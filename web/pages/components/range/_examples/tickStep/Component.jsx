@@ -4,9 +4,11 @@ import { Range } from '@/src/index.jsx'
 const RangeExample = () =>
   /* START */
   <Range
-    step={5}
-    tickStep={25}
+    maxValue={50}
+    step={10}
+    tickStep={20}
     showTicks
+    showValues
   />
   /* END */
 

@@ -26,7 +26,7 @@ const RangeMinExamples = () =>
   <div className="flow">
     <h1>RangeMin</h1>
     <RangeMin/>
-    <Sections tocName="rangeMax">
+    <Sections tocName="rangeMin">
       <Heading title="Properties"/>
       <Min/>
       <Max/>

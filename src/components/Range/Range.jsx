@@ -16,3 +16,4 @@ const Range = ({
 
 const ThemedRange = Themed(Range, 'Range')
 export default ThemedRange
+

@@ -1,6 +1,6 @@
 import React from 'react'
-import Context from '../RangeMinMax/Context.js'
-import DefaultInputMax from '../RangeMinMax/InputMax.jsx'
+import Context from '../Range/Context.js'
+import DefaultInputMax from '../Range/InputMax.jsx'
 import { classes } from '@/src/utils/classes.js'
 
 const Inputs = ({

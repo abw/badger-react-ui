@@ -1,13 +1,13 @@
 import React from 'react'
 import Context from './Context.js'
-import DefaultValue from './Value.jsx'
+import DefaultValues from './Values.jsx'
 
 const Output = ({
   outputClass='range-output',
-  Value=DefaultValue,
+  Values=DefaultValues,
 }) =>
   <div className={outputClass}>
-    <Value/>
+    <Values/>
   </div>
 
 export const RangeOutput = Context.Consumer(Output)

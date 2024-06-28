@@ -13,7 +13,7 @@ const RangeExample = () =>
     expand
   >
     <p>
-      The <code>step</code> property can be used to set a step for the value.
+      The <code>step</code> property can be used to set a step for the values.
       The default value is <code>1</code>.  You can set this to <code>any</code>{' '}
       to allow any value to be entered.
     </p>

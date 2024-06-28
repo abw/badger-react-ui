@@ -5,11 +5,11 @@ import Source     from './Component.jsx?raw'
 
 const RangeExample = () =>
   <Example
-    code="children"
+    title="Custom Layout"
     Component={Component}
     Source={Source}
     // undent={2}
-    highlightLines="11-15,18-22,27"
+    highlightLines="10-11,14-16,19-21,24-44,48,58"
     expand
   >
     <p>
@@ -24,13 +24,17 @@ const RangeExample = () =>
       an argument.
     </p>
     <p>
-      In this example we first render the <code>RangeOutput</code> and <code>RangeSlider</code>{' '}
-      sub-components. Then we include several copies of the custom <code>SetButton</code> component
-      which uses the <code>useRange</code> hook to access the <code>setValue</code> function.
+      In this example we first render the <code>RangeOutput</code> and{' '}
+      <code>RangeSlider</code>{' '} sub-components (lines 10 and 11).
+      Then we include several copies of the custom <code>SetMin</code> (lines 14-16)
+      and <code>SetMax</code> (lines 19-21) components
+      which use the <code>useRange</code> hook to access the{' '}
+      <code>setMinValue</code> and <code>setMaxValue</code> functions respectively
+      (lines 48 and 58).
     </p>
     <p>
-      The final block of code demonstrates a function which receives the{' '}
-      <code>setValue</code> function as a property which it can then call
+      The final block of code (lines 24 to 44) demonstrates a function which receives the{' '}
+      <code>setValues</code> function as a property which it can then call
       directly.
     </p>
   </Example>

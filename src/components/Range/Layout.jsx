@@ -1,14 +1,14 @@
 import React from 'react'
 import Context from './Context.js'
 import DefaultSlider from './Slider.jsx'
-import DefaultInput from './Input.jsx'
+import DefaultInputs from './Inputs.jsx'
 import DefaultOutput from './Output.jsx'
 import DefaultLimits from './Limits.jsx'
 import DefaultDebug from './Debug.jsx'
 
 const Layout = ({
   Slider=DefaultSlider,
-  Input=DefaultInput,
+  Inputs=DefaultInputs,
   Output=DefaultOutput,
   Limits=DefaultLimits,
   Debug=DefaultDebug,
@@ -16,19 +16,20 @@ const Layout = ({
   showInput,
   showInputs=showInput,
   showValue,
+  showValues=showValue,
   showScale,
   showLimits,
 }) =>
   <>
-    { Boolean(showValue) &&
+    { Boolean(showValues) &&
       <Output/>
     }
     <Slider/>
     { (showLimits && ! showScale) &&
       <Limits/>
     }
-    { (showInputs && ! showLimits) &&
-      <Input/>
+    { showInputs &&
+      <Inputs/>
     }
     { Boolean(debug) &&
       <Debug/>

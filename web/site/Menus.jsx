@@ -110,11 +110,11 @@ export const ComponentsMenu = {
       text: 'Range',
       tocName: 'range'
     },
-    {
-      to: '/components/range-min-max',
-      text: 'RangeMinMax',
-      tocName: 'rangeMinMax'
-    },
+    //{
+    //  to: '/components/range-min-max',
+    //  text: 'RangeMinMax',
+    //  tocName: 'rangeMinMax'
+    //},
     {
       to: '/components/range-max',
       text: 'RangeMax',

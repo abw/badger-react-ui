@@ -5,7 +5,8 @@ const RangeExample = () =>
   /* START */
   <Range
     step={10}
-    showValue
+    showValues
+    showLimits
   />
   /* END */
 
