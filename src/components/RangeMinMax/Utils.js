@@ -5,7 +5,13 @@ import {
 } from '@abw/badger-utils'
 
 export const initRangeMinMax = (props={}) => {
-  let { min=0, max=100, minValue, maxValue, minRange, maxRange, step, tickStep, quantize } = props
+  let {
+    min=0, max=100,
+    minNormal=0.25, maxNormal=0.75,
+    minValue, maxValue,
+    minRange, maxRange,
+    step, tickStep, quantize
+  } = props
 
   // Coerce min and max to numbers and calculate the range
   min = coerceNumber(min)
@@ -17,10 +23,10 @@ export const initRangeMinMax = (props={}) => {
   // between min and max
   minValue = hasValue(minValue)
     ? clamp(coerceNumber(minValue), min, max)
-    : min + range / 4
+    : min + range * minNormal
   maxValue = hasValue(maxValue)
     ? clamp(coerceNumber(maxValue), min, max)
-    : min + range * 3 / 4
+    : min + range * maxNormal
   minRange = hasValue(minRange)
     ? clamp(coerceNumber(minRange), 0, range)
     : 0
@@ -77,8 +83,8 @@ export const initRangeMinMax = (props={}) => {
       range
     )
 
-  const minNormal  = valueToNormal(minValue)
-  const maxNormal  = valueToNormal(maxValue)
+  minNormal = valueToNormal(minValue)
+  maxNormal = valueToNormal(maxValue)
   const minPercent = multiply(minNormal, 100)
   const maxPercent = multiply(maxNormal, 100)
 

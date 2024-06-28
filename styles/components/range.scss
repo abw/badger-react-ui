@@ -38,12 +38,14 @@
   --track-border-width: 1px;
   --track-height: calc(0.5em + var(--track-border-width) * 2);
   --track-half: calc(var(--track-height) / 2);
-  --selection-border-offset: calc(0px - var(--track-border-width));
+  // --selection-border-offset: calc(0px - var(--track-border-width));
+  --selection-border-offset: 0px;
   --thumb-size: calc(1em + var(--track-border-width) * 2);
   --thumb-size: 1.25em;
   --thumb-half: calc(var(--thumb-size) / 2);
   --thumb-opacity: 1;
-  --track-offset: 0px;
+  //--track-offset: 0px;
+  --track-offset: var(--track-border-width);
   // --thumbs-offset: calc(var(--thumb-half) - var(--track-offset));
   --thumbs-offset: calc(var(--thumb-half) - var(--track-border-width));
   // --selection-offset: var(--thumbs-offset);

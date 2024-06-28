@@ -15,6 +15,8 @@ class Context extends Base {
   static defaultProps = {
     onChange: doNothing,
     displayValue: identity,
+    minNormal: 0.25,
+    maxNormal: 0.75,
     color: 'brand'
   }
   static actions = [

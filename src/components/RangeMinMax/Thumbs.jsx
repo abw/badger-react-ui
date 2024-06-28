@@ -17,5 +17,5 @@ const Thumbs = ({
     <ThumbMax/>
   </div>
 
-export const RangeMinMaxThumb = Context.Consumer(Thumbs)
-export default RangeMinMaxThumb
+export const RangeMinMaxThumbs = Context.Consumer(Thumbs)
+export default RangeMinMaxThumbs
