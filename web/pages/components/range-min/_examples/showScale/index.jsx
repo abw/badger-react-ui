@@ -6,18 +6,18 @@ import { CodeHashLink } from '@/web/site/Links.jsx'
 
 const RangeExample = () =>
   <Example
-    code="showValues"
+    code="showScale"
     Component={Component}
     Source={Source}
-    highlightLines="4"
-    undent={2}
+    undent={4}
+    highlightLines="5,11-12"
     expand
   >
     <p>
-      The <code>showValues</code> property (or <code>showValue</code> as an alias)
-      can be specified to display the current values above their respective slider thumbs.
-      The <CodeHashLink id="displayValue"/> property can be set to define a
-      function to format the value.
+      The <code>showScale</code> property can be specified to display a scale
+      of values below the ticks.  The <CodeHashLink id="showTicks"/> property
+      must be set.  If a <CodeHashLink id="displayValue"/> function is defined
+      then it will be used to generate the text for the scale values.
     </p>
   </Example>
 

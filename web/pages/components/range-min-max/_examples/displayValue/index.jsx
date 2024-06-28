@@ -9,7 +9,7 @@ const RangeExample = () =>
     code="displayValue"
     Component={Component}
     Source={Source}
-    highlightLines="3"
+    highlightLines="5"
     undent={2}
     expand
   >

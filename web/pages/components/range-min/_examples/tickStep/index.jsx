@@ -6,18 +6,17 @@ import { CodeHashLink } from '@/web/site/Links.jsx'
 
 const RangeExample = () =>
   <Example
-    code="showValues"
+    code="tickStep"
     Component={Component}
     Source={Source}
-    highlightLines="4"
     undent={2}
+    highlightLines="4"
     expand
   >
     <p>
-      The <code>showValues</code> property (or <code>showValue</code> as an alias)
-      can be specified to display the current values above their respective slider thumbs.
-      The <CodeHashLink id="displayValue"/> property can be set to define a
-      function to format the value.
+      The <code>tickStep</code> property allows you to set a step for the
+      displayed ticks which is different to the main <CodeHashLink id="step"/> property
+      which controls the granularity of the slider.
     </p>
   </Example>
 

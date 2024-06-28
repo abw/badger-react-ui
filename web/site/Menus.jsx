@@ -121,6 +121,11 @@ export const ComponentsMenu = {
       tocName: 'rangeMax'
     },
     {
+      to: '/components/range-min',
+      text: 'RangeMin',
+      tocName: 'rangeMin'
+    },
+    {
       to: '/components/search',
       text: 'Search',
       tocName: 'search'

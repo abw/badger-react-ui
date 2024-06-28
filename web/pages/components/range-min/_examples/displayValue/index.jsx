@@ -6,18 +6,20 @@ import { CodeHashLink } from '@/web/site/Links.jsx'
 
 const RangeExample = () =>
   <Example
-    code="showValues"
+    code="displayValue"
     Component={Component}
     Source={Source}
-    highlightLines="4"
+    highlightLines="3"
     undent={2}
     expand
   >
     <p>
-      The <code>showValues</code> property (or <code>showValue</code> as an alias)
-      can be specified to display the current values above their respective slider thumbs.
-      The <CodeHashLink id="displayValue"/> property can be set to define a
-      function to format the value.
+      The <code>displayValue</code> property can be defined as a function
+      to format the values that are displayed by{' '}
+      <CodeHashLink id="showValue"/>, <CodeHashLink id="showScale"/> and{' '}
+      <CodeHashLink id="showLimits"/>.
+      It is passed the numeric value as an argument and should return the
+      formatted text.
     </p>
   </Example>
 
