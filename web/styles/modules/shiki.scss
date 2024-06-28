@@ -50,6 +50,10 @@
     // color: rgba(115,138,148,.4)
     color: var(--shiki-line-numbers);
   }
+  code .line:empty {
+    // fix for extra blank line appearing after blank lines
+    display: inline-block
+  }
 }
 
 #{$dark-theme} {
