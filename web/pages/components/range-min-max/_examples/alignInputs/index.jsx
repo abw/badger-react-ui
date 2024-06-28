@@ -16,8 +16,8 @@ const RangeExample = () =>
     <p>
       The <code>alignInputs</code> property (or <code>alignInput</code> as an
       alias) can be set to specified to set the alignment of the inputs.
-      The default value is <code>space</code> which will minium input at the
-      left edge and the maximum input at the right.  It can also be set to{' '}
+      The default value is <code>space</code> which will align the minium input
+      to the left edge and the maximum input to the right.  It can also be set to{' '}
       <code>center</code>, <code>left</code> or <code>right</code>.
     </p>
     <p>

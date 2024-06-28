@@ -82,18 +82,24 @@ class Context extends Base {
     minValue = this.quantize(minValue, ...this.minValueLimits())
     const minNormal = this.valueToNormal(minValue)
     const minPercent = multiply(minNormal, 100)
-    this.setState({
-      minNormal, minValue, minPercent
-    })
+    this.setState(
+      {
+        minNormal, minValue, minPercent
+      },
+      () => this.onChange()
+    )
     return minValue
   }
   setMaxValue(maxValue) {
     maxValue = this.quantize(maxValue, ...this.maxValueLimits())
     const maxNormal = this.valueToNormal(maxValue)
     const maxPercent = multiply(maxNormal, 100)
-    this.setState({
-      maxNormal, maxValue, maxPercent
-    })
+    this.setState(
+      {
+        maxNormal, maxValue, maxPercent
+      },
+      () => this.onChange()
+    )
     return maxValue
   }
   setValues(minValue, maxValue) {
@@ -107,9 +113,12 @@ class Context extends Base {
     )
     minNormal = this.valueToNormal(minValue)
     const minPercent = multiply(100, minNormal).toFixed(2)
-    this.setState({
-      minNormal, minValue, minPercent, minInput: minValue
-    })
+    this.setState(
+      {
+        minNormal, minValue, minPercent, minInput: minValue
+      },
+      () => this.onChange()
+    )
     return minValue
   }
   setNormalisedMaxValue(maxNormal) {
@@ -119,9 +128,12 @@ class Context extends Base {
     )
     maxNormal = this.valueToNormal(maxValue)
     const maxPercent = multiply(100, maxNormal).toFixed(2)
-    this.setState({
-      maxNormal, maxValue, maxPercent, maxInput: maxValue
-    })
+    this.setState(
+      {
+        maxNormal, maxValue, maxPercent, maxInput: maxValue
+      },
+      () => this.onChange()
+    )
     return maxValue
   }
   step() {
@@ -132,22 +144,22 @@ class Context extends Base {
   }
   stepMinUp() {
     const newValue = this.state.minValue + this.step()
-    this.setMinValue(newValue)
+    // this.setMinValue(newValue)
     this.setMinInput(newValue)
   }
   stepMaxUp() {
     const newValue = this.state.maxValue + this.step()
-    this.setMaxValue(newValue)
+    // this.setMaxValue(newValue)
     this.setMaxInput(newValue)
   }
   stepMinDown() {
     const newValue = this.state.minValue - this.step()
-    this.setMinValue(newValue)
+    // this.setMinValue(newValue)
     this.setMinInput(newValue)
   }
   stepMaxDown() {
     const newValue = this.state.maxValue - this.step()
-    this.setMaxValue(newValue)
+    // this.setMaxValue(newValue)
     this.setMaxInput(newValue)
   }
   thumbsRef(ref){
@@ -278,6 +290,10 @@ class Context extends Base {
       this.debug(`click between, closer to maximum`)
       return this.setNormalisedMaxValue(normal)
     }
+  }
+  onChange() {
+    const { minValue, maxValue } = this.state
+    this.props.onChange(minValue, maxValue)
   }
   getRenderProps() {
     const context = this.getContext()

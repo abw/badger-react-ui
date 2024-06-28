@@ -1,14 +1,14 @@
 import React from 'react'
-import { RangeMinMax } from '@/src/index.jsx'
+import { RangeMax } from '@/src/index.jsx'
 
 const RangeExample = () =>
   /* START */
-  <RangeMinMax
-    maxValue={50}
+  <RangeMax
+    value={50}
     step={10}
     tickStep={20}
     showTicks
-    showValues
+    showValue
   />
   /* END */
 

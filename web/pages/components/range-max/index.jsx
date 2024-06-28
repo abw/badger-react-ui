@@ -9,15 +9,17 @@ import Min            from './_examples/min/index.jsx'
 import Max            from './_examples/max/index.jsx'
 import Step           from './_examples/step/index.jsx'
 import ShowValue      from './_examples/showValue/index.jsx'
-import ValueLocation  from './_examples/valueLocation/index.jsx'
-//import DisplayValue   from './_examples/displayValue/index.jsx'
-//import ShowTicks      from './_examples/showTicks/index.jsx'
-//import TickStep       from './_examples/tickStep/index.jsx'
-//import ShowScale      from './_examples/showScale/index.jsx'
-//import ShowLimits     from './_examples/showLimits/index.jsx'
-//import ShowInputs     from './_examples/showInputs/index.jsx'
-//import Color          from './_examples/color/index.jsx'
-//import Size           from './_examples/size/index.jsx'
+import AlignValue     from './_examples/alignValue/index.jsx'
+import DisplayValue   from './_examples/displayValue/index.jsx'
+import ShowTicks      from './_examples/showTicks/index.jsx'
+import TickStep       from './_examples/tickStep/index.jsx'
+import ShowScale      from './_examples/showScale/index.jsx'
+import ShowLimits     from './_examples/showLimits/index.jsx'
+import ShowInput      from './_examples/showInput/index.jsx'
+import AlignInput     from './_examples/alignInput/index.jsx'
+import InputSize      from './_examples/inputSize/index.jsx'
+import Color          from './_examples/color/index.jsx'
+import Size           from './_examples/size/index.jsx'
 
 
 const RangeMaxExamples = () =>
@@ -26,21 +28,24 @@ const RangeMaxExamples = () =>
     <RangeMax/>
     <Sections tocName="rangeMax">
       <Heading title="Properties"/>
-      <Value/>
       <Min/>
       <Max/>
       <Step/>
+      <Value/>
       <ShowValue/>
-      <ValueLocation/>
-    {/*
+      <AlignValue/>
       <DisplayValue/>
       <ShowTicks/>
       <TickStep/>
       <ShowScale/>
       <ShowLimits/>
-      <ShowInputs/>
+      <ShowInput/>
+      <AlignInput/>
+      <InputSize/>
       <Color/>
       <Size/>
+      {/*
+
       <Children/>
       <Split>
         <div className="flow">

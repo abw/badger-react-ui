@@ -5,19 +5,23 @@ const RangeMaxExample = () =>
   <div className="grid-1 gap-4">
     {/* START */}
     <RangeMax
+      value={20}
       showValue
     />
     <RangeMax
+      value={40}
       showValue
-      valueLocation="left"
+      alignValue="left"
     />
     <RangeMax
+      value={60}
       showValue
-      valueLocation="center"
+      alignValue="center"
     />
     <RangeMax
+      value={80}
       showValue
-      valueLocation="right"
+      alignValue="right"
     />
     {/* END */}
   </div>

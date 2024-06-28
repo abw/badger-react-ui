@@ -5,7 +5,7 @@ import Source     from './Component.jsx?raw'
 
 const ShowInput = () =>
   <Example
-    code="showInputs"
+    code="showInput"
     Component={Component}
     Source={Source}
     undent={2}
@@ -13,8 +13,8 @@ const ShowInput = () =>
     expand
   >
     <p>
-      The <code>showInputs</code> property (or <code>showInput</code> as an alias){' '}
-      can be specified to display inputs below the slider to allow precise values
+      The <code>showInput</code> property (or <code>showInputs</code> as an alias){' '}
+      can be specified to display an input below the slider to allow precise values
       to be entered.
     </p>
   </Example>

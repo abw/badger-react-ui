@@ -20,7 +20,7 @@ const RangeExample = () =>
     />
     <RangeMinMax
       minValue={40} maxValue={60}
-      showInput
+      showInputs
       alignInputs="right"
     />
     {/* END */}

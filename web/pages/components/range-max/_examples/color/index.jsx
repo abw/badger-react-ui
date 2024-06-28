@@ -10,7 +10,6 @@ const RangeExample = () =>
     Source={Source}
     undent={4}
     highlightLines="2,6,10,14,18,22,26,30,34,38,42,46,50"
-    // highlightLines="2"
     // expand
   >
     <p>

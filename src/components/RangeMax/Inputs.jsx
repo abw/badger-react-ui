@@ -5,10 +5,13 @@ import { classes } from '@/src/utils/classes.js'
 
 const Inputs = ({
   inputsClass='range-inputs',
-  inputLocation='right',
+  alignInput='center',
+  alignInputs=alignInput,
+  inputSize,
+  inputsSize=inputSize,
   InputMax=DefaultInputMax,
 }) =>
-  <div className={classes(inputsClass, inputLocation)}>
+  <div className={classes(inputsClass, alignInputs, inputsSize)}>
     <InputMax/>
   </div>
 

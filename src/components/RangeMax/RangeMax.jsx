@@ -13,17 +13,19 @@ const RangeMax = ({
   Thumbs=DefaultThumbs,
   Values=DefaultValues,
   Inputs=DefaultInputs,
-  rangeClass='range min-max max',
+  // alignInputs='center',
+  // rangeClass='range m',
   ...props
 }) =>
   <RangeMinMax
     maxValue={value}
     minNormal={minNormal}
     maxNormal={maxNormal}
+    // alignInputs={alignInputs}
+    // rangeClass={rangeClass}
     Thumbs={Thumbs}
     Values={Values}
     Inputs={Inputs}
-    rangeClass={rangeClass}
     {...props}
   >
     {children}
