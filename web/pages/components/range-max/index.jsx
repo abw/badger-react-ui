@@ -20,7 +20,8 @@ import AlignInput     from './_examples/alignInput/index.jsx'
 import InputSize      from './_examples/inputSize/index.jsx'
 import Color          from './_examples/color/index.jsx'
 import Size           from './_examples/size/index.jsx'
-
+import Context        from './_examples/Context.jsx'
+import Children       from './_examples/children/index.jsx'
 
 const RangeMaxExamples = () =>
   <div className="flow">
@@ -44,9 +45,13 @@ const RangeMaxExamples = () =>
       <InputSize/>
       <Color/>
       <Size/>
-      {/*
-
+      <Heading title="Event Handlers"/>
+      {/* <OnChange/> */}
+      <Heading title="Context"/>
+      <Context/>
       <Children/>
+
+      {/*
       <Split>
         <div className="flow">
           <Heading title="Event Handlers"/>

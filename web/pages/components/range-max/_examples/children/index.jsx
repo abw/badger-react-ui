@@ -8,8 +8,7 @@ const RangeExample = () =>
     title="Custom Layout"
     Component={Component}
     Source={Source}
-    highlightLines="10-11,14-16,19-21,24-44,48,58"
-    // undent={2}
+    highlightLines="10-11,13-17,19-35,39"
     // expand
   >
     <p>
@@ -17,24 +16,22 @@ const RangeExample = () =>
       of the built-in components and your own code.
     </p>
     <p>
-      Inside the scope of the <code>Range</code> element, any children can
+      Inside the scope of the <code>RangeMax</code> element, any children can
       access the context using the <code>useRange</code> hook.  Immediate
-      children of the <code>Range</code> component can also be functions
+      children of the <code>RangeMax</code> component can also be functions
       which will receive an object containing all the context properties as
       an argument.
     </p>
     <p>
       In this example we first render the <code>RangeOutput</code> and{' '}
       <code>RangeSlider</code>{' '} sub-components (lines 10 and 11).
-      Then we include several copies of the custom <code>SetMin</code> (lines 14-16)
-      and <code>SetMax</code> (lines 19-21) components
-      which use the <code>useRange</code> hook to access the{' '}
-      <code>setMinValue</code> and <code>setMaxValue</code> functions respectively
-      (lines 48 and 58).
+      Then we include several copies of the custom <code>SetMax</code> component (lines 13-17)
+      which uses the <code>useRange</code> hook to access the{' '}
+      <code>setMaxValue</code> function (line 39).
     </p>
     <p>
-      The final block of code (lines 24 to 44) demonstrates a function which receives the{' '}
-      <code>setValues</code> function as a property which it can then call
+      The final block of code (lines 19 to 35) demonstrates a function which receives the{' '}
+      <code>setMaxValue</code> function as a property which it can then call
       directly.
     </p>
   </Example>

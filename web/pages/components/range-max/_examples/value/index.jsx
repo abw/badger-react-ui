@@ -2,6 +2,7 @@ import React      from 'react'
 import Example    from '@/page/ExampleSection.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
+import { RangeLink } from '@/web/site/Links.jsx'
 
 const RangeExample = () =>
   <Example
@@ -14,6 +15,7 @@ const RangeExample = () =>
   >
     <p>
       The <code>value</code> property can be used to set the initial value.
+      This is an alias for <code>maxValue</code> in the <RangeLink/> component.
       The default range is from 0{' '}
       (<a href="#min" className="code">min</a>) to 100{' '}
       (<a href="#max" className="code">max</a>).  If a <code>value</code> is

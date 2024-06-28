@@ -9,6 +9,8 @@ import MaxValue       from './_examples/maxValue/index.jsx'
 import Min            from './_examples/min/index.jsx'
 import Max            from './_examples/max/index.jsx'
 import Step           from './_examples/step/index.jsx'
+import MinRange       from './_examples/minRange/index.jsx'
+import MaxRange       from './_examples/maxRange/index.jsx'
 import ShowValues     from './_examples/showValues/index.jsx'
 import AlignValues    from './_examples/alignValues/index.jsx'
 import DisplayValue   from './_examples/displayValue/index.jsx'
@@ -30,13 +32,15 @@ const RangeExamples = () =>
   <div className="flow">
     <h1>Range</h1>
     <Range/>
-    <Sections tocName="rangeMinMax">
+    <Sections tocName="range">
       <Heading title="Properties"/>
       <Min/>
       <Max/>
       <Step/>
       <MinValue/>
       <MaxValue/>
+      <MinRange/>
+      <MaxRange/>
       <ShowValues/>
       <AlignValues/>
       <DisplayValue/>

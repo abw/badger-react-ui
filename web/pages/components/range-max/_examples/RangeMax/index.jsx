@@ -4,69 +4,36 @@ import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
 import Extras     from './Extras.jsx'
 import ExtrasSrc  from './Extras.jsx?raw'
-import DescTable  from '@/web/site/DescTable.jsx'
-import { Warning } from '@/src/index.jsx'
-import { RangeMinMaxLink } from '@/web/site/Links.jsx'
+import { RangeLink } from '@/web/site/Links.jsx'
 
 const Range = () =>
   <>
     <p className="large">
-      The <code>RangeMax</code> component implements a custom range input.
+      The <code>RangeMax</code> component implements a custom range input
+      for selecting the maximum end of a range.
     </p>
     <Example
       Component={Component}
       code={Source}
     />
     <p>
-      The custom range component offers the same functionality as the native
-      HTML input with some additional functionality and display options.
-      Furthermore, the custom component is <i>considerably</i> easier to
-      style consistently across browsers.
+      It is implemented as a wrapper around the <RangeLink/> component and
+      exposes a subset of its functionality.  There is no thumb,
+      value or input displayed for the <code>minValue</code> and it effectively
+      remains fixed at the <code>min</code> value.
+    </p>
+    <p>
+      The <code>maxValue</code> property has an alias of <code>value</code>{' '}
+      and defaults to be half the range.  The properties relating to plural
+      items in the <RangeLink/> component  (e.g. <code>showValues</code>,{' '}
+      <code>showInputs</code>, etc.) also have aliases in the singular form
+      (e.g. <code>showValue</code>, <code>showInput</code>, etc).  You can
+      use either.
     </p>
     <Example
       Component={Extras}
       code={ExtrasSrc}
       undent={2}
-    />
-    <h2>Context</h2>
-    <Warning border>
-      This table is incorrect.  This component is current implemented as a
-      wrapper around <RangeMinMaxLink/> which exposes <code>maxValue</code>{' '}
-      rather than <code>value</code> (ditto for <code>input</code>, <code>percent</code>, etc).
-    </Warning>
-    <p>
-      A react context is created which provides the items listed below.
-      Any other properties passed in to the component will also be
-      accessible to child components.
-    </p>
-    <p>
-      Custom components can be wrapped with the <code>RangeConsumer</code>{' '}
-      higher order component to receive these items as properties.  Or you
-      can use the <code>useRange</code> hook to access them.
-    </p>
-    <DescTable
-      items={[
-        ['min',           'The minimum value'],
-        ['max',           'The maximum value'],
-        ['range',         'The range from `min` to `max`'],
-        ['step',          'The step size or `any` if there is no stepping'],
-        ['steps',         'The number of steps covering the range'],
-        ['value',         'The current value.'],
-        ['input',         'The current value of the input component.'],
-        ['normal',        'The `value` normalised to the range `0` to `1`'],
-        ['percent',       'The `value` as a percentage of the range'],
-        ['rangeProps',    'Properties for the range `Content` component'],
-        ['onMouseDown',   'Mouse handler for the `Thumb` component'],
-        ['onKeyDown',     'Keyboard handler for the `Thumb` component'],
-        ['onClick',       'Mouse click handler for the `Track` component'],
-        ['setValue',      'Function to set the `value`'],
-        ['setInput',      'Function to set the `input` value'],
-        ['stepUp',        'Function to increment the `value` by one step'],
-        ['stepDown',      'Function to decrement the `value` by one step'],
-        ['quantize',      'Function to quantize a `value` to any defined `step`'],
-        ['normalToValue', 'Function to convert a normalised value (0-1) to the range (min-max)'],
-        ['valueToNormal', 'Function to convert a ranged value (min-max) to a normalised value (0-1)'],
-      ]}
     />
   </>
 
