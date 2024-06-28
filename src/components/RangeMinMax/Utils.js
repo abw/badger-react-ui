@@ -121,3 +121,25 @@ export const rangeMinMaxQuantizer = ({ min, max, step, quantize }) => {
   }
 }
 
+export const rangeMinMaxNormalClick = (normal, minNormal, maxNormal, setMin, setMax) => {
+  if (normal < minNormal) {
+    return setMin(normal)
+  }
+  else if (normal > maxNormal) {
+    return setMax(normal)
+  }
+  const dMin = normal - minNormal
+  const dMax = maxNormal - normal
+  if (dMin < dMax) {
+    return setMin(normal)
+  }
+  else {
+    return setMax(normal)
+  }
+}
+
+export const rangeMinNormalClick = (normal, minNormal, maxNormal, setMin) =>
+  setMin(normal)
+
+export const rangeMaxNormalClick = (normal, minNormal, maxNormal, setMin, setMax) =>
+  setMax(normal)

@@ -13,6 +13,7 @@ const RangeMax = ({
   Thumbs=DefaultThumbs,
   Values=DefaultValues,
   Inputs=DefaultInputs,
+  normalClick='max',
   // alignInputs='center',
   // rangeClass='range m',
   ...props
@@ -21,6 +22,7 @@ const RangeMax = ({
     maxValue={value}
     minNormal={minNormal}
     maxNormal={maxNormal}
+    normalClick={normalClick}
     // alignInputs={alignInputs}
     // rangeClass={rangeClass}
     Thumbs={Thumbs}

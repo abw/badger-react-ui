@@ -2,11 +2,17 @@ import { Generator, Context as Base } from '@abw/react-context'
 import { anyPropsChanged, classes } from '@/src/utils/index.js'
 import { doNothing, clamp, multiply, divide, identity, splitList } from '@abw/badger-utils'
 import { ANY, ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT } from '@/src/constants.js'
-import { initRangeMinMax } from './Utils.js'
+import { initRangeMinMax, rangeMinMaxNormalClick, rangeMinNormalClick, rangeMaxNormalClick } from './Utils.js'
+import { isFunction } from '@abw/badger-utils'
 
 const WATCH_PROPS = splitList(
   'min max minValue maxValue minRange maxRange step tickStep quantize'
 )
+const NORMAL_CLICK = {
+  minMax: rangeMinMaxNormalClick,
+  min: rangeMinNormalClick,
+  max: rangeMaxNormalClick,
+}
 
 class Context extends Base {
   static debug        = false
@@ -15,6 +21,7 @@ class Context extends Base {
   static defaultProps = {
     onChange: doNothing,
     displayValue: identity,
+    normalClick: 'minMax',
     minNormal: 0,
     maxNormal: 1,
     color: 'brand'
@@ -30,6 +37,10 @@ class Context extends Base {
   constructor(props) {
     super(props)
     const state = this.initProps(props)
+    const normalClick = props.normalClick
+    this.normalClick = isFunction(normalClick)
+      ? normalClick
+      : NORMAL_CLICK[normalClick] || NORMAL_CLICK.minMax
     this.state = {
       ...this.state,
       ...state,
@@ -272,6 +283,15 @@ class Context extends Base {
     const { minNormal, maxNormal } = this.state
     this.debug(`click at ${clickX} from ${trackLeft} with width ${trackWidth}: ${normal}`)
 
+    // Delegate to custom function which can be switch using the normalClick
+    // property so that RangeMin and RangeMax can change the behaviour.  It's
+    // a bit of a hack but easier than subclasses the whole context.
+    this.normalClick(
+      normal, minNormal, maxNormal,
+      normal => this.setNormalisedMinValue(normal),
+      normal => this.setNormalisedMaxValue(normal),
+    )
+    /*
     if (normal < minNormal) {
       this.debug(`click below minimum`)
       return this.setNormalisedMinValue(normal)
@@ -290,6 +310,7 @@ class Context extends Base {
       this.debug(`click between, closer to maximum`)
       return this.setNormalisedMaxValue(normal)
     }
+    */
   }
   onChange() {
     const { minValue, maxValue } = this.state

@@ -5,6 +5,8 @@ import Source     from './Component.jsx?raw'
 import Extras     from './Extras.jsx'
 import ExtrasSrc  from './Extras.jsx?raw'
 import DescTable  from '@/web/site/DescTable.jsx'
+import { Warning } from '@/src/index.jsx'
+import { RangeMinMaxLink } from '@/web/site/Links.jsx'
 
 const Range = () =>
   <>
@@ -27,6 +29,11 @@ const Range = () =>
       undent={2}
     />
     <h2>Context</h2>
+    <Warning border>
+      This table is incorrect.  This component is current implemented as a
+      wrapper around <RangeMinMaxLink/> which exposes <code>maxValue</code>{' '}
+      rather than <code>value</code> (ditto for <code>input</code>, <code>percent</code>, etc).
+    </Warning>
     <p>
       A react context is created which provides the items listed below.
       Any other properties passed in to the component will also be
