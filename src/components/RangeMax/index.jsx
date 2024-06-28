@@ -1,10 +1,10 @@
 export { default as RangeMax          } from './RangeMax.jsx'
 export { default as RangeMaxValues    } from './Values.jsx'
 export { default as RangeMaxThumbs    } from './Thumbs.jsx'
+export { default as RangeMinMaxInputs } from './Inputs.jsx'
 /*
 export { default as RangeMinMaxContent   } from './Content.jsx'
 export { default as RangeMinMaxDebug     } from './Debug.jsx'
-export { default as RangeMinMaxInput     } from './Input.jsx'
 export { default as RangeMinMaxInputMin  } from './InputMin.jsx'
 export { default as RangeMinMaxInputMax  } from './InputMax.jsx'
 export { default as RangeMinMaxLimits    } from './Limits.jsx'

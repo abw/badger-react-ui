@@ -1,6 +1,7 @@
 export { default as RangeMinMax          } from './RangeMinMax.jsx'
 export { default as RangeMinMaxContent   } from './Content.jsx'
 export { default as RangeMinMaxDebug     } from './Debug.jsx'
+export { default as RangeMinMaxInputs    } from './Inputs.jsx'
 export { default as RangeMinMaxInput     } from './Input.jsx'
 export { default as RangeMinMaxInputMin  } from './InputMin.jsx'
 export { default as RangeMinMaxInputMax  } from './InputMax.jsx'

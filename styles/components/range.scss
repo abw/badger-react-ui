@@ -262,4 +262,9 @@
       }
     }
   }
+  &.max {
+    .range-inputs {
+      // justify-content: center;
+    }
+  }
 }
