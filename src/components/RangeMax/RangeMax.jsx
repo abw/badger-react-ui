@@ -12,6 +12,7 @@ const RangeMax = ({
   value,
   minNormal=0,
   maxNormal=0.5,
+  rangeClass='range range-max',
   Thumbs=DefaultThumbs,
   Values=DefaultValues,
   Inputs=DefaultInputs,
@@ -24,6 +25,7 @@ const RangeMax = ({
     maxValue={value}
     minNormal={minNormal}
     maxNormal={maxNormal}
+    rangeClass={rangeClass}
     normalClick={normalClick}
     prepareRenderProps={prepareRenderProps}
     onChange={( _ , max, ...rest) => onChange(max, ...rest)}

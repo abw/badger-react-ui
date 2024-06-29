@@ -1,4 +1,3 @@
-// Temporary hack to update values in badger-css (which will be updated soon)
 :where(.range) {
   --track-background: var(--color-85);
   --track-border: var(--color-70);
@@ -71,6 +70,9 @@
   // border: 1px dashed red;
   &.range-dragging {
     --track-fill: var(--track-dragging);
+  }
+  &.range-min {
+    --track-fill: var(--orange-50);
   }
   &.range-has-scale {
     padding-bottom: 1.5em;
@@ -171,7 +173,6 @@
   }
   .range-inputs {
     display: flex;
-    // justify-content: center;
     justify-content: space-between;
     gap: var(--inputs-gap);
     &.center, &.centre {
@@ -189,7 +190,6 @@
   }
   .range-input {
     width: auto;
-    // width: 100%;
     text-align: center;
     &.range-has-scale {
       margin-top: calc(var(--gap) * 2);
@@ -221,7 +221,6 @@
       -moz-appearance:textfield;
     }
   }
-
   .range-output {
     width: 100%;
     min-height: 1.5em;
@@ -231,7 +230,6 @@
       line-height: 1;
       font-size: var(--value-size);
       color: var(--value-color);
-      // bottom: 0.25em;
       bottom: 0;
       &.thumb {
         left: var(--percent);
@@ -247,56 +245,6 @@
         left: 50%;
         transform: translateX(-50%);
       }
-    }
-  }
-  &.OLD-min-max {
-    --min-position: 0.25;
-    --max-position: 0.75;
-    --min-percent: 25%;
-    --max-percent: 75%;
-    .range-track {
-      .range-selection {
-        left: calc(var(--selection-border-offset) + var(--min-percent));
-        // width: calc(var(--percent) + var(--thumb-size) * (1 - var(--position)));
-        width: auto;
-        right: calc(100% - var(--max-percent));
-      }
-    }
-    .range-thumb {
-      &.min {
-        left: var(--min-percent);
-      }
-      &.max {
-        left: var(--max-percent);
-      }
-    }
-    .range-inputs {
-      display: flex;
-      justify-content: space-between;
-      .range-input {
-        width: auto;
-      }
-    }
-    .range-output {
-      .range-value {
-        &.thumb.min {
-          --percent: var(--min-percent);
-        }
-        &.thumb.max {
-          --percent: var(--max-percent);
-        }
-      }
-    }
-    &.debug {
-      border: 1px dashed red;
-      .range-inputs {
-        border: 1px dashed rebeccapurple;
-      }
-    }
-  }
-  &.max {
-    .range-inputs {
-      // justify-content: center;
     }
   }
 }

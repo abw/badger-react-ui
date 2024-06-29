@@ -12,6 +12,7 @@ const RangeMin = ({
   value,
   minNormal=0.5,
   maxNormal=1,
+  rangeClass='range range-min',
   Thumbs=DefaultThumbs,
   Values=DefaultValues,
   Inputs=DefaultInputs,
@@ -24,6 +25,7 @@ const RangeMin = ({
     minValue={value}
     minNormal={minNormal}
     maxNormal={maxNormal}
+    rangeClass={rangeClass}
     normalClick={normalClick}
     prepareRenderProps={prepareRenderProps}
     onChange={(min, _, ...rest) => onChange(min, ...rest)}
