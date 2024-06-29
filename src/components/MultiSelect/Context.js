@@ -47,6 +47,9 @@ class Context extends Base {
     return hasValue(index)
   }
   unselectMultiOption(option) {
+    if (! hasValue(option)) {
+      return null
+    }
     const [selected, index] = this.props.findOption(
       this.state.values,
       this.props.optionValue(option)
@@ -63,6 +66,9 @@ class Context extends Base {
     return true
   }
   selectMultiOption(option) {
+    if (! hasValue(option)) {
+      return null
+    }
     const [select, index] = this.props.findOption(
       this.props.options,
       this.props.optionValue(option)
