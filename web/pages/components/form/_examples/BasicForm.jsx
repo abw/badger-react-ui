@@ -86,8 +86,22 @@ const FormExample = () =>
     <Field
       label="Volume"
       name="volume"
-      type="range"
+      type="rangemax"
+      default={10}
+      showScale
+      showTicks
       min={0} max={11}
+      required
+    />
+    <Field
+      label="Blackness"
+      name="blackness"
+      type="rangeminmax"
+      showScale
+      showTicks
+      min={0} max={5}
+      minValue={1}
+      maxValue={4}
       required
     />
     <Field

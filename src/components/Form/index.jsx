@@ -1,6 +1,9 @@
 import MultiSelect from './Input/MultiSelect.jsx'
 import Select from './Input/Select.jsx'
 import Search from './Input/Search.jsx'
+import Range from './Input/Range.jsx'
+import RangeMin from './Input/RangeMin.jsx'
+import RangeMax from './Input/RangeMax.jsx'
 import * as BadgerForm from '@abw/badger-form'
 import { addInputType } from '@abw/badger-form'
 import { Themed }     from '@/src/Theme.jsx'
@@ -13,6 +16,10 @@ export {
 addInputType('multiselect', MultiSelect)
 addInputType('uiselect', Select)
 addInputType('search', Search)
+addInputType('uirange', Range)
+addInputType('rangeminmax', Range)
+addInputType('rangemin', RangeMin)
+addInputType('rangemax', RangeMax)
 
 export const Form          = Themed(BadgerForm.Form,      'Form')
 export const Field         = Themed(BadgerForm.Field,     'Field')
