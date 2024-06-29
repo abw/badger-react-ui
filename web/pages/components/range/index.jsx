@@ -11,11 +11,13 @@ import MinRange       from './_examples/minRange/index.jsx'
 import MaxRange       from './_examples/maxRange/index.jsx'
 import ShowValues     from './_examples/showValues/index.jsx'
 import AlignValues    from './_examples/alignValues/index.jsx'
+import ValuesSize     from './_examples/valuesSize/index.jsx'
 import DisplayValue   from './_examples/displayValue/index.jsx'
 import ShowTicks      from './_examples/showTicks/index.jsx'
 import TickStep       from './_examples/tickStep/index.jsx'
 import ShowScale      from './_examples/showScale/index.jsx'
 import ShowLimits     from './_examples/showLimits/index.jsx'
+import ScaleSize      from './_examples/scaleSize/index.jsx'
 import ShowInputs     from './_examples/showInputs/index.jsx'
 import AlignInputs    from './_examples/alignInputs/index.jsx'
 import InputsSize     from './_examples/inputsSize/index.jsx'
@@ -44,12 +46,14 @@ const RangeExamples = () =>
       <MinRange/>
       <MaxRange/>
       <ShowValues/>
+      <ValuesSize/>
       <AlignValues/>
       <DisplayValue/>
       <ShowTicks/>
       <TickStep/>
       <ShowScale/>
       <ShowLimits/>
+      <ScaleSize/>
       <ShowInputs/>
       <AlignInputs/>
       <InputsSize/>

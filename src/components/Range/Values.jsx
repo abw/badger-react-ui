@@ -2,13 +2,16 @@ import React from 'react'
 import Context from './Context.js'
 import DefaultValueMin from './ValueMin.jsx'
 import DefaultValueMax from './ValueMax.jsx'
+import { classes } from '@/src/utils/classes.js'
 
 const Values = ({
   valuesClass='range-values',
   ValueMin=DefaultValueMin,
   ValueMax=DefaultValueMax,
+  valueSize='small',
+  valuesSize=valueSize,
 }) =>
-  <div className={valuesClass}>
+  <div className={classes(valuesClass, valuesSize)}>
     <ValueMin/>
     <ValueMax/>
   </div>
