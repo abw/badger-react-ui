@@ -3,6 +3,7 @@ import { anyPropsChanged, classes, extractStyleProps } from '@/src/utils/index.j
 import { doNothing, clamp, multiply, divide, identity, splitList } from '@abw/badger-utils'
 import { ANY, ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT } from '@/src/constants.js'
 import { initRange, rangeNormalClick } from './Utils.js'
+import { sleep } from '@abw/badger-utils'
 
 const WATCH_PROPS = splitList(
   'min max value minValue maxValue minRange maxRange step tickStep quantize'
@@ -19,6 +20,7 @@ class Context extends Base {
     prepareRenderProps: identity,
     minNormal: 0,
     maxNormal: 1,
+    dragTimeout: 300,
     color: 'brand',
     rangeClass: 'range',
     draggingClass: 'range-dragging',
@@ -252,8 +254,11 @@ class Context extends Base {
       e => {
         e.preventDefault()
         e.stopPropagation()
-        this.setState({ dragging: null })
+        this.debug(`drag end`)
         window.removeEventListener('pointermove', mouseMove)
+        sleep(this.props.dragTimeout).then(
+          () => this.setState({ dragging: null })
+        )
       }
     )
   }
@@ -272,6 +277,11 @@ class Context extends Base {
   onClick(e) {
     const track = this._trackRef
     if (! track) {
+      console.error('No trackRef.  Did you forget to set it in Track?')
+      return
+    }
+    if (this.state.dragging) {
+      this.debug('Just finished dragging... ignoring click')
       return
     }
     const { clientX: clickX } = e
