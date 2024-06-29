@@ -5,7 +5,7 @@ import { ANY, ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT } from '@/src/consta
 import { initRange, rangeNormalClick } from './Utils.js'
 
 const WATCH_PROPS = splitList(
-  'min max minValue maxValue minRange maxRange step tickStep quantize'
+  'min max value minValue maxValue minRange maxRange step tickStep quantize'
 )
 
 class Context extends Base {

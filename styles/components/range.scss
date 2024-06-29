@@ -57,8 +57,8 @@
   --tick-width: 1px;
   --tick-radius: 1px;
   --tick-offset: calc(0px - var(--tick-length));
-  --value-size: var(--size-medium);
-  --scale-size: var(--size-smaller);
+  // --value-size: var(--size-medium);
+  // --scale-size: var(--size-smaller);
   --transition-time: var(--unit-transition);
   --selection-background: var(--track-fill);
   --inputs-gap: 1rem;
@@ -146,10 +146,11 @@
     justify-content: space-between;
     align-items: flex-start;
     line-height: 1;
+    margin-top: -0.5em;
     user-select: none;
   }
   .range-scale-value {
-    font-size: var(--scale-size);
+    // font-size: var(--scale-size);
     color: var(--scale-color);
   }
   .range-ticks {
@@ -166,11 +167,21 @@
       width: var(--tick-width);
       background-color: var(--tick-color);
       border-radius: var(--tick-radius);
+      --transform-scale: 0;
+      &:not(:first-child) {
+        --transform-scale: -50%;
+      }
+      &:first-child {
+        --transform-scale: -0.5ch;
+      }
+      &:last-child {
+        --transform-scale: calc(-100% + 0.5ch);
+      }
       .range-scale-value {
         position: absolute;
         left: 0;
-        bottom: calc(0px - var(--gap) - var(--scale-size));
-        transform: translateX(-50%);
+        top: 100%;
+        transform: translateX(var(--transform-scale));
       }
     }
   }
@@ -232,7 +243,7 @@
     .range-value {
       position: absolute;
       line-height: 1;
-      font-size: var(--value-size);
+      // font-size: var(--value-size);
       color: var(--value-color);
       bottom: 0;
       &.thumb {

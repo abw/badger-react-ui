@@ -1,5 +1,8 @@
 import { ANY } from '@/src/constants.js'
 import { coerceNumber } from '@/src/utils/math.js'
+import { isNumber } from '@abw/badger-utils'
+import { isObject } from '@abw/badger-utils'
+import { isArray } from '@abw/badger-utils'
 import {
   isNull, hasValue, isFunction, add, subtract, multiply, divide, clamp
 } from '@abw/badger-utils'
@@ -8,6 +11,7 @@ export const initRange = (props={}) => {
   let {
     min=0, max=100,
     minNormal=0.25, maxNormal=0.75,
+    value,
     minValue, maxValue,
     minRange, maxRange,
     step, tickStep, quantize
@@ -17,6 +21,22 @@ export const initRange = (props={}) => {
   min = coerceNumber(min)
   max = coerceNumber(max)
   const range = max - min
+
+  // The value could be passed in from a form, for example.  If it's an array
+  // we assume it's [min, max], if it's an object we look for { min, max },
+  // otherwise we assume it's the maxValue
+  if (hasValue(value)) {
+    if (isArray(value)) {
+      [minValue, maxValue] = value
+    }
+    else if (isObject(value)) {
+      minValue = value.min
+      maxValue = value.max
+    }
+    else if (isNumber(value)) {
+      maxValue = value
+    }
+  }
 
   // The specified values for minValue and maxValue must be within the range
   // of min to max, otherwise the default values are 1/4 and 3/4 of the range

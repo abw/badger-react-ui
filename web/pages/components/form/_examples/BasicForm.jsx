@@ -99,9 +99,13 @@ const FormExample = () =>
       type="rangeminmax"
       showScale
       showTicks
-      min={0} max={5}
-      minValue={1}
-      maxValue={4}
+      step={5}
+      tickStep={20}
+      showValues
+      default={[40, 60]}
+      displayValue={ value => `${value}%` }
+      valuesSize="smaller"
+      minRange={10}
       required
     />
     <Field
@@ -128,8 +132,10 @@ const FormExample = () =>
             email: 'nigel@spinal-tap.com',
             password: 'eleven',
             instrument: 'Guitar',
+            songs: ['Stonehenge', 'Big Bottom'],
             quote: 'These go up to eleven',
             volume: 11,
+            blackness: [10,40],
             terms: true
           })
         }
