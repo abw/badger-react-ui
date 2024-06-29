@@ -4,6 +4,7 @@ import DefaultThumbs from './Thumbs.jsx'
 import DefaultValues from './Values.jsx'
 import DefaultInputs from './Inputs.jsx'
 import { Themed } from '@/src/Theme.jsx'
+import { rangeMaxNormalClick } from './Utils.js'
 
 const RangeMax = ({
   children,
@@ -13,9 +14,7 @@ const RangeMax = ({
   Thumbs=DefaultThumbs,
   Values=DefaultValues,
   Inputs=DefaultInputs,
-  normalClick='max',
-  // alignInputs='center',
-  // rangeClass='range m',
+  normalClick=rangeMaxNormalClick,
   ...props
 }) =>
   <Range
@@ -23,8 +22,6 @@ const RangeMax = ({
     minNormal={minNormal}
     maxNormal={maxNormal}
     normalClick={normalClick}
-    // alignInputs={alignInputs}
-    // rangeClass={rangeClass}
     Thumbs={Thumbs}
     Values={Values}
     Inputs={Inputs}

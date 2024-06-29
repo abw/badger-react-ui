@@ -3,9 +3,9 @@ import Example    from '@/page/ExampleSection.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
 
-const ShowInput = () =>
+const RangeExample = () =>
   <Example
-    code="showInput"
+    code="minRange"
     Component={Component}
     Source={Source}
     undent={2}
@@ -13,10 +13,9 @@ const ShowInput = () =>
     expand
   >
     <p>
-      The <code>showInput</code> property (or <code>showInputs</code> as an alias){' '}
-      can be specified to display an input below the slider to allow precise values
-      to be entered.
+      The <code>minRange</code> property can be used to define a minimum
+      permissable width of the range.
     </p>
   </Example>
 
-export default ShowInput
+export default RangeExample

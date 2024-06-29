@@ -4,6 +4,7 @@ import DefaultThumbs from './Thumbs.jsx'
 import DefaultValues from './Values.jsx'
 import DefaultInputs from './Inputs.jsx'
 import { Themed } from '@/src/Theme.jsx'
+import { rangeMinNormalClick } from './Utils.js'
 
 const RangeMin = ({
   children,
@@ -13,7 +14,7 @@ const RangeMin = ({
   Thumbs=DefaultThumbs,
   Values=DefaultValues,
   Inputs=DefaultInputs,
-  normalClick='min',
+  normalClick=rangeMinNormalClick,
   ...props
 }) =>
   <Range

@@ -8,6 +8,7 @@ import Value          from './_examples/value/index.jsx'
 import Min            from './_examples/min/index.jsx'
 import Max            from './_examples/max/index.jsx'
 import Step           from './_examples/step/index.jsx'
+import MinRange       from './_examples/minRange/index.jsx'
 import ShowValue      from './_examples/showValue/index.jsx'
 import AlignValue     from './_examples/alignValue/index.jsx'
 import DisplayValue   from './_examples/displayValue/index.jsx'
@@ -32,6 +33,7 @@ const RangeMaxExamples = () =>
       <Min/>
       <Max/>
       <Step/>
+      <MinRange/>
       <Value/>
       <ShowValue/>
       <AlignValue/>

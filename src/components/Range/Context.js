@@ -2,17 +2,11 @@ import { Generator, Context as Base } from '@abw/react-context'
 import { anyPropsChanged, classes } from '@/src/utils/index.js'
 import { doNothing, clamp, multiply, divide, identity, splitList } from '@abw/badger-utils'
 import { ANY, ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT } from '@/src/constants.js'
-import { initRange, RangeNormalClick, rangeMinNormalClick, rangeMaxNormalClick } from './Utils.js'
-import { isFunction } from '@abw/badger-utils'
+import { initRange, rangeNormalClick } from './Utils.js'
 
 const WATCH_PROPS = splitList(
   'min max minValue maxValue minRange maxRange step tickStep quantize'
 )
-const NORMAL_CLICK = {
-  minMax: RangeNormalClick,
-  min: rangeMinNormalClick,
-  max: rangeMaxNormalClick,
-}
 
 class Context extends Base {
   static debug        = false
@@ -21,7 +15,7 @@ class Context extends Base {
   static defaultProps = {
     onChange: doNothing,
     displayValue: identity,
-    normalClick: 'minMax',
+    normalClick: rangeNormalClick,
     minNormal: 0,
     maxNormal: 1,
     color: 'brand'
@@ -37,10 +31,7 @@ class Context extends Base {
   constructor(props) {
     super(props)
     const state = this.initProps(props)
-    const normalClick = props.normalClick
-    this.normalClick = isFunction(normalClick)
-      ? normalClick
-      : NORMAL_CLICK[normalClick] || NORMAL_CLICK.minMax
+    this.normalClick = props.normalClick
     this.state = {
       ...this.state,
       ...state,
