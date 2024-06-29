@@ -4,8 +4,7 @@ import Icon from '../Icon/Icon.jsx'
 import { classes } from '@/src/utils/classes.js'
 
 const Input = ({
-  inputClass='range-input field',
-  hasScaleClass='range-has-scale',
+  inputClass='range-input field mar-b-none',
   stepClass='step',
   inputInputsClass='inputs inline',
   inputPrefixClass='prefix shaded lined',
@@ -13,9 +12,6 @@ const Input = ({
   disabledClass='disabled',
   stepDownIcon='minus',
   stepUpIcon='plus',
-  showTicks,
-  showScale,
-  inLimits,
   min,
   max,
   step,
@@ -24,15 +20,7 @@ const Input = ({
   input,
   setInput
 }) =>
-  <div
-    className={
-      classes(
-        inputClass,
-        // nasty hack to push the input down when the scale is displayed
-        (showTicks && showScale && ! inLimits) ? hasScaleClass : null
-      )
-    }
-  >
+  <div className={inputClass}>
     <div className={inputInputsClass}>
       <div
         className={classes(inputPrefixClass, stepClass, stepDown ? null : disabledClass)}

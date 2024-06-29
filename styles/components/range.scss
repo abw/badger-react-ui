@@ -69,7 +69,19 @@
   gap: var(--gap);
   touch-action: none;
   // border: 1px dashed red;
-  padding: 0.5em 0;
+  padding: 0.25em 0;
+  &:has(.range-values.smaller, .range-values.smallest) {
+    padding-top: 0em;
+  }
+  &:has(.range-values.large) {
+    padding-top: 0.5em;
+  }
+  &:has(.range-values.larger) {
+    padding-top: 0.75em;
+  }
+  &:has(.range-values.largest) {
+    padding-top: 1em;
+  }
   &.range-dragging {
     --selection-background: var(--track-dragging);
     --thumb-color: var(--track-dragging);
@@ -77,8 +89,23 @@
   &.range-min {
     --selection-background: var(--orange-50);
   }
-  &.range-has-scale {
-    padding-bottom: 1.5em;
+  &.range-has-scale .range-slider {
+    margin-bottom: 1em;
+    &:has(.range-scale-value.small) {
+      margin-bottom: 1.25em;
+    }
+    &:has(.range-scale-value.medium) {
+      margin-bottom: 1.5em;
+    }
+    &:has(.range-scale-value.large) {
+      margin-bottom: 1.75em;
+    }
+    &:has(.range-scale-value.larger) {
+      margin-bottom: 2em;
+    }
+    &:has(.range-scale-value.largest) {
+      margin-bottom: 2.5em;
+    }
   }
   .range-slider {
     width: 100%;
@@ -205,9 +232,6 @@
   .range-input {
     width: auto;
     text-align: center;
-    &.range-has-scale {
-      margin-top: calc(var(--gap) * 2);
-    }
     input {
       text-align: center;
     }
