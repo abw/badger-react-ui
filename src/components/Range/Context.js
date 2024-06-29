@@ -16,6 +16,7 @@ class Context extends Base {
     onChange: doNothing,
     displayValue: identity,
     normalClick: rangeNormalClick,
+    prepareRenderProps: identity,
     minNormal: 0,
     maxNormal: 1,
     color: 'brand'
@@ -305,7 +306,7 @@ class Context extends Base {
   }
   onChange() {
     const { minValue, maxValue } = this.state
-    this.props.onChange(minValue, maxValue)
+    this.props.onChange(minValue, maxValue, this.state)
   }
   getRenderProps() {
     const context = this.getContext()
@@ -331,7 +332,7 @@ class Context extends Base {
         '--max-percent': `${maxPercent}%`,
       }
     }
-    return context
+    return this.props.prepareRenderProps(context)
   }
 }
 

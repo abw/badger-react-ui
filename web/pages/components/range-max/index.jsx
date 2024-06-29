@@ -22,6 +22,7 @@ import InputSize      from './_examples/inputSize/index.jsx'
 import Color          from './_examples/color/index.jsx'
 import Size           from './_examples/size/index.jsx'
 import Context        from './_examples/Context.jsx'
+import OnChange       from './_examples/onChange/index.jsx'
 import Children       from './_examples/children/index.jsx'
 
 const RangeMaxExamples = () =>
@@ -48,7 +49,7 @@ const RangeMaxExamples = () =>
       <Color/>
       <Size/>
       <Heading title="Event Handlers"/>
-      {/* <OnChange/> */}
+      <OnChange/>
       <Heading title="Context"/>
       <Context/>
       <Children/>

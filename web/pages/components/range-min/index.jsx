@@ -21,6 +21,7 @@ import AlignInput     from './_examples/alignInput/index.jsx'
 import InputSize      from './_examples/inputSize/index.jsx'
 import Color          from './_examples/color/index.jsx'
 import Size           from './_examples/size/index.jsx'
+import OnChange       from './_examples/onChange/index.jsx'
 import Context        from './_examples/Context.jsx'
 import Children       from './_examples/children/index.jsx'
 
@@ -48,7 +49,7 @@ const RangeMinExamples = () =>
       <Color/>
       <Size/>
       <Heading title="Event Handlers"/>
-      {/* <OnChange/> */}
+      <OnChange/>
       <Heading title="Context"/>
       <Context/>
       <Children/>

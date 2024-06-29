@@ -9,8 +9,10 @@ const RangeExample = () => {
     min: minValue,
     max: maxValue
   })
-  const onChange = (min, max) =>
+  const onChange = (min, max, state) => {
+    console.log(`onChange: `, state)
     setValues({ min, max })
+  }
 
   return (
     <div>

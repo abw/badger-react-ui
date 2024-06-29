@@ -8,7 +8,7 @@ const RangeExample = () =>
     title="Custom Layout"
     Component={Component}
     Source={Source}
-    highlightLines="10-11,13-17,19-35,39"
+    highlightLines="10-11,13-17,19-35,40"
     // expand
   >
     <p>

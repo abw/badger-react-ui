@@ -4,7 +4,8 @@ import DefaultThumbs from './Thumbs.jsx'
 import DefaultValues from './Values.jsx'
 import DefaultInputs from './Inputs.jsx'
 import { Themed } from '@/src/Theme.jsx'
-import { rangeMinNormalClick } from './Utils.js'
+import { rangeMinNormalClick, rangeMinPrepareRenderProps } from './Utils.js'
+import { doNothing } from '@abw/badger-utils'
 
 const RangeMin = ({
   children,
@@ -15,6 +16,8 @@ const RangeMin = ({
   Values=DefaultValues,
   Inputs=DefaultInputs,
   normalClick=rangeMinNormalClick,
+  prepareRenderProps=rangeMinPrepareRenderProps,
+  onChange=doNothing,
   ...props
 }) =>
   <Range
@@ -22,6 +25,8 @@ const RangeMin = ({
     minNormal={minNormal}
     maxNormal={maxNormal}
     normalClick={normalClick}
+    prepareRenderProps={prepareRenderProps}
+    onChange={(min, _, ...rest) => onChange(min, ...rest)}
     Thumbs={Thumbs}
     Values={Values}
     Inputs={Inputs}
