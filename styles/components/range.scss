@@ -48,7 +48,7 @@
   --track-offset: var(--track-border-width);
   --thumbs-offset: calc(var(--thumb-half) - var(--track-border-width));
   --shadow-size: 0px;
-  --shadow-focus-size: 8px;
+  --shadow-focus-size: 6px;
   --z-index: 100;
   --percent: 50%;
   --steps: 1;
@@ -69,6 +69,7 @@
   gap: var(--gap);
   touch-action: none;
   // border: 1px dashed red;
+  padding: 0.5em 0;
   &.range-dragging {
     --selection-background: var(--track-dragging);
     --thumb-color: var(--track-dragging);
@@ -225,7 +226,8 @@
   }
   .range-output {
     width: 100%;
-    min-height: 1.5em;
+    min-height: 1em;
+    line-height: 1;
     position: relative;
     .range-value {
       position: absolute;
