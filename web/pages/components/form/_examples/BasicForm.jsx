@@ -75,6 +75,7 @@ const FormExample = () =>
       type="multiselect"
       label="Favourite Songs"
       options={songs}
+      sortable
     />
     <Field
       name="quote"
