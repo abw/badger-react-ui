@@ -1,5 +1,5 @@
 import { Generator, Context as Base } from '@abw/react-context'
-import { anyPropsChanged, classes } from '@/src/utils/index.js'
+import { anyPropsChanged, classes, extractStyleProps } from '@/src/utils/index.js'
 import { doNothing, clamp, multiply, divide, identity, splitList } from '@abw/badger-utils'
 import { ANY, ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT } from '@/src/constants.js'
 import { initRange, rangeNormalClick } from './Utils.js'
@@ -313,12 +313,16 @@ class Context extends Base {
           [draggingClass]: dragging,
         },
       ),
-      style: {
-        '--min-position': minNormal,
-        '--max-position': maxNormal,
-        '--min-percent': `${minPercent}%`,
-        '--max-percent': `${maxPercent}%`,
-      }
+      style: extractStyleProps(
+        { },
+        this.props,
+        {
+          '--min-position': minNormal,
+          '--max-position': maxNormal,
+          '--min-percent': `${minPercent}%`,
+          '--max-percent': `${maxPercent}%`,
+        }
+      )
     }
     return this.props.prepareRenderProps(context)
   }

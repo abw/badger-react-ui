@@ -1,0 +1,37 @@
+import React      from 'react'
+import PropsTable from '@/web/site/PropsTable.jsx'
+import Section from '@/web/page/Section.jsx'
+
+const CSSClasses = () =>
+  <Section title="CSS Classes">
+    <p>
+      The following properties can be used to change the CSS classes used
+      for different range components and elements.
+    </p>
+    <PropsTable
+      items={[
+        ['rangeClass', 'range', 'Main range container'],
+        ['hasScaleClass', 'range-has-scale', 'Additional class added to container when `showScale` is set'],
+        ['draggingClass', 'range-dragging', 'Additional class added to container when dragging a thumb'],
+        ['outputClass', 'range-output', 'Container for output value'],
+        ['valueClass', 'range-value', 'Class for output value'],
+        ['sliderClass', 'range-slider', 'Container for slider'],
+        ['trackClass', 'range-track', 'Container for slider track'],
+        ['selectionClass', 'range-selection', 'Selected part of range'],
+        ['thumbsClass', 'range-thumbs', 'Container for thumb'],
+        ['thumbClass', 'range-thumb', 'Class for thumb'],
+        ['ticksClass', 'range-ticks', 'Container for ticks'],
+        ['tickClass', 'range-tick', 'Class for each tick'],
+        ['limitsClass', 'range-limits', 'Container for scale limits'],
+        ['scaleValueClass', 'range-scale-value', 'Class for each value in limits or scale values'],
+        ['inputClass', 'range-input', 'Container for input'],
+        ['inputInputsClass', 'inputs inline', 'Container for input and stepping buttons'],
+        ['inputPrefixClass', 'prefix shaded lined', 'Class for `stepDown` prefix button'],
+        ['inputSuffixClass', 'suffix shaded lined', 'Class for `stepUp` suffix button'],
+        ['stepClass', 'step', 'Class for both `stepDown` and `stepUp` input buttons'],
+        ['disabledClass', 'disabled', 'Additional class for step buttons when disabled'],
+      ]}
+    />
+  </Section>
+
+export default CSSClasses

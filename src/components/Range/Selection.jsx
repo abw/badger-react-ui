@@ -2,9 +2,9 @@ import React from 'react'
 import Context from './Context.js'
 
 const Selection = ({
-  className='range-selection',
+  selectionClass='range-selection',
 }) =>
-  <div className={className}/>
+  <div className={selectionClass}/>
 
 export const RangeSelection = Context.Consumer(Selection)
 export default RangeSelection
