@@ -86,9 +86,6 @@
     --selection-background: var(--track-dragging);
     --thumb-color: var(--track-dragging);
   }
-  &.range-min {
-    --selection-background: var(--orange-50);
-  }
   &.range-has-scale .range-slider {
     margin-bottom: 1em;
     &:has(.range-scale-value.small) {
