@@ -1,6 +1,11 @@
 import { Generator, Context as Base } from '@abw/react-context'
-import { optionValue, findOption, defaultRenderer } from '@/src/utils/index.js'
+import { optionValue, findOption, defaultRenderer, anyPropsChanged } from '@/src/utils/index.js'
 import { doNothing, hasValue } from '@abw/badger-utils'
+import { splitList } from '@abw/badger-utils'
+
+const WATCH_PROPS = splitList(
+  'value values'
+)
 
 class Context extends Base {
   static debug        = false
@@ -18,7 +23,13 @@ class Context extends Base {
   ]
   constructor(props) {
     super(props)
-    const { values=[], options=[], findOption, optionValue } = props
+    const state = this.initProps(props)
+    this.state = {
+      ...state
+    }
+  }
+  initProps(props) {
+    const { value=[], values=value, options=[], findOption, optionValue } = props
     const resolved = values.map(
       value => {
         const [selected] = findOption(
@@ -28,10 +39,14 @@ class Context extends Base {
         return selected
       }
     )
-    //console.log(`values: `, values)
-    //console.log(`resolved values: `, resolved)
-    this.state = {
-      values: resolved
+    return { values: resolved }
+  }
+  componentDidUpdate(prevProps) {
+    if (anyPropsChanged(WATCH_PROPS, this.props, prevProps)) {
+      this.debug(`props have changed`)
+      this.setState(
+        this.initProps(this.props)
+      )
     }
   }
   onSelect(option) {
