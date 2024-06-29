@@ -1,11 +1,9 @@
 // Temporary hack to update values in badger-css (which will be updated soon)
 :where(.range) {
-  --position: 0.5;
-  // --accent-color: var(--input-accent-color, var(--color-50));
-  // --accent-color: var(--color-50);
   --track-background: var(--color-85);
   --track-border: var(--color-70);
   --track-fill: var(--color-50);
+  --track-dragging: var(--color-55);
   --thumb-color: var(--track-fill);
   --shadow-color: color-mix(in srgb, var(--thumb-color), black 20%);
   --shadow-focus-color: color-mix(in srgb, var(--thumb-color), transparent 70%);
@@ -35,6 +33,7 @@
 }
 
 .range {
+  --position: 0.5;
   --min-position: 0.25;
   --max-position: 0.75;
   --min-percent: 0;
@@ -42,17 +41,13 @@
   --track-border-width: 1px;
   --track-height: calc(0.5em + var(--track-border-width) * 2);
   --track-half: calc(var(--track-height) / 2);
-  // --selection-border-offset: calc(0px - var(--track-border-width));
   --selection-border-offset: 0px;
   --thumb-size: calc(1em + var(--track-border-width) * 2);
   --thumb-size: 1.25em;
   --thumb-half: calc(var(--thumb-size) / 2);
   --thumb-opacity: 1;
-  //--track-offset: 0px;
   --track-offset: var(--track-border-width);
-  // --thumbs-offset: calc(var(--thumb-half) - var(--track-offset));
   --thumbs-offset: calc(var(--thumb-half) - var(--track-border-width));
-  // --selection-offset: var(--thumbs-offset);
   --shadow-size: 0px;
   --shadow-focus-size: 8px;
   --z-index: 100;
@@ -65,15 +60,18 @@
   --tick-offset: calc(0px - var(--tick-length));
   --value-size: var(--size-medium);
   --scale-size: var(--size-smaller);
+  --transition-time: var(--unit-transition);
   --inputs-gap: 1rem;
   --gap: 0.75rem;
-  // box-sizing: content-box;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: var(--gap);
   touch-action: none;
   // border: 1px dashed red;
+  &.range-dragging {
+    --track-fill: var(--track-dragging);
+  }
   &.range-has-scale {
     padding-bottom: 1.5em;
   }
@@ -82,15 +80,6 @@
     height: 1em;
     position: relative;
   }
-  .range-track {
-      .range-selection {
-        left: calc(var(--selection-border-offset) + var(--min-percent));
-        // width: calc(var(--percent) + var(--thumb-size) * (1 - var(--position)));
-        width: auto;
-        right: calc(100% - var(--max-percent));
-      }
-    }
-
   .range-track {
     cursor: pointer;
     position: absolute;
@@ -107,13 +96,12 @@
       position: absolute;
       top: var(--selection-border-offset);
       bottom: var(--selection-border-offset);
-      // left: var(--selection-border-offset);
-      // width: calc(var(--percent) + var(--thumb-size) * (1 - var(--position)));
       left: calc(var(--selection-border-offset) + var(--min-percent));
       right: calc(100% - var(--max-percent));
       border-color: var(--track-fill);
       border-radius: var(--track-half);
       background-color: var(--track-fill);
+      transition: background-color var(--transition-time);
     }
     .range-thumbs {
       position: absolute;
@@ -134,9 +122,7 @@
     transition: box-shadow 300ms, opacity 300ms;
     background-color: var(--thumb-color);
     opacity: var(--thumb-opacity);
-    // left: var(--percent);
-    // left: calc(var(--percent) + var(--thumbs-offset));
-    // left: calc(var(--percent) + var(--normal)var(--thumbs-offset));
+    transition: background-color var(--transition-time);
     &.min {
       left: var(--min-percent);
     }

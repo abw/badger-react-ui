@@ -137,10 +137,3 @@ export const rangeNormalClick = (normal, minNormal, maxNormal, setMin, setMax) =
     return setMax(normal)
   }
 }
-/*
-export const rangeMinNormalClick = (normal, minNormal, maxNormal, setMin) =>
-  setMin(normal)
-
-export const rangeMaxNormalClick = (normal, minNormal, maxNormal, setMin, setMax) =>
-  setMax(normal)
-*/

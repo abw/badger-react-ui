@@ -19,7 +19,10 @@ class Context extends Base {
     prepareRenderProps: identity,
     minNormal: 0,
     maxNormal: 1,
-    color: 'brand'
+    color: 'brand',
+    rangeClass: 'range',
+    draggingClass: 'range-dragging',
+    hasScaleClass: 'range-has-scale',
   }
   static actions = [
     'trackRef', 'thumbsRef',
@@ -205,35 +208,39 @@ class Context extends Base {
       () => this.stepMaxUp(),
     )
   }
-  onDrag(e, name, set) {
+  onDrag(e, control, set) {
     const thumb = e.target
+    if (! this._thumbsRef) {
+      console.error('No thumbsRef.  Did you forget to set it in Thumbs?')
+      return
+    }
+
     const { clientX } = e
     const { left: thumbLeft, width: thumbWidth } = thumb.getBoundingClientRect()
     const thumbMid = thumbLeft + (thumbWidth / 2)
     const thumbOffset = thumbLeft - clientX
-    const thumbDrag = {
+    const dragging = {
       initialX: clientX,
       thumbLeft,
       thumbMid,
       thumbOffset,
+      control
     }
 
-    if (this._thumbsRef) {
-      const { left: thumbsLeft, width: thumbsWidth } = this._thumbsRef.getBoundingClientRect()
-      thumbDrag.thumbsLeft = thumbsLeft
-      thumbDrag.thumbsWidth = thumbsWidth
-      thumbDrag.thumbPos = (thumbMid - thumbsLeft) * 100 / thumbsWidth
-    }
-    this.debug('drag start: ', thumbDrag)
-    this.setState({ [name]: thumbDrag })
+    const { left: thumbsLeft, width: thumbsWidth } = this._thumbsRef.getBoundingClientRect()
+    dragging.thumbsLeft = thumbsLeft
+    dragging.thumbsWidth = thumbsWidth
+    dragging.thumbPos = (thumbMid - thumbsLeft) * 100 / thumbsWidth
+    this.debug('drag start: ', dragging)
+    this.setState({ dragging })
 
     const mouseMove = e => {
       e.preventDefault()
-      const offset = e.clientX - thumbDrag.initialX
-      const newX = clamp(thumbDrag.thumbMid + offset - thumbDrag.thumbsLeft, 0, thumbDrag.thumbsWidth)
+      const offset = e.clientX - dragging.initialX
+      const newX = clamp(dragging.thumbMid + offset - dragging.thumbsLeft, 0, dragging.thumbsWidth)
       this.debug(`drag`)
       set(
-        divide(newX, thumbDrag.thumbsWidth)
+        divide(newX, dragging.thumbsWidth)
       )
     }
     window.addEventListener(
@@ -245,22 +252,20 @@ class Context extends Base {
       e => {
         e.preventDefault()
         e.stopPropagation()
-        this.setState({ [name]: null })
+        this.setState({ dragging: null })
         window.removeEventListener('pointermove', mouseMove)
       }
     )
   }
   onDragMin(e) {
     this.onDrag(
-      e,
-      'draggingMin',
+      e, 'min',
       value => this.setNormalisedMinValue(value)
     )
   }
   onDragMax(e) {
     this.onDrag(
-      e,
-      'draggingMax',
+      e, 'max',
       value => this.setNormalisedMaxValue(value)
     )
   }
@@ -283,26 +288,6 @@ class Context extends Base {
       normal => this.setNormalisedMinValue(normal),
       normal => this.setNormalisedMaxValue(normal),
     )
-    /*
-    if (normal < minNormal) {
-      this.debug(`click below minimum`)
-      return this.setNormalisedMinValue(normal)
-    }
-    else if (normal > maxNormal) {
-      this.debug(`click above maximum`)
-      return this.setNormalisedMaxValue(normal)
-    }
-    const dMin = normal - minNormal
-    const dMax = maxNormal - normal
-    if (dMin < dMax) {
-      this.debug(`click between, closer to minimum`)
-      return this.setNormalisedMinValue(normal)
-    }
-    else {
-      this.debug(`click between, closer to maximum`)
-      return this.setNormalisedMaxValue(normal)
-    }
-    */
   }
   onChange() {
     const { minValue, maxValue } = this.state
@@ -312,8 +297,8 @@ class Context extends Base {
     const context = this.getContext()
     const {
       minNormal, maxNormal, minPercent, maxPercent,
-      className, rangeClass='range min-max', hasScaleClass='range-has-scale',
-      showScale, color, size
+      className, rangeClass, draggingClass, hasScaleClass,
+      showScale, dragging, color, size
     } = context
     context.quantize = this.quantize
     context.normalToValue = this.normalToValue
@@ -323,7 +308,10 @@ class Context extends Base {
         className,
         color,
         size,
-        { [hasScaleClass]: showScale }
+        {
+          [hasScaleClass]: showScale,
+          [draggingClass]: dragging,
+        },
       ),
       style: {
         '--min-position': minNormal,
