@@ -10,6 +10,9 @@ import ResetSubmit  from './_examples/ResetSubmit/index.jsx'
 import UISelect     from './_examples/uiselect/index.jsx'
 import MultiSelect  from './_examples/multiselect/index.jsx'
 import Search       from './_examples/search/index.jsx'
+import RangeMinMax  from './_examples/range-min-max/index.jsx'
+import RangeMax     from './_examples/range-max/index.jsx'
+import RangeMin     from './_examples/range-min/index.jsx'
 import BasicForm    from './_examples/BasicForm.jsx'
 import BasicFormSrc from './_examples/BasicForm.jsx?raw'
 import { ButtonLink } from '@/web/site/Links.jsx'
@@ -77,6 +80,9 @@ const FormExamples = () =>
       <UISelect/>
       <MultiSelect/>
       <Search/>
+      <RangeMinMax/>
+      <RangeMax/>
+      <RangeMin/>
       <Heading title="Additional Components"/>
       <Submitting/>
       <CancelSubmit/>

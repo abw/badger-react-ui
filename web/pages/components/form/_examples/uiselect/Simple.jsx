@@ -7,7 +7,7 @@ const UISelectExample = () =>
     <Field
       name="animal"
       label="Animal"
-      type="uiselect"
+      type="ui-select"
       options={[
         'Ant',
         'Badger',

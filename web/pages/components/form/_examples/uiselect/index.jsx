@@ -10,10 +10,10 @@ import Section    from '@/page/Section.jsx'
 import { SelectLink } from '@/web/site/Links.jsx'
 
 const UISelect = () =>
-  <Section code="uiselect">
+  <Section code="ui-select">
     <p>
-      The field <code>type</code> property can be set to <code>uiselect</code>{' '}
-      to use the <SelectLink/> component.
+      The field <code>type</code> property can be set to <code>ui-select</code>{' '}
+      (or <code>uiselect</code>, <code>uiSelect</code>, etc) to use the <SelectLink/> component.
     </p>
     <Example
       Component={Simple}
