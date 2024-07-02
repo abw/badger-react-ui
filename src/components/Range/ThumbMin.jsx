@@ -5,12 +5,18 @@ import { classes } from '@/src/utils/index.js'
 const ThumbMin = ({
   thumbClass='range-thumb',
   minClass='min',
-  draggingMin,
+  dragging,
   onDragMin,
   onKeyDownMin
 }) =>
   <div
-    className={classes(thumbClass, minClass, { dragging: draggingMin })}
+    className={
+      classes(
+        thumbClass,
+        minClass,
+        { dragging: dragging?.control === 'min' }
+      )
+    }
     onPointerDown={onDragMin}
     onKeyDown={onKeyDownMin}
     tabIndex="0"

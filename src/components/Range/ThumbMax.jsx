@@ -5,12 +5,18 @@ import { classes } from '@/src/utils/index.js'
 const ThumbMax = ({
   thumbClass='range-thumb',
   maxClass='max',
-  draggingMax,
+  dragging,
   onDragMax,
   onKeyDownMax
 }) =>
   <div
-    className={classes(thumbClass, maxClass, { dragging: draggingMax })}
+    className={
+      classes(
+        thumbClass,
+        maxClass,
+        { dragging: dragging?.control === 'max' }
+      )
+    }
     onPointerDown={onDragMax}
     onKeyDown={onKeyDownMax}
     tabIndex="0"
