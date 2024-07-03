@@ -1,9 +1,7 @@
 import { Generator, Context as Base } from '@abw/react-context'
 import { optionValue, findOption, defaultRenderer, anyPropsChanged } from '@/src/utils/index.js'
-import { doNothing, hasValue } from '@abw/badger-utils'
-import { splitList } from '@abw/badger-utils'
-
-const WATCH_PROPS = splitList(
+import { doNothing, hasValue, splitList } from '@abw/badger-utils'
+const VALUE_PROPS = splitList(
   'value values'
 )
 
@@ -30,22 +28,34 @@ class Context extends Base {
   }
   initProps(props) {
     const { value=[], values=value, options=[], findOption, optionValue } = props
-    const resolved = values.map(
-      value => {
-        const [selected] = findOption(
-          options,
-          optionValue(value)
-        )
-        return selected
-      }
-    )
+    const resolved = values
+      .map(
+        value => {
+          const [selected] = findOption(
+            options,
+            optionValue(value)
+          )
+          return selected
+        }
+      )
+      .filter(hasValue)
     return { values: resolved }
   }
   componentDidUpdate(prevProps) {
-    if (anyPropsChanged(WATCH_PROPS, this.props, prevProps)) {
-      this.debug(`props have changed`)
+    let newState
+    if (this.props.options !== prevProps.options) {
+      newState = anyPropsChanged(VALUE_PROPS, this.props, prevProps)
+        ? this.initProps(this.props)
+        : this.initProps({ ...this.props, value: this.state.values })
+    }
+    else if (anyPropsChanged(VALUE_PROPS, this.props, prevProps)) {
+      newState = this.initProps(this.props)
+    }
+    if (newState) {
+      const changer = this.props.onUpdate || this.props.onChange
       this.setState(
-        this.initProps(this.props)
+        newState,
+        () => changer(newState.values)
       )
     }
   }

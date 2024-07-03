@@ -15,6 +15,7 @@ import SearchOptions  from './_examples/searchOptions/index.jsx'
 import Disabled       from './_examples/disabled/index.jsx'
 import Separator      from './_examples/separator/index.jsx'
 import Indent         from './_examples/indent/index.jsx'
+import { CodeHashLink } from '@/web/site/Links.jsx'
 
 const SelectExamples = () =>
   <div className="flow">
@@ -84,8 +85,14 @@ const SelectExamples = () =>
             hidden.
           </Section>
           <Section code="onSelect">
-            Called when an option is selected.  The selection option is passed
+            Called when an option is selected.  The selected option is passed
             as an argument.
+          </Section>
+          <Section code="onUpdate">
+            If this is defined it will be called instead of any
+            <CodeHashLink id="onSelect"/> handler when the selection changes
+            due to the <CodeHashLink id="options"/> or <CodeHashLink id="value"/> properties
+            changing.
           </Section>
         </div>
         <div className="flow">

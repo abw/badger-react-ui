@@ -216,7 +216,6 @@ class Context extends Base {
       console.error('No thumbsRef.  Did you forget to set it in Thumbs?')
       return
     }
-
     const { clientX } = e
     const { left: thumbLeft, width: thumbWidth } = thumb.getBoundingClientRect()
     const thumbMid = thumbLeft + (thumbWidth / 2)

@@ -4,6 +4,7 @@ import DefaultOption from './Option.jsx'
 import DefaultSelect from '../Select/Select.jsx'
 import DefaultSelections from './Selections.jsx'
 import DefaultSortSelections from './SortSelections.jsx'
+import { doNothing } from '@abw/badger-utils'
 
 const Content = ({
   className='multiselect',
@@ -17,6 +18,7 @@ const Content = ({
   <div className={className}>
     <Select
       {...props}
+      onUpdate={doNothing}
       displayOption={
         option => <Option option={option}/>
       }

@@ -10,7 +10,8 @@ import SelectedIcon     from './_examples/selectedIcon/index.jsx'
 import UnselectedIcon   from './_examples/unselectedIcon/index.jsx'
 import Sortable         from './_examples/sortable/index.jsx'
 import OnChange         from './_examples/onChange/index.jsx'
-import { SelectLink }   from '@/web/site/Links.jsx'
+import { CodeHashLink, SelectLink }   from '@/web/site/Links.jsx'
+import Section from '@/web/page/Section.jsx'
 
 const MultiSelectExamples = () =>
   <div className="flow">
@@ -31,6 +32,12 @@ const MultiSelectExamples = () =>
       <DisplaySelection/>
       <Heading title="Event Handlers"/>
       <OnChange/>
+      <Section code="onUpdate">
+        If this is defined it will be called instead of any{' '}
+        <CodeHashLink id="onChange"/> handler when the selection changes
+        due to the <CodeHashLink id="options"/> or <CodeHashLink id="value"/> properties
+        changing.
+      </Section>
     </Sections>
   </div>
 

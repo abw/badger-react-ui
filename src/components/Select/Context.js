@@ -62,10 +62,16 @@ class Context extends MenuContext {
       this.debug(`value has changed from ${prevProps.value} to ${this.props.value}`)
       newState = this.valueState()
     }
+    // It can be useful to distinguish between cases where a user has selected
+    // an option (the regular onSelect) and cases where the state has changed
+    // because the options or pre-selected value have changed (the new
+    // onUpdate).  If there is no onUpdate defined then we fall back to
+    // onSelect so that we don't break any code.
     if (newState) {
+      const changer = this.props.onUpdate || this.props.onSelect
       this.setState(
         newState,
-        () => this.props.onSelect(newState.value)
+        () => changer(newState.value)
       )
     }
   }
