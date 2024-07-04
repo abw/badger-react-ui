@@ -32,13 +32,13 @@ const DropdownExamples = () =>
       <Wide/>
       <Placement/>
       <Offset/>
-      <Button/>
       <Icon/>
       <IconRotate/>
       <IconLeft/>
       <IconLeftRotate/>
       <IconRight/>
       <IconRightRotate/>
+      <Button/>
       <Split>
         <div className="flow">
           <Heading title="CSS Classes"/>

@@ -42,11 +42,15 @@
         box-shadow: var(--focus-ring);
       }
     }
+    // override the margin tweaks because we have the div.safe-area which
+    // means the icon is no longer the only child or last child
     &.button.icon svg.icon {
-      // undo the margin tweaks because we have the div.safe-area which
-      // means the icon is no longer the only child
       margin-left: 0;
       margin-right: 0;
+    }
+    &.button svg.icon.on-right {
+      margin-left: var(--icon-margin);
+      margin-right: var(--icon-pull);
     }
     .icon {
       transition: all var(--icon-transition);

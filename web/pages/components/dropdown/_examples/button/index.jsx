@@ -8,8 +8,8 @@ const Button = () =>
     code="button"
     Component={Component}
     Source={Source}
-    highlightLines="6-8"
-    undent={2}
+    highlightLines="6-7,12-14,21-23"
+    undent={4}
     expand
   >
     <p>
