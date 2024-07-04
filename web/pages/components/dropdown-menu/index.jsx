@@ -1,12 +1,13 @@
-import React        from 'react'
-import Heading      from '@/web/page/Heading.jsx'
-import Sections     from '@/web/page/Sections.jsx'
-import Section      from '@/web/page/Section.jsx'
-import Split        from '@/web/site/Split.jsx'
-import Link         from '@/web/ui/Link.jsx'
-import DropdownMenu from './_examples/DropdownMenu/index.jsx'
-import Options      from './_examples/options/index.jsx'
-import OnSelect     from './_examples/onSelect/index.jsx'
+import React          from 'react'
+import Heading        from '@/web/page/Heading.jsx'
+import Sections       from '@/web/page/Sections.jsx'
+import Section        from '@/web/page/Section.jsx'
+import Split          from '@/web/site/Split.jsx'
+import Link           from '@/web/ui/Link.jsx'
+import DropdownMenu   from './_examples/DropdownMenu/index.jsx'
+import Options        from './_examples/options/index.jsx'
+import DisplayOption  from './_examples/displayOption/index.jsx'
+import OnSelect       from './_examples/onSelect/index.jsx'
 
 const DropdownExamples = () =>
   <div className="flow">
@@ -21,6 +22,7 @@ const DropdownExamples = () =>
         the <code>DropdownMenu</code>.
       </p>
       <Options/>
+      <DisplayOption/>
       <Heading title="Event Handlers"/>
       <OnSelect/>
       <Split>
