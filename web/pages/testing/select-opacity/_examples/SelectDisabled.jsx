@@ -1,20 +1,28 @@
 import React from 'react'
-import { Select } from '@/src/index.jsx'
+import { Select, DropdownMenu } from '@/src/index.jsx'
 
 const tap = [
-  { id: 'nigel', name: 'Nigel Tufnel' },
-  { id: 'david', name: 'David St. Hubbins' },
-  { id: 'derek', name: 'Derek Smalls' },
-  { id: 'viv',   name: 'Viv Savage' },
-  { id: 'mick',  name: 'Mick Shrimpton', disabled: true },
+  { id: 'nigel', text: 'Nigel Tufnel' },
+  { id: 'david', text: 'David St. Hubbins' },
+  { id: 'derek', text: 'Derek Smalls' },
+  { id: 'viv',   text: 'Viv Savage' },
+  { id: 'mick',  text: 'Mick Shrimpton', disabled: true },
 ]
 
 const SelectDisabled = () =>
   <>
-    <Select
-      search
-      options={tap}
-    />
+    <div className="grid-2 gap-2">
+      <Select
+        search
+        options={tap}
+      />
+      <DropdownMenu
+        triggerClass="button"
+        triggerColor="brand"
+        text="Dropdown Menu"
+        options={tap}
+      />
+    </div>
     <div className="checkerboard" style={{ height: '250px', marginTop: 0 }}>
     </div>
   </>
