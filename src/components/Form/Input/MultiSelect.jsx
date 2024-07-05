@@ -2,6 +2,7 @@ import React from 'react'
 import UIMultiSelect from '@/components/MultiSelect/MultiSelect.jsx'
 import { useField } from '@abw/badger-form'
 import { identity, hasValue, isArray } from '@abw/badger-utils'
+import { doNothing } from '@abw/badger-utils'
 
 const MultiSelect = ({
   field=useField(),
@@ -18,6 +19,7 @@ const MultiSelect = ({
             : [ ]
         : [ ]
     }
+    onUpdate={doNothing}
     onChange={
       values => field.onChange(
         values.map(selectValue)
