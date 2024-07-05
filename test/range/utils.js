@@ -7,7 +7,8 @@ test(
     const range = initRange()
     expect(range.min).toBe(0)
     expect(range.max).toBe(100)
-    expect(range.value).toBe(50)
+    expect(range.minValue).toBe(25)
+    expect(range.maxValue).toBe(75)
     expect(range.step).toBe(1)
     expect(range.quantize(0.1)).toBe(0)
     expect(range.quantize(99.2)).toBe(99)
@@ -27,7 +28,8 @@ test(
     const range = initRange({})
     expect(range.min).toBe(0)
     expect(range.max).toBe(100)
-    expect(range.value).toBe(50)
+    expect(range.minValue).toBe(25)
+    expect(range.maxValue).toBe(75)
     expect(range.step).toBe(1)
     expect(range.quantize(0.1)).toBe(0)
     expect(range.quantize(99.2)).toBe(99)
@@ -41,7 +43,8 @@ test(
     const range = initRange({ min: 100, max: 200 })
     expect(range.min).toBe(100)
     expect(range.max).toBe(200)
-    expect(range.value).toBe(150)
+    expect(range.minValue).toBe(125)
+    expect(range.maxValue).toBe(175)
     expect(range.step).toBe(1)
     expect(range.quantize(0.1)).toBe(100)
     expect(range.quantize(100)).toBe(100)
@@ -65,7 +68,8 @@ test(
     const range = initRange({ min: '100', max: '200' })
     expect(range.min).toBe(100)
     expect(range.max).toBe(200)
-    expect(range.value).toBe(150)
+    expect(range.minValue).toBe(125)
+    expect(range.maxValue).toBe(175)
     expect(range.step).toBe(1)
     expect(range.quantize(0.1)).toBe(100)
     expect(range.quantize(101.1)).toBe(101)
@@ -75,10 +79,11 @@ test(
 test(
   'initRange() with min, max, value',
   () => {
-    const range = initRange({ min: 100, max: 200, value: 110 })
+    const range = initRange({ min: 100, max: 200, minValue: 110 })
     expect(range.min).toBe(100)
     expect(range.max).toBe(200)
-    expect(range.value).toBe(110)
+    expect(range.minValue).toBe(110)
+    expect(range.maxValue).toBe(175)
     expect(range.step).toBe(1)
   }
 )
@@ -86,10 +91,10 @@ test(
 test(
   'initRange() with min, max, value outside range',
   () => {
-    const range = initRange({ min: 100, max: 200, value: 99 })
+    const range = initRange({ min: 100, max: 200, minValue: 99 })
     expect(range.min).toBe(100)
     expect(range.max).toBe(200)
-    expect(range.value).toBe(100)
+    expect(range.minValue).toBe(100)
     expect(range.step).toBe(1)
   }
 )
@@ -97,10 +102,10 @@ test(
 test(
   'initRange() with min, max, value out of step',
   () => {
-    const range = initRange({ min: 100, max: 200, value: 101.2 })
+    const range = initRange({ min: 100, max: 200, minValue: 101.2 })
     expect(range.min).toBe(100)
     expect(range.max).toBe(200)
-    expect(range.value).toBe(101)
+    expect(range.minValue).toBe(101)
     expect(range.step).toBe(1)
     expect(range.quantize(0.1)).toBe(100)
     expect(range.quantize(101.55)).toBe(102)
@@ -116,7 +121,8 @@ test(
     const range = initRange({ min: 1.1, max: 2.1, step: 0.1 })
     expect(range.min).toBe(1.1)
     expect(range.max).toBe(2.1)
-    expect(range.value).toBe(1.6)
+    expect(range.minValue).toBe(1.4)
+    expect(range.maxValue).toBe(1.9)
     expect(range.step).toBe(0.1)
     expect(range.quantize(1.14)).toBe(1.1)
     expect(range.normalToValue(0)).toBe(1.1)
@@ -130,7 +136,7 @@ test(
     const range = initRange({ min: 1, max: 2, step: 0.1 })
     expect(range.min).toBe(1)
     expect(range.max).toBe(2)
-    expect(range.value).toBe(1.5)
+    expect(range.minValue).toBe(1.3)
     expect(range.step).toBe(0.1)
   }
 )
@@ -141,7 +147,7 @@ test(
     const range = initRange({ min: 1, max: 2, step: '0.2' })
     expect(range.min).toBe(1)
     expect(range.max).toBe(2)
-    expect(range.value).toBe(1.6)   // closest step to 1.5
+    expect(range.minValue).toBe(1.2)   // closest step to 1.25
     expect(range.step).toBe(0.2)
     expect(range.quantize(0.1)).toBe(1)
     expect(range.quantize(1.09)).toBe(1)
@@ -157,7 +163,8 @@ test(
     const range = initRange({ min: 1, max: 2, step: 'any' })
     expect(range.min).toBe(1)
     expect(range.max).toBe(2)
-    expect(range.value).toBe(1.5)
+    expect(range.minValue).toBe(1.25)
+    expect(range.maxValue).toBe(1.75)
     expect(range.step).toBe('any')
     expect(range.quantize(0.1)).toBe(1)
     expect(range.quantize(1.1)).toBe(1.1)
@@ -171,7 +178,8 @@ test(
     const range = initRange({ min: 1, max: 2, step: null })
     expect(range.min).toBe(1)
     expect(range.max).toBe(2)
-    expect(range.value).toBe(1.5)
+    expect(range.minValue).toBe(1.25)
+    expect(range.maxValue).toBe(1.75)
     expect(range.step).toBe('any')
     expect(range.quantize(0.1)).toBe(1)
     expect(range.quantize(1.1)).toBe(1.1)

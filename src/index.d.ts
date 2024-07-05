@@ -1,5 +1,7 @@
 // quick hack until I do this properly
 declare module '@abw/badger-react-ui' {
+  // Accordion
+  export function Accordion()
   // Alert
   export function Alert()
   export function Info()
@@ -71,6 +73,9 @@ declare module '@abw/badger-react-ui' {
     rows: any;
   };
 
+  // Datatables
+  export function DataTables()
+
   // Details
   export function Details()
   export function DetailsContainer()
@@ -89,6 +94,7 @@ declare module '@abw/badger-react-ui' {
   export function DropdownMenu()
   export function DropdownMenuContent()
   export function DropdownMenuContext()
+  export function DropdownMenuHeading()
   export function DropdownMenuOption()
   export function DropdownMenuOptions()
   export function DropdownMenuSeparator()
@@ -112,6 +118,12 @@ declare module '@abw/badger-react-ui' {
   export function Errors()
   export function Status()
   export function Submitting()
+  export function CheckboxField()
+  export function HiddenField()
+  export function RadioField()
+  export function SelectField()
+  export function TextField()
+  export function TextAreaField()
   export function UseField()
   export function UseForm()
   export function useField()
@@ -134,6 +146,17 @@ declare module '@abw/badger-react-ui' {
   export function ModalFooter()
   export function ModalHeader()
   export function ModalState()
+  // MultiSelect
+  export function MultiSelect()
+  export function MultiSelectContent()
+  export function MultiSelectContext()
+  export function MultiSelectProvider()
+  export function MultiSelectConsumer()
+  export function MultiSelectOption()
+  export function MultiSelectSelection()
+  export function MultiSelectSelections()
+  export function MultiSelectSortSelections()
+  export function useMultiSelect()
   // Overlay
   export function Overlay()
   export function OverlayState()
@@ -153,9 +176,53 @@ declare module '@abw/badger-react-ui' {
   export function RadioInput()
   export function RadioLabel()
   export function RadioOption()
+  // Range
+  export function Range()
+  export function RangeContent()
+  export function RangeDebug()
+  export function RangeInputs()
+  export function RangeInput()
+  export function RangeInputMin()
+  export function RangeInputMax()
+  export function RangeLayout()
+  export function RangeLimits()
+  export function RangeOutput()
+  export function RangeSelection()
+  export function RangeSlider()
+  export function RangeThumbMin()
+  export function RangeThumbMax()
+  export function RangeThumbs()
+  export function RangeTicks()
+  export function RangeTrack()
+  export function RangeValues()
+  export function RangeValueMin()
+  export function RangeValueMax()
+  export function RangeContext()
+  export function RangeProvider()
+  export function RangeConsumer()
+  export function RangeChildren()
+  export function useRange()
+  export function initRange()
+  export function rangeQuantizer()
+  export function rangeNormalClick()
+  // RangeMax
+  export function RangeMax()
+  export function RangeMaxValues()
+  export function RangeMaxThumbs()
+  export function RangeMaxInputs()
+  export function rangeMaxNormalClick()
+  export function rangeMaxPrepareRenderProps()
+  // RangeMin
+  export function RangeMin()
+  export function RangeMinValues()
+  export function RangeMinThumbs()
+  export function RangeMinInputs()
+  export function rangeMinNormalClick()
+  export function rangeMinPrepareRenderProps()
   // Search
   export function Search()
   export function SearchContent()
+  export function SearchError()
   export function SearchInput()
   export function SearchNoResults()
   export function SearchResult()
@@ -186,17 +253,18 @@ declare module '@abw/badger-react-ui' {
   export function Spinner()
   // Table
   export function Table()
-  export function TableRows()
-  export function TableColumns()
-  export function TableHead()
   export function TableBody()
-  export function TableFoot()
-  export function TableRow()
   export function TableCell()
+  export function TableColumns()
+  export function TableFoot()
+  export function TableHead()
+  export function TableRow()
+  export function TableRows()
   export function rowProps()
   export function cellProps()
   // Tabset
   export function Tabset()
+  export function TabsetBody()
   // Tiles
   export function Tiles()
   // Toggle
@@ -206,8 +274,16 @@ declare module '@abw/badger-react-ui' {
   // elements
   export function Div()
   export function Flex()
-  // utils
-  export function Storage()
+  export function Grid()
+  // utils/attrs
+  export function parseAttrs()
+  // utils/breakpoint
+  export function widthBreakpoint()
+  export function elementWidth()
+  export function elementBreakpoint()
+  // utils/classes
+  export function joinClasses()
+  export function setKeys()
   export function classes()
   export function colorClass()
   export function sizeColorProps()
@@ -215,6 +291,8 @@ declare module '@abw/badger-react-ui' {
   export function stylePropsClasses()
   export function borderClass()
   export function shadowClass()
+  export function gridClass()
+  export function stackClass()
   export function paddingClass()
   export function marginClass()
   export function radiusClass()
@@ -222,8 +300,55 @@ declare module '@abw/badger-react-ui' {
   export function backgroundClass()
   export function foregroundDarkClass()
   export function backgroundDarkClass()
-  export function gridClass()
   export function gapClass()
-  export function lookupVariant()
+  export function classInt()
+  export function classTrue()
+  export function classTrueInt()
+  export function classTrueVHTRBL()
+  export function classVHTRBL()
+  export function fixValues()
+  // utils/cursor
+  export function cursorFirst()
+  export function cursorLast()
+  export function cursorNext()
+  export function cursorPrev()
+  // utils/grid
+  export function extractGridProps()
+  export function extractGridProp()
+  export function gridPropsBestMatch()
+  // utils/icon
+  export function iconProps()
+  export function iconNameOrProps()
+  // utils/math
+  export function coerceNumber()
+  export function valuePercent()
+  export function roundStep()
+  // utils/option
+  export function validOption()
+  export function optionValue()
+  export function findOption()
+  export function searchOptions()
+  // utils/props
+  export function anyPropsChanged()
+  // utils/refs
+  export function mergeRefs()
+  // utils/renderer
+  export function defaultRenderer()
+  export function withIconsRenderer()
+  // utils/scroll
+  export function scrollParentChild()
+  // utils/size
+  export function parseSize()
+  // utils/storage
+  export function Storage()
+  // utils/style
+  export function rotateStyle()
+  export function extractStyleProps()
+  // utils/text
+  export function capitalFirstLetter()
+  // utils/theme
   export function themedProps()
+  // utils/variant
+  export function lookupVariant()
+
 }

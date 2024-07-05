@@ -131,7 +131,6 @@ export const gapClass = gap =>
     }
   )
 
-
 export const classInt = (c, i) =>
   isInteger(parseInt(c))
     ? maybeFunction(i, c)

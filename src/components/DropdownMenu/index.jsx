@@ -1,5 +1,6 @@
 export { default as DropdownMenu          } from './DropdownMenu.jsx'
 export { default as DropdownMenuContent   } from './Content.jsx'
+export { default as DropdownMenuHeading   } from './Heading.jsx'
 export { default as DropdownMenuOption    } from './Option.jsx'
 export { default as DropdownMenuOptions   } from './Options.jsx'
 export { default as DropdownMenuSeparator } from './Separator.jsx'
