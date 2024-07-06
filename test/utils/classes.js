@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest'
-import { classTrueVHTRBL, classVHTRBL, classes, fixValues } from '@/src/index.jsx'
+import { classTrueVHTRBL, classVHTRBL, classes, fixValues, gapClass } from '@/src/index.jsx'
 
 test(
   'classes() should flatten array of class names',
@@ -121,5 +121,50 @@ test(
     )
   ).toBe(
     null
+  )
+)
+
+test(
+  'gapClass() true',
+  () => expect(
+    gapClass(true)
+  ).toBe(
+    'gap-1'
+  )
+)
+
+test(
+  'gapClass() none',
+  () => expect(
+    gapClass('none')
+  ).toBe(
+    'gap-none'
+  )
+)
+
+test(
+  'gapClass() 2',
+  () => expect(
+    gapClass('2')
+  ).toBe(
+    'gap-2'
+  )
+)
+
+test(
+  'gapClass() 2 4',
+  () => expect(
+    gapClass('2 4')
+  ).toBe(
+    'gap-v-2 gap-h-4'
+  )
+)
+
+test(
+  'gapClass() 0 4',
+  () => expect(
+    gapClass('0 4')
+  ).toBe(
+    'gap-v-0 gap-h-4'
   )
 )

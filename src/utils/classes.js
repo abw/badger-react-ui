@@ -120,7 +120,7 @@ export const backgroundDarkClass = stop =>
   classInt(stop, s => `bgd-${s}`)
 
 export const gapClass = gap =>
-  classTrueInt(
+  classTrue(
     gap,
     'gap-1',
     g => {

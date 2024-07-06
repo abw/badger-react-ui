@@ -12,6 +12,10 @@ const GridExample = () =>
     <Grid cols="2" gap="3 6">
       <A/> <B/> <C/> <D/>
     </Grid>
+
+    <Grid cols="2" gap="0 6">
+      <A/> <B/> <C/> <D/>
+    </Grid>
     {/* END */}
   </div>
 
