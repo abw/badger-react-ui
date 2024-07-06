@@ -20,7 +20,6 @@ const Checkbox = ({
   // checkedIcon=icon,
   // uncheckedIcon=icon,
   // iconClass,
-  inputClass,
   Label=CheckboxLabel,
   Input=CheckboxInput,
   ...props
@@ -37,7 +36,7 @@ const Checkbox = ({
     checked={checked}
     {...props}
   >
-    <Input className={inputClass} ref={inputRef} checked={checked} {...props}/>
+    <Input ref={inputRef} checked={checked} {...props}/>
     {checked ? checkedText : uncheckedText}
   </Label>
 

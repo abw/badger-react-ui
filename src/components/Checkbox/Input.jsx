@@ -7,7 +7,7 @@ const CheckboxInput = ({
   disabled=false,
   tabIndex=0,
   onChange=doNothing,
-  className,
+  inputClass,
   round,
   square,
   ref,
@@ -20,7 +20,7 @@ const CheckboxInput = ({
     aria-disabled={disabled}
     tabIndex={disabled ? -1 : tabIndex}
     onChange={e => onChange(e.target.checked)}
-    className={classes(className, { round, square })}
+    className={classes(inputClass, { round, square })}
     role={asSwitch ? 'switch' : null}
     {...props}
   />
