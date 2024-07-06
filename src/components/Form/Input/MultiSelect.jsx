@@ -19,7 +19,7 @@ const MultiSelect = ({
             : [ ]
         : [ ]
     }
-    onUpdate={doNothing}
+    onUpdate={field.onUpdate || doNothing}
     onChange={
       values => field.onChange(
         values.map(selectValue)
