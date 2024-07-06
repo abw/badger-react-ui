@@ -16,7 +16,9 @@ const GridExample = () =>
       The <code>gap</code> property allows you to specify the gap between
       element in multiples of the base unit, 0.25rem.  A single number is
       used for both vertical and horizontal gaps.  Two numbers can be
-      specified for vertical and horizontal gaps, respectively.
+      specified for vertical and horizontal gaps, respectively.  You can
+      specify 0 or <code>none</code> for either value to remove any gap in
+      that dimension.
     </p>
   </Example>
 

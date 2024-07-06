@@ -13,7 +13,7 @@ const GridExample = () =>
       <A/> <B/> <C/> <D/>
     </Grid>
 
-    <Grid cols="2" gap="0 6">
+    <Grid cols="2" gap="none 6">
       <A/> <B/> <C/> <D/>
     </Grid>
     {/* END */}

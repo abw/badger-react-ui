@@ -168,3 +168,12 @@ test(
     'gap-v-0 gap-h-4'
   )
 )
+
+test(
+  'gapClass() none 4',
+  () => expect(
+    gapClass('none 4')
+  ).toBe(
+    'gap-v-none gap-h-4'
+  )
+)
