@@ -350,5 +350,16 @@ declare module '@abw/badger-react-ui' {
   export function themedProps()
   // utils/variant
   export function lookupVariant()
-
+  // hooks/useComplexState
+  export function useComplexState()
+  // hooks/useContainer
+  export function useContainer()
+  // hooks/useFloating
+  export function floatingMiddleware()
+  export function floatingPlacement()
+  export function useFloating()
+  // hooks/useRenderCount
+  export function useRenderCount()
+  // hooks/useWindow
+  export function useWindow()
 }
