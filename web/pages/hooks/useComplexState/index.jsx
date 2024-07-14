@@ -5,6 +5,8 @@ import Component    from './_examples/useComplexState.jsx'
 import Source       from './_examples/useComplexState.jsx?raw'
 import Functions    from './_examples/functions/index.jsx'
 import OnChange     from './_examples/onChange/index.jsx'
+import ConvertCase  from './_examples/ConvertCase/index.jsx'
+import SetterNamer  from './_examples/SetterNamer/index.jsx'
 
 const UseComplexState = () =>
   <div className="flow">
@@ -30,11 +32,14 @@ const UseComplexState = () =>
     <Example
       Component={Component}
       code={Source}
+      highlightLines="5-7,13-14,18-19,23-24"
     />
 
     <Sections tocName="useComplexState">
       <Functions/>
       <OnChange/>
+      <ConvertCase/>
+      <SetterNamer/>
     </Sections>
   </div>
 

@@ -8,6 +8,7 @@ const Functions = () =>
     title="Setter Functions"
     Component={Component}
     Source={Source}
+    highlightLines="11-13,17-19"
   >
     <p>
       The setter functions can be passed a function which will receive the

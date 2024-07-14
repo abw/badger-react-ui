@@ -12,6 +12,9 @@ export const MakeCodeLink = (to, text) => props =>
 export const CodeHashLink = ({ id, text=id }) =>
   <a href={`#${id.toLowerCase()}`} className="code">{text}</a>
 
+export const ExternalLink = ({ url, text }) =>
+  <a href={url} target="_blank" rel="noreferrer">{text}</a>
+
 export const AccordionLink   = MakeCodeLink('/components/accordion', 'Accordion')
 export const ButtonLink      = MakeCodeLink('/components/button', 'Button')
 export const ButtonsLink     = MakeCodeLink('/components/buttons', 'Buttons')

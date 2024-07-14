@@ -8,6 +8,8 @@ const OnChange = () =>
     code="onChange"
     Component={Component}
     Source={Source}
+    undent="2"
+    highlightLines="4-7"
   >
     <p>
       The <code>useComplexState()</code> function can be passed a second

@@ -12,7 +12,7 @@ const Button = () =>
     <p>
       There are numerous properties listed below that are typically used as
       shortcuts to set particular CSS styles.  Any other properties not listed
-      here are forwarded to the <code>button</code> component.
+      here are forwarded to the <code>button</code> element.
     </p>
     <Example
       Component={Component}
