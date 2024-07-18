@@ -1,6 +1,7 @@
 import React from 'react'
 import { Select } from '@/src/index.jsx'
 import { isObject } from '@abw/badger-utils'
+import { doNothing } from '@abw/badger-utils'
 
 
 const SelectFilter = ({
@@ -12,6 +13,7 @@ const SelectFilter = ({
   <Select
     options={column.selectOptions||[]}
     value={value}
+    onUpdate={doNothing}
     onSelect={
       option => setFilter(
         column.selectValue
