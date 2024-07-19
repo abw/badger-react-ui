@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest'
-import { iconProps } from '@/src/index.jsx'
+import { iconProps, iconNameOrProps } from '@/src/index.jsx'
 
 test(
   'iconProps() should return icon name',
@@ -182,3 +182,16 @@ test(
   )
 )
 
+test(
+  'iconNameOrProps("foo")',
+  () => expect(
+    iconNameOrProps('foo')
+  ).toStrictEqual({ name: 'foo' })
+)
+
+test(
+  'iconNameOrProps({ name: "bar" })',
+  () => expect(
+    iconNameOrProps({ name: 'bar' })
+  ).toStrictEqual({ name: 'bar' })
+)

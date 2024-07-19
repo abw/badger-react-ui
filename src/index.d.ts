@@ -321,8 +321,6 @@ declare module '@abw/badger-react-ui' {
   export function iconNameOrProps()
   // utils/math
   export function coerceNumber()
-  export function valuePercent()
-  export function roundStep()
   // utils/option
   export function validOption()
   export function optionValue()

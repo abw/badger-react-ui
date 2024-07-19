@@ -22,77 +22,24 @@ test(
   )
 )
 
-/*
 test(
-  'explicit variant with other option',
+  'no variant',
   () => expect(
     themedProps(
-      { bar: true, variant: 'foo' },
-      variantsFooBar
+      { some: 'wibble', extra: 'cheese' },
+      theme1
     )
   ).toEqual(
-    variantsFooBar.foo
-  )
-)
-
-test(
-  'implicit variant foo',
-  () => expect(
-    lookupVariant(
-      { foo: true },
-      variantsFooBar
-    )
-  ).toEqual(
-    variantsFooBar.foo
-  )
-)
-
-test(
-  'implicit variant bar',
-  () => expect(
-    lookupVariant(
-      { bar: true },
-      variantsFooBar
-    )
-  ).toEqual(
-    variantsFooBar.bar
-  )
-)
-
-test(
-  'default variant value',
-  () => expect(
-    lookupVariant(
-      { variant: 'missing' },
-      variantsFooBar,
-      { hello: 'World' }
-    )
-  ).toEqual(
-    { hello: 'World' }
-  )
-)
-
-test(
-  'default variant',
-  () => expect(
-    lookupVariant(
-      { wiz: true, bang: true },
-      variantsWithDefault
-    )
-  ).toEqual(
-    variantsWithDefault.default
+    { some: 'wibble', extra: 'cheese' }
   )
 )
 
 test(
   'invalid variant',
   () => expect(
-    lookupVariant(
-      { variant: 'another' },
-      variantsWithDefault
+    () => themedProps(
+      { variant: 'wibble', extra: 'cheese' },
+      theme1
     )
-  ).toEqual(
-    variantsWithDefault.default
-  )
+  ).toThrow('Invalid themedProps() value for variant: wibble')
 )
-*/

@@ -83,6 +83,33 @@ test(
 )
 
 test(
+  'gridPropBestMatch({ laptop: 2, desktop: 3 }, "mobile") -> 2',
+  () => expect(
+    gridPropBestMatch({ laptop: 2, desktop: 3 }, 'mobile')
+  ).toEqual(
+    'grid-2'
+  )
+)
+
+test(
+  'gridPropBestMatch({ cols: 4, laptop: 2, desktop: 3 }) -> 4',
+  () => expect(
+    gridPropBestMatch({ cols: 4, laptop: 2, desktop: 3 })
+  ).toEqual(
+    'grid-4'
+  )
+)
+
+test(
+  'gridPropBestMatch({ laptop: 2, desktop: 3 }) -> 1',
+  () => expect(
+    gridPropBestMatch({ laptop: 2, desktop: 3 })
+  ).toEqual(
+    'grid-1'
+  )
+)
+
+test(
   'extractGridProps({ cols: 4, laptop: 2, desktop: 3, gap: 10 }, "mobile") -> 2',
   () => expect(
     extractGridProp({ cols: 4, laptop: 2, desktop: 3, gap: 10 }, 'mobile')

@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest'
-import { widthBreakpoint } from '@/src/utils/breakpoint.js'
+import { widthBreakpoint, elementWidth, elementBreakpoint } from '@/src/utils/breakpoint.js'
 
 test(
   'widthBreakpoint(1500) -> ultra',
@@ -60,4 +60,14 @@ test(
 test(
   'widthBreakpoint(null) -> unknown',
   () => expect( widthBreakpoint(null) ).toBe( 'unknown' )
+)
+
+test(
+  'elementWidth({ innerWidth: 11 }) -> 11',
+  () => expect( elementWidth({ innerWidth: 11 }) ).toBe( 11 )
+)
+
+test(
+  'elementBreakpoint({ innerWidth: 480 }) -> mobile',
+  () => expect( elementBreakpoint({ innerWidth: 480 }) ).toBe( 'mobile' )
 )
