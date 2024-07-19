@@ -21,6 +21,12 @@ export default defineConfig({
       provider: 'v8',
       reporter: ['html'],
       include: ['src/**'],
+      exclude: [
+        'src/hooks/useContainer.jsx',
+        'src/hooks/useFloating.jsx',
+        'src/hooks/useRenderCount.jsx',
+        'src/hooks/useWindow.jsx',
+      ],
     },
   },
   define,
