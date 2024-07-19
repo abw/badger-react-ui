@@ -11,7 +11,8 @@ export const useContainer = (options={}) => {
 
   useEffect(
     () => {
-      if (!ref.current) return
+      if (!ref.current || typeof ResizeObserver === 'undefined')
+        return
       const resizeObserver = new ResizeObserver(
         entries => {
           const entry  = entries[0]
