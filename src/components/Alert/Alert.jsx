@@ -11,7 +11,8 @@ import {
 const Alert = ({
   title,
   headline,
-  headIcon,
+  headicon,
+  headIcon=headicon,
   type,
   size,
   color,
