@@ -19,7 +19,8 @@ export default defineConfig({
     exclude: ['test/setup.js', 'test/lib'],
     coverage: {
       provider: 'v8',
-      reporter: ['html']
+      reporter: ['html'],
+      include: ['src/**'],
     },
   },
   define,
