@@ -5,7 +5,7 @@ import Source     from './Component.jsx?raw'
 
 const HeadIcon = () =>
   <Example
-    code="headicon"
+    code="headIcon"
     Component={Component}
     Source={Source}
     highlightLines="3"
@@ -14,7 +14,10 @@ const HeadIcon = () =>
   >
     <p>
       The <code>headIcon</code> property can be used to add an icon to the
-      headline.
+      headline.  The <code>headicon</code> (note the lower case &quot;i&quot;)
+      is provided as an alias because there&apos;s at least one user (me) who
+      forgets that it&apos;s supposed to have a capital &quot;I&quot; in the
+      middle.
     </p>
   </Example>
 
