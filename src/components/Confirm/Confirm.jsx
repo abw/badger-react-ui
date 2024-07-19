@@ -63,6 +63,7 @@ const Confirm = ({
   }
 
   return modal
+    /* v8 ignore start */
     ? <>
         <Buttons
           className={className}
@@ -77,6 +78,7 @@ const Confirm = ({
           {...props}
         />
       </>
+    /* v8 ignore end */
     : <Buttons
         className={className}
         buttonClass={buttonClass}

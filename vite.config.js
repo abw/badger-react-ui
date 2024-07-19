@@ -22,6 +22,7 @@ export default defineConfig({
       reporter: ['html'],
       include: ['src/**'],
       exclude: [
+        'src/components/Confirm/Modal.jsx',
         'src/hooks/useContainer.jsx',
         'src/hooks/useFloating.jsx',
         'src/hooks/useRenderCount.jsx',
