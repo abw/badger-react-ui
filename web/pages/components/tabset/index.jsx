@@ -3,6 +3,7 @@ import Heading    from '@/web/page/Heading.jsx'
 import Sections   from '@/web/page/Sections.jsx'
 import Tabset     from './_examples/Tabset/index.jsx'
 import Tabs       from './_examples/Tabs/index.jsx'
+import ActiveTab  from './_examples/ActiveTab/index.jsx'
 import StorageKey from './_examples/StorageKey/index.jsx'
 import Lined      from './_examples/Lined/index.jsx'
 import Solid      from './_examples/Solid/index.jsx'
@@ -20,6 +21,7 @@ const TabsetExamples = () =>
     <Sections tocName="tabset">
       <Heading title="Properties"/>
       <Tabs/>
+      <ActiveTab/>
       <StorageKey/>
       <Lined/>
       <Solid/>

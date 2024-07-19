@@ -22,13 +22,14 @@ const Tabset = ({
   lined,
   center,
   right,
+  activeTab=0,
   Body=TabBody
 }) => {
   const store = storageKey && Storage(storageKey)
   const [active, setActive] = React.useState(
     store
-      ? store.get(storageItem) || 0
-      : 0
+      ? store.get(storageItem) || activeTab
+      : activeTab
   )
   const activateTab = n => {
     setActive(n)
