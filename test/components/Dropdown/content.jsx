@@ -19,7 +19,10 @@ test(
     )
 
     const dropdown = container.querySelector('div.dropdown')
+
     const trigger = dropdown.querySelector('div.trigger')
+    expect(trigger).toHaveTextContent('Dropdown')
+
     const nobody = dropdown.querySelector('div.body')
     expect(nobody).toBeNull()
 
