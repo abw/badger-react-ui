@@ -229,7 +229,7 @@ class Context extends MenuContext {
   }
 
   searchOptions() {
-    this.debug('searchOptions()')
+    this.debug('searchOptions(), searchInput: ', this.state.searchInput)
     const { options, searchOptions } = this.props
     this.setState(
       state => ({
