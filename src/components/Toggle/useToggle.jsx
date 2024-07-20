@@ -17,6 +17,7 @@ const useToggle = ({
   const [index, setIndex] = useState(
     store
       ? store.get(storageItem) ?? selectedIndex
+      /* v8 ignore next */
       : selectedIndex
   )
   const [option, setOption] = useState(
@@ -32,9 +33,11 @@ const useToggle = ({
       setOption(options[n])
       onSelect(options[n], n)
     }
+    /* v8 ignore start */
     else {
       throw('Invalid toggle option selected: ' + JSON.stringify(option))
     }
+    /* v8 ignore end */
   }
   const toggleOption = () =>
     selectOption((index + 1) % options.length)
