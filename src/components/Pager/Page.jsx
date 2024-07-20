@@ -1,7 +1,7 @@
 import React   from 'react'
 import Context from './Context.js'
 import Button  from '../Button/Button.jsx'
-import { pagerCurrentPageLabel, pagerPageLabel } from './Utils.js'
+import { pagerPageLabel } from './Utils.js'
 import { maybeFunction } from '@abw/badger-utils'
 
 const PagerPage = ({
@@ -11,15 +11,13 @@ const PagerPage = ({
   className=buttonClass,
   onClick,
   current,
-  pageLabel=current
-    ? pagerCurrentPageLabel
-    : pagerPageLabel
+  pageLabel=pagerPageLabel
 }) =>
   <Button
     text={text}
     className={className}
     onClick={onClick}
-    label={maybeFunction(pageLabel, pageNo)}
+    label={current ? null : maybeFunction(pageLabel, pageNo)}
     aria-current={current ? 'page' : null}
   />
 
