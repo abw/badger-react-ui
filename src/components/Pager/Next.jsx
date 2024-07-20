@@ -6,6 +6,7 @@ import { pagerNextPageLabel } from './Utils.js'
 
 const PagerNext = ({
   nextPage,
+  nextPageNo,
   setPage,
   buttonClass,
   nextClass=buttonClass,
@@ -17,7 +18,7 @@ const PagerNext = ({
     icon={nextIcon}
     onClick={() => setPage(nextPage)}
     disabled={! nextPage}
-    label={maybeFunction(nextLabel, nextPage)}
+    label={maybeFunction(nextLabel, nextPageNo)}
   />
 
 export default Context.Consumer(PagerNext)

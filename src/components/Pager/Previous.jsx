@@ -7,6 +7,7 @@ import { pagerPreviousPageLabel } from './Utils.js'
 
 const PagerPrevious = ({
   prevPage,
+  prevPageNo,
   setPage,
   buttonClass,
   prevClass=buttonClass,
@@ -18,7 +19,7 @@ const PagerPrevious = ({
     icon={prevIcon}
     onClick={() => setPage(prevPage)}
     disabled={noValue(prevPage)}
-    label={maybeFunction(prevLabel, prevPage)}
+    label={maybeFunction(prevLabel, prevPageNo)}
   />
 
 export default Context.Consumer(PagerPrevious)
