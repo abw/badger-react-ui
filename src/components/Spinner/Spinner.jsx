@@ -11,6 +11,7 @@ const iconParts = (mods, classes) =>
       : '',
     classes.length
       ? '.' + classes.join('.')
+      /* v8 ignore next */
       : ''
   ].join('')
 
