@@ -58,6 +58,36 @@ const PagerExamples = () =>
           </Section>
         </div>
         <div className="flow">
+          <Heading title="Aria Labels"/>
+          <Section code="label" id="label">
+            Property to set the <code>aria-label</code> for the Pager component.
+            Defaults to <code>Pagination navigation</code>
+          </Section>
+          <Section code="prevLabel" id="prevLabel">
+            Property to define a function for setting the <code>aria-label</code>{' '}
+            for the previous page button.  It will be passed the (1-based) previous
+            page number (<code>prevPageNo</code>) and should return the appropriate
+            label.  It defaults to the <code>pagerPreviousPageLabel</code> function
+            which returns a label of the form <code>Previous page, page ${'{'}n{'}'}</code>{' '}
+            or <code>No previous page</code> if the previous page is 0 or otherwise
+            falsy.
+          </Section>
+          <Section code="nextLabel" id="nextLabel">
+            Property to define a function for setting the <code>aria-label</code>{' '}
+            for the next page button.  It will be passed the (1-based) next
+            page number (<code>nextPageNo</code>) and should return the appropriate
+            label.  It defaults to the <code>pagerNextPageLabel</code> function
+            which returns a label of the form <code>Next page, page ${'{'}n{'}'}</code>{' '}
+            or <code>No next page</code> if the previous page is falsy.
+          </Section>
+          <Section code="pageLabel" id="pageLabel">
+            Property to define a function for setting the <code>aria-label</code>{' '}
+            for the page buttons.  It will be passed the (1-based) page number
+            and should return the appropriate label.  It defaults to the{' '}
+            <code>pagerPageLabel</code> function which returns a label of the
+            form <code>Go to page ${'{'}n{'}'}</code>{' '}.
+          </Section>
+
           <Heading title="Components"/>
           <Section code="Previous" id="Previous-component">
             Renders the previous page button.  Defaults
