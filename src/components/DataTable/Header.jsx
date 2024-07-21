@@ -3,12 +3,16 @@ import Context            from './Context.js'
 import DataTableSummary   from './Summary.jsx'
 import DataTableControls  from './Controls.jsx'
 import Button             from '@/components/Button/Button.jsx'
+import { pagerPreviousPageLabel, pagerNextPageLabel } from '@/src/index.jsx'
+import { maybeFunction } from '@abw/badger-utils'
 
 const Header = ({
   page,
   setPageNo,
   prevIcon='arrow-left',
+  prevLabel=pagerPreviousPageLabel,
   nextIcon='arrow-right',
+  nextLabel=pagerNextPageLabel,
   navSize='smaller',
   headerClass='small flex space bottom gap-2',
   Summary=DataTableSummary,
@@ -21,6 +25,8 @@ const Header = ({
       disabled={page.pageNo <= page.firstPage}
       outline
       onClick={() => setPageNo(page.pageNo - 1)}
+      role="navigation"
+      label={maybeFunction(prevLabel(page.pageNo - 1))}
     />
     <div>
       <Summary/>
@@ -32,6 +38,8 @@ const Header = ({
       disabled={page.pageNo >= page.lastPage}
       outline
       onClick={() => setPageNo(page.pageNo + 1)}
+      role="navigation"
+      label={maybeFunction(nextLabel(page.pageNo + 1))}
     />
   </header>
 
