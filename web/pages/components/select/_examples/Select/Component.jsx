@@ -2,7 +2,7 @@ import { Select } from '@/src/index.jsx'
 
 /* START */
 import React from 'react'
-// PRETEND: import { Search } from '@abw/badger-react-ui
+// PRETEND: import { Select } from '@abw/badger-react-ui
 
 const animals = [
   'Alan Aardvark',

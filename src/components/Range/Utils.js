@@ -1,5 +1,6 @@
 import { ANY } from '@/src/constants.js'
 import { coerceNumber } from '@/src/utils/math.js'
+import { identity } from '@abw/badger-utils'
 import { isNumber } from '@abw/badger-utils'
 import { isObject } from '@abw/badger-utils'
 import { isArray } from '@abw/badger-utils'
@@ -14,8 +15,27 @@ export const initRange = (props={}) => {
     value,
     minValue, maxValue,
     minRange, maxRange,
-    step, tickStep, quantize
+    step, tickStep, quantize, values,
+    displayValue
   } = props
+
+  // If we've got an array of values then the min and max are bound by the
+  // indices of the array, e.g. 0 to values.length - 1
+  if (hasValue(values)) {
+    if (isArray(values)) {
+      min  = 0
+      max  = values.length - 1
+      step = 1
+      minRange ??= 1
+      displayValue ||= displayValueFromValues
+    }
+    else {
+      throw `range values should be an array`
+    }
+  }
+  else {
+    displayValue ||= identity
+  }
 
   // Coerce min and max to numbers and calculate the range
   min = coerceNumber(min)
@@ -109,11 +129,11 @@ export const initRange = (props={}) => {
   const maxPercent = multiply(maxNormal, 100)
 
   return {
-    min, max, range, minValue, maxValue, minRange, maxRange,
+    min, max, range, minValue, maxValue, minRange, maxRange, values,
     minInput: minValue, maxInput: maxValue,
     step, steps, tickStep, tickSteps,
     quantize, minNormal, maxNormal, minPercent, maxPercent,
-    normalToValue, valueToNormal
+    normalToValue, valueToNormal, displayValue
   }
 }
 
@@ -157,3 +177,6 @@ export const rangeNormalClick = (normal, minNormal, maxNormal, setMin, setMax) =
     return setMax(normal)
   }
 }
+
+export const displayValueFromValues = (value, values) =>
+  values[value]

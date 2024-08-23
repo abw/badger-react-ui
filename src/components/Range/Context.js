@@ -6,7 +6,7 @@ import { initRange, rangeNormalClick } from './Utils.js'
 import { sleep } from '@abw/badger-utils'
 
 const WATCH_PROPS = splitList(
-  'min max value minValue maxValue minRange maxRange step tickStep quantize'
+  'min max value values minValue maxValue minRange maxRange step tickStep quantize'
 )
 
 class Context extends Base {
@@ -15,7 +15,7 @@ class Context extends Base {
   static debugColor   = 'rebeccapurple'
   static defaultProps = {
     onChange: doNothing,
-    displayValue: identity,
+    // displayValue: identity,
     normalClick: rangeNormalClick,
     prepareRenderProps: identity,
     minNormal: 0,

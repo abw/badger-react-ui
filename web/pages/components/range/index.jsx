@@ -1,7 +1,7 @@
 import React          from 'react'
 import Sections       from '@/web/page/Sections.jsx'
 import Heading        from '@/web/page/Heading.jsx'
-import Range    from './_examples/Range/index.jsx'
+import Range          from './_examples/Range/index.jsx'
 import MinValue       from './_examples/minValue/index.jsx'
 import MaxValue       from './_examples/maxValue/index.jsx'
 import Min            from './_examples/min/index.jsx'
@@ -25,6 +25,7 @@ import Color          from './_examples/color/index.jsx'
 import Size           from './_examples/size/index.jsx'
 import ClassName      from './_examples/className/index.jsx'
 import Style          from './_examples/style/index.jsx'
+import Values         from './_examples/values/index.jsx'
 import OnChange       from './_examples/onChange/index.jsx'
 import Children       from './_examples/children/index.jsx'
 import Context        from './_examples/Context.jsx'
@@ -61,6 +62,8 @@ const RangeExamples = () =>
       <Size/>
       <ClassName/>
       <Style/>
+      <Heading title="Discrete Values"/>
+      <Values/>
       <Heading title="Event Handlers"/>
       <OnChange/>
       <Heading title="Context"/>

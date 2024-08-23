@@ -12,6 +12,7 @@ const Ticks = ({
   showScale,
   displayValue,
   normalToValue,
+  values
 }) => {
   const vcls = classes(scaleValueClass, scaleSize)
   return (
@@ -23,7 +24,7 @@ const Ticks = ({
           <div className={tickClass} key={n}>
             { Boolean(showScale) &&
               <div className={vcls}>
-                {displayValue(normalToValue(n / tickSteps))}
+                {displayValue(normalToValue(n / tickSteps), values)}
               </div>
             }
           </div>

@@ -13,10 +13,11 @@ const ValueMin = ({
   alignValues=alignValue,
   alignMinValue=alignment[alignValues] || alignValues,
   minValue,
-  displayValue
+  displayValue,
+  values
 }) =>
   <div className={classes(valueClass, minClass, alignMinValue)}>
-    {displayValue(minValue)}
+    {displayValue(minValue, values)}
   </div>
 
 export const RangeValueMin = Context.Consumer(ValueMin)

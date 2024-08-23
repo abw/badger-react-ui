@@ -8,16 +8,17 @@ const Limits = ({
   scaleSize='smaller',
   displayValue,
   min,
-  max
+  max,
+  values
 }) => {
   const vcls = classes(scaleValueClass, scaleSize)
   return (
     <div className={limitsClass}>
       <div className={vcls}>
-        {displayValue(min)}
+        {displayValue(min, values)}
       </div>
       <div className={vcls}>
-        {displayValue(max)}
+        {displayValue(max, values)}
       </div>
     </div>
   )

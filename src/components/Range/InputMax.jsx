@@ -1,10 +1,10 @@
 import React from 'react'
 import Context from './Context.js'
 import DefaultInput from './Input.jsx'
+import DefaultSelect from './Select.jsx'
 import { clamp } from '@abw/badger-utils'
 
 const InputMax = ({
-  Input=DefaultInput,
   min,
   max,
   minRange,
@@ -14,7 +14,9 @@ const InputMax = ({
   stepMaxUp,
   stepMaxDown,
   minValue,
-  maxValue
+  maxValue,
+  values,
+  Input = values ? DefaultSelect : DefaultInput,
 }) => {
   const minLimit = clamp(minValue + minRange, min, max)
   const maxLimit = clamp(minValue + maxRange, min, max)
