@@ -1,18 +1,28 @@
 import React from 'react'
-import { DATE, VERSION } from './Config.js'
+import Badger from '@/svg/badger-white.svg?react'
+import { DATE, VERSION, years } from './Config.js'
 
 const Footer = () =>
   <footer>
-    <div className="flex space middle">
-      <div className="large">
-        Badger React UI
-      </div>
-      <div className="text-center small">
-        by <a href="https://github.com/abw">Andy Wardley</a>
+    <div className="flex space middle gap-4">
+      <a
+        href="https://badgerpower.com"
+        target="_blank"
+        rel="noreferrer"
+        className="badgerpower"
+      >
+        <Badger/>
+        Badger Powered
+      </a>
+      <div className="text-center">
+        &copy; Copyright {years}{' '}
+        <a
+          href="https://github.com/abw"
+          target="_blank"
+          rel="noreferrer">Andy Wardley</a>
       </div>
       <div className="text-right">
-        v{VERSION}<br/>
-        {DATE}
+        v{VERSION} - {DATE}
       </div>
     </div>
   </footer>
