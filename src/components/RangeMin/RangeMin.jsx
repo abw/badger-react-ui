@@ -12,6 +12,7 @@ const RangeMin = ({
   value,
   minNormal=0.5,
   maxNormal=1,
+  minRange=0,
   rangeClass='range range-min',
   Thumbs=DefaultThumbs,
   Values=DefaultValues,
@@ -25,6 +26,7 @@ const RangeMin = ({
     minValue={value}
     minNormal={minNormal}
     maxNormal={maxNormal}
+    minRange={minRange}
     rangeClass={rangeClass}
     normalClick={normalClick}
     prepareRenderProps={prepareRenderProps}
