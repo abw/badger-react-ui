@@ -25,7 +25,8 @@ import Color          from './_examples/color/index.jsx'
 import Size           from './_examples/size/index.jsx'
 import ClassName      from './_examples/className/index.jsx'
 import Style          from './_examples/style/index.jsx'
-import Values         from './_examples/values/index.jsx'
+import Debug          from './_examples/debug/index.jsx'
+import Options        from './_examples/options/index.jsx'
 import OnChange       from './_examples/onChange/index.jsx'
 import Children       from './_examples/children/index.jsx'
 import Context        from './_examples/Context.jsx'
@@ -62,8 +63,9 @@ const RangeExamples = () =>
       <Size/>
       <ClassName/>
       <Style/>
+      <Debug/>
       <Heading title="Discrete Values"/>
-      <Values/>
+      <Options/>
       <Heading title="Event Handlers"/>
       <OnChange/>
       <Heading title="Context"/>

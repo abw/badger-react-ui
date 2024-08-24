@@ -4,7 +4,7 @@ import { Range } from '@/src/index.jsx'
 const RangeExample = () =>
   /* START */
   <Range
-    values={[
+    options={[
       'A', 'B', 'C', 'D', 'E', 'F', 'G',
       'H', 'I', 'J', 'K', 'L', 'M', 'N',
       'O', 'P', 'Q', 'R', 'S', 'T', 'U',

@@ -13,36 +13,36 @@ import Example    from '@/site/Example.jsx'
 // import { CodeHashLink } from '@/web/site/Links.jsx'
 
 const RangeExample = () =>
-  <Section code="values">
+  <Section code="options">
     <p>
-      The <code>values</code> property can be used to define an array of
+      The <code>options</code> property can be used to define an array of
       discrete values for the range.  The minimum and maximum values will
-      be defined in terms of an index into the <code>values</code> array.
+      be defined in terms of an index into the <code>options</code> array.
       The default value for <code>minValue</code> will be 0 and the default
       for <code>maxValue</code> will be one less than the length of the{' '}
-      <code>values</code> array.
+      <code>options</code> array.
     </p>
     <Example
       Component={Component}
       code={Source}
-      caption="values"
+      caption="options"
       undent={2}
       highlightLines="2-7"
       expand
     />
     <p>
-      When <code>values</code> are defined, a default <code>displayValue</code>{' '}
+      When <code>options</code> are defined, a default <code>displayValue</code>{' '}
       function will be provided which outputs the corresponding element from
-      the <code>values</code> array.  This is apparent in the example above.
+      the <code>options</code> array.  This is apparent in the example above.
       Instead of outputting the values <code>0</code> and <code>25</code> for
       the minimum and maximum ends of the range, it outputs <code>A</code> and{' '}
-      <code>Z</code>, which are the elements in the <code>values</code> array
+      <code>Z</code>, which are the elements in the <code>options</code> array
       at position 0 and 25 respectively.
     </p>
     <p>
-      You can define your own <code>displayValue</code> function.  It
-      will be passed the <code>value</code> (the index into the <code>values</code> array) and
-      the <code>values</code> array as arguments.
+      You can define your own <code>displayValue</code> function.  It will be
+      passed the <code>value</code> (the index into the<code>options</code>{' '}
+      array) and the <code>options</code> array as arguments.
     </p>
     <Example
       Component={Display}
