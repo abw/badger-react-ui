@@ -47,7 +47,7 @@ test(
     const option2Input = labels[3].querySelector('input')
     expect(option2Input).toHaveAttribute('aria-disabled', 'true')
 
-    screen.debug()
+    // screen.debug()
 
     // click on first label
     await act( () => user.click(labels[0]) )

@@ -20,7 +20,7 @@ const SelectExample = () => {
       <Select
         options={animals}
         onSelect={setSelected}
-        debug
+        // debug
       />
       { selected &&
         <div data-testid="selected">
@@ -76,7 +76,7 @@ test(
     await act( () => user.keyboard('{ArrowUp}') )
     await act( () => user.keyboard('{Enter}') )
     await act( () => user.keyboard('{Backspace}') )
-    screen.debug()
+    // screen.debug()
     // expect(screen.getByTestId('selected')).toHaveTextContent('Alan Aardvark')
   }
 )

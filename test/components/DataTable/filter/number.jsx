@@ -4,7 +4,7 @@ import { it, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
 import { DataTable } from '@/src/index.jsx'
 // import { screen } from '@testing-library/react'
-import { prettyDOM } from '@testing-library/dom'
+// import { prettyDOM } from '@testing-library/dom'
 
 const rows = [
   { value: 101     },
@@ -75,7 +75,7 @@ async function filter(text, rows) {
   await act( () => user.click(input) )
   await act( () => user.keyboard(text) )
   expect(input).toHaveValue(parseInt(text))
-  console.log(prettyDOM(table))
+  // console.log(prettyDOM(table))
 
   const trowsSel = table.querySelectorAll('tbody tr')
   expect(trowsSel.length).toBe(rows.length)

@@ -1,7 +1,7 @@
 import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
-import { render, screen, act } from '@testing-library/react'
+import { render, act } from '@testing-library/react'
 import { DataTables } from '@/src/index.jsx'
 import animals from '@/test/lib/animals.js'
 
@@ -41,17 +41,17 @@ test(
 
     // page 2
     await act( () => user.click(topButtons[1]) )
-    screen.debug()
+    // screen.debug()
     expectTables(container, 10, 12, 33)
 
     // page 3
     await act( () => user.click(topButtons[1]) )
-    screen.debug()
+    // screen.debug()
     expectTables(container, 10, 41, 301)
 
     // page 4
     await act( () => user.click(topButtons[1]) )
-    screen.debug()
+    // screen.debug()
     expectTables(container, 4, 302, 1234)
   }
 )

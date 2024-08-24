@@ -52,7 +52,7 @@ const Row = ({ caption, id, value, setter }) =>
       <input
         type="number"
         data-testid={id}
-        value={value}
+        value={value || 0}
         onChange={e => setter(parseInt(e.target.value))}
       />
       <Buttons

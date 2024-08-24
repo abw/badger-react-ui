@@ -26,7 +26,10 @@ const ComplexStateTest = () => {
         />
         <tr>
           <th>Total</th>
-          <td data-testid="total">{state.item_one + state.item_two}</td>
+          <td data-testid="total">{
+            (state.item_one || 0) +
+            (state.item_two || 0)
+          }</td>
         </tr>
       </tbody>
     </table>
@@ -40,7 +43,7 @@ const Row = ({ caption, id, value, setter }) =>
       <input
         type="number"
         data-testid={id}
-        value={value}
+        value={value || 0}
         onChange={e => setter(parseInt(e.target.value))}
       />
     </td>

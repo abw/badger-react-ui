@@ -1,6 +1,6 @@
 import React from 'react'
 import { test, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { Icons } from '@/src/index.jsx'
 
 test(
@@ -9,7 +9,7 @@ test(
     const { container } = render(
       <Icons names="square check.wibble" size="large"/>
     )
-    screen.debug()
+    // screen.debug()
     const icons = container.querySelector('div.grid')
     const svgs = icons.querySelectorAll('svg')
     expect(svgs.length).toBe(2)
