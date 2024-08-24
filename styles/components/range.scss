@@ -230,8 +230,8 @@
   .range-input {
     width: auto;
     text-align: center;
-    input {
-      text-align: center;
+    input, .select {
+      text-align: left;
     }
     .step {
       color: var(--step-color);
