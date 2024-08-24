@@ -22,7 +22,7 @@ const Select = ({
   stepDown,
   input,
   setInput,
-  values,
+  options,
   displayValue,
 }) =>
   <div className={inputClass}>
@@ -40,7 +40,7 @@ const Select = ({
           range(min, max).map(
             value => ({
               value,
-              text: displayValue(value, values)
+              text: displayValue(value, options)
             })
           )
         }

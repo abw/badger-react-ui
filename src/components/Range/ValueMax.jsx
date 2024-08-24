@@ -14,10 +14,10 @@ const ValueMax = ({
   alignMaxValue=alignment[alignValues] || alignValues,
   maxValue,
   displayValue,
-  values
+  options
 }) =>
   <div className={classes(valueClass, maxClass, alignMaxValue)}>
-    {displayValue(maxValue, values)}
+    {displayValue(maxValue, options)}
   </div>
 
 export const RangeValueMax = Context.Consumer(ValueMax)

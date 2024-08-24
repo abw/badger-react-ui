@@ -6,7 +6,7 @@ import { initRange, rangeNormalClick } from './Utils.js'
 import { sleep } from '@abw/badger-utils'
 
 const WATCH_PROPS = splitList(
-  'min max value values minValue maxValue minRange maxRange step tickStep quantize'
+  'min max value options minValue maxValue minRange maxRange step tickStep quantize'
 )
 
 class Context extends Base {

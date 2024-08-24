@@ -1,9 +1,9 @@
 import { ANY } from '@/src/constants.js'
-import { coerceNumber } from '@/src/utils/math.js'
+import { isArray } from '@abw/badger-utils'
 import { identity } from '@abw/badger-utils'
 import { isNumber } from '@abw/badger-utils'
 import { isObject } from '@abw/badger-utils'
-import { isArray } from '@abw/badger-utils'
+import { coerceNumber } from '@/src/utils/math.js'
 import {
   isNull, hasValue, isFunction, add, subtract, multiply, divide, clamp
 } from '@abw/badger-utils'
@@ -15,22 +15,22 @@ export const initRange = (props={}) => {
     value,
     minValue, maxValue,
     minRange, maxRange,
-    step, tickStep, quantize, values,
+    step, tickStep, quantize, options,
     displayValue
   } = props
 
-  // If we've got an array of values then the min and max are bound by the
-  // indices of the array, e.g. 0 to values.length - 1
-  if (hasValue(values)) {
-    if (isArray(values)) {
+  // If we've got an array of options then the min and max are bound by the
+  // indices of the array, e.g. 0 to options.length - 1
+  if (hasValue(options)) {
+    if (isArray(options)) {
       min  = 0
-      max  = values.length - 1
+      max  = options.length - 1
       step = 1
       minRange ??= 1
-      displayValue ||= displayValueFromValues
+      displayValue ||= displayValueFromOptions
     }
     else {
-      throw `range values should be an array`
+      throw `range options should be an array`
     }
   }
   else {
@@ -129,7 +129,7 @@ export const initRange = (props={}) => {
   const maxPercent = multiply(maxNormal, 100)
 
   return {
-    min, max, range, minValue, maxValue, minRange, maxRange, values,
+    min, max, range, minValue, maxValue, minRange, maxRange, options,
     minInput: minValue, maxInput: maxValue,
     step, steps, tickStep, tickSteps,
     quantize, minNormal, maxNormal, minPercent, maxPercent,
@@ -178,5 +178,5 @@ export const rangeNormalClick = (normal, minNormal, maxNormal, setMin, setMax) =
   }
 }
 
-export const displayValueFromValues = (value, values) =>
-  values[value]
+export const displayValueFromOptions = (value, options) =>
+  options[value]

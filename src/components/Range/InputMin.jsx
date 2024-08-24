@@ -15,8 +15,8 @@ const InputMin = ({
   stepMinDown,
   minValue,
   maxValue,
-  values,
-  Input = values ? DefaultSelect : DefaultInput,
+  options,
+  Input = options ? DefaultSelect : DefaultInput,
 }) => {
   const minLimit    = clamp(maxValue - maxRange, min, max)
   const maxLimit    = clamp(maxValue - minRange, min, max)
