@@ -21,6 +21,7 @@ import AlignInput     from './_examples/alignInput/index.jsx'
 import InputSize      from './_examples/inputSize/index.jsx'
 import Color          from './_examples/color/index.jsx'
 import Size           from './_examples/size/index.jsx'
+import Options        from './_examples/options/index.jsx'
 import Context        from './_examples/Context.jsx'
 import OnChange       from './_examples/onChange/index.jsx'
 import Children       from './_examples/children/index.jsx'
@@ -48,6 +49,8 @@ const RangeMaxExamples = () =>
       <InputSize/>
       <Color/>
       <Size/>
+      <Heading title="Discrete Values"/>
+      <Options/>
       <Heading title="Event Handlers"/>
       <OnChange/>
       <Heading title="Context"/>
