@@ -5,17 +5,13 @@ import { render, act } from '@testing-library/react'
 import { Range } from '@/src/index.jsx'
 
 const RangeExample = () => {
-  const values = [
+  const options = [
     10, 25, 50, 75, 100, 250, 500, 1000
   ]
-  //const [range, setRange] = React.useState({
-  //  minValue: 0,
-  //  maxValue: values.length - 1,
-  //})
   return (
     <>
       <Range
-        values={values}
+        options={options}
         showValues
         showInputs
         showLimits
