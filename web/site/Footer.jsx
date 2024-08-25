@@ -4,27 +4,29 @@ import { DATE, VERSION, years } from './Config.js'
 
 const Footer = () =>
   <footer>
-    <div className="flex space middle gap-4">
-      <a
-        href="https://badgerpower.com"
-        target="_blank"
-        rel="noreferrer"
-        className="badgerpower"
-      >
-        <Badger/>
-        Badger Powered
-      </a>
-      <div className="text-center">
+    <nav className="flex space middle gap-4 stack-tablet">
+      <div>
+        <a
+          href="https://badgerpower.com"
+          target="_blank"
+          rel="noreferrer"
+          className="badgerpower"
+        >
+          <Badger/>
+          Badger Powered
+        </a>
+      </div>
+      <div>
         &copy; Copyright {years}{' '}
         <a
           href="https://github.com/abw"
           target="_blank"
           rel="noreferrer">Andy Wardley</a>
       </div>
-      <div className="text-right">
+      <div>
         v{VERSION} - {DATE}
       </div>
-    </div>
+    </nav>
   </footer>
 
 export default Footer
