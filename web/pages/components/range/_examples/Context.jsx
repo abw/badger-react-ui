@@ -29,6 +29,7 @@ const Context = () =>
         ['maxNormal',     'The `maxValue` normalised to the range `0` to `1`'],
         ['minPercent',    'The `minValue` as a percentage of the range'],
         ['maxPercent',    'The `maxValue` as a percentage of the range'],
+        ['options',       'An array of discrete options, if specified'],
         ['onClick',       'Click handler for the `Track` component'],
         ['onDragMin',     'Drag handler for the `ThumbMin` component'],
         ['onDragMax',     'Drag handler for the `ThumbMax` component'],
@@ -46,6 +47,7 @@ const Context = () =>
         ['quantize',      'Function to quantize a `value` to any defined `step`'],
         ['normalToValue', 'Function to convert a normalised value (0-1) to the range (min-max)'],
         ['valueToNormal', 'Function to convert a ranged value (min-max) to a normalised value (0-1)'],
+        ['displayValue',  'Function to display a value'],
         ['rangeProps',    'Properties for the range `Content` component'],
       ]}
     />

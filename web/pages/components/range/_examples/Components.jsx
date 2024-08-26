@@ -18,6 +18,7 @@ const Components = () =>
         ['InputMax',  'RangeInputMax',  'The input for the maximum value'],
         ['Limits',    'RangeLimits',    'The limits of the scale'],
         ['Output',    'RangeOutput',    'The output values'],
+        ['Select',    'RangeSelection', 'Component to select a minimum or maximum value from discrete `options`'],
         ['Selection', 'RangeSelection', 'The selected range'],
         ['Slider',    'RangeSlider',    'Container for the slider, track and thumbs'],
         ['Thumbs',    'RangeThumbs',    'Renders the thumbs'],
