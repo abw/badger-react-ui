@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@abw/badger-css':
-    specifier: ^1.1.15
-    version: 1.1.15
+    specifier: ^1.1.17
+    version: 1.1.17
   '@abw/badger-form':
     specifier: ^1.1.1
     version: 1.1.1(react-dom@18.3.1)(react@18.3.1)
@@ -101,14 +101,14 @@ devDependencies:
     specifier: ^3.5.0
     version: 3.5.0
   sass:
-    specifier: ^1.69.7
-    version: 1.69.7
+    specifier: ^1.77.8
+    version: 1.77.8
   shiki:
     specifier: ^1.3.0
     version: 1.3.0
   vite:
     specifier: ^4.5.3
-    version: 4.5.3(sass@1.69.7)
+    version: 4.5.3(sass@1.77.8)
   vite-jsconfig-paths:
     specifier: ^2.0.1
     version: 2.0.1(vite@4.5.3)
@@ -117,7 +117,7 @@ devDependencies:
     version: 4.2.0(vite@4.5.3)
   vitest:
     specifier: ^2.0.3
-    version: 2.0.3(@vitest/ui@2.0.3)(jsdom@24.1.0)(sass@1.69.7)
+    version: 2.0.3(@vitest/ui@2.0.3)(jsdom@24.1.0)(sass@1.77.8)
 
 packages:
 
@@ -133,8 +133,8 @@ packages:
       js-yaml: 4.1.0
     dev: false
 
-  /@abw/badger-css@1.1.15:
-    resolution: {integrity: sha512-0kRFJOkezUdj47QZTFCryvQTvabeXyAxPttyWJZ3G46UnWxEJj7dp9jJo2rSHx45ZQVENSRJ6qsL9ln7BSO+yw==}
+  /@abw/badger-css@1.1.17:
+    resolution: {integrity: sha512-Hd5yqakV/0usMZwyHCLpIdrNnkR+VeFqy2VEkBD4U18B8ly6P6eBYWwvGfxiq9NQYavKBPAkMY77Epkag3h7Ug==}
     hasBin: true
     dependencies:
       '@abw/badger': 1.2.4
@@ -1671,7 +1671,7 @@ packages:
       dom-accessibility-api: 0.6.3
       lodash: 4.17.21
       redent: 3.0.0
-      vitest: 2.0.3(@vitest/ui@2.0.3)(jsdom@24.1.0)(sass@1.69.7)
+      vitest: 2.0.3(@vitest/ui@2.0.3)(jsdom@24.1.0)(sass@1.77.8)
     dev: true
 
   /@testing-library/react@16.0.0(@testing-library/dom@10.3.2)(react-dom@18.3.1)(react@18.3.1):
@@ -1783,7 +1783,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.24.7(@babel/core@7.24.9)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
-      vite: 4.5.3(sass@1.69.7)
+      vite: 4.5.3(sass@1.77.8)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1806,7 +1806,7 @@ packages:
       strip-literal: 2.1.0
       test-exclude: 7.0.1
       tinyrainbow: 1.2.0
-      vitest: 2.0.3(@vitest/ui@2.0.3)(jsdom@24.1.0)(sass@1.69.7)
+      vitest: 2.0.3(@vitest/ui@2.0.3)(jsdom@24.1.0)(sass@1.77.8)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1859,7 +1859,7 @@ packages:
       pathe: 1.1.2
       sirv: 2.0.4
       tinyrainbow: 1.2.0
-      vitest: 2.0.3(@vitest/ui@2.0.3)(jsdom@24.1.0)(sass@1.69.7)
+      vitest: 2.0.3(@vitest/ui@2.0.3)(jsdom@24.1.0)(sass@1.77.8)
     dev: true
 
   /@vitest/utils@2.0.3:
@@ -4235,8 +4235,8 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: true
 
-  /sass@1.69.7:
-    resolution: {integrity: sha512-rzj2soDeZ8wtE2egyLXgOOHQvaC2iosZrkF6v3EUG+tBwEvhqUCzm0VP3k9gHF9LXbSrRhT5SksoI56Iw8NPnQ==}
+  /sass@1.77.8:
+    resolution: {integrity: sha512-4UHg6prsrycW20fqLGPShtEvo/WyHRVRHwOP4DzkUrObWoWI05QBSfzU71TVB7PFaL104TwNaHpjlWXAZbQiNQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -4730,12 +4730,12 @@ packages:
       globrex: 0.1.2
       recrawl-sync: 2.2.3
       tsconfig-paths: 3.15.0
-      vite: 4.5.3(sass@1.69.7)
+      vite: 4.5.3(sass@1.77.8)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite-node@2.0.3(sass@1.69.7):
+  /vite-node@2.0.3(sass@1.77.8):
     resolution: {integrity: sha512-14jzwMx7XTcMB+9BhGQyoEAmSl0eOr3nrnn+Z12WNERtOvLN+d2scbRUvyni05rT3997Bg+rZb47NyP4IQPKXg==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -4744,7 +4744,7 @@ packages:
       debug: 4.3.5
       pathe: 1.1.2
       tinyrainbow: 1.2.0
-      vite: 5.3.4(sass@1.69.7)
+      vite: 5.3.4(sass@1.77.8)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -4764,14 +4764,14 @@ packages:
       '@rollup/pluginutils': 5.1.0
       '@svgr/core': 8.1.0
       '@svgr/plugin-jsx': 8.1.0(@svgr/core@8.1.0)
-      vite: 4.5.3(sass@1.69.7)
+      vite: 4.5.3(sass@1.77.8)
     transitivePeerDependencies:
       - rollup
       - supports-color
       - typescript
     dev: true
 
-  /vite@4.5.3(sass@1.69.7):
+  /vite@4.5.3(sass@1.77.8):
     resolution: {integrity: sha512-kQL23kMeX92v3ph7IauVkXkikdDRsYMGTVl5KY2E9OY4ONLvkHf04MDTbnfo6NKxZiDLWzVpP5oTa8hQD8U3dg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -4802,12 +4802,12 @@ packages:
       esbuild: 0.18.20
       postcss: 8.4.33
       rollup: 3.29.4
-      sass: 1.69.7
+      sass: 1.77.8
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
 
-  /vite@5.3.4(sass@1.69.7):
+  /vite@5.3.4(sass@1.77.8):
     resolution: {integrity: sha512-Cw+7zL3ZG9/NZBB8C+8QbQZmR54GwqIz+WMI4b3JgdYJvX+ny9AjJXqkGQlDXSXRP9rP0B4tbciRMOVEKulVOA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -4838,12 +4838,12 @@ packages:
       esbuild: 0.21.5
       postcss: 8.4.39
       rollup: 4.18.1
-      sass: 1.69.7
+      sass: 1.77.8
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
 
-  /vitest@2.0.3(@vitest/ui@2.0.3)(jsdom@24.1.0)(sass@1.69.7):
+  /vitest@2.0.3(@vitest/ui@2.0.3)(jsdom@24.1.0)(sass@1.77.8):
     resolution: {integrity: sha512-o3HRvU93q6qZK4rI2JrhKyZMMuxg/JRt30E6qeQs6ueaiz5hr1cPj+Sk2kATgQzMMqsa2DiNI0TIK++1ULx8Jw==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -4886,8 +4886,8 @@ packages:
       tinybench: 2.8.0
       tinypool: 1.0.0
       tinyrainbow: 1.2.0
-      vite: 5.3.4(sass@1.69.7)
-      vite-node: 2.0.3(sass@1.69.7)
+      vite: 5.3.4(sass@1.77.8)
+      vite-node: 2.0.3(sass@1.77.8)
       why-is-node-running: 2.3.0
     transitivePeerDependencies:
       - less
