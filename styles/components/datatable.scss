@@ -22,6 +22,7 @@ section.datatable {
   --filtering-gradient-angle2: calc(90deg - var(--filtering-gradient-angle));
 
   & > header {
+    margin-bottom: 0.5rem;
     .controls {
       .trigger:hover {
         cursor: pointer;
@@ -41,7 +42,6 @@ section.datatable {
         }
       }
     }
-    margin-bottom: 0.5rem;
   }
   & > footer {
     margin-top: 0.5rem;
@@ -98,13 +98,12 @@ section.datatable {
     }
     thead tr.filters {
       th {
-        // padding: 2px 4px 2px 2px;
         padding: 0px 4px 0px 0px;
+        font-weight: normal;
+        background-color: var(--filters-shade);
         input, select, label, .inputs {
           border-color: transparent;
         }
-        font-weight: normal;
-        background-color: var(--filters-shade);
         svg.icon {
           color: var(--header-icon-color);
           opacity: var(--header-icon-opacity);

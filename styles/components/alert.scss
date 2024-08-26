@@ -45,10 +45,10 @@
       cursor: pointer;
     }
     &:not(.revealed) {
+      padding-bottom: 0;
       .headline {
         margin-bottom: 0;
       }
-      padding-bottom: 0;
     }
   }
   .side-icon {
