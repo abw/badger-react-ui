@@ -43,27 +43,13 @@ const Installation = () =>
       expand
     />
 
-    <h2>Importing the SCSS</h2>
-    <p>
-      If you&apos;re using SASS/SCSS to build your stylesheet then you can
-      import the SCSS components.
-      Add the following line to your main SCSS stylesheet source.
-    </p>
-    <CodeBlock
-      code={importSCSS}
-      caption="Combined SCSS for Badger CSS / React UI"
-      language="scss"
-      className="mar-b-8"
-      expand
-    />
-
     <h2>Includes Badger CSS!</h2>
     <p>
-      Note that the examples shown above import stylesheets that{' '}
-      <b>include</b> the styles from Badger CSS.  If you&apos;re already using Badger CSS and
-      have it imported, or if you&apos;ve customised your installation
-      of Badger CSS, then you only need to import the additional styles for
-      Badger React UI.
+      Note that the example shown above imports the stylesheets that{' '}
+      <b>includes</b> the styles from Badger CSS.  If you&apos;re already using
+      Badger CSS and have it imported, or if you&apos;ve customised your
+      installation of Badger CSS, then you only need to import the additional
+      styles for Badger React UI.
     </p>
     <CodeBlock
       code={importCSSMin}
@@ -72,6 +58,27 @@ const Installation = () =>
       className="mar-b-8"
       expand
     />
+
+    <h2>Importing the SCSS</h2>
+    <p>
+      If you&apos;re using SASS/SCSS to build your stylesheet then you can
+      import the SCSS components.
+      Add the following line to your main SCSS stylesheet source to import the
+      Badger CSS and Badger React UI components.
+    </p>
+    <CodeBlock
+      code={importSCSS}
+      caption="Combined SCSS for Badger CSS / React UI"
+      language="scss"
+      className="mar-b-8"
+      expand
+    />
+    <p>
+      Or if you&apos;re already importing the Badger CSS components, possibly
+      to customise it in some way, then you only need to import
+      the <code>badger-react-ui.scss</code> file.
+    </p>
+
     <CodeBlock
       code={importSCSSMin}
       caption="Separate SCSS for Badger CSS / React UI"
