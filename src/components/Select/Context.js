@@ -4,6 +4,7 @@ import { BLANK } from '@/src/constants.js'
 import { hasValue } from '@abw/badger-utils'
 import { ARROW_DOWN, ARROW_UP, TAB, ENTER, ESCAPE, SPACE, BACKSPACE } from '@/src/constants.js'
 import { findOption, validOption, searchOptions, defaultRenderer } from '@/src/utils/index.js'
+import { doNothing } from '@abw/badger-utils'
 
 class Context extends MenuContext {
   static debug        = false
@@ -66,9 +67,12 @@ class Context extends MenuContext {
     // an option (the regular onSelect) and cases where the state has changed
     // because the options or pre-selected value have changed (the new
     // onUpdate).  If there is no onUpdate defined then we fall back to
-    // onSelect so that we don't break any code.
+    // onSelect so that we don't break any code.  Note that we only do this
+    // if the newState contains a value
     if (newState) {
-      const changer = this.props.onUpdate || this.props.onSelect
+      const changer = hasValue(newState.value)
+        ? (this.props.onUpdate || this.props.onSelect)
+        : doNothing
       this.setState(
         newState,
         () => changer(newState.value)
