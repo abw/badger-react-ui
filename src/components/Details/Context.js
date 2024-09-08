@@ -10,6 +10,14 @@ const Context = ({
   const open       = () => setOpen(true)
   const close      = () => setOpen(false)
 
+  // handle external updates to open/initiallyOpen
+  React.useEffect(
+    () => {
+      setOpen(initiallyOpen)
+    },
+    [initiallyOpen]
+  )
+
   return render({
     isOpen, open, close, toggleOpen,
   })
