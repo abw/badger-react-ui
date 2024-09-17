@@ -7,7 +7,7 @@ import ColorSelect          from '@/demo/control/ColorSelect.jsx'
 import StopSelect           from '@/demo/control/StopSelect.jsx'
 import RotationSelect       from '@/demo/control/IconRotationSelect.jsx'
 import ThicknessSelect      from '@/demo/control/IconThicknessSelect.jsx'
-import CodeBlock            from '@/site/CodeBlock.jsx'
+import { Source }           from '@abw/badger-website'
 
 const IconDemo = () => {
   const [n, setN] = useState(0)
@@ -49,7 +49,7 @@ const IconDemo = () => {
         </div>
         <div className="field">
           <label>Markup</label>
-          <CodeBlock
+          <Source
             code={output}
             language="html"
             expand

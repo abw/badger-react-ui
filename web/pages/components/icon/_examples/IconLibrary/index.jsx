@@ -4,7 +4,7 @@ import Example    from '@/site/Example.jsx'
 import Component  from './IconLibrary.jsx'
 import Source     from './IconLibrary.jsx?raw'
 import { Icon, IconLibrary } from '@/components/index.jsx'
-import Link from '@/web/ui/Link.jsx'
+import { Link } from '@abw/badger-website'
 
 const LibraryExample = () =>
   <Section

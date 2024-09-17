@@ -1,6 +1,6 @@
 import React from 'react'
 import Section from './Section.jsx'
-import Example from '@/site/Example.jsx'
+import { Example } from '@abw/badger-website'
 
 const ExampleSection = ({
   Component,

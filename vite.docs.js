@@ -3,6 +3,8 @@ import jsconfigPaths    from 'vite-jsconfig-paths'
 import svgr             from 'vite-plugin-svgr'
 import react            from '@vitejs/plugin-react'
 import define           from  './vite.defs.js'
+import mdx              from '@mdx-js/rollup'
+import rehypeCodeProps  from 'rehype-mdx-code-props'
 import fs               from 'node:fs'
 
 const https = {
@@ -12,7 +14,16 @@ const https = {
 
 export default defineConfig({
   plugins: [
-    react(),
+    {
+      enforce: 'pre',
+      ...mdx({
+        rehypePlugins: [rehypeCodeProps],
+        providerImportSource: '@mdx-js/react'
+      })
+    },
+    react({
+      include: /\.(jsx|mdx)$/
+    }),
     svgr(),
     jsconfigPaths({ root: '../' })
   ],

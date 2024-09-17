@@ -2,14 +2,13 @@ import React      from 'react'
 import Example    from '@/site/Example.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
-import Link from '@/web/ui/Link.jsx'
+import { DropdownLink } from '@/web/site/Links.jsx'
 
 const Dropdown = () =>
   <>
     <p className="large">
       The <code>DropdownMenu</code> component generates a dropdown menu.  It
-      extends the behaviour of the{' '}
-      <Link to="/components/dropdown">Dropdown</Link> component.
+      extends the behaviour of the <DropdownLink/> component.
     </p>
     <p>
       The default behaviour is to open the dropdown menu when the user

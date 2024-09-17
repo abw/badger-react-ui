@@ -6,7 +6,7 @@ import ShadowSelect         from '@/demo/control/ShadowSelect.jsx'
 import CheckOption          from '@/demo/control/CheckOption.jsx'
 import BorderSelect         from '@/demo/control/BorderSelect.jsx'
 import IconSelect           from '@/demo/control/IconSelect.jsx'
-import CodeBlock            from '@/site/CodeBlock.jsx'
+import { Source }           from '@abw/badger-website'
 import { Alert, Icon }      from '@/src/index.jsx'
 
 const AlertDemo = () => {
@@ -53,7 +53,7 @@ const AlertDemo = () => {
         </div>
         <div className="field">
           <label>Markup</label>
-          <CodeBlock
+          <Source
             code={output}
             language="html"
             expand

@@ -1,7 +1,7 @@
-import React        from 'react'
-import Section      from '@/page/Section.jsx'
-import RowsSrc      from '../animals.js?raw'
-import CodeBlock from '@/web/site/CodeBlock.jsx'
+import React      from 'react'
+import Section    from '@/page/Section.jsx'
+import RowsSrc    from '../animals.js?raw'
+import { Source } from '@abw/badger-website'
 
 const Rows = () =>
   <Section code="rows">
@@ -14,15 +14,10 @@ const Rows = () =>
       In these examples we&apos;re using this data for the <code>rows</code>{' '}
       unless otherwise shown.
     </p>
-    <div className="example">
-      <div className="source">
-        <CodeBlock
-          code={RowsSrc}
-          language="js"
-        />
-      </div>
-    </div>
-
+    <Source
+      code={RowsSrc}
+      language="js"
+    />
   </Section>
 
 export default Rows

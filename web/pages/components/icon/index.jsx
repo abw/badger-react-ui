@@ -7,7 +7,7 @@ import Color        from './_examples/color/index.jsx'
 import Path         from './_examples/path/index.jsx'
 import IconLibrary  from './_examples/IconLibrary/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
-import Heading from '@/web/page/Heading.jsx'
+import Heading      from '@/web/page/Heading.jsx'
 
 const IconExamples = () =>
   <div className="flow">

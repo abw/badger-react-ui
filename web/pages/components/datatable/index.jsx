@@ -34,7 +34,7 @@ const DataTableExamples = () =>
   <div className="flow">
     <h1>DataTable</h1>
     <DataTable/>
-    <Sections tocName="datatable">
+    <Sections>
       <Heading title="Properties"/>
       <Rows/>
       <Columns/>

@@ -2,7 +2,7 @@ import React      from 'react'
 import Example    from '@/page/ExampleSection.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
-import Link from '@/web/ui/Link.jsx'
+import { PagerLink } from '@/site/Links.jsx'
 
 const Pager = () =>
   <Example
@@ -15,7 +15,7 @@ const Pager = () =>
   >
     <p>
       The <code>pager</code> property can be used to pass configuration
-      options to the <Link to="/components/Pager" text="Pager"/> component
+      options to the <PagerLink/> component
       displayed underneath the datatable.
     </p>
   </Example>

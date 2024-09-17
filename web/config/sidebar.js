@@ -1,305 +1,278 @@
-export const GettingStartedMenu = {
+const GettingStarted = {
   title:  'Getting Started',
-  path: '/getting-started',
-  items: [
+  openPath: '/getting-started',
+  revealable: true,
+  menu: [
     { to: '/getting-started/installation',     text: 'Installation' },
   ]
 }
 
-export const ComponentsMenu = {
+const Components = {
   title:  'Components',
-  path: '/components',
-  items: [
+  openPath: '/components',
+  revealable: true,
+  menu: [
     {
       to: '/components/accordion',
       text: 'Accordion',
-      tocName: 'accordion',
     },
     {
       to: '/components/alert',
       text: 'Alert',
-      tocName: 'alert',
     },
     {
       to: '/components/badge',
       text: 'Badge',
-      tocName: 'badge',
     },
     {
       to: '/components/button',
       text: 'Button',
-      tocName: 'button',
     },
     {
       to: '/components/buttons',
       text: 'Buttons',
-      tocName: 'buttons',
     },
     {
       to: '/components/checkbox',
       text: 'Checkbox',
-      tocName: 'checkbox',
     },
     {
       to: '/components/confirm',
       text: 'Confirm',
-      tocName: 'confirm',
     },
     {
       to: '/components/datatable',
       text: 'DataTable',
-      tocName: 'datatable',
     },
     {
       to: '/components/datatables',
       text: 'DataTables',
-      tocName: 'datatables',
     },
     {
       to: '/components/details',
       text: 'Details',
-      tocName: 'details',
     },
     {
       to: '/components/dropdown',
       text: 'Dropdown',
-      tocName: 'dropdown',
     },
     {
       to: '/components/dropdown-menu',
       text: 'Dropdown Menu',
-      tocName: 'dropdown-menu',
     },
     {
       to: '/components/form',
       text: 'Form',
-      tocName: 'form'
     },
     {
       to: '/components/icon',
       text: 'Icon',
-      tocName: 'icon'
     },
     {
       to: '/components/modal',
       text: 'Modal',
-      tocName: 'modal'
     },
     {
       to: '/components/multiselect',
       text: 'MultiSelect',
-      tocName: 'multiselect'
     },
     {
       to: '/components/overlay',
       text: 'Overlay',
-      tocName: 'overlay'
     },
     {
       to: '/components/pager',
       text: 'Pager',
-      tocName: 'pager'
     },
     {
       to: '/components/radio',
       text: 'Radio',
-      tocName: 'radio'
     },
     {
       to: '/components/range',
       text: 'Range',
-      tocName: 'range'
     },
     //{
     //  to: '/components/range-min-max',
     //  text: 'RangeMinMax',
-    //  tocName: 'rangeMinMax'
     //},
     {
       to: '/components/range-max',
       text: 'RangeMax',
-      tocName: 'rangeMax'
     },
     {
       to: '/components/range-min',
       text: 'RangeMin',
-      tocName: 'rangeMin'
     },
     {
       to: '/components/search',
       text: 'Search',
-      tocName: 'search'
     },
     {
       to: '/components/select',
       text: 'Select',
-      tocName: 'select'
     },
     {
       to: '/components/sortable',
       text: 'Sortable',
-      tocName: 'sortable'
     },
     {
       to: '/components/spinner',
       text: 'Spinner',
-      tocName: 'spinner'
     },
     {
       to: '/components/table',
       text: 'Table',
-      tocName: 'table'
     },
     {
       to: '/components/tabset',
       text: 'Tabset',
-      tocName: 'tabset'
     },
     {
       to: '/components/tiles',
       text: 'Tiles',
-      tocName: 'tiles'
     },
     {
       to: '/components/toggle',
       text: 'Toggle',
-      tocName: 'toggle'
     },
   ]
 }
 
-export const ElementsMenu = {
+const Elements = {
   title:  'Elements',
-  path: '/elements',
-  items: [
+  openPath: '/elements',
+  revealable: true,
+  menu: [
     {
       to: '/elements/div',
       text: 'Div',
-      tocName: 'div',
     },
     {
       to: '/elements/flex',
       text: 'Flex',
-      tocName: 'flex',
     },
     {
       to: '/elements/grid',
       text: 'Grid',
-      tocName: 'grid',
     },
   ]
 }
 
-
-export const UtilitiesMenu = {
+const Utilities = {
   title:  'Utilities',
-  path: '/utilities',
-  items: [
+  openPath: '/utilities',
+  revealable: true,
+  menu: [
     {
       to: '/utilities/classes',
       text: 'CSS Classes',
-      tocName: 'classes',
     },
     {
       to: '/utilities/storage',
       text: 'Storage',
-      tocName: 'storage',
     },
     {
       to: '/utilities/with-icons',
       text: 'WithIcons',
-      tocName: 'withicons',
     },
   ]
 }
 
-export const HooksMenu = {
+const Hooks = {
   title:  'Hooks',
-  path: '/hooks',
-  items: [
+  openPath: '/hooks',
+  revealable: true,
+  menu: [
     {
       to: '/hooks/useComplexState',
       text: 'useComplexState',
-      tocName: 'useComplexState',
     },
     {
       to: '/hooks/useContainer',
       text: 'useContainer',
-      tocName: 'useContainer',
     },
     {
       to: '/hooks/useFloating',
       text: 'useFloating',
-      tocName: 'useFloating',
     },
     {
       to: '/hooks/useRenderCount',
       text: 'useRenderCount',
-      tocName: 'useRenderCount',
     },
     {
       to: '/hooks/useWindow',
       text: 'useWindow',
-      tocName: 'useWindow',
     },
   ]
 }
 
-export const ThemingMenu = {
+const Theming = {
   title:  'Theming',
-  path: '/theming',
-  items: [
+  openPath: '/theming',
+  revealable: true,
+  menu: [
     {
       to: '/theming/theme-provider',
       text: 'Theme Provider',
-      tocName: 'theming',
     },
     {
       to: '/theming/theming-function',
       text: 'Theming Function',
-      tocName: 'theming',
     },
     {
       to: '/theming/themedProps',
       text: 'themedProps',
-      tocName: 'theming',
     },
   ]
 }
 
-export const TestingMenu = {
-  title:  'Testing',
-  path: '/testing',
-  items: [
+const DevTests = {
+  title:  'Developer Tests',
+  openPath: '/testing',
+  revealable: true,
+  menu: [
     {
       to: '/testing/datatable-columns',
       text: 'DataTable Columns',
-      tocName: 'datatableColumns',
     },
     {
       to: '/testing/datatable-select',
       text: 'DataTable select',
-      tocName: 'datatableSelect',
     },
     {
       to: '/testing/accordion-select',
       text: 'Accordion Select',
-      tocName: 'accordionSelect',
     },
     {
       to: '/testing/dynamic-select',
       text: 'Dynamic Select',
-      tocName: 'dynamicSelect',
     },
     {
       to: '/testing/select-opacity',
       text: 'Select Opacity',
-      tocName: 'selectOpacity',
     },
     {
       to: '/testing/range',
       text: 'Range',
-      tocName: 'range',
     },
   ]
 }
+
+const sidebar = {
+  sections: [
+    GettingStarted,
+    Components,
+    Elements,
+    Utilities,
+    Hooks,
+    Theming,
+    ...(
+      import.meta.env.DEV
+        ? [ DevTests ]
+        : [ ]
+    )
+  ]
+}
+
+export default sidebar

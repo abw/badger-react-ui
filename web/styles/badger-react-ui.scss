@@ -1,29 +1,28 @@
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap');
 
 $violet-hue: 259;
 $brand-hue: $violet-hue;
 $grey-hue: $brand-hue;
 $brand-color: 'violet';
 
+@import '@abw/badger-css/styles/badger.scss';
+@import '@abw/react-night-and-day/styles/night-and-day.css';
+@import '../../styles/badger-react-ui.scss';
+@import "@abw/badger-website/styles/badger-website-addon.scss";
+
 // Load the Badger CSS styles
 // See https://abw.github.io/badger-css/
-// @import '@abw/badger-css/styles/badger.scss';
 
 // Load the night-and-day switcher styles
 // See https://abw.github.io/react-night-and-day/
-@import '@abw/react-night-and-day/styles/night-and-day.css';
+// @import '@abw/react-night-and-day/styles/night-and-day.css';
 
 // Load the additional badger-react-ui styles
-@import '../../styles/badger-css-react-ui.scss';
 
 // Load the site-specific styles
-@import "config/all.scss";
+// @import "config/all.scss";
 @import "modules/all.scss";
-
-.mar-t-label {
-  // margin-top: $field-label-size * 1.5 + $field-label-margin;
-}
 
 .brui-logo {
   --badger: var(--brand-30);
@@ -38,15 +37,6 @@ $brand-color: 'violet';
 #{$dark-theme} .brui-logo {
   --badger: var(--brand-50);
   --react-ui: var(--brand-70);
-}
-
-
-// Tmp hack - upstream in badger-css
-[class*="cols-"] {
-  columns: var(--columns);
-  orphans: var(--column-orphans);
-  widows: var(--column-orphans);
-  column-gap: var(--column-gap);
 }
 
 .flow {
