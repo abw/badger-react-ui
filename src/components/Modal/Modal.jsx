@@ -12,6 +12,8 @@ const Modal = ({
   closeIcon='cross',
   Close=ModalClose,
   Content=ModalContent,
+  closeOnClick,
+  onClick=closeOnClick ? close : null,
   style={},
   maxWidth,
   maxHeight,
@@ -47,6 +49,7 @@ const Modal = ({
       ref={ref}
       className={className}
       style={styles}
+      onClick={onClick}
     >
       { Boolean(close) &&
         <Close
