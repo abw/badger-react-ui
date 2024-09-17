@@ -5,17 +5,16 @@ import Source     from './Component.jsx?raw'
 
 const Fixed = () =>
   <Example
-    code="fixed"
+    code="onClick"
     Component={Component}
     Source={Source}
     highlightLines="2"
     undent={8}
   >
     <p>
-      Add the <code>fixed</code> property to set the overlay position to fixed
-      so that it covers the entire viewport.  Note that if you&apos;re using
-      container queries then the <code>position: fixed</code> will attach it
-      to the container.
+      The <code>onClick</code> property can be used to add a handler which
+      is called when the user clicks on the overlay.  This can be used to
+      hide to overlay, for example.
     </p>
   </Example>
 
