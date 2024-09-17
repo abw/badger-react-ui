@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import ModalClose   from './Close.jsx'
 import ModalContent from './Content.jsx'
 import { Themed }   from '@/src/Theme.jsx'
+import { doNothing } from '@abw/badger-utils'
 
 const Modal = ({
   ref,
@@ -14,6 +15,7 @@ const Modal = ({
   Content=ModalContent,
   closeOnClick,
   onClick=closeOnClick ? close : null,
+  onCancel=close||doNothing,
   style={},
   maxWidth,
   maxHeight,
@@ -50,6 +52,7 @@ const Modal = ({
       className={className}
       style={styles}
       onClick={onClick}
+      onCancel={onCancel}
     >
       { Boolean(close) &&
         <Close
