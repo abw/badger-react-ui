@@ -28,6 +28,7 @@ import Style          from './_examples/style/index.jsx'
 import Debug          from './_examples/debug/index.jsx'
 import Options        from './_examples/options/index.jsx'
 import OnChange       from './_examples/onChange/index.jsx'
+import OnChangeValue  from './_examples/onChangeValue/index.jsx'
 import Children       from './_examples/children/index.jsx'
 import Context        from './_examples/Context.jsx'
 import Components     from './_examples/Components.jsx'
@@ -68,6 +69,7 @@ const RangeExamples = () =>
       <Options/>
       <Heading title="Event Handlers"/>
       <OnChange/>
+      <OnChangeValue/>
       <Heading title="Context"/>
       <Context/>
       <Children/>

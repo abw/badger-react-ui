@@ -10,8 +10,8 @@ const RangeExample = () => {
     max: maxValue
   })
   const [changes, setChanges] = React.useState(0)
-  const onChange = (min, max, state) => {
-    console.log(`onChange: `, state)
+  const onChangeValue = (min, max, state) => {
+    console.log(`onChangeValue: `, state)
     setValues({ min, max })
     setChanges( changes => changes + 1 )
   }
@@ -22,13 +22,13 @@ const RangeExample = () => {
         minValue={minValue}
         maxValue={maxValue}
         step={10}
-        onChange={onChange}
+        onChangeValue={onChangeValue}
       />
       <div className="text-center mar-t-4">
         From {values.min} to {values.max}
       </div>
       <div className="flex gap-2 middle">
-        <b className="larger">{changes}</b> <code>onChange</code> events fired
+        <b className="larger">{changes}</b> <code>onChangeValue</code> events fired
       </div>
     </div>
   )

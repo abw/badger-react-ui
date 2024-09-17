@@ -306,5 +306,10 @@ export const TestingMenu = {
       text: 'Range Events',
       tocName: 'range-events',
     },
+    {
+      to: '/testing/range-options',
+      text: 'Range Options',
+      tocName: 'range-options',
+    },
   ]
 }

@@ -15,6 +15,7 @@ class Context extends Base {
   static debugColor   = 'rebeccapurple'
   static defaultProps = {
     onChange: doNothing,
+    onChangeValue: doNothing,
     // displayValue: identity,
     normalClick: rangeNormalClick,
     prepareRenderProps: identity,
@@ -346,6 +347,12 @@ class Context extends Base {
   onChange() {
     const { minValue, maxValue } = this.state
     this.props.onChange(minValue, maxValue, this.state)
+    const [ lastChangeMin, lastChangeMax ] = (this.lastChange || [ ])
+    if (minValue !== lastChangeMin || maxValue !== lastChangeMax) {
+      this.debug(`min and/or max value have changed, firing onChangeValue`)
+      this.props.onChangeValue(minValue, maxValue, this.state)
+      this.lastChange = [ minValue, maxValue ]
+    }
   }
   getRenderProps() {
     const context = this.getContext()
