@@ -1,6 +1,7 @@
 import React        from 'react'
 import Overlay      from './_examples/Overlay/index.jsx'
 import Fixed        from './_examples/fixed/index.jsx'
+import OnClick      from './_examples/onClick/index.jsx'
 import Light        from './_examples/light/index.jsx'
 import Dark         from './_examples/dark/index.jsx'
 import Custom       from './_examples/custom/index.jsx'
@@ -17,6 +18,8 @@ const OverlayExamples = () =>
       <Fixed/>
       <Light/>
       <Dark/>
+      <Heading title="Event Handlers"/>
+      <OnClick/>
       <Heading title="Styling"/>
       <Custom/>
       <Heading title="Components"/>

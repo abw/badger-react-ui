@@ -15,7 +15,8 @@ const Close = () =>
     <p>
       The <code>close</code> property can be used to automatically add a close
       icon to the top right corner.  It should be a function which will close
-      the modal when the icon is clicked.
+      the modal when the icon is clicked.  It will also be called when the user
+      hits the Escape key.
     </p>
   </Example>
 

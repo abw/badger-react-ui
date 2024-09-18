@@ -15,6 +15,7 @@ class Context extends Base {
   static debugColor   = 'rebeccapurple'
   static defaultProps = {
     onChange: doNothing,
+    onChangeValue: doNothing,
     // displayValue: identity,
     normalClick: rangeNormalClick,
     prepareRenderProps: identity,
@@ -38,6 +39,7 @@ class Context extends Base {
     super(props)
     const state = this.initProps(props)
     this.normalClick = props.normalClick
+    this.windowEventListeners = { }
     this.state = {
       ...this.state,
       ...state,
@@ -60,6 +62,42 @@ class Context extends Base {
       )
     }
   }
+  componentWillUnmount() {
+    this.debug(`unmount`)
+    this.removeAllWindowEventListeners()
+  }
+  addWindowEventListener(event, listener) {
+    const eventListeners = this.windowEventListeners[event] ||= [ ]
+    window.addEventListener(event, listener)
+    eventListeners.push(listener)
+  }
+  removeWindowEventListener(event, listener) {
+    const eventListeners = this.windowEventListeners[event] ||= [ ]
+    window.removeEventListener(event, listener)
+    const index = eventListeners.indexOf(listener)
+    if (index >= 0) {
+      this.debug(`removing existing ${event} window listener`)
+      this.debug(`had ${eventListeners.length} listeners`)
+      eventListeners.splice(index, 1)
+      this.debug(`now got ${eventListeners.length} listeners`)
+    }
+    else {
+      this.debug(`could not find cached ${event} listener to remove`)
+    }
+  }
+  removeAllWindowEventListeners() {
+    this.debug(`Removing all window event listeners`)
+    Object.entries(this.windowEventListeners).forEach(
+      ([event, listeners]) => {
+        this.debug(`Removing ${listeners.length} ${event} listeners`)
+        listeners.forEach(
+          listener => window.removeEventListener(event, listener)
+        )
+      }
+    )
+    this.windowEventListeners = { }
+  }
+
   minValueLimits() {
     const { maxValue, min, max, minRange, maxRange } = this.state
     return [
@@ -244,22 +282,30 @@ class Context extends Base {
         divide(newX, dragging.thumbsWidth)
       )
     }
-    window.addEventListener(
+    const removePointerUp = e => {
+      e.preventDefault()
+      e.stopPropagation()
+      this.debug(`drag end`)
+      this.removeWindowEventListener('pointermove', mouseMove)
+      this.removeWindowEventListener('pointerup', removePointerUp)
+      sleep(this.props.dragTimeout).then(
+        () => this.setState({ dragging: null })
+      )
+    }
+    this.addWindowEventListener(
       'pointermove',
       mouseMove
     )
-    window.addEventListener(
+    this.addWindowEventListener(
       'pointerup',
-      e => {
-        e.preventDefault()
-        e.stopPropagation()
-        this.debug(`drag end`)
-        window.removeEventListener('pointermove', mouseMove)
-        sleep(this.props.dragTimeout).then(
-          () => this.setState({ dragging: null })
-        )
-      }
+      removePointerUp
     )
+    /*
+    this.addWindowEventListener(
+      'pointercancel',
+      removePointerUp
+    )
+    */
   }
   onDragMin(e) {
     this.onDrag(
@@ -301,6 +347,12 @@ class Context extends Base {
   onChange() {
     const { minValue, maxValue } = this.state
     this.props.onChange(minValue, maxValue, this.state)
+    const [ lastChangeMin, lastChangeMax ] = (this.lastChange || [ ])
+    if (minValue !== lastChangeMin || maxValue !== lastChangeMax) {
+      this.debug(`min and/or max value have changed, firing onChangeValue`)
+      this.props.onChangeValue(minValue, maxValue, this.state)
+      this.lastChange = [ minValue, maxValue ]
+    }
   }
   getRenderProps() {
     const context = this.getContext()

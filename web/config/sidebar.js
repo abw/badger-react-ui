@@ -256,6 +256,16 @@ const DevTests = {
       to: '/testing/range',
       text: 'Range',
     },
+    {
+      to: '/testing/range-events',
+      text: 'Range Events',
+      tocName: 'range-events',
+    },
+    {
+      to: '/testing/range-options',
+      text: 'Range Options',
+      tocName: 'range-options',
+    },
   ]
 }
 

@@ -1,7 +1,8 @@
 import React       from 'react'
-import { Themed }  from '@/src/Theme.jsx'
 import ModalHeader from './Header.jsx'
 import ModalFooter from './Footer.jsx'
+import { Themed }  from '@/src/Theme.jsx'
+import { stopPropagation } from '@/src/utils/events.js'
 
 const ModalContent = ({
   text,
@@ -10,7 +11,7 @@ const ModalContent = ({
   Footer=ModalFooter,
   ...props
 }) =>
-  <article>
+  <article onClick={stopPropagation}>
     <Header {...props}/>
     {text || children}
     <Footer {...props}/>

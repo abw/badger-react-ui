@@ -3,6 +3,7 @@ import Modal        from './_examples/Modal/index.jsx'
 import ClassName    from './_examples/className/index.jsx'
 import Close        from './_examples/close/index.jsx'
 import CloseIcon    from './_examples/closeIcon/index.jsx'
+import CloseOnClick from './_examples/closeOnClick/index.jsx'
 import Text         from './_examples/text/index.jsx'
 import Title        from './_examples/title/index.jsx'
 import Header       from './_examples/header/index.jsx'
@@ -11,7 +12,7 @@ import MaxWidth     from './_examples/maxWidth/index.jsx'
 import MaxHeight    from './_examples/maxHeight/index.jsx'
 import ModalState   from './_examples/ModalState/index.jsx'
 import Sections     from '@/web/page/Sections.jsx'
-import Heading from '@/web/page/Heading.jsx'
+import Heading      from '@/web/page/Heading.jsx'
 
 const ModalExamples = () =>
   <div className="flow">
@@ -22,6 +23,7 @@ const ModalExamples = () =>
       <ClassName/>
       <Close/>
       <CloseIcon/>
+      <CloseOnClick/>
       <Text/>
       <Title/>
       <Header/>
