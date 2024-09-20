@@ -1,0 +1,19 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="ToggleState"
+  Component={Component}
+  Source={Source}
+  expand
+>
+  The `ToggleState` component is a wrapper around the `Toggle` component
+  which maintains the state of the selected option internally.  Use the
+  `onSelect` handler to get notification when a new option is selected.
+
+  You can also define a `storageKey` to store the selected option in local
+  storage.  Try selecting an option below and then reload the page.  You
+  should see the option selection restored.
+</Example>
