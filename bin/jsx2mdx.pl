@@ -1,0 +1,10 @@
+s/const \w+ = \(\) =>\n//;
+s/export default \w+//;
+s/<\/?code>/`/g;
+s/\{' '\}//;
+s/^  >/>/;
+s/^  </</;
+s/^    /  /;
+s/&apos;/'/g;
+s/&quot;/"/g;
+s/<\/?p>//;

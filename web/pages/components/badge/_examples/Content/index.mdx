@@ -1,0 +1,23 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { WithIconsLink } from '@/site/Links.jsx'
+
+<Example
+  code="Content"
+  Component={Component}
+  Source={Source}
+  highlightLines="3-8"
+  undent={2}
+  expand
+>
+  The `Content` property (note the capital C) can be used to provide an
+  alternate component to render the badge content. By default it uses
+  <WithIconsLink/> to render the badge text with optional icons.
+
+  If you want to change the way that badge content is generated on a global
+  level then you can use the theming engine to define a different `Content`
+  component for all badges.
+</Example>
+

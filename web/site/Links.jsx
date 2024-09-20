@@ -43,6 +43,7 @@ export const MultiSelectLink = MakeCodeLink('/components/multiselect', 'MultiSel
 export const SpinnerLink     = MakeCodeLink('/components/spinner', 'Spinner')
 export const DivLink         = MakeCodeLink('/elements/div', 'Div')
 export const FlexLink        = MakeCodeLink('/elements/flex', 'Flex')
+export const WithIconsLink   = MakeCodeLink('/utilities/within-icon', 'WithIcons')
 
 export const BadgerCSSLink     = ExtLinker('https://badgerpower.com/badger-css/',       'Badger CSS')
 export const BadgerFormLink    = ExtLinker('https://badgerpower.com/badger-form/',      'Badger Form')
