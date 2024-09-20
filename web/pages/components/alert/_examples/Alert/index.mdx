@@ -1,0 +1,22 @@
+import React      from 'react'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import Demo       from './Demo.jsx'
+import Example    from '@/site/Example.jsx'
+import { Heading } from '@abw/badger-website'
+
+<div className="large">
+  Use the `Alert` component to render an alert.
+  Any child elements will be rendered inside the alert body.
+</div>
+
+<Example
+  Component={Component}
+  code={Source}
+  expand
+/>
+
+<Heading title="Demo"/>
+
+<Demo/>
+

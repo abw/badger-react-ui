@@ -57,7 +57,7 @@
   },
   "devDependencies": {
     "@abw/badger-timestamp": "^1.1.0",
-    "@abw/badger-website": "^0.1.12",
+    "@abw/badger-website": "^0.1.13",
     "@abw/react-night-and-day": "^0.0.6",
     "@mdx-js/react": "^3.0.1",
     "@mdx-js/rollup": "^3.0.1",
