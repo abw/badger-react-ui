@@ -1,0 +1,18 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="onChangeValue"
+  Component={Component}
+  Source={Source}
+  highlightLines="9-12,21"
+  expand
+>
+  The `onChangeValue` property can be set as an alternative to the `onChange`
+  handler function.  It is particularly useful when using stepped values or
+  options.  It will only fire when the minimum or maximum value has change
+  sufficiently to set a new stepped value.  This can greatly reduce the
+  number of events fired compared to the `onChange` handler.
+</Example>

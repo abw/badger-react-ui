@@ -1,0 +1,25 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { CodeHashLink } from '@/web/site/Links.jsx'
+
+<Example
+  code="minValue"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  highlightLines="2"
+  expand
+>
+  The `minValue` property can be used to set the initial minimum value.
+
+  The default value is the <CodeHashLink id="min"/> value of the range, i.e.
+  0%. This can be changed by setting the `minNormal` property. This is a
+  normalised (0-1) value, defaulting to `0`, indicating the proportion of the
+  range that the `minValue` should default to.
+
+  If a specified `minValue` is outside of the range then it will be clamped
+  to the nearest value.  If a <CodeHashLink id="step"/> is defined then the
+  value will be quantised to the closest step value.
+</Example>

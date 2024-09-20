@@ -1,0 +1,16 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="step"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  highlightLines="2"
+  expand
+>
+  The `step` property can be used to set a step for the values. The default
+  value is `1`.  You can set this to `any` to allow any value to be entered.
+</Example>

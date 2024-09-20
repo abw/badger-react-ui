@@ -1,0 +1,25 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { CodeHashLink } from '@/web/site/Links.jsx'
+
+<Example
+  code="maxValue"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  highlightLines="2"
+  expand
+>
+  The `maxValue` property can be used to set the initial maximum value.
+
+  The default value is the <CodeHashLink id="max"/> value of the range, i.e.
+  100%. This can be changed by setting the `maxNormal` property. This is a
+  normalised (0-1) value, defaulting to `1`, indicating the proportion of the
+  range that the `maxValue` should default to.
+
+  If a specified `maxValue` is outside of the range then it will be clamped
+  to the nearest value.  If a <CodeHashLink id="step"/> is defined then the
+  value will be quantised to the closest step value.
+</Example>

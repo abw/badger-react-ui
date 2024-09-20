@@ -1,0 +1,73 @@
+import React      from 'react'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import Display    from './DisplayValue.jsx'
+import DisplaySrc from './DisplayValue.jsx?raw'
+import Inputs     from './ShowInputs.jsx'
+import InputsSrc  from './ShowInputs.jsx?raw'
+import { Example, Section } from '@abw/badger-website'
+
+<Section code="options">
+  The `options` property can be used to define an array of
+  discrete values for the range.  The minimum and maximum values will
+  be defined in terms of an index into the `options` array.
+  The default value for `minValue` will be 0 and the default
+  for `maxValue` will be one less than the length of the
+  `options` array.
+
+  <Example
+    Component={Component}
+    code={Source}
+    caption="options"
+    undent={2}
+    highlightLines="2-7"
+    expand
+  />
+
+  When `options` are defined, a default `displayValue`
+  function will be provided which outputs the corresponding element from
+  the `options` array.  This is apparent in the example above.
+  Instead of outputting the values `0` and `25` for
+  the minimum and maximum ends of the range, it outputs `A` and
+  `Z`, which are the elements in the `options` array
+  at position 0 and 25 respectively.
+  You can define your own `displayValue` function.  It will be
+  passed the `value` (the index into the`options`
+  array) and the `options` array as arguments.
+
+  <Example
+    Component={Display}
+    code={DisplaySrc}
+    caption="displayValue"
+    undent={2}
+    highlightLines="5-7"
+    expand
+  />
+    When `showInputs` is set, the inputs will be displayed as
+    pull-down select components.  The `selectOptions` property
+    can be used to pass additional properties to them. You can always define
+    your own `Input` component if you want to implement something
+    different.
+  <Example
+    Component={Inputs}
+    code={InputsSrc}
+    caption="showInputs"
+    undent={2}
+    highlightLines="9-12"
+    expand
+  />
+  {/*
+    // Ah... this is a bit more complicated.  We can't just pass the
+    // values elements back to the onChange handler because that may be
+    // setting the minValue and maxValue, which must remain as indices.
+    The `onChange` function will be passed...
+  <Example
+    Component={Change}
+    code={ChangeSrc}
+    caption="onChange"
+    // undent={2}
+    highlightLines="9-11"
+    expand
+  />
+  */}
+</Section>
