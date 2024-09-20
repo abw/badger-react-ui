@@ -1,0 +1,25 @@
+import React        from 'react'
+import Example      from '@/site/Example.jsx'
+import Component    from './_examples/useContainer.jsx'
+import Source       from './_examples/useContainer.jsx?raw'
+
+# useContainer
+
+<div className="large">
+  The hook can be used to monitor the width and height of the content area
+  of an element.
+</div>
+
+It returns a `ref` which should be attached to the element you want to
+monitor.  It also returns the element `width` and `height` in pixels (rounded
+to the nearest integer) and the `breakpoint` name corresponding to the width.
+
+The `width` and `height` refer to the size of the element's content area.
+That is the internal size inside any borders or padding. The `boxWidth` and
+`boxHeight` are also provided if you want the external size.
+
+<Example
+  Component={Component}
+  code={Source}
+  expand
+/>

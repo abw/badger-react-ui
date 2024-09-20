@@ -1,0 +1,29 @@
+import React        from 'react'
+import Component    from './_examples/useFloating.jsx'
+import Source       from './_examples/useFloating.jsx?raw'
+import { Example }  from '@abw/badger-website'
+import { FloatingUILink } from '@/site/Links.jsx'
+
+# useFloating
+
+<div className="large">
+  This hook is a wrapper around the <FloatingUILink/> library for creating
+  floating elements.  It is used to position the dropdown and dropdown menu
+  elements, for example.
+</div>
+
+The `placement` option specifies the position of the floating element
+relative to the parent.  The default value is `bottom-start`, or the `right`
+option can be specified as a shortcut to set it to `bottom-end`.
+See the <FloatingUILink path="docs/useFloating#placement"
+text="Floating UI documentation"/> for details of the available options.
+
+The `offset` can be provided as an offset distance in pixels.  The
+`matchWidth` and `matchHeight` options will make the floating element match the
+parent's width and height respectively.
+
+<Example
+  Component={Component}
+  code={Source}
+  expand
+/>
