@@ -54,3 +54,4 @@ export const BadgerUtilsLink   = ExtLinker('https://badgerpower.com/badger-utils
 export const BadgerUILink      = ExtLinker('https://github.com/abw/badger-ui',      'Badger UI')
 
 export const FloatingUILink    = ExtLinker('https://floating-ui.com/', 'Floating UI')
+export const DNDKitLink        = ExtLinker('https://dndkit.com/', 'dnd kit')
