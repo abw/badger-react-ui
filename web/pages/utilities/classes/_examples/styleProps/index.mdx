@@ -1,0 +1,17 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="styleProps"
+  Component={Component}
+  Source={Source}
+>
+  The `styleProps` utility function can be used to extract any of the above
+  style properties and generate the corresponding CSS class as the `className`
+  property.  Any other properties will be passed through.
+
+  The `padding` and `margin` properties may be abbreviated to `pad` and `mar`
+  respectively.
+</Example>

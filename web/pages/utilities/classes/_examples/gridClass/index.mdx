@@ -1,0 +1,17 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="gridClass"
+  Component={Component}
+  Source={Source}
+  highlightLines="12"
+>
+  The `gridClass` utility function can be used to construct a CSS class for a
+  grid layout.  When used as a boolean flag it sets the CSS class to `grid-1`
+  (useful for a single column layout where you want vertical gaps between
+  each element).  Or it can be a number to set the number of columns, or
+  `fit` or `fill` to add the `grid-fit` and `grid-fill` classes respectively.
+</Example>
