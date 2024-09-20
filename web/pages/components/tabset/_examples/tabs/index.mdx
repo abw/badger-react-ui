@@ -1,0 +1,22 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="tabs"
+  Component={Component}
+  Source={Source}
+  highlightLines="11-31,36"
+  expand
+>
+  The `tabs` property should be used to define an array of objects containing
+  properties for each tab.  This can include `text` for the tab text, `icon`
+  for a tab icon, `iconLeft` and `iconRight` for icons to appear either side
+  of the text, and `disabled` to disable the tab
+
+  A `content` property can be defined containing the content that should be
+  rendered when the tab is select. Alternately you can provide a `Component`
+  which should be a React component. This will be passed the active `tab` as
+  a property.
+</Example>
