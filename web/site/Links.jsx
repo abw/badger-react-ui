@@ -52,3 +52,5 @@ export const BadgerIconLink    = ExtLinker('https://badgerpower.com/badger-icon/
 export const BadgerColorLink   = ExtLinker('https://badgerpower.com/badger-color/', 'Badger Color')
 export const BadgerUtilsLink   = ExtLinker('https://badgerpower.com/badger-utils/', 'Badger Utils')
 export const BadgerUILink      = ExtLinker('https://github.com/abw/badger-ui',      'Badger UI')
+
+export const FloatingUILink    = ExtLinker('https://floating-ui.com/', 'Floating UI')

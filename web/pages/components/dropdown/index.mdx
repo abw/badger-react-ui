@@ -1,0 +1,82 @@
+import React            from 'react'
+import Dropdown         from './_examples/Dropdown/index.mdx'
+import Text             from './_examples/text/index.mdx'
+import Content          from './_examples/content/index.mdx'
+import OnHover          from './_examples/openOnHover/index.mdx'
+import Right            from './_examples/right/index.mdx'
+import Button           from './_examples/button/index.mdx'
+import Wide             from './_examples/wide/index.mdx'
+import Placement        from './_examples/placement/index.mdx'
+import Offset           from './_examples/offset/index.mdx'
+import Icon             from './_examples/icon/index.mdx'
+import IconRotate       from './_examples/iconRotate/index.mdx'
+import IconLeft         from './_examples/iconLeft/index.mdx'
+import IconLeftRotate   from './_examples/iconLeftRotate/index.mdx'
+import IconRight        from './_examples/iconRight/index.mdx'
+import IconRightRotate  from './_examples/iconRightRotate/index.mdx'
+import { Heading, Section, Split } from '@abw/badger-website'
+
+# Dropdown
+
+<Dropdown/>
+
+<Heading title="Properties"/>
+<Text/>
+<Content/>
+<OnHover/>
+<Right/>
+<Wide/>
+<Placement/>
+<Offset/>
+<Icon/>
+<IconRotate/>
+<IconLeft/>
+<IconLeftRotate/>
+<IconRight/>
+<IconRightRotate/>
+<Button/>
+
+<Heading title="CSS Classes"/>
+<Section code="className">
+  Used to set the CSS class for the dropdown container.  The default
+  value is `dropdown`.
+</Section>
+<Section code="openClass">
+  Used to set the CSS class added to the dropdown container when
+  the menu is open.  The default value is `open`.
+</Section>
+<Section code="closedClass">
+  Used to set the CSS class added to the dropdown container when
+  the menu is closed.  The default value is `closed`.
+</Section>
+<Section code="size">
+  Used to add a size to the CSS class added to the dropdown container.
+</Section>
+<Section code="triggerClass">
+  Used to set the CSS class added to the dropdown trigger.
+  The default value is `trigger`.
+</Section>
+<Section code="triggerColor">
+  Used to add a color to the CSS class for the dropdown trigger.
+</Section>
+<Section code="triggerSize">
+  Used to add a size to the CSS class for the dropdown trigger.
+</Section>
+<Section code="menuClass">
+  <b>TODO: update this!</b>
+  Used to set the CSS class added to the dropdown menu container.
+  The default value is `menu border bdr-1`.  The
+  `border` utility class adds a border and
+  `bdr-1` sets the border radius to 1 unit (0.25rem or
+  4px).
+</Section>
+
+<Heading title="Components"/>
+<Section code="Trigger" id="Trigger-component">
+  Renders the dropdown menu trigger.  Defaults
+  to `DropdownTrigger`.
+</Section>
+<Section code="Body" id="Body-component">
+  Renders the dropdown body.  Defaults
+  to `DropdownBody`.
+</Section>
