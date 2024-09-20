@@ -1,0 +1,21 @@
+import React      from 'react'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import Demo       from './Demo.jsx'
+import { BadgerIconLink } from '@/site/Links.jsx'
+import { Example, Heading } from '@abw/badger-website'
+
+<div className="large">
+  The `Icon` component can be used to render SVG icons. The functionality is
+  imported from <BadgerIconLink/> with some extra bells and whistles.
+</div>
+
+<Example
+  Component={Component}
+  code={Source}
+  expand
+/>
+
+<Heading title="Demo"/>
+
+<Demo/>

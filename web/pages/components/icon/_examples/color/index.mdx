@@ -1,0 +1,20 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="color"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  expand
+>
+  The `color` property is a short-cut to set the color.  This adds the color
+  to the CSS class. The `color` can be be comprised of up to 5 elements
+  separated by hyphens.  The first is the color range, e.g. `red`, `green`,
+  `blue`, etc.  The second is the stop number for the foreground.  This is an
+  integer from 0 (darkest) to 100 (lightest) in steps of 5.  The third is the
+  stop number for the background.  The remaining two numbers are stops for the
+  foreground and background colors in dark mode.
+</Example>
