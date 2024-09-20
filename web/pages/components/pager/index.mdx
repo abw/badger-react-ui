@@ -1,0 +1,103 @@
+import React      from 'react'
+import Pager      from './_examples/Pager/index.mdx'
+import Context    from './_examples/Context/index.mdx'
+import ClassName  from './_examples/className/index.mdx'
+import Color      from './_examples/color/index.mdx'
+import Size       from './_examples/size/index.mdx'
+import PrevIcon   from './_examples/prevIcon/index.mdx'
+import NextIcon   from './_examples/nextIcon/index.mdx'
+import FirstLast  from './_examples/showFirstLast/index.mdx'
+import { Heading, Section } from '@abw/badger-website'
+
+# Pager
+
+<Pager/>
+<Context/>
+
+<Heading title="Properties"/>
+<ClassName/>
+<Color/>
+<Size/>
+<PrevIcon/>
+<NextIcon/>
+<FirstLast/>
+
+<Heading title="CSS Classes"/>
+<Section code="className">
+  Used to set the CSS class for the pager container.  The default value is
+  `pager`.
+</Section>
+<Section code="buttonClass">
+  Used to set a default CSS class for all buttons.  The default value is
+  `outline`.
+</Section>
+<Section code="prevClass">
+  Used to set the CSS class for the previous page button.  It defaults
+  to the value for `buttonClass`.
+</Section>
+<Section code="nextClass">
+  Used to set the CSS class for the next page button.  It defaults to
+  the value for `buttonClass`.
+</Section>
+<Section code="pagesClass">
+  Used to set the CSS class for the numbered page buttons container.
+  The default value is `pages`.
+</Section>
+<Section code="pageClass">
+  Used to set the CSS class for individual numbered page buttons.  It
+  defaults to the value for `buttonClass`.
+</Section>
+<Section code="currentPageClass">
+  Used to set the CSS class for the currently selected numbered page
+  button. The default value is `solid`.
+</Section>
+
+<Heading title="Aria Labels"/>
+<Section code="label" id="label">
+  Property to set the `aria-label` for the Pager component.
+  Defaults to `Pagination navigation`
+</Section>
+<Section code="prevLabel" id="prevLabel">
+  Property to define a function for setting the `aria-label`
+  for the previous page button.  It will be passed the (1-based) previous
+  page number (`prevPageNo`) and should return the appropriate
+  label.  It defaults to the `pagerPreviousPageLabel` function
+  which returns a label of the form `Previous page, page ${n}`
+  or `No previous page` if the previous page is 0 or otherwise
+  falsy.
+</Section>
+
+<Section code="nextLabel" id="nextLabel">
+  Property to define a function for setting the `aria-label`
+  for the next page button.  It will be passed the (1-based) next
+  page number (`nextPageNo`) and should return the appropriate
+  label.  It defaults to the `pagerNextPageLabel` function
+  which returns a label of the form `Next page, page ${n}`
+  or `No next page` if the previous page is falsy.
+</Section>
+
+<Section code="pageLabel" id="pageLabel">
+  Property to define a function for setting the `aria-label`
+  for the page buttons.  It will be passed the (1-based) page number
+  and should return the appropriate label.  It defaults to the
+  `pagerPageLabel` function which returns a label of the
+  form `Go to page ${n}`.
+</Section>
+
+<Heading title="Components"/>
+<Section code="Previous" id="Previous-component">
+  Renders the previous page button.  Defaults to `PagerPrevious`.
+</Section>
+<Section code="Next" id="Next-component">
+  Renders the next page button.  Defaults to `PagerNext`.
+</Section>
+<Section code="Pages" id="Pages-component">
+  Renders the collection of numbered page buttons.  Defaults to `PagerPages`.
+</Section>
+<Section code="Page" id="Page-component">
+  Renders an individual page button.  Defaults to `PagerPage`.
+</Section>
+<Section code="Separator" id="Separator-component">
+  Renders the separator between the first and/or last pages and the rest of
+  the numbered page buttons. Defaults to `PagerSeparator`.
+</Section>

@@ -1,0 +1,54 @@
+import React      from 'react'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import DescTable from '@/web/site/DescTable.jsx'
+import { Example, Heading, Section } from '@abw/badger-website'
+
+<Heading title="Context"/>
+
+A react context is created which provides the items listed below.
+Any other properties passed in to the component will also be
+accessible to child components.
+
+Values are provided for the 0-based indexes of the first, last,
+previous, next and current pages. For example, the lowest value for `page`
+is `0` and the highest value is `pages - 1`.  Their counterparts are also
+provided in "human readable" 1-based form with a `No` suffix.  For example,
+the values for `pageNo` range from `1` to `pages`, and will always be one
+more than `page`.
+
+<DescTable
+  items={[
+    ['pages',   'The total number of pages, as passed into the component as a property.'],
+    ['page',    'The index (0 based) of the current page, as passed into the component as a property.'],
+    ['setPage', 'The function for setting a page index, as passed into the component as a property.'],
+    ['pageNo',  'The current page number (1 based), effectively one louder than `page`.  e.g. if `page` is ten then this goes up to eleven.' ],
+    ['firstPage',  'The index (0 based) of the first page.  This is always 0 but is included for completeness.'],
+    ['firstPageNo',  'The number (1 based) of the first page.  This is always 1 but is included for completeness.'],
+    ['lastPage',     'The index (0 based) of the last page.'],
+    ['lastPageNo',   'The number (1 based) of the first page.'],
+    ['prevPage',     'The index (0 based) of the previous page.'],
+    ['prevPageNo',   'The number (1 based) of the previous page.'],
+    ['nextPage',     'The index (0 based) of the next page.'],
+    ['nextPageNo',   'The number (1 based) of the next page.'],
+  ]}
+/>
+
+<Section title="Custom Components">
+  You can provide your own components to render certain elements
+  of the pager widget. These will be passed relevant parameters as
+  properties and can use the `usePager()` hook
+  to access the full pager context, including any additional properties
+  that you pass to the `Pager` component.
+
+  In this example we define a custom `MyPageButton` component
+  to replace the `Page` component that renders the numbered
+  page buttons.  Instead of displaying page numbers it shows alphabetical
+  ranges for each button, defined in a custom `pageRanges`
+  property.
+  <Example
+    Component={Component}
+    code={Source}
+    highlightLines="4-18,34"
+  />
+</Section>
