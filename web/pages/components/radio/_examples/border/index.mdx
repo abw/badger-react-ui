@@ -1,0 +1,17 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="border"
+  Component={Component}
+  Source={Source}
+  highlightLines="2,13-14"
+  undent={4}
+  expand
+>
+  The `border` property can be set to add a border to each item. You may need
+  to add margins to either the bottom or right side of each label using the
+  `labelClass` property.
+</Example>
