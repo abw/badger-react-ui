@@ -1,0 +1,16 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="fixed"
+  Component={Component}
+  Source={Source}
+  highlightLines="2"
+  undent={8}
+>
+  Add the `fixed` property to set the overlay position to fixed so that it
+  covers the entire viewport.  Note that if you're using container queries
+  then the `position: fixed` will attach it to the container.
+</Example>
