@@ -1,0 +1,33 @@
+import React      from 'react'
+import Search     from './Search.jsx'
+import SearchSrc  from './Search.jsx?raw'
+import Select     from './SelectValue.jsx'
+import SelectSrc  from './SelectValue.jsx?raw'
+import { SearchLink } from '@/web/site/Links.jsx'
+import { Example, Section } from '@abw/badger-website'
+
+<Section code="search">
+  The field `type` property can be set to `search` to use the <SearchLink/>
+  component. You can define additional properties in the field that will be
+  forwarded to the select component.  For example, see the `onSearch` handler
+  defined below.
+
+  <Example
+    Component={Search}
+    code={SearchSrc}
+    highlightLines="34-35"
+  />
+
+  When an option is selected the default behaviour is to return the complete
+  option, as shown in the first field in the example below. You can use the
+  `selectValue` property to define a function which will accept the option
+  and return the relevant value from inside it.  This is shown in the second
+  field in the example below which returns the `value` property from the
+  option instead of the selected option object.
+
+  <Example
+    Component={Select}
+    code={SelectSrc}
+    highlightLines="46"
+  />
+</Section>

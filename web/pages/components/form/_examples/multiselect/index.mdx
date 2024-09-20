@@ -1,0 +1,46 @@
+import React      from 'react'
+import Simple     from './Simple.jsx'
+import SimpleSrc  from './Simple.jsx?raw'
+import Search     from './Search.jsx'
+import SearchSrc  from './Search.jsx?raw'
+import Select     from './SelectValue.jsx'
+import SelectSrc  from './SelectValue.jsx?raw'
+import Section    from '@/page/Section.jsx'
+import { Example } from '@abw/badger-website'
+import { MultiSelectLink } from '@/web/site/Links.jsx'
+
+<Section code="multiselect">
+  The field `type` property can be set to `multiselect`
+  to use the <MultiSelectLink/> component.
+
+  <Example
+    Component={Simple}
+    code={SimpleSrc}
+    highlightLines="5"
+  />
+
+  You can define additional properties in the field that will be forwarded
+  to the select component.  For example, the `search` property
+  is set here to enable searching.
+
+  <Example
+    Component={Search}
+    code={SearchSrc}
+    highlightLines="6"
+  />
+
+  When an option is selected the default behaviour is to add the
+  complete option to the selected value array.  This can be seen in the
+  debugging panel in the previous example.
+  You can use the `selectValue` property to
+  define a function which will accept the option and return the relevant
+  value from inside it.  This is shown in the next example which
+  returns the `value` property from the option instead of the
+  selected option object.
+
+  <Example
+    Component={Select}
+    code={SelectSrc}
+    highlightLines="7"
+  />
+</Section>
