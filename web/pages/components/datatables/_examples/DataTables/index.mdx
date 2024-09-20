@@ -1,0 +1,17 @@
+import React      from 'react'
+import Example    from '@/site/Example.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { DataTableLink } from '@/web/site/Links.jsx'
+
+<div className="large">
+  The `DataTables` (note the extra "s" on the end) component is a wrapper
+  around the <DataTableLink/> component. Instead of showing each page of data
+  in a single table it shows each row in a separate table.
+</div>
+
+<Example
+  Component={Component}
+  code={Source}
+  expand
+/>

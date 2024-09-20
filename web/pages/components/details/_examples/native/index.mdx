@@ -1,0 +1,23 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="native"
+  Component={Component}
+  Source={Source}
+  highlightLines="4,12"
+  undent={4}
+  expand
+>
+  Earlier versions (before 1.0.11) used the native `details` and `summary`
+  HTML elements.  However there appear to be some problems with content inside
+  the body overflowing when the `width` is set to `100%`, as shown in the
+  second example below.  So more recent versions use `div.details` and
+  `div.summary` as the elements.  These are styled the same but avoid the
+  content width problems.
+
+  You can set the `native` property if you want to use the
+  native `details` and `summary` HTML elements.
+</Example>
