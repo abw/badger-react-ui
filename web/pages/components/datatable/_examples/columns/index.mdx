@@ -1,0 +1,98 @@
+import React          from 'react'
+import String         from './String.jsx'
+import StringSrc      from './String.jsx?raw'
+import Array          from './Array.jsx'
+import ArraySrc       from './Array.jsx?raw'
+import ArrayField     from './ArrayField.jsx'
+import ArrayFieldSrc  from './ArrayField.jsx?raw'
+import ArrayObj       from './ArrayObj.jsx'
+import ArrayObjSrc    from './ArrayObj.jsx?raw'
+import Object         from './Object.jsx'
+import ObjectSrc      from './Object.jsx?raw'
+import { Section, Example } from '@abw/badger-website'
+
+<Section code="columns">
+  The `columns` property is used to define which properties in the `rows`
+  you want to display. For simple cases this can be a string containing a
+  whitespace delimited list of properties.
+
+  <Example
+    Component={String}
+    code={StringSrc}
+    caption="columns"
+    highlightLines="3"
+    expand={false}
+    undent={2}
+  />
+
+  The string format is short-hand for specifying an array of strings.
+
+  <Example
+    Component={Array}
+    code={ArraySrc}
+    caption="columns"
+    highlightLines="3-8"
+    expand={false}
+    undent={2}
+  />
+
+  When a column is defined as a string it is "upgraded" to
+  an object in which the string is the `field` property.
+  This should (usually) correspond to a property in each row that
+  you want to display in the column.
+
+  <Example
+    Component={ArrayField}
+    code={ArrayFieldSrc}
+    caption="columns"
+    highlightLines="3-8"
+    expand={false}
+    undent={2}
+  />
+
+  The column object will be augmented with some additional properties:
+  `id` (the same value as the field, for sorting purposes),
+  `heading` (or `label`) used as the column heading
+  and defaulting to a capitalised version of the `field`,
+  and `type` defaulting to `text`.
+  You can define different values for `heading` and
+  `type` (along with other properties
+  <a href="#column-properties">detailed below</a>).
+  In this example we set the `type` of the
+  first column to be `number`.  If you click on the
+  `Id` column heading in one of the previous example, you
+  can see that it's sorting the rows alphabetically, e.g.
+  10, 101, 102, 103, 11, 12, etc.  Setting the column type to
+  `number`, as shown in the next example, fixes this problem
+  and the rows will be sorted numerically, e.g. 10, 11, 12, 13, 14, 20,
+  etc.
+
+  <Example
+    Component={ArrayObj}
+    code={ArrayObjSrc}
+    caption="columns"
+    highlightLines="3-8"
+    expand={false}
+    undent={2}
+  />
+
+  The final option is to define the columns as an object in which the
+  keys are the field names and the values contain additional configuration
+  options for the column.  These can be defined as empty objects or a
+  true value if you're happy with the default values for
+  `heading` and `type`.  You can also explicitly set
+  a column to `false` if you don't want it displayed.
+
+  <Example
+    Component={Object}
+    code={ObjectSrc}
+    caption="columns"
+    highlightLines="3-8"
+    expand={false}
+    undent={2}
+  />
+
+  See the <a href="#column-properties">Column Properties</a> section
+  below for further information about the properties that can be added
+  to the `columns`.
+</Section>

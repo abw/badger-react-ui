@@ -1,0 +1,18 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="id"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  highlightLines="8"
+  expand
+>
+  The `type` can be set to `id` for numerical identifiers that should be
+  sorted numerically but displayed as text strings, i.e. without commas
+  separating thousands (or whatever your locale-specific convention is for
+  formatting numbers).
+</Example>

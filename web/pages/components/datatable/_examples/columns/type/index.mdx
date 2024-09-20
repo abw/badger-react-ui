@@ -1,0 +1,21 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="type"
+  Component={Component}
+  Source={Source}
+  highlightLines="8-11"
+  undent={2}
+  expand
+>
+  The `type` property can be used to specify what kind of data type is used
+  in the corresponding field in each row. The default value is `text` which
+  will display (and sort) values as text.  You can also set it to `number`,
+  `currency` or `boolean`.
+
+  See the <a href="#column-types">Column Types</a> section below for further
+  information.
+</Example>

@@ -21,7 +21,8 @@ const ExtLinker = (href, text=href) => (props={}) =>
   <Link
     {...props}
     href={`${href}${props.path||''}`}
-    text={props.text||text}
+    code={props.code}
+    text={props.code||props.text||text}
     targetBlank
   />
 
@@ -45,8 +46,9 @@ export const DivLink         = MakeCodeLink('/elements/div', 'Div')
 export const FlexLink        = MakeCodeLink('/elements/flex', 'Flex')
 export const WithIconsLink   = MakeCodeLink('/utilities/within-icon', 'WithIcons')
 
-export const BadgerCSSLink     = ExtLinker('https://badgerpower.com/badger-css/',       'Badger CSS')
-export const BadgerFormLink    = ExtLinker('https://badgerpower.com/badger-form/',      'Badger Form')
-export const BadgerIconLink    = ExtLinker('https://badgerpower.com/badger-icon/',      'Badger Icon')
-export const BadgerColorLink   = ExtLinker('https://badgerpower.com/badger-color/',     'Badger Color')
-export const BadgerUILink      = ExtLinker('https://github.com/abw/badger-ui',          'Badger UI')
+export const BadgerCSSLink     = ExtLinker('https://badgerpower.com/badger-css/',   'Badger CSS')
+export const BadgerFormLink    = ExtLinker('https://badgerpower.com/badger-form/',  'Badger Form')
+export const BadgerIconLink    = ExtLinker('https://badgerpower.com/badger-icon/',  'Badger Icon')
+export const BadgerColorLink   = ExtLinker('https://badgerpower.com/badger-color/', 'Badger Color')
+export const BadgerUtilsLink   = ExtLinker('https://badgerpower.com/badger-utils/', 'Badger Utils')
+export const BadgerUILink      = ExtLinker('https://github.com/abw/badger-ui',      'Badger UI')

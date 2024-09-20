@@ -1,0 +1,39 @@
+import React      from 'react'
+import Example    from '@/site/Example.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { Warning } from '@/src/components/index.jsx'
+
+<div className="large">
+  The `DataTable` component can be used to display, sort, filter and page
+  sets of data.
+</div>
+
+<Warning title="Important Note" border icon="exclamation">
+  There were some breaking changes in version 1.1.0.
+  This component was previously called `Datatable` and has
+  been renamed to `DataTable` (note the capital T).
+  The old name is still supported as an alias but will be removed at
+  some point in the future
+</Warning>
+
+The two mandatory properties are `rows` and `columns`. The `rows` should be
+an array of objects containing the data that you want to display.  The
+`columns` defines which properties in those objects you want to display.
+In the simple case this can be a string of whitespace delimited identifiers.
+These should correspond to properties in the objects in the `rows` array.
+
+Click on the column headings to set the sort order.  Clicking again on the
+same column heading will toggle the order between ascending and descending.
+Click on the small filter icon to show/hide the filters.  You can then type
+into the filter value for each column to filter the rows.
+
+The "Page Size" dropdown menu in the top right corner allows you to specify
+how many rows appear on each page.  The "Columns" item next to it allows you
+to specify which columns should be displayed.  You can drag them to change
+the order of columns.
+
+<Example
+  Component={Component}
+  code={Source}
+/>
