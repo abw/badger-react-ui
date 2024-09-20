@@ -1,0 +1,26 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="rows"
+  Component={Component}
+  Source={Source}
+  highlightLines="4-20,25"
+  expand
+>
+  The `rows` (or `bodyRows`) property is used to define an array of rows for
+  the main table body. Each element in the `rows` array can be an array of
+  cells. Or it can be an object containing an array of cells as the `cells`
+  property and any other properties for the row (e.g. `className` to set the
+  CSS class for the row).
+
+  Each cell can be a simple text string or other value, or an object
+  containing the value as the `text` property, along with any other properties
+  for the cell (e.g. `className`).
+
+  Cells in the header are rendered as `th` elements.  Cells in the body and
+  footer are rendered as `td` element.  The boolean `th` property can be added
+  to a cell to change this behaviour.
+</Example>

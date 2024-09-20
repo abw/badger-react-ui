@@ -1,0 +1,16 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="headings"
+  Component={Component}
+  Source={Source}
+  highlightLines="4,16"
+  expand
+>
+  The `headings` property is a shortcut for the common case where you just
+  want to have a single row in the header.  It is equivalent to defining
+  `headRows` with the `headings` as the only element.
+</Example>
