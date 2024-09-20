@@ -1,0 +1,17 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="displayValue"
+  Component={Component}
+  Source={Source}
+  highlightLines="16-18,31"
+>
+  When a result is selected the same rules will be applied to display the
+  result in the search input.  If it's not a string or an object containing
+  one of the aforementioned properties then you should provide a
+  `displayValue` function to convert the result to a text string that can be
+  displayed.
+</Example>

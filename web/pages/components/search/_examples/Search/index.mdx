@@ -1,0 +1,19 @@
+import React      from 'react'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { Example } from '@abw/badger-website'
+
+<div className="large">
+  The `Search` component implements the familiar "autocomplete" functionality.
+</div>
+
+The user starts typing and after a short debounce delay a set of results
+matching their input is displayed.
+
+The user can then click on a result or use the keyboard to navigate through
+the results.
+
+<Example
+  Component={Component}
+  code={Source}
+/>
