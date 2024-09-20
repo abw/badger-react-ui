@@ -1,0 +1,26 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { RangeLink } from '@/web/site/Links.jsx'
+import { CodeHashLink } from '@/web/site/Links.jsx'
+
+<Example
+  code="value"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  highlightLines="2"
+  expand
+>
+  The `value` property can be used to set the initial value. This is an alias
+  for `maxValue` in the <RangeLink/> component.
+
+  The default range is from 0 (<CodeHashLink id="min"/>) to 100
+  (<CodeHashLink id="max"/>).  If a `value` is not specified then it will
+  default to the midpoint of the range.
+
+  If a specified `value` is outside of the range then it will be clamped to
+  the nearest value.  If a (<CodeHashLink id="step"/>) is defined then the
+  value will be quantised to the closest step value.
+</Example>

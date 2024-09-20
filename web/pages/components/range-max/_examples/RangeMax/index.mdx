@@ -1,0 +1,34 @@
+import React      from 'react'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import Extras     from './Extras.jsx'
+import ExtrasSrc  from './Extras.jsx?raw'
+import { Example } from '@abw/badger-website'
+import { RangeLink } from '@/web/site/Links.jsx'
+
+<div className="large">
+  The `RangeMax` component implements a custom range input
+  for selecting the maximum end of a range.
+</div>
+
+<Example
+  Component={Component}
+  code={Source}
+/>
+
+It is implemented as a wrapper around the <RangeLink/> component and
+exposes a subset of its functionality.  There is no thumb,
+value or input displayed for the `minValue` and it effectively
+remains fixed at the `min` value.
+The `maxValue` property has an alias of `value`
+and defaults to be half the range.  The properties relating to plural
+items in the <RangeLink/> component  (e.g. `showValues`,
+`showInputs`, etc.) also have aliases in the singular form
+(e.g. `showValue`, `showInput`, etc).  You can
+use either.
+
+<Example
+  Component={Extras}
+  code={ExtrasSrc}
+  undent={2}
+/>
