@@ -1,7 +1,7 @@
 s/const \w+ = \(\) =>\n//;
 s/export default \w+//;
-s[import Section\s+from '@/page/Section.jsx'][import { Section } from '@abw/badger-website'];
-s[import Example\s+from '@/site/Example.jsx'][import { Example } from '@abw/badger-website'];
+s[import Section\s+from '@/page/Section.jsx'][import { Section } from '\@abw/badger-website'];
+s[import Example\s+from '@/site/Example.jsx'][import { Example } from '\@abw/badger-website'];
 s/<\/?code>/`/g;
 s/\{' '\}//;
 s/^  >/>/;

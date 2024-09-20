@@ -1,0 +1,16 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="closeOnClick"
+  Component={Component}
+  Source={Source}
+  highlightLines="3"
+  undent={6}
+  expand
+>
+  Add the `closeOnClick` property to trigger the `close` handler when a user
+  clicks on the modal background outside the dialog.
+</Example>
