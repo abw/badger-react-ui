@@ -1,0 +1,27 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { BadgerUtilsLink } from '@/site/Links.jsx'
+
+<Example
+  code="convertCase"
+  Component={Component}
+  Source={Source}
+  highlightLines="3,6,8"
+>
+  The default behaviour for creating a setter name is to capitalise the first
+  letter of the corresponding value.  For example, if you define a `badger`
+  value then the setter will be `setBadger`.  However, it only capitalises
+  the first letter, so if you have a value like `amplifier_volume` then the
+  setter will be `setAmplifier_volume`.
+
+  You can define your own `convertCase` function as an option. In this
+  example, we use the <BadgerUtilsLink path="text.html#snakeToStudly"
+  code="snakeToStudly()"/> function from <BadgerUtilsLink/> which fully
+  converts the snake case value into studly caps, giving us a setter named
+  `setAmplifierVolume`.
+
+  Obviously this is a rather contrived example, but it can be useful if you're
+  working with data sources that use snake case.
+</Example>

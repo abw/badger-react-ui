@@ -1,0 +1,17 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  title="Setter Functions"
+  Component={Component}
+  Source={Source}
+  highlightLines="11-13,17-19"
+>
+  The setter functions can be passed a function which will receive the
+  current value and should return the modified value.
+
+  In this example we modify the `Row` component to add buttons to increment
+  and decrement the current value.
+</Example>
