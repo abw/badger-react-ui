@@ -1,0 +1,24 @@
+import React      from 'react'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { Example } from '@abw/badger-website'
+import { DivLink } from '@/web/site/Links.jsx'
+
+<div className="large">
+  The `Flex` component is a shortcut for adding flex classes.
+</div>
+
+It supports the same properties as the <DivLink/> component and some
+additional ones that are specific to flex layout.
+
+Behind the scenes, using the `Flex` component is exactly the same as using
+the <DivLink/> component with a `flex` property.
+
+Also note that the properties listed below that set the `align-items` CSS
+property (`start`, `middle`, `baseline` and `end`) also apply when using grid
+layout.
+
+<Example
+  Component={Component}
+  code={Source}
+/>
