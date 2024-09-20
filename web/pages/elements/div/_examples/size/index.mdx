@@ -1,0 +1,17 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="size"
+  Component={Component}
+  Source={Source}
+  highlightLines="2,5"
+  expand
+  undent={2}
+>
+  The `size` property can be used to set the font size. Or you can add one of
+  the size classes (`smallest`, `smaller`, `small`, `medium`, `large`,
+  `larger` or `largest`) as a property.
+</Example>

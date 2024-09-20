@@ -1,0 +1,21 @@
+import React      from 'react'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { Example, Link } from '@abw/badger-website'
+
+<div className="large">
+  The `Div` component is a utility for creating a `div` element.  It uses the
+  <Link to="/utilities/classes" text="CSS utility classes"/> to construct
+  a CSS class from the properties passed to it.
+</div>
+
+The properties listed below have some additional processing applied to them.
+All other properties are added to the generated CSS class. For example, you
+can add the `inverse`  and `blue` properties and the generated CSS class
+will be `inverse blue`.
+
+<Example
+  Component={Component}
+  code={Source}
+  expand
+/>
