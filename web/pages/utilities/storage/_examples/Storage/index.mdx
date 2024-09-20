@@ -1,0 +1,27 @@
+import React      from 'react'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { Example } from '@abw/badger-website'
+
+<div className="large">
+  The `Storage` utility can be used to manage local storage to persist UI
+  options or other data.
+</div>
+
+Call the `Storage` function with a unique key to create a
+local store.  Then call the `get` method on that object to
+fetch an item from the store, `set` to set the value for an
+item or `delete` to delete an item from the store.
+
+Store values can be complex data which will be automatically converted
+to and from JSON.
+
+Enter some details in the form below and click on the save button.
+The form values will then be stored in local storage.  Reload the
+browser page and you should see the values persist.
+
+<Example
+  Component={Component}
+  code={Source}
+  expand
+/>
