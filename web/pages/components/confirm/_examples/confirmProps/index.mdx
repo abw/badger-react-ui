@@ -1,0 +1,17 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  id="confirmProps"
+  code="confirmXXX"
+  Component={Component}
+  Source={Source}
+  highlightLines="4-6"
+  undent={2}
+  expand
+>
+  You can also set individual properties for the confirm button: `confirmIcon`,
+  `confirmText`, `confirmColor` and `confirmClass`.
+</Example>
