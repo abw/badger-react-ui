@@ -1,0 +1,58 @@
+import React      from 'react'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import Complex    from './Complex.jsx'
+import ComplexSrc from './Complex.jsx?raw'
+import DescTable  from '@/web/site/DescTable.jsx'
+import { Example, Heading } from '@abw/badger-website'
+
+<div className="large">
+  The `Select` component implements a custom select input.
+</div>
+
+<Example
+  Component={Component}
+  code={Source}
+/>
+
+One of the advantages of a custom select component over the native HTML
+element is that it can display complex data with formatting.
+
+<Example
+  Component={Complex}
+  code={ComplexSrc}
+/>
+
+<Heading title="Context"/>
+
+A react context is created which provides the items listed below.
+Any other properties passed in to the component will also be
+accessible to child components.
+
+Custom components can be wrapped with the `SelectConsumer`
+higher order component to receive these items as properties.  Or you
+can use the `useSelect` hook to access them.
+
+<DescTable
+  items={[
+    ['close',         'Handler to close the menu.'],
+    ['cursor',        'The index of the currently selected option in the `options` array'],
+    ['disabled',      'Boolean flag indicating if the input is disabled'],
+    ['displayOption', 'Function to display the content for an option'],
+    // ['input',         'The current input value displayed in the field.'],
+    ['isOpen',        'Boolean flag indicating if the menu of options is displayed.'],
+    ['menuRef',       'A React reference for the menu container.'],
+    ['onBlur',        'Handler for blur events.'],
+    ['onClick',       'Handler for click events.'],
+    ['onFocus',       'Handler for focus events.'],
+    ['onKeyDown',     'Handler for keyboard events.'],
+    ['open',          'Handler to open the menu.'],
+    ['options',       'The array of selection options.'],
+    ['selected',      'The selected element in the `options` array'],
+    ['selectCursor',  'Handler to select the option indexed by the cursor.'],
+    ['selectOption',  'Handler to select an option.'],
+    ['setCursor',     'Handler to set the cursor'],
+    ['validOption',   'Function to determine if an option is valid (i.e. not disabled)'],
+    ['value',         'The value of the current selected option.'],
+  ]}
+/>

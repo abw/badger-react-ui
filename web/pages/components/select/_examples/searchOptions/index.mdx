@@ -1,0 +1,25 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="searchOptions"
+  Component={Component}
+  Source={Source}
+  highlightLines="15-21,37"
+  expand
+>
+  You can define your own `searchOptions` function to search through the
+  `options` and return matching results.
+
+  The first argument passed is the search string.  The second argument is the
+  array of options.  The function should filter the options and return those
+  that match the search string according to whatever logic you care to
+  implement.
+
+  In this example we implement a search function which will match against
+  the user's `name` or their `department`.  Try entering `an`.  It will match
+  Al<b>an</b>, and <b>An</b>ne by name, and also Brenda and Bruce from
+  M<b>an</b>agement.
+</Example>
