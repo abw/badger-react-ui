@@ -1,6 +1,6 @@
-import React      from 'react'
-import DescTable  from '@/web/site/DescTable.jsx'
-import Section    from '@/web/page/Section.jsx'
+import React       from 'react'
+import DescTable   from '@/web/site/DescTable.jsx'
+import { Section } from '@abw/badger-website'
 
 const Context = () =>
   <Section title="Context Properties">

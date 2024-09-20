@@ -1,6 +1,6 @@
-import React      from 'react'
-import PropsTable from '@/web/site/PropsTable.jsx'
-import Section from '@/web/page/Section.jsx'
+import React       from 'react'
+import PropsTable  from '@/web/site/PropsTable.jsx'
+import { Section } from '@abw/badger-website'
 
 const Components = () =>
   <Section title="Components">

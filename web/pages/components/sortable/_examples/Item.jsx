@@ -1,5 +1,5 @@
-import React      from 'react'
-import Section    from '@/web/page/Section.jsx'
+import React       from 'react'
+import { Section } from '@abw/badger-website'
 
 const Item = () =>
   <Section code="Item">

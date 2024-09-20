@@ -1,6 +1,6 @@
 import React      from 'react'
-import Section    from '@/web/page/Section.jsx'
 import DescTable  from '@/web/site/DescTable.jsx'
+import { Section } from '@abw/badger-website'
 import { RangeLink } from '@/web/site/Links.jsx'
 
 const Context = () =>
