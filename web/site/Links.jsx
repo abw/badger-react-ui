@@ -51,6 +51,7 @@ export const BadgerFormLink    = ExtLinker('https://badgerpower.com/badger-form/
 export const BadgerIconLink    = ExtLinker('https://badgerpower.com/badger-icon/',  'Badger Icon')
 export const BadgerColorLink   = ExtLinker('https://badgerpower.com/badger-color/', 'Badger Color')
 export const BadgerUtilsLink   = ExtLinker('https://badgerpower.com/badger-utils/', 'Badger Utils')
+export const OneLouderLink     = ExtLinker('https://badgerpower.com/react-one-louder/', 'React One Louder')
 export const BadgerUILink      = ExtLinker('https://github.com/abw/badger-ui',      'Badger UI')
 
 export const FloatingUILink    = ExtLinker('https://floating-ui.com/', 'Floating UI')

@@ -1,0 +1,32 @@
+import React        from 'react'
+import Component    from './_examples/Theme.jsx'
+import Source       from './_examples/Theme.jsx?raw'
+import { Example }  from '@abw/badger-website'
+import { OneLouderLink } from '@/site/Links.jsx'
+
+# Theme Provider
+
+<div className="large">
+  The components can be themed using <OneLouderLink/>.
+</div>
+
+This allows you to define a theme that provides default properties
+for the various components in the library.
+
+Import the `Theme` component and define a `Theme.Provider` around your app or
+a section of it. Pass it your theme configuration as its properties.
+
+Any components rendered inside the provider context will use the default
+properties that you have defined.  In the example below we set the default
+`placeholder` for the `Select` component, and default `color` and `iconRight`
+properties for the `Button` component.
+
+These are only default values and can be overridden by providing a component
+with specific values, as shown for the second button in the example.
+
+<Example
+  Component={Component}
+  code={Source}
+  highlightLines="5-17,19,31"
+  expand
+/>
