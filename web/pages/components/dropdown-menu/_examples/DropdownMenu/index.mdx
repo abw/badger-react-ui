@@ -1,0 +1,22 @@
+import React      from 'react'
+import Example    from '@/site/Example.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { DropdownLink } from '@/web/site/Links.jsx'
+
+<div className="large">
+  The `DropdownMenu` component generates a dropdown menu.  It extends the
+  behaviour of the <DropdownLink/> component.
+</div>
+
+The default behaviour is to open the dropdown menu when the user clicks on
+the trigger. Keyboard navigation is also supported.  The user can `TAB`
+to the trigger and then press `SPACE`, `ENTER`, `DOWN` or `UP` to open the
+menu. Once the menu is open, the `DOWN` and `UP` keys can be used to select
+menu items, `ENTER` or `SPACE` will select the current item and `ESCAPE`
+will close the menu.
+
+<Example
+  Component={Component}
+  code={Source}
+/>
