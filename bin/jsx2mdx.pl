@@ -8,4 +8,5 @@ s/^    /  /;
 s/&apos;/'/g;
 s/&quot;/"/g;
 s/<\/?p>//;
-s/^\s*//g;
+s/^\s*$//g;
+s/^<Example/\n<Example/;

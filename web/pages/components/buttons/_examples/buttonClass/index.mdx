@@ -1,0 +1,17 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="buttonClass"
+  Component={Component}
+  Source={Source}
+  highlightLines="3"
+  undent={4}
+  expand
+>
+  The `buttonClass` property can be used to add a CSS class to each button.
+  Badger CSS targets the `button` element for styling so you don't need to
+  add any special classes to get the default styling.
+</Example>
