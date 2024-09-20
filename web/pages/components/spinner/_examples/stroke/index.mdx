@@ -1,0 +1,20 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { CodeHashLink } from '@/site/Links.jsx'
+
+<Example
+  code="stroke"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  expand
+>
+  The `stroke` property can be used to set a stroke thickness, using one of
+  the semantic names: `thinnest`, `thinner`, `thin`, `thick`, `thicker` or
+  `thickest`.
+
+  The `stroke` can be set to `false` to disable the outline stroke (although
+  you won't see anything unless you also enable <CodeHashLink id="fill"/>).
+</Example>

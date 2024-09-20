@@ -1,0 +1,19 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { CodeHashLink } from '@/site/Links.jsx'
+
+<Example
+  code="bgStrokeStop"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  expand
+>
+  The `bgStrokeStop` property can be used to set the color stop for the stroke
+  on the background icons.  The `bgStrokeStopDark` property can be used to set
+  it in dark mode.
+
+  It only has any effect when <CodeHashLink id="bgIcon"/> is set.
+</Example>

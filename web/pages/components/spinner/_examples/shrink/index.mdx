@@ -1,0 +1,16 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { CodeHashLink } from '@/site/Links.jsx'
+
+<Example
+  code="shrink"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  expand
+>
+  The `shrink` property can be used to shrink the icon. The default value is
+  5 when a <CodeHashLink id="bgIcon"/> is set, otherwise it is 0.
+</Example>

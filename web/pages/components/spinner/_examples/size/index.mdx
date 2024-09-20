@@ -1,0 +1,19 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="size"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  expand
+>
+  The `size` property can be set to change the size.  This can be one of the
+  semantic sizes: `smallest`, `smaller`, `small`, `medium` (default) `large`,
+  `larger` or `largest`, or one of the size multipliers from `x2` up to `x10`.
+
+  This is simply a shortcut to add the specified `size` as a CSS class to the
+  icon.
+</Example>

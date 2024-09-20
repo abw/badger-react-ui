@@ -1,0 +1,20 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { CodeHashLink } from '@/site/Links.jsx'
+
+<Example
+  code="bgIcon"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  expand
+>
+  The `bgIcon` property can be used to set a background icon. The default
+  value is `false`.  When the `bgIcon` is set the main icon is shrunk to fit
+  inside it.
+
+  You can control the level of shrinkage using the <CodeHashLink id="shrink"/>
+  property.
+</Example>

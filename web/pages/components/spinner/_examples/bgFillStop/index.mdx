@@ -1,0 +1,19 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { CodeHashLink } from '@/site/Links.jsx'
+
+<Example
+  code="bgFillStop"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  expand
+>
+  The `bgFillStop` property can be used to set color stop for
+  the background icon fill.  The `bgFillStopDark` property can
+  be used to set it for dark mode.
+
+  It only has any effect when <CodeHashLink id="bgIcon"/> is set.
+</Example>
