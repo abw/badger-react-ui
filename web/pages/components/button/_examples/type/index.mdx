@@ -1,0 +1,25 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="type"
+  Component={Component}
+  Source={Source}
+  highlightLines="3"
+  undent={2}
+  expand
+>
+  The default `type` for a button is set to `button`. In most cases this has
+  no effect.  However, inside the scope of a `form` element, the `type` for a
+  button would usually default to being `submit`.  When clicked, the button
+  would submit the form.
+
+  This behaviour usually surprises people (it certainly catches me out from
+  time to time).  Having an explicit default button type prevents this from
+  happening.  When you really do want to add a button to submit a form, you
+  should explicitly set the `type` to `submit`.  You can also set it to
+  `reset` to make a reset button for a form.
+</Example>
+
