@@ -1,4 +1,3 @@
-import React            from 'react'
 import MultiSelect      from './_examples/MultiSelect/index.mdx'
 import Options          from './_examples/options/index.mdx'
 import Values           from './_examples/values/index.mdx'
@@ -8,14 +7,13 @@ import SelectedIcon     from './_examples/selectedIcon/index.mdx'
 import UnselectedIcon   from './_examples/unselectedIcon/index.mdx'
 import Sortable         from './_examples/sortable/index.mdx'
 import OnChange         from './_examples/onChange/index.mdx'
-import { Heading, Section } from '@abw/badger-website'
 import { CodeHashLink, SelectLink }   from '@/web/site/Links.jsx'
 
 # MultiSelect
 
 <MultiSelect/>
 
-<Heading title="Properties"/>
+## Properties
 
 The following properties can be specified in addition to those
 supported by the <SelectLink/> component.
@@ -28,11 +26,13 @@ supported by the <SelectLink/> component.
 <DisplayOption/>
 <DisplaySelection/>
 
-<Heading title="Event Handlers"/>
+## Event Handlers
+
 <OnChange/>
-<Section code="onUpdate">
-  If this is defined it will be called instead of any
-  <CodeHashLink id="onChange"/> handler when the selection changes due to
-  the <CodeHashLink id="options"/> or <CodeHashLink id="value"/> properties
-  changing.
-</Section>
+
+### `onUpdate`
+
+If this is defined it will be called instead of any
+<CodeHashLink id="onChange"/> handler when the selection changes due to
+the <CodeHashLink id="options"/> or <CodeHashLink id="value"/> properties
+changing.

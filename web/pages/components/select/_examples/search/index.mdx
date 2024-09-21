@@ -1,32 +1,31 @@
-import React      from 'react'
 import Strings     from './Strings.jsx'
 import StringsSrc  from './Strings.jsx?raw'
 import Objects     from './Objects.jsx'
 import ObjectsSrc  from './Objects.jsx?raw'
-import { Example, Section } from '@abw/badger-website'
+import { Example } from '@abw/badger-website'
 
-<Section code="search">
-  The `search` property can be set to enable searching of options.  In the
-  simple case this can work where the `options` are all strings.  The default
-  search function will case-insensitively match options that contain all of
-  the words entered in the search input.
+### `search`
 
-  Try entering `aa an` in the search input in the example below. It will match
-  options that contain both `aa` (e.g all the <b>Aa</b>rdvarks) and `an`
-  (Al<b>an</b> Aardvark, <b>An</b>ne Aardvark and Bri<b>an</b> Badger).
+The `search` property can be set to enable searching of options.  In the
+simple case this can work where the `options` are all strings.  The default
+search function will case-insensitively match options that contain all of
+the words entered in the search input.
 
-  <Example
-    Component={Strings}
-    code={StringsSrc}
-    highlightLines="18"
-  />
+Try entering `aa an` in the search input in the example below. It will match
+options that contain both `aa` (e.g all the <b>Aa</b>rdvarks) and `an`
+(Al<b>an</b> Aardvark, <b>An</b>ne Aardvark and Bri<b>an</b> Badger).
 
-  If the `options` are an array of objects then it will look for a `search`,
-  `text`, `label`, `name` or `value` property in each object and use that.
+<Example
+  Component={Strings}
+  code={StringsSrc}
+  highlightLines="18"
+/>
 
-  <Example
-    Component={Objects}
-    code={ObjectsSrc}
-    highlightLines="18"
-  />
-</Section>
+If the `options` are an array of objects then it will look for a `search`,
+`text`, `label`, `name` or `value` property in each object and use that.
+
+<Example
+  Component={Objects}
+  code={ObjectsSrc}
+  highlightLines="18"
+/>

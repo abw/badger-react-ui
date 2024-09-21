@@ -1,4 +1,3 @@
-import React          from 'react'
 import RangeMax       from './_examples/RangeMax/index.mdx'
 import Value          from './_examples/value/index.mdx'
 import Min            from './_examples/min/index.mdx'
@@ -18,16 +17,16 @@ import InputSize      from './_examples/inputSize/index.mdx'
 import Color          from './_examples/color/index.mdx'
 import Size           from './_examples/size/index.mdx'
 import Options        from './_examples/options/index.mdx'
-import Context        from './_examples/Context.jsx'
 import OnChange       from './_examples/onChange/index.mdx'
 import Children       from './_examples/children/index.mdx'
-import { Heading } from '@abw/badger-website'
+import Context        from './_examples/Context.mdx'
 
 # RangeMax
 
 <RangeMax/>
 
-<Heading title="Properties"/>
+## Properties
+
 <Min/>
 <Max/>
 <Step/>
@@ -46,22 +45,27 @@ import { Heading } from '@abw/badger-website'
 <Color/>
 <Size/>
 
-<Heading title="Discrete Values"/>
+## Discrete Values
+
 <Options/>
 
-<Heading title="Event Handlers"/>
+## Event Handlers
+
 <OnChange/>
 
-<Heading title="Context"/>
+## Context
+
 <Context/>
 <Children/>
 {/*
 <Split>
-<Heading title="Event Handlers"/>
+## Event Handlers
+
 <Section code="onChanged">
 Called when the value is changed.
 </Section>
-<Heading title="CSS Classes"/>
+## CSS Classes
+
 <Section code="className">
 Add an additional class to the range container.
 There is no default value but the `rangeClass` is

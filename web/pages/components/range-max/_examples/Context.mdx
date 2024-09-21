@@ -1,0 +1,27 @@
+import DescTable  from '@/web/site/DescTable.jsx'
+import { RangeLink } from '@/web/site/Links.jsx'
+
+### Context Properties
+
+The component uses the same context object as for the <RangeLink/>
+component. A number of aliases are provided in the context, listed in
+the table below.
+
+Custom components can be wrapped with the `RangeConsumer` higher order
+component to receive these items as properties.  Or you can use the `useRange`
+hook to access them.
+
+<DescTable
+  items={[
+    ['value',     'Alias for `maxValue`'],
+    ['input',     'Alias for `maxInput`'],
+    ['normal',    'Alias for `maxNormal`'],
+    ['percent',   'Alias for `maxPercent`'],
+    ['setValue',  'Alias for `setMaxValue`'],
+    ['setInput',  'Alias for `setMaxInput`'],
+    ['stepUp',    'Alias for `stepMaxUp`'],
+    ['stepDown',  'Alias for `stepMaxDown`'],
+    ['onDrag',    'Alias for `onDragMax`'],
+    ['onKeyDown', 'Alias for `onKeyDownMax`'],
+  ]}
+/>

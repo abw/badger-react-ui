@@ -5,41 +5,41 @@ import Search     from './Search.jsx'
 import SearchSrc  from './Search.jsx?raw'
 import Select     from './SelectValue.jsx'
 import SelectSrc  from './SelectValue.jsx?raw'
+import { Example } from '@abw/badger-website'
 import { MultiSelectLink } from '@/web/site/Links.jsx'
-import { Example, Section } from '@abw/badger-website'
 
-<Section code="multiselect">
-  The field `type` property can be set to `multiselect`
-  to use the <MultiSelectLink/> component.
+### `multiselect`
 
-  <Example
-    Component={Simple}
-    code={SimpleSrc}
-    highlightLines="5"
-  />
+The field `type` property can be set to `multiselect`
+to use the <MultiSelectLink/> component.
 
-  You can define additional properties in the field that will be forwarded
-  to the select component.  For example, the `search` property
-  is set here to enable searching.
+<Example
+  Component={Simple}
+  code={SimpleSrc}
+  highlightLines="5"
+/>
 
-  <Example
-    Component={Search}
-    code={SearchSrc}
-    highlightLines="6"
-  />
+You can define additional properties in the field that will be forwarded
+to the select component.  For example, the `search` property
+is set here to enable searching.
 
-  When an option is selected the default behaviour is to add the
-  complete option to the selected value array.  This can be seen in the
-  debugging panel in the previous example.
-  You can use the `selectValue` property to
-  define a function which will accept the option and return the relevant
-  value from inside it.  This is shown in the next example which
-  returns the `value` property from the option instead of the
-  selected option object.
+<Example
+  Component={Search}
+  code={SearchSrc}
+  highlightLines="6"
+/>
 
-  <Example
-    Component={Select}
-    code={SelectSrc}
-    highlightLines="7"
-  />
-</Section>
+When an option is selected the default behaviour is to add the
+complete option to the selected value array.  This can be seen in the
+debugging panel in the previous example.
+You can use the `selectValue` property to
+define a function which will accept the option and return the relevant
+value from inside it.  This is shown in the next example which
+returns the `value` property from the option instead of the
+selected option object.
+
+<Example
+  Component={Select}
+  code={SelectSrc}
+  highlightLines="7"
+/>

@@ -1,4 +1,3 @@
-import React        from 'react'
 import DescTable    from '@/site/DescTable.jsx'
 import Submitting   from './_examples/submitting/index.mdx'
 import CancelSubmit from './_examples/CancelSubmit/index.mdx'
@@ -11,10 +10,9 @@ import RangeMax     from './_examples/range-max/index.mdx'
 import RangeMin     from './_examples/range-min/index.mdx'
 import BasicForm    from './_examples/BasicForm.jsx'
 import BasicFormSrc from './_examples/BasicForm.jsx?raw'
+import { Example }  from '@abw/badger-website'
 import { ButtonLink } from '@/web/site/Links.jsx'
 import { BadgerFormLink } from '@/site/Links.jsx'
-import { Example, Heading } from '@abw/badger-website'
-
 
 # Form
 
@@ -28,7 +26,8 @@ import { Example, Heading } from '@abw/badger-website'
   caption="Form"
 />
 
-<Heading title="Components"/>
+## Components
+
 
 The table below lists the component that are exported from <BadgerFormLink/>.
 In some cases the names have been changed to <strike>protect the innocent</strike>
@@ -69,7 +68,8 @@ There are a few enhancements.  First, the buttons are rendered using the
 properties.  Secondly, there are `type` bindings which allow you to use more
 advanced components for field inputs.  These are described below.
 
-<Heading title="Input Components"/>
+## Input Components
+
 
 <UISelect/>
 <MultiSelect/>
@@ -78,7 +78,8 @@ advanced components for field inputs.  These are described below.
 <RangeMax/>
 <RangeMin/>
 
-<Heading title="Additional Components"/>
+## Additional Components
+
 <Submitting/>
 <CancelSubmit/>
 <ResetSubmit/>

@@ -15,13 +15,14 @@ import IconLeftRotate   from './_examples/iconLeftRotate/index.mdx'
 import IconRight        from './_examples/iconRight/index.mdx'
 import IconRightRotate  from './_examples/iconRightRotate/index.mdx'
 import WideSummary      from './_examples/wideSummary/index.mdx'
-import { Heading, Section } from '@abw/badger-website'
+import { SubHeading }   from '@abw/badger-website'
 
 # Details
 
 <Details/>
 
-<Heading title="Properties"/>
+## Properties
+
 <Summary/>
 <Content/>
 <Open/>
@@ -38,21 +39,26 @@ import { Heading, Section } from '@abw/badger-website'
 <WideSummary/>
 <Native/>
 
-<Heading title="CSS Classes"/>
-<Section code="className">
-  Set a CSS class for the `details` container element.
-</Section>
-<Section code="summaryClass">
-  Set a CSS class for the `summary` element.
-</Section>
-<Section code="contentClass">
-  Set a CSS class for the content `div` element.
-</Section>
+## CSS Classes
 
-<Heading title="Components"/>
-<Section code="Summary" id="Summary-component">
-  Renders the summary element.
-</Section>
-<Section code="Content" id="Content=component">
-  Renders the content.
-</Section>
+### `className`
+
+Set a CSS class for the `details` container element.
+
+### `summaryClass`
+
+Set a CSS class for the `summary` element.
+
+### `contentClass`
+
+Set a CSS class for the content `div` element.
+
+## Components
+
+<SubHeading code="Summary" id="Summary-component"/>
+
+Renders the summary element.
+
+<SubHeading code="Content" id="Content=component"/>
+
+Renders the content.

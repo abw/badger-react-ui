@@ -10,73 +10,73 @@ import HeadingsSrc  from './Headings.jsx?raw'
 import Disabled     from './Disabled.jsx'
 import DisabledSrc  from './Disabled.jsx?raw'
 import { WithIconsLink } from '@/site/Links.jsx'
-import { Example, Section } from '@abw/badger-website'
+import { Example } from '@abw/badger-website'
 
-<Section code="options">
-  The `options` property should be used to define an array of options to
-  display in the menu. For simple cases, each element in the array can be a
-  text string or numerical value.
+### `options`
 
-  <Example
-    Component={Values}
-    code={ValuesSrc}
-    caption="options"
-    highlightLines="4-9"
-    expand={false}
-    undent={2}
-  />
+The `options` property should be used to define an array of options to
+display in the menu. For simple cases, each element in the array can be a
+text string or numerical value.
 
-  An element in the `options` array can also be an object. It should contain
-  a `text` property which can be a string or JSX fragment. A `className` can
-  be included to add a CSS class to the option.
+<Example
+  Component={Values}
+  code={ValuesSrc}
+  caption="options"
+  highlightLines="4-9"
+  expand={false}
+  undent={2}
+/>
 
-  The content for an element is rendered using <WithIconsLink/> allowing you to
-  include `iconLeft` and `iconRight` properties to add icons to either side,
-  along with `iconLeftClass` and `iconRightClass` to set CSS classes for those
-  icons.
+An element in the `options` array can also be an object. It should contain
+a `text` property which can be a string or JSX fragment. A `className` can
+be included to add a CSS class to the option.
 
-  <Example
-    Component={Complex}
-    code={ComplexSrc}
-    caption="options"
-    highlightLines="4-26"
-    expand={false}
-    undent={2}
-  />
+The content for an element is rendered using <WithIconsLink/> allowing you to
+include `iconLeft` and `iconRight` properties to add icons to either side,
+along with `iconLeftClass` and `iconRightClass` to set CSS classes for those
+icons.
 
-  An object in the `options` array can have a `disabled` property set to
-  `true` to disable the option.
+<Example
+  Component={Complex}
+  code={ComplexSrc}
+  caption="options"
+  highlightLines="4-26"
+  expand={false}
+  undent={2}
+/>
 
-  <Example
-    Component={Disabled}
-    code={DisabledSrc}
-    caption="options"
-    highlightLines="7,14,21"
-    expand={false}
-    undent={2}
-  />
+An object in the `options` array can have a `disabled` property set to
+`true` to disable the option.
 
-  An object in the `options` array can have a `separator` property set to
-  `true` to create a separator.
+<Example
+  Component={Disabled}
+  code={DisabledSrc}
+  caption="options"
+  highlightLines="7,14,21"
+  expand={false}
+  undent={2}
+/>
 
-  <Example
-    Component={Separators}
-    code={SepsSrc}
-    caption="options"
-    highlightLines="8,12"
-    expand={false}
-    undent={2}
-  />
+An object in the `options` array can have a `separator` property set to
+`true` to create a separator.
 
-  An object in the `options` array can have a `heading` property to create a
-  section heading.
+<Example
+  Component={Separators}
+  code={SepsSrc}
+  caption="options"
+  highlightLines="8,12"
+  expand={false}
+  undent={2}
+/>
 
-  <Example
-    Component={Headings}
-    code={HeadingsSrc}
-    caption="options"
-    highlightLines="5,9,13"
-    expand={false}
-    undent={2}
-  />
-</Section>
+An object in the `options` array can have a `heading` property to create a
+section heading.
+
+<Example
+  Component={Headings}
+  code={HeadingsSrc}
+  caption="options"
+  highlightLines="5,9,13"
+  expand={false}
+  undent={2}
+/>

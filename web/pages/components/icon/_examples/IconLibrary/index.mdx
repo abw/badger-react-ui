@@ -1,45 +1,47 @@
 import React      from 'react'
 import Component  from './IconLibrary.jsx'
 import Source     from './IconLibrary.jsx?raw'
+import { Example, Link } from '@abw/badger-website'
 import { Icon, IconLibrary } from '@/components/index.jsx'
-import { Section, Example, Link } from '@abw/badger-website'
 
-<Section code="IconLibrary">
-  The default set of icons is defined as `IconLibrary`.
-  The `addIcon()` and `addIcons()` function are
-  provided for adding icons to the library.
+### `IconLibrary`
 
-  <div className="grid-fill gap-4 mar-t-8">
-    { Object.keys(IconLibrary.icons).map(
-      name =>
-        <div
-          key={name}
-          className="text-center bgc-100 bgd-0 fgc-10 fgd-90 pad-4 shadow-2"
-        >
-          <Icon name={name} className="x3"/>
-          <div className="small mar-t-4">{name}</div>
-        </div>
-    )}
-  </div>
-</Section>
+The default set of icons is defined as `IconLibrary`.
+The `addIcon()` and `addIcons()` function are
+provided for adding icons to the library.
 
-<Section title="Adding Icons">
-    You can use the `addIcon()` and `addIcons()` functions
-    to add icons to the library.  If you don't want to update the
-    standard library then you can create your own copy of the `IconLibrary`
-    (e.g. by using `structuredClone()` as shown in this example)
-    and then pass that as the third argument to `addIcon()` or
-    second argument to `addIcons`.  You should then pass your
-    icon library to the `Icon` component using the
-    `library` property.
-  <Example
-    Component={Component}
-    code={Source}
-    expand
-    highlightLines="5,8-16,28"
-  />
-    You can use a <Link to="/theming/theme-provider">Theme Provider</Link> to
-    automatically set the `library` property to your custom library
-    to save you from having to specify it every time you use the `Icon`
-    component.
-</Section>
+<div className="grid-fill gap-4 mar-t-8">
+  { Object.keys(IconLibrary.icons).map(
+    name =>
+      <div
+        key={name}
+        className="text-center bgc-100 bgd-0 fgc-10 fgd-90 pad-4 shadow-2"
+      >
+        <Icon name={name} className="x3"/>
+        <div className="small mar-t-4">{name}</div>
+      </div>
+  )}
+</div>
+
+### Adding Icons
+
+You can use the `addIcon()` and `addIcons()` functions to add icons to the
+library.  If you don't want to update the standard library then you can create
+your own copy of the `IconLibrary` (e.g. by using `structuredClone()` as shown
+in this example) and then pass that as the third argument to `addIcon()` or
+second argument to `addIcons`.
+
+You should then pass your icon library to the `Icon` component using the
+`library` property.
+
+<Example
+  Component={Component}
+  code={Source}
+  expand
+  highlightLines="5,8-16,28"
+/>
+
+You can use a <Link to="/theming/theme-provider">Theme Provider</Link> to
+automatically set the `library` property to your custom library
+to save you from having to specify it every time you use the `Icon`
+component.

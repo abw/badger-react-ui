@@ -1,32 +1,30 @@
-import React      from 'react'
-import Strings      from './Strings.jsx'
-import StringsSrc   from './Strings.jsx?raw'
-import Value        from './Value.jsx'
-import ValueSrc     from './Value.jsx?raw'
-import { Section } from '@abw/badger-website'
+import Strings     from './Strings.jsx'
+import StringsSrc  from './Strings.jsx?raw'
+import Value       from './Value.jsx'
+import ValueSrc    from './Value.jsx?raw'
 import { Example } from '@abw/badger-website'
 
-<Section code="value">
-  The `value` property can be used to pre-select a value.
+### `value`
 
-  <Example
-    Component={Strings}
-    code={StringsSrc}
-    caption="value"
-    highlightLines="18"
-    expand={false}
-  />
+The `value` property can be used to pre-select a value.
 
-  When the `options` are defined as an array of objects,
-  the specified `value` should correspond to the
-  `value` or `id` property of an element in
-  the `options` array.
+<Example
+  Component={Strings}
+  code={StringsSrc}
+  caption="value"
+  highlightLines="18"
+  expand={false}
+/>
 
-  <Example
-    Component={Value}
-    code={ValueSrc}
-    caption="value"
-    highlightLines="18"
-    expand={false}
-  />
-</Section>
+When the `options` are defined as an array of objects,
+the specified `value` should correspond to the
+`value` or `id` property of an element in
+the `options` array.
+
+<Example
+  Component={Value}
+  code={ValueSrc}
+  caption="value"
+  highlightLines="18"
+  expand={false}
+/>

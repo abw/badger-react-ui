@@ -1,16 +1,15 @@
 import React      from 'react'
 import Dark       from './Dark.jsx'
 import DarkSrc    from './Dark.jsx?raw'
-import { Example, Section } from '@abw/badger-website'
+import Example    from '@/page/ExampleSection.jsx'
 
-<Section code="dark">
+<Example
+  code="dark"
+  Component={Dark}
+  Source={DarkSrc}
+  highlightLines="2"
+  caption="dark"
+  undent={8}
+>
   Add the `dark` property to explicitly set it to be dark.
-
-  <Example
-    Component={Dark}
-    code={DarkSrc}
-    highlightLines="2"
-    caption="dark"
-    undent={8}
-  />
-</Section>
+</Example>

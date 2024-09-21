@@ -1,30 +1,29 @@
-import React        from 'react'
-import Name         from './Name.jsx'
-import NameSrc      from './Name.jsx?raw'
-import Object       from './Object.jsx'
-import ObjectSrc    from './Object.jsx?raw'
-import { Example, Section } from '@abw/badger-website'
+import Name        from './Name.jsx'
+import NameSrc     from './Name.jsx?raw'
+import Object      from './Object.jsx'
+import ObjectSrc   from './Object.jsx?raw'
+import { Example } from '@abw/badger-website'
 
-<Section code="selectedIcon">
-  The `selectedIcon` property can be used to specify the icon displayed on
-  the right of selected options.  The default value is `check`.
+### `selectedIcon`
 
-  <Example
-    Component={Name}
-    code={NameSrc}
-    caption="selectedIcon"
-    highlightLines="8"
-    expand={false}
-  />
+The `selectedIcon` property can be used to specify the icon displayed on
+the right of selected options.  The default value is `check`.
 
-  The value can be a string corresponding to the icon `name`, as shown in the
-  previous example, or an object containing multiple properties.
+<Example
+  Component={Name}
+  code={NameSrc}
+  caption="selectedIcon"
+  highlightLines="8"
+  expand={false}
+/>
 
-  <Example
-    Component={Object}
-    code={ObjectSrc}
-    caption="selectedIcon"
-    highlightLines="8-12"
-    expand={false}
-  />
-</Section>
+The value can be a string corresponding to the icon `name`, as shown in the
+previous example, or an object containing multiple properties.
+
+<Example
+  Component={Object}
+  code={ObjectSrc}
+  caption="selectedIcon"
+  highlightLines="8-12"
+  expand={false}
+/>
