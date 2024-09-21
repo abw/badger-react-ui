@@ -1,5 +1,5 @@
 import React from 'react'
-import { Example, Section } from '@abw/badger-website'
+import { Example, SubSection } from '@abw/badger-website'
 
 const ExampleSection = ({
   Component,
@@ -15,7 +15,7 @@ const ExampleSection = ({
   highlightLines,
   ...props
 }) =>
-  <Section code={code} title={title} {...props}>
+  <SubSection code={code} title={title} {...props}>
     <div className="mar-b-4">
       {children}
     </div>
@@ -29,6 +29,6 @@ const ExampleSection = ({
       highlightLines={highlightLines}
       lineProps={lineProps}
     />
-  </Section>
+  </SubSection>
 
 export default ExampleSection
