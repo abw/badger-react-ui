@@ -1,7 +1,8 @@
 import React    from 'react'
 import site     from './config/site.js'
 import sidebar  from './config/sidebar.js'
-import { SiteProvider } from '@abw/badger-website'
+import { MDXProvider } from '@mdx-js/react'
+import { SiteProvider, mdxComponents } from '@abw/badger-website'
 import './styles/badger-react-ui.scss'
 
 const pages = import.meta.glob(
@@ -18,12 +19,14 @@ const snippets = import.meta.glob(
 )
 
 const App = () =>
-  <SiteProvider
-    site={site}
-    pages={pages}
-    sidebar={sidebar}
-    snippets={snippets}
-    linkUp
-  />
+  <MDXProvider components={mdxComponents}>
+    <SiteProvider
+      site={site}
+      pages={pages}
+      sidebar={sidebar}
+      snippets={snippets}
+      linkUp
+    />
+  </MDXProvider>
 
 export default App
