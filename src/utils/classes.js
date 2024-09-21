@@ -146,7 +146,7 @@ export const classTrue = (c, t, f) =>
 export const classTrueInt = (c, t, i) =>
   c === true
     ? t
-    : parseInt(c)
+    : isInteger(parseInt(c))
       ? maybeFunction(i, c)
       : null
 
