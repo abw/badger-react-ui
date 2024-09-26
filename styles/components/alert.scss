@@ -5,6 +5,8 @@
   --icon-margin: 0.5em;
   --icon-size: 2em;
   --icon-padding: 0.125em;
+  --icon-gap: 1.5em;
+  --icon-align: flex-start;
   --icon-color: var(--color-100);
   --icon-background: var(--color-50);
   --icon-border-color: var(--color-80);
@@ -53,8 +55,8 @@
   }
   .side-icon {
     display: flex;
-    align-items: flex-start;
-    gap: 1.5em;
+    align-items: var(--icon-align);
+    gap: var(--icon-gap);
     & > .icon {
       color: var(--icon-color);
       background-color: var(--icon-background);
@@ -66,6 +68,11 @@
         0 0 0 var(--icon-ring-width) var(--icon-ring-color);
       border-radius: 50%;
     }
+  }
+  &.compact {
+    --icon-size: 1em;
+    --icon-gap: 0.5em;
+    --icon-align: center;
   }
 }
 
