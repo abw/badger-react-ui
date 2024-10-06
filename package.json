@@ -43,7 +43,7 @@
     "url": "https://github.com/abw/badger-react-ui/issues"
   },
   "dependencies": {
-    "@abw/badger-css": "^1.2.3",
+    "@abw/badger-css": "^1.2.4",
     "@abw/badger-form": "^1.1.2",
     "@abw/badger-icon": "^0.1.6",
     "@abw/badger-utils": "^1.1.2",

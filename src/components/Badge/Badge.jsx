@@ -6,6 +6,7 @@ import { borderClass, classes, radiusClass, shadowClass } from '@/src/utils/clas
 const Badge = ({
   size,
   color,
+  compact,
   className,
   tag,
   shadow,
@@ -27,7 +28,7 @@ const Badge = ({
   const cname = classes(
     'badge', size, color, className,
     {
-      tag, icon
+      compact, tag, icon
     },
     shadowClass(shadow),
     borderClass(border),
