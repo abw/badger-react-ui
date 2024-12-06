@@ -1,6 +1,8 @@
 import React          from 'react'
 import { Themed }     from '@/src/Theme.jsx'
 import { WithIcons }  from '../Icon/index.jsx'
+import DefaultPrefix  from './Prefix.jsx'
+import DefaultSuffix  from './Suffix.jsx'
 import { borderClass, classes, radiusClass, shadowClass } from '@/src/utils/classes.js'
 
 const Badge = ({
@@ -21,7 +23,11 @@ const Badge = ({
   iconRightClass,
   label,
   text,
+  prefix,
+  suffix,
   children,
+  Prefix=DefaultPrefix,
+  Suffix=DefaultSuffix,
   Content=WithIcons,
   ...props
 }) => {
@@ -46,9 +52,15 @@ const Badge = ({
     aria-label={label}
     {...props}
   >
+    { Boolean(prefix) &&
+      <Prefix prefix={prefix} {...props}/>
+    }
     <Content
       {...bodyProps}
     />
+    { Boolean(suffix) &&
+      <Suffix suffix={suffix} {...props}/>
+    }
   </div>
 }
 
