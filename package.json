@@ -9,8 +9,8 @@
     ".": {
       "require": "./dist/badger-react-ui.umd.cjs",
       "import": {
-        "default": "./dist/badger-react-ui.js",
-        "types": "./dist/index.d.ts"
+        "types": "./dist/index.d.ts",
+        "default": "./dist/badger-react-ui.js"
       }
     },
     "./config/*": "./dist/config/*",
