@@ -8,8 +8,8 @@ import rehypeCodeProps  from 'rehype-mdx-code-props'
 import fs               from 'node:fs'
 
 const https = {
-  key:  fs.readFileSync('etc/certs/badger-react-ui.local.wardley.org.key'),
-  cert: fs.readFileSync('etc/certs/badger-react-ui.local.wardley.org.crt'),
+  key:  fs.readFileSync('etc/certs/badger-react-ui.local.wardley.org-key.pem'),
+  cert: fs.readFileSync('etc/certs/badger-react-ui.local.wardley.org.pem'),
 }
 
 export default defineConfig({
@@ -39,7 +39,7 @@ export default defineConfig({
   server: {
     host: 'badger-react-ui.local.wardley.org',
     port: 3012,
-    // https
+    https
   }
 })
 
