@@ -26,6 +26,7 @@ import Boolean      from './_examples/column-type/boolean/index.mdx'
 import Select       from './_examples/column-type/select/index.mdx'
 import UseDataTable from './_examples/useDataTable/index.mdx'
 import Consumer     from './_examples/DataTableConsumer/index.mdx'
+import DescTable   from '@/web/site/DescTable.jsx'
 
 # DataTable
 
@@ -69,6 +70,43 @@ import Consumer     from './_examples/DataTableConsumer/index.mdx'
 <OnRowClick/>
 
 ## Context
+
+A react context is created which provides the items listed below.
+Any other properties passed in to the component will also be
+accessible to child components.
+
+Custom components can be wrapped with the `DataTableConsumer`
+higher order component to receive these items as properties.  Or you
+can use the `useDataTable` hook to access them.
+
+<DescTable
+  items={[
+    ['changeColumnOrder', 'Function to change the column order.  Pass an array of columns ids.'],
+    ['columnOrder',       'The current column order as an array of column ids.'],
+    ['columns',           'An object containing the column definitions, indexed by column id.'],
+    ['filters',           'An object containing any active filters, indexed by column id.'],
+    ['hasFilters',        'A boolean flag indicating if there are any filters active.'],
+    ['page',              'An object containing information about the current page.'],
+    ['pageNo',            'The current page number (starting at 1).'],
+    ['pageSize',          'The current page size.'],
+    ['rowClass',          'Any user-defined function to determine the CSS class for a row.'],
+    ['setColumnOrder',    'Low-level function to set the column order.  You should normally use `changeColumnOrder` in preference to this.'],
+    ['setFilter',         'Function to set a filter value.  Expects `name` and `value` parameters.'],
+    ['setPageNo',         'Function to set the `pageNo`.  Expects an integer parameter.'],
+    ['setPageSize',       'Function to set the `pageSize`.  Expects an integer parameter.'],
+    ['setSortColumn',     'Function to set the `sortColumn`.  Expects a column id.'],
+    ['setVisibleColumns', 'Function to set the visible columns.  Expects an array of column ids.'],
+    ['showFilters',       'Boolean flag to indicate if the filter section is visible.'],
+    ['sortColumn',        'The id of any current sort column.'],
+    ['sortReverse',       'Boolean flag indicating if the current `sortColumn` is set to reverse ordering.'],
+    ['tableClass',        'CSS class for the table.'],
+    ['toggleFilters',     'Function to toggle the `shortFilters` option indicating if the filter section is visible.'],
+    ['toggleSortColumn',  'Function to toggle the `sortColumn` and `sortReverse` options.  Expects a column id and will set the `sortColumn` to match it, or if that column is already selected, will toggle the `sortReverse`.'],
+    ['toggleVisibleColumn', 'Function to toggle a column visibility.  Expects a column id.'],
+    ['visibleColumns',      'An array of visible column ids.']
+  ]}
+/>
+
 
 <UseDataTable/>
 <Consumer/>

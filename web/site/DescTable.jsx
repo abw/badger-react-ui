@@ -3,7 +3,7 @@ import { hasValue } from '@abw/badger-utils'
 import React from 'react'
 
 const DescTable = ({items}) =>
-  <table className="wide shaded striped celled">
+  <table className="wide shaded striped celled baseline">
     <tbody>
       { items.map(
         ([name, value]) =>
