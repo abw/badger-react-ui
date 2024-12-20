@@ -238,7 +238,11 @@ const DevTests = {
     },
     {
       to: '/testing/datatable-select',
-      text: 'DataTable select',
+      text: 'DataTable Select',
+    },
+    {
+      to: '/testing/datatable-page-reset',
+      text: 'DataTable Rows',
     },
     {
       to: '/testing/accordion-select',

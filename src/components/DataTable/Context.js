@@ -65,6 +65,32 @@ const DataTableContext = ({
     visibleColumns,
   })
 
+  // Additional UI state variables for filters
+  const [showFilters, setShowFilters] = useState(false)
+  const [filters, setFilters] = useState({ })
+
+  const toggleFilters = e => {
+    e.preventDefault()
+    e.stopPropagation()
+    setShowFilters( sf => ! sf )
+  }
+
+  const setFilter = (name, value) => {
+    setFilters(
+      filters => {
+        const newFilters = { ...filters }
+        if (hasValue(value) && (isBoolean(value) || value.length)) {
+          newFilters[name] = value
+        }
+        else {
+          delete newFilters[name]
+        }
+        return newFilters
+      }
+    )
+    setters.setPageNo(1)
+  }
+
   useEffect(
     () => {
       Debug(`columns have changed: `, columns)
@@ -74,6 +100,14 @@ const DataTableContext = ({
       setters.setVisibleColumns(visibleColumns)
     },
     [sortColumn, sortReverse, columnOrder, visibleColumns]
+  )
+
+  useEffect(
+    () => {
+      Debug(`rows, filters or sorting order has changed`)
+      setters.setPageNo(1)
+    },
+    [rows, state.sortColumn, state.sortReverse, state.filters]
   )
 
   // Save any state changes back to the store, if defined
@@ -129,32 +163,6 @@ const DataTableContext = ({
     Debug(`New order of visible columns:`, newVisible)
     setters.setVisibleColumns(newVisible)
     setters.setColumnOrder(newOrder)
-  }
-
-  // Additional UI state variables for filters
-  const [showFilters, setShowFilters] = useState(false)
-  const [filters, setFilters] = useState({ })
-
-  const toggleFilters = e => {
-    e.preventDefault()
-    e.stopPropagation()
-    setShowFilters( sf => ! sf )
-  }
-
-  const setFilter = (name, value) => {
-    setFilters(
-      filters => {
-        const newFilters = { ...filters }
-        if (hasValue(value) && (isBoolean(value) || value.length)) {
-          newFilters[name] = value
-        }
-        else {
-          delete newFilters[name]
-        }
-        return newFilters
-      }
-    )
-    setters.setPageNo(1)
   }
 
   // Filter, sort and paginate the rows
