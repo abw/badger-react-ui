@@ -1,0 +1,16 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="minLength"
+  Component={Component}
+  Source={Source}
+  undent={4}
+  highlightLines="2"
+>
+  The `minLength` property can be used to define the minimum length of
+  the search input before a the `onSearch` function is called.  The default
+  value is 2.
+</Example>

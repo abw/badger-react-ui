@@ -1,0 +1,19 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="options"
+  Component={Component}
+  Source={Source}
+  highlightLines="4-8"
+  undent={4}
+  expand
+>
+  The `options` property should be used to define the values for each radio
+  button.  These can be simple values (e.g. strings or numbers) as shown in
+  the preceding examples.  For more complex cases you should define each
+  element as an object containing a `value` and any of `text`, `label` or
+  `name` for the displayed text.
+</Example>

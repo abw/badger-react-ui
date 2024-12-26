@@ -7,27 +7,27 @@ const Component = () =>
     <Badge
       text="Shadow 1"
       color="indigo"
-      outline shadow
+      shadow
     />
     <Badge
       text="Shadow 2"
       color="violet"
-      outline shadow={2}
+      shadow={2}
     />
     <Badge
       text="Shadow 3"
       color="purple"
-      outline shadow={3}
+      shadow={3}
     />
     <Badge
       text="Shadow 4"
       color="pink"
-      outline shadow={4}
+      shadow={4}
     />
     <Badge
       text="Shadow 5"
       color="maroon"
-      outline shadow={5}
+      shadow={5}
     />
   </div>
 /* END */

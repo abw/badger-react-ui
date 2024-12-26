@@ -1,0 +1,30 @@
+import Strings     from './Strings.jsx'
+import StringsSrc  from './Strings.jsx?raw'
+import Value       from './Value.jsx'
+import ValueSrc    from './Value.jsx?raw'
+import { Example } from '@abw/badger-website'
+
+### `value`
+
+The `value` property can be used to pre-select a value.
+
+<Example
+  Component={Strings}
+  code={StringsSrc}
+  caption="value"
+  highlightLines="18"
+  expand={false}
+/>
+
+When the `options` are defined as an array of objects,
+the specified `value` should correspond to the
+`value` or `id` property of an element in
+the `options` array.
+
+<Example
+  Component={Value}
+  code={ValueSrc}
+  caption="value"
+  highlightLines="18"
+  expand={false}
+/>

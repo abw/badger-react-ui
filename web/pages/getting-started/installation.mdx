@@ -1,0 +1,66 @@
+import React       from 'react'
+import { Snippet } from '@abw/badger-website'
+
+# Installation
+
+## Adding to a Javascript Project
+
+Add `@abw/badger-react-ui` to your Javascript project
+using your favourite package manager.
+
+<Snippet
+  file="getting-started/add.bash"
+  caption="Installing"
+  expand
+/>
+
+## Importing the CSS
+
+The precise details on how you import the CSS will vary depending on
+what framework and bundler you're using.  For a React app using
+Vite or running under Next.js, for example, you can add the CSS file
+to your main application script as show here.
+
+For other frameworks and/or bundlers you should consult the documentation on
+how to import a CSS file from a module in your `node_modules` directory.
+
+<Snippet
+  file="getting-started/badger-css-react-ui-css.js"
+  caption="Combined CSS for Badger CSS / React UI"
+  expand
+/>
+
+## Includes Badger CSS!
+
+Note that the example shown above imports the stylesheets that *includes* the
+styles from Badger CSS.  If you're already using Badger CSS and have it
+imported, or if you've customised your installation of Badger CSS, then you
+only need to import the additional styles for Badger React UI.
+
+<Snippet
+  file="getting-started/badger-react-ui-css.js"
+  caption="Separate CSS for Badger CSS / React UI"
+  expand
+/>
+
+## Importing the SCSS
+
+If you're using SASS/SCSS to build your stylesheet then you can import the
+SCSS components. Add the following line to your main SCSS stylesheet source
+to import the Badger CSS and Badger React UI components.
+
+<Snippet
+  file="getting-started/badger-css-react-ui-scss.scss"
+  caption="Combined SCSS for Badger CSS / React UI"
+  expand
+/>
+
+Or if you're already importing the Badger CSS components, possibly to
+customise it in some way, then you only need to import the
+`badger-react-ui.scss` file.
+
+<Snippet
+  file="getting-started/badger-react-ui-scss.scss"
+  caption="Separate SCSS for Badger CSS / React UI"
+  expand
+/>

@@ -1,0 +1,25 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { BadgerIconLink } from '@/site/Links.jsx'
+
+<Example
+  code="name"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  expand
+>
+  The `name` property can be used to select an icon from the default icon
+  library. Additional modifiers and classes can be added to the name to apply
+  styles and transformations.  e.g. `arrow-right` rotates the `arrow` icon
+  through 90&deg; so that it points to the right.
+
+  The `name` can include multiple icons, each of which can have dashed
+  modifiers and dotted CSS classes.  Each should be separated by whitespace.
+  The separate icons will be stacked on top of each other to create a
+  composite icon.
+
+  See the <BadgerIconLink/> documentation for further details.
+</Example>

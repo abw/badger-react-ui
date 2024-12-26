@@ -13,8 +13,11 @@ const OverlayExample = () => {
       />
       { isVisible &&
         /* START */
-        <Overlay fixed className="flex center middle">
-          <div className="max-width-40rem">
+        <Overlay
+          fixed
+          className="flex center middle"
+        >
+          <div className="max-width-40rem pad-a-4">
             <p className="larger">
               I do not, for one, think that the problem was that the
               band was down. I think that the problem may have been...

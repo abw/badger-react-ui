@@ -1,0 +1,16 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { CodeHashLink } from '@/site/Links.jsx'
+
+<Example
+  code="bgColor"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  expand
+>
+  The `bgColor` property can be used to set the color of the background icon.
+  It only has any effect when <CodeHashLink id="bgIcon"/> is set.
+</Example>

@@ -4,16 +4,27 @@ import svgr             from 'vite-plugin-svgr'
 import react            from '@vitejs/plugin-react-swc'
 // import react            from '@vitejs/plugin-react'
 import define           from  './vite.defs.js'
+import mdx              from '@mdx-js/rollup'
+import rehypeCodeProps  from 'rehype-mdx-code-props'
 import fs               from 'node:fs'
 
 const https = {
-  key:  fs.readFileSync('etc/certs/badger-react-ui.local.wardley.org.key'),
-  cert: fs.readFileSync('etc/certs/badger-react-ui.local.wardley.org.crt'),
+  key:  fs.readFileSync('etc/certs/badger-react-ui.local.wardley.org-key.pem'),
+  cert: fs.readFileSync('etc/certs/badger-react-ui.local.wardley.org.pem'),
 }
 
 export default defineConfig({
   plugins: [
-    react(),
+    {
+      enforce: 'pre',
+      ...mdx({
+        rehypePlugins: [rehypeCodeProps],
+        providerImportSource: '@mdx-js/react'
+      })
+    },
+    react({
+      include: /\.(jsx|mdx)$/
+    }),
     svgr(),
     // jsconfigPaths({ root: '../' })
   ],
@@ -24,7 +35,7 @@ export default defineConfig({
   build: {
     emptyOutDir: true,
     outDir: '../docs',
-    chunkSizeWarningLimit: 900
+    chunkSizeWarningLimit: 1800
   },
   server: {
     host: 'badger-react-ui.local.wardley.org',

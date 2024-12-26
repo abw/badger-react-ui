@@ -1,0 +1,18 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="className"
+  Component={Component}
+  Source={Source}
+  highlightLines="3"
+  undent={4}
+  expand
+>
+  The `className` property can be used to set the CSS class for the buttons
+  container element.  The default value is `buttons`.  If you want to use the
+  default styles provided by Badger CSS then you should include `buttons` in
+  the value you provide for `className`
+</Example>

@@ -20,7 +20,15 @@ export default defineConfig({
     exclude: ['test/setup.js', 'test/lib'],
     coverage: {
       provider: 'v8',
-      reporter: ['html']
+      reporter: ['html'],
+      include: ['src/**'],
+      exclude: [
+        'src/components/Confirm/Modal.jsx',
+        'src/hooks/useContainer.jsx',
+        'src/hooks/useFloating.jsx',
+        'src/hooks/useRenderCount.jsx',
+        'src/hooks/useWindow.jsx',
+      ],
     },
   },
   define,
@@ -51,6 +59,10 @@ export default defineConfig({
             {
               src: ['styles/*', '!styles/build'],
               dest: 'dist/styles',
+            },
+            {
+              src: ['src/index.d.ts'],
+              dest: 'dist',
             },
           ],
           hook: 'writeBundle'

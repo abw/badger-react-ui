@@ -1,0 +1,16 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { DivLink, FlexLink } from '@/web/site/Links.jsx'
+
+<Example
+  code="stylePropsClasses"
+  Component={Component}
+  Source={Source}
+>
+  The `stylePropsClasses` utility function first calls the `styleProps()`
+  function and then merges in any remaining properties into the CSS class.
+  This is used by the <DivLink/> and <FlexLink/> element components,
+  for example.
+</Example>

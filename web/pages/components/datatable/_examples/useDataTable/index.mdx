@@ -1,0 +1,29 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="useDataTable"
+  Component={Component}
+  Source={Source}
+  highlightLines="23,35,40-44"
+  undent={2}
+  expand
+>
+  The `useDataTable` hook can be called to return the DataTable context.
+  This contains all the DataTable state data, including any additional
+  properties passed to the DataTable.
+
+  In this example we define a `display` function for the `text` column. The
+  function is passed an object containing the `row` and the `rowIndex` which
+  is the offset (starting at 0) in the current page of rows.  The
+  `useDataTable()` hook returns the current `page` which has the `from`
+  property indicating the current row number (starting at 1 - use `firstIndex`
+  if you want to row offset starting at 0). Adding them together gives the
+  overall row number.
+
+  The `rowClass` function also calls `useDataTable()`, in this case to access
+  the `statusClasses` lookup table that was passed to the DataTable as an
+  additional property.
+</Example>

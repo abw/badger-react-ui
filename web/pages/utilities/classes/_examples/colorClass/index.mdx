@@ -1,0 +1,18 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="colorClass"
+  Component={Component}
+  Source={Source}
+>
+  The `colorClass` utility function can be used to construct a CSS class for
+  defining colors.  The format for the argument is a color range name
+  optionally followed by one to four color stop numbers, separated by hyphens.
+  The first number is the foreground color stop, used to add an `fgc-N` CSS
+  class. The second in the background color stop, adding a `bgc-N` class.
+  The third and fourth numbers are the foreground and background color stops
+  in dark mode, adding `fgd-N` and `bgd-N` classes respectively.
+</Example>

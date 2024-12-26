@@ -6,7 +6,7 @@ const UISelectExample = () =>
   <Form>
     <Field
       name="member"
-      type="uiselect"
+      type="ui-select"
       label="Musician"
       value="david"
       selectValue={option => option.value}

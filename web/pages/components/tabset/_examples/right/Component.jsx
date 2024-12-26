@@ -4,7 +4,8 @@ import { Tabset } from '@/src/index.jsx'
 const TabsetExample = () =>
 /* START */
   <Tabset
-    solid lined right color="blue"
+    right
+    solid lined color="blue"
     tabs={[
       { text: 'Ten', content: 'Quite loud' },
       { text: 'Eleven', content: 'One louder' },

@@ -1,0 +1,20 @@
+import React       from 'react'
+import Component   from './_examples/ThemedProps.jsx'
+import Source      from './_examples/ThemedProps.jsx?raw'
+import { Example } from '@abw/badger-website'
+
+# themedProps
+
+The `themedProps()` utility function can be used to automatically
+generate a set of properties from one or more variants.  It should be
+passed the component properties as the first argument.  The second argument
+should be an object containing one or more entries mapping a property to
+a set of default properties.  In this example we use the `action` property
+to provide defaults for the button component.
+
+<Example
+  Component={Component}
+  code={Source}
+  highlightLines="23-25"
+  expand
+/>

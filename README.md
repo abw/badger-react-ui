@@ -1,13 +1,13 @@
 # Badger React UI
 
 This is a collection of React UI components using the
-[Badger CSS](https://abw.github.io/badger-css/) styles.
+[Badger CSS](https://badgerpower.com/badger-css/) styles.
 
 ## Documentation Website
 
 See the website for documentation and demonstrations.
 
-https://abw.github.io/badger-react-ui/
+https://badgerpower.com/badger-react-ui/
 
 ## Getting Started
 

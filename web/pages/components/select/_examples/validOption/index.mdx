@@ -1,0 +1,19 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="validOption"
+  Component={Component}
+  Source={Source}
+  highlightLines="19"
+  expand
+>
+  The `validOption` property can be used to provide a function that determines
+  if an option is valid and can be selected.  The default function uses the
+  `disabled` property in an option to identify invalid options.
+
+  In this example we define a `validOption` function which rejects any options
+  that have the `isFruit` flag set.
+</Example>

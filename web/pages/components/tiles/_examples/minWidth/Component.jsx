@@ -4,7 +4,10 @@ import { Cards } from '../Tiles/Component.jsx'
 
 const TilesExample = () =>
   /* START */
-  <Tiles gap={2} minWidth="50px">
+  <Tiles
+    gap={2}
+    minWidth="50px"
+  >
     <Cards/>
   </Tiles>
   /* END */

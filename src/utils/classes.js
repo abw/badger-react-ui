@@ -46,36 +46,57 @@ export const sizeColorProps = ({
   )
 })
 
-export const styleProps = ({
-  className,
-  size,
-  color,
-  border,
-  radius,
-  shadow,
-  pad,
-  mar,
-  padding=pad,
-  margin=mar,
-  ...props
-}) => ({
+export const styleProps = (
+  {
+    className,
+    size,
+    color,
+    border,
+    radius,
+    shadow,
+    grid,
+    stack,
+    gap,
+    pad,
+    mar,
+    padding=pad,
+    margin=mar,
+    ...props
+  },
+  ...more
+) => ({
   ...props,
   className: classes(
+    ...more,
     className, size,
     colorClass(color),
     borderClass(border),
     radiusClass(radius),
     shadowClass(shadow),
+    gridClass(grid),
+    gapClass(gap),
+    stackClass(stack),
     paddingClass(padding),
     marginClass(margin),
   )
 })
+
+export const stylePropsClasses = (...args) => {
+  const { className, ...rest } = styleProps(...args)
+  return classes(className, rest)
+}
 
 export const borderClass = border =>
   classTrueInt(border, 'border', b => `border bdw-${b}`)
 
 export const shadowClass = shadow =>
   classTrueInt(shadow, 'shadow-1', s => `shadow-${s}`)
+
+export const gridClass = grid =>
+  classTrue(grid, 'grid-1', g => `grid-${g}`)
+
+export const stackClass = stack =>
+  stack ? `stack-${stack}` : null
 
 export const paddingClass = padding =>
   classTrueVHTRBL(padding, 'pad')
@@ -84,7 +105,7 @@ export const marginClass = margin =>
   classTrueVHTRBL(margin, 'mar')
 
 export const radiusClass = radius =>
-  classInt(radius, r => `bdr-${r}`)
+  classTrueInt(radius, 'bdr-1', r => `bdr-${r}`)
 
 export const foregroundClass = stop =>
   classInt(stop, s => `fgc-${s}`)
@@ -99,18 +120,16 @@ export const backgroundDarkClass = stop =>
   classInt(stop, s => `bgd-${s}`)
 
 export const gapClass = gap =>
-  classInt(
+  classTrue(
     gap,
+    'gap-1',
     g => {
       const gaps = splitList(g)
-      console.log(`gap: ${g} gaps:`, gaps)
-
       return gaps.length === 2
         ? fixValues('gap', ['v', 'h'], gaps)
         : `gap-${g}`
     }
   )
-
 
 export const classInt = (c, i) =>
   isInteger(parseInt(c))
@@ -127,7 +146,7 @@ export const classTrue = (c, t, f) =>
 export const classTrueInt = (c, t, i) =>
   c === true
     ? t
-    : parseInt(c)
+    : isInteger(parseInt(c))
       ? maybeFunction(i, c)
       : null
 

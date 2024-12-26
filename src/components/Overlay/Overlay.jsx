@@ -9,11 +9,13 @@ export const Overlay = ({
   fixed,
   light,
   dark,
+  onClick,
   children
 }) =>
   <div
     className={classes('overlay', className, color, { fixed, light, dark })}
     style={style}
+    onClick={onClick}
   >
     {children}
   </div>

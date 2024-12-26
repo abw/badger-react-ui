@@ -1,0 +1,17 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="className"
+  Component={Component}
+  Source={Source}
+  highlightLines="10,13,17,21-24"
+  undent={4}
+  expand
+>
+  The `className` property can be used to add a CSS class to the column.  It
+  can be a string or a function which will be passed an object containing the
+  `row`, `column`, `value`, `name`, `rowIndex` and `cellIndex`.
+</Example>

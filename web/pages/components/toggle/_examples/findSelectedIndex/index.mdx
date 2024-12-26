@@ -1,0 +1,21 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="findSelectedIndex"
+  Component={Component}
+  Source={Source}
+  highlightLines="17-20,27"
+  expand
+>
+  The `findSelectedIndex` property can be used to provide an alternative
+  function to determine the index of a selected option.
+
+  The default function looks for the option that matches the `value` property
+  of the selected option.
+
+  In this example we define a function to match the index of the selected
+  option using the `id` property.
+</Example>

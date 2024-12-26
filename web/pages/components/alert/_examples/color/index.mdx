@@ -1,0 +1,16 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="color"
+  Component={Component}
+  Source={Source}
+  highlightLines={ line => line % 4 === 0 }
+  undent={2}
+  expand
+>
+  The `color` property can be used to set the color range used for the alert.
+</Example>
+

@@ -1,0 +1,23 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="filterType"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  highlightLines="4-18"
+  expand
+>
+  The `filterType` property can be used to define a different type for the
+  filtering component.  This is typically set to `select` when you want to
+  implement a dropdown menu for filtering, but want to use a different column
+  `type` (e.g. `number`) for sorting.
+
+  In this example we define the `filterType` for the `id` column to be
+  `select`, with the main `type` set to `id`.  The objects in the
+  `selectOptions` array have a `value` which is a range for filtering ids.
+  The `filter` function then uses that to filter rows.
+</Example>

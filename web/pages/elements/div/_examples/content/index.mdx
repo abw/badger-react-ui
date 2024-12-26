@@ -1,0 +1,16 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="content"
+  Component={Component}
+  Source={Source}
+  highlightLines="8"
+  expand
+  undent={2}
+>
+  The `content` property can be used as a shortcut for adding simple content
+  instead of child elements.
+</Example>

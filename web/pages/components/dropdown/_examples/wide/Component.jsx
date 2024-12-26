@@ -6,9 +6,9 @@ import { Dropdown } from '@/src/index.jsx'
 const DropdownExample = () =>
   /* START */
   <Dropdown
-    wide
     text='Dropdown Wide'
     content='Hello World!'
+    wide
   />
   /* END */
 

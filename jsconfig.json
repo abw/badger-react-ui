@@ -18,6 +18,7 @@
       "@/svg/*":        ["./web/svg/*"],
       "@/ui/*":         ["./web/ui/*"],
       "@/utils/*":      ["./web/utils/*"],
+      "@/test/*":       ["./test/*"],
     }
   }
 }

@@ -7,7 +7,10 @@ const PagerSeparator = ({
   pageSeparatorClass='separator',
   pageSeparator=defaultPageSeparator,
 }) =>
-  <div className={pageSeparatorClass}>
+  <div
+    role="separator"
+    className={pageSeparatorClass}
+  >
     {pageSeparator}
   </div>
 

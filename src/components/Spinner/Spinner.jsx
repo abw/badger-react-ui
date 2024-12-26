@@ -11,6 +11,7 @@ const iconParts = (mods, classes) =>
       : '',
     classes.length
       ? '.' + classes.join('.')
+      /* v8 ignore next */
       : ''
   ].join('')
 
@@ -62,6 +63,9 @@ const Spinner = ({
   bgFillStopDark=30,
   shrink=bgIcon ? 5 : 0,
   reverse=false,
+  fast=false,
+  slow=false,
+  speed=fast ? 'fast' : slow ? 'slow' : null,
   animation=reverse ? 'spin.reverse' : 'spin',
 }) => {
   const cname = classes(
@@ -70,7 +74,7 @@ const Spinner = ({
   const bgMods = [ ]
   const bgClasses = [ bgColor ]
   const fgMods = [ ]
-  const fgClasses = [ color, animation ]
+  const fgClasses = [ color, animation, speed ]
 
   iconStroke(bgMods, bgClasses, bgStroke, bgStrokeWidth, bgStrokeStop, bgStrokeStopDark)
   iconStroke(fgMods, fgClasses, stroke, strokeWidth, strokeStop, strokeStopDark)

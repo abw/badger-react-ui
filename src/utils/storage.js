@@ -1,6 +1,6 @@
 import { hasValue } from '@abw/badger-utils'
 
-function LocalStorage() {
+export function LocalStorage() {
   let store = { }
   return {
     clear: () => (store = {}),

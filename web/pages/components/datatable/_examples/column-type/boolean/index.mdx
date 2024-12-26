@@ -1,0 +1,24 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="boolean"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  highlightLines="14,18-20"
+  expand
+>
+  The `type` can be set to `boolean` for boolean values.  This will coerce
+  non-boolean types to boolean vales so that numerical values 0 and 1, and
+  strings "0" and "1" are correctly interpreted.
+
+  Sorting on this column will put false values before true values. The filter
+  for this column presents a drop-down menu with true and false values.
+
+  The `trueText` and `falseText` properties can be set to define the text that
+  should be displayed for true and false values respectively.  Otherwise it
+  defaults to "True" and "False".
+</Example>

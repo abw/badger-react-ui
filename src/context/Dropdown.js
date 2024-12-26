@@ -2,8 +2,6 @@ import { Context } from '@abw/react-context'
 import { ENTER, ESCAPE, SPACE } from '@/src/constants.js'
 import { doNothing, sleep } from '@abw/badger-utils'
 
-
-
 class DropdownContext extends Context {
   static debug        = false
   static defaultProps = {
@@ -141,7 +139,7 @@ class DropdownContext extends Context {
         break
 
       default:
-        console.log(`ignored key ${event.key}`)
+        this.debug(`ignored key ${event.key}`)
         return
     }
     event.preventDefault()

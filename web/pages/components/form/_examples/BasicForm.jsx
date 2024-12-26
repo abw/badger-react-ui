@@ -26,6 +26,16 @@ const quotes = [
   "What's wrong with being sexy?"
 ]
 
+const songs = [
+  "Stonehenge",
+  "Hell Hole",
+  "Sex Farm",
+  "Tonight I'm Gonna Rock You",
+  "Big Bottom",
+  "Heavy Duty",
+  "Rock and Roll Creation",
+]
+
 const searchQuotes = input =>
   quotes.filter(
     quote => quote
@@ -61,11 +71,43 @@ const FormExample = () =>
       options={instruments}
     />
     <Field
+      name="songs"
+      type="multiselect"
+      label="Favourite Songs"
+      options={songs}
+      sortable
+    />
+    <Field
       name="quote"
       type="search"
       label="Favourite Quote"
       help="Hint: try 'black' or 'eleven'"
       onSearch={searchQuotes}
+    />
+    <Field
+      label="Volume"
+      name="volume"
+      type="rangemax"
+      default={10}
+      showScale
+      showTicks
+      min={0} max={11}
+      required
+    />
+    <Field
+      label="Blackness"
+      name="blackness"
+      type="rangeminmax"
+      showScale
+      showTicks
+      step={5}
+      tickStep={20}
+      showValues
+      default={[40, 60]}
+      displayValue={ value => `${value}%` }
+      valuesSize="smaller"
+      minRange={10}
+      required
     />
     <Field
       name="terms"
@@ -91,7 +133,10 @@ const FormExample = () =>
             email: 'nigel@spinal-tap.com',
             password: 'eleven',
             instrument: 'Guitar',
+            songs: ['Stonehenge', 'Big Bottom'],
             quote: 'These go up to eleven',
+            volume: 11,
+            blackness: [10,40],
             terms: true
           })
         }

@@ -1,0 +1,17 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="maxWidth"
+  Component={Component}
+  Source={Source}
+  highlightLines="4"
+  undent={6}
+  expand
+>
+  The `maxWidth` property can be used as a shortcut to set the maximum width
+  for the dialog.  Internally this adds a `--max-width` CSS custom property
+  via a `style` attribute.
+</Example>

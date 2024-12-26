@@ -11,10 +11,12 @@ import {
 const Alert = ({
   title,
   headline,
-  headIcon,
+  headicon,
+  headIcon=headicon,
   type,
   size,
   color,
+  compact,
   stripe,
   border,
   radius,
@@ -40,7 +42,7 @@ const Alert = ({
   const cname = classes(
     'alert', type, size, color, className,
     {
-      revealable, dismissable, stripe
+      compact, revealable, dismissable, stripe
     },
     isRevealed ? 'revealed' : null,
     shadowClass(shadow),

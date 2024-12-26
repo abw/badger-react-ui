@@ -1,0 +1,17 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="revealed"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  highlightLines="5"
+  expand
+>
+  The `revealed` property can be set to make it a revealable alert initially
+  revealed.
+</Example>
+

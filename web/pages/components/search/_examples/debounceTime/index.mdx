@@ -1,0 +1,23 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="debounceTime"
+  Component={Component}
+  Source={Source}
+  undent={4}
+  highlightLines="2"
+>
+  The component does not call the `onSearch` handler immediately when the
+  user enters a search value.  Instead it introduces a short delay known
+  as the "debounce time".  Think of it as a timer which is started whenever
+  the user enters a character.  If they enter another character before the
+  timer has elapsed then the timer is reset.  This is particularly useful when
+  the component is calling a network API.  It allows the user to "finish
+  typing" (for some definition of "finish") before making the API call.
+
+  The default value is 500 milliseconds.  The `debounceTime` property can be
+  used to set a different value.
+</Example>

@@ -11,6 +11,7 @@ const Component = () => {
         page={page} setPage={setPage}
         size="smaller"
       />
+
       <Pager
         pages={11}
         page={page} setPage={setPage}

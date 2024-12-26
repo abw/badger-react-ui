@@ -1,0 +1,18 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="grid"
+  Component={Component}
+  Source={Source}
+  highlightLines="1,2,6"
+  expand
+  undent={2}
+>
+  The `grid` property can be used to enable grid layout.  The property can be
+  a number indicating the number of colums,  `fit` to add the `grid-fit`
+  class, or `fill` to add the `grid-fill` class.  When specified as a boolean
+  flag it defaults to `grid-1` for a single column.
+</Example>

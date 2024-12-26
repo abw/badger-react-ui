@@ -1,10 +1,7 @@
 import { test, expect } from 'vitest'
-import { validOption, optionValue, findOption } from '@/src/index.jsx'
+import { validOption, optionValue, findOption, searchOptions } from '@/src/index.jsx'
 
-//--------------------------------------------------------------------------
-// validOption
-//--------------------------------------------------------------------------
-
+//-- validOption -------------------------------------------------------------
 test(
   'validOption() is true for string',
   () => expect(
@@ -59,9 +56,7 @@ test(
   )
 )
 
-//--------------------------------------------------------------------------
-// optionValue
-//--------------------------------------------------------------------------
+//-- optionValue -------------------------------------------------------------
 test(
   'optionValue() returns string',
   () => expect(
@@ -143,9 +138,30 @@ test(
   )
 )
 
-//--------------------------------------------------------------------------
-// findOption
-//--------------------------------------------------------------------------
+//-- findOption --------------------------------------------------------------
+test(
+  'findOption() for undefined',
+  () => expect(
+    findOption(
+      [ 'foo', 'bar', 'baz' ]
+    )
+  ).toStrictEqual(
+    [ ]
+  )
+)
+
+test(
+  'findOption() for null',
+  () => expect(
+    findOption(
+      [ 'foo', 'bar', 'baz' ],
+      null
+    )
+  ).toStrictEqual(
+    [ ]
+  )
+)
+
 test(
   'findOption() for string',
   () => expect(
@@ -166,6 +182,17 @@ test(
     )
   ).toStrictEqual(
     ['bar', 1]
+  )
+)
+test(
+  'findOption() for missing string',
+  () => expect(
+    findOption(
+      [ 'foo', 'bar', 'baz' ],
+      'wibble'
+    )
+  ).toStrictEqual(
+    [ ]
   )
 )
 test(
@@ -207,5 +234,120 @@ test(
     )
   ).toStrictEqual(
     [{ id: 'thirty', name: 'Trente' }, 2]
+  )
+)
+
+//-- searchOptions -----------------------------------------------------------
+test(
+  'searchOptions() strings',
+  () => expect(
+    searchOptions(
+      'an',
+      [
+        'Alan',
+        'Mandy',
+        'Robert'
+      ]
+    )
+  ).toStrictEqual(
+    ['Alan', 'Mandy']
+  )
+)
+
+test(
+  'searchOptions() strings with case folding',
+  () => expect(
+    searchOptions(
+      'AL',
+      [
+        'Alan',
+        'Mandy',
+        'Robert',
+        'Callum'
+      ]
+    )
+  ).toStrictEqual(
+    ['Alan', 'Callum']
+  )
+)
+
+test(
+  'searchOptions() objects name',
+  () => expect(
+    searchOptions(
+      'An',
+      [
+        { id: 1, name: 'Alan' },
+        { id: 2, name: 'Mandy' },
+        { id: 3, name: 'Robert' },
+        { id: 4, name: 'Callum' }
+      ]
+    )
+  ).toStrictEqual(
+    [
+      { id: 1, name: 'Alan'   },
+      { id: 2, name: 'Mandy' },
+    ]
+  )
+)
+
+test(
+  'searchOptions() objects value',
+  () => expect(
+    searchOptions(
+      'An',
+      [
+        { id: 1, value: 'Alan' },
+        { id: 2, value: 'Mandy' },
+        { id: 3, value: 'Robert' },
+        { id: 4, value: 'Callum' }
+      ]
+    )
+  ).toStrictEqual(
+    [
+      { id: 1, value: 'Alan'   },
+      { id: 2, value: 'Mandy' },
+    ]
+  )
+)
+
+test(
+  'searchOptions() objects with fixed value',
+  () => expect(
+    searchOptions(
+      'An',
+      [
+        { id: 0, value: 'ADD ONE', fixed: true },
+        { id: 1, value: 'Alan' },
+        { id: 2, value: 'Mandy' },
+        { id: 3, value: 'Robert' },
+        { id: 4, value: 'Callum' }
+      ]
+    )
+  ).toStrictEqual(
+    [
+      { id: 0, value: 'ADD ONE', fixed: true },
+      { id: 1, value: 'Alan'   },
+      { id: 2, value: 'Mandy' },
+    ]
+  )
+)
+
+test(
+  'searchOptions() objects with nothing to match',
+  () => expect(
+    searchOptions(
+      'An',
+      [
+        { id: 0 },
+        { id: 1 },
+        { id: 2 },
+        { id: 3 },
+        { id: 4 }
+      ]
+    )
+  ).toStrictEqual(
+    [
+    ]
   )
 )

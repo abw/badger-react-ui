@@ -1,0 +1,16 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="align"
+  Component={Component}
+  Source={Source}
+  undent={4}
+  highlightLines="10,15,19"
+  expand
+>
+  The `align` property can be used to specify the alignment of cells.  The
+  default value is `left` or you can set it to `center` or `right`.
+</Example>

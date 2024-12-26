@@ -1,0 +1,19 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { CodeHashLink } from '@/web/site/Links.jsx'
+
+<Example
+  code="showValues"
+  Component={Component}
+  Source={Source}
+  highlightLines="4"
+  undent={2}
+  expand
+>
+  The `showValues` property (or `showValue` as an alias) can be specified to
+  display the current values above their respective slider thumbs. The
+  <CodeHashLink id="displayValue"/> property can be set to define a function
+  to format the value.
+</Example>

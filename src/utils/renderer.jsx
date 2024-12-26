@@ -8,7 +8,7 @@ export const defaultRenderer = name => {
     (isString(v) || isNumber(v))
       ? v
       : isObject(v)
-        ? (v.text ?? v.label ?? v.name ?? fallback)
+        ? (v.text ?? v.label ?? v.name ?? v.heading ?? fallback)
         : fallback
 }
 

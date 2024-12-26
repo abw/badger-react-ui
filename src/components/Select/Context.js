@@ -4,6 +4,7 @@ import { BLANK } from '@/src/constants.js'
 import { hasValue } from '@abw/badger-utils'
 import { ARROW_DOWN, ARROW_UP, TAB, ENTER, ESCAPE, SPACE, BACKSPACE } from '@/src/constants.js'
 import { findOption, validOption, searchOptions, defaultRenderer } from '@/src/utils/index.js'
+import { doNothing } from '@abw/badger-utils'
 
 class Context extends MenuContext {
   static debug        = false
@@ -16,8 +17,9 @@ class Context extends MenuContext {
     findOption,
     validOption,
     searchOptions,
-    displayValue:  defaultRenderer('displayValue'),
-    displayOption: defaultRenderer('displayOption'),
+    displayValue:   defaultRenderer('displayValue'),
+    displayOption:  defaultRenderer('displayOption'),
+    displayHeading: defaultRenderer('displayHeading'),
   }
   // NOTE: we don't want to reset the cursor or value when closing
   static inactiveState = {
@@ -52,9 +54,29 @@ class Context extends MenuContext {
   }
 
   componentDidUpdate(prevProps) {
+    let newState
+    if (this.props.options !== prevProps.options) {
+      this.debug(`options have changed, current value is`, this.state.value)
+      newState = this.valueState(this.state.value)
+    }
     if (this.props.value !== prevProps.value) {
       this.debug(`value has changed from ${prevProps.value} to ${this.props.value}`)
-      this.setState(this.valueState())
+      newState = this.valueState()
+    }
+    // It can be useful to distinguish between cases where a user has selected
+    // an option (the regular onSelect) and cases where the state has changed
+    // because the options or pre-selected value have changed (the new
+    // onUpdate).  If there is no onUpdate defined then we fall back to
+    // onSelect so that we don't break any code.  Note that we only do this
+    // if the newState contains a value
+    if (newState) {
+      const changer = hasValue(newState.value)
+        ? (this.props.onUpdate || this.props.onSelect)
+        : doNothing
+      this.setState(
+        newState,
+        () => changer(newState.value)
+      )
     }
   }
 
@@ -68,21 +90,18 @@ class Context extends MenuContext {
       options,
       v
     )
-    const input = this.inputValue(value)
-    return { value, cursor, input, options }
-  }
-
-  inputValue(value=this.props.value) {
-    return hasValue(value)
-      ? this.props.displayValue(value)
-      : null
+    // v1.1.17 - getting rid of input and having the Input.jsx component
+    // render it using displayValue()
+    // const input = this.inputValue(value)
+    // return { value, cursor, input, options }
+    return { value, cursor, options }
   }
 
   selectState(value) {
-    const input = this.inputValue(value)
+    // const input = this.inputValue(value)
     return {
       value,
-      input,
+      // input,
       selected: value
     }
   }
@@ -96,6 +115,9 @@ class Context extends MenuContext {
 
   onKeyDown(event) {
     this.debug(`onKeyDown(${event.key})`)
+    if (this.props.disabled) {
+      return
+    }
 
     switch (event.key) {
       case ARROW_DOWN:
@@ -211,7 +233,7 @@ class Context extends MenuContext {
   }
 
   searchOptions() {
-    this.debug('searchOptions()')
+    this.debug('searchOptions(), searchInput: ', this.state.searchInput)
     const { options, searchOptions } = this.props
     this.setState(
       state => ({
@@ -231,7 +253,6 @@ class Context extends MenuContext {
   menuOptions() {
     return this.state.options
   }
-
 }
 
 export const SelectContext = Generator(Context)

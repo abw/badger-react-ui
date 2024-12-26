@@ -1,0 +1,19 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="showFirstLast"
+  Component={Component}
+  Source={Source}
+  highlightLines="4"
+  undent={4}
+>
+  The `showFirstLast` property determines if the first and last pages are
+  shown in the set of numbered page buttons. A button for the first page will
+  be displayed when it is less than previous page.  The last page button will
+  be displayed when it is greater than the next page.
+
+  This value defaults to `true` but can be set `false` to hide these buttons.
+</Example>

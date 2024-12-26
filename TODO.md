@@ -9,6 +9,8 @@ the context returned from `getContext()`
 
 * Have `Children` for headless components which will render functions.
 
+* Cleanup constants
+
 ## Styling
 
 * Search and Select should share styles for results/options and should inherit
@@ -16,14 +18,24 @@ from form styles
 
 # Components
 
+## Accordion
+
+Implemented as wrapper around details with flag to define it multiple
+leaves can be open or just one.
+
 ## Alert
 
-## Datatable
-
-Column select, sort and filter.  Storage key may need some further work as
-it (probably) won't work when columns definitions change.
+## DataTable
 
 Headings wrap
+
+Option in columns pull-down to reset columns
+
+Should the filter/columns selectors be Details that open up?
+
+## Details
+
+Add sliding animation like Drawer
 
 ## Radio
 
@@ -50,22 +62,13 @@ Styling of search in select component is different to search.
 
 Search input can be obscured by next field - fixed by z-index but hard-coded
 
-Put search inside menu fixed to top.  Drop shadow for menu doesn't extend
-around search.
-
-## Details
-
-* Custom icon
-
-## WithIcon
-
-The `.icon.on-left` and `.icon.on-right` classes are only defined in the
-scope of buttons in badger-css.
-
 ## Sortable
 
 Adding dnd kit increased the bundle size from 68k to 148k.  Is it really
 worth it?  How hard would it be to implement just the bits we need?
+UPDATE: after adding badger-form, badger-icon and floating-ui it's now at
+around 250k.  So dnd kit is around 30% of the total which is more tolerable
+than the 55% when I first added it.
 
 # Utilities
 

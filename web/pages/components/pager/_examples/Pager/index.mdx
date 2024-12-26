@@ -1,0 +1,17 @@
+import React      from 'react'
+import { Example } from '@abw/badger-website'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<div className="large">
+  The `Pager` component generates buttons for navigating through several pages.
+</div>
+
+The three mandatory properties are `pages` indicating the total number of
+pages, `page` for the current page index (ranging from 0 to `pages` - 1) and
+a `setPage` handler to set the page index.
+
+<Example
+  Component={Component}
+  code={Source}
+/>

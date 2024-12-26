@@ -1,0 +1,16 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="checked"
+  Component={Component}
+  Source={Source}
+  highlightLines="3"
+  undent={4}
+  expand
+>
+  The `checked` property should be passed to indicate if the checkbox is
+  checked (`true`) or not (`false`).
+</Example>

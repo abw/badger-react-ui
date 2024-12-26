@@ -1,6 +1,7 @@
 import React      from 'react'
 import Buttons    from '@/components/Buttons/Buttons.jsx'
 import Visible    from '@/state/Visible.jsx'
+import Modal      from './Modal.jsx'
 import { Themed } from '@/src/Theme.jsx'
 
 const Confirm = ({
@@ -30,6 +31,8 @@ const Confirm = ({
   buttonsClass,
   className=buttonsClass,
   buttonClass,
+  modal,
+  modalClass,
   onClick = () => window.alert('No confirm action defined'),
   ...props
 }) => {
@@ -59,17 +62,32 @@ const Confirm = ({
     onClick:    hide,
   }
 
-  return (
-    <Buttons
-      className={className}
-      buttonClass={buttonClass}
-      buttons={
-        isVisible
-          ? [ cancelProps, confirmProps ]
-          : [ { ...props, onClick: show }]
-      }
-    />
-  )
+  return modal
+    /* v8 ignore start */
+    ? <>
+        <Buttons
+          className={className}
+          buttonClass={buttonClass}
+          buttons={[ { ...props, onClick: show } ]}
+        />
+        <Modal
+          isVisible={isVisible}
+          confirm={confirmProps}
+          cancel={cancelProps}
+          modalClass={modalClass}
+          {...props}
+        />
+      </>
+    /* v8 ignore end */
+    : <Buttons
+        className={className}
+        buttonClass={buttonClass}
+        buttons={
+          isVisible
+            ? [ cancelProps, confirmProps ]
+            : [ { ...props, onClick: show }]
+        }
+      />
 }
 
 export default Themed(Confirm, 'Confirm')

@@ -1,0 +1,24 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { BadgerUtilsLink } from '@/site/Links.jsx'
+
+<Example
+  code="sort"
+  Component={Component}
+  Source={Source}
+  highlightLines="12"
+  undent={2}
+  expand
+>
+  The `sort` property can be used to implement custom sorting. This is
+  particularly useful if you have a composite column as shown in this example.
+
+  Here we display a composite name constructed from the `forename` and
+  `surname` fields.  The datatable can't automatically sort on the `name`
+  column because there isn't a `name` column in the data.  So we define
+  the `sort` property using the <BadgerUtilsLink path="sort.html#multiSort"
+  code="multisort"/> utility function from <BadgerUtilsLink/>. This returns a
+  function that sorts the rows by surname first and then by forename.
+</Example>

@@ -1,0 +1,22 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="storageKey"
+  Component={Component}
+  Source={Source}
+  highlightLines="2"
+  expand
+  undent={2}
+>
+  The `storageKey` property can be used to define a key for the tab state to
+  be stored in local storage.  Try selecting the "Eleven" tab (it's one
+  louder) in the example below and then reload the page.  You should see the
+  tab selection preserved.
+
+  The `storageKey` should usually be unique for each tabset in your web site.
+  e.g. a tabset on your home page could use `home-tabs` and a tabset on your
+  "Contact Us" page could use `contact-tabs`.
+</Example>

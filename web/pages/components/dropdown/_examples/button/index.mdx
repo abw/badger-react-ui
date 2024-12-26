@@ -1,0 +1,17 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="button"
+  Component={Component}
+  Source={Source}
+  highlightLines="6-7,12-14,21-23"
+  undent={4}
+  expand
+>
+  The `button` property can used to render the dropdown trigger as a button.
+  The `triggerColor` and `triggerSize` properties can be used to set the
+  button color and size.
+</Example>

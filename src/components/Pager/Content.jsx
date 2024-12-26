@@ -9,11 +9,16 @@ const PagerContent = ({
   className='pager',
   size,
   color,
+  label='Pagination navigation',
   Previous=PagerPrevious,
   Next=PagerNext,
   Pages=PagerPages,
 }) =>
-  <div className={classes(className, size, color)}>
+  <div
+    role="navigation"
+    aria-label={label}
+    className={classes(className, size, color)}
+  >
     <Previous/>
     <Pages/>
     <Next/>

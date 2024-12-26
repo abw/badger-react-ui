@@ -3,54 +3,107 @@ section.datatable {
   --header-icon-opacity: 0.2;
   --header-icon-hover-opacity: 0.5;
   --header-size: 0.875em;
+  --filters-shade: var(--color-95);
+  --filtering-color: var(--brand-70);
+  --filtering-hover: var(--brand-80);
+  --has-filters-color: var(--red-60);
+  --has-filters-hover: var(--red-50);
+  --no-rows-color: var(--red-20);
+  --no-rows-background: var(--red-90);
   --sorting-shade-1: var(--color-95);
   --sorting-shade-2: var(--color-90);
   --sorting-shade-3: var(--color-80);
   --sorting-shade-4: var(--color-75);
+  --filtering-mix: 5%;
+  --filtering-stripe: var(--color-50);
+  --filtering-gradient-width: 16px;
+  --filtering-gradient-angle: 30deg;
+  --filtering-gradient-angle1: calc(90deg + var(--filtering-gradient-angle));
+  --filtering-gradient-angle2: calc(90deg - var(--filtering-gradient-angle));
+
   & > header {
-    // border: 1px solid red;
     margin-bottom: 0.5rem;
+    .controls {
+      .trigger:hover {
+        cursor: pointer;
+        path, rect {
+          fill: var(--filtering-hover);
+        }
+      }
+      .filtering.trigger path {
+        fill: var(--filtering-color);
+      }
+      .has-filters.trigger path {
+        fill: var(--has-filters-color);
+      }
+      .has-filters.trigger:hover {
+        path, rect {
+          fill: var(--has-filters-hover);
+        }
+      }
+    }
   }
   & > footer {
     margin-top: 0.5rem;
   }
   & table {
+    overflow: visible;
     thead {
       font-size: var(--header-size);
     }
-    thead th.heading {
-      cursor: pointer;
+    th.heading {
+      --header-stripe: var(--background-color);
+      --header-gradient: repeating-linear-gradient(
+        var(--filtering-gradient-angle1),
+      var(--background-color),
+      var(--background-color) var(--filtering-gradient-width),
+        var(--header-stripe) var(--filtering-gradient-width),
+        var(--header-stripe) calc(var(--filtering-gradient-width) * 2)
+      );
+      background-color: var(--background-color);
+      background-image: var(--header-gradient);
+      &.sortable {
+        cursor: pointer;
+      }
       .sort-icon, .filter-icon {
         opacity: var(--header-icon-opacity);
         transition: 0.3s opacity;
         color: var(--header-icon-color);
       }
-      &:hover {
-        background-color: var(--sorting-shade-4);
+      &.sortable:hover {
+        --background-color: var(--sorting-shade-4);
         .sort-icon {
           opacity: var(--header-icon-hover-opacity);
         }
       }
       &.sorting {
-        background-color: var(--sorting-shade-3);
+        --background-color: var(--sorting-shade-3);
         .sort-icon {
           opacity: 1;
         }
       }
-      .filter-icon:hover {
-        opacity: var(--header-icon-hover-opacity);
+      &.filtering {
+        --header-stripe: color-mix(
+          in srgb,
+        var(--background-color),
+          var(--filtering-stripe) var(--filtering-mix)
+        )
       }
-      &.filtering .filter-icon {
-        opacity: 1;
-      }
-      &.right .flex {
+      &.text-right .flex {
         flex-direction: row-reverse;
+      }
+      &.text-center .flex {
+        padding-left: 1em;
       }
     }
     thead tr.filters {
       th {
-        padding: 2px 4px 2px 2px;
+        padding: 0px 4px 0px 0px;
         font-weight: normal;
+        background-color: var(--filters-shade);
+        input, select, label, .inputs {
+          border-color: transparent;
+        }
         svg.icon {
           color: var(--header-icon-color);
           opacity: var(--header-icon-opacity);
@@ -63,11 +116,54 @@ section.datatable {
         }
       }
     }
+    tbody tr td {
+      --cell-stripe: var(--background-color);
+      --cell-gradient: repeating-linear-gradient(
+        var(--filtering-gradient-angle1),
+      var(--background-color),
+      var(--background-color) var(--filtering-gradient-width),
+        var(--cell-stripe) var(--filtering-gradient-width),
+        var(--cell-stripe) calc(var(--filtering-gradient-width) * 2)
+      );
+      background-color: var(--background-color);
+      background-image: var(--cell-gradient);
+    }
+    tr:nth-child(odd) td,
+    tr:nth-child(even) th {
+      --filtering-gradient-angle1: var(--filtering-gradient-angle2);
+    }
+    tbody tr.no-rows td {
+      text-align: center;
+      --color: var(--no-rows-color);
+      --background-color: var(--no-rows-background);
+    }
     tbody tr td.sorting {
+      font-weight: 500;
       --background-color: var(--sorting-shade-1);
     }
-    tbody tr:nth-child(even) td.sorting {
+    tbody tr td.filtering {
+      --cell-stripe: color-mix(
+        in srgb,
+        var(--background-color),
+        var(--filtering-stripe) var(--filtering-mix)
+      )
+    }
+    &.striped tbody tr:nth-child(even) td.sorting {
       --background-color: var(--sorting-shade-2);
+    }
+    &.selectable tbody tr:hover:not(.unselectable) {
+      td, th {
+        --background-color: var(--selectable-background);
+        & > *:not(dialog) {
+          background-color: transparent;
+          color: var(--selectable-color);
+          transition: background-color 0.3s ease;
+        }
+        & > .badge, & > button, & > .button, & > .inverse {
+          border-color: color-mix(in srgb, var(--selectable-color), transparent 30%);
+          background-color: color-mix(in srgb, var(--selectable-color), transparent 80%);
+        }
+      }
     }
   }
   .columns.menu {
@@ -87,4 +183,10 @@ section.datatable {
   --sorting-shade-2: var(--color-15);
   --sorting-shade-3: var(--color-20);
   --sorting-shade-4: var(--color-25);
+  --filters-shade: var(--color-15);
+  --has-filters-color: var(--red-40);
+  --no-rows-color: var(--red-80);
+  --no-rows-background: var(--red-15);
+  --filtering-mix: 11%;
 }
+

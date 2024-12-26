@@ -1,0 +1,17 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="selected"
+  Component={Component}
+  Source={Source}
+  highlightLines="19"
+  expand
+>
+  The `selected` property should be used to indicate which option is selected.
+  This can be an object that contains the same `value` property as the option,
+  or the numerical index of the item in the `options` list.  The default value
+  is `0`, selecting the first option.
+</Example>

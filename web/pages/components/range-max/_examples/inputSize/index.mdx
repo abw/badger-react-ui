@@ -1,0 +1,21 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { CodeHashLink } from '@/web/site/Links.jsx'
+
+<Example
+  code="inputSize"
+  Component={Component}
+  Source={Source}
+  highlightLines="8,13,18"
+  undent={4}
+  expand
+>
+  The `inputSize` property (or `inputsSize` as an alias) can be set to
+  specified to set the size of the input. It can be set to any of the
+  standard sizes: `smallest`, `smaller`, `small`, `large`, `larger` or
+  `largest`.
+
+  This option only has an effect when <CodeHashLink id="showInput"/> is set.
+</Example>

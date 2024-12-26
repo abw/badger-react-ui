@@ -1,39 +1,26 @@
-import React          from 'react'
-import DetailsSummary from './Summary.jsx'
-import DetailsContent from './Content.jsx'
-import { Themed }     from '@/src/Theme.jsx'
-import { classes, borderClass, radiusClass, shadowClass }    from '@/src/utils/classes.js'
+import React            from 'react'
+import Context          from './Context.js'
+import DetailsContainer from './Container.jsx'
+import NativeContainer  from './Native/Container.jsx'
+import { Themed }       from '@/src/Theme.jsx'
+
+const defaults = {
+  iconLeft: 'angle-right',
+  iconLeftRotate: 90,
+  iconRightRotate: -90,
+}
 
 const Details = ({
-  className,
-  size,
-  color,
-  lined,
-  border,
-  radius,
-  shaded,
-  shadow,
+  native,
   open,
-  Summary=DetailsSummary,
-  Content=DetailsContent,
+  Container = native
+    ? NativeContainer
+    : DetailsContainer,
   ...props
 }) =>
-  <details
-    className={
-      classes(
-        className,
-        color,
-        borderClass(border),
-        radiusClass(radius),
-        shadowClass(shadow),
-        { size, color, lined, shaded }
-      )
-    }
-    open={open}
-  >
-    <Summary {...props}/>
-    <Content {...props}/>
-  </details>
+  <Context.Provider open={open}>
+    <Container {...defaults} {...props}/>
+  </Context.Provider>
 
 export default Themed(Details, 'Details')
 

@@ -1,0 +1,18 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="rowClass"
+  Component={Component}
+  Source={Source}
+  highlightLines="1-5,16-18"
+  undent={2}
+  expand
+>
+  The `rowClass` property can be used to add a CSS class for a row based on
+  some property.  It can be a static string or a function that will be passed
+  an object containing the `row` and `rowIndex` as properties and should
+  return a string.
+</Example>

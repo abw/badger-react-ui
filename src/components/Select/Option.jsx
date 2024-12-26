@@ -21,6 +21,7 @@ const Option = ({
       classes(
         optionClass,
         option.className,
+        option.indent ? `indent-${option.indent}` : null,
         active   ? activeClass   : null,
         selected ? selectedClass : null,
         validOption(option) ? null : disabledClass,
@@ -34,5 +35,4 @@ const Option = ({
     {displayOption(option)}
   </div>
 
-export const SelectOption = Context.Consumer(Option)
-export default SelectOption
+export default Context.Consumer(Option)

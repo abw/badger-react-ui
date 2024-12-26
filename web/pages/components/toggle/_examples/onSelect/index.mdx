@@ -1,0 +1,20 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="onSelect"
+  Component={Component}
+  Source={Source}
+  highlightLines="20"
+  expand
+>
+  The `onSelect` property should be used to provider a handler which will be
+  called when an option is selected.  It is passed two arguments: the `option`
+  object and the numerical index of the option in the `options` array.
+
+  You can safely use the second argument, the numerical index, as the value to
+  store for the `selected` option.  You can use the first argument, the option
+  object as long as each option has a `value` property to uniquely identify it.
+</Example>

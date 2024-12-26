@@ -1,0 +1,25 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { DNDKitLink } from '@/site/Links.jsx'
+
+<Example
+  code="MakeSortable"
+  Component={Component}
+  Source={Source}
+>
+  The above components are implemented using `MakeSortable`.
+
+  In most cases you don't need to worry about this.  However, if you're trying
+  to render a sortable table then you may see React warnings telling you that
+  a `div` element cannot appear as a child of a `tr` element or something
+  similar. The reason for this is that <DNDKitLink/> creates a `div` wrapper
+  for the sortable context and it will put it wherever you've inserted the
+  `Sortable` component.
+
+  The solution is to use `MakeSortable`, passing it all the options supported
+  by `Sortable`.  It will return an object containing `Context` and `Content`
+  components. Put the `Context` around the outside of your table and then
+  insert the `Content` where you want the sortable items to appear.
+</Example>

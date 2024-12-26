@@ -1,0 +1,37 @@
+import React      from 'react'
+import Simple     from './Simple.jsx'
+import SimpleSrc  from './Simple.jsx?raw'
+import Object     from './Object.jsx'
+import ObjectSrc  from './Object.jsx?raw'
+import { Example } from '@abw/badger-website'
+import { RangeLink } from '@/web/site/Links.jsx'
+
+### `range-min-max`
+
+The field `type` property can be set to `range-min-max`
+(or `rangeminmax`, `rangeMinMax`, etc.) to use
+the <RangeLink/> component.
+You can define additional properties in the field that will be forwarded
+to the select component.  For example, the `max` property
+is set in this example to set the maximum value for the range.
+
+<Example
+  Component={Simple}
+  code={SimpleSrc}
+  highlightLines="5"
+/>
+
+The `value` and/or `default` can be specified as
+an array of two values representing the `minValue` and
+`maxValue` for the selected range.  When the range is changed
+the values are returned as an array by default.
+You can also specify the `value` or `default` as
+an object containing `min` and `max` properties.
+A `changeValue` function can be defined to convert the
+minimum and maximum values back into an object when changes are made.
+
+<Example
+  Component={Object}
+  code={ObjectSrc}
+  highlightLines="6-7"
+/>

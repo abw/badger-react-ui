@@ -12,18 +12,10 @@
   --icon-transition:        0.3s;
   --body-background:        var(--color-100);
   --body-padding:           0.5em 0.5em;
-  // --icon-left-rotate:       0deg;
-  // --icon-right-rotate:      -90deg;
-}
-:where(.dropdown .menu) {
-  --separator-width:        4px;
-  --separator-style:        var(--item-border-style);
-  --separator-color:        var(--item-border-color);
 }
 :where(#{$dark-theme} .dropdown) {
   --body-background:        var(--color-0);
 }
-
 
 .dropdown {
   --menu-z-index: 100;
@@ -33,33 +25,35 @@
   display: inline-block;
   .trigger {
     position: relative;
-    display: inline-block;
-    padding: var(--trigger-padding);
-    border-radius: var(--trigger-border-radius);
-    font-size: 1em;
-    line-height: var(--trigger-line-height);
     white-space: nowrap;
     cursor: pointer;
     &:not(button):not(.button) {
+      display: inline-block;
+      padding: var(--trigger-padding);
+      border-radius: var(--trigger-border-radius);
+      font-size: 1em;
+      line-height: var(--trigger-line-height);
       border: var(--trigger-border-width) solid transparent;
+      &:focus:not(.no-focus) {
+        --color: var(--input-focus-color);
+        --border-color: var(--input-focus-border-color);
+        --background-color: var(--input-focus-background-color);
+        outline: none;
+        box-shadow: var(--focus-ring);
+      }
+    }
+    // override the margin tweaks because we have the div.safe-area which
+    // means the icon is no longer the only child or last child
+    &.button.icon svg.icon {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    &.button svg.icon.on-right {
+      margin-left: var(--icon-margin);
+      margin-right: var(--icon-pull);
     }
     .icon {
       transition: all var(--icon-transition);
-      /*
-      &.on-left, &:first-child:not(:last-child) {
-        margin-right: var(--icon-margin);
-      }
-      &.on-right, &:last-child:not(:first-child) {
-        margin-left: var(--icon-margin);
-      }
-      */
-    }
-    &:focus:not(.no-focus) {
-      --color: var(--input-focus-color);
-      --border-color: var(--input-focus-border-color);
-      --background-color: var(--input-focus-background-color);
-      outline: none;
-      box-shadow: var(--focus-ring);
     }
   }
   &.open .trigger {
@@ -77,9 +71,10 @@
     }
   }
   .menu, .body {
-    position: absolute;
-    display: block;
-    top: calc(100% + var(--menu-margin));
+    // Now using floating-ui
+    // position: absolute;
+    // display: block;
+    // top: calc(100% + var(--menu-margin));
     width: max-content;
     left: 0;
     right: auto;
@@ -88,13 +83,6 @@
     max-height: var(--max-height);
     box-shadow: var(--shadow-2);
     background-color: var(--item-background);
-    .separator {
-      border-bottom: var(--separator-width) var(--separator-style) var(--separator-color);
-    }
-    .item.heading {
-      font-size: var(--size-small);
-      background-color: var(--separator-color);
-    }
   }
   .body {
     background-color: var(--body-background);
@@ -111,7 +99,6 @@
     }
   }
   &.wide {
-    // display: block;
     .menu, .body {
       width: 100%;
       left: 0;

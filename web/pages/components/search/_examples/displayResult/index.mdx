@@ -1,0 +1,17 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="displayResult"
+  Component={Component}
+  Source={Source}
+  highlightLines="16-24,38"
+>
+  If a result is a text string then it will be displayed as the result.
+
+  If it's an object containing a `text`, `label` or `name` property then that
+  will be used as the display value.  Otherwise you can provide a
+  `displayResult` function to display the result any way you like.
+</Example>

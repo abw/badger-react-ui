@@ -1,0 +1,43 @@
+import React      from 'react'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import String     from './String.jsx'
+import StringSrc  from './String.jsx?raw'
+import { Example } from '@abw/badger-website'
+
+### `columns`
+
+The `columns` property switches the table renderer into columns mode.  In
+this case the `rows` should be an array of objects and the `columns`
+property is an object defining the columns that should be displayed.
+
+The keys in the `columns` should usually corresponding to keys in the `rows`
+objects.  The `head` property can be used to set the heading text.  This can
+be a text string or an object containing a `text` property and other
+attributes for the `th` heading cell (e.g. `className`).
+
+The default text for the body cell will be the value in the row
+corresponding to the column name.  e.g. for the `name` column the `row.name`
+will be displayed.  The `body` property can be set in a column definition
+to change this behaviour. It can be a function which will be passed a `row`
+property and should return the corresponding text.  Or it can be an object
+containing a `text` property to generate the text and any other attributes
+for the `td` element (e.g. `className`). The `th` property can be set to
+render the cell as a `th` element instead.
+
+<Example
+  Component={Component}
+  code={Source}
+  highlightLines="4-26,63"
+/>
+
+For simple cases you can specify the `columns` as an array of column names
+or a whitespace delimited string.  The column headings will be a capitalised
+version of the column name.
+
+<Example
+  Component={String}
+  code={StringSrc}
+  highlightLines="3"
+  undent={2}
+/>

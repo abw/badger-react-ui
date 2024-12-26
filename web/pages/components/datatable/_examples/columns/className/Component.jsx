@@ -1,10 +1,10 @@
 import React from 'react'
-import { Datatable } from '@/src/index.jsx'
+import { DataTable } from '@/src/index.jsx'
 
-const DatatableExample = () => {
+const DataTableExample = () => {
   return (
     /* START */
-    <Datatable
+    <DataTable
       rows={[
         { id: 10101, name: 'Alan',    salary: 123456, admin: true  },
         { id: 1010,  name: 'Brian',   salary: 45678,  admin: false },
@@ -16,6 +16,7 @@ const DatatableExample = () => {
           className: 'text-right'
         },
         name: {
+          className: 'bold',
         },
         salary: {
           type: 'currency',
@@ -23,7 +24,10 @@ const DatatableExample = () => {
         },
         admin: {
           type: 'boolean',
-          className: 'text-right'
+          className: ({ value }) =>
+            value
+              ? 'bold red fgc-50 text-center'
+              : 'text-center'
         }
       }}
     />
@@ -31,4 +35,4 @@ const DatatableExample = () => {
   )
 }
 
-export default DatatableExample
+export default DataTableExample

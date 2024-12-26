@@ -1,0 +1,28 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  title="Custom Layout"
+  Component={Component}
+  Source={Source}
+  highlightLines="10-11,13-17,19-35,39"
+>
+  You can define your own layout for the component using a combination of the
+  built-in components and your own code.
+
+  Inside the scope of the `RangeMin` element, any children can access the
+  context using the `useRange` hook.  Immediate children of the `RangeMin`
+  component can also be functions which will receive an object containing all
+  the context properties as an argument.
+
+  In this example we first render the `RangeOutput` and `RangeSlider`
+  sub-components (lines 10 and 11). Then we include several copies of the
+  custom `SetMin` component (lines 13-17) which uses the `useRange` hook to
+  access the `setMinValue` function (line 39).
+
+  The final block of code (lines 19 to 35) demonstrates a function which
+  receives the `setMinValue` function as a property which it can then call
+  directly.
+</Example>

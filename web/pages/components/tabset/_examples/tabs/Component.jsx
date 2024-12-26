@@ -32,8 +32,12 @@ const TabsetExample = () => {
       disabled: true
     }
   ]
+
   return (
-    <Tabset lined tabs={tabs}/>
+    <Tabset
+      lined
+      tabs={tabs}
+    />
   )
 }
 

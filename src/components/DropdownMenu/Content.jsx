@@ -2,33 +2,47 @@ import React           from 'react'
 import Context         from './Context.js'
 import DropdownTrigger from './Trigger.jsx'
 import DropdownOptions from './Options.jsx'
-import { classes } from '@/src/utils/classes.js'
+import useFloating     from '@/src/hooks/useFloating.jsx'
+import { classes }     from '@/src/utils/classes.js'
 
 const Content = ({
   className='dropdown',
   openClass='open',
   closedClass='closed',
   isOpen,
-  right,
   size,
   wide,
+  offset=8,
+  placement,
+  right,
   Trigger=DropdownTrigger,
   Options=DropdownOptions
-}) =>
-  <div
-    className={
-      classes(
-        className,
-        size,
-        isOpen ? openClass : closedClass,
-        { right, wide }
-      )
-    }
-  >
-    <Trigger/>
-    { isOpen &&
-      <Options/>
-    }
-  </div>
+}) => {
+  const { refs, floatingStyles } = useFloating({
+    offset,
+    placement,
+    right,
+  })
+  return (
+    <div
+      className={
+        classes(
+          className,
+          size,
+          isOpen ? openClass : closedClass,
+          { right, wide }
+        )
+      }
+    >
+      <Trigger floatingRef={refs.setReference}/>
+      { isOpen &&
+        <Options
+          floatingRef={refs.setFloating}
+          floatingStyle={floatingStyles}
+        />
+      }
+    </div>
+  )
+}
 
 export default Context.Consumer(Content)

@@ -1,0 +1,15 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="borderClass"
+  Component={Component}
+  Source={Source}
+>
+  The `borderClass` utility function can be used to construct a CSS class
+  for adding a border.  If the argument is a true value then it will return
+  the `border` CSS class.  If the value is a number then it will add the
+  corresponding `bdw-N` class to set the border width.
+</Example>

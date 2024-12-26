@@ -1,0 +1,11 @@
+s{(import \w+\s+from './_examples/.*/index.)jsx}{$1mdx};
+s{import Sections\s+from '@/web/page/Sections.jsx'\n}{};
+s[import Heading\s+from '@/(web/)?page/Heading.jsx'][import { Heading } from '\@abw/badger-website'];
+s/const \w+ = \(\) =>\n//;
+s/<div className="flow">\n//;
+s/\s+<h1>(\w+)<\/h1>/# $1/;
+s/\s+<\/?Sections.*?>\n//;
+s/^\s+//;
+s/<Heading/\n<Heading/;
+s/<\/div>\n//;
+s/^export default .*\n//;

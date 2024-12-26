@@ -3,6 +3,10 @@
   // --menu-margin: 0em;
   --max-height: 50vh;
   --search-margin: 0.5em;
+  --search-heading-weight: 500;
+  --search-heading-size: var(--size-small);
+  --search-heading-color: var(--brand-0);
+  --search-heading-background: var(--brand-90);
   --search-clear-color: var(--brand-10);
   --search-clear-background: var(--brand-75);
 }
@@ -39,6 +43,8 @@
     z-index: var(--menu-z-index, 100);
     max-height: var(--max-height);
     box-shadow: var(--shadow-2);
+    background-color: var(--background-color);
+
   }
   &.open .search .inputs {
     border-bottom: 1px solid var(--border-color);
@@ -79,4 +85,11 @@
         1 * var(--menu-margin)
     );
   }
+}
+
+// hack for datatables filters where the select component is
+// already inside a .inputs container
+.inputs .select .inputs {
+  border: none;
+  box-shadow: none;
 }

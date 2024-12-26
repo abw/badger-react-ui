@@ -1,0 +1,20 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { ButtonLink } from '@/web/site/Links.jsx'
+
+<Example
+  code="options"
+  Component={Component}
+  Source={Source}
+  highlightLines="6-17,21"
+  expand
+>
+  The `options` property can be used to define the available options.  Each
+  object in the array can contain any of the properties accepted by the
+  <ButtonLink/> component, e.g. `text`, `icon`, `iconLeft`, `iconRight`, etc.
+
+  When used as shown in this example (where the `selected` value is the option
+  object), each option should have a `value` to uniquely identify it.
+</Example>

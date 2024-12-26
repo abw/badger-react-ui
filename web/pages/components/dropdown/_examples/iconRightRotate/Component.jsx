@@ -7,9 +7,9 @@ const DropdownExample = () =>
   /* START */
   <Dropdown
     text='Dropdown iconRightRotate'
+    content='Hello World!'
     iconRight='angle-left'
     iconRightRotate={-90}
-    content='Hello World!'
   />
   /* END */
 

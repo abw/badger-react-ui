@@ -6,8 +6,8 @@ const UISelectExample = () =>
   <Form>
     <Field
       name="animal"
-      type="uiselect"
       label="Animal"
+      type="ui-select"
       options={[
         'Ant',
         'Badger',

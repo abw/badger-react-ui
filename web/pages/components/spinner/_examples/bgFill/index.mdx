@@ -1,0 +1,19 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import HashLink from '@/web/page/HashLink.jsx'
+import { CodeHashLink } from '@/site/Links.jsx'
+
+<Example
+  code="bgFill"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  expand
+>
+  The `bgFill` property is used to fill the background icon. It is set true
+  by default but can be explicitly set to false to disable the fill.
+
+  It only has any effect when <CodeHashLink id="bgIcon"/> is set.
+</Example>

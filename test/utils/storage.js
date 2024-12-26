@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { Storage } from '@/src/index.jsx'
+import { Storage, LocalStorage } from '@/src/index.jsx'
 
 const store = Storage('test')
 store.delete('foo')
@@ -58,5 +58,30 @@ test(
     ).toEqual(
       null
     )
+  }
+)
+
+test(
+  'fallback on LocalStorage',
+  () => {
+    const store = LocalStorage()
+    store.setItem('wiz', { bang: 'flash', wam: null })
+    store.setItem('eleven', 11)
+    const wiz = store.getItem('wiz')
+    expect(
+      wiz.bang
+    ).toEqual(
+      'flash'
+    )
+    expect(
+      wiz.wam
+    ).toEqual(
+      null
+    )
+    store.removeItem('wiz')
+    expect(store.getItem('wiz')).toBeUndefined()
+    expect(store.getItem('eleven')).toBe(11)
+    store.clear()
+    expect(store.getItem('eleven')).toBeUndefined()
   }
 )

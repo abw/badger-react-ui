@@ -7,8 +7,8 @@ const DropdownExample = () =>
   /* START */
   <Dropdown
     text='Dropdown iconRight'
-    iconRight='angle-down'
     content='Hello World!'
+    iconRight='angle-down'
   />
   /* END */
 

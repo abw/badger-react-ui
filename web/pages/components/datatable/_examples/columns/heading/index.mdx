@@ -1,0 +1,18 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="heading"
+  Component={Component}
+  Source={Source}
+  highlightLines="4-5"
+  undent={4}
+  expand
+>
+  The `heading` property can be used to define the text that appears in the
+  column heading.  If unspecified it defaults to a capitalised version of the
+  column name.  For backwards compatibility, the `label` property is supported
+  as an alias.
+</Example>

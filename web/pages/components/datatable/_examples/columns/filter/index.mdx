@@ -1,0 +1,34 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="filter"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  expand
+>
+  The `filter` property can be used to implement custom filtering. If you try
+  filtering the rows in the previous example you'll notice that it doesn't
+  work.  It's for the same reason that we need to implement a custom `sort`
+  function - there isn't a `name` column in the row data to filter on.
+
+  The `filter` property lets us define a custom filter function to take care
+  of it.  It is passed an object containing a `row` and the `search` value
+  that it should filter on.  You can implement your own filter logic which
+  should return a boolean value indicating if the row matches or not.  Or you
+  can use one of the built in functions like `filterStringContains()` as
+  shown in this example.  We just need to provide it with a `value`
+  constructed as a composite of the `forename` and `surname` fields in the
+  `row`.  It will look for the `search` appearing anywhere in the `value`
+  string in a case insensitive manner.
+
+  There's also the `filterStringExact()` function which performs an exact
+  string match.  The `filterInteger()` and `filterFloat()` functions filter
+  integer and floating point values respectively and they take care of the
+  coercing string values (such as those entered into the search input) into
+  the appropriate types. The `filterBoolean()` can be used for filter boolean
+  values and will also perform the appropriate type coercion.
+</Example>

@@ -1,0 +1,20 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="minRange"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  highlightLines="4"
+  expand
+>
+  The `minRange` property can be used to define a minimum permissable range
+  between the `minValue` and `maxValue`.
+
+  No matter how hard you try to squish the ends of the the range together,
+  they won't budge if the difference between them would be less than the limit
+  imposed by `minRange`.
+</Example>

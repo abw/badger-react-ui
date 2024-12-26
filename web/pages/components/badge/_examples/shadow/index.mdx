@@ -1,0 +1,16 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="shadow"
+  Component={Component}
+  Source={Source}
+  highlightLines={ line => line % 5 === 0 }
+  undent={2}
+>
+  The `shadow` property can be used to add a shadow to the
+  badge ranging from 1 to 5.
+</Example>
+

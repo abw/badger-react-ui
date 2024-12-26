@@ -1,23 +1,45 @@
-import { useToggle } from '@/src/index.jsx'
+import { useToggle, Button } from '@/src/index.jsx'
 
 /* START */
 import React from 'react'
-// PRETEND: import { useToggle } from '@abw/badger-react-ui
+// PRETEND: import { useToggle, Button } from '@abw/badger-react-ui
 
 const UseToggleExample = () => {
-  const [option, Toggle] = useToggle({
+  const [option, Toggle, selectOption, toggleOption] = useToggle({
     options: [
-      { text: 'Love', iconLeft: 'thumb-up'   },
-      { text: 'Hate', iconLeft: 'thumb-down' },
+      { value: 'love', text: 'Love', iconLeft: 'thumb-up'   },
+      { value: 'hate', text: 'Hate', iconLeft: 'thumb-down' },
     ],
-    storageKey: 'bru-toggle-love-hate'
+    storageKey: 'brui-toggle-love-hate'
   })
   return (
     <div className="grid-1 gap-4">
       <Toggle/>
       <Toggle size="small" color="violet"/>
       <Toggle size="smaller" color="blue"/>
-      You {option.text.toLowerCase()} this!
+      You {option.value} this!
+      <div className="flex gap-2 small">
+        <Button
+          text="Select 0"
+          onClick={() => selectOption(0)}
+        />
+        <Button
+          text="Select 1"
+          onClick={() => selectOption(1)}
+        />
+        <Button
+          text="Select love"
+          onClick={() => selectOption('love')}
+        />
+        <Button
+          text="Select hate"
+          onClick={() => selectOption('hate')}
+        />
+      </div>
+      <Button
+        text="Toggle"
+        onClick={toggleOption}
+      />
     </div>
   )
 }

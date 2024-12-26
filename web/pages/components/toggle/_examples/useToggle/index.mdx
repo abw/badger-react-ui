@@ -1,0 +1,21 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="useToggle"
+  Component={Component}
+  Source={Source}
+  expand
+>
+  The `useToggle` hook can be called to return an array containing the
+  currently selected `option` and a `Toggle` component.  You can render the
+  component multiple times and each instance will share the same state.
+  Additional properties can be passed each time you render it.
+
+  The third item returned in the array is a function to programmatically
+  select an option.  You can specify either the numerical index of the
+  item or the `value` for the option. The fourth item returned is a function
+  to step through each option in turn.
+</Example>

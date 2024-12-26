@@ -1,0 +1,17 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="type"
+  Component={Component}
+  Source={Source}
+  highlightLines={ line => line % 4 === 0 }
+  undent={2}
+  expand
+>
+  The `type` property can be used to set it to one of the pre-defined types:
+  `info`, `success`, `warning` or `error`.
+</Example>
+

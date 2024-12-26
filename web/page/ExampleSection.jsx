@@ -1,6 +1,5 @@
 import React from 'react'
-import Section from './Section.jsx'
-import Example from '@/site/Example.jsx'
+import { Example, SubSection } from '@abw/badger-website'
 
 const ExampleSection = ({
   Component,
@@ -9,13 +8,14 @@ const ExampleSection = ({
   code,
   title,
   caption=code ? <code>{code}</code> : title,
+  language,
   expand,
   undent,
   lineProps,
   highlightLines,
   ...props
 }) =>
-  <Section code={code} title={title} {...props}>
+  <SubSection code={code} title={title} {...props}>
     <div className="mar-b-4">
       {children}
     </div>
@@ -25,9 +25,10 @@ const ExampleSection = ({
       caption={caption}
       expand={expand}
       undent={undent}
+      language={language}
       highlightLines={highlightLines}
       lineProps={lineProps}
     />
-  </Section>
+  </SubSection>
 
 export default ExampleSection

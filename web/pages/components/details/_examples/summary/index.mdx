@@ -1,0 +1,16 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="summary"
+  Component={Component}
+  Source={Source}
+  highlightLines="2,9-16"
+  undent={4}
+  expand
+>
+  The `summary` property is used to set the summary text. It can be a text
+  string or any JSX content.
+</Example>

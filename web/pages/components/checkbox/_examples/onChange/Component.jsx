@@ -1,17 +1,17 @@
 import { Checkbox } from '@/src/index.jsx'
 import React, { useState } from 'react'
 
-/* START */
 const OnChangeExample = () => {
   const [checked, setChecked] = useState(false)
   return (
+    /* START */
     <Checkbox
       text="I like badgers"
       checked={checked}
       onChange={setChecked}
     />
+  /* END */
   )
 }
-/* END */
 
 export default OnChangeExample

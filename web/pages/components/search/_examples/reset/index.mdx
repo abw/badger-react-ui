@@ -1,0 +1,21 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="reset"
+  Component={Component}
+  Source={Source}
+  highlightLines="39-42,48-51"
+>
+  You can call the `reset` method on the search object to reset the search.
+  Note that it will be reset to the original state, so if an initial value
+  was provided to the component then that will be restored.  Use the `clear`
+  method if you want to clear the input instead.
+
+  Try changing the values in the search components below.  Clicking on
+  the first reset button will reset the first component to a blank state.
+  Clicking on the second reset button will reset the second component
+  to its original state, containing the value "Ben Badger".
+</Example>

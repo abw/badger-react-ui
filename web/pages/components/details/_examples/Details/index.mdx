@@ -1,0 +1,16 @@
+import React      from 'react'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { Example } from '@abw/badger-website'
+import { AccordionLink } from '@/site/Links.jsx'
+
+<div className="large">
+  The `Details` component displays a summary with revealable content.  See
+  also the <AccordionLink/> component which creates a joined collection of
+  them.
+</div>
+
+<Example
+  Component={Component}
+  code={Source}
+/>

@@ -1,0 +1,16 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="end"
+  Component={Component}
+  Source={Source}
+  highlightLines="1"
+  expand
+  undent={2}
+>
+    The `end` property aligns the child elements to the end,
+    equivalent to setting `align-items: flex-end`.
+</Example>

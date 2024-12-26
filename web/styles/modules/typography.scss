@@ -32,6 +32,9 @@ p {
   margin-block-end: 1.5rem;
   line-height: 1.6;
 }
+p.intro {
+  font-size: $size-large;
+}
 b {
   color: var(--bold-text);
 }
@@ -51,7 +54,12 @@ a:not(button, .button) {
     transition: 0.15s;
   }
 }
+.source {
+  margin-bottom: 2rem;
+}
+
 .output {
+  margin-bottom: 2rem;
   p:first-child {
     margin-top: 0;
   }

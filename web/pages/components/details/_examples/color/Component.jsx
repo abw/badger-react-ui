@@ -4,10 +4,19 @@ import { Details } from '@/src/index.jsx'
 const DetailsExample = () =>
   <div className="grid-1 gap-4">
     {/* START */}
-    <Details summary="Blue Border" color="blue" border lined>
+    <Details
+      summary="Blue Border"
+      border lined
+      color="blue"
+    >
       This is the content that is revealed.
     </Details>
-    <Details summary="Blue Shaded" color="blue" shaded lined border>
+
+    <Details
+      summary="Blue Shaded"
+      shaded lined border
+      color="blue"
+    >
       This is the content that is revealed.
     </Details>
     {/* END */}

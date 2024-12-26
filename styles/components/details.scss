@@ -1,0 +1,22 @@
+:where(.details) {
+  --icon-transition: 0.3s;
+}
+.details {
+  .summary {
+    display: flex;
+    gap: 0.25em;
+    align-items: center;
+    padding-right: var(--body-padding);
+    .icon {
+      transition: all var(--icon-transition);
+    }
+  }
+  &.open > .summary {
+    .icon {
+      transform: rotate(var(--icon-rotate, 0));
+    }
+  }
+}
+.details.wide-summary .summary .summary-text {
+  flex-grow: 1;
+}

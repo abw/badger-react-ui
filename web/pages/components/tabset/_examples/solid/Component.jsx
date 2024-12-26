@@ -2,8 +2,8 @@ import React from 'react'
 import { Tabset } from '@/src/index.jsx'
 
 const TabsetExample = () =>
-/* START */
-  <>
+  <div className="grid-1 gap-4">
+    {/* START */}
     <Tabset
       solid
       tabs={[
@@ -18,7 +18,7 @@ const TabsetExample = () =>
         { text: 'Eleven', content: 'One louder' },
       ]}
     />
-  </>
-/* END */
+    {/* END */}
+  </div>
 
 export default TabsetExample

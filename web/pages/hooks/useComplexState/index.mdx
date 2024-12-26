@@ -1,0 +1,35 @@
+import React        from 'react'
+import Component    from './_examples/useComplexState.jsx'
+import Source       from './_examples/useComplexState.jsx?raw'
+import Functions    from './_examples/functions/index.mdx'
+import OnChange     from './_examples/onChange/index.mdx'
+import ConvertCase  from './_examples/ConvertCase/index.mdx'
+import SetterNamer  from './_examples/SetterNamer/index.mdx'
+import { Example } from '@abw/badger-website'
+
+# useComplexState
+
+<div className="large">
+  This hook is a wrapper around `React.useState` which can be used to
+  maintain a complex state object.
+</div>
+
+Call the `useComplexState()` function passing it an object containing
+one or more key/values pairs.  It will return an array of `[state, setters]`,
+where the `state` contains the current state, starting with the values you
+supplied, and the `setters` is an object containing setter functions for each
+item in the state.
+
+If you provide an item in the state called `badgers`, for example, then the
+corresponding setter function will be called `setBadgers`.
+
+<Example
+  Component={Component}
+  code={Source}
+  highlightLines="5-7,13-14,18-19,23-24"
+/>
+
+<Functions/>
+<OnChange/>
+<ConvertCase/>
+<SetterNamer/>

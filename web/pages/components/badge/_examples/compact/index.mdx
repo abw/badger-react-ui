@@ -1,0 +1,15 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="compact"
+  Component={Component}
+  Source={Source}
+  highlightLines={ line => line % 4 === 0 }
+  undent={2}
+>
+  The `compact` property can be added to create a compact badge.
+</Example>
+

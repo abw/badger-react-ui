@@ -1,0 +1,18 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="color"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  expand
+>
+  The `color` property can be used to set the base color. The default value
+  is `brand` which can be set as the brand color for your site.
+
+  This is simply a shortcut to add the specified `color` as a CSS class to
+  the icon.
+</Example>

@@ -1,0 +1,17 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="compressed"
+  Component={Component}
+  Source={Source}
+  highlightLines="2"
+  expand
+  undent={2}
+>
+  The `compressed` property is a shortcut to add the `compressed` CSS class
+  which reduces the padding in each cell.  The `compact` property is provided
+  as an alias for this for backward compatibility with previous versions.
+</Example>

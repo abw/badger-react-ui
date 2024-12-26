@@ -1,0 +1,94 @@
+.multiselect {
+  --selection-color: var(--grey-20);
+  --selection-border: var(--grey-80);
+  --selection-background: var(--grey-95);
+  --selection-radius: 0.25rem;
+  --selection-padding: 0.25em 0.5em;
+  --unselect-color: var(--red-20);
+  --unselect-border: var(--red-80);
+  --unselect-background: var(--red-95);
+  --sortable-color: var(--orange-20);
+  --sortable-icon: var(--orange-50);
+  --sortable-border: var(--orange-80);
+  --sortable-background: var(--orange-95);
+  --sorting-color: var(--green-20);
+  --sorting-icon: var(--green-50);
+  --sorting-border: var(--green-80);
+  --sorting-background: var(--green-95);
+  .option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    & > .icon, & > .no-icon {
+      flex-basis: 1.5rem;
+    }
+    & > :first-child {
+      flex-basis: 100%;
+    }
+  }
+  .selections {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    .selection {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: var(--size-small);
+      color: var(--selection-color);
+      background-color: var(--selection-background);
+      border: 1px solid var(--selection-border);
+      border-radius: var(--selection-radius);
+      padding: var(--selection-padding);
+      &:hover {
+        cursor: pointer;
+        color: var(--unselect-color);
+        background-color: var(--unselect-background);
+        border-color: var(--unselect-border);
+      }
+    }
+    .sortable.item .selection {
+      .drag-icon {
+        padding-right: 0.5em;
+        &:hover {
+          color: var(--sortable-icon);
+        }
+      }
+    }
+    .sortable.item .selection:has(.drag-icon:hover) {
+      color: var(--sortable-color);
+      background-color: var(--sortable-background);
+      border-color: var(--sortable-border);
+    }
+    .sortable.item[aria-pressed='true'] .selection,
+    .sortable.item[aria-pressed='true'] .selection:has(.drag-icon:hover) {
+      color: var(--sorting-color);
+      background-color: var(--sorting-background);
+      border-color: var(--sorting-border);
+      .drag-icon {
+        &:hover {
+          color: var(--sorting-icon);
+        }
+      }
+    }
+  }
+
+}
+#{$dark-theme} .multiselect {
+  --selection-color: var(--grey-80);
+  --selection-border: var(--grey-20);
+  --selection-background: var(--grey-10);
+  --unselect-color: var(--red-90);
+  --unselect-border: var(--red-25);
+  --unselect-background: var(--red-10);
+  --sortable-color: var(--orange-80);
+  --sortable-border: var(--orange-20);
+  --sortable-background: var(--orange-10);
+  --sorting-color: var(--green-80);
+  --sorting-border: var(--green-20);
+  --sorting-background: var(--green-10);
+
+}

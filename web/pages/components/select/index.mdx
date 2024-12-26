@@ -1,0 +1,160 @@
+import Select           from './_examples/Select/index.mdx'
+import Options          from './_examples/options/index.mdx'
+import Headings         from './_examples/heading/index.mdx'
+import Value            from './_examples/value/index.mdx'
+import DisplayOption    from './_examples/displayOption/index.mdx'
+import DisplayValue     from './_examples/displayValue/index.mdx'
+import ValidOption      from './_examples/validOption/index.mdx'
+import Search           from './_examples/search/index.mdx'
+import SearchOptions    from './_examples/searchOptions/index.mdx'
+import Disabled         from './_examples/disabled/index.mdx'
+import Separator        from './_examples/separator/index.mdx'
+import Indent           from './_examples/indent/index.mdx'
+import { SubHeading }   from '@abw/badger-website'
+import { CodeHashLink } from '@/web/site/Links.jsx'
+
+# Select
+
+<Select/>
+
+## Properties
+
+<Options/>
+<Value/>
+<DisplayOption/>
+<DisplayValue/>
+<ValidOption/>
+<Search/>
+<SearchOptions/>
+<Disabled/>
+
+### `placeholder`
+
+Set the placeholder text.  The default is `Select`.
+
+### `noOptions`
+
+Set the text displayed when there are no options to select from.
+The default is `No options`.
+
+### `openOnHover`
+
+Flag to indicate that the option menu should open when the cursor
+hovers over the trigger input.  Defaults to `false`.
+
+### `closeOnBlur`
+
+Flag to indicate that the option menu should close when focus is lost.
+Defaults to `true`.
+
+### `closeDelay`
+
+Delay (in milliseconds) before the menu is closed.  This is required
+to ensure that any click events have been registered before the menu
+is closed. Defaults to `300`.
+
+## Option Properties
+
+<Headings/>
+<Separator/>
+<Indent/>
+
+## Event Handlers
+
+### `onLoad`
+
+Called when the component is first loaded.  The handler is passed a
+reference to the `SearchContext` object.
+
+### `onUnload`
+
+Called when the component is unloaded.  The handler is passed a
+reference to the `SearchContext` object.
+
+### `onFocus`
+
+Called when the component gains focus.
+
+### `onBlur`
+
+Called when the component loses focus.
+
+### `onClick`
+
+Called when the component is clicked.
+
+### `onOpen`
+
+Called when the component is opened and selectable options are displayed.
+
+### `onClose`
+
+Called when the component is closed and selectable options are hidden.
+
+### `onSelect`
+
+Called when an option is selected.  The selected option is passed as an
+argument.
+
+### `onUpdate`
+
+If this is defined it will be called instead of any
+<CodeHashLink id="onSelect"/> handler when the selection changes due to
+the <CodeHashLink id="options"/> or <CodeHashLink id="value"/> properties
+changing.
+
+## CSS Classes
+
+### `placeholderClass`
+
+Set the class for the placeholder text. The default is `placeholder`.
+
+### `inputClass`
+
+Set the class for the input element. The default is `input`.
+
+### `selectingClass`
+
+Set the class added when a selection is in place. The default is `selecting`.
+
+### `optionsClass`
+
+Set the class added for the options container. The default is
+`menu border bdr-1`.
+
+### `optionClass`
+
+Set the class added to each option element. The default is `item`.
+
+### `activeClass`
+
+Set the class added to an option that is currently active. The default is
+`active`.
+
+### `noOptionsClass`
+
+Set the class added to the element displayed when there are no options to
+select from. The default is `none`.
+
+## Components
+
+### `Content`
+
+Renders the content of the select component.
+
+### `Input`
+
+Renders the input field.
+
+<SubHeading code="Options" id="Options-component"/>
+
+Renders the selectable options.
+
+<SubHeading code="Option" id="Option-component"/>
+
+Renders an individual option.
+
+<SubHeading code="NoOptions" id="NoOptions-component"/>
+
+Renders a message indicating that there are no options to select from.
+

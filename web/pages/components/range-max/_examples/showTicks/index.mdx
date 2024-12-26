@@ -1,0 +1,25 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { CodeHashLink } from '@/web/site/Links.jsx'
+
+<Example
+  code="showTicks"
+  Component={Component}
+  Source={Source}
+  undent={2}
+  highlightLines="4"
+  expand
+>
+  The `showTicks` property can be specified to display a series of ticks along
+  the slider to indicate the steps.  This is only valid when the
+  <CodeHashLink id="step"/> property is set.  Note, however, that the default
+  value for <CodeHashLink id="step"/> is `1` and the default values for
+  <CodeHashLink id="min"/> and <CodeHashLink id="max"/> are `0` and `100`,
+  respectively.  So you'll get 100 ticks by default which probably isn't what
+  you want.
+
+  See the <CodeHashLink id="tickStep"/> property below which allows you to
+  set a different step for the ticks.
+</Example>

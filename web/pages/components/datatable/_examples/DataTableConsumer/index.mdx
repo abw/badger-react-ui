@@ -1,0 +1,22 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="DataTableConsumer"
+  Component={Component}
+  Source={Source}
+  highlightLines="23,32,37-41"
+  undent={2}
+  expand
+>
+  The `DataTableConsumer` function is a shortcut for accessing the DataTable
+  context.  Wrap a function in it and the function will be passed all the
+  context state items, along with any other properties passed to it.
+
+  In this example we define a synthetic column, `n`, to display the row
+  number.  The `display` function is passed the `rowIndex` which is the
+  offset (starting at 0) in the current page of rows and the
+  `DataTableConsumer` wrapper provides the current `page` data.
+</Example>

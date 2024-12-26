@@ -1,0 +1,18 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="radius"
+  Component={Component}
+  Source={Source}
+  highlightLines="2"
+  expand
+  undent={2}
+>
+  The `radius` property is a shortcut to set the border radius.  It can be
+  `true` to set the default radius (1), `false` to remove the border radius,
+  or an integer to set the border radius in multiples of 0.25rem, with the
+  pre-defined values being 0, 1, 2, 3, 4, 5, 6, 8 and 10.
+</Example>

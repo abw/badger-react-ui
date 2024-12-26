@@ -1,0 +1,29 @@
+import React       from 'react'
+import Defaults    from './Defaults.jsx'
+import DefaultsSrc from './Defaults.jsx?raw'
+import Custom      from './Custom.jsx'
+import CustomSrc   from './Custom.jsx?raw'
+import { Example } from '@abw/badger-website'
+import { SpinnerLink } from '@/web/site/Links.jsx'
+
+### `Submitting`
+
+The `Submitting` component can be used to add an overlay with a
+<SpinnerLink/> and message when the form is submitting.
+
+<Example
+  Component={Defaults}
+  code={DefaultsSrc}
+  highlightLines="29"
+/>
+
+The `size` property can be used to set the overall size. The `spinnerSize`
+can be used to set the size of the spinner icon. The `text` property can be
+used to change the text displayed. All other properties are forwarded to the
+<SpinnerLink/> component.
+
+<Example
+  Component={Custom}
+  code={CustomSrc}
+  highlightLines="29-37"
+/>

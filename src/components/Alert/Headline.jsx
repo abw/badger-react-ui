@@ -6,6 +6,7 @@ import { Icon }       from '@/components/Icon/index.jsx'
 const AlertHeadline = ({
   headline,
   headIcon,
+  headicon=headIcon,
   toggle,
   revealable = false,
   controlProps,
@@ -16,9 +17,9 @@ const AlertHeadline = ({
     onClick={revealable ? toggle : null}
   >
     <div>
-      { Boolean(headIcon) &&
+      { Boolean(headicon) &&
         <Icon
-          name={headIcon}
+          name={headicon}
           fixedWidth
           className="on-left"
         />
