@@ -1,6 +1,9 @@
 export type PropsObject = {
   [key: string]: unknown
 }
+export interface StringPropsObject {
+  [key: string]: string
+}
 
 export type Nothing = null | undefined
 export type MaybeNumber = string | Nothing

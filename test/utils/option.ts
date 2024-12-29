@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest'
-import { validOption, optionValue, findOption, searchOptions } from '@/src/index.jsx'
+import { validOption, optionValue, findOption, searchOptions } from '@/src/utils/index'
 
 //-- validOption -------------------------------------------------------------
 test(
@@ -143,7 +143,8 @@ test(
   'findOption() for undefined',
   () => expect(
     findOption(
-      [ 'foo', 'bar', 'baz' ]
+      [ 'foo', 'bar', 'baz' ],
+      undefined
     )
   ).toStrictEqual(
     [ ]
