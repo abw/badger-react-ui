@@ -1,6 +1,6 @@
 // import { extract } from '@abw/badger-utils'
 import { extract } from '@abw/badger-utils'
-import { breakpoints } from './breakpoint.js'
+import { breakpoints } from './breakpoint'
 
 export const selectGridProps = {
   ...breakpoints,

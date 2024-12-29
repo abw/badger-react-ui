@@ -1,4 +1,4 @@
-import { validOption } from './option.js'
+import { validOption } from './option'
 
 export function cursorFirst(options, isValid=validOption) {
   const index = options.findIndex(isValid)

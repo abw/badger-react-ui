@@ -1,8 +1,15 @@
 import { test, expect } from 'vitest'
-import { borderClass } from '@/src/index.jsx'
+import { borderClass } from '@/src/utils/classes'
 
 test(
-  'borderClass() should return "border" for true values',
+  'borderClass(undefined) => null',
+  () => expect(
+    borderClass(undefined)
+  ).toBe(null)
+)
+
+test(
+  'borderClass(true) => "border"',
   () => expect(
     borderClass(true)
   ).toBe(
@@ -11,7 +18,7 @@ test(
 )
 
 test(
-  'borderClass() should return "border bdw-N" for integers values',
+  'borderClass(3) => "border bdw-N"',
   () => expect(
     borderClass(3)
   ).toBe(
@@ -20,7 +27,7 @@ test(
 )
 
 test(
-  'borderClass() should return null for anything else',
+  'borderClass("yes") => null',
   () => expect(
     borderClass('yes')
   ).toBe(

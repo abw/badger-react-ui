@@ -20,7 +20,7 @@ const defaults = {
 }
 
 export const widthBreakpoint = (
-  width=0,
+  width: number = 0,
   options = { }
 ) => {
   const config = { ...defaults, ...options }
@@ -33,12 +33,12 @@ export const widthBreakpoint = (
     : config.largest
 }
 
-export const elementWidth = (element=window) =>
+export const elementWidth = (element: HTMLElement | Window = window) =>
   typeof element === 'undefined'
-    ? false
-    : element.innerWidth
+    ? undefined
+    : (element as Window).innerWidth
 
-export const elementBreakpoint = (element, options) =>
+export const elementBreakpoint = (element: HTMLElement, options: object) =>
   widthBreakpoint(elementWidth(element), options)
 
 

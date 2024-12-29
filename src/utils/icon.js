@@ -1,7 +1,6 @@
-import { hasValue, isObject } from '@abw/badger-utils'
-import { classes } from './classes.js'
-import { rotateStyle } from './styles.js'
-import { isString } from '@abw/badger-utils'
+import { hasValue, isObject, isString } from '@abw/badger-utils'
+import { classes } from './classes'
+import { rotateStyle } from './styles'
 
 export const iconProps = (props, { side='' } = { }) => {
   const key  = `icon${side}`
