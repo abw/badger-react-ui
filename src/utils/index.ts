@@ -9,7 +9,7 @@ export * from './math'
 export * from './option'
 export * from './props'
 export * from './refs'
-// export * from './renderer.jsx'       // TODO: put me back!
+export * from './renderer'
 export * from './scroll'
 export * from './size'
 export * from './storage'

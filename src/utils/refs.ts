@@ -1,16 +1,17 @@
-import { isFunction } from '@abw/badger-utils'
-
-// Based on https://github.com/gregberge/react-merge-refs
-export const mergeRefs = refs =>
-  value => {
+// From https://github.com/gregberge/react-merge-refs
+export function mergeRefs<T = any>(
+  refs: Array<React.MutableRefObject<T> | React.LegacyRef<T> | undefined | null>
+): React.RefCallback<T> {
+  return (value) => {
     refs.forEach(
       ref => {
-        if (isFunction(ref)) {
+        if (typeof ref === 'function') {
           ref(value)
         }
         else if (ref != null) {
-          ref.current = value
+          (ref as React.MutableRefObject<T | null>).current = value
         }
       }
     )
   }
+}

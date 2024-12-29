@@ -1,7 +1,7 @@
 import { hasValue, isInteger } from '@abw/badger-utils'
 import { PropsObject } from '../types'
 
-export function rotateStyle(prop: string, value: string, style: PropsObject={}) {
+export function rotateStyle(prop: string, value: string | null | undefined, style: PropsObject={}) {
   if (hasValue(value)) {
     style[prop] = isInteger(value)
       ? `${value}deg`

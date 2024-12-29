@@ -1,6 +1,6 @@
 import React from 'react'
 import { expect, test, it } from 'vitest'
-import { defaultRenderer, withIconsRenderer } from '@/src/index.jsx'
+import { defaultRenderer, withIconsRenderer } from '@/src/utils/index'
 import { render, screen } from '@testing-library/react'
 // import { prettyDOM } from '@testing-library/dom'
 
