@@ -1,6 +1,7 @@
 import { hasValue, isInteger } from '@abw/badger-utils'
+import { PropsObject } from '../types'
 
-export function rotateStyle(prop, value, style={}) {
+export function rotateStyle(prop: string, value: string, style: PropsObject={}) {
   if (hasValue(value)) {
     style[prop] = isInteger(value)
       ? `${value}deg`
@@ -11,7 +12,15 @@ export function rotateStyle(prop, value, style={}) {
     : null
 }
 
-export const extractStyleProps = (spec, props, more={}) =>
+export interface StringPropsObject {
+  [key: string]: string
+}
+
+export const extractStyleProps = (
+  spec: StringPropsObject,
+  props: PropsObject = { },
+  more={}
+) =>
   ({
     ...Object
       .entries(spec)
@@ -23,7 +32,7 @@ export const extractStyleProps = (spec, props, more={}) =>
           }
           return style
         },
-        props.style || { },
+        (props.style || { }) as PropsObject,
       ),
     ...more
   })

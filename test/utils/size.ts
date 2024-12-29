@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { parseSize } from '@/src/index.jsx'
+import { parseSize } from '@/src/utils/index'
 
 test(
   'parseSize(11)',

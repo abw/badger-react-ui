@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { Storage, LocalStorage } from '@/src/index.jsx'
+import { Storage, LocalStorage } from '@/src/utils/index'
 
 const store = Storage('test')
 store.delete('foo')
@@ -67,7 +67,7 @@ test(
     const store = LocalStorage()
     store.setItem('wiz', { bang: 'flash', wam: null })
     store.setItem('eleven', 11)
-    const wiz = store.getItem('wiz')
+    const wiz = store.getItem('wiz') as { bang: unknown, wam?: unknown }
     expect(
       wiz.bang
     ).toEqual(

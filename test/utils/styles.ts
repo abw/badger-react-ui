@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest'
-import { extractStyleProps } from '@/src/index.jsx'
+import { extractStyleProps } from '@/src/utils/index'
 
 test(
   'propOne',

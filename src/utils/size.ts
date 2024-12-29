@@ -1,7 +1,7 @@
 import { fail } from '@abw/badger-utils'
-import { breakpoints } from './breakpoint.js'
+import { breakpoints } from './breakpoint'
 
-export const parseSize = size => {
+export const parseSize = (size: string): number => {
   const matchPx = size.match(/^(\d+)px$/)
   if (matchPx) {
     return parseInt(matchPx[1])
@@ -9,7 +9,7 @@ export const parseSize = size => {
 
   const matchRem = size.match(/^(\d+)rem$/)
   if (matchRem) {
-    return parseInt(matchRem[1] * 16)
+    return parseInt(matchRem[1]) * 16
   }
 
   const matchInt = size.match(/^(\d+)$/)

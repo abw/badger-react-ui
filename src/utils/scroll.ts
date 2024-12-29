@@ -1,4 +1,4 @@
-export const scrollParentChild = (parent, child) => {
+export const scrollParentChild = (parent: HTMLElement, child: HTMLElement) => {
   if (! parent || ! child) {
     return
   }

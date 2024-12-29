@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { lookupVariant } from '@/src/index.jsx'
+import { lookupVariant } from '@/src/utils/index'
 
 const variantsFooBar = {
   foo: { foo: true, name: 'foo' },

@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest'
-import { coerceNumber } from '@/src/index.jsx'
+import { coerceNumber } from '@/src/utils/index'
 
 test(
   'coerceNumber(23) -> 23',

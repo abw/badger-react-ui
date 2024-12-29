@@ -6,7 +6,7 @@ export const DESKTOP    = 'desktop'
 export const WIDESCREEN = 'widescreen'
 export const ULTRA      = 'ultra'
 
-export const breakpoints = {
+export const breakpoints: { [key: string]: number } = {
   [UNKNOWN]:    0,
   [MOBILE]:     480,
   [TABLET]:     720,

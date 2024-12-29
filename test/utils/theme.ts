@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { themedProps } from '@/src/index.jsx'
+import { themedProps } from '@/src/utils/index'
 
 const variant = {
   foo: { foo: true, name: 'foo' },
