@@ -17,7 +17,6 @@ import {
   restrictToParentElement, restrictToWindowEdges,
   restrictToVerticalAxis, restrictToHorizontalAxis
 } from '@dnd-kit/modifiers'
-// import { lookupVariant } from '@/src/utils/variant.js'
 
 const directions = {
   default: {
@@ -40,7 +39,6 @@ export const MakeSortable = ({
   List=({children}) => children,
   Item,
   direction,
-  // options = lookupVariant({ variant, horizontal, vertical }, variants),
   options = directions[direction] || directions.default,
   modifiers = options.modifiers,
   strategy = options.strategy,

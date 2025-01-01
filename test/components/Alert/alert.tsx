@@ -2,7 +2,7 @@ import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, screen, act } from '@testing-library/react'
-import { Alert } from '@/src/index.jsx'
+import { Alert } from '@/src/index'
 // import { prettyDOM } from '@testing-library/dom'
 
 test(

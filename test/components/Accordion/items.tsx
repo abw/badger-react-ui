@@ -2,7 +2,7 @@ import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { it, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
-import { Accordion } from '@/src/index.jsx'
+import { Accordion } from '@/src/index'
 
 const items = [
   { summary: 'Item One',   content: 'This is item one' },

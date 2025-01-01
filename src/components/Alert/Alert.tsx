@@ -1,14 +1,15 @@
-import React, { useState }  from 'react'
-import AlertControls        from './Controls.jsx'
-import AlertHeadline        from './Headline.jsx'
-import AlertContent         from './Content.jsx'
-import AlertIcon            from './Icon.jsx'
-import { Themed }           from '@/src/Theme.jsx'
+import { useState }  from 'react'
+import AlertControls from './Controls.jsx'
+import AlertHeadline from './Headline.jsx'
+import AlertContent  from './Content.jsx'
+import AlertIcon     from './Icon.jsx'
+import { Themed }    from '@/src/Theme.jsx'
 import {
   borderClass, classes, radiusClass, shadowClass
 } from '@/src/utils/index.js'
+import { AlertProps, AlertContentProps, AlertControlsProps, AlertHeadlineProps, AlertIconProps, AlertType } from './types.js'
 
-const Alert = ({
+const Alert: AlertType = ({
   title,
   headline,
   headicon,
@@ -56,7 +57,7 @@ const Alert = ({
       onDismiss()
     }
   }
-  const controlProps = {
+  const controlProps: AlertControlsProps = {
     dismissable,
     revealable,
     isRevealed,
@@ -65,17 +66,17 @@ const Alert = ({
     closedIcon,
     dismissIcon,
   }
-  const contentProps = {
+  const contentProps: AlertContentProps = {
     title,
     text,
     children
   }
-  const iconProps = {
+  const iconProps: AlertIconProps = {
     ...contentProps,
     icon,
     Content
   }
-  const headlineProps = {
+  const headlineProps: AlertHeadlineProps= {
     headline,
     headIcon,
     toggle,
@@ -102,20 +103,20 @@ const Alert = ({
   )
 }
 
-export const Info = Themed(
-  props => <Alert {...props} type='info' />,
+export const Info: AlertType = Themed(
+  (props: AlertProps) => <Alert {...props} type='info' />,
   'Info'
 )
-export const Success = Themed(
-  props => <Alert {...props} type='success' />,
+export const Success: AlertType = Themed(
+  (props: AlertProps) => <Alert {...props} type='success' />,
   'Success'
 )
-export const Warning = Themed(
-  props => <Alert {...props} type='warning' />,
+export const Warning: AlertType = Themed(
+  (props: AlertProps) => <Alert {...props} type='warning' />,
   'Warning'
 )
-export const Error = Themed(
-  props => <Alert {...props} type='error' />,
+export const Error: AlertType = Themed(
+  (props: AlertProps) => <Alert {...props} type='error' />,
   'Error'
 )
 

@@ -1,6 +1,6 @@
 import React      from 'react'
 import Details    from '../Details/Details.jsx'
-import { Themed } from '@/src/Theme.jsx'
+import { Themed } from '@/src/Theme'
 import { classes, radiusClass, shadowClass } from '@/src/utils/classes.js'
 
 const Accordion = ({

@@ -1,12 +1,13 @@
-import React      from 'react'
+import { Icon } from '@/src/components/Icon/index'
 import { Themed } from '@/src/Theme.jsx'
-import { Icon }   from '@/components/Icon/index.jsx'
+import { doNothing } from '@abw/badger-utils'
+import { AlertControlsType } from './types'
 
-const AlertControls = ({
+const AlertControls: AlertControlsType = ({
   dismissable,
-  dismiss,
   revealable,
   isRevealed,
+  dismiss=doNothing,
   openIcon = 'angle-down',
   closedIcon = 'angle-left',
   dismissIcon = 'cross',
@@ -29,4 +30,7 @@ const AlertControls = ({
     }
   </div>
 
-export default Themed(AlertControls, 'AlertControls')
+const ThemedAlertControls: AlertControlsType = Themed(AlertControls, 'AlertControls')
+export default ThemedAlertControls
+
+// export default Themed(AlertControls, 'AlertControls')

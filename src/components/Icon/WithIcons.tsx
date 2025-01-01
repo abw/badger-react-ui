@@ -1,7 +1,7 @@
 import React      from 'react'
-import Icon       from './Icon.jsx'
-import { Themed } from '@/src/Theme.jsx'
-import { iconProps } from '@/src/utils/icon.js'
+import Icon       from './Icon.js'
+import { Themed } from '@/src/Theme'
+import { iconProps } from '@/src/utils/icon'
 
 const WithIcons = ({
   icon,
