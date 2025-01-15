@@ -1,6 +1,6 @@
-import React from 'react'
+import { BadgePrefixType } from './types'
 
-const Prefix = ({
+const Prefix: BadgePrefixType = ({
   prefix,
   prefixClass='prefix'
 }) =>

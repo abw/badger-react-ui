@@ -7,7 +7,7 @@
 
     [X] Alert
         Removed Alert.Info, Alert.Success, etc.
-    [ ] Badge
+    [X] Badge
     [ ] Button
     [ ] Buttons
     [ ] Checkbox

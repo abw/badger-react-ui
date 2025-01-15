@@ -1,11 +1,11 @@
-import React          from 'react'
+import DefaultPrefix  from './Prefix'
+import DefaultSuffix  from './Suffix'
 import { Themed }     from '@/src/Theme'
-import { WithIcons }  from '@/components/Icon/index'
-import DefaultPrefix  from './Prefix.jsx'
-import DefaultSuffix  from './Suffix.jsx'
+import { BadgeType }  from './types'
+import { WithIcons, WithIconsProps }  from '@/components/Icon/index'
 import { borderClass, classes, radiusClass, shadowClass } from '@/src/utils/classes'
 
-const Badge = ({
+const Badge: BadgeType = ({
   size,
   color,
   compact,
@@ -53,13 +53,13 @@ const Badge = ({
     {...props}
   >
     { Boolean(prefix) &&
-      <Prefix prefix={prefix} {...props}/>
+      <Prefix prefix={prefix as string} {...props}/>
     }
     <Content
-      {...bodyProps}
+      {...bodyProps as WithIconsProps}
     />
     { Boolean(suffix) &&
-      <Suffix suffix={suffix} {...props}/>
+      <Suffix suffix={suffix as string} {...props}/>
     }
   </div>
 }

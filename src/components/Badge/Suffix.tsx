@@ -1,6 +1,6 @@
-import React from 'react'
+import { BadgeSuffixType } from './types'
 
-const Suffix = ({
+const Suffix: BadgeSuffixType = ({
   suffix,
   suffixClass='suffix'
 }) =>
