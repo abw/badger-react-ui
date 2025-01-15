@@ -1,8 +1,7 @@
 import { defineConfig } from 'vite'
-// import jsconfigPaths    from 'vite-jsconfig-paths'
+import jsconfigPaths    from 'vite-jsconfig-paths'
 import svgr             from 'vite-plugin-svgr'
 import react            from '@vitejs/plugin-react-swc'
-// import react            from '@vitejs/plugin-react'
 import define           from  './vite.defs.js'
 import mdx              from '@mdx-js/rollup'
 import rehypeCodeProps  from 'rehype-mdx-code-props'
@@ -26,7 +25,7 @@ export default defineConfig({
       include: /\.(jsx|mdx)$/
     }),
     svgr(),
-    // jsconfigPaths({ root: '../' })
+    jsconfigPaths({ root: '../' })
   ],
   root: 'web',
   base: '/badger-react-ui',
