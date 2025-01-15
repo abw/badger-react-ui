@@ -1,4 +1,4 @@
-import { Overlay, VisibleState, Button } from '@/src/index.jsx'
+import { Overlay, VisibleState, Button } from '@/src/index'
 
 /* START */
 import React from 'react'

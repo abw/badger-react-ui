@@ -7,7 +7,7 @@ import CheckOption          from '@/demo/control/CheckOption.jsx'
 import BorderSelect         from '@/demo/control/BorderSelect.jsx'
 import IconSelect           from '@/demo/control/IconSelect.jsx'
 import { Source }           from '@abw/badger-website'
-import { Alert, Icon }      from '@/src/index.jsx'
+import { Alert, Icon }      from '@/src/index'
 
 const AlertDemo = () => {
   const [n, setN] = useState(0)

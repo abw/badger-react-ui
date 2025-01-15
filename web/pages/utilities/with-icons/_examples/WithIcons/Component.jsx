@@ -1,4 +1,4 @@
-import { WithIcons } from '@/src/index.jsx'
+import { WithIcons } from '@/src/index'
 
 /* START */
 import React from 'react'

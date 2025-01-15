@@ -1,7 +1,7 @@
 import React          from 'react'
-import { Themed }     from '@/src/Theme.jsx'
-import { WithIcons }  from '../Icon/index.jsx'
-import { borderClass, classes, radiusClass, shadowClass } from '@/src/utils/classes.js'
+import { Themed }     from '@/src/Theme'
+import { WithIcons }  from '@/components/Icon/index'
+import { borderClass, classes, radiusClass, shadowClass } from '@/src/utils/classes'
 
 const Button = ({
   type='button',

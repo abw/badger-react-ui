@@ -1,8 +1,8 @@
 import React        from 'react'
 import Context      from './Context.js'
-import Icon         from '@/components/Icon/Icon.jsx'
+import Icon         from '@/components/Icon/Icon'
 import { inflect, maybeFunction }  from '@abw/badger-utils'
-import { classes }  from '@/src/utils/classes.js'
+import { classes }  from '@/src/utils/classes'
 import { FILTER, FILTERING, FILTER_ICON, HAS_FILTERS } from './Constants.js'
 
 export const Filtering = ({

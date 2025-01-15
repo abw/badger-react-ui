@@ -1,7 +1,7 @@
 import React from 'react'
 import Context from './Context.js'
 import { range } from '@abw/badger-utils'
-import { classes } from '@/src/utils/classes.js'
+import { classes } from '@/src/utils/classes'
 
 const Ticks = ({
   ticksClass='range-ticks',

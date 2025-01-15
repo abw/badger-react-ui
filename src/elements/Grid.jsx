@@ -1,8 +1,8 @@
 import React from 'react'
-import { Themed } from '@/src/Theme.jsx'
+import { Themed } from '@/src/Theme'
 import {
   extractGridProp, useContainer, gapClass, stylePropsClasses, classes
-} from '@/src/index.jsx'
+} from '@/src/index'
 
 export const Grid = ({
   gap,

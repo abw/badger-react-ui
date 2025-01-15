@@ -1,4 +1,4 @@
-import { Div } from '@/src/index.jsx'
+import { Div } from '@/src/index'
 
 /* START */
 import React from 'react'

@@ -2,7 +2,7 @@ import React            from 'react'
 import Context          from './Context.js'
 import DetailsContainer from './Container.jsx'
 import NativeContainer  from './Native/Container.jsx'
-import { Themed }       from '@/src/Theme.jsx'
+import { Themed }       from '@/src/Theme'
 
 const defaults = {
   iconLeft: 'angle-right',

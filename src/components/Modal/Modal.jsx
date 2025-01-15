@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import ModalClose   from './Close.jsx'
 import ModalContent from './Content.jsx'
-import { Themed }   from '@/src/Theme.jsx'
+import { Themed }   from '@/src/Theme'
 import { doNothing } from '@abw/badger-utils'
 
 const Modal = ({

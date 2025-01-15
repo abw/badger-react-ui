@@ -1,5 +1,5 @@
 /* eslint-disable quotes */
-import { Form, Field, Submit, Submitting } from '@/src/index.jsx'
+import { Form, Field, Submit, Submitting } from '@/src/index'
 import { sleep } from '@abw/badger-utils'
 
 /* START */

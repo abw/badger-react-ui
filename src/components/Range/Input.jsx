@@ -1,7 +1,7 @@
 import React from 'react'
 import Context from './Context.js'
-import Icon from '../Icon/Icon.jsx'
-import { classes } from '@/src/utils/classes.js'
+import Icon from '@/components/Icon/Icon'
+import { classes } from '@/src/utils/classes'
 
 const Input = ({
   inputClass='range-input field mar-b-none',

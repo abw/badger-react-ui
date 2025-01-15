@@ -1,7 +1,7 @@
 import { Context, Generator } from '@abw/react-context'
-import { ARROW_DOWN, ARROW_UP, BLANK, ENTER, ESCAPE } from '@/src/constants.js'
+import { ARROW_DOWN, ARROW_UP, BLANK, ENTER, ESCAPE } from '@/src/constants'
 import { debounce, doNothing, hasValue, sleep } from '@abw/badger-utils'
-import { defaultRenderer, scrollParentChild } from '@/src/utils/index.js'
+import { defaultRenderer, scrollParentChild } from '@/src/utils/index'
 
 const inactiveState = {
   searching:  false,

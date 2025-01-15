@@ -1,4 +1,4 @@
-import { useContainer, Icon } from '@/src/index.jsx'
+import { useContainer, Icon } from '@/src/index'
 /* START */
 import React from 'react'
 // PRETEND: import { useContainer, Icon } from '@abw/badger-react-ui

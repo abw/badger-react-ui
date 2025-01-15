@@ -1,6 +1,6 @@
 import React from 'react'
-import { stylePropsClasses } from '@/src/utils/classes.js'
-import { Themed } from '@/src/Theme.jsx'
+import { stylePropsClasses } from '@/src/utils/classes'
+import { Themed } from '@/src/Theme'
 
 export const Div = ({
   style,

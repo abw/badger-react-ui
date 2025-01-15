@@ -1,6 +1,6 @@
 import React from 'react'
 import animals from '@/web/pages/components/datatable/_examples/animals.js'
-import { DataTable } from '@/src/index.jsx'
+import { DataTable } from '@/src/index'
 import { hasValue } from '@abw/badger-utils'
 
 const DataTableSelect = () =>

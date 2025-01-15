@@ -1,9 +1,9 @@
-import { ANY } from '@/src/constants.js'
+import { ANY } from '@/src/constants'
 import { isArray } from '@abw/badger-utils'
 import { identity } from '@abw/badger-utils'
 import { isNumber } from '@abw/badger-utils'
 import { isObject } from '@abw/badger-utils'
-import { coerceNumber } from '@/src/utils/math.js'
+import { coerceNumber } from '@/src/utils/math'
 import {
   isNull, hasValue, isFunction, add, subtract, multiply, divide, clamp
 } from '@abw/badger-utils'

@@ -1,4 +1,4 @@
-import { shadowClass } from '@/src/index.jsx'
+import { shadowClass } from '@/src/index'
 
 /* START */
 import React from 'react'

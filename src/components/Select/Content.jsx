@@ -3,7 +3,7 @@ import Context      from './Context.js'
 import SelectInput  from './Input.jsx'
 import SelectMenu   from './Menu.jsx'
 import SelectSearch from './Search.jsx'
-import { classes }  from '@/src/utils/classes.js'
+import { classes }  from '@/src/utils/classes'
 
 const Content = ({
   onKeyDown,

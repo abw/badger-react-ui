@@ -3,7 +3,7 @@ import Context            from './Context.js'
 import DropdownOption     from './Option.jsx'
 import DropdownSeparator  from './Separator.jsx'
 import DropdownHeading    from './Heading.jsx'
-import { mergeRefs }      from '@/src/utils/refs.js'
+import { mergeRefs }      from '@/src/utils/refs'
 import { hasValue }       from '@abw/badger-utils'
 
 const Options = ({

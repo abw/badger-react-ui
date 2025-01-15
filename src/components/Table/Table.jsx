@@ -1,10 +1,10 @@
 import React from 'react'
 import Columns from './Columns.jsx'
 import Rows from './Rows.jsx'
-import { borderClass, classes, colorClass, radiusClass, shadowClass } from '@/src/utils/classes.js'
+import { borderClass, classes, colorClass, radiusClass, shadowClass } from '@/src/utils/classes'
 import { splitHash } from '@abw/badger-utils'
-import { capitalFirstLetter } from '@/src/utils/text.js'
-import { Themed }    from '@/src/Theme.jsx'
+import { capitalFirstLetter } from '@/src/utils/text'
+import { Themed }    from '@/src/Theme'
 
 /**
  * Generate an HTML table.

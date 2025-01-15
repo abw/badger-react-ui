@@ -1,4 +1,4 @@
-import { Range } from '@/src/index.jsx'
+import { Range } from '@/src/index'
 
 /* START */
 import React from 'react'

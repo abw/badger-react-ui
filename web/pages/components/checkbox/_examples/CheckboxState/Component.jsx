@@ -1,4 +1,4 @@
-import { CheckboxState } from '@/src/index.jsx'
+import { CheckboxState } from '@/src/index'
 
 /* START */
 import React from 'react'

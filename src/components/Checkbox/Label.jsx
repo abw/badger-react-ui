@@ -1,6 +1,6 @@
 import React from 'react'
-import { Themed } from '@/src/Theme.jsx'
-import { classes } from '@/src/utils/classes.js'
+import { Themed } from '@/src/Theme'
+import { classes } from '@/src/utils/classes'
 
 const CheckboxLabel = ({
   className,

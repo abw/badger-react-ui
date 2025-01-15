@@ -1,4 +1,4 @@
-import { Modal, Button } from '@/src/index.jsx'
+import { Modal, Button } from '@/src/index'
 
 /* START */
 import React, { useState } from 'react'

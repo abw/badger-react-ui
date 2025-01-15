@@ -1,6 +1,6 @@
 import React from 'react'
-import { classes, gapClass } from '@/src/utils/classes.js'
-import { Themed } from '@/src/Theme.jsx'
+import { classes, gapClass } from '@/src/utils/classes'
+import { Themed } from '@/src/Theme'
 
 const Tiles = ({
   minWidth,

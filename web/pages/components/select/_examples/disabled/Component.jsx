@@ -1,5 +1,5 @@
 import React from 'react'
-import { Select } from '@/src/index.jsx'
+import { Select } from '@/src/index'
 
 const people = [
   'Amy',

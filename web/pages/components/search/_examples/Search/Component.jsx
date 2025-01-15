@@ -1,4 +1,4 @@
-import { Search } from '@/src/index.jsx'
+import { Search } from '@/src/index'
 
 /* START */
 import React from 'react'

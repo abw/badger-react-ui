@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react'
-import { Modal, Button } from '@/src/index.jsx'
+import { Modal, Button } from '@/src/index'
 
 const ModalExample = () => {
   const [open, setOpen] = useState(false)

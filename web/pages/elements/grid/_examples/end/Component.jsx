@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid } from '@/src/index.jsx'
+import { Grid } from '@/src/index'
 import { A, B, C } from '../Tiles.jsx'
 
 const GridExample = () =>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Warning } from '@/src/index.jsx'
+import { Warning } from '@/src/index'
 
 const Component = () =>
   <div>

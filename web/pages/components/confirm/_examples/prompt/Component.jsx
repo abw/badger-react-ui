@@ -1,5 +1,5 @@
 import React from 'react'
-import { Confirm, Warning } from '@/src/index.jsx'
+import { Confirm, Warning } from '@/src/index'
 
 const ConfirmExample = () =>
   <div className="flex gap-4">

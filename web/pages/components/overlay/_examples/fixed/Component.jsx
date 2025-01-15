@@ -1,5 +1,5 @@
 import React from 'react'
-import { Overlay, VisibleState, Button } from '@/src/index.jsx'
+import { Overlay, VisibleState, Button } from '@/src/index'
 
 const OverlayExample = () => {
   const { isVisible, show, hide } = VisibleState()

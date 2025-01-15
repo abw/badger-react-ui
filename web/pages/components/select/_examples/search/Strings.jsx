@@ -1,4 +1,4 @@
-import { Select } from '@/src/index.jsx'
+import { Select } from '@/src/index'
 
 /* START */
 import React from 'react'

@@ -1,6 +1,6 @@
 import React from 'react'
-import WithIcons from '../Icon/WithIcons.jsx'
-import { classes } from '@/src/utils/classes.js'
+import WithIcons from '@/components/Icon/WithIcons'
+import { classes } from '@/src/utils/classes'
 import { extract } from '@abw/badger-utils'
 
 const Summary = ({

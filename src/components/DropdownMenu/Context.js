@@ -1,6 +1,6 @@
 import MenuContext from '@/src/context/Menu.js'
 import { Generator } from '@abw/react-context'
-import { withIconsRenderer } from '@/src/utils/index.js'
+import { withIconsRenderer } from '@/src/utils/index'
 
 class DropdownContext extends MenuContext {
   static debug        = false

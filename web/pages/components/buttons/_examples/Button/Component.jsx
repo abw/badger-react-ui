@@ -1,4 +1,4 @@
-import { Buttons } from '@/src/index.jsx'
+import { Buttons } from '@/src/index'
 
 {/* START */}
 import React from 'react'

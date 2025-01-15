@@ -1,8 +1,8 @@
 import React          from 'react'
 import CheckboxLabel  from './Label.jsx'
 import CheckboxInput  from './Input.jsx'
-import { Themed }     from '@/src/Theme.jsx'
-import { borderClass, classes } from '@/src/utils/classes.js'
+import { Themed }     from '@/src/Theme'
+import { borderClass, classes } from '@/src/utils/classes'
 
 const Checkbox = ({
   size,

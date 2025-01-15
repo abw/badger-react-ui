@@ -1,4 +1,4 @@
-import { Modal, Button } from '@/src/index.jsx'
+import { Modal, Button } from '@/src/index'
 import React, { useState } from 'react'
 
 const ModalExample = () => {

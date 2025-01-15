@@ -1,7 +1,7 @@
 import React    from 'react'
 import Context  from './Context.js'
-import Icon     from '@/components/Icon/Icon.jsx'
-import { classes } from '@/src/utils/classes.js'
+import Icon     from '@/components/Icon/Icon'
+import { classes } from '@/src/utils/classes'
 
 const Search = ({
   searchInput,

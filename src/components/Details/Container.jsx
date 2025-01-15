@@ -2,7 +2,7 @@ import React            from 'react'
 import Context          from './Context.js'
 import DetailsSummary   from './Summary.jsx'
 import DetailsContent   from './Content.jsx'
-import { classes, borderClass, radiusClass, shadowClass } from '@/src/utils/classes.js'
+import { classes, borderClass, radiusClass, shadowClass } from '@/src/utils/classes'
 
 const Container = ({
   className,

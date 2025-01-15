@@ -1,7 +1,7 @@
 import React          from 'react'
 import DefaultButton  from '@/components/Button/Button.jsx'
 import { useForm }    from '@abw/badger-form'
-import { Themed }     from '@/src/Theme.jsx'
+import { Themed }     from '@/src/Theme'
 
 const Reset = ({
   type='reset',

@@ -6,7 +6,7 @@ import RangeMin from './Input/RangeMin.jsx'
 import RangeMax from './Input/RangeMax.jsx'
 import * as BadgerForm from '@abw/badger-form'
 import { addInputType } from '@abw/badger-form'
-import { Themed }     from '@/src/Theme.jsx'
+import { Themed }     from '@/src/Theme'
 export {
   UseField, UseForm, useField, useForm,
   inputClasses, statusClasses, fieldClass,

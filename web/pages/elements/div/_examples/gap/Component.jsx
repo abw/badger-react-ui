@@ -1,5 +1,5 @@
 import React from 'react'
-import { Div } from '@/src/index.jsx'
+import { Div } from '@/src/index'
 
 const Example = () =>
   <div className="grid-1 gap-8">

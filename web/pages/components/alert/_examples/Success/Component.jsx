@@ -1,5 +1,5 @@
 import React from 'react'
-import { Success } from '@/src/index.jsx'
+import { Success } from '@/src/index'
 
 const Component = () =>
   <div>

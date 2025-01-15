@@ -3,7 +3,7 @@ import Context        from './Context.js'
 import PagerPrevious  from './Previous.jsx'
 import PagerNext      from './Next.jsx'
 import PagerPages     from './Pages.jsx'
-import { classes }    from '@/src/utils/classes.js'
+import { classes }    from '@/src/utils/classes'
 
 const PagerContent = ({
   className='pager',

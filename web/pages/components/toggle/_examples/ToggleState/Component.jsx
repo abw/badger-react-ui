@@ -1,4 +1,4 @@
-import { ToggleState } from '@/src/index.jsx'
+import { ToggleState } from '@/src/index'
 
 /* START */
 import React from 'react'

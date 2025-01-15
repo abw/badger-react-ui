@@ -1,9 +1,9 @@
 import React          from 'react'
 import Context        from './Context.js'
-import WithIcons      from '../Icon/WithIcons.jsx'
+import WithIcons      from '@/components/Icon/WithIcons'
 import { extract }    from '@abw/badger-utils'
-import { mergeRefs }  from '@/src/utils/refs.js'
-import { classes }    from '@/src/utils/classes.js'
+import { mergeRefs }  from '@/src/utils/refs'
+import { classes }    from '@/src/utils/classes'
 
 const Trigger = ({
   triggerClass='trigger',

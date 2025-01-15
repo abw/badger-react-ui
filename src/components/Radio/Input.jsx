@@ -1,5 +1,5 @@
 import React from 'react'
-import { Themed } from '@/src/Theme.jsx'
+import { Themed } from '@/src/Theme'
 import { doNothing } from '@abw/badger-utils'
 
 const Input = ({

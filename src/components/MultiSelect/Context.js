@@ -1,5 +1,5 @@
 import { Generator, Context as Base } from '@abw/react-context'
-import { optionValue, findOption, defaultRenderer, anyPropsChanged } from '@/src/utils/index.js'
+import { optionValue, findOption, defaultRenderer, anyPropsChanged } from '@/src/utils/index'
 import { doNothing, hasValue, splitList } from '@abw/badger-utils'
 const VALUE_PROPS = splitList(
   'value values'

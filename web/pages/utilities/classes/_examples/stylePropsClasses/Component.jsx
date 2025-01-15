@@ -1,4 +1,4 @@
-import { stylePropsClasses } from '@/src/index.jsx'
+import { stylePropsClasses } from '@/src/index'
 
 /* START */
 import React from 'react'

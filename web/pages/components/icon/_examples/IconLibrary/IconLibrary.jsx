@@ -1,4 +1,4 @@
-import { Icon, IconLibrary, addIcons } from '@/src/index.jsx'
+import { Icon, IconLibrary, addIcons } from '@/src/index'
 /* START */
 import React from 'react'
 // PRETEND: import { Icon, IconLibrary, addIcons } from '@abw/badger-react-ui'

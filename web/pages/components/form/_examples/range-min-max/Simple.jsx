@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Field, Debug } from '@/src/index.jsx'
+import { Form, Field, Debug } from '@/src/index'
 
 const RangeExample = () =>
   /* START */

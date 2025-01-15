@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Select } from '@/src/index.jsx'
+import { Button, Select } from '@/src/index'
 
 const animals = [
   { id: 'alan',  name: 'Alan Aardvark' },

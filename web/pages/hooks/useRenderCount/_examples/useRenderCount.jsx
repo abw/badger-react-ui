@@ -1,4 +1,4 @@
-import { useRenderCount, Buttons } from '@/src/index.jsx'
+import { useRenderCount, Buttons } from '@/src/index'
 
 /* START */
 import React from 'react'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Range } from '@/src/index.jsx'
+import { Range } from '@/src/index'
 
 const RangeExample = () => {
   const [min, setMin] = React.useState(0)

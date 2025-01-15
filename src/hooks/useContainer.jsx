@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { widthBreakpoint } from '@/src/utils/breakpoint.js'
+import { widthBreakpoint } from '@/src/utils/breakpoint'
 
 export const useContainer = (options={}) => {
   const [width, setWidth] = useState(false)

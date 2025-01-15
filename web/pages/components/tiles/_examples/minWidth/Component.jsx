@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tiles } from '@/src/index.jsx'
+import { Tiles } from '@/src/index'
 import { Cards } from '../Tiles/Component.jsx'
 
 const TilesExample = () =>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Select, DropdownMenu } from '@/src/index.jsx'
+import { Select, DropdownMenu } from '@/src/index'
 
 const tap = [
   { id: 'nigel', text: 'Nigel Tufnel' },

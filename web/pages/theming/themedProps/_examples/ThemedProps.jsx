@@ -1,5 +1,5 @@
-import { themedProps } from '@/src/index.jsx'
-import { Theme, Button } from '@/src/index.jsx'
+import { themedProps } from '@/src/index'
+import { Theme, Button } from '@/src/index'
 
 /* START */
 import React from 'react'

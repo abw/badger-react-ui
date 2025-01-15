@@ -1,9 +1,9 @@
 import MenuContext from '@/src/context/Menu.js'
 import { Generator } from '@abw/react-context'
-import { BLANK } from '@/src/constants.js'
+import { BLANK } from '@/src/constants'
 import { hasValue } from '@abw/badger-utils'
-import { ARROW_DOWN, ARROW_UP, TAB, ENTER, ESCAPE, SPACE, BACKSPACE } from '@/src/constants.js'
-import { findOption, validOption, searchOptions, defaultRenderer } from '@/src/utils/index.js'
+import { ARROW_DOWN, ARROW_UP, TAB, ENTER, ESCAPE, SPACE, BACKSPACE } from '@/src/constants'
+import { findOption, validOption, searchOptions, defaultRenderer } from '@/src/utils/index'
 import { doNothing } from '@abw/badger-utils'
 
 class Context extends MenuContext {

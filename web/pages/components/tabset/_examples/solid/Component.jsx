@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tabset } from '@/src/index.jsx'
+import { Tabset } from '@/src/index'
 
 const TabsetExample = () =>
   <div className="grid-1 gap-4">

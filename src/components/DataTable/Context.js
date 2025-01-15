@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react'
 import { Generator } from '@abw/react-context'
 import { doNothing, hasValue, isBoolean, splitHash } from '@abw/badger-utils'
-import { Storage, useComplexState } from '@/src/index.jsx'
+import { Storage, useComplexState } from '@/src/index'
 import {
   dataTableColumnDefinitions,
   dataTableVisibleColumns,

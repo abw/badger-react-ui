@@ -1,4 +1,4 @@
-import { Radio } from '@/src/index.jsx'
+import { Radio } from '@/src/index'
 import React, { useState } from 'react'
 
 const InlineExample = () => {

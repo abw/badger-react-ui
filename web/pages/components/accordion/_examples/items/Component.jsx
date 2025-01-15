@@ -1,5 +1,5 @@
 import React from 'react'
-import { Accordion } from '@/src/index.jsx'
+import { Accordion } from '@/src/index'
 
 const AccordionExample = () =>
   /* START */

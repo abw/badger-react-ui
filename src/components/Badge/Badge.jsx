@@ -1,9 +1,9 @@
 import React          from 'react'
-import { Themed }     from '@/src/Theme.jsx'
-import { WithIcons }  from '../Icon/index.jsx'
+import { Themed }     from '@/src/Theme'
+import { WithIcons }  from '@/components/Icon/index'
 import DefaultPrefix  from './Prefix.jsx'
 import DefaultSuffix  from './Suffix.jsx'
-import { borderClass, classes, radiusClass, shadowClass } from '@/src/utils/classes.js'
+import { borderClass, classes, radiusClass, shadowClass } from '@/src/utils/classes'
 
 const Badge = ({
   size,

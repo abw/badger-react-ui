@@ -1,6 +1,6 @@
 import React   from 'react'
 import Context from './Context.js'
-import WithIcons from '../Icon/WithIcons.jsx'
+import WithIcons from '@/components/Icon/WithIcons'
 
 const Selection = ({
   selection,

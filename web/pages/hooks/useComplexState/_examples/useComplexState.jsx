@@ -1,4 +1,4 @@
-import { useComplexState } from '@/src/index.jsx'
+import { useComplexState } from '@/src/index'
 
 /* START */
 import React from 'react'

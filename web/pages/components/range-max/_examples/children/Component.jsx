@@ -1,4 +1,4 @@
-import { RangeMax, useRange, RangeSlider, RangeOutput, Button } from '@/src/index.jsx'
+import { RangeMax, useRange, RangeSlider, RangeOutput, Button } from '@/src/index'
 
 /* START */
 import React from 'react'

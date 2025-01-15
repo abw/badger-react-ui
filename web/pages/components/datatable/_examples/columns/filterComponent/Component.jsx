@@ -1,6 +1,6 @@
 import React from 'react'
-import { DataTable } from '@/src/index.jsx'
-import { Select } from '@/src/index.jsx'
+import { DataTable } from '@/src/index'
+import { Select } from '@/src/index'
 
 const DataTableExample = () =>
   /* START */

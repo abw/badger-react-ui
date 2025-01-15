@@ -1,4 +1,4 @@
-import { Div, Flex } from '@/src/index.jsx'
+import { Div, Flex } from '@/src/index'
 
 /* START */
 import React from 'react'

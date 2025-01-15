@@ -1,7 +1,7 @@
 import React    from 'react'
 import Context  from './Context.js'
 import defaultDisplayTypes from './Display.jsx'
-import { classes } from '@/src/utils/classes.js'
+import { classes } from '@/src/utils/classes'
 import { alignClasses } from './Utils/Align.js'
 import { FILTERING, SORTING } from './Constants.js'
 import { hasValue, maybeFunction } from '@abw/badger-utils'

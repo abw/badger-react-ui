@@ -1,4 +1,4 @@
-import { Theme, Button } from '@/src/index.jsx'
+import { Theme, Button } from '@/src/index'
 
 /* START */
 import React from 'react'

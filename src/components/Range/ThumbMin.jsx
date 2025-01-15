@@ -1,6 +1,6 @@
 import React from 'react'
 import Context from './Context.js'
-import { classes } from '@/src/utils/index.js'
+import { classes } from '@/src/utils/index'
 
 const ThumbMin = ({
   thumbClass='range-thumb',

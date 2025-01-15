@@ -1,4 +1,4 @@
-import { paddingClass } from '@/src/index.jsx'
+import { paddingClass } from '@/src/index'
 
 /* START */
 import React from 'react'

@@ -1,7 +1,7 @@
 import React         from 'react'
 import Context       from './Context.js'
 import SearchContent from './Content.jsx'
-import { Themed }    from '@/src/Theme.jsx'
+import { Themed }    from '@/src/Theme'
 
 const Search = ({
   Content=SearchContent,

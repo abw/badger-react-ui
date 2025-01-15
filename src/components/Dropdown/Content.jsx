@@ -3,7 +3,7 @@ import Context          from './Context.js'
 import DropdownTrigger  from './Trigger.jsx'
 import DropdownBody     from './Body.jsx'
 import useFloating      from '@/src/hooks/useFloating.jsx'
-import { classes }      from '@/src/utils/classes.js'
+import { classes }      from '@/src/utils/classes'
 // import { useFloating, offset as fuiOffset } from '@floating-ui/react'
 
 const Content = ({

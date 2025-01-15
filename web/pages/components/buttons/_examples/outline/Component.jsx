@@ -1,5 +1,5 @@
 import React from 'react'
-import { Buttons } from '@/src/index.jsx'
+import { Buttons } from '@/src/index'
 
 const ButtonsExample = () =>
   <>

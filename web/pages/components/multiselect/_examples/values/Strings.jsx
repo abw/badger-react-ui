@@ -1,4 +1,4 @@
-import { MultiSelect } from '@/src/index.jsx'
+import { MultiSelect } from '@/src/index'
 
 /* START */
 import React from 'react'

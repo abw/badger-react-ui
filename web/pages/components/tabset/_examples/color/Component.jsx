@@ -1,4 +1,4 @@
-import { Tabset } from '@/src/index.jsx'
+import { Tabset } from '@/src/index'
 
 /* START */
 import React from 'react'

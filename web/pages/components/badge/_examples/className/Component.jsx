@@ -1,5 +1,5 @@
 import React from 'react'
-import { Badge } from '@/src/index.jsx'
+import { Badge } from '@/src/index'
 
 const Component = () =>
 /* START */

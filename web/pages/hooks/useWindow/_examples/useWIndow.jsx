@@ -1,4 +1,4 @@
-import { Icon, useWindow } from '@/src/index.jsx'
+import { Icon, useWindow } from '@/src/index'
 
 /* START */
 import React from 'react'

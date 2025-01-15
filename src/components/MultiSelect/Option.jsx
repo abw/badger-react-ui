@@ -1,7 +1,7 @@
 import React   from 'react'
 import Context from './Context.js'
-import Icon    from '../Icon/Icon.jsx'
-import { defaultRenderer, iconNameOrProps } from '@/src/utils/index.js'
+import Icon    from '@/components/Icon/Icon'
+import { defaultRenderer, iconNameOrProps } from '@/src/utils/index'
 
 const Option = ({
   option,

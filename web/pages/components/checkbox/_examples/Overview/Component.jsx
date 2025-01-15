@@ -1,4 +1,4 @@
-import { Checkbox } from '@/src/index.jsx'
+import { Checkbox } from '@/src/index'
 
 /* START */
 import React, { useState } from 'react'

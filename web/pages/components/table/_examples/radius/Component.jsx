@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table } from '@/src/index.jsx'
+import { Table } from '@/src/index'
 import { headings, rows } from '../spinal-tap.jsx'
 
 const TableExample = () =>

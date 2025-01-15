@@ -1,4 +1,4 @@
-import { Tiles } from '@/src/index.jsx'
+import { Tiles } from '@/src/index'
 
 /* START */
 import React from 'react'

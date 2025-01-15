@@ -1,5 +1,5 @@
 import React from 'react'
-import { Accordion, Select } from '@/src/index.jsx'
+import { Accordion, Select } from '@/src/index'
 
 const names = [
   'Alan Aardvark',

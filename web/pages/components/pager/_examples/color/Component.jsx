@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Pager } from '@/src/index.jsx'
+import { Pager } from '@/src/index'
 
 const Component = () => {
   const [page, setPage] = useState(0)

@@ -1,4 +1,4 @@
-import { Themed } from '@/src/Theme.jsx'
+import { Themed } from '@/src/Theme'
 import { AlertContentType } from './types'
 
 const AlertContent: AlertContentType = ({

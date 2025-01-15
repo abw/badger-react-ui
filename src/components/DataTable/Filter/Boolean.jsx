@@ -1,6 +1,6 @@
 import React from 'react'
-import { Select } from '@/src/index.jsx'
-import { FALSE, TRUE } from '@/src/constants.js'
+import { Select } from '@/src/index'
+import { FALSE, TRUE } from '@/src/constants'
 import { doNothing } from '@abw/badger-utils'
 
 const Boolean = ({

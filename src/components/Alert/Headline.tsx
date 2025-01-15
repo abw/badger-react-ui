@@ -1,8 +1,8 @@
 import AlertControls from './Controls.jsx'
 import { Icon }      from '@/src/components/Icon/index'
-import { Themed }    from '@/src/Theme.jsx'
+import { Themed }    from '@/src/Theme'
 import { doNothing } from '@abw/badger-utils'
-import { AlertHeadlineType } from './types.js'
+import { AlertHeadlineType } from './types'
 
 const AlertHeadline: AlertHeadlineType = ({
   headline,

@@ -1,5 +1,5 @@
 import React from 'react'
-import { RangeMin } from '@/src/index.jsx'
+import { RangeMin } from '@/src/index'
 
 const RangeMinExample = () =>
   <div className="grid-1 gap-4">

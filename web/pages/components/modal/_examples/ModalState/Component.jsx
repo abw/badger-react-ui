@@ -1,4 +1,4 @@
-import { ModalState, Button } from '@/src/index.jsx'
+import { ModalState, Button } from '@/src/index'
 /* START */
 import React from 'react'
 // PRETEND: import { ModalState, Button } from '@abw/badger-react-ui'

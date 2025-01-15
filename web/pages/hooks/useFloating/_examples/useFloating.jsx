@@ -1,4 +1,4 @@
-import { useFloating } from '@/src/index.jsx'
+import { useFloating } from '@/src/index'
 
 /* START */
 import React from 'react'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex } from '@/src/index.jsx'
+import { Flex } from '@/src/index'
 import { A, B, C } from '../Tiles.jsx'
 
 const FlexExample = () =>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useComplexState, Buttons } from '@/src/index.jsx'
+import { useComplexState, Buttons } from '@/src/index'
 
 // PRETEND: import { useComplexState, Button } from '@abw/badger-react-ui
 

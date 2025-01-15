@@ -1,5 +1,5 @@
 import React from 'react'
-import { DataTables } from '@/src/index.jsx'
+import { DataTables } from '@/src/index'
 import animals from '../animals.js'
 
 const DataTablesExample = () =>

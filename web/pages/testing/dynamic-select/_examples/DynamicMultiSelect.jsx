@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, MultiSelect } from '@/src/index.jsx'
+import { Button, MultiSelect } from '@/src/index'
 
 const nato = [
   { id: 'a', name: 'Alpha'   },

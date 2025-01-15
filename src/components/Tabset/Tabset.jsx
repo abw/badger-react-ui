@@ -1,10 +1,10 @@
 import React from 'react'
 import TabBody from './Body.jsx'
-import WithIcons from '@/components/Icon/WithIcons.jsx'
-import Storage from '@/src/utils/storage.js'
-import { classes } from '@/src/utils/classes.js'
+import WithIcons from '@/components/Icon/WithIcons'
+import Storage from '@/src/utils/storage'
+import { classes } from '@/src/utils/classes'
 import { doNothing } from '@abw/badger-utils'
-import { Themed }    from '@/src/Theme.jsx'
+import { Themed }    from '@/src/Theme'
 
 const Tabset = ({
   tabs,

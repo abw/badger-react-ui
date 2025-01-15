@@ -1,4 +1,4 @@
-import { Search } from '@/src/index.jsx'
+import { Search } from '@/src/index'
 import { sleep } from '@abw/badger-utils'
 
 /* START */

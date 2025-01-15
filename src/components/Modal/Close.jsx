@@ -1,6 +1,6 @@
 import React from 'react'
-import Icon from '@/components/Icon/Icon.jsx'
-import { Themed } from '@/src/Theme.jsx'
+import Icon from '@/components/Icon/Icon'
+import { Themed } from '@/src/Theme'
 
 const ModalClose = ({
   close,

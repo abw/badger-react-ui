@@ -1,8 +1,8 @@
 import React       from 'react'
 import ModalHeader from './Header.jsx'
 import ModalFooter from './Footer.jsx'
-import { Themed }  from '@/src/Theme.jsx'
-import { stopPropagation } from '@/src/utils/events.js'
+import { Themed }  from '@/src/Theme'
+import { stopPropagation } from '@/src/utils/events'
 
 const ModalContent = ({
   text,

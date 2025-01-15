@@ -1,5 +1,5 @@
 import React from 'react'
-import { DropdownMenu } from '@/src/index.jsx'
+import { DropdownMenu } from '@/src/index'
 
 const DropdownMenuExample = () =>
   /* START */

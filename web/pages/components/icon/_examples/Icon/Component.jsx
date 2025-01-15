@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon } from '@/src/index.jsx'
+import { Icon } from '@/src/index'
 
 {/* START */}
 // PRETEND: import { Icon } from '@abw/badger-react-ui'

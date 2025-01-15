@@ -1,4 +1,4 @@
-import { marginClass } from '@/src/index.jsx'
+import { marginClass } from '@/src/index'
 
 /* START */
 import React from 'react'

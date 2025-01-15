@@ -2,12 +2,15 @@ import { useState }  from 'react'
 import AlertControls from './Controls.jsx'
 import AlertHeadline from './Headline.jsx'
 import AlertContent  from './Content.jsx'
-import AlertIcon     from './Icon.jsx'
-import { Themed }    from '@/src/Theme.jsx'
+import AlertIcon     from './Icon'
+import { Themed }    from '@/src/Theme'
 import {
   borderClass, classes, radiusClass, shadowClass
-} from '@/src/utils/index.js'
-import { AlertProps, AlertContentProps, AlertControlsProps, AlertHeadlineProps, AlertIconProps, AlertType } from './types.js'
+} from '@/src/utils/index'
+import {
+  AlertProps, AlertContentProps, AlertControlsProps, AlertHeadlineProps,
+  AlertIconProps, AlertType
+} from './types.js'
 
 const Alert: AlertType = ({
   title,

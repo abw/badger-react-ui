@@ -1,6 +1,6 @@
 import React from 'react'
 import Context from './Context.js'
-import { classes } from '@/src/utils/classes.js'
+import { classes } from '@/src/utils/classes'
 
 const alignment = {
   space: 'right'

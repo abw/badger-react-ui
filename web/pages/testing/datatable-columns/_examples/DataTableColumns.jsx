@@ -1,7 +1,7 @@
 import React from 'react'
 import animals from '@/web/pages/components/datatable/_examples/animals.js'
-import { DataTable } from '@/src/index.jsx'
-import { Button } from '@/src/index.jsx'
+import { DataTable } from '@/src/index'
+import { Button } from '@/src/index'
 
 // { name: 'Alan',       animal: 'Anteater', id: 10,  role: 'admin' },
 const cols1 = ['name', 'animal']

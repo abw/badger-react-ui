@@ -1,6 +1,6 @@
 import React from 'react'
-import { Themed } from '@/src/Theme.jsx'
-import { Buttons, classes } from '@/src/index.jsx'
+import { Themed } from '@/src/Theme'
+import { Buttons, classes } from '@/src/index'
 import { doNothing, isInteger, isObject } from '@abw/badger-utils'
 
 export const defaultToggleOptions=[

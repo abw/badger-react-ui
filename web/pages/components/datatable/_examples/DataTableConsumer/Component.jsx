@@ -1,4 +1,4 @@
-import { DataTable, DataTableConsumer } from '@/src/index.jsx'
+import { DataTable, DataTableConsumer } from '@/src/index'
 
 /* START */
 import React from 'react'

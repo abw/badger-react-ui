@@ -1,5 +1,5 @@
 import { Icon } from '@/src/components/Icon/index'
-import { Themed } from '@/src/Theme.jsx'
+import { Themed } from '@/src/Theme'
 import { doNothing } from '@abw/badger-utils'
 import { AlertControlsType } from './types'
 

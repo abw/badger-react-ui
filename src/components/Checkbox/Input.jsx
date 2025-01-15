@@ -1,7 +1,7 @@
 import React from 'react'
-import { Themed } from '@/src/Theme.jsx'
+import { Themed } from '@/src/Theme'
 import { doNothing } from '@abw/badger-utils'
-import { classes } from '@/src/utils/classes.js'
+import { classes } from '@/src/utils/classes'
 
 const CheckboxInput = ({
   disabled=false,

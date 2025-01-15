@@ -1,5 +1,5 @@
 import React from 'react'
-import { Search } from '@/src/index.jsx'
+import { Search } from '@/src/index'
 
 const animals = [
   'Alan Aardvark',

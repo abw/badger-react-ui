@@ -3,7 +3,7 @@ import Context            from './Context.js'
 import DataTableSummary   from './Summary.jsx'
 import DataTableControls  from './Controls.jsx'
 import Button             from '@/components/Button/Button.jsx'
-import { pagerPreviousPageLabel, pagerNextPageLabel } from '@/src/index.jsx'
+import { pagerPreviousPageLabel, pagerNextPageLabel } from '@/src/index'
 import { maybeFunction } from '@abw/badger-utils'
 
 const Header = ({

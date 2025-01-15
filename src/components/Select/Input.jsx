@@ -1,6 +1,6 @@
 import React    from 'react'
 import Context  from './Context.js'
-import Icon     from '../Icon/Icon.jsx'
+import Icon     from '@/components/Icon/Icon'
 import { hasValue } from '@abw/badger-utils'
 
 const Input = ({

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Range, Button } from '@/src/index.jsx'
+import { Range, Button } from '@/src/index'
 
 const RangeExample = () => {
   const [color, setColor] = React.useState('red')

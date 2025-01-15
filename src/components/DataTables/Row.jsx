@@ -1,11 +1,11 @@
 import React from 'react'
 import Context from '../DataTable/Context.js'
-import defaultDisplayTypes from '../DataTable/Display.jsx'
-import { classes } from '@/src/utils/classes.js'
-import { alignClasses } from '../DataTable/Utils/Align.js'
-import { FILTERING, SORTING, HEADING } from '../DataTable/Constants.js'
+import defaultDisplayTypes from '@/components/DataTable/Display.jsx'
+import { classes } from '@/src/utils/classes'
+import { alignClasses } from '@/components/DataTable/Utils/Align.js'
+import { FILTERING, SORTING, HEADING } from '@/components/DataTable/Constants.js'
 import { hasValue, maybeFunction } from '@abw/badger-utils'
-import Icon from '../Icon/Icon.jsx'
+import Icon from '@/components/Icon/Icon'
 
 
 const Row = ({

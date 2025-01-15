@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Storage } from '@/src/index.jsx'
+import { Storage } from '@/src/index'
 import { doNothing } from '@abw/badger-utils'
 import Toggle, { defaultToggleOptions, selectedToggleIndex } from './Toggle.jsx'
 

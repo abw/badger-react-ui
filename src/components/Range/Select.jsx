@@ -1,8 +1,8 @@
 import React from 'react'
 import Context from './Context.js'
-import Icon from '../Icon/Icon.jsx'
-import SelectInput from '../Select/Select.jsx'
-import { classes } from '@/src/utils/classes.js'
+import Icon from '@/components/Icon/Icon'
+import SelectInput from '@/components/Select/Select.jsx'
+import { classes } from '@/src/utils/classes'
 import { range } from '@abw/badger-utils'
 import { doNothing } from '@abw/badger-utils'
 

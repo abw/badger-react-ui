@@ -1,4 +1,4 @@
-import { Confirm } from '@/src/index.jsx'
+import { Confirm } from '@/src/index'
 
 /* START */
 import React from 'react'

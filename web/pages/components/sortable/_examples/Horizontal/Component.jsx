@@ -1,4 +1,4 @@
-import { HorizontalSort, Button } from '@/src/index.jsx'
+import { HorizontalSort, Button } from '@/src/index'
 
 /* START */
 import React from 'react'

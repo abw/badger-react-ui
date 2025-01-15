@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dropdown } from '@/src/index.jsx'
+import { Dropdown } from '@/src/index'
 
 // PRETEND: import { DropdownMenu } from '@abw/badger-react-ui
 

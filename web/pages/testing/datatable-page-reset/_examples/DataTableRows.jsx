@@ -1,6 +1,6 @@
 import React from 'react'
-import { DataTable } from '@/src/index.jsx'
-import { Button } from '@/src/index.jsx'
+import { DataTable } from '@/src/index'
+import { Button } from '@/src/index'
 
 const rows1 = [
   { name: 'Alan',       animal: 'Anteater',  },

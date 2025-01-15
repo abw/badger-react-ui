@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { maybeFunction } from '@abw/badger-utils'
-import { capitalFirstLetter } from '../utils/text.js'
+import { capitalFirstLetter } from '@/src/utils/text'
 
 export const useComplexState = (values, options={ }) => {
   const {

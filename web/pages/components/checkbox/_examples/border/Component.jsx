@@ -1,4 +1,4 @@
-import { Checkbox } from '@/src/index.jsx'
+import { Checkbox } from '@/src/index'
 import React, { useState } from 'react'
 
 const ClassName = () => {

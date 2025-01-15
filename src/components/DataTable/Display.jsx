@@ -1,6 +1,6 @@
 import { formatNumber, capitalize, currency, hasValue } from '@abw/badger-utils'
 import { coerceBoolean } from './Utils/Filter.js'
-import { FALSE, TRUE } from '@/src/constants.js'
+import { FALSE, TRUE } from '@/src/constants'
 
 export const displayText = ({value}) =>
   hasValue(value) ? value : ''

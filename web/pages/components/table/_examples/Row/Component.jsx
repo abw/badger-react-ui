@@ -1,4 +1,4 @@
-import { Table, TableCell, cellProps } from '@/src/index.jsx'
+import { Table, TableCell, cellProps } from '@/src/index'
 
 /* START */
 import React from 'react'

@@ -1,5 +1,5 @@
 import { Context } from '@abw/react-context'
-import { ENTER, ESCAPE, SPACE } from '@/src/constants.js'
+import { ENTER, ESCAPE, SPACE } from '@/src/constants'
 import { doNothing, sleep } from '@abw/badger-utils'
 
 class DropdownContext extends Context {

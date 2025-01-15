@@ -1,4 +1,4 @@
-import { Storage, Form, Field, Reset, Submit, Success } from '@/src/index.jsx'
+import { Storage, Form, Field, Reset, Submit, Success } from '@/src/index'
 
 /* START */
 import React from 'react'

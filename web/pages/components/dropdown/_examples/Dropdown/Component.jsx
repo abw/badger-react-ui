@@ -1,4 +1,4 @@
-import { Dropdown } from '@/src/index.jsx'
+import { Dropdown } from '@/src/index'
 
 /* START */
 import React from 'react'

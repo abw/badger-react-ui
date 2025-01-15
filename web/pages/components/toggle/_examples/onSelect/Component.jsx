@@ -1,4 +1,4 @@
-import { Toggle } from '@/src/index.jsx'
+import { Toggle } from '@/src/index'
 
 /* START */
 import React from 'react'

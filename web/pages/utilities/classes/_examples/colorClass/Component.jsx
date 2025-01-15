@@ -1,4 +1,4 @@
-import { colorClass } from '@/src/index.jsx'
+import { colorClass } from '@/src/index'
 
 /* START */
 import React from 'react'

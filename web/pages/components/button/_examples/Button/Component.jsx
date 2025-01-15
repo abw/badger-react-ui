@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '@/src/index.jsx'
+import { Button } from '@/src/index'
 
 {/* START */}
 // PRETEND: import { Button } from '@abw/badger-react-ui'

@@ -1,7 +1,7 @@
 import React      from 'react'
 import Reset      from './Reset.jsx'
 import Submit     from './Submit.jsx'
-import { Themed } from '@/src/Theme.jsx'
+import { Themed } from '@/src/Theme'
 import { flexGapSpaceClasses } from '@abw/badger-form'
 
 const ResetSubmit = ({

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table } from '@/src/index.jsx'
+import { Table } from '@/src/index'
 
 
 const TableExample = () =>

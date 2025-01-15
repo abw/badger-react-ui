@@ -1,8 +1,8 @@
 import React   from 'react'
 import Context from '../DataTable/Context.js'
 import Components   from '../DataTable/Filter/index.jsx'
-import Icon         from '@/components/Icon/Icon.jsx'
-import { classes }  from '@/src/utils/classes.js'
+import Icon         from '@/components/Icon/Icon'
+import { classes }  from '@/src/utils/classes'
 import { CROSS, FILTER, FILTERING } from '../DataTable/Constants.js'
 import { hasValue, isBoolean } from '@abw/badger-utils'
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import Context from '../Range/Context.js'
 import DefaultInputMax from '../Range/InputMax.jsx'
-import { classes } from '@/src/utils/classes.js'
+import { classes } from '@/src/utils/classes'
 
 const Inputs = ({
   inputsClass='range-inputs',

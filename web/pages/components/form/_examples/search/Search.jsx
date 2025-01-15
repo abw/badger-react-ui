@@ -1,4 +1,4 @@
-import { Form, Field, Debug } from '@/src/index.jsx'
+import { Form, Field, Debug } from '@/src/index'
 
 /* START */
 import React from 'react'

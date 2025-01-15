@@ -1,5 +1,5 @@
 import React from 'react'
-import { Select } from '@/src/index.jsx'
+import { Select } from '@/src/index'
 import { isObject } from '@abw/badger-utils'
 import { doNothing } from '@abw/badger-utils'
 

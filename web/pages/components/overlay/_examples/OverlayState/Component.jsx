@@ -1,4 +1,4 @@
-import { OverlayState, Button } from '@/src/index.jsx'
+import { OverlayState, Button } from '@/src/index'
 /* START */
 import React from 'react'
 // PRETEND: import { OverlayState, Button } from '@abw/badger-react-ui'

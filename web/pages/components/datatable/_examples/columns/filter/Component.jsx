@@ -1,5 +1,5 @@
 import React from 'react'
-import { DataTable, filterStringContains } from '@/src/index.jsx'
+import { DataTable, filterStringContains } from '@/src/index'
 import { multiSort } from '@abw/badger-utils'
 
 const DataTableExample = () =>

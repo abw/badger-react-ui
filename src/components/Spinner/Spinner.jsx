@@ -1,8 +1,8 @@
 import React from 'react'
-import Icon from '@/components/Icon/Icon.jsx'
-import { classes } from '@/src/utils/classes.js'
+import Icon from '@/components/Icon/Icon'
+import { classes } from '@/src/utils/classes'
 import { isBoolean } from '@abw/badger-utils'
-import { Themed }    from '@/src/Theme.jsx'
+import { Themed }    from '@/src/Theme'
 
 const iconParts = (mods, classes) =>
   [

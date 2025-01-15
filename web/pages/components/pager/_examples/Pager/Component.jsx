@@ -1,4 +1,4 @@
-import { Pager } from '@/src/index.jsx'
+import { Pager } from '@/src/index'
 
 /* START */
 import React, { useState } from 'react'

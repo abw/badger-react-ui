@@ -1,5 +1,5 @@
 import React from 'react'
-import { RangeMax } from '@/src/index.jsx'
+import { RangeMax } from '@/src/index'
 
 /* START */
 const RangeExample = () => {

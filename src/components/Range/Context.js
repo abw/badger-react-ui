@@ -1,7 +1,7 @@
 import { Generator, Context as Base } from '@abw/react-context'
-import { anyPropsChanged, classes, extractStyleProps } from '@/src/utils/index.js'
+import { anyPropsChanged, classes, extractStyleProps } from '@/src/utils/index'
 import { doNothing, clamp, multiply, divide, identity, splitList } from '@abw/badger-utils'
-import { ANY, ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT } from '@/src/constants.js'
+import { ANY, ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT } from '@/src/constants'
 import { initRange, rangeNormalClick } from './Utils.js'
 import { sleep } from '@abw/badger-utils'
 

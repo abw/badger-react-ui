@@ -1,4 +1,4 @@
-import { MakeSortable, Button } from '@/src/index.jsx'
+import { MakeSortable, Button } from '@/src/index'
 
 /* START */
 import React from 'react'

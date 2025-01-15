@@ -1,5 +1,5 @@
 import React from 'react'
-import { Details, Select } from '@/src/index.jsx'
+import { Details, Select } from '@/src/index'
 
 const names = [
   'Alan Aardvark',

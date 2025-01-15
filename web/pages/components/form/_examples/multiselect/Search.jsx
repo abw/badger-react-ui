@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Field, Debug, Submit } from '@/src/index.jsx'
+import { Form, Field, Debug, Submit } from '@/src/index'
 
 const MultiSelectExample = () =>
   /* START */

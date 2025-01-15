@@ -1,5 +1,5 @@
 import React, { useState }  from 'react'
-import { Icon }             from '@/src/index.jsx'
+import { Icon }             from '@/src/index'
 import CheckOption          from '@/demo/control/CheckOption.jsx'
 import IconSelect           from '@/demo/control/IconSelect.jsx'
 import SizeSelect           from '@/demo/control/SizeSelect.jsx'

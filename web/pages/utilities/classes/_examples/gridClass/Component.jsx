@@ -1,4 +1,4 @@
-import { classes, gridClass } from '@/src/index.jsx'
+import { classes, gridClass } from '@/src/index'
 
 /* START */
 import React from 'react'

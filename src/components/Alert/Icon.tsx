@@ -1,7 +1,7 @@
 import AlertContent from './Content.jsx'
-import Icon         from '@/src/components/Icon/Icon.js'
-import { Themed }   from '@/src/Theme.jsx'
-import { AlertIconType } from './types.js'
+import Icon         from '@/src/components/Icon/Icon'
+import { Themed }   from '@/src/Theme'
+import { AlertIconType } from './types'
 
 const AlertIcon: AlertIconType = ({
   icon,

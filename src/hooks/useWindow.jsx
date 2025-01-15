@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { widthBreakpoint } from '@/src/utils/breakpoint.js'
+import { widthBreakpoint } from '@/src/utils/breakpoint'
 
 export const useWindow = (options={}) => {
   const element = options.element || window

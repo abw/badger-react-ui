@@ -1,4 +1,4 @@
-import { classes } from '@/src/index.jsx'
+import { classes } from '@/src/index'
 
 /* START */
 import React from 'react'

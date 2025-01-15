@@ -1,7 +1,7 @@
 import DropdownContext from './Dropdown.js'
-import { ARROW_DOWN, ARROW_UP, ENTER, ESCAPE, SPACE } from '@/src/constants.js'
+import { ARROW_DOWN, ARROW_UP, ENTER, ESCAPE, SPACE } from '@/src/constants'
 import { doNothing, hasValue } from '@abw/badger-utils'
-import { cursorFirst, cursorLast, cursorNext, cursorPrev, scrollParentChild } from '@/src/utils/index.js'
+import { cursorFirst, cursorLast, cursorNext, cursorPrev, scrollParentChild } from '@/src/utils/index'
 
 class MenuContext extends DropdownContext {
   static debug        = false

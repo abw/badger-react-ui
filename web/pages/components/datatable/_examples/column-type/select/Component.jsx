@@ -1,6 +1,6 @@
 import React from 'react'
 import animals from '../../animals.js'
-import { DataTable } from '@/src/index.jsx'
+import { DataTable } from '@/src/index'
 
 const DataTableExample = () =>
   /* START */

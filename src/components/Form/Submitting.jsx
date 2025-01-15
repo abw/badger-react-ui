@@ -2,8 +2,8 @@ import React          from 'react'
 import Overlay        from '../Overlay/Overlay.jsx'
 import DefaultSpinner from '../Spinner/Spinner.jsx'
 import { Status }     from '@abw/badger-form'
-import { classes }    from '@/src/utils/classes.js'
-import { Themed }     from '@/src/Theme.jsx'
+import { classes }    from '@/src/utils/classes'
+import { Themed }     from '@/src/Theme'
 
 const Submitting = ({
   text='Submitting...',

@@ -1,4 +1,4 @@
-import { radiusClass } from '@/src/index.jsx'
+import { radiusClass } from '@/src/index'
 
 /* START */
 import React from 'react'

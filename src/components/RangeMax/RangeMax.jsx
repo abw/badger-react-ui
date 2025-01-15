@@ -3,7 +3,7 @@ import Range from '../Range/Range.jsx'
 import DefaultThumbs from './Thumbs.jsx'
 import DefaultValues from './Values.jsx'
 import DefaultInputs from './Inputs.jsx'
-import { Themed } from '@/src/Theme.jsx'
+import { Themed } from '@/src/Theme'
 import { rangeMaxNormalClick, rangeMaxPrepareRenderProps } from './Utils.js'
 import { doNothing } from '@abw/badger-utils'
 

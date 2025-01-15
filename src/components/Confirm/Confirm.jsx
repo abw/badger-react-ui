@@ -2,7 +2,7 @@ import React      from 'react'
 import Buttons    from '@/components/Buttons/Buttons.jsx'
 import Visible    from '@/state/Visible.jsx'
 import Modal      from './Modal.jsx'
-import { Themed } from '@/src/Theme.jsx'
+import { Themed } from '@/src/Theme'
 
 const Confirm = ({
   initiallyRevealed=false,

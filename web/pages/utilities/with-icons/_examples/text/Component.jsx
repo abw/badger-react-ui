@@ -1,5 +1,5 @@
 import React from 'react'
-import { WithIcons } from '@/src/index.jsx'
+import { WithIcons } from '@/src/index'
 
 // PRETEND: import { WithIcons } from '@abw/badger-react-ui
 

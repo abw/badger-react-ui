@@ -1,8 +1,8 @@
 import React from 'react'
 import DataTable from '../DataTable/DataTable.jsx'
 import Body from './Body.jsx'
-import { useContainer } from '@/src/index.jsx'
-import { parseSize } from '@/src/utils/size.js'
+import { useContainer } from '@/src/index'
+import { parseSize } from '@/src/utils/size'
 
 const DataTables = ({
   breakpoint,

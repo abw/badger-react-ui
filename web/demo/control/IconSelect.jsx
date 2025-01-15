@@ -1,5 +1,5 @@
 import React from 'react'
-import { IconLibrary } from '@/src/index.jsx'
+import { IconLibrary } from '@/src/index'
 
 export const icons = Object.keys(IconLibrary.icons)
 

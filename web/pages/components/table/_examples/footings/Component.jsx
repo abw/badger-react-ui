@@ -1,4 +1,4 @@
-import { Table } from '@/src/index.jsx'
+import { Table } from '@/src/index'
 
 /* START */
 import React from 'react'

@@ -1,7 +1,7 @@
 import React   from 'react'
 import Context from './Context.js'
 import RangeContent from './Content.jsx'
-import { Themed } from '@/src/Theme.jsx'
+import { Themed } from '@/src/Theme'
 
 const Range = ({
   Content=RangeContent,

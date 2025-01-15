@@ -3,7 +3,7 @@ import Context          from './Context.js'
 import DataTableHeader  from './Header.jsx'
 import DataTableBody    from './Body.jsx'
 import DataTableFooter  from './Footer.jsx'
-import { classes }      from '@/src/utils/classes.js'
+import { classes }      from '@/src/utils/classes'
 import { DATATABLE }    from './Constants.js'
 
 const Content = ({

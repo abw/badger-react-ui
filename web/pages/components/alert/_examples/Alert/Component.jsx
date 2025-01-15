@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert } from '@/src/index.jsx'
+import { Alert } from '@/src/index'
 
 {/* START */}
 // PRETEND: import { Alert } from '@abw/badger-react-ui'

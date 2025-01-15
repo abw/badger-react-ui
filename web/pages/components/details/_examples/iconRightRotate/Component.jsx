@@ -1,5 +1,5 @@
 import React from 'react'
-import { Details } from '@/src/index.jsx'
+import { Details } from '@/src/index'
 
 const DetailsExample = () =>
   /* START */

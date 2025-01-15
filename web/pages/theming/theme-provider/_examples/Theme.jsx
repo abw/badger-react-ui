@@ -1,4 +1,4 @@
-import { Theme, Select, Button, Spinner } from '@/src/index.jsx'
+import { Theme, Select, Button, Spinner } from '@/src/index'
 
 /* START */
 import React from 'react'

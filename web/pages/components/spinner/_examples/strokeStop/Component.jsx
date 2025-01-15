@@ -1,4 +1,4 @@
-import { Spinner } from '@/src/index.jsx'
+import { Spinner } from '@/src/index'
 
 /* START */
 import React from 'react'

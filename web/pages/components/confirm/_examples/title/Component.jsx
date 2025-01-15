@@ -1,5 +1,5 @@
 import React from 'react'
-import { Confirm } from '@/src/index.jsx'
+import { Confirm } from '@/src/index'
 
 const ConfirmExample = () =>
   /* START */
