@@ -1,4 +1,3 @@
-/* eslint-disable quotes */
 import { Form, Field, CancelSubmit } from '@/src/index'
 import { sleep } from '@abw/badger-utils'
 

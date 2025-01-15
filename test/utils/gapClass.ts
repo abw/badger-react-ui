@@ -31,7 +31,7 @@ test(
 test(
   'gapClass("2") => gap-2',
   () => expect(
-    gapClass("2")
+    gapClass('2')
   ).toBe(
     'gap-2'
   )

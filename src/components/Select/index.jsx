@@ -8,7 +8,7 @@ export { default as SelectNoOptions } from './NoOptions.jsx'
 export { default as SelectOption    } from './Option.jsx'
 export { default as SelectSearch    } from './Search.jsx'
 export { default as SelectSeparator } from './Separator.jsx'
-// eslint-disable-next-line react-refresh/only-export-components
+ 
 export {
   default as SelectContext,
   SelectProvider, SelectConsumer, useSelect

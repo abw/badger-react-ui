@@ -31,7 +31,7 @@ test(
 test(
   'paddingClass("2") => pad-2',
   () => expect(
-    paddingClass("2")
+    paddingClass('2')
   ).toBe(
     'pad-2'
   )

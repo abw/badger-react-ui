@@ -116,7 +116,7 @@ async function selectOption(n, text, rows) {
 
   // check the rows match
   let i = 0
-  for (let row of rows) {
+  for (const row of rows) {
     expectRowNameRole(trowsSel[i++], row, text)
   }
 }

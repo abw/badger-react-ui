@@ -47,7 +47,7 @@ test(
 )
 
 test(
-  "marginClass([2, 3) => mar-v-2 mar-h-3",
+  'marginClass([2, 3) => mar-v-2 mar-h-3',
   () => expect(
     marginClass([2, 3])
   ).toBe(

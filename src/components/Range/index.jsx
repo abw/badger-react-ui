@@ -20,7 +20,7 @@ export { default as RangeValues    } from './Values.jsx'
 export { default as RangeValueMin  } from './ValueMin.jsx'
 export { default as RangeValueMax  } from './ValueMax.jsx'
 export * from './Utils.js'
-// eslint-disable-next-line react-refresh/only-export-components
+ 
 export {
   default as RangeContext,
   RangeProvider, RangeConsumer, RangeChildren, useRange

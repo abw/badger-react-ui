@@ -2,7 +2,6 @@
 // root directory where they are defined.  They are included as the define
 // options in vite.config.js
 
-/* eslint-disable no-undef */
 export const VERSION = SITE_VERSION
 export const DATE    = SITE_DATE
 

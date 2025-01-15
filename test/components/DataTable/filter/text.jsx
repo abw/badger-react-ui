@@ -76,7 +76,7 @@ async function filter(text, rows) {
 
   // check the rows match
   let i = 0
-  for (let row of rows) {
+  for (const row of rows) {
     expectRowName(trowsSel[i++], row, text)
   }
 }

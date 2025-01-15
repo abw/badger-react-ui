@@ -161,7 +161,7 @@ class Context extends MenuContext {
         }
         // drop-through
 
-      // eslint-disable-next-line no-fallthrough
+      // NOT_eslint-disable-next-line no-fallthrough
       default:
         this.debug('default keypress')
         if (event.altKey || event.ctrlKey || event.metaKey) {

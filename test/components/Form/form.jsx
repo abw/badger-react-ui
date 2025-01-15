@@ -160,7 +160,7 @@ test(
     expectDebugTable(table, 'songs', '["Stonehenge","Sex Farm"]')
 
     // search
-    let search = container.querySelector('div.search')
+    const search = container.querySelector('div.search')
     const input = search.querySelector('input')
     await act( () => user.click(input) )
     await act( () => user.keyboard('black') )
@@ -182,7 +182,7 @@ test(
 function expectDebugTable(table, key, value) {
   const values = { }
   const rows = table.querySelectorAll('tr')
-  for (let row of rows) {
+  for (const row of rows) {
     const th = row.querySelector('th').textContent
     const td = row.querySelector('td').textContent
     values[th] = td

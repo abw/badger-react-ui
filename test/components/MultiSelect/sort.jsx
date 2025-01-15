@@ -55,7 +55,7 @@ test(
     const test = [0, 3, 6, 9]
     const done = [ ]
 
-    for (let t of test)  {
+    for (const t of test)  {
       const item = items[t]
       await act( () => user.click(item) )
       done.push(animals[t])

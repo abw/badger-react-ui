@@ -148,8 +148,8 @@ const DataTableContext = ({
   )
 
   const changeColumnOrder = ids => {
-    let newOrder    = [ ]
-    let newVisible  = [ ]
+    const newOrder    = [ ]
+    const newVisible  = [ ]
     const isVisible = splitHash(state.visibleColumns)
     ids.forEach(
       name => {

@@ -5,7 +5,7 @@ import { mergeRefs } from '@/src/index.jsx'
 test(
   'mergeRefs() one',
   () => {
-    let values = [ ]
+    const values = [ ]
     const foo = value => values.push(`foo:${value}`)
     const bar = value => values.push(`bar:${value}`)
     const baz = { }

@@ -60,6 +60,6 @@ test(
   () => expect(
     gridClass('fit')
   ).toBe(
-    "grid-fit"
+    'grid-fit'
   )
 )
