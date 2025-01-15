@@ -1,9 +1,9 @@
 import Icon from './Icon'
 import { Themed } from '@/src/Theme'
 import { iconProps } from '@/src/utils/icon'
-import { WithIconProps } from './types'
+import { WithIconsProps } from './types'
 
-export default Themed<WithIconProps>(
+export default Themed<WithIconsProps>(
   ({
     icon,
     iconLeft,

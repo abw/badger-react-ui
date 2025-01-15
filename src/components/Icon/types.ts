@@ -1,3 +1,4 @@
+import { PropsObject } from '@/src/types'
 import { SizeColorProps } from '@/src/utils'
 
 export interface IconProps extends SizeColorProps {
@@ -18,12 +19,17 @@ export interface IconsProps extends IconProps {
 //  names: string,
 //}
 
-export interface WithIconProps extends IconProps {
+export interface WithIconsProps extends PropsObject {
   icon?: string,
+  iconClass?: string,
   iconLeft?: string,
+  iconLeftClass?: string,
   iconRight?: string,
+  iconRightClass?: string,
   spanText?: boolean,
   spanClass?: string,
   text?: string,
   children?: React.ReactNode | undefined
 }
+
+export type WithIconsType = React.FC<WithIconsProps>
