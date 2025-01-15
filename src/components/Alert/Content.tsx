@@ -1,5 +1,5 @@
-import { Themed } from '@/src/Theme'
 import { AlertContentType } from './types'
+// import { Themed }    from '@/src/Theme'
 
 const AlertContent: AlertContentType = ({
   title,
@@ -11,7 +11,5 @@ const AlertContent: AlertContentType = ({
     {text ? <p>{text}</p> : children}
   </>
 
-const ThemedAlertContent: AlertContentType = Themed(AlertContent, 'AlertContent')
-export default ThemedAlertContent
-
-// export default Themed(AlertContent, 'AlertContent') as React.FC<AlertContentProps>
+// export default Themed(AlertContent)
+export default AlertContent

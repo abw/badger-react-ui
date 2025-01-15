@@ -1,6 +1,5 @@
 import AlertContent from './Content.jsx'
 import Icon         from '@/src/components/Icon/Icon'
-import { Themed }   from '@/src/Theme'
 import { AlertIconType } from './types'
 
 const AlertIcon: AlertIconType = ({
@@ -15,4 +14,4 @@ const AlertIcon: AlertIconType = ({
     </div>
   </div>
 
-export default Themed(AlertIcon, 'AlertIcon')
+export default AlertIcon

@@ -1,8 +1,8 @@
 export interface AlertProps extends
   AlertContentProps,
   AlertControlsProps,
-  AlertHeadlineProps,
-  AlertIconProps
+  Partial<AlertHeadlineProps>,
+  Partial<AlertIconProps>
 {
   type?: string,
   size?: string,
@@ -29,7 +29,7 @@ export interface AlertControlsProps {
   dismissable?: boolean,
   revealable?: boolean,
   isRevealed?: boolean,
-  dismiss: (flag: boolean) => void,
+  dismiss?: (flag: boolean) => void,
   openIcon?: string,
   closedIcon?: string,
   dismissIcon?: string,

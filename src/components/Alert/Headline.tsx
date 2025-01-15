@@ -1,6 +1,5 @@
 import AlertControls from './Controls.jsx'
 import { Icon }      from '@/src/components/Icon/index'
-import { Themed }    from '@/src/Theme'
 import { doNothing } from '@abw/badger-utils'
 import { AlertHeadlineType } from './types'
 
@@ -25,12 +24,9 @@ const AlertHeadline: AlertHeadlineType = ({
           className="on-left"
         />
       }
-      { headline}
+      { headline }
     </div>
     <Controls {...controlProps}/>
   </div>
 
-const ThemedAlertHeadline: AlertHeadlineType =  Themed(AlertHeadline, 'AlertHeadline')
-export default ThemedAlertHeadline
-
-// export default Themed(AlertHeadline, 'AlertHeadline')
+export default AlertHeadline

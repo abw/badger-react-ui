@@ -1,5 +1,4 @@
 import { Icon } from '@/src/components/Icon/index'
-import { Themed } from '@/src/Theme'
 import { doNothing } from '@abw/badger-utils'
 import { AlertControlsType } from './types'
 
@@ -30,7 +29,4 @@ const AlertControls: AlertControlsType = ({
     }
   </div>
 
-const ThemedAlertControls: AlertControlsType = Themed(AlertControls, 'AlertControls')
-export default ThemedAlertControls
-
-// export default Themed(AlertControls, 'AlertControls')
+export default AlertControls

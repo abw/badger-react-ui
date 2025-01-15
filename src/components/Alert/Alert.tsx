@@ -8,8 +8,8 @@ import {
   borderClass, classes, radiusClass, shadowClass
 } from '@/src/utils/index'
 import {
-  AlertProps, AlertContentProps, AlertControlsProps, AlertHeadlineProps,
-  AlertIconProps, AlertType
+  AlertContentProps, AlertControlsProps, AlertHeadlineProps,
+  AlertIconProps, AlertProps, AlertType
 } from './types.js'
 
 const Alert: AlertType = ({
@@ -76,8 +76,10 @@ const Alert: AlertType = ({
   }
   const iconProps: AlertIconProps = {
     ...contentProps,
-    icon,
-    Content
+    Content,
+    // We can afford to narrow this as we have a later assertion to check
+    // this is defined before rendering <Icon {...iconProps}/>
+    icon: icon as string,
   }
   const headlineProps: AlertHeadlineProps= {
     headline,
@@ -106,26 +108,28 @@ const Alert: AlertType = ({
   )
 }
 
-export const Info: AlertType = Themed(
+export const Info = Themed(
   (props: AlertProps) => <Alert {...props} type='info' />,
   'Info'
 )
-export const Success: AlertType = Themed(
+export const Success = Themed(
   (props: AlertProps) => <Alert {...props} type='success' />,
   'Success'
 )
-export const Warning: AlertType = Themed(
+export const Warning = Themed(
   (props: AlertProps) => <Alert {...props} type='warning' />,
   'Warning'
 )
-export const Error: AlertType = Themed(
+export const Error = Themed(
   (props: AlertProps) => <Alert {...props} type='error' />,
   'Error'
 )
 
+/*
 Alert.Info    = Info
 Alert.Success = Success
 Alert.Warning = Warning
 Alert.Error   = Error
+*/
 
 export default Themed(Alert, 'Alert')
