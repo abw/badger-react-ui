@@ -1,9 +1,9 @@
 import { BadgePrefixType } from './types'
 
-const Prefix: BadgePrefixType = ({
+export const BadgePrefix: BadgePrefixType = ({
   prefix,
   prefixClass='prefix'
 }) =>
   <div className={prefixClass}>{prefix}</div>
 
-export default Prefix
+export default BadgePrefix

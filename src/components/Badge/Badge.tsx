@@ -1,5 +1,5 @@
-import DefaultPrefix  from './Prefix'
-import DefaultSuffix  from './Suffix'
+import BadgePrefix    from './Prefix'
+import BadgeSuffix    from './Suffix'
 import { Themed }     from '@/src/Theme'
 import { BadgeType }  from './types'
 import { WithIcons, WithIconsProps }  from '@/components/Icon/index'
@@ -26,8 +26,8 @@ const Badge: BadgeType = ({
   prefix,
   suffix,
   children,
-  Prefix=DefaultPrefix,
-  Suffix=DefaultSuffix,
+  Prefix=BadgePrefix,
+  Suffix=BadgeSuffix,
   Content=WithIcons,
   ...props
 }) => {

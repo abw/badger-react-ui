@@ -1,9 +1,9 @@
 import { BadgeSuffixType } from './types'
 
-const Suffix: BadgeSuffixType = ({
+export const BadgeSuffix: BadgeSuffixType = ({
   suffix,
   suffixClass='suffix'
 }) =>
   <div className={suffixClass}>{suffix}</div>
 
-export default Suffix
+export default BadgeSuffix
