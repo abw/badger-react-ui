@@ -1,8 +1,8 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
-import { Confirm } from '@/src/index.jsx'
+import { Confirm } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 // import { prettyDOM } from '@testing-library/dom'
 
 test(
@@ -17,7 +17,7 @@ test(
     expect(buttons.length).toBe(1)
 
     // click to show 2 buttons
-    const button = container.querySelector('button')
+    const button = container.querySelector('button') || fail('no button')
     await act( () => user.click(button) )
     const buttons2 = container.querySelectorAll('button')
     expect(buttons2.length).toBe(2)
@@ -43,7 +43,7 @@ test(
     expect(buttons.length).toBe(1)
 
     // click to show 2 buttons
-    const button = container.querySelector('button')
+    const button = container.querySelector('button') || fail('no button')
     await act( () => user.click(button) )
     const buttons2 = container.querySelectorAll('button')
     expect(buttons2.length).toBe(2)
@@ -68,7 +68,7 @@ test.skip(    // element.showModal() and element.close() are not implemented
     expect(buttons.length).toBe(1)
 
     // click to show modal
-    const button = container.querySelector('button')
+    const button = container.querySelector('button') || fail('no button')
     await act( () => user.click(button) )
     const modal = container.querySelectorAll('dialog')
     expect(modal).toBeTruthy()
@@ -92,7 +92,7 @@ test.skip(    // window.alert is not implemented
     expect(buttons.length).toBe(1)
 
     // click to show 2 buttons
-    const button = container.querySelector('button')
+    const button = container.querySelector('button') || fail('no button')
     await act( () => user.click(button) )
     const buttons2 = container.querySelectorAll('button')
     expect(buttons2.length).toBe(2)

@@ -1,8 +1,8 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
 import { CheckboxState } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 // import { prettyDOM } from '@testing-library/dom'
 
 test(
@@ -16,8 +16,8 @@ test(
         onChange={c => checked = c}
       />
     )
-    const label = container.querySelector('label')
-    const input = label.querySelector('input')
+    const label = container.querySelector('label') || fail('no label')
+    const input = label.querySelector('input') || fail('no input')
 
     expect(label).toHaveTextContent('Hello')
     expect(input.checked).toBe(false)

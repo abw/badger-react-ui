@@ -1,7 +1,7 @@
-import React from 'react'
 import { test, expect } from 'vitest'
 import { render } from '@testing-library/react'
 import { Badge, BadgePrefixType, BadgeSuffixType } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 
 test(
   'should render badge',
@@ -60,7 +60,7 @@ test(
         prefix="Before"
       />
     )
-    const badge1 = container.querySelector('#badge1')
+    const badge1 = container.querySelector('#badge1') || fail('no badge')
     expect(badge1).toHaveTextContent('Hello World')
     expect(badge1).toHaveClass('large')
     expect(badge1).toHaveClass('badge')
@@ -80,7 +80,7 @@ test(
         suffix="After"
       />
     )
-    const badge1 = container.querySelector('#badge1')
+    const badge1 = container.querySelector('#badge1') || fail('no badge')
     expect(badge1).toHaveTextContent('Hello World')
     expect(badge1).toHaveClass('large')
     expect(badge1).toHaveClass('badge')
@@ -103,7 +103,7 @@ test(
         suffixClass="behind"
       />
     )
-    const badge1 = container.querySelector('#badge1')
+    const badge1 = container.querySelector('#badge1') || fail('no badge')
     expect(badge1).toHaveTextContent('Hello World')
     expect(badge1).toHaveClass('large')
     expect(badge1).toHaveClass('badge')
@@ -142,7 +142,7 @@ test(
         Suffix={MySuffix}
       />
     )
-    const badge1 = container.querySelector('#badge1')
+    const badge1 = container.querySelector('#badge1') || fail('no badge')
     expect(badge1).toHaveTextContent('Hello World')
     expect(badge1).toHaveClass('large')
     expect(badge1).toHaveClass('badge')

@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
 import { Checkbox } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 // import { prettyDOM } from '@testing-library/dom'
 
 test(
@@ -12,8 +13,8 @@ test(
     const { container } = render(
       <Checkbox text="Hello"/>
     )
-    const label = container.querySelector('label')
-    const input = label.querySelector('input')
+    const label = container.querySelector('label') || fail('no label')
+    const input = label.querySelector('input') || fail('no input')
 
     expect(label).toHaveTextContent('Hello')
     expect(input.checked).toBe(false)
@@ -43,8 +44,8 @@ test(
     const { container } = render(
       <CheckboxWithState/>
     )
-    const label = container.querySelector('label')
-    const input = label.querySelector('input')
+    const label = container.querySelector('label') || fail('no label')
+    const input = label.querySelector('input') || fail('no input')
 
     expect(label).toHaveTextContent('Hello')
     expect(input.checked).toBe(true)
@@ -80,8 +81,8 @@ test(
         onChange={() => n++}
       />
     )
-    const label = container.querySelector('label')
-    const input = label.querySelector('input')
+    const label = container.querySelector('label') || fail('no label')
+    const input = label.querySelector('input') || fail('no input')
 
     expect(label).toHaveTextContent('Hello')
     expect(input.checked).toBe(false)
@@ -114,8 +115,8 @@ test(
         labelRef={setLabelRef}
       />
     )
-    const label = container.querySelector('label')
-    const input = label.querySelector('input')
+    const label = container.querySelector('label') || fail('no label')
+    const input = label.querySelector('input') || fail('no input')
 
     expect(label).toHaveTextContent('Hello')
     expect(input.checked).toBe(false)

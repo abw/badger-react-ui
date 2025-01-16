@@ -1,9 +1,8 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, screen, act } from '@testing-library/react'
 import { Alert } from '@/src/index'
-// import { prettyDOM } from '@testing-library/dom'
+import { fail } from '@abw/badger-utils'
 
 test(
   'alert with children',
@@ -45,8 +44,8 @@ test(
         <Alert title="Testing" text="This is an alert"/>
       </div>
     )
-    const container = screen.getByTestId('alert-container')
-    const alert = container.querySelector('div')
+    const container = screen.getByTestId('alert-container') || fail('no container')
+    const alert = container.querySelector('div') || fail('no alert')
     const title = alert.querySelector('h3')
     expect(alert).toHaveClass('alert')
     expect(alert).toHaveTextContent('This is an alert')
@@ -63,7 +62,7 @@ test(
       </div>
     )
     const container = screen.getByTestId('alert-container')
-    const alert = container.querySelector('div')
+    const alert = container.querySelector('div') || fail('no alert')
     const headline = alert.querySelector('div')
     expect(alert).toHaveClass('alert')
     expect(alert).toHaveTextContent('This is an alert')
@@ -81,8 +80,8 @@ test(
       </div>
     )
     const container = screen.getByTestId('alert-container')
-    const alert = container.querySelector('div')
-    const headline = alert.querySelector('div')
+    const alert = container.querySelector('div') || fail('no alert')
+    const headline = alert.querySelector('div') || fail('no headline')
     const svg = headline.querySelector('svg')
     expect(alert).toHaveClass('alert')
     expect(alert).toHaveTextContent('This is an alert')
@@ -103,8 +102,8 @@ test(
       </div>
     )
     const container = screen.getByTestId('alert-container')
-    const alert = container.querySelector('div')
-    const headline = alert.querySelector('div')
+    const alert = container.querySelector('div') || fail('no alert')
+    const headline = alert.querySelector('div') || fail('no headline')
     const svg = headline.querySelector('svg')
     expect(alert).toHaveClass('alert')
     expect(alert).toHaveTextContent('This is an alert')
@@ -125,7 +124,7 @@ test(
       </div>
     )
     const container = screen.getByTestId('alert-container')
-    const alert = container.querySelector('div')
+    const alert = container.querySelector('div') || fail('no alert')
     const svg = alert.querySelector('svg')
     expect(alert).toHaveClass('alert')
     expect(alert).toHaveTextContent('This is an alert')
@@ -145,8 +144,8 @@ test(
       </div>
     )
     const container = screen.getByTestId('alert-container')
-    const alert = container.querySelector('div')
-    const headline = alert.querySelector('div')
+    const alert = container.querySelector('div') || fail('no alert')
+    const headline = alert.querySelector('div') || fail('no headline')
     expect(alert).toHaveClass('alert')
     expect(alert).toHaveClass('revealable')
     expect(headline).toHaveTextContent('Click Me!')
@@ -179,14 +178,14 @@ test(
       </div>
     )
     const container = screen.getByTestId('alert-container')
-    const alert = container.querySelector('div')
-    const headline = alert.querySelector('div')
+    const alert = container.querySelector('div') || fail('no alert')
+    const headline = alert.querySelector('div') || fail('no headline')
     expect(alert).toHaveClass('alert')
     expect(alert).toHaveClass('dismissable')
     expect(headline).toHaveTextContent('Click Me!')
     expect(headline).toHaveClass('headline')
 
-    const svg = headline.querySelector('svg')
+    const svg = headline.querySelector('svg') || fail('no svg')
     expect(svg).toBeTruthy()
     expect(svg).toHaveClass('icon')
 
