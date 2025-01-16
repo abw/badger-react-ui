@@ -1,8 +1,8 @@
-import React from 'react'
-import { Themed }   from '@/src/Theme'
+import { Themed } from '@/src/Theme'
 import { classes } from '@/src/utils/classes'
+import { OverlayType } from './types'
 
-export const Overlay = ({
+export const Overlay: OverlayType = ({
   color,
   className,
   style,

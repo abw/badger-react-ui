@@ -1,6 +1,6 @@
-import React    from 'react'
-import Visible  from '@/state/Visible'
-import Overlay  from './Overlay.jsx'
+import Visible from '@/state/Visible'
+import Overlay from './Overlay'
+import { OverlayProps } from './types'
 
 const OverlayState = ({
   open=false
@@ -9,7 +9,7 @@ const OverlayState = ({
   return {
     show,
     hide,
-    Overlay: props =>
+    Overlay:(props: OverlayProps) =>
       isVisible &&
       <Overlay
         {...props}

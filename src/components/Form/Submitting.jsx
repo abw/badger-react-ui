@@ -1,5 +1,5 @@
 import React          from 'react'
-import Overlay        from '../Overlay/Overlay.jsx'
+import Overlay        from '../Overlay/Overlay'
 import DefaultSpinner from '../Spinner/Spinner.jsx'
 import { Status }     from '@abw/badger-form'
 import { classes }    from '@/src/utils/classes'

@@ -8,6 +8,13 @@ Should we export all the sub-components, e.g. BadgePrefix, BadgeSuffix?
 Should we theme all sub-components, e.g. CheckboxInput, CheckboxLabel
 (I think not)
 
+Component like Button seem to be able to accept any properties.
+
+    <Button notAllowed="NOPE"/>
+
+This just ends up being passed to the `<button>` element and raising a
+warning.
+
 ## Components
 
     [ ] Accordion
@@ -19,7 +26,7 @@ Should we theme all sub-components, e.g. CheckboxInput, CheckboxLabel
     [X] Buttons
     [X] Checkbox
         Consider changing `ref` to be `labelRef` (alongside `inputRef`)
-    [ ] Confirm
+    [X] Confirm
     [ ] DataTable
     [ ] DataTables
     [ ] Details
@@ -27,9 +34,9 @@ Should we theme all sub-components, e.g. CheckboxInput, CheckboxLabel
     [ ] DropdownMenu
     [ ] Form
     [ ] Icon
-    [ ] Modal
+    [X] Modal
     [ ] MultiSelect
-    [ ] Overlay
+    [X] Overlay
     [ ] Pager
     [ ] Radio
     [ ] Range
