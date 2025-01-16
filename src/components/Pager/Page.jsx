@@ -1,6 +1,6 @@
 import React   from 'react'
 import Context from './Context.js'
-import Button  from '../Button/Button.jsx'
+import Button  from '@/components/Button/Button'
 import { pagerPageLabel } from './Utils.js'
 import { maybeFunction } from '@abw/badger-utils'
 

@@ -1,5 +1,5 @@
 import React          from 'react'
-import DefaultButton  from '@/components/Button/Button.jsx'
+import DefaultButton  from '@/components/Button/Button'
 import { Themed }     from '@/src/Theme'
 
 const Cancel = ({

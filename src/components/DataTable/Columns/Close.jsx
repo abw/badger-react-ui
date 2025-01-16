@@ -1,6 +1,6 @@
 import React    from 'react'
 import Context from '@/components/Dropdown/Context.js'
-import Button from '@/components/Button/Button.jsx'
+import Button from '@/components/Button/Button'
 
 const Close = ({
   close,

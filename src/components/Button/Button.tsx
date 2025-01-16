@@ -1,9 +1,9 @@
-import React          from 'react'
 import { Themed }     from '@/src/Theme'
 import { WithIcons }  from '@/components/Icon/index'
 import { borderClass, classes, radiusClass, shadowClass } from '@/src/utils/classes'
+import { ButtonType } from './types'
 
-const Button = ({
+const Button: ButtonType = ({
   type='button',
   size,
   color,
@@ -31,7 +31,6 @@ const Button = ({
   Content=WithIcons,
   ...props
 }) => {
-  // const content = text || children
   const cname = classes(
     size, color, className,
     {

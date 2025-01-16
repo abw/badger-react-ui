@@ -1,7 +1,7 @@
 import React from 'react'
 import { test, expect } from 'vitest'
 import { render } from '@testing-library/react'
-import { Badge } from '@/src/index.jsx'
+import { Badge } from '@/src/index'
 
 test(
   'should render badge',

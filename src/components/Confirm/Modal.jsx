@@ -1,6 +1,6 @@
 import React  from 'react'
 import Modal  from '@/components/Modal/Modal.jsx'
-import Button from '../Button/Button.jsx'
+import Button from '@/components/Button/Button'
 
 const ConfirmModal = ({
   isVisible,
