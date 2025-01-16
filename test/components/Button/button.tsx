@@ -2,7 +2,7 @@ import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
-import { Button } from '@/src/index.jsx'
+import { Button } from '@/src/index'
 
 test(
   'should render button',

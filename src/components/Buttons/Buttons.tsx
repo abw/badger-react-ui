@@ -1,8 +1,8 @@
-import React          from 'react'
-import DefaultButton  from '@/components/Button/Button'
-import { Themed }     from '@/src/Theme'
+import DefaultButton   from '@/components/Button/Button'
+import { Themed }      from '@/src/Theme'
+import { ButtonsType } from './types'
 
-const Buttons = ({
+const Buttons: ButtonsType = ({
   buttons,
   children,
   className='buttons',

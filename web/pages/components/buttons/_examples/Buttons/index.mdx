@@ -2,11 +2,15 @@ import React       from 'react'
 import Component   from './Component.jsx'
 import Source      from './Component.jsx?raw'
 import { Example } from '@abw/badger-website'
+import { ButtonLink } from '@/site/Links.jsx'
 
 <div className="large">
   The `Buttons` component can be used to render a connected
   set of buttons.
 </div>
+
+You can render buttons as <ButtonLink/> child elements, or by specifying
+an array of `buttons` data.
 
 <Example
   Component={Component}

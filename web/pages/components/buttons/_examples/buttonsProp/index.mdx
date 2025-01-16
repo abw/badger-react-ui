@@ -2,15 +2,17 @@ import React      from 'react'
 import Example    from '@/page/ExampleSection.jsx'
 import Component  from './Component.jsx'
 import Source     from './Component.jsx?raw'
+import { ButtonLink } from '@/site/Links.jsx'
 
 <Example
   code="buttons"
   Component={Component}
   Source={Source}
-  highlightLines="2-5"
+  highlightLines="2-13"
   undent={4}
   expand
 >
   The `buttons` property can be used to define properties
-  for a set of buttons.
+  for a set of buttons.  Any of the properties for the
+  <ButtonLink/> may be included.
 </Example>
