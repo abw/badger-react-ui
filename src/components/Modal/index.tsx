@@ -1,0 +1,6 @@
+export { default as Modal        } from './Modal'
+export { default as ModalClose   } from './Close'
+export { default as ModalContent } from './Content'
+export { default as ModalFooter  } from './Footer'
+export { default as ModalHeader  } from './Header'
+export { default as ModalState   } from './State'

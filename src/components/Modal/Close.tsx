@@ -1,8 +1,7 @@
-import React from 'react'
 import Icon from '@/components/Icon/Icon'
-import { Themed } from '@/src/Theme'
+import { ModalCloseType } from './types'
 
-const ModalClose = ({
+const ModalClose: ModalCloseType = ({
   close,
   icon='cross',
   className='close'
@@ -11,4 +10,4 @@ const ModalClose = ({
     <Icon name={icon}/>
   </div>
 
-export default Themed(ModalClose, 'ModalClose')
+export default ModalClose

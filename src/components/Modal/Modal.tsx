@@ -1,10 +1,11 @@
-import React, { useRef, useEffect } from 'react'
-import ModalClose   from './Close.jsx'
-import ModalContent from './Content.jsx'
+import { useRef, useEffect } from 'react'
+import ModalClose   from './Close'
+import ModalContent from './Content'
 import { Themed }   from '@/src/Theme'
 import { doNothing } from '@abw/badger-utils'
+import { ModalCSSProperties, ModalType } from './types'
 
-const Modal = ({
+const Modal: ModalType = ({
   ref,
   open,
   close,
@@ -14,29 +15,32 @@ const Modal = ({
   Close=ModalClose,
   Content=ModalContent,
   closeOnClick,
-  onClick=closeOnClick ? close : null,
+  onClick=closeOnClick ? close : undefined,
   onCancel=close||doNothing,
   style={},
   maxWidth,
   maxHeight,
   ...props
 }) => {
-  ref ||= useRef(null)
+  const spareRef = useRef<HTMLDialogElement>(null)
+  ref ||= spareRef
 
   useEffect(
     () => {
-      const { current: el } = ref
-      if (open) {
-        el.showModal()
-      }
-      else {
-        el.close()
+      if (ref) {
+        const { current } = ref as React.MutableRefObject<HTMLDialogElement>
+        if (open) {
+          current?.showModal()
+        }
+        else {
+          current?.close()
+        }
       }
     },
-    [open]
+    [open, ref]
   )
 
-  const styles = {
+  const styles: ModalCSSProperties = {
     ...style
   }
   if (maxWidth) {

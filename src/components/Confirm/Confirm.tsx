@@ -1,10 +1,10 @@
-import React      from 'react'
 import Buttons    from '@/components/Buttons/Buttons'
 import Visible    from '@/state/Visible'
-import Modal      from './Modal.jsx'
+import Modal      from './Modal'
 import { Themed } from '@/src/Theme'
+import { ConfirmType } from './types'
 
-const Confirm = ({
+const Confirm: ConfirmType = ({
   initiallyRevealed=false,
   open=initiallyRevealed,
   confirmIcon='check',
@@ -37,7 +37,7 @@ const Confirm = ({
   ...props
 }) => {
   const { isVisible, hide, show } = Visible({ visible: open })
-  const onConfirm = e => {
+  const onConfirm = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     hide()
     onClick()

@@ -18,3 +18,5 @@ export type MaybeNumberFunction = string | ((arg: number) => string)
 export type MaybeStringFunction = string | ((arg: string) => string)
 export type MaybeAnyStringFunction = string | ((arg: unknown) => string)
 export type MaybeNumberStringFunction = string | ((arg: number | string) => string)
+
+export type OnClick = () => void

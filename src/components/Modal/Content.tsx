@@ -1,10 +1,9 @@
-import React       from 'react'
-import ModalHeader from './Header.jsx'
-import ModalFooter from './Footer.jsx'
-import { Themed }  from '@/src/Theme'
+import ModalHeader from './Header'
+import ModalFooter from './Footer'
 import { stopPropagation } from '@/src/utils/events'
+import { ModalContentType } from './types'
 
-const ModalContent = ({
+const ModalContent: ModalContentType = ({
   text,
   children,
   Header=ModalHeader,
@@ -17,4 +16,4 @@ const ModalContent = ({
     <Footer {...props}/>
   </article>
 
-export default Themed(ModalContent, 'ModalContent')
+export default ModalContent
