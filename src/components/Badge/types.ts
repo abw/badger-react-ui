@@ -32,8 +32,6 @@ export interface BadgeProps extends
   Prefix: BadgePrefixType,
   Suffix: BadgeSuffixType,
   Content: WithIconsType,
-  //text,
-  //children,
 }
 
 export type BadgeType = React.FC<BadgeProps>

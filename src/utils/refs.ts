@@ -1,5 +1,5 @@
 // From https://github.com/gregberge/react-merge-refs
-export function mergeRefs<T = any>(
+export function mergeRefs<T = unknown>(
   refs: Array<React.MutableRefObject<T> | React.LegacyRef<T> | undefined | null>
 ): React.RefCallback<T> {
   return (value) => {

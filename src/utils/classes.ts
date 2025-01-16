@@ -1,5 +1,5 @@
 import {
-  hasValue, isInteger, isObject, isString, maybeFunction, splitList
+  hasValue, isInteger, isObject, isString, ListSource, maybeFunction, splitList
 } from '@abw/badger-utils'
 import {
   MaybeAnyStringFunction, MaybeNumberFunction, MaybeNumberString,
@@ -97,7 +97,7 @@ export const asInteger = (
  */
 
 export const classTrue = (
-  c: boolean | any,
+  c: boolean | unknown,
   t: string,
   f: MaybeAnyStringFunction
 ): string | null =>
@@ -248,7 +248,7 @@ export const gapClass = (gap: MaybeTrueOrNumberString | Array<number|string>) =>
     gap,
     'gap-1',
     g => {
-      const gaps = splitList(g)
+      const gaps = splitList(g as ListSource)
       return gaps.length === 2
         ? fixValues('gap', ['v', 'h'], gaps)
         : `gap-${g}`
@@ -407,11 +407,11 @@ export const classVHTRBL = (prefix: string, values: string[]) =>
  * classTrueVHTRBL([1, 2, 3, 4], 'pad')   // => 'pad-t-1 pad-r-2 pad-b-3 pad-l-4'
  */
 
-export const classTrueVHTRBL = (set: boolean | any, prefix: string) =>
+export const classTrueVHTRBL = (set: boolean | unknown, prefix: string) =>
   classTrue(
     set,
     prefix,
-    v => classVHTRBL(prefix, splitList(v))
+    v => classVHTRBL(prefix, splitList(v as ListSource))
   )
 
 /**
@@ -427,7 +427,7 @@ export const classTrueVHTRBL = (set: boolean | any, prefix: string) =>
  * paddingClass([2 4 6 8])            // => 'pad-t-2 pad-r-4 pad-b-6 pad-l-8'
  */
 
-export const paddingClass = (padding: boolean | any)  =>
+export const paddingClass = (padding: boolean | unknown)  =>
   classTrueVHTRBL(padding, 'pad')
 
 /**
@@ -443,7 +443,7 @@ export const paddingClass = (padding: boolean | any)  =>
  * marginClass([2 4 6 8])            // => 'mar-t-2 mar-r-4 mar-b-6 mar-l-8'
  */
 
-export const marginClass = (margin: boolean | any) =>
+export const marginClass = (margin: boolean | unknown) =>
   classTrueVHTRBL(margin, 'mar')
 
 /**
@@ -543,10 +543,10 @@ export interface StyleProps extends PropsObject {
   grid?: MaybeTrueOrNumberString,
   gap?: MaybeTrueOrNumberString,
   stack?: MaybeString,
-  pad?: boolean | any,
-  mar?: boolean | any,
-  padding?: boolean | any,
-  margin?: boolean | any,
+  pad?: boolean | unknown,
+  mar?: boolean | unknown,
+  padding?: boolean | unknown,
+  margin?: boolean | unknown,
 }
 
 export const stylePropsClasses = (

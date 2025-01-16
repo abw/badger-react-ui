@@ -1,2 +1,2 @@
-export const stopPropagation = e =>
+export const stopPropagation = (e: React.MouseEvent) =>
   e?.stopPropagation()
