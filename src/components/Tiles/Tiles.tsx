@@ -1,8 +1,8 @@
-import React from 'react'
 import { classes, gapClass } from '@/src/utils/classes'
 import { Themed } from '@/src/Theme'
+import { TilesType } from './types'
 
-const Tiles = ({
+const Tiles: TilesType = ({
   minWidth,
   gap,
   children,
@@ -15,7 +15,7 @@ const Tiles = ({
   }
   return (
     <div className={classes(className, tilesClass, gapClass(gap))} style={style}>
-      {children}
+      { children }
     </div>
   )
 }

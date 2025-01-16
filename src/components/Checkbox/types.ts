@@ -7,7 +7,6 @@ export interface CheckboxLabelProps {
   ref?: React.Ref<HTMLLabelElement>
 }
 
-
 export interface CheckboxInputProps extends
   Omit<
     React.ComponentProps<'input'>,
@@ -22,7 +21,6 @@ export interface CheckboxInputProps extends
   onChange?: (checked: boolean) => void,
   ref?: React.Ref<HTMLInputElement>
 }
-
 
 export interface CheckboxProps extends
   Omit<
@@ -47,12 +45,7 @@ export interface CheckboxProps extends
   inputRef?: React.Ref<HTMLInputElement>,
   Label?: CheckboxLabelType
   Input?: CheckboxInputType
-  // Label?: React.ForwardRefRenderFunction<HTMLLabelElement, CheckboxLabelProps>
-  //...props
 }
-
-//export interface CheckboxStateProps extends CheckboxProps {
-//}
 
 export type CheckboxType = React.FC<CheckboxProps>
 export type CheckboxLabelType = React.FC<CheckboxLabelProps>

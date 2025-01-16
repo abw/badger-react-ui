@@ -48,7 +48,7 @@ warning.
     [ ] Spinner
     [ ] Table
     [ ] Tabset
-    [ ] Tiles
+    [X] Tiles
     [ ] Toggle
 
 ## Notes

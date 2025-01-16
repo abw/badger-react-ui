@@ -1,7 +1,7 @@
-import React from 'react'
 import { test, expect } from 'vitest'
 import { render } from '@testing-library/react'
-import { Tiles } from '@/src/index.jsx'
+import { Tiles } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 
 const TilesExample = () =>
   <Tiles gap={2} minWidth="300px">
@@ -25,7 +25,7 @@ test(
     const { container } = render(
       <TilesExample/>
     )
-    const tiles = container.querySelector('div.tiles')
+    const tiles = container.querySelector('div.tiles') || fail('no tiles')
     expect(tiles).toHaveClass('gap-2')
     expect(tiles).toHaveAttribute('style', '--tile-min-width: 300px;')
 
