@@ -1,5 +1,5 @@
 import React    from 'react'
-import Visible  from '@/state/Visible.jsx'
+import Visible  from '@/state/Visible'
 import Modal    from './Modal.jsx'
 
 const ModalState = ({

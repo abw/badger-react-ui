@@ -2,7 +2,7 @@ import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
-import { Checkbox } from '@/src/index.jsx'
+import { Checkbox } from '@/src/index'
 // import { prettyDOM } from '@testing-library/dom'
 
 test(
@@ -93,5 +93,34 @@ test(
     await act( () => user.click(label) )
     expect(input.checked).toBe(false)
     expect(n).toBe(2)
+  }
+)
+
+test(
+  'checkbox inputRef',
+  async () => {
+    let ir = 0
+    let lr = 0
+    const setInputRef = () => {
+      ir++
+    }
+    const setLabelRef = () => {
+      lr++
+    }
+    const { container } = render(
+      <Checkbox
+        text="Hello"
+        inputRef={setInputRef}
+        labelRef={setLabelRef}
+      />
+    )
+    const label = container.querySelector('label')
+    const input = label.querySelector('input')
+
+    expect(label).toHaveTextContent('Hello')
+    expect(input.checked).toBe(false)
+    expect(ir).toBe(1)
+    expect(lr).toBe(1)
+
   }
 )

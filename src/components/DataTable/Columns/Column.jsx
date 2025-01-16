@@ -1,5 +1,5 @@
 import React    from 'react'
-import Checkbox from '@/components/Checkbox/Checkbox.jsx'
+import Checkbox from '@/components/Checkbox/Checkbox'
 import Icon from '@/components/Icon/Icon'
 
 const Column = ({

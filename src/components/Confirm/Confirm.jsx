@@ -1,6 +1,6 @@
 import React      from 'react'
 import Buttons    from '@/components/Buttons/Buttons'
-import Visible    from '@/state/Visible.jsx'
+import Visible    from '@/state/Visible'
 import Modal      from './Modal.jsx'
 import { Themed } from '@/src/Theme'
 

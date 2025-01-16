@@ -1,27 +1,28 @@
-import React          from 'react'
-import CheckboxLabel  from './Label.jsx'
-import CheckboxInput  from './Input.jsx'
+import CheckboxLabel  from './Label'
+import CheckboxInput  from './Input'
 import { Themed }     from '@/src/Theme'
+import { CheckboxType } from './types'
 import { borderClass, classes } from '@/src/utils/classes'
 
-const Checkbox = ({
+const Checkbox: CheckboxType = ({
   size,
   color,
   border,
   inline,
   className='checkbox',
   text,
-  ref,
+  labelRef,
   inputRef,
   checked,
   checkedText=text,
   uncheckedText=text,
+  disabled=false,
+  Label=CheckboxLabel,
+  Input=CheckboxInput,
   // icon,
   // checkedIcon=icon,
   // uncheckedIcon=icon,
   // iconClass,
-  Label=CheckboxLabel,
-  Input=CheckboxInput,
   ...props
 }) =>
   <Label
@@ -32,11 +33,16 @@ const Checkbox = ({
         { inline }
       )
     }
-    ref={ref}
-    checked={checked}
+    disabled={disabled}
+    ref={labelRef}
     {...props}
   >
-    <Input ref={inputRef} checked={checked} {...props}/>
+    <Input
+      checked={checked}
+      disabled={disabled}
+      ref={inputRef}
+      {...props}
+    />
     {checked ? checkedText : uncheckedText}
   </Label>
 

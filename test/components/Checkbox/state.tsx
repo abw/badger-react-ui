@@ -2,7 +2,7 @@ import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
-import { CheckboxState } from '@/src/index.jsx'
+import { CheckboxState } from '@/src/index'
 // import { prettyDOM } from '@testing-library/dom'
 
 test(
