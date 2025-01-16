@@ -16,6 +16,9 @@ import Prefix       from './_examples/prefix/index.mdx'
 import Suffix       from './_examples/suffix/index.mdx'
 import Tooltip      from './_examples/tooltip/index.mdx'
 import Content      from './_examples/Content/index.mdx'
+import PrefixComp   from './_examples/PrefixComponent/index.mdx'
+import SuffixComp   from './_examples/SuffixComponent/index.mdx'
+import { Link }     from '@abw/badger-website'
 
 # Badge
 
@@ -41,4 +44,13 @@ import Content      from './_examples/Content/index.mdx'
 
 ## Components
 
+The following child components are used to render a Badge.  You can pass your
+own components in as properties if you want to customise the way a badge is
+rendered on an ad-hoc basis.  Or if you want to define your own custom components
+for all badges then you can create a wrapper component or use a
+<Link to="/theming/theme-provider" text="Theme Provider"/> to inject your custom
+component(s) globally.
+
 <Content/>
+<PrefixComp/>
+<SuffixComp/>
