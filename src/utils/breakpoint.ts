@@ -6,7 +6,9 @@ export const DESKTOP    = 'desktop'
 export const WIDESCREEN = 'widescreen'
 export const ULTRA      = 'ultra'
 
-export const breakpoints: { [key: string]: number } = {
+export type BreakpointsType = Record<string, number>
+
+export const breakpoints: BreakpointsType = {
   [UNKNOWN]:    0,
   [MOBILE]:     480,
   [TABLET]:     720,
@@ -21,7 +23,7 @@ const defaults = {
 
 export const widthBreakpoint = (
   width: number = 0,
-  options = { }
+  options: BreakpointsType = { }
 ) => {
   const config = { ...defaults, ...options }
   const breakpoint = Object.entries(config.breakpoints)
@@ -33,6 +35,7 @@ export const widthBreakpoint = (
     : config.largest
 }
 
+/*
 export const elementWidth = (element: HTMLElement | Window = window) =>
   typeof element === 'undefined'
     ? undefined
@@ -40,5 +43,4 @@ export const elementWidth = (element: HTMLElement | Window = window) =>
 
 export const elementBreakpoint = (element: HTMLElement, options: object) =>
   widthBreakpoint(elementWidth(element), options)
-
-
+*/

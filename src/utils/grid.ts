@@ -9,7 +9,7 @@ export const selectGridProps = {
 }
 
 export const extractGridProps = (props: PropsObject) => {
-  const otherProps = { ...props }
+  const otherProps: PropsObject = { ...props }
   // console.log(`selectGridProps: `, selectGridProps)
   const gridProps: PropsObject = extract(
     otherProps,
