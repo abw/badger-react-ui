@@ -1,8 +1,8 @@
-import React from 'react'
 import { stylePropsClasses } from '@/src/utils/classes'
 import { Themed } from '@/src/Theme'
+import { DivType } from './types'
 
-export const Div = ({
+export const Div: DivType = ({
   style,
   content,
   children,
