@@ -1,8 +1,7 @@
-import React from 'react'
-import { Themed } from '@/src/Theme'
 import { doNothing } from '@abw/badger-utils'
+import { RadioInputType } from './types'
 
-const Input = ({
+const RadioInput: RadioInputType = ({
   name,
   option,
   tabIndex=0,
@@ -19,5 +18,5 @@ const Input = ({
     checked={checked}
   />
 
-export default Themed(Input, 'RadioInput')
+export default RadioInput
 

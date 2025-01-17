@@ -1,8 +1,7 @@
-import React from 'react'
-import { Themed } from '@/src/Theme'
 import { classes } from '@/src/utils/classes'
+import { RadioLabelType } from './types'
 
-const Label = ({
+const RadioLabel: RadioLabelType = ({
   className,
   disabled,
   children,
@@ -13,5 +12,5 @@ const Label = ({
     {children}
   </label>
 
-export default Themed(Label, 'RadioLabel')
+export default RadioLabel
 

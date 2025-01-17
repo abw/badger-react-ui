@@ -1,11 +1,9 @@
-import React       from 'react'
-import RadioLabel  from './Label.jsx'
-import RadioInput  from './Input.jsx'
-import { Themed }  from '@/src/Theme'
+import RadioLabel  from './Label'
+import RadioInput  from './Input'
 import { classes } from '@/src/utils/classes'
+import { RadioOptionType } from './types'
 
-
-const Option = ({
+const RadioOption: RadioOptionType = ({
   name,
   option,
   checked,
@@ -20,7 +18,6 @@ const Option = ({
   <Label
     className={classes(labelClass, option.labelClass, { inline, border })}
     disabled={option.disabled}
-    option={option}
   >
     <Input
       name={name}
@@ -29,8 +26,8 @@ const Option = ({
       className={classes(inputClass, option.inputClass)}
       onChange={() => onChange(option.value)}
     />
-    {option.text ?? option.label ?? option.name}
+    { option.text ?? option.label ?? option.name }
   </Label>
 
-export default Themed(Option, 'RadioOption')
+export default RadioOption
 
