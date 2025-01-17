@@ -1,9 +1,9 @@
-import React          from 'react'
-import DetailsSummary from './Summary.jsx'
-import DetailsContent from '../Content.jsx'
+import DetailsSummary from './Summary'
+import DetailsContent from '../Content'
 import { classes, borderClass, radiusClass, shadowClass } from '@/src/utils/classes'
+import { DetailsNativeContainerType, DetailsSummaryProps } from '../types'
 
-const Container = ({
+const DetailsNativeContainer: DetailsNativeContainerType = ({
   className,
   size,
   color,
@@ -30,9 +30,9 @@ const Container = ({
     }
     open={open}
   >
-    <Summary {...props}/>
+    <Summary {...props as DetailsSummaryProps}/>
     <Content {...props}/>
   </details>
 
-export default Container
+export default DetailsNativeContainer
 

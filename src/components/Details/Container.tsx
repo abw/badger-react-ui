@@ -1,10 +1,10 @@
-import React            from 'react'
-import Context          from './Context.js'
-import DetailsSummary   from './Summary.jsx'
-import DetailsContent   from './Content.jsx'
+import Context          from './Context'
+import DetailsSummary   from './Summary'
+import DetailsContent   from './Content'
 import { classes, borderClass, radiusClass, shadowClass } from '@/src/utils/classes'
+import { DetailsContainerType, DetailsSummaryProps } from './types.js'
 
-const Container = ({
+const DetailsContainer: DetailsContainerType = ({
   className,
   size,
   color,
@@ -14,7 +14,6 @@ const Container = ({
   shaded,
   shadow,
   isOpen,
-  toggleOpen,
   detailsClass='details',
   noIconClass='no-icon',
   wideSummary,
@@ -30,18 +29,21 @@ const Container = ({
         noIconClass,
         className,
         color,
+        size,
         borderClass(border),
         radiusClass(radius),
         shadowClass(shadow),
-        { size, color, lined, shaded, open: isOpen, [wideSummaryClass]: wideSummary }
+        { lined, shaded, open: isOpen, [wideSummaryClass]: wideSummary }
       )
     }
   >
-    <Summary toggleOpen={toggleOpen} {...props}/>
+    <Summary
+      {...props as DetailsSummaryProps}
+    />
     { Boolean(isOpen) &&
       <Content {...props}/>
     }
   </div>
 
-export default Context.Consumer(Container)
+export default Context.Consumer(DetailsContainer)
 

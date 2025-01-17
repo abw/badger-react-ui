@@ -1,9 +1,9 @@
-import React from 'react'
 import WithIcons from '@/components/Icon/WithIcons'
 import { classes } from '@/src/utils/classes'
 import { extract } from '@abw/badger-utils'
+import { DetailsSummaryType } from './types'
 
-const Summary = ({
+const DetailsSummary: DetailsSummaryType = ({
   summary,
   summaryClass,
   toggleOpen,
@@ -21,8 +21,7 @@ const Summary = ({
       spanClass={summarySpanClass}
       {...extract(props, /^(icon|text)/)}
     />
-    {/* {summary} */}
   </div>
 
-export default Summary
+export default DetailsSummary
 
