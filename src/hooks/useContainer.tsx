@@ -7,7 +7,7 @@ export const useContainer = (options={}) => {
   const [boxWidth, setBoxWidth] = useState<number>()
   const [boxHeight, setBoxHeight] = useState<number>()
   const [breakpoint, setBreakpoint] = useState<string>()
-  const ref = useRef()
+  const ref = useRef(null)
 
   useEffect(
     () => {
