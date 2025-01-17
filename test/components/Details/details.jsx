@@ -3,7 +3,6 @@ import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
 import { Details } from '@/src/index.jsx'
-// import { prettyDOM } from '@testing-library/dom'
 
 test(
   'open and close',
