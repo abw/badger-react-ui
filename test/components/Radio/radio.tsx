@@ -2,15 +2,21 @@ import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, screen, act } from '@testing-library/react'
-import { Radio } from '@/src/index.jsx'
+import { Radio } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 
 const RadioExample = () => {
-  const [value, setValue] = React.useState(false)
+  const [value, setValue] = React.useState<string>()
+  const safelySetValue = (value: unknown) => setValue(
+    typeof value === 'string'
+      ? value
+      : ''
+  )
   return (
     <>
       <Radio
         value={value}
-        onChange={setValue}
+        onChange={safelySetValue}
         options={[
           'David',
           'Nigel',
@@ -33,7 +39,7 @@ test(
     const { container } = render(
       <RadioExample/>
     )
-    const radio = container.querySelector('div.radioset')
+    const radio = container.querySelector('div.radioset') || fail('no radioset')
     const labels = radio.querySelectorAll('label.radio')
     expect(labels.length).toBe(3)
 

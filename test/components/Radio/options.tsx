@@ -2,15 +2,21 @@ import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, screen, act } from '@testing-library/react'
-import { Radio } from '@/src/index.jsx'
+import { Radio } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 
 const RadioExample = () => {
-  const [value, setValue] = React.useState(false)
+  const [value, setValue] = React.useState<string>()
+  const safelySetValue = (value: unknown) => setValue(
+    typeof value === 'string'
+      ? value
+      : ''
+  )
   return (
     <>
       <Radio
         value={value}
-        onChange={setValue}
+        onChange={safelySetValue}
         options={[
           { value: 'david', text:  'David St. Hubbins' },
           { value: 'nigel', label: 'Nigel Tufnel' },
@@ -34,7 +40,7 @@ test(
     const { container } = render(
       <RadioExample/>
     )
-    const radio = container.querySelector('div.radioset')
+    const radio = container.querySelector('div.radioset') || fail('no radioset')
     const labels = radio.querySelectorAll('label.radio')
     expect(labels.length).toBe(4)
 
@@ -44,7 +50,7 @@ test(
     expect(labels[3]).toHaveTextContent('Mick Shrimpton')
     expect(labels[3]).toHaveClass('disabled')
 
-    const option2Input = labels[3].querySelector('input')
+    const option2Input = labels[3].querySelector('input') || fail('no input')
     expect(option2Input).toHaveAttribute('aria-disabled', 'true')
 
     // screen.debug()
