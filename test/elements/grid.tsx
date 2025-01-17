@@ -1,7 +1,6 @@
-import React from 'react'
 import { test, expect } from 'vitest'
 import { render } from '@testing-library/react'
-import { Grid } from '@/src/index.jsx'
+import { Grid } from '@/src/index'
 
 test(
   'grid with children',

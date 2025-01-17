@@ -3,7 +3,7 @@ import { CSSProperties, ReactNode } from 'react'
 import { MaybeTrueOrNumberString } from '../types'
 
 export type DivProps = StyleProps & {
-  style: CSSProperties
+  style?: CSSProperties
   content?: ReactNode
   children?: ReactNode
 }

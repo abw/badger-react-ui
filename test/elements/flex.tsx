@@ -1,7 +1,6 @@
-import React from 'react'
 import { test, expect } from 'vitest'
 import { render } from '@testing-library/react'
-import { Flex } from '@/src/index.jsx'
+import { Flex } from '@/src/index'
 
 test(
   'flex with children',

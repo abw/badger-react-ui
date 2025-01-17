@@ -1,7 +1,6 @@
-import React from 'react'
 import { test, expect } from 'vitest'
 import { render } from '@testing-library/react'
-import { Div } from '@/src/index.jsx'
+import { Div } from '@/src/index'
 
 test(
   'div with content',
