@@ -63,6 +63,9 @@ export type PagerContextRenderProps = PagerContextProps & {
   nextPageNo: number | null
 }
 
+export type PagerProps = PagerContextProps & {
+  Content?: PagerContentType
+}
 // export type PagerPageType = React.FC<PagerPageProps>
 // export type PagerSeparatorType = React.FC<PagerSeparatorProps>
 export type PagerPageType = React.FC
@@ -70,3 +73,5 @@ export type PagerSeparatorType = React.FC
 export type PagerPagesType = React.FC
 export type PagerPreviousType = React.FC
 export type PagerNextType = React.FC
+export type PagerContentType = React.FC
+export type PagerType = React.FC<PagerProps>

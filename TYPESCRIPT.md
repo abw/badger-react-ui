@@ -15,10 +15,19 @@ Component like Button seem to be able to accept any properties.
 This just ends up being passed to the `<button>` element and raising a
 warning.
 
+There seems to be a fundamental problem when trying to pass a component
+with non-optional children to `Themed()`:
+
+    Property 'children' is missing in type 'Record<string, unknown>'
+
+Hmmm... maybe it's a problem with any non-optional properties.  Time to
+revisit react-one-louder.
+UPDATE: so it's seems it's an inherent issue when using an interface.
+Sub-optimal fix is to use a type instead.
+
 ## Components
 
-    [ ] Accordion
-        Depends on Details
+    [X] Accordion
     [X] Alert
         Removed Alert.Info, Alert.Success, etc.
     [X] Badge
@@ -29,16 +38,16 @@ warning.
     [X] Confirm
     [ ] DataTable
     [ ] DataTables
-    [ ] Details
+    [X] Details
     [ ] Dropdown
     [ ] DropdownMenu
     [ ] Form
-    [ ] Icon
+    [X] Icon
     [X] Modal
     [ ] MultiSelect
     [X] Overlay
-    [ ] Pager
-    [ ] Radio
+    [X] Pager
+    [X] Radio
     [ ] Range
     [ ] RangeMax
     [ ] RangeMin

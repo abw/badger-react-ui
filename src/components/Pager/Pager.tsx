@@ -1,9 +1,9 @@
-import React        from 'react'
-import Context      from './Context.js'
-import PagerContent from './Content.jsx'
+import Context      from './Context'
+import PagerContent from './Content'
 import { Themed }   from '@/src/Theme'
+import { PagerType } from './types'
 
-const Pager = ({
+const Pager: PagerType = ({
   Content=PagerContent,
   ...props
 }) =>
