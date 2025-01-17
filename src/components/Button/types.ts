@@ -4,8 +4,8 @@ import { MaybeTrueOrNumberString } from '@/src/types'
 export interface ButtonProps extends
   WithIconsProps,
   Omit<
-    React.ComponentProps<'button'>,
-    'className' | 'ref'
+    React.ComponentPropsWithoutRef<'button'>,
+    'className'
   > {
   size?: string,
   color?: string,
