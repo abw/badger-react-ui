@@ -2,11 +2,11 @@ import { useState, useEffect, useRef } from 'react'
 import { widthBreakpoint } from '@/src/utils/breakpoint'
 
 export const useContainer = (options={}) => {
-  const [width, setWidth] = useState(false)
-  const [height, setHeight] = useState(false)
-  const [boxWidth, setBoxWidth] = useState(false)
-  const [boxHeight, setBoxHeight] = useState(false)
-  const [breakpoint, setBreakpoint] = useState(false)
+  const [width, setWidth] = useState<number>()
+  const [height, setHeight] = useState<number>()
+  const [boxWidth, setBoxWidth] = useState<number>()
+  const [boxHeight, setBoxHeight] = useState<number>()
+  const [breakpoint, setBreakpoint] = useState<string>()
   const ref = useRef()
 
   useEffect(
@@ -36,7 +36,7 @@ export const useContainer = (options={}) => {
       resizeObserver.observe(ref.current)
       return () => resizeObserver.disconnect()
     },
-    []
+    [options]
   )
 
   return { ref, width, height, boxWidth, boxHeight, breakpoint }

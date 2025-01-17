@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
-import { widthBreakpoint } from '@/src/utils/breakpoint'
+import { BreakpointsType, widthBreakpoint } from '@/src/utils/breakpoint'
 
-export const useWindow = (options={}) => {
-  const element = options.element || window
-  const [width, setWidth] = useState(false)
-  const [height, setHeight] = useState(false)
-  const [breakpoint, setBreakpoint] = useState(false)
+export const useWindow = (options: BreakpointsType = {}) => {
+  // const element = options.element || window
+  const element = window
+  const [width, setWidth] = useState<number>()
+  const [height, setHeight] = useState<number>()
+  const [breakpoint, setBreakpoint] = useState<string>()
 
   const getWidthAndBreakpoint = () => {
     if (! element) {
@@ -28,8 +29,7 @@ export const useWindow = (options={}) => {
           element.removeEventListener('resize', getWidthAndBreakpoint)
         }
       }
-    },
-    [ ]
+    }
   )
 
   return { width, height, breakpoint }

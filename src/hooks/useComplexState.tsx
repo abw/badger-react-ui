@@ -2,7 +2,17 @@ import { useState } from 'react'
 import { maybeFunction } from '@abw/badger-utils'
 import { capitalFirstLetter } from '@/src/utils/text'
 
-export const useComplexState = (values, options={ }) => {
+export type UseComplexStateValues = Record<string, unknown>
+export type UseComplexStateOptions = {
+  onChange?: (values: UseComplexStateValues) => UseComplexStateValues
+  convertCase?: (word: string) => string
+  setterNamer?: (key: string) => string
+}
+
+export const useComplexState = (
+  values: UseComplexStateValues,
+  options: UseComplexStateOptions={ }
+) => {
   const {
     onChange,
     convertCase = capitalFirstLetter,
@@ -17,7 +27,7 @@ export const useComplexState = (values, options={ }) => {
   const setters = Object.keys(values).reduce(
     (setters, key) => {
       const setter = setterNamer(key)
-      setters[setter] = value => setState(
+      setters[setter] = (value: unknown) => setState(
         oldState => {
           const newState = {
             ...oldState,
@@ -30,7 +40,7 @@ export const useComplexState = (values, options={ }) => {
       )
       return setters
     },
-    { }
+    { } as UseComplexStateValues
   )
   return [state, setters]
 }
