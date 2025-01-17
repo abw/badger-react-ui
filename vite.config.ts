@@ -36,7 +36,7 @@ export default defineConfig({
     // minify: true,
     sourcemap: true,
     lib: {
-      entry: 'src/index.jsx',
+      entry: 'src/index.tsx',
       name: '@abw/badger-react-ui',
       fileName: 'badger-react-ui',
     },
@@ -60,10 +60,10 @@ export default defineConfig({
               src: ['styles/*', '!styles/build'],
               dest: 'dist/styles',
             },
-            {
-              src: ['src/index.d.ts'],
-              dest: 'dist',
-            },
+            //{
+            //  src: ['src/index.d.ts'],
+            //  dest: 'dist',
+            //},
           ],
           hook: 'writeBundle'
         })
