@@ -1,12 +1,13 @@
 import React from 'react'
-import TabBody from './Body.jsx'
+import TabBody from './Body'
 import WithIcons from '@/components/Icon/WithIcons'
 import Storage from '@/src/utils/storage'
 import { classes } from '@/src/utils/classes'
 import { doNothing } from '@abw/badger-utils'
 import { Themed }    from '@/src/Theme'
+import { TabsetType } from './types'
 
-const Tabset = ({
+const Tabset: TabsetType = ({
   tabs,
   storageKey,
   storageItem='active-tab',
@@ -31,7 +32,7 @@ const Tabset = ({
       ? store.get(storageItem) || activeTab
       : activeTab
   )
-  const activateTab = n => {
+  const activateTab = (n: number) => {
     setActive(n)
     if (store) {
       store.set(storageItem, n)

@@ -1,12 +1,11 @@
-import React from 'react'
+import { TabsetBodyType } from './types'
 
-const Body = ({
+const Body: TabsetBodyType = ({
   tab
 }) => {
   if (! tab) {
     return null
   }
-
   const { content, Component } = tab
   if (content) {
     return content

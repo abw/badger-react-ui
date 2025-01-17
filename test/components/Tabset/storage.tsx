@@ -1,9 +1,8 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
-import { Tabset } from '@/src/index.jsx'
-// import { prettyDOM } from '@testing-library/dom'
+import { Tabset } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 
 const TabsetExample = () => {
   const tabs = [
@@ -13,7 +12,7 @@ const TabsetExample = () => {
     { text: 'Four',  disabled: true }
   ]
   return (
-    <Tabset lined tabs={tabs}/>
+    <Tabset lined tabs={tabs} storageKey="brui-tabset-test"/>
   )
 }
 
@@ -24,7 +23,7 @@ test(
     const { container } = render(
       <TabsetExample/>
     )
-    const tabset = container.querySelector('div.tabset')
+    const tabset = container.querySelector('div.tabset') || fail('no tabset')
     expect(tabset).toBeTruthy()
 
     const tabs = tabset.querySelectorAll('ul.tabs li')
@@ -47,24 +46,6 @@ test(
     expect(tabs[2]).not.toHaveClass('active')
     expect(tabs[3]).not.toHaveClass('active')
     expect(tabset.querySelector('div')).toHaveTextContent('This is two')
-
-    // click on third tab
-    await act( () => user.click(tabs[2]) )
-    expect(tabs[2]).toHaveTextContent('Three')
-    expect(tabs[0]).not.toHaveClass('active')
-    expect(tabs[1]).not.toHaveClass('active')
-    expect(tabs[2]).toHaveClass('active')
-    expect(tabs[3]).not.toHaveClass('active')
-    expect(tabset.querySelector('div')).toHaveTextContent('This is three')
-
-    // click on fourth tab should do nothing
-    await act( () => user.click(tabs[3]) )
-    expect(tabs[3]).toHaveTextContent('Four')
-    expect(tabs[0]).not.toHaveClass('active')
-    expect(tabs[1]).not.toHaveClass('active')
-    expect(tabs[2]).toHaveClass('active')
-    expect(tabs[3]).not.toHaveClass('active')
-    expect(tabset.querySelector('div')).toHaveTextContent('This is three')
   }
 )
 

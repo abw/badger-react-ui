@@ -1,7 +1,7 @@
-import React from 'react'
 import { test, expect } from 'vitest'
 import { render } from '@testing-library/react'
-import { Tabset } from '@/src/index.jsx'
+import { Tabset } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 
 const TabsetExample = ({ activeTab=1 }) => {
   const tabs = [
@@ -24,7 +24,7 @@ test(
     const { container } = render(
       <TabsetExample/>
     )
-    const tabset = container.querySelector('div.tabset')
+    const tabset = container.querySelector('div.tabset') || fail('no tabset')
     expect(tabset).toBeTruthy()
 
     const tabs = tabset.querySelectorAll('ul.tabs li')
@@ -45,7 +45,7 @@ test(
     const { container } = render(
       <TabsetExample activeTab={11}/>
     )
-    const tabset = container.querySelector('div.tabset')
+    const tabset = container.querySelector('div.tabset') || fail('no tabset')
     expect(tabset).toBeTruthy()
 
     const tabs = tabset.querySelectorAll('ul.tabs li')
