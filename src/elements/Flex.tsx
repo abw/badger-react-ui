@@ -1,8 +1,8 @@
-import React from 'react'
 import { stylePropsClasses } from '@/src/utils/classes'
 import { Themed } from '@/src/Theme'
+import { FlexType } from './types'
 
-export const Flex = ({
+export const Flex: FlexType = ({
   children,
   ...props
 }) =>

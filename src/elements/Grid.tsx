@@ -1,10 +1,11 @@
-import React from 'react'
 import { Themed } from '@/src/Theme'
 import {
-  extractGridProp, useContainer, gapClass, stylePropsClasses, classes
+  extractGridProp, useContainer, gapClass, stylePropsClasses, classes,
+  StyleProps
 } from '@/src/index'
+import { GridType } from './types'
 
-export const Grid = ({
+export const Grid: GridType = ({
   gap,
   children,
   ...props
@@ -20,7 +21,7 @@ export const Grid = ({
         classes(
           gridProp,
           gapClass(gap),
-          stylePropsClasses(otherProps)
+          stylePropsClasses(otherProps as StyleProps)
         )
       }
     >
