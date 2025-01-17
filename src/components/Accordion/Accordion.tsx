@@ -1,9 +1,9 @@
-import React      from 'react'
-import Details    from '../Details/Details.jsx'
+import Details from '@/components/Details/Details'
 import { Themed } from '@/src/Theme'
+import { AccordionType } from './types'
 import { classes, radiusClass, shadowClass } from '@/src/utils/classes'
 
-const Accordion = ({
+const Accordion: AccordionType = ({
   items,
   shadow,
   radius,
