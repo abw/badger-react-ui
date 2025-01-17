@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, screen, act } from '@testing-library/react'
-import { useToggle, Button } from '@/src/index.jsx'
+import { useToggle, Button } from '@/src/index'
 
 const UseToggleExample = () => {
   const [option, Toggle, selectOption, toggleOption] = useToggle({
