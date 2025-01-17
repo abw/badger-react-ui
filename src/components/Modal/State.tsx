@@ -1,6 +1,6 @@
-import React    from 'react'
 import Visible  from '@/state/Visible'
 import Modal    from './Modal.jsx'
+import { ModalProps } from './types'
 
 const ModalState = ({
   open=false
@@ -9,7 +9,7 @@ const ModalState = ({
   return {
     show,
     hide,
-    Modal: props =>
+    Modal: (props: ModalProps) =>
       <Modal
         open={isVisible}
         {...props}

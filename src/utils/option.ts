@@ -11,7 +11,7 @@ export interface SelectOptionProps extends PropsObject {
   //name?: string,
   //value?: unknown
 }
-export type SelectOption = SelectOptionProps | string | number | boolean
+export type SelectOption = SelectOptionProps | string | number | boolean | undefined | null
 export type SelectOptions = SelectOption[]
 
 export const validOption = (option: SelectOption) =>

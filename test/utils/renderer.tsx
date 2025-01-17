@@ -1,4 +1,3 @@
-import React from 'react'
 import { expect, test, it } from 'vitest'
 import { defaultRenderer, withIconsRenderer } from '@/src/utils/index'
 import { render, screen } from '@testing-library/react'
@@ -65,9 +64,10 @@ it(
   async () => {
     render(
       <div data-testid="foo">
-        {withIconsRenderer({ iconLeft: 'check', text: 'Hello' })}
+        { withIconsRenderer({ iconLeft: 'check', text: 'Hello' }) as JSX.Element }
       </div>
     )
+    screen.debug()
     const foo = screen.getByTestId('foo')
     expect(foo).toHaveTextContent('Hello')
 

@@ -2,7 +2,7 @@ import React   from 'react'
 import Context from '../DataTable/Context.js'
 import DefaultFilter from './Filter.jsx'
 import { FILTERS } from '../DataTable/Constants.js'
-import Tiles from '../Tiles/Tiles.jsx'
+import Tiles from '@/components/Tiles/Tiles'
 
 export const Filters = ({
   columns,
