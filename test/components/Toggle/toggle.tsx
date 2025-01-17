@@ -2,7 +2,8 @@ import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, screen, act } from '@testing-library/react'
-import { Toggle } from '@/src/index.jsx'
+import { Toggle } from '@/src/index'
+import { ToggleOption } from '@/src/components/Toggle/types'
 
 const ToggleOne = () => {
   const [selected, setSelected] = React.useState(0)
@@ -10,7 +11,7 @@ const ToggleOne = () => {
     <div className="grid-1 gap-4">
       <Toggle
         selected={selected}
-        onSelect={(option, n) => setSelected(n)}
+        onSelect={(_option: ToggleOption, n: number) => setSelected(n)}
       />
       <div data-testid="selected">
         {selected}
@@ -30,7 +31,7 @@ const ToggleTwo = () => {
           { text: 'Blue',  color: 'blue'  },
         ]}
         selected={selected}
-        onSelect={(option, n) => setSelected(n)}
+        onSelect={(_option: ToggleOption, n: number) => setSelected(n)}
       />
       <div data-testid="selected">
         {selected}

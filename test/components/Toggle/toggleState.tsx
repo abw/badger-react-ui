@@ -2,14 +2,17 @@ import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, screen, act } from '@testing-library/react'
-import { ToggleState } from '@/src/index.jsx'
+import { ToggleState } from '@/src/index'
+import { ToggleOption, ToggleOptions } from '@/src/components/Toggle/types'
+
+
 
 const ToggleStateExample = () => {
-  const options = [
+  const options: ToggleOptions = [
     { text: 'Hot',  color: 'red'  },
     { text: 'Cold', color: 'blue' },
   ]
-  const [selected, setSelected] = React.useState(options[0])
+  const [selected, setSelected] = React.useState<ToggleOption>(options[0])
   return (
     <>
       <ToggleState

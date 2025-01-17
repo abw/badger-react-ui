@@ -1,26 +1,10 @@
-import React from 'react'
 import { Themed } from '@/src/Theme'
 import { Buttons, classes } from '@/src/index'
-import { doNothing, isInteger, isObject } from '@abw/badger-utils'
+import { doNothing } from '@abw/badger-utils'
+import { defaultToggleOptions, selectedToggleIndex } from './Utils'
+import { ToggleType } from './types'
 
-export const defaultToggleOptions=[
-  { text: 'On',  value: true  },
-  { text: 'Off', value: false },
-]
-
-export const matchToggleOption = (option, selected) =>
-  option.value === (
-    isObject(selected)
-      ? selected.value
-      : selected
-  )
-
-export const selectedToggleIndex = (options, selected) =>
-  isInteger(selected)
-    ? selected
-    : options.findIndex( option => matchToggleOption(option, selected) )
-
-const Toggle = ({
+const Toggle: ToggleType = ({
   selected=0,
   findSelectedIndex=selectedToggleIndex,
   onSelect=doNothing,
@@ -34,7 +18,7 @@ const Toggle = ({
 } = { }) => {
   const selectedIndex = findSelectedIndex(options, selected)
   const buttons = options.map(
-    (option, n) => {
+    (option, n: number) => {
       const isSelected = n === selectedIndex
       return {
         ...option,

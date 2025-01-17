@@ -56,9 +56,9 @@ Sub-optimal fix is to use a type instead.
     [ ] Sortable
     [ ] Spinner
     [ ] Table
-    [ ] Tabset
+    [X] Tabset
     [X] Tiles
-    [ ] Toggle
+    [X] Toggle
 
 ## Notes
 

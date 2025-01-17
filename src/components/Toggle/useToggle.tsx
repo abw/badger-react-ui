@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import Toggle from './Toggle'
+import { useState } from 'react'
 import { Storage } from '@/src/index'
 import { doNothing } from '@abw/badger-utils'
-import Toggle, { defaultToggleOptions, selectedToggleIndex } from './Toggle.jsx'
+import { defaultToggleOptions, selectedToggleIndex } from './Utils'
+import { ToggleOption, ToggleValue, UseToggleType } from './types'
 
-const useToggle = ({
+const useToggle: UseToggleType = ({
   selected=0,
   findSelectedIndex=selectedToggleIndex,
   options=defaultToggleOptions,
@@ -14,7 +16,7 @@ const useToggle = ({
 } = { }) => {
   const selectedIndex = findSelectedIndex(options, selected)
   const store = storageKey && Storage(storageKey)
-  const [index, setIndex] = useState(
+  const [index, setIndex] = useState<number>(
     store
       ? store.get(storageItem) ?? selectedIndex
       /* v8 ignore next */
@@ -23,7 +25,7 @@ const useToggle = ({
   const [option, setOption] = useState(
     options[index]
   )
-  const selectOption = option => {
+  const selectOption = (option: ToggleOption | ToggleValue) => {
     const n = findSelectedIndex(options, option)
     if (n >= 0 && n < options.length) {
       if (store) {
@@ -48,7 +50,7 @@ const useToggle = ({
       <Toggle
         options={options}
         selected={index}
-        onSelect={(option, n) => selectOption(n)}
+        onSelect={(_option: ToggleOption, n: number) => selectOption(n)}
         {...props}
         {...moreProps}
       />,
