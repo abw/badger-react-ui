@@ -1,6 +1,5 @@
-import React         from 'react'
-import Context       from './Context.js'
-import SearchContent from './Content.jsx'
+import Context       from './Context'
+import SearchContent from './Content'
 import { Themed }    from '@/src/Theme'
 
 const Search = ({

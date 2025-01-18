@@ -51,7 +51,8 @@ Sub-optimal fix is to use a type instead.
     [ ] Range
     [ ] RangeMax
     [ ] RangeMin
-    [ ] Search
+    [-] Search
+        Work in progress
     [ ] Select
     [ ] Sortable
     [ ] Spinner

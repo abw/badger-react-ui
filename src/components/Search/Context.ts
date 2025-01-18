@@ -1,7 +1,9 @@
 import { Context, Generator } from '@abw/react-context'
 import { ARROW_DOWN, ARROW_UP, BLANK, ENTER, ESCAPE } from '@/src/constants'
-import { debounce, doNothing, hasValue, sleep } from '@abw/badger-utils'
-import { defaultRenderer, scrollParentChild } from '@/src/utils/index'
+import { debounce, DebounceFunction, doNothing, hasValue, sleep } from '@abw/badger-utils'
+import { defaultRenderer, errorMessage, scrollParentChild } from '@/src/utils/index'
+import { SearchProps, SearchState, SearchResult, SearchResults, SearchRenderProps } from './types'
+import { ChangeEvent } from 'react'
 
 const inactiveState = {
   searching:  false,
@@ -11,7 +13,11 @@ const inactiveState = {
   cursor:     undefined,
 }
 
-class SearchContext extends Context {
+class SearchContext extends Context<
+  SearchProps,
+  SearchState,
+  SearchRenderProps
+> {
   static debug        = false
   static debugPrefix  = 'Search > '
   static debugColor   = 'MediumVioletRed'
@@ -45,7 +51,11 @@ class SearchContext extends Context {
     'resultsRef', 'activeRef',
   ]
 
-  constructor(props) {
+  mounted?: boolean
+  startSearch: DebounceFunction
+  _resultsRef?: HTMLDivElement
+
+  constructor(props: SearchProps) {
     super(props)
     this.state = {
       ...this.state,
@@ -66,7 +76,7 @@ class SearchContext extends Context {
     this.mounted = false
     this.props.onUnload(this)
   }
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps: SearchProps) {
     if (this.props.value !== prevProps.value) {
       this.debug(`value has changed from ${prevProps.value} to ${this.props.value}`)
       this.setState(this.valueState())
@@ -102,7 +112,7 @@ class SearchContext extends Context {
     sleep(500).then(() => this.clearResults())
   }
 
-  onChange(event) {
+  onChange(event: ChangeEvent<HTMLInputElement>) {
     const input = event.target.value
     this.debug(`input: ${input}`)
     if (input.length >= this.props.minLength) {
@@ -119,13 +129,13 @@ class SearchContext extends Context {
     }
   }
 
-  onKeyDown(event) {
+  onKeyDown(event: KeyboardEvent) {
     this.debug(`onKeyDown(${event.key})`)
     if (this.props.disabled) {
       return
     }
 
-    const cursor = this.state.cursor
+    const cursor = this.state.cursor || 0
 
     switch (event.key) {
       case ARROW_DOWN:
@@ -180,7 +190,7 @@ class SearchContext extends Context {
   }
 
   search() {
-    const { input } = this.state
+    const { input='' } = this.state
     const { minLength, onSearch } = this.props
     if (input.length < minLength) {
       this.debug(`search() cancelled - input is shorter than ${minLength}`)
@@ -207,14 +217,14 @@ class SearchContext extends Context {
           this.setState({
             searching: false,
             results: null,
-            error: e.message ?? e
+            error: errorMessage(e)
           })
         }
       }
     )
   }
 
-  searchResults(results) {
+  searchResults(results: SearchResults) {
     this.debug('searchResults()', results)
     this.setState({
       results,
@@ -223,7 +233,7 @@ class SearchContext extends Context {
     })
   }
 
-  selectResult(value) {
+  selectResult(value: SearchResult) {
     this.debug(`selectResult()`, value)
     const input = this.inputValue(value)
     this.setState(
@@ -236,7 +246,7 @@ class SearchContext extends Context {
     )
   }
 
-  setCursor(cursor) {
+  setCursor(cursor: number) {
     this.debug(`setCursor(${cursor})`)
     const { results } = this.state
     this.setState({
@@ -263,12 +273,14 @@ class SearchContext extends Context {
     }
   }
 
-  resultsRef(ref){
+  resultsRef(ref: HTMLDivElement){
     this._resultsRef = ref
   }
 
-  activeRef(ref) {
-    scrollParentChild(this._resultsRef, ref)
+  activeRef(ref: HTMLDivElement | null) {
+    if (this._resultsRef && ref) {
+      scrollParentChild(this._resultsRef, ref)
+    }
   }
 }
 

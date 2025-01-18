@@ -8,6 +8,24 @@ import DebounceTime   from './_examples/debounceTime/index.mdx'
 import Clear          from './_examples/clear/index.mdx'
 import Reset          from './_examples/reset/index.mdx'
 import Disabled       from './_examples/disabled/index.mdx'
+import { SubSection } from '@abw/badger-website'
+import {
+  SEARCH_ACTIVE_CLASS,
+  SEARCH_CLEAR_ICON,
+  SEARCH_ERROR_CLASS,
+  SEARCH_INPUT_CLASS,
+  SEARCH_INPUT_TYPE,
+  SEARCH_INPUTS_CLASS,
+  SEARCH_NO_RESULTS,
+  SEARCH_NO_RESULTS_CLASS,
+  SEARCH_PLACEHOLDER,
+  SEARCH_PREFIX_CLASS,
+  SEARCH_RESULT_CLASS,
+  SEARCH_RESULTS_CLASS,
+  SEARCH_SEARCH_ICON,
+  SEARCH_SEARCHING_ICON,
+  SEARCH_SUFFIX_CLASS
+} from '@/src/index'
 
 # Search
 
@@ -20,6 +38,92 @@ import Disabled       from './_examples/disabled/index.mdx'
 <Disabled/>
 <MinLength/>
 <DebounceTime/>
+
+### `placeholder`
+
+The placeholder text used in the search input.  The default value is
+<code>{SEARCH_PLACEHOLDER}</code>.
+
+### `autocomplete`
+
+A value for the `autocomplete` attribute on the HTML input.  This allows
+you to specify what values the browser can suggest to autocomplete the
+input.  There is no default value.
+
+<SubSection code="autoComplete" id="autoComplete-camel">
+An alias for `autocomplete` because React has stupid rules requiring all
+HTML attributes to be in camelCase.
+</SubSection>
+
+### `searchIcon`
+
+The name of the icon displayed in the left side.  The default value is
+<code>{SEARCH_SEARCH_ICON}</code>.
+
+### `clearIcon`
+
+The name of the icon displayed in the right side which can be clicked to
+clear the current search. The default value is <code>{SEARCH_CLEAR_ICON}</code>.
+
+### `searchingIcon`
+
+The name of the icon displayed in the right side while a search is under
+way.  The default value is <code>{SEARCH_SEARCHING_ICON}</code>.
+
+### `inputType`
+
+The type of the search input. The default value is <code>{SEARCH_INPUT_TYPE}</code>.
+
+### `inputsClass`
+
+The CSS class added to the input container.  The default value is
+<code>{SEARCH_INPUTS_CLASS}</code>.
+
+### `inputClass`
+
+The CSS class added to the input element.  There is no default value.
+
+### `prefixClass`
+
+The CSS class added to the input prefix on the left side where the search
+icon is displayed. The default value is <code>{SEARCH_PREFIX_CLASS}</code>.
+
+### `suffixClass`
+
+The CSS class added to the input suffix on the right side where the clear or
+searching icons are displayed. The default value is
+<code>{SEARCH_PREFIX_CLASS}</code>.
+
+### `resultsClass`
+
+The CSS class added to the results container.  The default value is
+<code>{SEARCH_RESULTS_CLASS}</code>.
+
+### `resultClass`
+
+The CSS class added to each individual result.  The default value is
+<code>{SEARCH_RESULT_CLASS}</code>.
+
+### `activeClass`
+
+The CSS class added to the active result.  The default value is
+<code>{SEARCH_ACTIVE_CLASS}</code>.
+
+### `noResults`
+
+The text displayed when no results are found.  The default value is
+<code>{SEARCH_NO_RESULTS}</code>.
+
+### `noResultsClass`
+
+The CSS class added to the container displaying the `noResults` string
+when no results are found.  The default value is
+<code>{SEARCH_NO_RESULTS_CLASS}</code>.
+
+### `errorClass`
+
+The CSS class added to the container used to display a search error.
+The default value is <code>{SEARCH_ERROR_CLASS}</code>.
 
 ## Event Handlers
 
