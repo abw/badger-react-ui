@@ -1,7 +1,6 @@
-import React from 'react'
 import { test, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { Spinner } from '@/src/index.jsx'
+import { Spinner } from '@/src/index'
 
 const SpinnerExample = () =>
   <div className="x3 flex gap-3 middle wrap" data-testid="spinners">

@@ -1,45 +1,10 @@
-import React from 'react'
 import Icon from '@/components/Icon/Icon'
 import { classes } from '@/src/utils/classes'
-import { isBoolean } from '@abw/badger-utils'
 import { Themed }    from '@/src/Theme'
+import { SpinnerType } from './types'
+import { iconFill, iconParts, iconStroke } from './Utils'
 
-const iconParts = (mods, classes) =>
-  [
-    mods.length
-      ? '-' + mods.join('-')
-      : '',
-    classes.length
-      ? '.' + classes.join('.')
-      /* v8 ignore next */
-      : ''
-  ].join('')
-
-const iconStroke = (mods, classes, stroke, width, light, dark) => {
-  if (stroke) {
-    classes.push(`stc-${light}`, `std-${dark}`)
-    if (! isBoolean(stroke)) {
-      mods.push(stroke)
-    }
-    else if (width) {
-      mods.push(`strokeWidth=${width}`)
-    }
-  }
-  else {
-    mods.push('stroke=none')
-  }
-}
-
-const iconFill = (mods, classes, fill, light, dark) => {
-  if (fill) {
-    classes.push(`flc-${light}`, `fld-${dark}`)
-  }
-  else {
-    mods.push('fill=none')
-  }
-}
-
-const Spinner = ({
+const Spinner: SpinnerType = ({
   size,
   className,
   icon='cog',
@@ -71,10 +36,10 @@ const Spinner = ({
   const cname = classes(
     size, className,
   )
-  const bgMods = [ ]
+  const bgMods: string[] = [ ]
   const bgClasses = [ bgColor ]
-  const fgMods = [ ]
-  const fgClasses = [ color, animation, speed ]
+  const fgMods: string[] = [ ]
+  const fgClasses: Array<string | null> = [ color, animation, speed ]
 
   iconStroke(bgMods, bgClasses, bgStroke, bgStrokeWidth, bgStrokeStop, bgStrokeStopDark)
   iconStroke(fgMods, fgClasses, stroke, strokeWidth, strokeStop, strokeStopDark)
