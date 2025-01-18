@@ -1,7 +1,7 @@
-import React from 'react'
 import { test, expect } from 'vitest'
 import { render } from '@testing-library/react'
-import { Icons } from '@/src/index.jsx'
+import { Icons } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 
 test(
   'Icons component',
@@ -10,7 +10,7 @@ test(
       <Icons names="square check.wibble" size="large"/>
     )
     // screen.debug()
-    const icons = container.querySelector('div.grid')
+    const icons = container.querySelector('div.grid') || fail('no grid')
     const svgs = icons.querySelectorAll('svg')
     expect(svgs.length).toBe(2)
     expect(svgs[0]).toHaveClass('icon')

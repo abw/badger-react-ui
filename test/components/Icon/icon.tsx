@@ -1,7 +1,6 @@
-import React from 'react'
 import { test, expect } from 'vitest'
 import { render } from '@testing-library/react'
-import { Icon } from '@/src/index.jsx'
+import { Icon } from '@/src/index'
 
 test(
   'Icon with name, size and color',
