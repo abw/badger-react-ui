@@ -1,4 +1,3 @@
-import { OnClick } from '@/src/types'
 import { RenderableValue } from '@/src/utils'
 
 export type SearchResult = RenderableValue & {
@@ -8,7 +7,7 @@ export type SearchResult = RenderableValue & {
 export type SearchResults = Array<SearchResult> | null
 
 export type SearchProps = {
-  onSearch: (input: string, search: React.Component) => Promise<SearchResult[]>
+  onSearch: (input: string, search: React.Component) => SearchResult[] | Promise<SearchResult[]>
   value?: SearchResult
   initialValue?: string
   minLength?: number
@@ -59,27 +58,24 @@ export type SearchState = {
   result?: unknown
 }
 
+export type SearchActions = {
+  onClick: React.MouseEventHandler<HTMLDivElement>
+  onMouseEnter: React.MouseEventHandler<HTMLDivElement>
+  onKeyDown: React.KeyboardEventHandler<HTMLDivElement>
+  onChange: React.ChangeEventHandler<HTMLInputElement>
+  selectResult: (value: SearchResult) => void
+  setCursor: (cursor: number) => void
+  selectCursor: () => void
+  resultsRef: (ref: HTMLDivElement) => void
+  activeRef: (ref: HTMLDivElement) => void
+  clear: () => void
+  reset: () => void
+}
+
 export type SearchRenderProps =
   SearchProps &
-  SearchState & {
-    onClick: React.MouseEventHandler<HTMLDivElement>
-    onMouseEnter: React.MouseEventHandler<HTMLDivElement>
-    onKeyDown: React.KeyboardEventHandler<HTMLDivElement>
-    onChange: React.ChangeEventHandler<HTMLInputElement>
-    selectResult: (value: SearchResult) => void
-    setCursor: (cursor: number) => void
-    resultsRef: (ref: HTMLDivElement) => void
-    activeRef: (ref: HTMLDivElement) => void
-    clear: OnClick
-  }
-
-//  static actions = [
-//    'onFocus', 'onBlur',
-//    'onKeyDown',
-//    'reset',
-//    'selectCursor',
-//  ]
-
+  SearchState &
+  SearchActions
 
 export type SearchResultProps = {
   active: boolean
