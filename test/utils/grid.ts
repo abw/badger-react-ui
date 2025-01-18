@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest'
-import { extractGridProp, extractGridProps, gridPropBestMatch } from '@/src/index.jsx'
+import { extractGridProp, extractGridProps, gridPropBestMatch } from '@/src/index'
 
 test(
   'extractGridProps({ foo: 10 })',

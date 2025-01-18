@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest'
-import { iconProps, iconNameOrProps } from '@/src/index.jsx'
+import { iconProps, iconNameOrProps } from '@/src/index'
 
 test(
   'iconProps() should return icon name',

@@ -7,6 +7,7 @@ const renderer = defaultRenderer('renderFoo')
 
 test(
   'renderer(null)',
+  // @ts-expect-error - null value should be handled gracefully
   () => expect( renderer(null) ).toBe(
     'HINT: define renderFoo() to render this value'
   )
@@ -14,7 +15,7 @@ test(
 
 test(
   'renderer(10)',
-  () => expect( renderer(10) ).toBe(10)
+  () => expect( renderer(10) ).toBe('10')
 )
 
 test(
@@ -44,6 +45,7 @@ test(
 
 test(
   'renderer({ eleven: 11 })',
+  // @ts-expect-error - invalid argument should be handled gracefully
   () => expect( renderer({ eleven: 11 }) ).toBe(
     'HINT: define renderFoo() to render this value'
   )

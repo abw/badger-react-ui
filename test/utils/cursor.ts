@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest'
-import { cursorFirst, cursorLast, cursorNext, cursorPrev } from '@/src/index.jsx'
+import { cursorFirst, cursorLast, cursorNext, cursorPrev } from '@/src/index'
 
 //--------------------------------------------------------------------------
 // cursorFirst()

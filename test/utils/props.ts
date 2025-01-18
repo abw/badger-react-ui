@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest'
-import { anyPropsChanged } from '@/src/index.jsx'
+import { anyPropsChanged } from '@/src/index'
 
 test(
   'no changes',
