@@ -1,20 +1,21 @@
-import { isObject, isString, isNumber } from '@abw/badger-utils'
+import { isObject, isString, isNumber, isSimple } from '@abw/badger-utils'
 import WithIcons from '@/src/components/Icon/WithIcons'
 import { PropsObject } from '../types.js'
 
-export type RenderableValue = string | number | boolean
+export type RenderableSimpleValue = string | number | boolean
 
 export type ObjectWithRenderable = {
-  text?:    RenderableValue,
-  label?:   RenderableValue,
-  name?:    RenderableValue,
-  heading?: RenderableValue
+  text?:    RenderableSimpleValue,
+  label?:   RenderableSimpleValue,
+  name?:    RenderableSimpleValue,
+  heading?: RenderableSimpleValue
 }
+export type RenderableValue = RenderableSimpleValue | ObjectWithRenderable
 
-export const defaultRenderer = (name: string) => {
+export const defaultRenderer = (name: RenderableValue) => {
   const fallback = `HINT: define ${name}() to render this value`
-  return (v: unknown) =>
-    (isString(v) || isNumber(v))
+  return (v: RenderableValue): string => String(
+    (isSimple(v))
       ? v
       : isObject(v)
         ? (
@@ -25,6 +26,7 @@ export const defaultRenderer = (name: string) => {
             fallback
           )
         : fallback
+  )
 }
 
 export const withIconsRenderer = (option: string | number | PropsObject) =>
