@@ -1,6 +1,6 @@
 import React    from 'react'
 import Context  from './Context.js'
-import Pager    from '@/components/Pager/Pager.jsx'
+import Pager    from '@/components/Pager/Pager'
 
 const Footer = ({
   footerClass,

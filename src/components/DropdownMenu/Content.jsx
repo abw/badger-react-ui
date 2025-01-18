@@ -2,7 +2,7 @@ import React           from 'react'
 import Context         from './Context.js'
 import DropdownTrigger from './Trigger.jsx'
 import DropdownOptions from './Options.jsx'
-import useFloating     from '@/src/hooks/useFloating.jsx'
+import useFloating     from '@/src/hooks/useFloating'
 import { classes }     from '@/src/utils/classes'
 
 const Content = ({
