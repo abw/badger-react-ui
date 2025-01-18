@@ -2,7 +2,7 @@ import { Context, Generator, WithRequiredFrom } from '@abw/react-context'
 import { ARROW_DOWN, ARROW_UP, BLANK, ENTER, ESCAPE } from '@/src/constants'
 import { debounce, DebounceFunction, doNothing, hasValue, sleep } from '@abw/badger-utils'
 import { defaultRenderer, errorMessage, scrollParentChild } from '@/src/utils/index'
-import { SearchProps, SearchState, SearchResult, SearchResults, SearchRenderProps, SearchThisCallback, SearchResultCallback } from './types'
+import { SearchProps, SearchState, SearchResult, SearchResults, SearchRenderProps, SearchThisCallback, SearchResultCallback, SearchActions } from './types'
 import { ChangeEvent } from 'react'
 
 const defaultProps = {
@@ -58,14 +58,14 @@ class SearchContext extends Context<
 
   constructor(props: SearchProps) {
     super(props)
+    this.config = {
+      ...defaultProps,
+      ...props
+    }
     this.state = {
       ...this.state,
       ...this.valueState(),
       searching: false,
-    }
-    this.config = {
-      ...defaultProps,
-      ...props
     }
     this.startSearch = props.debounceTime
       ? debounce(this.search.bind(this), props.debounceTime)
@@ -288,6 +288,14 @@ class SearchContext extends Context<
   activeRef(ref: HTMLDivElement | null) {
     if (this._resultsRef && ref) {
       scrollParentChild(this._resultsRef, ref)
+    }
+  }
+
+  getRenderProps(): SearchRenderProps {
+    return {
+      ...this.config,
+      ...this.state,
+      ...this.actions as SearchActions
     }
   }
 }
