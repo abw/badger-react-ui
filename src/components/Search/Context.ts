@@ -1,9 +1,23 @@
-import { Context, Generator } from '@abw/react-context'
+import { Context, Generator, WithRequiredFrom } from '@abw/react-context'
 import { ARROW_DOWN, ARROW_UP, BLANK, ENTER, ESCAPE } from '@/src/constants'
 import { debounce, DebounceFunction, doNothing, hasValue, sleep } from '@abw/badger-utils'
 import { defaultRenderer, errorMessage, scrollParentChild } from '@/src/utils/index'
-import { SearchProps, SearchState, SearchResult, SearchResults, SearchRenderProps } from './types'
+import { SearchProps, SearchState, SearchResult, SearchResults, SearchRenderProps, SearchThisCallback, SearchResultCallback } from './types'
 import { ChangeEvent } from 'react'
+
+const defaultProps = {
+  minLength: 2,
+  debounceTime: 500,
+  onLoad: doNothing as SearchThisCallback,
+  onUnload: doNothing as SearchThisCallback,
+  onFocus: doNothing,
+  onBlur: doNothing,
+  onClear: doNothing,
+  onReset: doNothing,
+  onSelect: doNothing as SearchResultCallback,
+  displayValue: defaultRenderer('displayValue'),
+  displayResult: defaultRenderer('displayResult'),
+}
 
 const inactiveState = {
   searching:  false,
@@ -21,23 +35,6 @@ class SearchContext extends Context<
   static debug        = false
   static debugPrefix  = 'Search > '
   static debugColor   = 'MediumVioletRed'
-  static defaultProps = {
-    minLength: 2,
-    debounceTime: 500,
-    // placeholder: 'Search',
-    // loadingIcon: 'cog',
-    // clearIcon: 'cross',
-    // searchIcon: 'search',
-    onLoad: doNothing,
-    onUnload: doNothing,
-    onFocus: doNothing,
-    onBlur: doNothing,
-    onReset: doNothing,
-    onClear: doNothing,
-    onSelect: doNothing,
-    displayValue: defaultRenderer('displayValue'),
-    displayResult: defaultRenderer('displayResult'),
-  }
   static initialState = {
     value: '',
     searching: false,
@@ -51,6 +48,10 @@ class SearchContext extends Context<
     'resultsRef', 'activeRef',
   ]
 
+  config: WithRequiredFrom<
+    SearchProps,
+    typeof defaultProps
+  >
   mounted?: boolean
   startSearch: DebounceFunction
   _resultsRef?: HTMLDivElement
@@ -62,24 +63,31 @@ class SearchContext extends Context<
       ...this.valueState(),
       searching: false,
     }
-
+    this.config = {
+      ...defaultProps,
+      ...props
+    }
     this.startSearch = props.debounceTime
       ? debounce(this.search.bind(this), props.debounceTime)
       : this.search.bind(this)
   }
   componentDidMount() {
     this.mounted = true
-    this.props.onLoad(this)
+    this.config.onLoad(this)
   }
   componentWillUnmount() {
     this.setState({ results: null })
     this.mounted = false
-    this.props.onUnload(this)
+    this.config.onUnload(this)
   }
   componentDidUpdate(prevProps: SearchProps) {
     if (this.props.value !== prevProps.value) {
       this.debug(`value has changed from ${prevProps.value} to ${this.props.value}`)
       this.setState(this.valueState())
+    }
+    this.config = {
+      ...defaultProps,
+      ...this.props
     }
   }
   valueState(value=this.props.value) {
@@ -89,7 +97,7 @@ class SearchContext extends Context<
 
   inputValue(value=this.props.value) {
     return hasValue(value)
-      ? (this.props.displayValue(value) ?? BLANK)
+      ? (this.config.displayValue(value) ?? BLANK)
       : BLANK
   }
 
@@ -115,7 +123,7 @@ class SearchContext extends Context<
   onChange(event: ChangeEvent<HTMLInputElement>) {
     const input = event.target.value
     this.debug(`input: ${input}`)
-    if (input.length >= this.props.minLength) {
+    if (input.length >= this.config.minLength) {
       this.setState(
         { input },
         this.startSearch
@@ -191,7 +199,7 @@ class SearchContext extends Context<
 
   search() {
     const { input='' } = this.state
-    const { minLength, onSearch } = this.props
+    const { minLength, onSearch } = this.config
     if (input.length < minLength) {
       this.debug(`search() cancelled - input is shorter than ${minLength}`)
       return
@@ -242,7 +250,7 @@ class SearchContext extends Context<
         input,
         ...inactiveState
       },
-      () => this.props.onSelect(value)
+      () => this.config.onSelect(value)
     )
   }
 

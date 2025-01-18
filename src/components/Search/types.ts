@@ -7,14 +7,12 @@ export type SearchResult = RenderableValue & {
 }
 export type SearchResults = Array<SearchResult> | null
 
-// NOTE: most of these are optional when invoking the component
-// as they're filled in by defaultProps, but they have to be marked
-// as mandatory (i.e. no '?') to keep Typescript from whining
 export type SearchProps = {
+  onSearch: (input: string, search: React.Component) => Promise<SearchResult[]>
   value?: SearchResult
   initialValue?: string
-  minLength: number
-  debounceTime: number
+  minLength?: number
+  debounceTime?: number
   disabled?: boolean
   placeholder?: string
   searchIcon?: string
@@ -33,16 +31,15 @@ export type SearchProps = {
   errorClass?: string
   autocomplete?: React.HTMLInputAutoCompleteAttribute
   autoComplete?: React.HTMLInputAutoCompleteAttribute
-  displayValue: (v: SearchResult) => string
-  displayResult: (v: SearchResult) => string
-  onLoad: (search: React.Component) => void
-  onUnload: (search: React.Component) => void
-  onSearch: (input: string, search: React.Component) => Promise<SearchResult[]>
-  onSelect: (result: SearchResult) => void
-  onFocus: () => void
-  onBlur: () => void
-  onClear: () => void
-  onReset: () => void
+  onLoad?: SearchThisCallback
+  onUnload?: SearchThisCallback
+  onFocus?: () => void
+  onBlur?: () => void
+  onClear?: () => void
+  onReset?: () => void
+  onSelect?: SearchResultCallback
+  displayValue?: (result: SearchResult) => string
+  displayResult?: (result: SearchResult) => string
   Content?: SearchContentType
   Input?: SearchInputType
   Results?: SearchResultsType
@@ -88,6 +85,8 @@ export type SearchResultProps = {
   active: boolean
 }
 
+export type SearchThisCallback = (search: React.Component) => void
+export type SearchResultCallback = (result: SearchResult) => void
 export type SearchContentType = React.FC
 export type SearchInputType = React.FC
 export type SearchResultsType = React.FC
