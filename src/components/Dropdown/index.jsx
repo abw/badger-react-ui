@@ -1,5 +1,0 @@
-export { default as Dropdown          } from './Dropdown.jsx'
-export { default as DropdownContent   } from './Content.jsx'
-export { default as DropdownBody      } from './Body.jsx'
-export { default as DropdownTrigger   } from './Trigger.jsx'
-export { default as DropdownContext, useDropdown } from './Context.js'

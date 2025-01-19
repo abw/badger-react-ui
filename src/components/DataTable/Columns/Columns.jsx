@@ -1,6 +1,6 @@
 import React    from 'react'
 import Context  from '../Context.js'
-import Dropdown from '@/components/Dropdown/Dropdown.jsx'
+import Dropdown from '@/components/Dropdown/Dropdown'
 import Column   from './Column.jsx'
 import Close    from './Close.jsx'
 import VerticalSort from '@/components/Sortable/Vertical.jsx'

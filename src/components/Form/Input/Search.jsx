@@ -1,5 +1,5 @@
 import React from 'react'
-import UISearch from '@/components/Search/Search.jsx'
+import UISearch from '@/components/Search/Search'
 import { useField } from '@abw/badger-form'
 import { identity } from '@abw/badger-utils'
 

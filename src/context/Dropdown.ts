@@ -1,22 +1,52 @@
-import { Context } from '@abw/react-context'
+import { Context, WithRequiredFrom } from '@abw/react-context'
 import { ENTER, ESCAPE, SPACE } from '@/src/constants'
 import { doNothing, sleep } from '@abw/badger-utils'
+import { ThisCallback } from '../types'
 
-class DropdownContext extends Context {
-  static debug        = false
-  static defaultProps = {
-    options: [ ],
-    openOnHover: false,
-    closeOnBlur: true,
-    closeDelay:  300,
-    onLoad:   doNothing,
-    onUnload: doNothing,
-    onFocus:  doNothing,
-    onBlur:   doNothing,
-    onClick:  doNothing,
-    onOpen:   doNothing,
-    onClose:  doNothing,
-  }
+export const defaultDropdownContextProps = {
+  // options: [ ],
+  openOnHover: false,
+  closeOnBlur: true,
+  closeDelay:  300,
+  onLoad:   doNothing as ThisCallback,
+  onUnload: doNothing as ThisCallback,
+  onFocus:  doNothing,
+  onBlur:   doNothing,
+  onClick:  doNothing,
+  onOpen:   doNothing,
+  onClose:  doNothing,
+}
+
+export type DropdownContextProps = {
+  // options: DropdownContextOption[]
+  openOnHover?: boolean
+  closeOnBlue?: boolean
+  closeDelay?: number
+  onLoad?: ThisCallback
+  onUnload?: ThisCallback
+  onFocus?: () => void
+  onBlur?: () => void
+  onClick?: () => void
+  onOpen?: () => void
+  onClose?: () => void
+}
+
+export type DropdownContextState = {
+  isOpen?: boolean
+  hasHover?: boolean
+  hasFocus?: boolean
+}
+
+class DropdownContext<
+  Props extends DropdownContextProps = DropdownContextProps,
+  State extends DropdownContextState = DropdownContextState
+> extends Context<
+  Props,
+  State
+  // DropdownContextProps,
+  // DropdownContextState
+> {
+  static debug = false
   static inactiveState = {
     isOpen: false,
   }
@@ -24,23 +54,42 @@ class DropdownContext extends Context {
     ...this.inactiveState
   }
 
+  // Yeah, this doesn't work :-(
+  // declare ['constructor']: typeof DropdownContext
+
+  config: WithRequiredFrom<
+    DropdownContextProps,
+    typeof defaultDropdownContextProps
+  >
+  mounted: boolean
+  _triggerRef?: HTMLElement
+
+  constructor(props: DropdownContextProps) {
+    super(props)
+    this.mounted = false
+    this.config = {
+      ...defaultDropdownContextProps,
+      ...props
+    }
+  }
+
   componentDidMount() {
     this.mounted = true
-    this.props.onLoad(this)
+    this.config.onLoad(this)
   }
 
   componentWillUnmount() {
     this.mounted = false
-    this.props.onUnload(this)
+    this.config.onUnload(this)
   }
 
   onMouseEnter() {
     this.debug(`onMouseEnter()`)
     this.setState(
       { hasHover: true },
-      this.props.openOnHover
+      this.config.openOnHover
         ? () => { this.open(); this.focusTrigger() }
-        : null
+        : undefined
     )
   }
 
@@ -50,7 +99,7 @@ class DropdownContext extends Context {
       { hasHover: false },
       this.props.openOnHover
         ? () => this.closeSoon()
-        : null
+        : undefined
     )
   }
 
@@ -71,14 +120,14 @@ class DropdownContext extends Context {
     // Hack to hide result shortly after blur.  If we clear the results
     // immediately, or only display the results when the component is focussed
     // then the results disappear before an onClick has time to register.
-    if (this.props.closeOnBlur) {
+    if (this.config.closeOnBlur) {
       this.closeSoon()
     }
   }
 
   onClick() {
     this.debug('onClick()')
-    this.state.isOpen
+    return this.state.isOpen
       ? this.close()
       : this.open()
   }
@@ -101,12 +150,13 @@ class DropdownContext extends Context {
     )
   }
   closeState() {
-    return this.constructor.inactiveState
+    const cstr = this.constructor as typeof DropdownContext
+    return cstr.inactiveState
   }
 
   closeSoon(force=false) {
     this.debug(`closeSoon()  force:${force}`)
-    sleep(this.props.closeDelay)
+    sleep(this.config.closeDelay)
       .then(
         () => {
           if (this.closeable(force)) {
@@ -119,19 +169,22 @@ class DropdownContext extends Context {
       )
   }
 
-  closeable(force) {
+  closeable(force: boolean) {
     return force || ! this.state.hasHover
   }
 
-  onKeyDown(event) {
+  onKeyDown(event: React.KeyboardEvent) {
     this.debug(`onKeyDown(${event.key})`)
 
     switch (event.key) {
       case ENTER:
       case SPACE:
-        this.state.isOpen
-          ? this.close()
-          : this.open()
+        if (this.state.isOpen) {
+          this.close()
+        }
+        else {
+          this.open()
+        }
         break
 
       case ESCAPE:
@@ -145,7 +198,7 @@ class DropdownContext extends Context {
     event.preventDefault()
   }
 
-  triggerRef(ref) {
+  triggerRef(ref: HTMLElement) {
     this._triggerRef = ref
   }
 

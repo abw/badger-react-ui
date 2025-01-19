@@ -1,5 +1,5 @@
 import React    from 'react'
-import Context from '@/components/Dropdown/Context.js'
+import Context from '@/components/Dropdown/Context'
 import Button from '@/components/Button/Button'
 
 const Close = ({
