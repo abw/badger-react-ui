@@ -1,10 +1,10 @@
-import React from 'react'
-import Cell from '../Cell.jsx'
-import { cellProps } from '../Utils.js'
+import Cell from '../Cell'
+import { cellProps } from '../Utils'
+import { TableColumnHeadProps } from '../types'
 
 const Head = ({
   columns
-}) =>
+}: TableColumnHeadProps) =>
   <thead>
     <tr>
       { Object.entries(columns).map(

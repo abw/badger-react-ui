@@ -1,13 +1,13 @@
-import React from 'react'
-import TableRow from './Row.jsx'
-import { rowProps } from './Utils.js'
+import TableRow from './Row'
+import { rowProps } from './Utils'
+import { TableHeadProps } from './types'
 
-const Head = ({
+const TableHead = ({
   headRows,
   Row=TableRow,
   HeadRow=Row,
   ...props
-}) =>
+}: TableHeadProps) =>
   <thead>
     { headRows.map(
       (row, n) =>
@@ -20,4 +20,4 @@ const Head = ({
     )}
   </thead>
 
-export default Head
+export default TableHead

@@ -1,13 +1,13 @@
-import React from 'react'
-import TableRow from './Row.jsx'
-import { rowProps } from './Utils.js'
+import TableRow from './Row'
+import { rowProps } from './Utils'
+import { TableFootProps } from './types'
 
-const Foot = ({
+const TableFoot = ({
   footRows,
   Row=TableRow,
   FootRow=Row,
   ...props
-}) =>
+}: TableFootProps) =>
   <tfoot>
     { footRows.map(
       (row, n) =>
@@ -19,4 +19,4 @@ const Foot = ({
     )}
   </tfoot>
 
-export default Foot
+export default TableFoot

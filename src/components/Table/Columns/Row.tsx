@@ -1,11 +1,11 @@
-import React from 'react'
 import Cell from './Cell.jsx'
 import { cellProps } from '../Utils.js'
+import { TableColumnRowProps } from '../types.js'
 
 const Row = ({
   row,
   columns,
-}) =>
+}: TableColumnRowProps) =>
   <tr>
     { Object.entries(columns).map(
       ([name, column]) => {

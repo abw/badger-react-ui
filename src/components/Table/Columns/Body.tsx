@@ -1,11 +1,11 @@
-import React from 'react'
-import Row from './Row.jsx'
+import Row from './Row'
+import { TableColumnBodyProps } from '../types'
 
 const Body = ({
   columns,
   rows=[],
   ...props
-}) =>
+}: TableColumnBodyProps) =>
   <tbody>
     { rows.map(
       (row, n) =>

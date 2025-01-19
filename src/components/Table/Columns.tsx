@@ -2,7 +2,7 @@ import React from 'react'
 import Head from './Columns/Head.jsx'
 import Body from './Columns/Body.jsx'
 
-const Columns = ({
+const TableColumns = ({
   rows,
   columns,
   ...props
@@ -12,4 +12,4 @@ const Columns = ({
     <Body columns={columns} rows={rows} {...props}/>
   </>
 
-export default Columns
+export default TableColumns

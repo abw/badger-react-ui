@@ -1,13 +1,13 @@
-import React from 'react'
-import TableRow from './Row.jsx'
-import { rowProps } from './Utils.js'
+import TableRow from './Row'
+import { rowProps } from './Utils'
+import { TableBodyProps } from './types'
 
-const Body = ({
+const TableBody = ({
   bodyRows,
   Row=TableRow,
   BodyRow=Row,
   ...props
-}) =>
+}: TableBodyProps) =>
   <tbody>
     { bodyRows.map(
       (row, n) =>
@@ -19,4 +19,4 @@ const Body = ({
     )}
   </tbody>
 
-export default Body
+export default TableBody
