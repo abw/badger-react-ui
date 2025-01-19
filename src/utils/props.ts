@@ -7,6 +7,6 @@ export const anyPropsChanged = (
   oldProps: PropsObject
 ) =>
   splitList(props).find(
-    key => newProps[key] !== oldProps[key]
+    key => newProps[key as string] !== oldProps[key as string]
   )
 

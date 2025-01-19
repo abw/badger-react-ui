@@ -104,7 +104,7 @@ export const classTrue = (
   c === true
     ? t
     : hasValue(c)
-      ? maybeFunction(f, c)
+      ? maybeFunction(f, c) as string
       : null
 
 /**
@@ -128,7 +128,7 @@ export const classInt = (
 ) => {
   const n = asInteger(int)
   return (hasValue(n))
-    ? maybeFunction(result, n)
+    ? maybeFunction(result, n) as string
     : null
 }
 
@@ -248,7 +248,7 @@ export const gapClass = (gap: MaybeTrueOrNumberString | Array<number|string>) =>
     gap,
     'gap-1',
     g => {
-      const gaps = splitList(g as ListSource)
+      const gaps = splitList(g as ListSource) as string[]
       return gaps.length === 2
         ? fixValues('gap', ['v', 'h'], gaps)
         : `gap-${g}`
@@ -411,7 +411,7 @@ export const classTrueVHTRBL = (set: boolean | unknown, prefix: string) =>
   classTrue(
     set,
     prefix,
-    v => classVHTRBL(prefix, splitList(v as ListSource))
+    v => classVHTRBL(prefix, splitList(v as ListSource) as string[])
   )
 
 /**
