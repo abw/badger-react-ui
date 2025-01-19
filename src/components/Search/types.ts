@@ -59,9 +59,9 @@ export type SearchState = {
 }
 
 export type SearchActions = {
-  onClick: React.MouseEventHandler<HTMLDivElement>
-  onMouseEnter: React.MouseEventHandler<HTMLDivElement>
-  onKeyDown: React.KeyboardEventHandler<HTMLDivElement>
+  onFocus: () => void
+  onBlur: () => void
+  onKeyDown: React.KeyboardEventHandler
   onChange: React.ChangeEventHandler<HTMLInputElement>
   selectResult: (value: SearchResult) => void
   setCursor: (cursor: number) => void
@@ -79,6 +79,8 @@ export type SearchRenderProps =
 
 export type SearchResultProps = {
   active: boolean
+  onClick: React.MouseEventHandler
+  onMouseEnter: React.MouseEventHandler
 }
 
 export type SearchThisCallback = (search: React.Component) => void

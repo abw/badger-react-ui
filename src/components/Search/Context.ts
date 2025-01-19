@@ -27,10 +27,18 @@ const inactiveState = {
   cursor:     undefined,
 }
 
+type SearchConfigProps = WithRequiredFrom<
+  SearchProps,
+  typeof defaultProps
+>
+
+type AllSearchRenderProps = SearchRenderProps & SearchConfigProps
+
 class SearchContext extends Context<
   SearchProps,
   SearchState,
-  SearchRenderProps
+  SearchActions,
+  AllSearchRenderProps
 > {
   static debug        = false
   static debugPrefix  = 'Search > '
@@ -42,11 +50,11 @@ class SearchContext extends Context<
   static initialProps = {
     value: 'initialValue',
   }
-  static actions = [
-    'onFocus', 'onBlur', 'onChange', 'onKeyDown',
-    'reset', 'clear', 'selectResult', 'setCursor', 'selectCursor',
-    'resultsRef', 'activeRef',
-  ]
+  //static actions = [
+  //  'onFocus', 'onBlur', 'onChange', 'onKeyDown',
+  //  'reset', 'clear', 'selectResult', 'setCursor', 'selectCursor',
+  //  'resultsRef', 'activeRef',
+  //]
 
   config: WithRequiredFrom<
     SearchProps,
@@ -70,6 +78,21 @@ class SearchContext extends Context<
     this.startSearch = props.debounceTime
       ? debounce(this.search.bind(this), props.debounceTime)
       : this.search.bind(this)
+  }
+  initActions(): SearchActions {
+    return {
+      onFocus:      this.onFocus.bind(this),
+      onBlur:       this.onBlur.bind(this),
+      onChange:     this.onChange.bind(this),
+      onKeyDown:    this.onKeyDown.bind(this),
+      reset:        this.reset.bind(this),
+      clear:        this.clear.bind(this),
+      selectResult: this.selectResult.bind(this),
+      setCursor:    this.setCursor.bind(this),
+      selectCursor: this.selectCursor.bind(this),
+      resultsRef:   this.resultsRef.bind(this),
+      activeRef:    this.activeRef.bind(this),
+    }
   }
   componentDidMount() {
     this.mounted = true
@@ -137,7 +160,7 @@ class SearchContext extends Context<
     }
   }
 
-  onKeyDown(event: KeyboardEvent) {
+  onKeyDown(event: React.KeyboardEvent) {
     this.debug(`onKeyDown(${event.key})`)
     if (this.props.disabled) {
       return
@@ -291,11 +314,11 @@ class SearchContext extends Context<
     }
   }
 
-  getRenderProps(): SearchRenderProps {
+  getRenderProps(): AllSearchRenderProps {
     return {
       ...this.config,
       ...this.state,
-      ...this.actions as SearchActions
+      ...this.actions
     }
   }
 }
