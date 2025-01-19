@@ -1,10 +1,9 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { it, expect } from 'vitest'
-import { render, screen, act } from '@testing-library/react'
-import { VisibleState } from '@/src/index.jsx'
+import { render, screen } from '@testing-library/react'
+import { VisibleState } from '@/src/index'
 
-const VisibleStateTest = ({ visible }) => {
+const VisibleStateTest = ({ visible=false }) => {
   const { isVisible, show, hide } = VisibleState({ visible })
 
   return (
@@ -35,10 +34,10 @@ it(
 
     expect(visible).toHaveTextContent('false')
 
-    await act( () => user.click(show) )
+    await user.click(show)
     expect(visible).toHaveTextContent('true')
 
-    await act( () => user.click(hide) )
+    await user.click(hide)
     expect(visible).toHaveTextContent('false')
   }
 )
@@ -55,10 +54,10 @@ it(
 
     expect(visible).toHaveTextContent('true')
 
-    await act( () => user.click(hide) )
+    await user.click(hide)
     expect(visible).toHaveTextContent('false')
 
-    await act( () => user.click(show) )
+    await user.click(show)
     expect(visible).toHaveTextContent('true')
   }
 )

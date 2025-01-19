@@ -1,4 +1,5 @@
 export * from './components/index'
+export * from './context/index'
 export * from './elements/index'
 export * from './state/index'
 export * from './utils/index'

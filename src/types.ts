@@ -20,3 +20,4 @@ export type MaybeAnyStringFunction = string | ((arg: unknown) => string)
 export type MaybeNumberStringFunction = string | ((arg: number | string) => string)
 
 export type OnClick = () => void
+export type ThisCallback = (that: React.Component) => void
