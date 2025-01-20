@@ -1,8 +1,9 @@
 import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
-import { render, act, screen } from '@testing-library/react'
-import { DropdownMenu } from '@/src/index.jsx'
+import { render, screen } from '@testing-library/react'
+import { DropdownMenu } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 
 const DropdownExample = () => {
   const [selected, setSelected] = React.useState()
@@ -45,23 +46,23 @@ test(
       <DropdownExample/>
     )
 
-    const dropdown = container.querySelector('div.dropdown')
+    const dropdown = container.querySelector('div.dropdown') || fail('no dropdown')
 
-    const trigger = dropdown.querySelector('div.trigger')
+    const trigger = dropdown.querySelector('div.trigger') || fail('no trigger')
     expect(trigger).toHaveTextContent('Dropdown Menu')
 
     const nobody = dropdown.querySelector('div.body')
     expect(nobody).toBeNull()
 
-    await act( () => user.click(trigger) )
-    const somebody = dropdown.querySelector('div.menu')
+    await user.click(trigger)
+    const somebody = dropdown.querySelector('div.menu') || fail('no somebody')
     expect(somebody).toBeTruthy()
 
     const items = somebody.querySelectorAll('div')
     expect(items.length).toBe(12)
     expect(items[3]).toHaveClass('separator')
 
-    await act( () => user.click(items[8]) )
+    await user.click(items[8])
     const selected = screen.getByTestId('selected')
     expect(selected).toHaveTextContent('You selected: Brian Badger')
     // expect(somebody).toHaveTextContent('Hello World!')

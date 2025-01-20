@@ -39,8 +39,8 @@ Sub-optimal fix is to use a type instead.
     [ ] DataTable
     [ ] DataTables
     [X] Details
-    [ ] Dropdown
-    [ ] DropdownMenu
+    [X] Dropdown
+    [X] DropdownMenu
     [ ] Form
     [X] Icon
     [X] Modal
@@ -51,11 +51,10 @@ Sub-optimal fix is to use a type instead.
     [ ] Range
     [ ] RangeMax
     [ ] RangeMin
-    [-] Search
-        Work in progress
+    [X] Search
     [ ] Select
     [ ] Sortable
-    [ ] Spinner
+    [X] Spinner
     [ ] Table
     [X] Tabset
     [X] Tiles
