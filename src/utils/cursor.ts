@@ -1,3 +1,4 @@
+import { hasValue } from '@abw/badger-utils'
 import { SelectOptions, validOption } from './option'
 
 export function cursorFirst(options: SelectOptions, isValid=validOption) {
@@ -16,7 +17,14 @@ export function cursorLast(options: SelectOptions, isValid=validOption) {
   return null
 }
 
-export function cursorNext(options: SelectOptions, current: number, isValid=validOption) {
+export function cursorNext(
+  options: SelectOptions,
+  current?: number | null,
+  isValid=validOption
+) {
+  if (! hasValue(current)) {
+    return null
+  }
   for (let i = 1; i <= options.length; i++) {
     const n = (current + i) % options.length
     if (isValid(options[n])) {
@@ -26,7 +34,14 @@ export function cursorNext(options: SelectOptions, current: number, isValid=vali
   return null
 }
 
-export function cursorPrev(options: SelectOptions, current: number, isValid=validOption) {
+export function cursorPrev(
+  options: SelectOptions,
+  current?: number | null,
+  isValid=validOption
+) {
+  if (! hasValue(current)) {
+    return null
+  }
   for (let i = 1; i <= options.length; i++) {
     const n = (current + options.length - i) % options.length
     if (isValid(options[n])) {

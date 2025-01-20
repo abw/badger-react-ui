@@ -1,10 +1,53 @@
-import DropdownContext from './Dropdown.js'
+import DropdownContext, { defaultDropdownContextProps, DropdownContextActions, DropdownContextProps, DropdownContextState } from './Dropdown'
 import { ARROW_DOWN, ARROW_UP, ENTER, ESCAPE, SPACE } from '@/src/constants'
 import { doNothing, hasValue } from '@abw/badger-utils'
-import { cursorFirst, cursorLast, cursorNext, cursorPrev, scrollParentChild } from '@/src/utils/index'
+import { WithRequiredFrom } from '@abw/react-context'
+import {
+  cursorFirst, cursorLast, cursorNext, cursorPrev, IsValidOption,
+  OnSelect,
+  scrollParentChild, SelectOption,
+  SelectValue
+} from '@/src/utils/index'
 
-class MenuContext extends DropdownContext {
-  static debug        = false
+export const defaultMenuContextProps = {
+  ...defaultDropdownContextProps,
+  options: [ ] as SelectOption[],
+  onSelect: doNothing as OnSelect,
+  closeOnSelect: true
+}
+
+// export type MenuContextOption = SelectOption
+// & {
+//export type MenuContextOption = RenderableValue & {
+//  id?: string | number
+//  value?: string | number | boolean | object
+//}
+
+export type MenuContextProps = DropdownContextProps & {
+  options: SelectOption[]
+  validOption: IsValidOption
+  onSelect: (value: SelectValue) => void
+}
+
+export type MenuContextState = DropdownContextState & {
+  cursor?: number | null
+  selected?: SelectValue
+}
+
+export type MenuContextActions = DropdownContextActions
+
+class MenuContext<
+  Props extends MenuContextProps = MenuContextProps,
+  State extends MenuContextState = MenuContextState,
+  Actions extends MenuContextActions = MenuContextActions
+> extends DropdownContext<
+  Props,
+  State,
+  Actions
+> {
+  static debug = false
+  static defaultProps = defaultMenuContextProps
+  /*
   static defaultProps = {
     options: [ ],
     openOnHover: false,
@@ -20,6 +63,7 @@ class MenuContext extends DropdownContext {
     onSelect: doNothing,
     closeOnSelect: true
   }
+  */
   static inactiveState = {
     isOpen:   false,
     cursor:   undefined,
@@ -29,6 +73,20 @@ class MenuContext extends DropdownContext {
     ...this.inactiveState
   }
 
+  config: WithRequiredFrom<
+    MenuContextProps,
+    typeof defaultMenuContextProps
+  >
+  _menuRef?: HTMLElement
+
+  constructor(props: MenuContextProps) {
+    super(props)
+    this.mounted = false
+    this.config = {
+      ...defaultMenuContextProps,
+      ...props
+    }
+  }
   open(cursor=this.initialCursor() ?? this.cursorFirstIndex()) {
     this.debug(`open(${cursor})`)
     this.setState(
@@ -40,7 +98,7 @@ class MenuContext extends DropdownContext {
     )
   }
 
-  onKeyDown(event) {
+  onKeyDown(event: React.KeyboardEvent) {
     this.debug(`onKeyDown(${event.key})`)
     this.debug(`alt: `, event.altKey)
     this.debug(`ctrl: `, event.ctrlKey)
@@ -48,22 +106,31 @@ class MenuContext extends DropdownContext {
 
     switch (event.key) {
       case ARROW_DOWN:
-        this.state.isOpen
-          ? this.setCursor(this.cursorNextIndex())
-          : this.open(this.initialCursor() ?? this.cursorFirstIndex())
+        if (this.state.isOpen) {
+          this.setCursor(this.cursorNextIndex())
+        }
+        else {
+          this.open(this.initialCursor() ?? this.cursorFirstIndex())
+        }
         break
 
       case ARROW_UP:
-        this.state.isOpen
-          ? this.setCursor(this.cursorPrevIndex())
-          : this.open(this.initialCursor() ?? this.cursorLastIndex())
+        if (this.state.isOpen) {
+          this.setCursor(this.cursorPrevIndex())
+        }
+        else {
+          this.open(this.initialCursor() ?? this.cursorLastIndex())
+        }
         break
 
       case ENTER:
       case SPACE:
-        this.state.isOpen
-          ? this.selectCursor()
-          : this.open(this.initialCursor() ??  this.cursorFirstIndex())
+        if (this.state.isOpen) {
+          this.selectCursor()
+        }
+        else {
+          this.open(this.initialCursor() ??  this.cursorFirstIndex())
+        }
         break
 
       case ESCAPE:
@@ -113,7 +180,7 @@ class MenuContext extends DropdownContext {
     )
   }
 
-  setCursor(cursor) {
+  setCursor(cursor: number | null) {
     this.debug(`setCursor(${cursor})`)
     //const { options } = this.props
     //// handle cases where cursor is less than 0 or greater than the length
@@ -129,7 +196,7 @@ class MenuContext extends DropdownContext {
     const { cursor } = this.state
     const options = this.menuOptions()
     if (options && options.length && hasValue(cursor)) {
-      const value = options[cursor]
+      const value = options[cursor as number]
       this.debug(`selectCursor() ${cursor} =>`, value)
       this.selectOption(value)
     }
@@ -138,7 +205,7 @@ class MenuContext extends DropdownContext {
     }
   }
 
-  selectOption(value) {
+  selectOption(value: SelectValue) {
     this.debug(`selectOption()`, value)
     this.setState(
       // TODO: this needs to be abstracted out
@@ -149,9 +216,9 @@ class MenuContext extends DropdownContext {
       //   ...inactiveState
       // },
       this.selectState(value),
-      () => this.props.onSelect(value)
+      () => this.config.onSelect(value)
     )
-    if (this.props.closeOnSelect) {
+    if (this.config.closeOnSelect) {
       this.debug(`closeOnSelect is set, closing`)
       this.closeSoon(true)
     }
@@ -160,34 +227,30 @@ class MenuContext extends DropdownContext {
     }
   }
 
-  selectState(value) {
+  selectState(value: SelectValue) {
     return { selected: value }
   }
 
-  /*
-  // do we have a trigger in select/search?  I suppose so...
-  triggerRef(ref) {
-    this._triggerRef = ref
-  }
-
-  focusTrigger() {
-    if (this._triggerRef) {
-      this.debug('focussing trigger')
-      this._triggerRef.focus()
-    }
-    else {
-      this.debug('no trigger to focus')
-    }
-  }
-  */
-
-  menuRef(ref){
+  menuRef(ref: HTMLElement){
     this._menuRef = ref
   }
 
-  activeRef(ref) {
+  activeRef(ref: HTMLElement) {
     scrollParentChild(this._menuRef, ref)
   }
+
+  /*
+  getRenderProps(): Props & State & Actions {
+    const props: Props = this.props
+    const state: State = this.state
+    const actions: Actions = this.actions
+
+    return {
+      ...this.config,
+      ...actions
+    }
+  }
+  */
 }
 
 export default MenuContext

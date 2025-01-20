@@ -4,7 +4,6 @@ import { doNothing, sleep } from '@abw/badger-utils'
 import { ThisCallback } from '../types'
 
 export const defaultDropdownContextProps = {
-  // options: [ ],
   openOnHover: false,
   closeOnBlur: true,
   closeDelay:  300,
@@ -18,7 +17,6 @@ export const defaultDropdownContextProps = {
 }
 
 export type DropdownContextProps = {
-  // options: DropdownContextOption[]
   openOnHover?: boolean
   closeOnBlue?: boolean
   closeDelay?: number
@@ -36,15 +34,16 @@ export type DropdownContextState = {
   hasHover?: boolean
   hasFocus?: boolean
 }
+export type DropdownContextActions = Record<string, unknown>
 
 class DropdownContext<
   Props extends DropdownContextProps = DropdownContextProps,
-  State extends DropdownContextState = DropdownContextState
+  State extends DropdownContextState = DropdownContextState,
+  Actions extends DropdownContextActions = DropdownContextActions
 > extends Context<
   Props,
-  State
-  // DropdownContextProps,
-  // DropdownContextState
+  State,
+  Actions
 > {
   static debug = false
   static inactiveState = {
@@ -53,6 +52,7 @@ class DropdownContext<
   static initialState = {
     ...this.inactiveState
   }
+  static defaultProps = defaultDropdownContextProps
 
   // Yeah, this doesn't work :-(
   // declare ['constructor']: typeof DropdownContext

@@ -1,31 +1,45 @@
 import { hasValue, isObject, isSimple, noValue } from '@abw/badger-utils'
-import { PropsObject } from '../types'
+// import { PropsObject } from '../types'
+import { ObjectWithRenderable, RenderableSimpleValue } from './renderer'
 
-export interface SelectOptionProps extends PropsObject {
-  separator?: boolean,
-  heading?: string,
-  disable?: boolean,
+export type SelectValue = string | number | boolean | object
+export type SelectOptionObject = ObjectWithRenderable & {
+  separator?: boolean
+  heading?: string
+  disabled?: boolean
+  search?: string
+  id?: string | number
+  fixed?: boolean
+  value?: SelectValue
+  className?: string
+  indent?: string | number
+  // value?: unknown
   //search?: string,
   //text?: string,
   //label?: string,
   //name?: string,
   //value?: unknown
 }
-export type SelectOption = SelectOptionProps | string | number | boolean | undefined | null
+
+// export type SelectOption = SelectOptionObject | string | number | boolean | undefined | null
+export type SelectOption = SelectOptionObject | RenderableSimpleValue
 export type SelectOptions = SelectOption[]
+export type IsValidOption = (option: SelectOption) => boolean
+export type OnSelect = (value: SelectValue) => void
+
 
 export const validOption = (option: SelectOption) =>
   isSimple(option) ||
     (
-      ! (option as SelectOptionProps).separator &&
-      ! (option as SelectOptionProps).heading &&
-      ! (option as SelectOptionProps).disabled
+      ! (option as SelectOptionObject).separator &&
+      ! (option as SelectOptionObject).heading &&
+      ! (option as SelectOptionObject).disabled
     )
 
 export const optionValue = (option: SelectOption) =>
   isSimple(option)
     ? option
-    : ((option as SelectOptionProps).value ?? (option as SelectOptionProps).id)
+    : ((option as SelectOptionObject).value ?? (option as SelectOptionObject).id)
 
 export const findOption = (
   options: SelectOptions,
@@ -46,7 +60,7 @@ export const findOption = (
 
 export const searchOptionText = (option: SelectOption) => {
   if (isObject(option)) {
-    const object: SelectOptionProps = option as SelectOptionProps
+    const object: SelectOptionObject = option as SelectOptionObject
     return object.search ?? object.text ?? object.label ?? object.name ?? object.value
   }
   else {
@@ -63,7 +77,7 @@ export const searchOptions = (
     option => {
       const object = isObject(option)
       const cmp = searchOptionText(option) as string | number
-      if (object && (option as SelectOptionProps).fixed) {
+      if (object && (option as SelectOptionObject).fixed) {
         // allow options to always be shown
         return true
       }

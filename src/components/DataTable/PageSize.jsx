@@ -1,6 +1,6 @@
 import React    from 'react'
 import Context  from './Context.js'
-import DropdownMenu from '@/components/DropdownMenu/DropdownMenu.jsx'
+import DropdownMenu from '@/components/DropdownMenu/DropdownMenu'
 
 const PageSize = ({
   setPageSize,
