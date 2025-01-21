@@ -5,7 +5,7 @@ import { hasValue } from '@abw/badger-utils'
 import { ARROW_DOWN, ARROW_UP, TAB, ENTER, ESCAPE, SPACE, BACKSPACE } from '@/src/constants'
 import { findOption, validOption, searchOptions, defaultRenderer, SelectOption, WithIconsRenderer } from '@/src/utils/index'
 import { doNothing } from '@abw/badger-utils'
-import { SelectActions, SelectProps, SelectState } from './types'
+import { SelectActions,  SelectProps, SelectState } from './types'
 
 export const defaultSelectProps = {
   ...defaultMenuContextProps,
@@ -281,7 +281,7 @@ class Context extends MenuContext<
     this.setState(
       state => ({
         options: hasValue(state.searchInput)
-          ? searchOptions(state.searchInput, this.props.options.filter(this.props.validOption))
+          ? searchOptions(state.searchInput, this.config.options.filter(this.config.validOption))
           : options,
         cursor: 0
       })
@@ -296,6 +296,14 @@ class Context extends MenuContext<
   menuOptions() {
     // return this.state.options
     return this.state.options || [ ]
+  }
+
+  getRenderProps() {
+    return {
+      ...this.config,
+      ...this.state,
+      ...this.actions
+    }
   }
 }
 

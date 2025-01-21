@@ -1,5 +1,5 @@
 import React from 'react'
-import UISelect from '@/components/Select/Select.jsx'
+import UISelect from '@/components/Select/Select'
 import { useField } from '@abw/badger-form'
 import { identity, doNothing } from '@abw/badger-utils'
 

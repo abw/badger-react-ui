@@ -1,10 +1,17 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
-import { render, act } from '@testing-library/react'
-import { Select, Icon } from '@/src/index.jsx'
+import { render } from '@testing-library/react'
+import { Select, Icon } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 
-const addresses = [
+type Address = {
+  id: number
+  line1: string
+  town: string
+  postcode: string
+}
+
+const addresses: Address[] = [
   {
     id:       10,
     line1:    '10 St. Hubbins Road',
@@ -25,7 +32,8 @@ const addresses = [
   }
 ]
 
-const displayAddress = address =>
+
+const displayAddress = (address: Address) =>
   <div className="flex gap-2 baseline">
     <Icon name="star" color="yellow-50"/>
     <div>
@@ -49,9 +57,9 @@ test(
     const { container } = render(
       <SelectExample/>
     )
-    const select = container.querySelector('div.select')
-    const inputs = select.querySelector('div.inputs')
-    await act( () => user.click(inputs) )
+    const select = container.querySelector('div.select') || fail('no select')
+    const inputs = select.querySelector('div.inputs') || fail('no inputs')
+    await user.click(inputs)
 
     const items = select.querySelectorAll('div.item')
     expect(items.length).toBe(3)
@@ -60,14 +68,14 @@ test(
     expectItem(items[1], addresses[1])
     expectItem(items[2], addresses[2])
 
-    await act( () => user.click(items[1]) )
-    const selected = select.querySelector('div.inputs > div.input > div > div')
+    await user.click(items[1])
+    const selected = select.querySelector('div.inputs > div.input > div > div') || fail('no selected')
     expectItem(selected, addresses[1])
     // screen.debug()
   }
 )
 
-function expectItem(item, address) {
+function expectItem(item: Element, address: Address) {
   const divs = item.querySelectorAll(':scope > div > div > div')
   expect(divs.length).toBe(3)
   expect(divs[0]).toHaveTextContent(address.line1)

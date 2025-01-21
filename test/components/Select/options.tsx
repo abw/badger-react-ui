@@ -1,8 +1,14 @@
 import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
-import { render, act, screen } from '@testing-library/react'
-import { Select } from '@/src/index.jsx'
+import { render, screen } from '@testing-library/react'
+import { Select } from '@/src/index'
+import { fail } from '@abw/badger-utils'
+
+type Person = {
+  id: 'alan',
+  name: 'Alan Aardvark'
+}
 
 const names = [
   { heading: 'Aardvarks' },
@@ -20,7 +26,7 @@ const names = [
 ]
 
 const SelectExample = () => {
-  const [selected, setSelected] = React.useState()
+  const [selected, setSelected] = React.useState<Person>()
   return (
     <>
       <Select
@@ -46,16 +52,16 @@ test(
     const { container } = render(
       <SelectExample/>
     )
-    const select = container.querySelector('div.select')
-    const inputs = select.querySelector('div.inputs')
-    await act( () => user.click(inputs) )
+    const select = container.querySelector('div.select') || fail('no select')
+    const inputs = select.querySelector('div.inputs') || fail('no inputs')
+    await user.click(inputs)
 
     const items = select.querySelectorAll('div.item')
     expect(items.length).toBe(11)
 
     expect(items[0]).toHaveClass('heading')
 
-    await act( () => user.click(items[2]) )
+    await user.click(items[2])
 
     expect(container.querySelector('div.select div.input'))
       .toHaveTextContent('Amy Aardvark')

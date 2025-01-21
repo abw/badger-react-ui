@@ -1,7 +1,7 @@
 import React from 'react'
 import Context from './Context.js'
 import DefaultOption from './Option.jsx'
-import DefaultSelect from '../Select/Select.jsx'
+import DefaultSelect from '../Select/Select'
 import DefaultSelections from './Selections.jsx'
 import DefaultSortSelections from './SortSelections.jsx'
 import { doNothing } from '@abw/badger-utils'

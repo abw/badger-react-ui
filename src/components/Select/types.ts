@@ -11,6 +11,7 @@ export type SelectProps = MenuContextProps & WithIconsProps & {
   search?: boolean
   disabled?: boolean
   wide?: boolean
+  closeOnBlur?: boolean
   suffixIcon?: string
   bodyClass?: string
   selectClass?: string

@@ -15,7 +15,7 @@ export const SelectItem = Context.Consumer<
     Option=SelectOption,
     ...props
   }) => {
-    const optionObject = selectOptionAsObject(option),
+    const optionObject = selectOptionAsObject(option)
     return (
       optionObject.heading
         ? <Heading option={optionObject} {...props}/>

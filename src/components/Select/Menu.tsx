@@ -2,8 +2,8 @@ import Context          from './Context'
 import SelectItem       from './Item.js'
 import SelectNoOptions  from './NoOptions.js'
 import { hasValue, isArray } from '@abw/badger-utils'
-import { MENU_CLASS } from '@/src/constants.js'
-import { optionValue } from '@/src/utils/option.js'
+import { MENU_CLASS } from '@/src/constants'
+import { optionValue } from '@/src/utils/option'
 
 export const SelectMenu = Context.Consumer(
   ({

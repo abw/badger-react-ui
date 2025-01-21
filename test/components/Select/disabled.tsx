@@ -2,7 +2,8 @@ import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
-import { Select } from '@/src/index.jsx'
+import { Select } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 
 const animals = [
   'Alan Aardvark',
@@ -39,8 +40,8 @@ test(
     const { container } = render(
       <SelectExample/>
     )
-    const select = container.querySelector('div.select')
-    const inputs = select.querySelector('div.inputs')
+    const select = container.querySelector('div.select') || fail('no select')
+    const inputs = select.querySelector('div.inputs') || fail('no inputs')
     await act( () => user.click(inputs) )
 
     const items = select.querySelectorAll('div.menu div.item')
