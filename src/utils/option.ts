@@ -2,7 +2,8 @@ import { hasValue, isObject, isSimple, noValue } from '@abw/badger-utils'
 // import { PropsObject } from '../types'
 import { ObjectWithRenderable, RenderableSimpleValue } from './renderer'
 
-export type SelectValue = string | number | boolean | object
+// export type SelectValue = string | number | boolean | object
+export type SelectValue = string | number | boolean
 export type SelectOptionObject = ObjectWithRenderable & {
   separator?: boolean
   heading?: string
@@ -25,8 +26,16 @@ export type SelectOptionObject = ObjectWithRenderable & {
 export type SelectOption = SelectOptionObject | RenderableSimpleValue
 export type SelectOptions = SelectOption[]
 export type IsValidOption = (option: SelectOption) => boolean
-export type OnSelect = (value: SelectValue) => void
-
+export type OnSelect = (value: SelectOption) => void
+export type FindOption = (
+  options: SelectOptions,
+  value?: SelectOption,
+  optVal?: (option: SelectOption) => SelectValue | undefined
+) => [SelectOption, number] | [ ]
+export type SearchOptions = (
+  search: string,
+  options: SelectOptions
+) => SelectOption[]
 
 export const validOption = (option: SelectOption) =>
   isSimple(option) ||
@@ -41,9 +50,9 @@ export const optionValue = (option: SelectOption) =>
     ? option
     : ((option as SelectOptionObject).value ?? (option as SelectOptionObject).id)
 
-export const findOption = (
-  options: SelectOptions,
-  value: SelectOption,
+export const findOption: FindOption = (
+  options,
+  value,
   optVal=optionValue
 ) => {
   if (noValue(value)) {
@@ -68,9 +77,9 @@ export const searchOptionText = (option: SelectOption) => {
   }
 }
 
-export const searchOptions = (
-  search: string,
-  options: SelectOptions
+export const searchOptions: SearchOptions = (
+  search,
+  options
 ) => {
   const lcwords = search.toLowerCase().split(/\s+/)
   return options.filter(
@@ -91,3 +100,8 @@ export const searchOptions = (
     }
   )
 }
+
+export const selectOptionAsObject = (option: SelectOption): SelectOptionObject =>
+  isObject(option)
+    ? option
+    : { text: option }

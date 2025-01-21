@@ -1,27 +1,35 @@
-import MenuContext from '@/src/context/Menu.js'
-import { Generator } from '@abw/react-context'
+import MenuContext, { defaultMenuContextProps } from '@/src/context/Menu'
+import { Generator, WithRequiredFrom } from '@abw/react-context'
 import { BLANK } from '@/src/constants'
 import { hasValue } from '@abw/badger-utils'
 import { ARROW_DOWN, ARROW_UP, TAB, ENTER, ESCAPE, SPACE, BACKSPACE } from '@/src/constants'
-import { findOption, validOption, searchOptions, defaultRenderer } from '@/src/utils/index'
+import { findOption, validOption, searchOptions, defaultRenderer, SelectOption, WithIconsRenderer } from '@/src/utils/index'
 import { doNothing } from '@abw/badger-utils'
+import { SelectActions, SelectProps, SelectState } from './types'
 
-class Context extends MenuContext {
+export const defaultSelectProps = {
+  ...defaultMenuContextProps,
+  // displayOption: withIconsRenderer,
+  search:   false,
+  findOption,
+  validOption,
+  searchOptions,
+  displayValue:   defaultRenderer('displayValue') as WithIconsRenderer,
+  displayOption:  defaultRenderer('displayOption') as WithIconsRenderer,
+  displayHeading: defaultRenderer('displayHeading') as WithIconsRenderer,
+}
+
+class Context extends MenuContext<
+  SelectProps,
+  SelectState,
+  SelectActions
+> {
   static debug        = false
   static debugPrefix  = 'Select > '
   static debugColor   = 'MediumVioletRed'
-  static defaultProps = {
-    ...this.defaultProps,
-    options:  [ ],
-    search:   false,
-    findOption,
-    validOption,
-    searchOptions,
-    displayValue:   defaultRenderer('displayValue'),
-    displayOption:  defaultRenderer('displayOption'),
-    displayHeading: defaultRenderer('displayHeading'),
-  }
+
   // NOTE: we don't want to reset the cursor or value when closing
+  // PROBLEM: incompatible with base class Menu
   static inactiveState = {
     isOpen:         false,
     selected:       undefined,
@@ -36,15 +44,36 @@ class Context extends MenuContext {
     // value: 'initialValue',
   }
   static actions = [
-    'onFocus', 'onBlur', 'onClick', 'onKeyDown',
-    'open', 'close', 'setCursor', 'selectCursor', 'selectOption',
-    'menuRef', 'activeRef',
-    'searchRef', 'focusSearch', 'blurSearch',
-    'setSearch', 'clearSearch',
+    'onFocus',
+    'onBlur',
+    'onClick',
+    'onKeyDown',
+    'open',
+    'close',
+    'setCursor',
+    'selectCursor',
+    'selectOption',
+    'menuRef',
+    'activeRef',
+    'searchRef',
+    'focusSearch',
+    'blurSearch',
+    'setSearch',
+    'clearSearch',
   ]
 
-  constructor(props) {
+  config: WithRequiredFrom<
+    SelectProps,
+    typeof defaultSelectProps
+  >
+  _searchRef?: HTMLElement
+
+  constructor(props: SelectProps) {
     super(props)
+    this.config = {
+      ...defaultSelectProps,
+      ...props
+    }
     this.state = {
       ...this.state,
       ...this.valueState(),
@@ -53,7 +82,7 @@ class Context extends MenuContext {
     this.debug(`search: ${this.props.search}  closeOnBlur: ${this.state.closeOnBlur}`)
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps: SelectProps) {
     let newState
     if (this.props.options !== prevProps.options) {
       this.debug(`options have changed, current value is`, this.state.value)
@@ -86,7 +115,7 @@ class Context extends MenuContext {
 
   valueState(v=this.props.value) {
     const options = this.props.options
-    const [value, cursor] = this.props.findOption(
+    const [value, cursor] = this.config.findOption(
       options,
       v
     )
@@ -97,7 +126,7 @@ class Context extends MenuContext {
     return { value, cursor, options }
   }
 
-  selectState(value) {
+  selectState(value: SelectOption) {
     // const input = this.inputValue(value)
     return {
       value,
@@ -108,12 +137,12 @@ class Context extends MenuContext {
 
   closeState() {
     return {
-      ...this.constructor.inactiveState,
+      ...(this.constructor as typeof Context).inactiveState,
       options: this.props.options
     }
   }
 
-  onKeyDown(event) {
+  onKeyDown(event: React.KeyboardEvent) {
     this.debug(`onKeyDown(${event.key})`)
     if (this.props.disabled) {
       return
@@ -121,21 +150,30 @@ class Context extends MenuContext {
 
     switch (event.key) {
       case ARROW_DOWN:
-        this.state.isOpen
-          ? this.setCursor(this.cursorNextIndex())
-          : this.open(this.initialCursor() ?? this.cursorFirstIndex())
+        if (this.state.isOpen) {
+          this.setCursor(this.cursorNextIndex())
+        }
+        else {
+          this.open(this.initialCursor() ?? this.cursorFirstIndex())
+        }
         break
 
       case ARROW_UP:
-        this.state.isOpen
-          ? this.setCursor(this.cursorPrevIndex())
-          : this.open(this.initialCursor() ?? this.cursorLastIndex())
+        if (this.state.isOpen) {
+          this.setCursor(this.cursorPrevIndex())
+        }
+        else {
+          this.open(this.initialCursor() ?? this.cursorLastIndex())
+        }
         break
 
       case ENTER:
-        this.state.isOpen
-          ? this.selectCursor()
-          : this.open(this.initialCursor() ??  this.cursorFirstIndex())
+        if (this.state.isOpen) {
+          this.selectCursor()
+        }
+        else {
+          this.open(this.initialCursor() ??  this.cursorFirstIndex())
+        }
         break
 
       case ESCAPE:
@@ -149,7 +187,9 @@ class Context extends MenuContext {
 
       case TAB:
         return
+        break
 
+      // @ts-expect-error - we really do want a fall-through here
       case SPACE:
         if (! this.state.isOpen) {
           this.debug('space to open')
@@ -161,7 +201,7 @@ class Context extends MenuContext {
         }
         // drop-through
 
-      // NOT_eslint-disable-next-line no-fallthrough
+      // eslint-disable-next-line no-fallthrough
       default:
         this.debug('default keypress')
         if (event.altKey || event.ctrlKey || event.metaKey) {
@@ -170,7 +210,7 @@ class Context extends MenuContext {
         if (event.key.length === 1) {
           this.debug(`typed key ${event.key}`)
           this.searchKey(event.key)
-          if (! this.state.open) {
+          if (! this.state.isOpen) {
             this.open()
           }
           if (this._searchRef) {
@@ -184,16 +224,18 @@ class Context extends MenuContext {
     event.preventDefault()
   }
 
-  searchRef(ref) {
+  searchRef(ref: HTMLElement) {
     this.debug('searchRef()')
     this._searchRef = ref
   }
 
-  focusSearch(e) {
+  focusSearch(e: React.FocusEvent) {
     this.debug('focusSearch()')
     e?.stopPropagation()
     this.setState({ searchFocus: true })
   }
+
+  //React.FocusEventHandler<HTMLInputElement>
 
   blurSearch() {
     this.debug('blurSearch()')
@@ -201,28 +243,29 @@ class Context extends MenuContext {
     this.closeSoon()
   }
 
-  setSearch(searchInput) {
+  setSearch(searchInput: string | undefined) {
     this.setState(
       { searchInput },
       () => this.searchOptions()
     )
   }
 
-  searchKey(key) {
+  searchKey(key?: string) {
     this.setSearch(
       (this.state.searchInput ?? BLANK) + key
     )
   }
 
   searchBackspace() {
+    const searchInput = this.state.searchInput
     this.setSearch(
-      (hasValue(this.state.searchInput) && this.state.searchInput.length > 1)
-        ? this.state.searchInput.slice(0, -1)
+      (hasValue(searchInput) && searchInput.length > 1)
+        ? searchInput.slice(0, -1)
         : undefined
     )
   }
 
-  clearSearch(e) {
+  clearSearch(e: React.MouseEvent) {
     e?.preventDefault()
     e?.stopPropagation()
     if (this._searchRef) {
@@ -234,7 +277,7 @@ class Context extends MenuContext {
 
   searchOptions() {
     this.debug('searchOptions(), searchInput: ', this.state.searchInput)
-    const { options, searchOptions } = this.props
+    const { options, searchOptions } = this.config
     this.setState(
       state => ({
         options: hasValue(state.searchInput)
@@ -245,13 +288,14 @@ class Context extends MenuContext {
     )
   }
 
-  closeable(force) {
+  closeable(force?: boolean) {
     this.debug(`closeable()  force:${force}  hasHover:${this.state.hasHover}  searchFocus:${this.state.searchFocus}`)
     return force || ! (this.state.hasHover || this.state.searchFocus)
   }
 
   menuOptions() {
-    return this.state.options
+    // return this.state.options
+    return this.state.options || [ ]
   }
 }
 

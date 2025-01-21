@@ -1,12 +1,12 @@
-import React         from 'react'
-import Context       from './Context.js'
-import SelectContent from './Content.jsx'
+import Context       from './Context'
+import SelectContent from './Content'
 import { Themed }    from '@/src/Theme'
+import { SelectProps } from './types.js'
 
 const Select = ({
   Content=SelectContent,
   ...props
-}) =>
+}: SelectProps) =>
   <Context.Provider {...props}>
     <Content/>
   </Context.Provider>

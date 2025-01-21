@@ -4,9 +4,7 @@ import { doNothing, hasValue } from '@abw/badger-utils'
 import { WithRequiredFrom } from '@abw/react-context'
 import {
   cursorFirst, cursorLast, cursorNext, cursorPrev, IsValidOption,
-  OnSelect,
-  scrollParentChild, SelectOption,
-  SelectValue
+  OnSelect, scrollParentChild, SelectOption,
 } from '@/src/utils/index'
 
 export const defaultMenuContextProps = {
@@ -26,13 +24,20 @@ export const defaultMenuContextProps = {
 export type MenuContextProps = DropdownContextProps & {
   options: SelectOption[]
   validOption: IsValidOption
-  onSelect: (value: SelectValue) => void
+  onSelect: (value: SelectOption) => void
 }
 
 export type MenuContextState = DropdownContextState & {
   cursor?: number | null
-  selected?: SelectValue
+  selected?: SelectOption
 }
+
+export type MenuInactiveState = {
+  isOpen: boolean
+  cursor?: number
+  selected?: SelectOption,
+}
+
 
 export type MenuContextActions = DropdownContextActions
 
@@ -64,7 +69,7 @@ class MenuContext<
     closeOnSelect: true
   }
   */
-  static inactiveState = {
+  static inactiveState: MenuInactiveState = {
     isOpen:   false,
     cursor:   undefined,
     selected: undefined,
@@ -77,7 +82,7 @@ class MenuContext<
     MenuContextProps,
     typeof defaultMenuContextProps
   >
-  _menuRef?: HTMLElement
+  _menuRef?: HTMLElement | null
 
   constructor(props: MenuContextProps) {
     super(props)
@@ -144,11 +149,11 @@ class MenuContext<
     event.preventDefault()
   }
 
-  menuOptions() {
+  menuOptions(): SelectOption[] {
     return this.props.options
   }
 
-  initialCursor() {
+  initialCursor(): number | null | undefined {
     // subclasses can redefine this to return this.state.cursor if they
     // want to keep a previously selected option selected
     return null
@@ -205,8 +210,8 @@ class MenuContext<
     }
   }
 
-  selectOption(value: SelectValue) {
-    this.debug(`selectOption()`, value)
+  selectOption(option: SelectOption) {
+    this.debug(`selectOption()`, option)
     this.setState(
       // TODO: this needs to be abstracted out
       // For select it's:
@@ -215,8 +220,8 @@ class MenuContext<
       //   input: this.inputValue(value)
       //   ...inactiveState
       // },
-      this.selectState(value),
-      () => this.config.onSelect(value)
+      this.selectState(option),
+      () => this.config.onSelect(option)
     )
     if (this.config.closeOnSelect) {
       this.debug(`closeOnSelect is set, closing`)
@@ -227,8 +232,8 @@ class MenuContext<
     }
   }
 
-  selectState(value: SelectValue) {
-    return { selected: value }
+  selectState(option: SelectOption) {
+    return { selected: option }
   }
 
   menuRef(ref: HTMLElement){
