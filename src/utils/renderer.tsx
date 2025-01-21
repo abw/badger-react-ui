@@ -11,9 +11,9 @@ export type ObjectWithRenderable = {
   heading?: RenderableSimpleValue
 }
 export type RenderableValue = RenderableSimpleValue | ObjectWithRenderable
-export type WithIconsRenderer = (option: RenderableValue) => string | number | JSX.Element
+export type WithIconsRenderer = (option: RenderableValue) => string | JSX.Element
 
-export const defaultRenderer = (name: RenderableValue) => {
+export const defaultRenderer = (name: string) => {
   const fallback = `HINT: define ${name}() to render this value`
   return (v: RenderableValue): string => String(
     (isSimple(v))
@@ -32,7 +32,7 @@ export const defaultRenderer = (name: RenderableValue) => {
 
 export const withIconsRenderer = (option: string | number | boolean | PropsObject) =>
   isSimple(option)
-    ? option
+    ? String(option)
     : <WithIcons {...(option as PropsObject)}/>
 
 // (isString(option) || isNumber(option) || isBoolean(option))

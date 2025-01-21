@@ -3,12 +3,13 @@ import DropdownTrigger from './Trigger'
 import DropdownOptions from './Options'
 import useFloating     from '@/src/hooks/useFloating'
 import { classes }     from '@/src/utils/classes'
+import { CLOSED_CLASS, OPEN_CLASS } from '@/src/constants'
 
 export const DropdownMenuContent = Context.Consumer(
   ({
     className='dropdown',
-    openClass='open',
-    closedClass='closed',
+    openClass=OPEN_CLASS,
+    closedClass=CLOSED_CLASS,
     isOpen,
     size,
     wide,
