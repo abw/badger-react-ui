@@ -48,11 +48,11 @@ Sub-optimal fix is to use a type instead.
     [X] Overlay
     [X] Pager
     [X] Radio
-    [ ] Range
+    [X] Range
     [ ] RangeMax
     [ ] RangeMin
     [X] Search
-    [ ] Select
+    [X] Select
     [ ] Sortable
     [X] Spinner
     [ ] Table
