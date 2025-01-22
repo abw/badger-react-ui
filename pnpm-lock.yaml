@@ -21,8 +21,8 @@ dependencies:
     specifier: 1.2.2
     version: 1.2.2
   '@abw/react-context':
-    specifier: 2.3.0-alpha-2
-    version: 2.3.0-alpha-2(react-dom@18.3.1)(react@18.3.1)
+    specifier: 2.3.0-alpha-4
+    version: 2.3.0-alpha-4(react-dom@18.3.1)(react@18.3.1)
   '@abw/react-one-louder':
     specifier: 1.0.0-alpha-2
     version: 1.0.0-alpha-2(react-dom@18.3.1)(react@18.3.1)
@@ -273,8 +273,8 @@ packages:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  /@abw/react-context@2.3.0-alpha-2(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-2FsS051dHYWB6qW63EvBRMbEY/Nru1WxGCfAQtuvuxfXRuivJDj+dpZFvEwZStG/7Uf5K1cCqXJfcuGMlUz/OA==}
+  /@abw/react-context@2.3.0-alpha-4(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-IZTBBRKQQba7lJiG8mMrQfq4nbE/l+YYRqt2K3ZKsK0+ktX02JG0kaJvwzjRBx0cUrRVzOcKA98AhsoplLBedg==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
