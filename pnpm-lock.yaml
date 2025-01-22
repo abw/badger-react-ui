@@ -14,12 +14,15 @@ dependencies:
   '@abw/badger-icon':
     specifier: 1.0.0-alpha-2
     version: 1.0.0-alpha-2
+  '@abw/badger-maths':
+    specifier: ^0.0.1
+    version: 0.0.1
   '@abw/badger-utils':
     specifier: 1.2.2
     version: 1.2.2
   '@abw/react-context':
-    specifier: 2.3.0-alpha-1
-    version: 2.3.0-alpha-1(react-dom@18.3.1)(react@18.3.1)
+    specifier: 2.3.0-alpha-2
+    version: 2.3.0-alpha-2(react-dom@18.3.1)(react@18.3.1)
   '@abw/react-one-louder':
     specifier: 1.0.0-alpha-2
     version: 1.0.0-alpha-2(react-dom@18.3.1)(react@18.3.1)
@@ -191,6 +194,12 @@ packages:
       react-dom: 18.3.1(react@18.3.1)
     dev: false
 
+  /@abw/badger-maths@0.0.1:
+    resolution: {integrity: sha512-leA5NWrOlDV8dhNhp8E0tE0OiwFZNUFhT49LYP3B6v/0cUM5G71ZlBrHR4/YFr0UZnUuen+YGKNB6iEw1NJ9qg==}
+    dependencies:
+      big.js: 6.2.2
+    dev: false
+
   /@abw/badger-react-ui@1.3.12(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-BawLjEfcxs3BflwMub6tpLakLfa6FWdpKRS0mBbF9bQsNFlqF1bpRmfO6iHwW/sOO+GUVbq6KF2aMIVHGRpMFA==}
     peerDependencies:
@@ -264,8 +273,8 @@ packages:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  /@abw/react-context@2.3.0-alpha-1(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-gL5wZ16TKe2RZzcEFprtbbXny8btZecExJk5sMw9Pj8Q1OVPnB2Gyxd567jMa2zLD0nEWKHSAt7NwgJJQISPAg==}
+  /@abw/react-context@2.3.0-alpha-2(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-2FsS051dHYWB6qW63EvBRMbEY/Nru1WxGCfAQtuvuxfXRuivJDj+dpZFvEwZStG/7Uf5K1cCqXJfcuGMlUz/OA==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -2160,6 +2169,10 @@ packages:
   /balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
     dev: true
+
+  /big.js@6.2.2:
+    resolution: {integrity: sha512-y/ie+Faknx7sZA5MfGA2xKlu0GDv8RWrXGsmlteyJQ2lvoKv9GBK/fpRMc2qlSoBAgNxrixICFCBefIq8WCQpQ==}
+    dev: false
 
   /binary-extensions@2.3.0:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
