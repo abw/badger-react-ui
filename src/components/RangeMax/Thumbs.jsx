@@ -1,6 +1,6 @@
 import React from 'react'
-import Context from '../Range/Context.js'
-import DefaultThumbMax from '../Range/ThumbMax.jsx'
+import Context from '../Range/Context'
+import DefaultThumbMax from '../Range/ThumbMax'
 
 const Thumbs = ({
   thumbsClass='range-thumbs',

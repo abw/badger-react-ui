@@ -1,6 +1,6 @@
 import React from 'react'
-import Context from '../Range/Context.js'
-import DefaultValueMin from '../Range/ValueMin.jsx'
+import Context from '../Range/Context'
+import DefaultValueMin from '../Range/ValueMin'
 
 const Values = ({
   valuesClass='range-values',

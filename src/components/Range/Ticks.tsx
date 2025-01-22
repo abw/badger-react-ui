@@ -1,12 +1,12 @@
 import Context from './Context'
 import { range } from '@abw/badger-utils'
 import { classes } from '@/src/utils/classes'
-import { RANGE_SCALE_SIZE, RANGE_SCALE_VALUE_CLASS, RANGE_TICKS_CLASS } from './Constants'
+import { RANGE_SCALE_SIZE, RANGE_SCALE_VALUE_CLASS, RANGE_TICK_CLASS, RANGE_TICKS_CLASS } from './Constants'
 
 export const RangeTicks = Context.Consumer(
   ({
     ticksClass=RANGE_TICKS_CLASS,
-    tickClass=RANGE_TICKS_CLASS,
+    tickClass=RANGE_TICK_CLASS,
     scaleValueClass=RANGE_SCALE_VALUE_CLASS,
     scaleSize=RANGE_SCALE_SIZE,
     tickSteps,

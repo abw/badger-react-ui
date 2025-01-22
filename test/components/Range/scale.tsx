@@ -1,6 +1,6 @@
 import { test, expect } from 'vitest'
 import { render } from '@testing-library/react'
-import { Range } from '@/src/index.jsx'
+import { Range } from '@/src/index'
 import { fail } from '@abw/badger-utils'
 
 const expectScale = [

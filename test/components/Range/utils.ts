@@ -175,7 +175,7 @@ test(
 test(
   'initRange() with explicit null step',
   () => {
-    const range = initRange({ min: 1, max: 2, step: undefined })
+    const range = initRange({ min: 1, max: 2, step: null })
     expect(range.min).toBe(1)
     expect(range.max).toBe(2)
     expect(range.minValue).toBe(1.25)

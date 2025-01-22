@@ -12,7 +12,7 @@ export type RangeProps = ContextProps<{
   maxRange?: number
   minNormal?: number
   maxNormal?: number
-  step?: RangeStep | string
+  step?: RangeStep | string | null
   options?: RangeOption[]
   tickStep?: number | 'any'
   dragTimeout?: number

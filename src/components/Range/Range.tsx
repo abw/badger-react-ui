@@ -12,7 +12,7 @@ const Range = ({
   children,
   ...props
 }: RangeComponentProps) =>
-  <Context.Provider {...props} debug>
+  <Context.Provider {...props}>
     <Content>
       {children}
     </Content>

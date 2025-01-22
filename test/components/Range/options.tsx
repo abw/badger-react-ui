@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
-import { Range } from '@/src/index.jsx'
+import { Range } from '@/src/index'
 import { fail } from '@abw/badger-utils'
 
 const RangeExample = () => {
