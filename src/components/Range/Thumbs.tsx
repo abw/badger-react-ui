@@ -1,10 +1,11 @@
 import Context from './Context'
 import DefaultThumbMin from './ThumbMin'
 import DefaultThumbMax from './ThumbMax'
+import { RANGE_THUMBS_CLASS } from './Constants'
 
 export const RangeThumbs = Context.Consumer(
   ({
-    thumbsClass='range-thumbs',
+    thumbsClass=RANGE_THUMBS_CLASS,
     ThumbMin=DefaultThumbMin,
     ThumbMax=DefaultThumbMax,
     thumbsRef,

@@ -149,8 +149,21 @@ export type RangeActions = {
   }
 }
 
+// The RangeMin and RangeMax subclasses additionally set these
+export type RangeSubclassRenderProps = RangeRenderProps & {
+  normal?: RangeRenderProps['maxNormal']
+  input?: RangeRenderProps['maxInput']
+  percent?: RangeRenderProps['maxPercent']
+  setValue?: RangeRenderProps['setMaxValue']
+  setInput?: RangeRenderProps['setMaxInput']
+  stepUp?: RangeRenderProps['stepMaxUp']
+  stepDown?: RangeRenderProps['stepMaxDown']
+  onDrag?: RangeRenderProps['onDragMax']
+  onKeyDown?: RangeRenderProps['onKeyDownMax']
+}
+
 export type RangeRenderProps = RangeProps & RangeState & RangeActions
-export type RangeRenderPropsPrepare = (props: RangeRenderProps) => RangeRenderProps
+export type RangeRenderPropsPrepare = (props: RangeSubclassRenderProps) => RangeRenderProps
 export type RangeConstructorProps = ContextConstructorProps<
   RangeProps, RangeState, RangeActions
 >

@@ -1,7 +1,15 @@
-export const rangeMaxNormalClick = (normal, minNormal, maxNormal, setMin, setMax) =>
+import { RangeNormalClick, RangeRenderPropsPrepare } from '../Range/types'
+
+export const rangeMaxNormalClick: RangeNormalClick = (
+  normal,
+  _minNormal,
+  _maxNormal,
+  _setMin,
+  setMax
+) =>
   setMax(normal)
 
-export const rangeMaxPrepareRenderProps = props => {
+export const rangeMaxPrepareRenderProps: RangeRenderPropsPrepare = props => {
   props.value     = props.maxValue
   props.input     = props.maxInput
   props.normal    = props.maxNormal

@@ -1,5 +1,5 @@
 import React from 'react'
-import UIRangeMax from '@/components/RangeMax/RangeMax.jsx'
+import UIRangeMax from '@/components/RangeMax/RangeMax'
 import { useField } from '@abw/badger-form'
 import { identity } from '@abw/badger-utils'
 

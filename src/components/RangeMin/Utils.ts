@@ -1,7 +1,16 @@
-export const rangeMinNormalClick = (normal, minNormal, maxNormal, setMin) =>
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { RangeNormalClick, RangeRenderPropsPrepare } from '../Range/types'
+
+export const rangeMinNormalClick: RangeNormalClick = (
+  normal,
+  _minNormal,
+  _maxNormal,
+  setMin,
+  _setMax
+) =>
   setMin(normal)
 
-export const rangeMinPrepareRenderProps = props => {
+export const rangeMinPrepareRenderProps: RangeRenderPropsPrepare = props => {
   props.value     = props.maxValue
   props.input     = props.maxInput
   props.normal    = props.maxNormal

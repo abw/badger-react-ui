@@ -1,11 +1,18 @@
-import React   from 'react'
-import Range from '../Range/Range'
-import DefaultThumbs from './Thumbs.jsx'
-import DefaultValues from './Values.jsx'
-import DefaultInputs from './Inputs.jsx'
+import Range, { RangeComponentProps } from '../Range/Range'
+import DefaultThumbs from './Thumbs'
+import DefaultValues from './Values'
+import DefaultInputs from './Inputs'
 import { Themed } from '@/src/Theme'
-import { rangeMaxNormalClick, rangeMaxPrepareRenderProps } from './Utils.js'
+import { rangeMaxNormalClick, rangeMaxPrepareRenderProps } from './Utils'
 import { doNothing } from '@abw/badger-utils'
+import { RangeState } from '../Range/types'
+
+export type RangeMaxComponentProps = RangeComponentProps & {
+  onChange?: (
+    maxValue: number,
+    state: RangeState
+  ) => void
+}
 
 const RangeMax = ({
   children,
@@ -21,9 +28,9 @@ const RangeMax = ({
   prepareRenderProps=rangeMaxPrepareRenderProps,
   onChange=doNothing,
   ...props
-}) =>
+}: RangeMaxComponentProps) =>
   <Range
-    maxValue={value}
+    maxValue={value as number | undefined}
     minNormal={minNormal}
     maxNormal={maxNormal}
     minRange={minRange}

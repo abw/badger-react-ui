@@ -1,5 +1,5 @@
 import React from 'react'
-import UIRangeMin from '@/components/RangeMin/RangeMin.jsx'
+import UIRangeMin from '@/components/RangeMin/RangeMin'
 import { useField } from '@abw/badger-form'
 import { identity } from '@abw/badger-utils'
 

@@ -1,11 +1,11 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
-import { render, act } from '@testing-library/react'
-import { RangeMax } from '@/src/index.jsx'
+import { render } from '@testing-library/react'
+import { RangeMin } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 
 const RangeExample = () =>
-  <RangeMax
+  <RangeMin
     min={0}
     max={100}
     value={50}
@@ -15,28 +15,28 @@ const RangeExample = () =>
 
 
 test(
-  'range max with inputs',
+  'range min with inputs',
   async () => {
     const user = userEvent.setup()
     const { container } = render(
       <RangeExample/>
     )
-    const range = container.querySelector('div.range')
+    const range = container.querySelector('div.range') || fail('no range')
     const inputs = range.querySelectorAll('div.range-inputs div.range-input')
     expect(inputs.length).toBe(1)
 
-    const dec = inputs[0].querySelector('div.prefix')
     const val = inputs[0].querySelector('input')
-    const inc = inputs[0].querySelector('div.suffix')
+    const dec = inputs[0].querySelector('div.prefix') || fail('no dec')
+    const inc = inputs[0].querySelector('div.suffix') || fail('no inc')
 
     expect(val).toHaveValue(50)
 
     // value inc
-    await act( () => user.click(inc) )
+    await user.click(inc)
     expect(val).toHaveValue(60)
 
     // value dec
-    await act( () => user.click(dec) )
+    await user.click(dec)
     expect(val).toHaveValue(50)
 
   }
