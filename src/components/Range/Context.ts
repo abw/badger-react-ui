@@ -9,7 +9,7 @@ import {
   RangeActions, RangeConstructorProps, RangeDragging, RangeEventListeners,
   RangeNormalClick, RangeNormalToValue, RangeOnChangeHandler, RangeProps,
   RangeQuantizer, RangeRenderPropsPrepare, RangeState, RangeValueToNormal
-} from './types.js'
+} from './types'
 
 const WATCH_PROPS = splitList(
   'min max value options minValue maxValue minRange maxRange step tickStep quantize'
@@ -94,7 +94,7 @@ class Context extends Base<
       ...defaultRangeProps,
       ...props
     }
-    const { normalToValue, valueToNormal, quantize, ...state } = initRange(props)
+    const { normalToValue, valueToNormal, quantize, ...state } = initRange(this.config)
     this.quantize = quantize
     this.normalToValue = normalToValue
     this.valueToNormal = valueToNormal
