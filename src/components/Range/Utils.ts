@@ -6,7 +6,7 @@ import {
 } from '@abw/badger-utils'
 import {
   RangeDisplayValueFromOptions, RangeNormalClick, RangeNormalToValue,
-  RangeProps, RangeQuantizerFactory, RangeValueToNormal
+  RangeProps, RangeQuantizerFactory, RangeStep, RangeValueToNormal
 } from './types'
 
 export const initRange = (props: RangeProps={}) => {
@@ -15,10 +15,11 @@ export const initRange = (props: RangeProps={}) => {
     minNormal=0.25, maxNormal=0.75,
     minValue, maxValue,
     minRange, maxRange,
-    step, tickStep, quantize,
+    tickStep, quantize,
     // displayValue
   } = props
-  const { value, options } = props
+  const { value, options, step: initialStep } = props
+  let step: RangeStep
 
   // If we've got an array of options then the min and max are bound by the
   // indices of the array, e.g. 0 to options.length - 1
@@ -79,11 +80,11 @@ export const initRange = (props: RangeProps={}) => {
   // to indicate no stepping, or it should be coerced to a number.  If no step
   // is defined then it is assumed to be 1.
   // See https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/step
-  if (step === ANY || isNull(step)) {
+  if (initialStep === ANY || isNull(initialStep)) {
     step = ANY
   }
-  else if (hasValue(step)) {
-    step = coerceNumber(step)
+  else if (hasValue(initialStep)) {
+    step = coerceNumber(initialStep)
   }
   else {
     step = 1

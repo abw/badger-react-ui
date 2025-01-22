@@ -4,15 +4,15 @@ import { ContextConstructorProps, ContextProps, RenderChildren } from '@abw/reac
 
 export type RangeProps = ContextProps<{
   value?: number | [number, number] | { min: number, max: number }
-  min?: number
-  max?: number
+  min?: number | string
+  max?: number | string
   minValue?: number
   maxValue?: number
   minRange?: number
   maxRange?: number
   minNormal?: number
   maxNormal?: number
-  step?: RangeStep
+  step?: RangeStep | string
   options?: RangeOption[]
   tickStep?: number | 'any'
   dragTimeout?: number
