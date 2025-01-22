@@ -49,8 +49,8 @@ Sub-optimal fix is to use a type instead.
     [X] Pager
     [X] Radio
     [X] Range
-    [ ] RangeMax
-    [ ] RangeMin
+    [X] RangeMax
+    [X] RangeMin
     [X] Search
     [X] Select
     [ ] Sortable
