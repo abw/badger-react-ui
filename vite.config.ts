@@ -17,7 +17,7 @@ export default defineConfig({
     globals: true,
     setupFiles: './test/setup.ts',
     include: ['test/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-    exclude: ['test/setup.js', 'test/lib'],
+    exclude: ['test/setup.ts', 'test/lib'],
     coverage: {
       provider: 'v8',
       reporter: ['html'],
