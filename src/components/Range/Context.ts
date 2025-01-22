@@ -1,18 +1,44 @@
-import { Generator, Context as Base } from '@abw/react-context'
+import { Generator, Context as Base, WithRequiredFrom } from '@abw/react-context'
 import { anyPropsChanged, classes, extractStyleProps } from '@/src/utils/index'
-import { doNothing, clamp, multiply, divide, identity, splitList } from '@abw/badger-utils'
+import { doNothing, identity, splitList, sleep } from '@abw/badger-utils'
+import { clamp, multiply, divide } from '@abw/badger-maths'
 import { ANY, ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT } from '@/src/constants'
-import { initRange, rangeNormalClick } from './Utils.js'
-import { sleep } from '@abw/badger-utils'
+import { displayValueFromOptions, initRange, rangeNormalClick } from './Utils'
+import { RANGE_DRAGGING_CLASS, RANGE_HAS_SCALE_CLASS } from './Constants.js'
+import {
+  RangeActions, RangeConstructorProps, RangeDragging, RangeEventListeners,
+  RangeNormalClick, RangeNormalToValue, RangeOnChangeHandler, RangeProps,
+  RangeQuantizer, RangeRenderPropsPrepare, RangeState, RangeValueToNormal
+} from './types.js'
 
 const WATCH_PROPS = splitList(
   'min max value options minValue maxValue minRange maxRange step tickStep quantize'
 )
 
-class Context extends Base {
+export const defaultRangeProps = {
+  onChange: doNothing as RangeOnChangeHandler,
+  onChangeValue: doNothing as RangeOnChangeHandler,
+  normalClick: rangeNormalClick,
+  prepareRenderProps: identity as RangeRenderPropsPrepare,
+  displayValue: displayValueFromOptions,
+  minNormal: 0,
+  maxNormal: 1,
+  dragTimeout: 300,
+  color: 'brand',
+  rangeClass: 'range',
+  draggingClass: RANGE_DRAGGING_CLASS,
+  hasScaleClass: RANGE_HAS_SCALE_CLASS
+}
+
+class Context extends Base<
+  RangeProps,
+  RangeState,
+  RangeActions
+> {
   static debug        = false
   static debugPrefix  = 'Range > '
   static debugColor   = 'rebeccapurple'
+  /*
   static defaultProps = {
     onChange: doNothing,
     onChangeValue: doNothing,
@@ -27,18 +53,53 @@ class Context extends Base {
     draggingClass: 'range-dragging',
     hasScaleClass: 'range-has-scale',
   }
+  */
   static actions = [
-    'trackRef', 'thumbsRef',
-    'setMinValue', 'setMaxValue', 'setValues',
-    'setMinInput', 'setMaxInput',
-    'stepMinUp', 'stepMaxUp', 'stepMinDown', 'stepMaxDown',
-    'onDragMin', 'onDragMax', 'onKeyDownMin', 'onKeyDownMax',
+    'trackRef',
+    'thumbsRef',
+    'setMinValue',
+    'setMaxValue',
+    'setValues',
+    'setMinInput',
+    'setMaxInput',
+    'stepMinUp',
+    'stepMaxUp',
+    'stepMinDown',
+    'stepMaxDown',
+    'onDragMin',
+    'onDragMax',
+    'onKeyDownMin',
+    'onKeyDownMax',
     'onClick',
   ]
-  constructor(props) {
+
+  config: WithRequiredFrom<
+    RangeProps,
+    typeof defaultRangeProps
+  >
+  normalClick: RangeNormalClick
+  quantize: RangeQuantizer
+  normalToValue: RangeNormalToValue
+  valueToNormal: RangeValueToNormal
+  lastChange?: [ number, number ]
+  windowEventListeners: RangeEventListeners
+  _trackRef?: HTMLElement
+  _thumbsRef?: HTMLElement
+  _thumbRef?: HTMLElement
+  // TODO
+
+  constructor(props: RangeConstructorProps) {
     super(props)
-    const state = this.initProps(props)
-    this.normalClick = props.normalClick
+    this.config = {
+      ...defaultRangeProps,
+      ...props
+    }
+    const { normalToValue, valueToNormal, quantize, ...state } = initRange(props)
+    this.quantize = quantize
+    this.normalToValue = normalToValue
+    this.valueToNormal = valueToNormal
+
+    this.normalClick = this.config.normalClick
     this.windowEventListeners = { }
     this.state = {
       ...this.state,
@@ -47,31 +108,35 @@ class Context extends Base {
       maxInput: state.maxValue,
     }
   }
-  initProps(props) {
+  /*
+  NOTinitProps(props) {
     const { normalToValue, valueToNormal, quantize, ...state } = initRange(props)
     this.quantize = quantize
     this.normalToValue = normalToValue
     this.valueToNormal = valueToNormal
     return state
   }
-  componentDidUpdate(prevProps) {
+  */
+  componentDidUpdate(prevProps: RangeProps) {
     if (anyPropsChanged(WATCH_PROPS, this.props, prevProps)) {
       this.debug(`props have changed`)
-      this.setState(
-        this.initProps(this.props)
-      )
+      const { normalToValue, valueToNormal, quantize, ...state } = initRange(this.props)
+      this.quantize = quantize
+      this.normalToValue = normalToValue
+      this.valueToNormal = valueToNormal
+      this.setState(state)
     }
   }
   componentWillUnmount() {
     this.debug(`unmount`)
     this.removeAllWindowEventListeners()
   }
-  addWindowEventListener(event, listener) {
+  addWindowEventListener(event: string, listener: EventListener) {
     const eventListeners = this.windowEventListeners[event] ||= [ ]
     window.addEventListener(event, listener)
     eventListeners.push(listener)
   }
-  removeWindowEventListener(event, listener) {
+  removeWindowEventListener(event: string, listener: EventListener) {
     const eventListeners = this.windowEventListeners[event] ||= [ ]
     window.removeEventListener(event, listener)
     const index = eventListeners.indexOf(listener)
@@ -98,33 +163,37 @@ class Context extends Base {
     this.windowEventListeners = { }
   }
 
-  minValueLimits() {
+  minValueLimits(): [number, number] {
     const { maxValue, min, max, minRange, maxRange } = this.state
     return [
       clamp(maxValue - maxRange, min, max),
       clamp(maxValue - minRange, min, max)
     ]
   }
-  maxValueLimits() {
+
+  maxValueLimits(): [number, number] {
     const { minValue, min, max, minRange, maxRange } = this.state
     return [
       clamp(minValue + minRange, min, max),
       clamp(minValue + maxRange, min, max)
     ]
   }
-  setMinInput(minInput) {
+
+  setMinInput(minInput: number) {
     this.setState(
       { minInput },
       () => this.setMinValue(minInput)
     )
   }
-  setMaxInput(maxInput) {
+
+  setMaxInput(maxInput: number) {
     this.setState(
       { maxInput },
       () => this.setMaxValue(maxInput)
     )
   }
-  setMinValue(minValue) {
+
+  setMinValue(minValue: number) {
     minValue = this.quantize(minValue, ...this.minValueLimits())
     const minNormal = this.valueToNormal(minValue)
     const minPercent = multiply(minNormal, 100)
@@ -136,7 +205,8 @@ class Context extends Base {
     )
     return minValue
   }
-  setMaxValue(maxValue) {
+
+  setMaxValue(maxValue: number) {
     maxValue = this.quantize(maxValue, ...this.maxValueLimits())
     const maxNormal = this.valueToNormal(maxValue)
     const maxPercent = multiply(maxNormal, 100)
@@ -148,17 +218,19 @@ class Context extends Base {
     )
     return maxValue
   }
-  setValues(minValue, maxValue) {
+
+  setValues(minValue: number, maxValue: number) {
     this.setMinValue(minValue)
     this.setMaxValue(maxValue)
   }
-  setNormalisedMinValue(minNormal) {
+
+  setNormalisedMinValue(minNormal: number) {
     const minValue = clamp(
       this.normalToValue(minNormal),
       ...this.minValueLimits()
     )
     minNormal = this.valueToNormal(minValue)
-    const minPercent = multiply(100, minNormal).toFixed(2)
+    const minPercent = parseFloat(multiply(100, minNormal).toFixed(2))        // FIXME
     this.setState(
       {
         minNormal, minValue, minPercent, minInput: minValue
@@ -167,13 +239,14 @@ class Context extends Base {
     )
     return minValue
   }
-  setNormalisedMaxValue(maxNormal) {
+
+  setNormalisedMaxValue(maxNormal: number) {
     const maxValue = clamp(
       this.normalToValue(maxNormal),
       ...this.maxValueLimits()
     )
     maxNormal = this.valueToNormal(maxValue)
-    const maxPercent = multiply(100, maxNormal).toFixed(2)
+    const maxPercent = parseFloat(multiply(100, maxNormal).toFixed(2))        // FIXME
     this.setState(
       {
         maxNormal, maxValue, maxPercent, maxInput: maxValue
@@ -182,39 +255,43 @@ class Context extends Base {
     )
     return maxValue
   }
+
   step() {
     const step = this.state.step
     return step === ANY
       ? 1
       : step
   }
+
   stepMinUp() {
     const newValue = this.state.minValue + this.step()
-    // this.setMinValue(newValue)
     this.setMinInput(newValue)
   }
+
   stepMaxUp() {
     const newValue = this.state.maxValue + this.step()
-    // this.setMaxValue(newValue)
     this.setMaxInput(newValue)
   }
+
   stepMinDown() {
     const newValue = this.state.minValue - this.step()
-    // this.setMinValue(newValue)
     this.setMinInput(newValue)
   }
+
   stepMaxDown() {
     const newValue = this.state.maxValue - this.step()
-    // this.setMaxValue(newValue)
     this.setMaxInput(newValue)
   }
-  thumbsRef(ref){
+
+  thumbsRef(ref: HTMLElement){
     this._thumbsRef = ref
   }
-  trackRef(ref){
+
+  trackRef(ref: HTMLElement){
     this._trackRef = ref
   }
-  onKeyDown(event, down, up) {
+
+  onKeyDown(event: KeyboardEvent, down: () => void, up: () => void) {
     this.debug(`onKeyDown(${event.key})`)
 
     switch (event.key) {
@@ -234,22 +311,28 @@ class Context extends Base {
     }
     event.preventDefault()
   }
-  onKeyDownMin(event) {
+
+  onKeyDownMin(event: KeyboardEvent) {
     this.onKeyDown(
       event,
       () => this.stepMinDown(),
       () => this.stepMinUp(),
     )
   }
-  onKeyDownMax(event) {
+
+  onKeyDownMax(event: KeyboardEvent) {
     this.onKeyDown(
       event,
       () => this.stepMaxDown(),
       () => this.stepMaxUp(),
     )
   }
-  onDrag(e, control, set) {
-    const thumb = e.target
+
+  onDrag(e: MouseEvent, control: string, set: (value: number) => void) {
+    const thumb = e.target as HTMLElement
+    if (! thumb) {
+      return
+    }
     if (! this._thumbsRef) {
       console.error('No thumbsRef.  Did you forget to set it in Thumbs?')
       return
@@ -258,22 +341,22 @@ class Context extends Base {
     const { left: thumbLeft, width: thumbWidth } = thumb.getBoundingClientRect()
     const thumbMid = thumbLeft + (thumbWidth / 2)
     const thumbOffset = thumbLeft - clientX
-    const dragging = {
+    const { left: thumbsLeft, width: thumbsWidth } = this._thumbsRef.getBoundingClientRect()
+    const dragging: RangeDragging = {
       initialX: clientX,
       thumbLeft,
       thumbMid,
       thumbOffset,
-      control
+      control,
+      thumbsLeft,
+      thumbsWidth,
+      thumbPos: (thumbMid - thumbsLeft) * 100 / thumbsWidth
     }
 
-    const { left: thumbsLeft, width: thumbsWidth } = this._thumbsRef.getBoundingClientRect()
-    dragging.thumbsLeft = thumbsLeft
-    dragging.thumbsWidth = thumbsWidth
-    dragging.thumbPos = (thumbMid - thumbsLeft) * 100 / thumbsWidth
     this.debug('drag start: ', dragging)
     this.setState({ dragging })
 
-    const mouseMove = e => {
+    const mouseMove = (e: MouseEvent) => {
       e.preventDefault()
       const offset = e.clientX - dragging.initialX
       const newX = clamp(dragging.thumbMid + offset - dragging.thumbsLeft, 0, dragging.thumbsWidth)
@@ -282,23 +365,23 @@ class Context extends Base {
         divide(newX, dragging.thumbsWidth)
       )
     }
-    const removePointerUp = e => {
+    const removePointerUp = (e: MouseEvent) => {
       e.preventDefault()
       e.stopPropagation()
       this.debug(`drag end`)
-      this.removeWindowEventListener('pointermove', mouseMove)
-      this.removeWindowEventListener('pointerup', removePointerUp)
-      sleep(this.props.dragTimeout).then(
-        () => this.setState({ dragging: null })
+      this.removeWindowEventListener('pointermove', mouseMove as EventListener)
+      this.removeWindowEventListener('pointerup', removePointerUp as EventListener)
+      sleep(this.config.dragTimeout).then(
+        () => this.setState({ dragging: undefined })
       )
     }
     this.addWindowEventListener(
       'pointermove',
-      mouseMove
+      mouseMove as EventListener
     )
     this.addWindowEventListener(
       'pointerup',
-      removePointerUp
+      removePointerUp as EventListener
     )
     /*
     this.addWindowEventListener(
@@ -307,19 +390,22 @@ class Context extends Base {
     )
     */
   }
-  onDragMin(e) {
+
+  onDragMin(e: MouseEvent) {
     this.onDrag(
       e, 'min',
       value => this.setNormalisedMinValue(value)
     )
   }
-  onDragMax(e) {
+
+  onDragMax(e: MouseEvent) {
     this.onDrag(
       e, 'max',
       value => this.setNormalisedMaxValue(value)
     )
   }
-  onClick(e) {
+
+  onClick(e: MouseEvent) {
     const track = this._trackRef
     if (! track) {
       console.error('No trackRef.  Did you forget to set it in Track?')
@@ -330,7 +416,7 @@ class Context extends Base {
       return
     }
     const { clientX: clickX } = e
-    const { left: trackLeft, width: trackWidth } = this._trackRef.getBoundingClientRect()
+    const { left: trackLeft, width: trackWidth } = track.getBoundingClientRect()
     const normal = (clickX - trackLeft) / trackWidth
     const { minNormal, maxNormal } = this.state
     this.debug(`click at ${clickX} from ${trackLeft} with width ${trackWidth}: ${normal}`)
@@ -344,22 +430,35 @@ class Context extends Base {
       normal => this.setNormalisedMaxValue(normal),
     )
   }
+
   onChange() {
     const { minValue, maxValue } = this.state
-    this.props.onChange(minValue, maxValue, this.state)
+    this.config.onChange(minValue, maxValue, this.state)
     const [ lastChangeMin, lastChangeMax ] = (this.lastChange || [ ])
     if (minValue !== lastChangeMin || maxValue !== lastChangeMax) {
       this.debug(`min and/or max value have changed, firing onChangeValue`)
-      this.props.onChangeValue(minValue, maxValue, this.state)
+      this.config.onChangeValue(minValue, maxValue, this.state)
       this.lastChange = [ minValue, maxValue ]
     }
   }
   getRenderProps() {
-    const context = this.getContext()
+    type ConfigProps= WithRequiredFrom<
+      RangeProps,
+      typeof defaultRangeProps
+    >
+    type ContextProps = ConfigProps & RangeState & RangeActions
+
+    const context: ContextProps = {
+      ...this.config,
+      ...this.state,
+      ...this.actions
+    }
     const {
       minNormal, maxNormal, minPercent, maxPercent,
-      className, rangeClass, draggingClass, hasScaleClass,
-      showScale, dragging, color, size
+      className, rangeClass,
+      showScale, dragging, color, size,
+      draggingClass = RANGE_DRAGGING_CLASS,
+      hasScaleClass,
     } = context
     context.quantize = this.quantize
     context.normalToValue = this.normalToValue
@@ -385,7 +484,7 @@ class Context extends Base {
         }
       )
     }
-    return this.props.prepareRenderProps(context)
+    return this.config.prepareRenderProps(context)
   }
 }
 

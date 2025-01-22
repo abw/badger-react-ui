@@ -1,23 +1,24 @@
 import { ANY } from '@/src/constants'
-import { isArray } from '@abw/badger-utils'
-import { identity } from '@abw/badger-utils'
-import { isNumber } from '@abw/badger-utils'
-import { isObject } from '@abw/badger-utils'
 import { coerceNumber } from '@/src/utils/math'
+import { add, subtract, multiply, divide, clamp } from '@abw/badger-maths'
 import {
-  isNull, hasValue, isFunction, add, subtract, multiply, divide, clamp
+  isArray, isNumber, isObject, isNull, hasValue, isFunction
 } from '@abw/badger-utils'
+import {
+  RangeDisplayValueFromOptions, RangeNormalClick, RangeNormalToValue,
+  RangeProps, RangeQuantizerFactory, RangeValueToNormal
+} from './types'
 
-export const initRange = (props={}) => {
+export const initRange = (props: RangeProps={}) => {
   let {
     min=0, max=100,
     minNormal=0.25, maxNormal=0.75,
-    value,
     minValue, maxValue,
     minRange, maxRange,
-    step, tickStep, quantize, options,
-    displayValue
+    step, tickStep, quantize,
+    // displayValue
   } = props
+  const { value, options } = props
 
   // If we've got an array of options then the min and max are bound by the
   // indices of the array, e.g. 0 to options.length - 1
@@ -27,15 +28,15 @@ export const initRange = (props={}) => {
       max  = options.length - 1
       step = 1
       minRange ??= 1
-      displayValue ||= displayValueFromOptions
+      // displayValue ||= displayValueFromOptions
     }
     else {
       throw `range options should be an array`
     }
   }
-  else {
-    displayValue ||= identity
-  }
+  // else {
+  //   displayValue ||= identity
+  // }
 
   // Coerce min and max to numbers and calculate the range
   min = coerceNumber(min)
@@ -104,7 +105,7 @@ export const initRange = (props={}) => {
   maxValue = quantize(maxValue)
 
   // function to convert a normalised (0-1) value to ranged/stepped value
-  const normalToValue = normal =>
+  const normalToValue: RangeNormalToValue = normal =>
     quantize(
       add(
         min,
@@ -114,7 +115,8 @@ export const initRange = (props={}) => {
         )
       )
     )
-  const valueToNormal = (value, clampMin=min, clampMax=max) =>
+
+  const valueToNormal: RangeValueToNormal = (value, clampMin=min, clampMax=max) =>
     divide(
       subtract(
         clamp(value, clampMin, clampMax),
@@ -129,15 +131,19 @@ export const initRange = (props={}) => {
   const maxPercent = multiply(maxNormal, 100)
 
   return {
-    min, max, range, minValue, maxValue, minRange, maxRange, options,
+    min, max, range,
+    minValue, maxValue, minRange, maxRange, options,
     minInput: minValue, maxInput: maxValue,
     step, steps, tickStep, tickSteps,
     quantize, minNormal, maxNormal, minPercent, maxPercent,
-    normalToValue, valueToNormal, displayValue
+    normalToValue, valueToNormal,
+    // displayValue
   }
 }
 
-export const rangeQuantizer = ({ min, max, step, quantize }) => {
+export const rangeQuantizer: RangeQuantizerFactory = ({
+  min, max, step, quantize
+}) => {
   // quantize can be a custom function, but the output must be clamped to
   // the range
   if (isFunction(quantize)) {
@@ -161,7 +167,13 @@ export const rangeQuantizer = ({ min, max, step, quantize }) => {
   }
 }
 
-export const rangeNormalClick = (normal, minNormal, maxNormal, setMin, setMax) => {
+export const rangeNormalClick: RangeNormalClick = (
+  normal,
+  minNormal,
+  maxNormal,
+  setMin,
+  setMax
+) => {
   if (normal < minNormal) {
     return setMin(normal)
   }
@@ -178,5 +190,10 @@ export const rangeNormalClick = (normal, minNormal, maxNormal, setMin, setMax) =
   }
 }
 
-export const displayValueFromOptions = (value, options) =>
-  options[value]
+export const displayValueFromOptions: RangeDisplayValueFromOptions = (
+  value,
+  options
+) =>
+  options
+    ? options[value]
+    : value
