@@ -1,8 +1,8 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
 import { Range } from '@/src/index.jsx'
+import { fail } from '@abw/badger-utils'
 
 const RangeExample = () => {
   const options = [
@@ -29,7 +29,7 @@ test(
     const { container } = render(
       <RangeExample/>
     )
-    const range = container.querySelector('div.range')
+    const range = container.querySelector('div.range') || fail('no range')
 
     // limits
     const limits = range.querySelectorAll('div.range-limits div.range-scale-value')
@@ -38,7 +38,7 @@ test(
     expect(limits[1]).toHaveTextContent('1000')
 
     // values
-    const values = range.querySelector('div.range-values')
+    const values = range.querySelector('div.range-values') || fail('no range-values')
     const min = values.querySelector('div.min')
     const max = values.querySelector('div.max')
     expect(min).toHaveTextContent('10')
@@ -49,7 +49,7 @@ test(
     expect(inputs.length).toBe(2)
 
     // min value select...
-    const minInputs = inputs[0].querySelector('div.select div.inputs')
+    const minInputs = inputs[0].querySelector('div.select div.inputs') || fail('no min inputs')
     await act( () => user.click(minInputs) )
 
     // ...should have 7 items...
@@ -63,7 +63,7 @@ test(
     expect(values.querySelector('div.min')).toHaveTextContent('25')
 
     // max value select...
-    const maxInputs = inputs[1].querySelector('div.select div.inputs')
+    const maxInputs = inputs[1].querySelector('div.select div.inputs') || fail('no max inputs')
     await act( () => user.click(maxInputs) )
 
     // ...should have 6 items...

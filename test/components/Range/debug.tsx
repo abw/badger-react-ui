@@ -1,8 +1,7 @@
-import React from 'react'
 import { test, expect } from 'vitest'
 import { render } from '@testing-library/react'
-import { Range } from '@/src/index.jsx'
-import { range } from '@abw/badger-utils'
+import { Range } from '@/src/index'
+import { fail, range } from '@abw/badger-utils'
 
 const RangeExample = () =>
   <Range
@@ -21,7 +20,7 @@ test(
     const { container } = render(
       <RangeExample/>
     )
-    const table = container.querySelector('table')
+    const table = container.querySelector('table') || fail('no table')
 
     // inputs
     const ths = table.querySelectorAll('tr th')
@@ -31,10 +30,10 @@ test(
 
     const values = range(0, ths.length - 1).reduce(
       (values, n) => {
-        values[ths[n].textContent] = tds[n].textContent
+        values[ths[n].textContent as string] = tds[n].textContent as string
         return values
       },
-      { }
+      { } as Record<string, string>
     )
     // console.log(`values: `, values)
 

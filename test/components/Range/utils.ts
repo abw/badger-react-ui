@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest'
-import { initRange } from '@/src/index.jsx'
+import { initRange } from '@/src/index'
 
 test(
   'initRange() no props',
@@ -175,7 +175,7 @@ test(
 test(
   'initRange() with explicit null step',
   () => {
-    const range = initRange({ min: 1, max: 2, step: null })
+    const range = initRange({ min: 1, max: 2, step: undefined })
     expect(range.min).toBe(1)
     expect(range.max).toBe(2)
     expect(range.minValue).toBe(1.25)
