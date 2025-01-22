@@ -132,6 +132,7 @@ test(
 test(
   'optionValue() returns object.id when false',
   () => expect(
+    // @ts-expect-error - TODO: boolean isn't (currently) a valid type but should be
     optionValue({ id: false })
   ).toBe(
     false
@@ -156,7 +157,7 @@ test(
   () => expect(
     findOption(
       [ 'foo', 'bar', 'baz' ],
-      null
+      undefined
     )
   ).toStrictEqual(
     [ ]
