@@ -1,7 +1,7 @@
 import DropdownContext, { defaultDropdownContextProps, DropdownContextActions, DropdownContextProps, DropdownContextState } from './Dropdown'
 import { ARROW_DOWN, ARROW_UP, ENTER, ESCAPE, SPACE } from '@/src/constants'
 import { doNothing, hasValue } from '@abw/badger-utils'
-import { WithRequiredFrom } from '@abw/react-context'
+import { ContextConstructorProps, WithRequiredFrom } from '@abw/react-context'
 import {
   cursorFirst, cursorLast, cursorNext, cursorPrev, IsValidOption,
   OnSelect, scrollParentChild, SelectOption,
@@ -84,7 +84,13 @@ class MenuContext<
   >
   _menuRef?: HTMLElement | null
 
-  constructor(props: MenuContextProps) {
+  constructor(
+    props: ContextConstructorProps<
+      Props,
+      State,
+      Actions
+    >
+  ) {
     super(props)
     this.mounted = false
     this.config = {

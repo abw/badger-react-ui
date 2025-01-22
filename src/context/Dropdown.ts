@@ -1,4 +1,4 @@
-import { Context, WithRequiredFrom } from '@abw/react-context'
+import { Context, ContextConstructorProps, ContextProps, WithRequiredFrom } from '@abw/react-context'
 import { ENTER, ESCAPE, SPACE } from '@/src/constants'
 import { doNothing, sleep } from '@abw/badger-utils'
 import { ThisCallback } from '../types'
@@ -16,7 +16,7 @@ export const defaultDropdownContextProps = {
   onClose:  doNothing,
 }
 
-export type DropdownContextProps = {
+export type DropdownContextProps = ContextProps<{
   openOnHover?: boolean
   closeOnBlue?: boolean
   closeDelay?: number
@@ -27,7 +27,7 @@ export type DropdownContextProps = {
   onClick?: () => void
   onOpen?: () => void
   onClose?: () => void
-}
+}>
 
 export type DropdownContextState = {
   isOpen?: boolean
@@ -64,7 +64,13 @@ class DropdownContext<
   mounted: boolean
   _triggerRef?: HTMLElement
 
-  constructor(props: DropdownContextProps) {
+  constructor(
+    props: ContextConstructorProps<
+      Props,
+      State,
+      Actions
+    >
+  ) {
     super(props)
     this.mounted = false
     this.config = {

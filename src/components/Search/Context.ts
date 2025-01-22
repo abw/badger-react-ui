@@ -2,10 +2,14 @@ import { Context, Generator, WithRequiredFrom } from '@abw/react-context'
 import { ARROW_DOWN, ARROW_UP, BLANK, ENTER, ESCAPE } from '@/src/constants'
 import { debounce, DebounceFunction, doNothing, hasValue, sleep } from '@abw/badger-utils'
 import { defaultRenderer, errorMessage, scrollParentChild } from '@/src/utils/index'
-import { SearchProps, SearchState, SearchResult, SearchResults, SearchRenderProps, SearchThisCallback, SearchResultCallback, SearchActions } from './types'
 import { ChangeEvent } from 'react'
+import {
+  SearchProps, SearchState, SearchResult, SearchResults,
+  SearchThisCallback, SearchResultCallback, SearchActions, SearchConstructorProps,
+  SearchResultRender,
+} from './types'
 
-const defaultProps = {
+const defaultSearchProps = {
   minLength: 2,
   debounceTime: 500,
   onLoad: doNothing as SearchThisCallback,
@@ -15,8 +19,8 @@ const defaultProps = {
   onClear: doNothing,
   onReset: doNothing,
   onSelect: doNothing as SearchResultCallback,
-  displayValue: defaultRenderer('displayValue'),
-  displayResult: defaultRenderer('displayResult'),
+  displayValue: defaultRenderer('displayValue') as SearchResultRender,
+  displayResult: defaultRenderer('displayResult') as SearchResultRender,
 }
 
 const inactiveState = {
@@ -29,16 +33,13 @@ const inactiveState = {
 
 type SearchConfigProps = WithRequiredFrom<
   SearchProps,
-  typeof defaultProps
+  typeof defaultSearchProps
 >
-
-type AllSearchRenderProps = SearchRenderProps & SearchConfigProps
 
 class SearchContext extends Context<
   SearchProps,
   SearchState,
-  SearchActions,
-  AllSearchRenderProps
+  SearchActions
 > {
   static debug        = false
   static debugPrefix  = 'Search > '
@@ -50,24 +51,22 @@ class SearchContext extends Context<
   static initialProps = {
     value: 'initialValue',
   }
+  static defaultProps = defaultSearchProps
   //static actions = [
   //  'onFocus', 'onBlur', 'onChange', 'onKeyDown',
   //  'reset', 'clear', 'selectResult', 'setCursor', 'selectCursor',
   //  'resultsRef', 'activeRef',
   //]
 
-  config: WithRequiredFrom<
-    SearchProps,
-    typeof defaultProps
-  >
+  config: SearchConfigProps
   mounted?: boolean
   startSearch: DebounceFunction
   _resultsRef?: HTMLDivElement
 
-  constructor(props: SearchProps) {
+  constructor(props: SearchConstructorProps) {
     super(props)
     this.config = {
-      ...defaultProps,
+      ...defaultSearchProps,
       ...props
     }
     this.state = {
@@ -92,6 +91,8 @@ class SearchContext extends Context<
       selectCursor: this.selectCursor.bind(this),
       resultsRef:   this.resultsRef.bind(this),
       activeRef:    this.activeRef.bind(this),
+      // Hack
+      displayResult: this.config.displayResult
     }
   }
   componentDidMount() {
@@ -109,7 +110,7 @@ class SearchContext extends Context<
       this.setState(this.valueState())
     }
     this.config = {
-      ...defaultProps,
+      ...defaultSearchProps,
       ...this.props
     }
   }
@@ -314,7 +315,7 @@ class SearchContext extends Context<
     }
   }
 
-  getRenderProps(): AllSearchRenderProps {
+  getRenderProps() {
     return {
       ...this.config,
       ...this.state,

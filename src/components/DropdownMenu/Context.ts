@@ -1,5 +1,5 @@
 import MenuContext, { defaultMenuContextProps } from '@/src/context/Menu'
-import { Generator, WithRequiredFrom } from '@abw/react-context'
+import { ContextConstructorProps, Generator, WithRequiredFrom } from '@abw/react-context'
 import { withIconsRenderer } from '@/src/utils/index'
 import { DropdownMenuActions, DropdownMenuProps, DropdownMenuState } from './types'
 
@@ -40,7 +40,13 @@ class DropdownMenuContext extends MenuContext<
     typeof defaultDropdownMenuContextProps
   >
 
-  constructor(props: DropdownMenuProps) {
+  constructor(
+    props: ContextConstructorProps<
+      DropdownMenuProps,
+      DropdownMenuState,
+      DropdownMenuActions
+    >
+  ) {
     super(props)
     this.mounted = false
     this.config = {

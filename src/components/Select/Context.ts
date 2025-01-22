@@ -1,5 +1,5 @@
 import MenuContext, { defaultMenuContextProps } from '@/src/context/Menu'
-import { Generator, WithRequiredFrom } from '@abw/react-context'
+import { ContextConstructorProps, Generator, WithRequiredFrom } from '@abw/react-context'
 import { BLANK } from '@/src/constants'
 import { hasValue } from '@abw/badger-utils'
 import { ARROW_DOWN, ARROW_UP, TAB, ENTER, ESCAPE, SPACE, BACKSPACE } from '@/src/constants'
@@ -68,7 +68,13 @@ class Context extends MenuContext<
   >
   _searchRef?: HTMLElement
 
-  constructor(props: SelectProps) {
+  constructor(
+    props: ContextConstructorProps<
+      SelectProps,
+      SelectState,
+      SelectActions
+    >
+  ) {
     super(props)
     this.config = {
       ...defaultSelectProps,

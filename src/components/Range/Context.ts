@@ -38,22 +38,6 @@ class Context extends Base<
   static debug        = false
   static debugPrefix  = 'Range > '
   static debugColor   = 'rebeccapurple'
-  /*
-  static defaultProps = {
-    onChange: doNothing,
-    onChangeValue: doNothing,
-    // displayValue: identity,
-    normalClick: rangeNormalClick,
-    prepareRenderProps: identity,
-    minNormal: 0,
-    maxNormal: 1,
-    dragTimeout: 300,
-    color: 'brand',
-    rangeClass: 'range',
-    draggingClass: 'range-dragging',
-    hasScaleClass: 'range-has-scale',
-  }
-  */
   static actions = [
     'trackRef',
     'thumbsRef',
@@ -108,15 +92,7 @@ class Context extends Base<
       maxInput: state.maxValue,
     }
   }
-  /*
-  NOTinitProps(props) {
-    const { normalToValue, valueToNormal, quantize, ...state } = initRange(props)
-    this.quantize = quantize
-    this.normalToValue = normalToValue
-    this.valueToNormal = valueToNormal
-    return state
-  }
-  */
+
   componentDidUpdate(prevProps: RangeProps) {
     if (anyPropsChanged(WATCH_PROPS, this.props, prevProps)) {
       this.debug(`props have changed`)

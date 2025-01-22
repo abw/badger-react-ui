@@ -1,4 +1,5 @@
 import { RenderableValue } from '@/src/utils'
+import { ContextConstructorProps, ContextProps } from '@abw/react-context'
 
 export type SearchResult = RenderableValue & {
   id?: string | number
@@ -6,7 +7,7 @@ export type SearchResult = RenderableValue & {
 }
 export type SearchResults = Array<SearchResult> | null
 
-export type SearchProps = {
+export type SearchProps = ContextProps<{
   onSearch: (input: string, search: React.Component) => SearchResult[] | Promise<SearchResult[]>
   value?: SearchResult
   initialValue?: string
@@ -37,15 +38,16 @@ export type SearchProps = {
   onClear?: () => void
   onReset?: () => void
   onSelect?: SearchResultCallback
-  displayValue?: (result: SearchResult) => string
-  displayResult?: (result: SearchResult) => string
+  displayValue?: SearchResultRender
+  displayResult?: SearchResultRender
   Content?: SearchContentType
   Input?: SearchInputType
   Results?: SearchResultsType
   Result?: SearchResultType
   NoResults?: SearchNoResultsType
   Error?: SearchErrorType
-}
+}>
+
 export type SearchState = {
   search?: string
   input?: string
@@ -70,18 +72,25 @@ export type SearchActions = {
   activeRef: (ref: HTMLDivElement) => void
   clear: () => void
   reset: () => void
+  // Hack - this is defined in the config / replacement for defaultProps so
+  // that typescript doesn't try to blag consumers into thinking it may be
+  // undefined
+  displayResult: SearchResultRender,
 }
 
-export type SearchRenderProps =
-  SearchProps &
-  SearchState &
-  SearchActions
+export type SearchResultRender = (result: SearchResult) => string
 
 export type SearchResultProps = {
   active: boolean
   onClick: React.MouseEventHandler
   onMouseEnter: React.MouseEventHandler
 }
+
+export type SearchConstructorProps = ContextConstructorProps<
+  SearchProps,
+  SearchState,
+  SearchActions
+>
 
 export type SearchThisCallback = (search: React.Component) => void
 export type SearchResultCallback = (result: SearchResult) => void
