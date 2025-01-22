@@ -1,10 +1,9 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { it, expect } from 'vitest'
-import { render, screen, act } from '@testing-library/react'
-import { CheckedState } from '@/src/index.jsx'
+import { render, screen } from '@testing-library/react'
+import { CheckedState } from '@/src/index'
 
-const CheckedStateTest = ({ checked }) => {
+const CheckedStateTest = ({ checked }: { checked?: boolean }) => {
   const { isChecked, check, uncheck } = CheckedState({ checked })
 
   return (
@@ -35,10 +34,10 @@ it(
 
     expect(checked).toHaveTextContent('false')
 
-    await act( () => user.click(check) )
+    await user.click(check)
     expect(checked).toHaveTextContent('true')
 
-    await act( () => user.click(uncheck) )
+    await user.click(uncheck)
     expect(checked).toHaveTextContent('false')
   }
 )
@@ -55,10 +54,10 @@ it(
 
     expect(checked).toHaveTextContent('true')
 
-    await act( () => user.click(uncheck) )
+    await user.click(uncheck)
     expect(checked).toHaveTextContent('false')
 
-    await act( () => user.click(check) )
+    await user.click(check)
     expect(checked).toHaveTextContent('true')
   }
 )

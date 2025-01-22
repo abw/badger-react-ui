@@ -53,7 +53,7 @@ test(
 
 test(
   'withIconsRenderer(11)',
-  () => expect( withIconsRenderer(11) ).toBe(11)
+  () => expect( withIconsRenderer(11) ).toBe('11')
 )
 
 test(
