@@ -1,0 +1,40 @@
+import React       from 'react'
+import Component   from './_examples/Debug.tsx'
+import Source      from './_examples/Debug.tsx?raw'
+import PropsTable  from '@/web/site/PropsTable.jsx'
+import { Example } from '@abw/badger-website'
+
+# debugFunction()
+
+<div className="large">
+  This utility function can be used to create a function for sending
+  debugging messages to the Javascript console.
+</div>
+
+The `debug` flag enables or disables debugging.  When it is false the `debug()`
+function it returns will do nothing.  When true, the function forwards any
+arguments passed to `console.log`.
+
+The `debugPrefix` and `debugColor` allow you to define an optional prefix and
+colour for that prefix for all debugging messages.  This can help to distinguish
+one set of debugging messages from any others.
+
+<Example
+  Component={Component}
+  code={Source}
+  highlightLines="5-9,16,19"
+  expand
+/>
+
+## Properties
+
+The following properties may be passed to the `debugFunction()` function as
+configuration options.
+
+<PropsTable
+  items={[
+    ['debug',       'false',  'Enable debugging messages in the Javascript console.'],
+    ['debugPrefix', '',       'Prefix string for debugging messages.'],
+    ['debugColor',  '',       'CSS color for `debugPrefix`.'],
+  ]}
+/>

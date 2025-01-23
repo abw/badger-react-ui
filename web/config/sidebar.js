@@ -169,6 +169,10 @@ const Utilities = {
       text: 'CSS Classes',
     },
     {
+      to: '/utilities/debugFunction',
+      text: 'debugFunction',
+    },
+    {
       to: '/utilities/storage',
       text: 'Storage',
     },
