@@ -81,8 +81,8 @@ it(
     expect(isOpen).toHaveTextContent('false')
     expect(hasFocus).toHaveTextContent('true')
 
-    // once again to open
-    await user.keyboard(' ')
+    // press enter this time to open
+    await user.keyboard('{Enter}')
     expect(content).toHaveTextContent('Hello World')
     expect(isOpen).toHaveTextContent('true')
     expect(hasFocus).toHaveTextContent('true')
