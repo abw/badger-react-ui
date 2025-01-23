@@ -1,0 +1,64 @@
+import React       from 'react'
+import Component   from './_examples/useCursor.tsx'
+import Source      from './_examples/useCursor.tsx?raw'
+import DescTable   from '@/web/site/DescTable.jsx'
+import PropsTable  from '@/web/site/PropsTable.jsx'
+import { Example } from '@abw/badger-website'
+
+# useCursor
+
+<div className="large">
+  This hook can be used to define a cursor for indexing an array of options,
+  such as those used in the DropdownMenu and Select components.
+</div>
+
+The `useCursor()` hook should be passed an `options` property which is an
+array of selectable options.  It can also accept a `cursor` number to define
+the initial value for the cursor.  A `validOption` function can be specified
+which will determine if an option is valid and can be selected.
+
+The hook returns a copy of the `options`, the current `cursor` (which may be
+`null` or `undefined`), and functions to set the cursor to a specific value
+(`setCursorIndex`), the first valid value (`setCursorFirst`), the last valid
+value (`setCursorLast`), and the next and previous valid values (`setCursorNext`
+and `setCursorPrev` respectively).  The `clearCursor` function can be used to
+clear the current cursor value, effectively resetting the state.
+
+Debugging is enabled in this example.  Open the Javascript console if you want
+to see what's happening behind the scenes.
+
+<Example
+  Component={Component}
+  code={Source}
+  highlightLines="16-26,40,48,51,54,57,60,70,73,76,79,82"
+  expand
+/>
+
+## Properties
+
+The following properties may be passed to the `useTrigger()` hook as
+configuration options.
+
+<PropsTable
+  items={[
+    ['debug',       'false',  'Enable debugging messages in the Javascript console.'],
+    ['debugPrefix', '',       'Prefix string for debugging messages.'],
+    ['debugColor',  '',       'CSS color for `debugPrefix`.'],
+  ]}
+/>
+
+## State
+
+The following items are returned by the `useTrigger()` hook.
+
+<DescTable
+  items={[
+    ['TODO',      'TODO'],
+  ]}
+/>
+
+## Typescript Notes
+
+The `useCursor` hook accepts a type variable to specify the type of the
+option...
+

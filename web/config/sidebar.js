@@ -197,6 +197,10 @@ const Hooks = {
       text: 'useContainer',
     },
     {
+      to: '/hooks/useCursor',
+      text: 'useCursor',
+    },
+    {
       to: '/hooks/useFloating',
       text: 'useFloating',
     },

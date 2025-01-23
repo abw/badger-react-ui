@@ -1,5 +1,6 @@
 export * from './useComplexState'
 export * from './useContainer'
+export * from './useCursor'
 export * from './useFloating'
 export * from './useRenderCount'
 export * from './useSignal'
