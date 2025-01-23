@@ -1,0 +1,94 @@
+import React       from 'react'
+import Component   from './_examples/useTrigger.tsx'
+import Source      from './_examples/useTrigger.tsx?raw'
+import DescTable   from '@/web/site/DescTable.jsx'
+import PropsTable  from '@/web/site/PropsTable.jsx'
+import { Example } from '@abw/badger-website'
+
+# useTrigger
+
+<div className="large">
+  This hook can be used to define a trigger for a dropdown menu, select input,
+  or other component that is activated by a click, on mouse hover, or using
+  keyboard control.
+</div>
+
+The `triggerProps` returned by calling the hook is an object of properties
+which should be assigned to your trigger element using a spread operator as
+shown below.  Other state variables (e.g. `isOpen`, `hasHover`, etc) and
+control functions (e.g. `open`, `close`, etc) are also returned.
+
+By default the trigger will be activated by a mouse click, setting it to the
+`open` state.  If the `openOnHover` option it set then it will be trigged by
+the mouse pointer hovering on it.  Alternately, when the trigger is focussed,
+pressing the space bar will toggle the `open` state and pressing the escape
+key will close it (i.e. sets `open` to `false`).
+
+Debugging is enabled in this example.  Open the Javascript console if you want
+to see what's happening behind the scenes.
+
+<Example
+  Component={Component}
+  code={Source}
+  highlightLines="6-15,21"
+  expand
+/>
+
+## Properties
+
+The following properties may be passed to the `useTrigger()` hook as
+configuration options.
+
+<PropsTable
+  items={[
+    ['openOnHover', 'false',  'Set the open state on hover instead of click.'],
+    ['closeOnBlur', 'true',   'Set the closed state when focus is lost.'],
+    ['closeDelay',  '300',    'Delay in milliseconds before closing.'],
+    ['onOpen',      '',       'Function to call when state changes to open.'],
+    ['onClose',     '',       'Function to call when state changes to closed.'],
+    ['onFocus',     '',       'Function to call when trigger is focussed.'],
+    ['onBlur',      '',       'Function to call when trigger focus is lost.'],
+    ['onClick',     '',       'Function to call when trigger is clicked.'],
+    ['debug',       'false',  'Enable debugging messages in the Javascript console.'],
+    ['debugPrefix', '',       'Prefix string for debugging messages.'],
+    ['debugColor',  '',       'CSS color for `debugPrefix`.'],
+  ]}
+/>
+
+## State
+
+The following items are returned by the `useTrigger()` hook.
+
+<DescTable
+  items={[
+    ['triggerProps',  'A set of properties (`ref`, `onClick`, `onMouseEnter`, `onMouseLeave`, `onFocus`, `onBlur`, `onKeyDown`) to attach to the trigger element using a spread operator.  You can also attach some or all of them separately.'],
+    ['triggerRef',    'An HTMLElement ref which should be attached to the trigger using the `ref` property.'],
+    ['onClick',       'A handler to capture click events which should be attached to the trigger using the `onClick` property'],
+    ['onMouseEnter',  'A handler to capture mouse enter events which should be attached to the trigger using the `onMouseEnter` property'],
+    ['onMouseLeave',  'A handler to capture mouse leave events which should be attached to the trigger using the `onMouseLeave` property'],
+    ['onFocus',       'A handler to capture focus events which should be attached to the trigger using the `onFocus` property'],
+    ['onBlur',        'A handler to capture blur events which should be attached to the trigger using the `onBlur` property'],
+    ['onKeyDown',     'A handler to capture key down events which should be attached to the trigger using the `onKeyDown` property'],
+    ['isOpen',        'Boolean flag for the `open` state.'],
+    ['open()',        'Sets the `open` state to be `true` and fires any `onOpen` callback.'],
+    ['close()',       'Sets the `open` state to be `false` and fires any `onClose` callback.'],
+    ['toggleOpen',    'Toggles the `open` state between `true` and `false`, firing any relevant callbacks.'],
+    ['hasHover',      'Indicates if the trigger currently has the mouse pointer hovered on it.'],
+    ['hasFocus',      'Indicated if the trigger is currently focussed.'],
+  ]}
+/>
+
+## Typescript Notes
+
+The `useTrigger` hook accepts a type variable to specify the type of the
+trigger element that it is being attached to.
+
+In this example we're attaching it to a `button` element, so the hook is
+called like so:
+
+```ts
+useTrigger<HTMLButtonElement>({ ... })
+```
+
+If you're attaching it to a different element then you should type it
+accordingly, e.g. `HTMLDivElement`, `HTMLInputElement` and so on.

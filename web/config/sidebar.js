@@ -201,6 +201,10 @@ const Hooks = {
       text: 'useRenderCount',
     },
     {
+      to: '/hooks/useTrigger',
+      text: 'useTrigger',
+    },
+    {
       to: '/hooks/useWindow',
       text: 'useWindow',
     },
