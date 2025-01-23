@@ -65,7 +65,7 @@ const UseTriggerExample = () => {
   )
 }
 
-const StatusItem = ({ label, truth }) =>
+const StatusItem = ({ label, truth }: { label: string, truth: boolean }) =>
   <div>
     <div className="smaller weight-300">
       { label }
