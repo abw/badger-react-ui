@@ -53,8 +53,8 @@ devDependencies:
     specifier: ^1.1.2
     version: 1.1.2
   '@abw/badger-website':
-    specifier: ^0.2.5
-    version: 0.2.5(@types/react@18.3.18)(react-dom@18.3.1)(react@18.3.1)
+    specifier: ^0.3.3
+    version: 0.3.3(@types/react@18.3.18)(react-dom@18.3.1)(react@18.3.1)
   '@abw/react-night-and-day':
     specifier: ^0.0.6
     version: 0.0.6(react-dom@18.3.1)(react@18.3.1)
@@ -200,8 +200,8 @@ packages:
       big.js: 6.2.2
     dev: false
 
-  /@abw/badger-react-ui@1.3.12(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-BawLjEfcxs3BflwMub6tpLakLfa6FWdpKRS0mBbF9bQsNFlqF1bpRmfO6iHwW/sOO+GUVbq6KF2aMIVHGRpMFA==}
+  /@abw/badger-react-ui@1.3.13(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-qPmARVU4Dm9ZQ0CQ4syHB8mCdbx3ZIUsrYRi8NmEsa7l42oBzUh8mYwGGcLaD2lBk/fP2TDW0X78y1xF7Q3kAQ==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -226,21 +226,31 @@ packages:
     dependencies:
       '@abw/badger-utils': 1.2.2
 
+  /@abw/badger-timestamp@1.2.0:
+    resolution: {integrity: sha512-7dS6N0UI2p0j3yLXVXDD6SNN4EEowbUt8ho3bZ7S8/S4B9Pp7FLqiTJx3nXA1ACjwU37HipgVoScwJTqs/939g==}
+    dependencies:
+      '@abw/badger-utils': 1.2.0
+    dev: true
+
+  /@abw/badger-utils@1.2.0:
+    resolution: {integrity: sha512-7JZOL5m4HoT3MvAy09A+JlwfDi4eXqngUau8syfr4Wt897ylD5vGTavJQH+tNKdMe1Dc33Y6MjSngGyYQ7eqEQ==}
+    dev: true
+
   /@abw/badger-utils@1.2.2:
     resolution: {integrity: sha512-ISEoqVhRfWXAa+bDbmm/qG+Osd33yCUKxnn+jV2FflDNeM1ieZggSahVLMex2d771pVtylBd6SKH2MrS2lGFdA==}
 
-  /@abw/badger-website@0.2.5(@types/react@18.3.18)(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-M7EqrG9RbzXyQyTDq5S4RjUiO3o6H3sdNIwxybeQsWYOlWdAIe0jf8h9csGsnF6k32XojV7kIm7T3ksIPxF1zg==}
+  /@abw/badger-website@0.3.3(@types/react@18.3.18)(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-vpAatQ2OoPTIGP8+y/+Z1VoN6IM/emXqZt+Sor8vo2J8Cp+Xdge9Ayu87qI77GVXHOIcm9vPubagv/wUs0p+QQ==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
       '@abw/badger-css': 1.2.6
-      '@abw/badger-react-ui': 1.3.12(react-dom@18.3.1)(react@18.3.1)
-      '@abw/badger-timestamp': 1.1.2
+      '@abw/badger-react-ui': 1.3.13(react-dom@18.3.1)(react@18.3.1)
+      '@abw/badger-timestamp': 1.2.0
       '@abw/badger-utils': 1.2.2
       '@abw/react-context': 2.1.1(react-dom@18.3.1)(react@18.3.1)
-      '@abw/react-night-and-day': 0.0.6(react-dom@18.3.1)(react@18.3.1)
+      '@abw/react-night-and-day': 1.0.0-alpha-1(react-dom@18.3.1)(react@18.3.1)
       '@mdx-js/react': 3.1.0(@types/react@18.3.18)(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -285,6 +295,16 @@ packages:
 
   /@abw/react-night-and-day@0.0.6(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-HVvyYuRxs8soPO1c/AFQqylx6uQqe9OHvxdJVVCzOtEtDYRFyM5NGY5Ob9ugUrSkg7o1Ru8p1vDfAJ+7/nyMvQ==}
+    peerDependencies:
+      react: ^18.2.0
+      react-dom: ^18.2.0
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    dev: true
+
+  /@abw/react-night-and-day@1.0.0-alpha-1(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-0MUZTHjD1BM6kV+T1nrvKISGyY7r0JVIXjIvPnVFTx7hPBlI2713ohCy6aE1Or4oZaN6lZiQcVVdB0nStvQgiA==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
