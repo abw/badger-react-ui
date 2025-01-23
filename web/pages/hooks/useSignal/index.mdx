@@ -1,0 +1,53 @@
+import React       from 'react'
+import Component   from './_examples/useSignal.tsx'
+import Source      from './_examples/useSignal.tsx?raw'
+import DescTable   from '@/web/site/DescTable.jsx'
+import PropsTable  from '@/web/site/PropsTable.jsx'
+import { Example } from '@abw/badger-website'
+
+# useSignal
+
+<div className="large">
+  This hook can be used to define a signal channel that components can
+  subscribe to.  A signal is a very simple event mechanism which allows
+  a message with a single optional parameter (which can be an arbitrarily
+  complex object) to be sent to all subscribers.
+</div>
+
+The `useSignal()` method...
+
+<Example
+  Component={Component}
+  code={Source}
+  highlightLines="8-16,52-55,72-83"
+  expand
+/>
+
+## Properties
+
+The following properties may be passed to the `useSignal()` hook as
+configuration options.
+
+<PropsTable
+  items={[
+    ['debug',       'false',      'Enable debugging messages in the Javascript console.'],
+    ['debugPrefix', 'Signal > ',  'Prefix string for debugging messages.'],
+    ['debugColor',  '',           'CSS color for `debugPrefix`.'],
+  ]}
+/>
+
+## State
+
+The following items are returned by the `useSignal()` hook.
+
+<DescTable
+  items={[
+    ['subscribe',  'A function to subscribe to the signal'],
+  ]}
+/>
+
+## Typescript Notes
+
+The `useSignal` hook accepts a type variable to specify the type of the
+argument passed to subscribers.
+
