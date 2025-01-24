@@ -67,3 +67,14 @@ Sub-optimal fix is to use a type instead.
 `WithIcons` props - can the icons be react components and props objects
 as well as strings?
 
+## Context Cleanup
+
+Convert DropdownMenu context to functional component and useTrigger / useCursor
+
+Convert Range context to functional component
+
+Convert Search context to functional component
+
+Convert Select context to functional component
+
+

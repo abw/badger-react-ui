@@ -14,10 +14,6 @@ const Details: DetailsType = ({
   native,
   open=false,
   ...props
-  //Container = native
-  //  ? NativeContainer
-  //  : DetailsContainer,
-  // Container=DetailsContainer,
 }) =>
   <Context.Provider open={open}>
     { native
