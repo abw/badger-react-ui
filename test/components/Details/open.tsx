@@ -1,8 +1,9 @@
 import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
-import { render, screen, act } from '@testing-library/react'
-import { Details, Button } from '@/src/index.jsx'
+import { render, screen } from '@testing-library/react'
+import { Details, Button } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 // import { prettyDOM } from '@testing-library/dom'
 
 const summaryText = 'This is the summary'
@@ -39,13 +40,13 @@ const DetailsExample = () => {
   )
 }
 
-function checkClosed(details) {
+function checkClosed(details: Element) {
   const divs1 = details.querySelectorAll('div')
   expect(divs1.length).toBe(1)
   expect(screen.getByTestId('state')).toHaveTextContent('Currently closed')
 }
 
-function checkOpen(details) {
+function checkOpen(details: Element) {
   const divs1 = details.querySelectorAll('div')
   expect(divs1.length).toBe(2)
   expect(divs1[1]).toHaveTextContent(contentText)
@@ -59,7 +60,7 @@ test(
     const { container } = render(
       <DetailsExample/>
     )
-    const details = container.querySelector('div.details')
+    const details = container.querySelector('div.details') || fail('no details')
     expect(details).toBeTruthy()
 
     const summary = details.querySelector('div.summary span.summary-text')
@@ -75,11 +76,11 @@ test(
     expect(openButton).toHaveTextContent('Open')
 
     // close
-    await act( () => user.click(closeButton) )
+    await user.click(closeButton)
     checkClosed(details)
 
     // open
-    await act( () => user.click(openButton) )
+    await user.click(openButton)
     checkOpen(details)
   }
 )
