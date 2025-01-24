@@ -1,8 +1,6 @@
 import React from 'react'
 import { Dropdown } from '@/src/index'
 
-// PRETEND: import { DropdownMenu } from '@abw/badger-react-ui
-
 const DropdownMenuExample = () =>
   <div className="flex space middle">
     {/* START */}

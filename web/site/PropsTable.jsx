@@ -2,7 +2,7 @@ import React from 'react'
 import { codify } from './DescTable.jsx'
 
 const PropsTable = ({items}) =>
-  <table className="wide shaded striped celled">
+  <table className="wide shaded striped celled baseline">
     <thead>
       <tr>
         <th>Property</th>

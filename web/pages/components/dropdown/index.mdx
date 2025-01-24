@@ -14,6 +14,7 @@ import IconLeft         from './_examples/iconLeft/index.mdx'
 import IconLeftRotate   from './_examples/iconLeftRotate/index.mdx'
 import IconRight        from './_examples/iconRight/index.mdx'
 import IconRightRotate  from './_examples/iconRightRotate/index.mdx'
+import PropsTable       from '@/web/site/PropsTable.jsx'
 import { SubHeading } from '@abw/badger-website'
 
 # Dropdown
@@ -39,46 +40,22 @@ import { SubHeading } from '@abw/badger-website'
 
 ## CSS Classes
 
-### `className`
+The following properties can be provided to set or modify the CSS classes
+used in various elements.
 
-Used to set the CSS class for the dropdown container.  The default
-value is `dropdown`.
-
-### `openClass`
-
-Used to set the CSS class added to the dropdown container when
-the menu is open.  The default value is `open`.
-
-### `closedClass`
-
-Used to set the CSS class added to the dropdown container when
-the menu is closed.  The default value is `closed`.
-
-### `size`
-
-Used to add a size to the CSS class added to the dropdown container.
-
-### `triggerClass`
-
-Used to set the CSS class added to the dropdown trigger.
-The default value is `trigger`.
-
-### `triggerColor`
-
-Used to add a color to the CSS class for the dropdown trigger.
-
-### `triggerSize`
-
-Used to add a size to the CSS class for the dropdown trigger.
-
-### `menuClass`
-
-<b>TODO: update this!</b>
-Used to set the CSS class added to the dropdown menu container.
-The default value is `menu border bdr-1`.  The
-`border` utility class adds a border and
-`bdr-1` sets the border radius to 1 unit (0.25rem or
-4px).
+<PropsTable
+  items={[
+    ['className', 'dropdown', 'The CSS class for the dropdown container element.'],
+    ['size', '', 'Used to add a size to the CSS class added to the dropdown container element.'],
+    ['openClass', 'open', 'CSS class added to the dropdown container element in the open state.'],
+    ['closedClass', 'closed', ' CSS class added to the dropdown container element in the closed state.'],
+    ['triggerClass', 'trigger', 'The CSS class added to the dropdown trigger element.'],
+    ['triggerColor', '', 'Used to add a color to the CSS class for the dropdown trigger.'],
+    ['triggerSize', '', 'Used to add a size to the CSS class for the dropdown trigger.'],
+    ['bodyClass', 'body border bdr-1', 'The CSS class added to the dropdown menu container. The `border` utility class adds a border and `bdr-1` sets the border radius to 1 unit (0.25rem or 4px).'],
+    ['safeAreaClass', 'safe-area', 'CSS class for the safe area added between the trigger and body'],
+  ]}
+  />
 
 ## Components
 
