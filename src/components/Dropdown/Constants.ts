@@ -1,1 +1,5 @@
-export const DROPDOWN_BODY_CLASS = 'body border bdr-1'
+export const DROPDOWN_CLASS           = 'dropdown'
+export const DROPDOWN_BODY_CLASS      = 'body border bdr-1'
+export const DROPDOWN_NO_CONTENT      = 'No content defined'
+export const DROPDOWN_TRIGGER_CLASS   = 'trigger'
+export const DROPDOWN_SAFE_AREA_CLASS = 'safe-area'

@@ -1,4 +1,4 @@
-import { DropdownContextState } from '@/src/context/Dropdown'
+// import { DropdownContextState } from '@/src/context/Dropdown'
 import { Placement } from '@floating-ui/react'
 import { WithIconsProps } from '../Icon'
 import { useTrigger, UseTriggerProps } from '@/src/hooks'
@@ -23,66 +23,42 @@ export type DropdownProps =
   triggerClass?: string
   triggerColor?: string
   triggerSize?: string
+  noContent?: string
   Trigger?: DropdownTriggerType
   Content?: DropdownContentType
   Body?: DropdownBodyType
 }
 
-/*
-export type DropdownRenderProps<
-  TriggerElement extends HTMLDivElement = HTMLDivElement
-> =
-// export type DropdownRenderProps<T extends HTMLElement = HTMLElement> =
-  Omit<ReturnType<typeof useTrigger<TriggerElement>>, 'triggerRef'> &
-  DropdownProps & {
-    triggerRef: React.Ref<TriggerElement>
-    bodyStyle: CSSProperties,
-    bodyRef: ((node: HTMLElement | null) => void)
-  }
-*/
+export type DropdownTriggerRef = (trigger: Element | null) => void
+export type DropdownBodyRef = (body: HTMLElement | null) => void
+export type DropdownBodyStyle = CSSProperties
+export type DropdownBodyProps = {
+  className: string
+  ref: DropdownBodyRef,
+  style: DropdownBodyStyle,
+  onMouseEnter: () => void,
+  onMouseLeave: () => void,
+}
+export type DropdownTriggerProps =
+  Omit<ReturnType<typeof useTrigger>['triggerProps'], 'ref'> & {
+  className: string,
+  ref: DropdownTriggerRef
+  tabIndex: number
+}
+export type DropdownIconProps = WithIconsProps
 
 export type DropdownRenderProps =
-  Omit<ReturnType<typeof useTrigger>, 'triggerRef'> &
+  Omit<ReturnType<typeof useTrigger>, 'triggerRef' | 'triggerProps'> &
   DropdownProps & {
-    triggerRef: (trigger: Element | null) => void,
-    bodyStyle: CSSProperties,
-    bodyRef: (body: HTMLElement | null) => void
+    dropdownClass: string
+    triggerRef: DropdownTriggerRef
+    triggerProps: DropdownTriggerProps
+    bodyRef: DropdownBodyRef
+    bodyStyle: DropdownBodyStyle
+    bodyProps: DropdownBodyProps
+    safeAreaClass: string,
+    iconProps: DropdownIconProps
   }
-
-export type DropdownState =
-  DropdownContextState & {
-  onMouseEnter: () => void
-  onMouseLeave: () => void
-  onKeyDown: (event: React.KeyboardEvent) => void
-  triggerRef: (ref: HTMLElement) => void
-}
-
-/*
-export type DropdownBodyProps = {
-  // floatingRef: (node: HTMLElement | null) => void
-  // floatingStyle: React.CSSProperties
-}
-
-export type DropdownTriggerProps = {
-  // floatingRef: (node: ReferenceType | null) => void
-}
-*/
-
-/*
-export type DropdownContextProps = {
-  // options: DropdownContextOption[]
-  openOnHover?: boolean
-  closeOnBlue?: boolean
-  closeDelay?: number
-  onLoad?: ThisCallback
-  onUnload?: ThisCallback
-  onFocus?: () => void
-  onBlur?: () => void
-  onClick?: () => void
-  onOpen?: () => void
-  onClose?: () => void
-}
-*/
 
 export type DropdownContentType = React.FC
 export type DropdownTriggerType = React.FC

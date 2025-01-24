@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { Dropdown } from '@/src/index'
 import { fail } from '@abw/badger-utils'
 
@@ -20,6 +20,7 @@ test(
 
     const dropdown = container.querySelector('div.dropdown') || fail('no dropdown')
 
+    screen.debug()
     const trigger = dropdown.querySelector('div.trigger') || fail('no trigger')
     expect(trigger).toHaveTextContent('Dropdown')
 

@@ -9,7 +9,7 @@ const Dropdown = ({
   children,
   ...props
 }: DropdownProps) =>
-  <Context.Provider content={content||children} {...props}>
+  <Context.Provider content={content || children} {...props}>
     <Content/>
   </Context.Provider>
 
