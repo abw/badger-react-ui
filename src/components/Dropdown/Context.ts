@@ -14,7 +14,7 @@ const DropdownContext = Generator<DropdownProps, DropdownRenderProps>(
     const {
       triggerRef: baseTriggerRef,
       ...trigger
-    } = useTrigger<HTMLDivElement>(props)
+    } = useTrigger(props)
 
     // floating
     const {

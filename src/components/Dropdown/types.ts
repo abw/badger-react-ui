@@ -28,6 +28,7 @@ export type DropdownProps =
   Body?: DropdownBodyType
 }
 
+/*
 export type DropdownRenderProps<
   TriggerElement extends HTMLDivElement = HTMLDivElement
 > =
@@ -37,6 +38,15 @@ export type DropdownRenderProps<
     triggerRef: React.Ref<TriggerElement>
     bodyStyle: CSSProperties,
     bodyRef: ((node: HTMLElement | null) => void)
+  }
+*/
+
+export type DropdownRenderProps =
+  Omit<ReturnType<typeof useTrigger>, 'triggerRef'> &
+  DropdownProps & {
+    triggerRef: (trigger: Element | null) => void,
+    bodyStyle: CSSProperties,
+    bodyRef: (body: HTMLElement | null) => void
   }
 
 export type DropdownState =
