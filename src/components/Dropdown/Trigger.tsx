@@ -1,13 +1,12 @@
 import Context        from './Context'
 import WithIcons      from '@/components/Icon/WithIcons'
 import { extract }    from '@abw/badger-utils'
-import { mergeRefs }  from '@/src/utils/refs'
 import { classes }    from '@/src/utils/classes'
-import { DropdownTriggerProps } from './types'
+// import { DropdownTriggerProps } from './types'
+// import { mergeRefs }  from '@/src/utils/refs'
+// import { RefObject } from 'react'
 
-export const DropdownTrigger = Context.Consumer<
-  DropdownTriggerProps
->(
+export const DropdownTrigger = Context.Consumer(
   ({
     triggerClass='trigger',
     triggerRef,
@@ -15,7 +14,6 @@ export const DropdownTrigger = Context.Consumer<
     triggerSize,
     button,
     icon,
-    floatingRef,
     safeAreaClass='safe-area',
     onMouseEnter,
     onMouseLeave,
@@ -41,7 +39,8 @@ export const DropdownTrigger = Context.Consumer<
       onFocus={onFocus}
       onBlur={onBlur}
       tabIndex={0}
-      ref={mergeRefs([triggerRef, floatingRef])}
+      //ref={mergeRefs<HTMLDivElement>(triggerRef, floatingRef)}
+      ref={triggerRef}
     >
       <WithIcons icon={icon} {...extract(props, /^(icon|text)/)}/>
       <div className={safeAreaClass}></div>

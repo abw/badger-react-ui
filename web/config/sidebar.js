@@ -249,6 +249,10 @@ const DevTests = {
   revealable: true,
   menu: [
     {
+      to: '/testing/accordion-select',
+      text: 'Accordion Select',
+    },
+    {
       to: '/testing/datatable-columns',
       text: 'DataTable Columns',
     },
@@ -261,16 +265,12 @@ const DevTests = {
       text: 'DataTable Rows',
     },
     {
-      to: '/testing/accordion-select',
-      text: 'Accordion Select',
+      to: '/testing/dropdown',
+      text: 'Dropdown',
     },
     {
       to: '/testing/dynamic-select',
       text: 'Dynamic Select',
-    },
-    {
-      to: '/testing/select-opacity',
-      text: 'Select Opacity',
     },
     {
       to: '/testing/range',
@@ -285,6 +285,10 @@ const DevTests = {
       to: '/testing/range-options',
       text: 'Range Options',
       tocName: 'range-options',
+    },
+    {
+      to: '/testing/select-opacity',
+      text: 'Select Opacity',
     },
   ]
 }

@@ -1,7 +1,6 @@
 import Context          from './Context'
 import DropdownTrigger  from './Trigger'
 import DropdownBody     from './Body'
-import useFloating      from '@/src/hooks/useFloating'
 import { classes }      from '@/src/utils/classes'
 
 export const DropdownContent = Context.Consumer(
@@ -9,8 +8,6 @@ export const DropdownContent = Context.Consumer(
     className='dropdown',
     openClass='open',
     closedClass='closed',
-    placement,
-    offset=8,
     isOpen,
     right,
     size,
@@ -18,11 +15,6 @@ export const DropdownContent = Context.Consumer(
     Trigger=DropdownTrigger,
     Body=DropdownBody
   }) => {
-    const { refs, floatingStyles } = useFloating({
-      offset,
-      placement,
-      right,
-    })
     return (
       <div
         className={
@@ -34,12 +26,9 @@ export const DropdownContent = Context.Consumer(
           )
         }
       >
-        <Trigger floatingRef={refs.setReference}/>
+        <Trigger/>
         { isOpen &&
-          <Body
-            floatingRef={refs.setFloating}
-            floatingStyle={floatingStyles}
-          />
+          <Body/>
         }
       </div>
     )
