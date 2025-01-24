@@ -4,6 +4,7 @@ import Source      from './_examples/useCursor.tsx?raw'
 import DescTable   from '@/web/site/DescTable.jsx'
 import PropsTable  from '@/web/site/PropsTable.jsx'
 import { Example } from '@abw/badger-website'
+import { DropdownMenuLink, SelectLink } from '@/web/site/Links.jsx'
 
 # useCursor
 
@@ -36,14 +37,17 @@ to see what's happening behind the scenes.
 
 ## Properties
 
-The following properties may be passed to the `useTrigger()` hook as
+The following properties may be passed to the `useCursor()` hook as
 configuration options.
 
 <PropsTable
   items={[
-    ['debug',       'false',  'Enable debugging messages in the Javascript console.'],
-    ['debugPrefix', '',       'Prefix string for debugging messages.'],
-    ['debugColor',  '',       'CSS color for `debugPrefix`.'],
+    ['options',     '',             'An array of options for the cursor to index.'],
+    ['cursor',      '',             'An initial value for the cursor.'],
+    ['validOption', 'validOption',  'A function to determine if an option is valid and can be selected. The default function ignores objects that contain a `disabled`, `heading` or `separator` property.'],
+    ['debug',       'false',        'Enable debugging messages in the Javascript console.'],
+    ['debugPrefix', 'Cursor > ',    'Prefix string for debugging messages.'],
+    ['debugColor',  '',             'CSS color for `debugPrefix`.'],
   ]}
 />
 
@@ -53,12 +57,25 @@ The following items are returned by the `useTrigger()` hook.
 
 <DescTable
   items={[
-    ['TODO',      'TODO'],
+    ['options',        'The array of options that the cursor is indexing.'],
+    ['cursor',         'The current cursor value.  This can be `undefined` or `null`.  Otherwise it will be a valid index into `options`, e.g. from `0` to `options.length - 1`'],
+    ['firstIndex',     'Function to return the first valid index in the `options` array.'],
+    ['lastIndex',      'Function to return the last valid index in the `options` array.'],
+    ['nextIndex',      'Function to return the next valid index in the `options` array.'],
+    ['prevIndex',      'Function to return the previous valid index in the `options` array.'],
+    ['setCursorFirst', 'Function to set the cursor to the first valid index in the `options` array.'],
+    ['setCursorLast',  'Function to set the cursor to the last valid index in the `options` array.'],
+    ['setCursorNext',  'Function to set the cursor to the next valid index in the `options` array.'],
+    ['setCursorPrev',  'Function to set the cursor to the previous valid index in the `options` array.'],
+    ['setCursorIndex', 'Function to set the cursor to a specific index.  If the index is not valid then it will be clamped to the closest valid index.'],
+    ['setCursor',      'Function to directly set the cursor, bypassing all safety checked and side-effects.  Use carefully.  The `setCursorIndex` function is probably what you should be using instead.'],
+    ['clearCursor',    'Function to clear the cursor and reset the state.'],
   ]}
 />
 
 ## Typescript Notes
 
-The `useCursor` hook accepts a type variable to specify the type of the
-option...
+The `useCursor` hook accepts a generic type parameter to specify the type of
+the items in the `options` array.  The default value is `SelectOption` which
+is used in the <SelectLink/> and <DropdownMenuLink/> components.
 

@@ -8,7 +8,6 @@ import {
 
 export type UseCursorProps<T=SelectOption> = DebugOptions & {
   cursor?: number
-  limit?: number
   options?: T[],
   validOption?: (option: SelectOption) => boolean
 }
@@ -166,16 +165,11 @@ export const useCursor = ({
   }
 }
 
-/*
+/* TODO
+
 export type DropdownContextProps = ContextProps<{
   onLoad?: ThisCallback
   onUnload?: ThisCallback
 }>
-
-export type MenuContextProps = DropdownContextProps & {
-  options: SelectOption[]
-  validOption: IsValidOption
-  onSelect: (value: SelectOption) => void
-}
 
 */
