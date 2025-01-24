@@ -1,12 +1,21 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { it, expect } from 'vitest'
-import { render, screen, act } from '@testing-library/react'
-import { useComplexState } from '@/src/index.jsx'
+import { render, screen } from '@testing-library/react'
+import { useComplexState } from '@/src/index'
 import { snakeToStudly } from '@abw/badger-utils'
 
+type Values = {
+  item_one: number,
+  item_two: number
+}
+
+type Setters = {
+  setItemOne: (value: number) => void,
+  setItemTwo: (value: number) => void
+}
+
 const ComplexStateTest = () => {
-  const [state, setters] = useComplexState(
+  const [state, setters] = useComplexState<Values, Setters>(
     { item_one: 1, item_two: 2 },
     { convertCase: snakeToStudly }
   )
@@ -38,7 +47,10 @@ const ComplexStateTest = () => {
   )
 }
 
-const Row = ({ caption, id, value, setter }) =>
+const Row = (
+  { caption, id, value, setter }:
+  { caption: string, id: string, value: number, setter: (n: number) => void }
+) =>
   <tr>
     <th>{caption}</th>
     <td>
@@ -66,13 +78,13 @@ it(
     expect(item_two).toHaveValue(2)
     expect(total).toHaveTextContent('3')
 
-    await act( () => user.click(item_one) )
-    await act( () => user.keyboard('0') )
+    await user.click(item_one)
+    await user.keyboard('0')
     expect(item_one).toHaveValue(10)
     expect(total).toHaveTextContent('12')
 
-    await act( () => user.click(item_two) )
-    await act( () => user.keyboard('{Backspace}11') )
+    await user.click(item_two)
+    await user.keyboard('{Backspace}11')
     expect(item_two).toHaveValue(11)
     expect(total).toHaveTextContent('21')
   }

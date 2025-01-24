@@ -10,13 +10,19 @@ export type UseComplexStateOptions<Values> = {
 }
 export type UseComplexStateOnChange<Values> = (values: Values) => Values
 
-type ValuesSetters<Values> = {
-    [Property in keyof Values as `set${Capitalize<string & Property>}`]: (value: Values[Property]) => void
+
+export type UseComplexValueSet<T> = (value: T) => void
+export type UseComplexValueFn<T> = (fn: (value: T) => T) => void
+export type UseComplexSetter<T> = UseComplexValueSet<T> & UseComplexValueFn<T>
+
+type UseComplexValuesSetters<Values> = {
+  [Property in keyof Values as `set${Capitalize<string & Property>}`]:
+    UseComplexSetter<Values[Property]>
 };
 
 export const useComplexState = <
   Values extends UseComplexStateValues = UseComplexStateValues,
-  Setters = ValuesSetters<Values>
+  Setters = UseComplexValuesSetters<Values>,
 >(
   values: Values,
   options: UseComplexStateOptions<Values>={ }

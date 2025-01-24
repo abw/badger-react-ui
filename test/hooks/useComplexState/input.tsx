@@ -1,8 +1,7 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { it, expect } from 'vitest'
-import { render, screen, act, waitFor } from '@testing-library/react'
-import { useComplexState } from '@/src/index.jsx'
+import { render, screen, waitFor } from '@testing-library/react'
+import { useComplexState } from '@/src/index'
 
 const ComplexStateTest = () => {
   const [state, setters] = useComplexState({
@@ -42,7 +41,10 @@ const ComplexStateTest = () => {
   )
 }
 
-const Row = ({ caption, id, value, setter }) =>
+const Row = (
+  { caption, id, value, setter }:
+  { caption: string, id: string, value: number, setter: (n: number) => void }
+) =>
   <tr>
     <th>{caption}</th>
     <td>
@@ -62,10 +64,6 @@ it(
     const user = userEvent.setup()
     render(<ComplexStateTest/>)
 
-    //await waitFor(
-    //  () => expect(screen.getByTestId('table')).toBeDefined()
-    //)
-
     const badgers = screen.getByTestId('badgers')
     const ferrets = screen.getByTestId('ferrets')
     const stoats  = screen.getByTestId('stoats')
@@ -75,19 +73,18 @@ it(
       () => expect(badgers).toHaveValue(3)
     )
 
-
     expect(badgers).toHaveValue(3)
     expect(ferrets).toHaveValue(2)
     expect(stoats).toHaveValue(1)
     expect(total).toHaveTextContent('6')
 
-    await act( () => user.click(badgers) )
-    await act( () => user.keyboard('1') )
+    await user.click(badgers)
+    await user.keyboard('1')
     expect(badgers).toHaveValue(31)
     expect(total).toHaveTextContent('34')
 
-    await act( () => user.click(ferrets) )
-    await act( () => user.keyboard('{Backspace}11') )
+    await user.click(ferrets)
+    await user.keyboard('{Backspace}11')
     expect(ferrets).toHaveValue(11)
     expect(total).toHaveTextContent('43')
   }

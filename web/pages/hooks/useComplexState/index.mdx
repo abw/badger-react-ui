@@ -5,6 +5,7 @@ import Functions    from './_examples/functions/index.mdx'
 import OnChange     from './_examples/onChange/index.mdx'
 import ConvertCase  from './_examples/ConvertCase/index.mdx'
 import SetterNamer  from './_examples/SetterNamer/index.mdx'
+import HashLink     from '@/web/page/HashLink.jsx'
 import { Example } from '@abw/badger-website'
 
 # useComplexState
@@ -33,3 +34,94 @@ corresponding setter function will be called `setBadgers`.
 <OnChange/>
 <ConvertCase/>
 <SetterNamer/>
+
+## Typescript Notes
+
+In simple cases, Typescript can infer the type of the initial values that
+you pass into `useComplexState`.  It will return a `state` matching the type
+and `setters` containing type matched setter functions.
+
+However, this isn't the case if you have additional items that you want to
+set in the state that aren't defined in the initial data.
+
+In the <HashLink text="onChange"/> example earlier we used an `onChange`
+handler to set the `total` value in the state, but we didn't include it in
+the initial data set. In this case you'll get a type error when you try to
+access `state.total` because Typescript can't infer its existence.
+
+One solution is to include initial values for all items in the state.
+We could fix the earlier example by adding an optional `total` to the initial
+date so that Typescript can infer that it's a number.
+
+```ts highlightLines="2"
+const [state, setters] = useComplexState(
+  { badgers: 3, ferrets: 2, stoats: 1, total: 0 },
+  {
+    // ...etc...
+  }
+)
+```
+
+The more general solution is to define a type for your data and pass that
+as a generic type parameter to `useComplexState`.
+
+```ts highlightLines="1-6,8"
+type Values = {
+  badgers: number,
+  ferrets: number,
+  stoats: number,
+  total?: number
+}
+
+const [state, setters] = useComplexState<Values>(
+  { badgers: 3, ferrets: 2, stoats: 1 },
+  {
+    // ...etc...
+  }
+)
+```
+
+You'll also encounter problems if you use the <HashLink text="convertCase"/>
+or <HashLink text="setterNamer"/> options to define customer setter names.
+There's enough magic in the Typescript wand to determine that the setter for
+a `foo` property will be `setFoo`.  However it can't handle cases where you
+might want the setter for `an_item` to be `setAnItem`, `change_an_item` or
+something else.  It will assume it is `setAn_item` (i.e. `set` + `an_item`
+with only the first letter capitalised) and all other bets are off.
+
+In this case you can pass a second type parameter to `useComplexState`
+defining your setter functions.  The type for a value setter function is
+rather complex. It is a function that can accept a new value of the relevant
+type: `(value: T) => void`.  Or it can accept a function that receives the
+old value and returns the new one: `(fn: (value: T) => T) => void`.
+
+Fortunately the `UseComplexSetter` utility type exists to save you from this
+madness.  In the example below we define the `Setters` type on lines 8 to 11
+containing two items, `set_item_one` and `set_item_two`, both of which set
+numbers. We then pass this type to `useComplexState` as the second type
+parameter on line 13.
+
+Now we can use the `set_item_one` and `set_item_two` setters on lines 17 and
+18.  They either accept a single number or a function that receives the current
+number and returns a new value.
+
+```ts highlightLines="1,8-11,13,17-18"
+import { UseComplexSetter } from '@abw/badger-react-ui'
+
+type Values = {
+  item_one: number,
+  item_two: number
+}
+
+type Setters = {
+  set_item_one: UseComplexSetter<number>,
+  set_item_two: UseComplexSetter<number>
+}
+
+const [state, setters] = useComplexState<Values, Setters>(
+  { item_one: 1, item_two: 2 },
+)
+
+setters.set_item_one(11)
+setters.set_item_two( two => two + 10 )
+```

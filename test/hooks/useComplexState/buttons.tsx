@@ -1,11 +1,17 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { it, expect } from 'vitest'
 import { render, screen, act } from '@testing-library/react'
-import { Buttons, useComplexState } from '@/src/index.jsx'
+import { Buttons, UseComplexSetter, useComplexState } from '@/src/index'
+
+type Values = {
+  badgers: number,
+  ferrets: number,
+  stoats: number,
+  total?: number
+}
 
 const ComplexStateTest = () => {
-  const [state, setters] = useComplexState(
+  const [state, setters] = useComplexState<Values>(
     { badgers: 3, ferrets: 2, stoats: 1 },
     {
       onChange: state => ({
@@ -45,7 +51,10 @@ const ComplexStateTest = () => {
   )
 }
 
-const Row = ({ caption, id, value, setter }) =>
+const Row = (
+  { caption, id, value, setter } :
+  { caption: string, id: string, value: number, setter: UseComplexSetter<number> }
+) =>
   <tr>
     <th>{caption}</th>
     <td>

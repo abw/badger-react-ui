@@ -1,15 +1,12 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { it, expect } from 'vitest'
-import { render, screen, act } from '@testing-library/react'
-import { useComplexState } from '@/src/index.jsx'
+import { render, screen } from '@testing-library/react'
+import { useComplexState, UseComplexValueSet } from '@/src/index'
 
 const ComplexStateTest = () => {
   const [state, setters] = useComplexState(
     { item_one: 1, item_two: 2 },
-    { setterNamer: key => `set_${key}` }
   )
-
   return (
     <table className="wide celled shaded">
       <tbody>
@@ -17,19 +14,19 @@ const ComplexStateTest = () => {
           caption="Item One"
           id="item_one"
           value={state.item_one}
-          setter={setters.set_item_one}
+          setter={setters.setItem_one}
         />
         <Row
           caption="Item Two"
           id="item_two"
           value={state.item_two}
-          setter={setters.set_item_two}
+          setter={setters.setItem_two}
         />
         <tr>
           <th>Total</th>
           <td data-testid="total">{
-            (state.item_one || 0) +
-            (state.item_two || 0)
+            ((state.item_one as number) || 0) +
+            ((state.item_two as number) || 0)       // FIXME
           }</td>
         </tr>
       </tbody>
@@ -37,7 +34,10 @@ const ComplexStateTest = () => {
   )
 }
 
-const Row = ({ caption, id, value, setter }) =>
+const Row = (
+  { caption, id, value, setter } :
+  { caption: string, id: string, value: number, setter: UseComplexValueSet<number> }
+) =>
   <tr>
     <th>{caption}</th>
     <td>
@@ -65,13 +65,13 @@ it(
     expect(item_two).toHaveValue(2)
     expect(total).toHaveTextContent('3')
 
-    await act( () => user.click(item_one) )
-    await act( () => user.keyboard('0') )
+    await user.click(item_one)
+    await user.keyboard('0')
     expect(item_one).toHaveValue(10)
     expect(total).toHaveTextContent('12')
 
-    await act( () => user.click(item_two) )
-    await act( () => user.keyboard('{Backspace}11') )
+    await user.click(item_two)
+    await user.keyboard('{Backspace}11')
     expect(item_two).toHaveValue(11)
     expect(total).toHaveTextContent('21')
   }
