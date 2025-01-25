@@ -53,7 +53,7 @@
     "@abw/badger-icon": "1.0.0-alpha-2",
     "@abw/badger-maths": "^0.0.1",
     "@abw/badger-utils": "1.2.2",
-    "@abw/react-context": "2.3.0-alpha-4",
+    "@abw/react-context": "2.3.0-alpha-5",
     "@abw/react-one-louder": "1.0.0-alpha-2",
     "@dnd-kit/core": "^6.3.1",
     "@dnd-kit/modifiers": "^7.0.0",
