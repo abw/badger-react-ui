@@ -1,7 +1,6 @@
 import { debugFunction } from '@/src/index'
 
 /* START */
-import React from 'react'
 // PRETEND: import { debugFunction } from '@abw/badger-react-ui
 
 const DebugExample = () => {
