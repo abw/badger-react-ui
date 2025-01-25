@@ -1,5 +1,5 @@
+import { Model } from '@abw/react-context'
 import { extract } from '@abw/badger-utils'
-import { Generator } from '@abw/react-context'
 import { classes, mergeRefs } from '@/src/utils'
 import { useFloating, useTrigger } from '@/src/hooks'
 import { CLOSED_CLASS, OPEN_CLASS } from '@/src/constants'
@@ -11,9 +11,8 @@ import {
   DROPDOWN_SAFE_AREA_CLASS, DROPDOWN_TRIGGER_CLASS
 } from './Constants'
 
-const DropdownContext = Generator<DropdownProps, DropdownRenderProps>(
+export const DropdownContext = Model<DropdownProps, DropdownRenderProps>(
   ({
-    render,
     content,
     className     = DROPDOWN_CLASS,
     triggerClass  = DROPDOWN_TRIGGER_CLASS,
@@ -92,7 +91,7 @@ const DropdownContext = Generator<DropdownProps, DropdownRenderProps>(
       onMouseLeave,
     }
 
-    return render({
+    return {
       ...trigger,
       ...props,
       ...floating,
@@ -113,9 +112,14 @@ const DropdownContext = Generator<DropdownProps, DropdownRenderProps>(
       onMouseLeave,
       noContent,
       content,
-    })
+    }
   }
 )
 
-export const useDropdown = DropdownContext.Use
+export const {
+  Provider: DropdownProvider,
+  Consumer: DropdownConsumer,
+  Use: useDropdown
+} = DropdownContext
+
 export default DropdownContext
