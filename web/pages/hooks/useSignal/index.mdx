@@ -14,7 +14,12 @@ import { Example } from '@abw/badger-website'
   complex object) to be sent to all subscribers.
 </div>
 
-The `useSignal()` method...
+The `useSignal()` method returns a `subscribe` function to subscribe a function
+to the signal.  When called, that function returns another function which can
+be called to unsubscribe the subscriber.
+
+The `trigger` function can be called to invoke all subscriber functions.  It
+expects a single parameter which will be forwarded to all subscriber functions.
 
 <Example
   Component={Component}
@@ -42,7 +47,9 @@ The following items are returned by the `useSignal()` hook.
 
 <DescTable
   items={[
-    ['subscribe',  'A function to subscribe to the signal'],
+    ['subscribe',   'A function to subscribe to the signal.'],
+    ['subscribers', 'An array containing the current subscribers.'],
+    ['trigger',     'A function to send a message to all subscribers.'],
   ]}
 />
 
