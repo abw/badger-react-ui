@@ -12,18 +12,18 @@ export type DropdownProps =
   children?: React.ReactNode
   className?: string
   size?: string
-  openClass?: string
-  closedClass?: string
-  safeAreaClass?: string
   offset?: number
   right?: boolean
   wide?: boolean
   button?: boolean,
-  placement?: Placement
+  openClass?: string
+  closedClass?: string
+  safeAreaClass?: string
   triggerClass?: string
   triggerColor?: string
   triggerSize?: string
   noContent?: string
+  placement?: Placement
   Trigger?: DropdownTriggerType
   Content?: DropdownContentType
   Body?: DropdownBodyType

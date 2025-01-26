@@ -1,6 +1,6 @@
-import Context          from './Context'
-import DropdownTrigger  from './Trigger'
-import DropdownBody     from './Body'
+import Context         from './Context'
+import DropdownTrigger from './Trigger'
+import DropdownBody    from './Body'
 
 export const DropdownContent = Context.Consumer(
   ({
@@ -8,14 +8,11 @@ export const DropdownContent = Context.Consumer(
     isOpen,
     Trigger=DropdownTrigger,
     Body=DropdownBody
-  }) => {
-    return (
-      <div className={dropdownClass}>
-        <Trigger/>
-        { isOpen && <Body/> }
-      </div>
-    )
-  }
+  }) =>
+    <div className={dropdownClass}>
+      <Trigger/>
+      { isOpen && <Body/> }
+    </div>
 )
 
 export default DropdownContent
