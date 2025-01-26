@@ -1,10 +1,9 @@
 import React from 'react'
-import { Generator } from '@abw/react-context'
+import { Model } from '@abw/react-context'
 import { DetailsContextProps, DetailsContextRenderProps } from './types'
 
-const DetailsContext = Generator<DetailsContextProps, DetailsContextRenderProps>(
+const DetailsContext = Model<DetailsContextProps, DetailsContextRenderProps>(
   ({
-    render,
     open: initiallyOpen,
   }) => {
     const [isOpen, setOpen] = React.useState(initiallyOpen)
@@ -20,11 +19,16 @@ const DetailsContext = Generator<DetailsContextProps, DetailsContextRenderProps>
       [initiallyOpen]
     )
 
-    return render({
+    return {
       isOpen, open, close, toggleOpen,
-    })
+    }
   }
 )
 
-export const useDetails = DetailsContext.Use
+export const {
+  Provider: DetailsProvider,
+  Consumer: DetailsConsumer,
+  Use: useDetails
+} = DetailsContext
+
 export default DetailsContext
