@@ -1,8 +1,8 @@
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
-import { render } from '@testing-library/react'
+import { render, act } from '@testing-library/react'
 import { Search } from '@/src/index'
-import { fail } from '@abw/badger-utils'
+import { fail, sleep } from '@abw/badger-utils'
 
 const animals = [
   'Alan Aardvark',
@@ -43,6 +43,7 @@ test(
     const input = search.querySelector('input') || fail('no input')
     await user.click(input)
     await user.keyboard('ar')
+    await act( () => sleep(600) )
 
     // screen.debug()
     const items = search.querySelectorAll('div.menu div.item')
@@ -54,6 +55,5 @@ test(
 
     await user.click(items[3])
     expect(input).toHaveAttribute('value', 'Bart Badger')
-    // screen.debug()
   }
 )

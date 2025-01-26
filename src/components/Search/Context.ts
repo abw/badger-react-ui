@@ -148,6 +148,7 @@ class SearchContext extends Context<
     const input = event.target.value
     this.debug(`input: ${input}`)
     if (input.length >= this.config.minLength) {
+      this.debug(`starting search: ${input}`)
       this.setState(
         { input },
         this.startSearch
