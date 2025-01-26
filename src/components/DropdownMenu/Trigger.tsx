@@ -1,42 +1,14 @@
-import Context       from './Context'
-import WithIcons     from '@/components/Icon/WithIcons'
-import { extract }   from '@abw/badger-utils'
-import { mergeRefs } from '@/src/utils/refs'
-import { classes }   from '@/src/utils/classes'
-import { DropdownMenuTriggerProps } from './types'
+import Context   from './Context'
+import WithIcons from '@/components/Icon/WithIcons'
 
-const DropdownMenuTrigger = Context.Consumer<
-  DropdownMenuTriggerProps
->(
+const DropdownMenuTrigger = Context.Consumer(
   ({
-    triggerClass='trigger',
-    triggerRef,
-    triggerColor,
-    triggerSize,
-    button,
-    icon,
-    floatingRef,
+    triggerProps,
+    iconProps,
     safeAreaClass='safe-area',
-    onMouseEnter,
-    onMouseLeave,
-    onKeyDown,
-    onFocus,
-    onBlur,
-    onClick,
-    ...props
   }) =>
-    <div
-      className={classes(triggerClass, triggerColor, triggerSize, { button, icon })}
-      onClick={onClick}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      onKeyDown={onKeyDown}
-      onFocus={onFocus}
-      onBlur={onBlur}
-      tabIndex={0}
-      ref={mergeRefs([triggerRef, floatingRef])}
-    >
-      <WithIcons icon={icon} {...extract(props, /^(icon|text)/)}/>
+    <div {...triggerProps}>
+      <WithIcons {...iconProps}/>
       <div className={safeAreaClass}></div>
     </div>
 )

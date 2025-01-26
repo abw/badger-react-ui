@@ -7,8 +7,8 @@ export const DropdownMenuHeading = Context.Consumer<
 >(
   ({
     option,
-    optionClass='item no-hover',
-    headingClass='heading',
+    optionClass,
+    headingClass,
   }) =>
     <h4 className={classes(headingClass, optionClass, option.className)}>
       {option.heading}

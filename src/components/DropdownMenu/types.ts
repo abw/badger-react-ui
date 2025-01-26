@@ -1,12 +1,19 @@
-import { MenuContextActions, MenuContextProps, MenuContextState } from '@/src/context/Menu'
+// import { MenuContextActions, MenuContextProps, MenuContextState } from '@/src/context/Menu'
 import { WithIconsProps } from '../Icon'
-import { Placement, ReferenceType } from '@floating-ui/react'
-import { SelectOption, SelectOptionObject, WithIconsRenderer } from '@/src/utils'
+// import { Placement, ReferenceType } from '@floating-ui/react'
+import { Placement } from '@floating-ui/react'
+import { IsValidOption, SelectOption, SelectOptionObject, WithIconsRenderer } from '@/src/utils'
+import { useTrigger, UseTriggerProps } from '@/src/hooks'
+import { DropdownBodyProps, DropdownBodyRef, DropdownBodyStyle, DropdownIconProps, DropdownTriggerProps, DropdownTriggerRef } from '../Dropdown/types'
 
-export type DropdownMenuProps = MenuContextProps & WithIconsProps & {
+export type DropdownMenuProps =
+  UseTriggerProps &
+  WithIconsProps & {
+  options: SelectOption[]
+  closeOnSelect: boolean
   bodyClass?: string
-  content?: React.ReactNode
-  children?: React.ReactNode
+  //content?: React.ReactNode
+  //children?: React.ReactNode
   className?: string
   size?: string
   offset?: number
@@ -27,10 +34,6 @@ export type DropdownMenuProps = MenuContextProps & WithIconsProps & {
   triggerColor?: string
   triggerSize?: string
   placement?: Placement
-
-  // triggerRef,
-  displayOption: WithIconsRenderer
-  selectOption: (option: SelectOption) => void
   Trigger?: DropdownMenuTriggerType
   Content?: DropdownMenuContentType
   Body?: DropdownMenuBodyType
@@ -38,8 +41,43 @@ export type DropdownMenuProps = MenuContextProps & WithIconsProps & {
   Option?: DropdownMenuOptionType
   Heading?: DropdownMenuHeadingType
   Separator?: DropdownMenuSeparatorType,
+  validOption?: IsValidOption
+  displayOption?: WithIconsRenderer
+  // selectOption?: (option: SelectOption) => void
+  onSelect?: (value: SelectOption) => void
 }
 
+export type DropdownMenuRenderProps =
+  Omit<ReturnType<typeof useTrigger>, 'triggerRef' | 'triggerProps'> &
+  DropdownMenuProps & {
+    dropdownMenuClass: string
+    triggerRef: DropdownTriggerRef
+    triggerProps: DropdownTriggerProps
+    iconProps: DropdownIconProps
+    bodyRef: DropdownBodyRef
+    bodyStyle: DropdownBodyStyle
+    bodyProps: DropdownMenuBodyProps
+    safeAreaClass: string
+    optionClass: string
+    activeClass: string
+    selectedClass: string
+    disabledClass: string
+    headingClass: string
+    separatorClass: string
+    cursor?: number | null
+    setCursor: (index: number) => void
+    displayOption: WithIconsRenderer
+    validOption: IsValidOption
+    selectOption: (option: SelectOption) => void
+    selected?: SelectOption
+    activeRef: (ref: HTMLElement | null) => void
+    // menuRef: React.RefObject<HTMLElement>
+    // floatingRef: (node: HTMLElement | null) => void
+  }
+
+export type DropdownMenuBodyProps = DropdownBodyProps
+// export type DropdownMenuBodyProps = Omit<DropdownBodyProps, 'ref'>
+/*
 export type DropdownMenuState = MenuContextState
 
 export type DropdownMenuActions = MenuContextActions & {
@@ -55,9 +93,13 @@ export type DropdownMenuActions = MenuContextActions & {
 export type DropdownMenuTriggerProps = {
   floatingRef: (node: ReferenceType | null) => void
 }
+*/
 
 export type DropdownMenuOptionProps = {
-  option: SelectOption,
+  option: SelectOption
+  active: boolean
+  selected: boolean
+  onClick: () => void
 }
 
 export type DropdownMenuOptionsProps = {

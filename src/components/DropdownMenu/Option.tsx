@@ -14,10 +14,10 @@ export const DropdownMenuOption = Context.Consumer<
     selected,
     onClick,
     onMouseEnter,
-    optionClass='item no-hover',
-    activeClass='active',
-    selectedClass='selected',
-    disabledClass='disabled',
+    optionClass,
+    activeClass,
+    selectedClass,
+    disabledClass,
     displayOption,
   }) =>
     <div

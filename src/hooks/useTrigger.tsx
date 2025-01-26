@@ -123,7 +123,7 @@ export const useTrigger = <T extends HTMLElement = HTMLElement>({
             close()
           }
           else {
-            debug(`NOT closing force:${force} hasHover:${hasHover}`)
+            debug(`NOT closing force:${force} hasHover:${hoverRef.current}`)
           }
         }
       )
@@ -163,7 +163,7 @@ export const useTrigger = <T extends HTMLElement = HTMLElement>({
   }
 
   return {
-    isOpen, toggleOpen, open, close,
+    isOpen, toggleOpen, open, close, closeSoon,
     hasHover, onMouseEnter, onMouseLeave,
     hasFocus, onFocus, onBlur, onClick, onKeyDown,
     triggerRef,
