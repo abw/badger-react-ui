@@ -84,7 +84,7 @@ export const DropdownMenuContext = Model<DropdownMenuProps, DropdownMenuRenderPr
       onOpen: () => {
         clearSelected()
         setCursorFirst()
-        console.log(`menu is open`)
+        // TODO: add an onOpen() callback?
       }
     })
 

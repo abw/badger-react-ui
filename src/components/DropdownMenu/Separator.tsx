@@ -9,8 +9,14 @@ export const DropdownMenuSeparator = Context.Consumer<
     option,
     separatorClass,
   }) =>
-    <div className={classes(separatorClass, option.className)}>
-    </div>
+    <div
+      className={
+        classes(
+          separatorClass,
+          option.className
+        )
+      }
+    ></div>
 )
 
 export default DropdownMenuSeparator
