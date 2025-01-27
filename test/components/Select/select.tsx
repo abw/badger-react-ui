@@ -1,9 +1,9 @@
 import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { Select } from '@/src/index'
-import { fail } from '@abw/badger-utils'
+import { fail, sleep } from '@abw/badger-utils'
 
 const animals = [
   'Alan Aardvark',
@@ -57,7 +57,6 @@ test(
   }
 )
 
-/*
 test(
   'select with keyboard',
   async () => {
@@ -65,20 +64,46 @@ test(
     const { container } = render(
       <SelectExample/>
     )
-    const select = container.querySelector('div.select')
-    const inputs = select.querySelector('div.inputs')
+    const select = container.querySelector('div.select') || fail('No select')
+    const inputs = select.querySelector('div.inputs') || fail('no inputs')
     expect(inputs).toBeTruthy()
 
-    await act( () => user.click(inputs) )
+    await user.click(inputs)
+    const items = select.querySelectorAll('div.menu div.item')
+    expect(items.length).toBe(6)
+    await sleep(100)
+
+    fireEvent.keyDown( select, { key: 'ArrowDown' } )
+    fireEvent.keyDown( select, { key: 'ArrowDown' } )
+    fireEvent.keyDown( select, { key: 'ArrowDown' } )
+    fireEvent.keyDown( select, { key: 'ArrowUp' } )
+    expect(items[2]).toHaveClass('active')
+    fireEvent.keyDown( select, { key: 'Enter' } )
+
+    const selected = screen.getByTestId('selected')
+    expect(selected).toHaveTextContent('Colin Camel')
+  }
+)
+
+test(
+  'select with keyboard going up',
+  async () => {
+    const { container } = render(
+      <SelectExample/>
+    )
+    const select = container.querySelector('div.select') || fail('No select')
+
+    // pressing up should select last item
+    fireEvent.keyDown( select, { key: 'ArrowUp' } )
+
     const items = select.querySelectorAll('div.menu div.item')
     expect(items.length).toBe(6)
 
-    await act( () => user.keyboard('{ArrowDown}') )
-    await act( () => user.keyboard('{ArrowUp}') )
-    await act( () => user.keyboard('{Enter}') )
-    await act( () => user.keyboard('{Backspace}') )
+    expect(items[5]).toHaveClass('active')
+    fireEvent.keyDown( select, { key: 'Enter' } )
     // screen.debug()
-    // expect(screen.getByTestId('selected')).toHaveTextContent('Alan Aardvark')
+
+    const selected = screen.getByTestId('selected')
+    expect(selected).toHaveTextContent('Franky Ferret')
   }
 )
-*/

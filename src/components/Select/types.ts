@@ -1,61 +1,60 @@
-import { MenuContextActions, MenuContextState } from '@/src/context/Menu'
 import { WithIconsProps } from '../Icon'
-// import { Placement, ReferenceType } from '@floating-ui/react'
-import {
-  FindOption, IsValidOption, SearchOptions, SelectOption, SelectOptionObject,
-  WithIconsRenderer
-} from '@/src/utils'
 import { useTrigger, UseTriggerProps } from '@/src/hooks'
+import { selectModelDefaults, selectRenderDefaults } from './defaults'
+import { FindOption, SearchOptions, SelectOption, SelectOptionObject, } from '@/src/utils'
+
+export type SelectModelDefaults = typeof selectModelDefaults
+export type SelectRenderDefaults = typeof selectRenderDefaults
 
 export type SelectProps =
   UseTriggerProps &
-  WithIconsProps & {
+  WithIconsProps &
+  Partial<SelectModelDefaults> &
+  Partial<SelectRenderDefaults> & {
   options: SelectOption[]
   value?: SelectOption
-  search?: boolean
   disabled?: boolean
   wide?: boolean
-  closeOnSelect?: boolean
-  // closeOnBlur?: boolean
-  className?: string      // FIXME: vs className (as an add-in?)
-  selectClass?: string    // FIXME: vs className (as an add-in?)
 
-  suffixIcon?: string
-  // bodyClass?: string
-  inputsClass?: string
-  inputClass?: string
-  suffixClass?: string
-  menuClass?: string
-  openClass?: string
-  closedClass?: string
-  optionClass?: string
-  separatorClass?: string
-  headingClass?: string
-  noOptions?: string
-  noOptionsClass?: string
-  placeholder?: string
-  placeholderClass?: string
-  activeClass?: string
-  selectedClass?: string
-  disabledClass?: string
+  // className?: string      // FIXME: vs className (as an add-in?)
+  // closeOnSelect?: boolean
+  // search?: boolean
+  // selectClass?: string    // FIXME: vs className (as an add-in?)
+  // suffixIcon?: string
+  // inputsClass?: string
+  // inputClass?: string
+  // suffixClass?: string
+  // menuClass?: string
+  // openClass?: string
+  // closedClass?: string
+  // optionClass?: string
+  // separatorClass?: string
+  // headingClass?: string
+  // noOptions?: string
+  // noOptionsClass?: string
+  // placeholder?: string
+  // placeholderClass?: string
+  // activeClass?: string
+  // selectedClass?: string
+  // disabledClass?: string
 
-  searchPlaceholder?: string
-  searchFieldClass?: string
-  searchInputsClass?: string
-  searchPrefixClass?: string
-  searchSuffixClass?: string
-  searchClearClass?: string
-  searchIcon?: string
-  clearSearchIcon?: string
+  //searchPlaceholder?: string
+  //searchFieldClass?: string
+  //searchInputsClass?: string
+  //searchPrefixClass?: string
+  //searchSuffixClass?: string
+  //searchClearClass?: string
+  //searchIcon?: string
+  //clearSearchIcon?: string
 
   onUpdate?: (value: SelectOption) => void
   onSelect?: (value: SelectOption) => void,
   findOption?: FindOption
-  validOption?: IsValidOption
+  // validOption?: IsValidOption
   searchOptions?: SearchOptions
-  displayValue?:   WithIconsRenderer
-  displayOption?:  WithIconsRenderer
-  displayHeading?: WithIconsRenderer
+  // displayValue?:   WithIconsRenderer
+  // displayOption?:  WithIconsRenderer
+  // displayHeading?: WithIconsRenderer
   Content?: SelectContentType
   Input?: SelectInputType,
   Search?: SelectSearchType,
@@ -73,34 +72,35 @@ export type SelectProps =
 export type SelectRenderProps =
   // Omit<ReturnType<typeof useTrigger>, 'triggerRef' | 'triggerProps'> &
   Omit<ReturnType<typeof useTrigger>, 'triggerProps'> &
-  SelectProps & {
+  SelectProps &
+  SelectRenderDefaults & {
     // bodyClass: string
-    inputsClass: string
-    inputClass: string
-    suffixIcon: string
-    suffixClass: string
-    menuClass: string
-    openClass: string
-    closedClass: string
-    optionClass: string
-    separatorClass: string
-    headingClass: string
-    noOptions: string
-    noOptionsClass: string
-    placeholder: string
-    placeholderClass: string
-    activeClass: string
-    selectedClass: string
-    disabledClass: string
+    // inputsClass: string
+    // inputClass: string
+    // suffixIcon: string
+    // suffixClass: string
+    // menuClass: string
+    // openClass: string
+    // closedClass: string
+    // optionClass: string
+    // separatorClass: string
+    // headingClass: string
+    // noOptions: string
+    // noOptionsClass: string
+    // placeholder: string
+    // placeholderClass: string
+    // activeClass: string
+    // selectedClass: string
+    // disabledClass: string
 
-    searchPlaceholder: string
-    searchFieldClass: string
-    searchInputsClass: string
-    searchPrefixClass: string
-    searchSuffixClass: string
-    searchClearClass: string
-    searchIcon: string
-    clearSearchIcon: string
+    // searchPlaceholder: string
+    // searchFieldClass: string
+    // searchInputsClass: string
+    // searchPrefixClass: string
+    // searchSuffixClass: string
+    // searchClearClass: string
+    // searchIcon: string
+    // clearSearchIcon: string
 
     cursor?:        number | null
     setCursor:      (index: number) => void
@@ -110,11 +110,11 @@ export type SelectRenderProps =
     selectOption:   (value: SelectOption) => void,
     menuRef:        React.RefObject<HTMLDivElement>
     activeRef:      (ref: HTMLElement | null) => void
-    findOption:     FindOption
-    validOption:    IsValidOption
-    displayValue:   WithIconsRenderer
-    displayOption:  WithIconsRenderer
-    displayHeading: WithIconsRenderer
+    // findOption:     FindOption
+    // validOption:    IsValidOption
+    // displayValue:   WithIconsRenderer
+    // displayOption:  WithIconsRenderer
+    // displayHeading: WithIconsRenderer
     onKeyDown:      (event: React.KeyboardEvent) => void
     searchRef:      React.RefObject<HTMLInputElement>
     searchInput?:   string
@@ -124,6 +124,7 @@ export type SelectRenderProps =
     clearSearch:    (e?: React.MouseEvent) => void
   }
 
+/*
 export type SelectState = MenuContextState & {
   closeOnBlur?: boolean
   searchInput?: string
@@ -153,7 +154,7 @@ export type SelectActions = MenuContextActions & {
   clearSearch: () => void
   //triggerRef: (ref: HTMLElement) => void
 }
-
+*/
 
 export type SelectItemProps = {
   option: SelectOption

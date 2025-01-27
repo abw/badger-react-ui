@@ -85,8 +85,10 @@ Convert Select context to functional component
     [X] Re-opening select should not reset existing cursor or current value
         (displayed in input) but it SHOULD clear selected item that otherwise
         would be highlighted in the menu
-    [ ] Search
-    [ ] Close should clear search input and reset options, e.g. if previously
+    [X] Search
+    [X] Close should clear search input and reset options, e.g. if previously
         limited by a search
     [ ] Handle change of options (including search)
-    [ ] Initial value state
+    [X] Initial value state
+    [X] Pressing space defaults to being search input, but can we make it
+        select if there's no search input... we only need spaces between words.
