@@ -1,20 +1,27 @@
-import { MenuContextActions, MenuContextProps, MenuContextState } from '@/src/context/Menu'
+import { MenuContextActions, MenuContextState } from '@/src/context/Menu'
 import { WithIconsProps } from '../Icon'
 // import { Placement, ReferenceType } from '@floating-ui/react'
 import {
   FindOption, IsValidOption, SearchOptions, SelectOption, SelectOptionObject,
   WithIconsRenderer
 } from '@/src/utils'
+import { useTrigger, UseTriggerProps } from '@/src/hooks'
 
-export type SelectProps = MenuContextProps & WithIconsProps & {
+export type SelectProps =
+  UseTriggerProps &
+  WithIconsProps & {
+  options: SelectOption[]
   value?: SelectOption
   search?: boolean
   disabled?: boolean
   wide?: boolean
-  closeOnBlur?: boolean
+  closeOnSelect?: boolean
+  // closeOnBlur?: boolean
+  className?: string      // FIXME: vs className (as an add-in?)
+  selectClass?: string    // FIXME: vs className (as an add-in?)
+
   suffixIcon?: string
-  bodyClass?: string
-  selectClass?: string
+  // bodyClass?: string
   inputsClass?: string
   inputClass?: string
   suffixClass?: string
@@ -42,12 +49,13 @@ export type SelectProps = MenuContextProps & WithIconsProps & {
   clearSearchIcon?: string
 
   onUpdate?: (value: SelectOption) => void
+  onSelect?: (value: SelectOption) => void,
   findOption?: FindOption
   validOption?: IsValidOption
   searchOptions?: SearchOptions
-  displayValue:   WithIconsRenderer
-  displayOption:  WithIconsRenderer
-  displayHeading: WithIconsRenderer
+  displayValue?:   WithIconsRenderer
+  displayOption?:  WithIconsRenderer
+  displayHeading?: WithIconsRenderer
   Content?: SelectContentType
   Input?: SelectInputType,
   Search?: SelectSearchType,
@@ -61,6 +69,60 @@ export type SelectProps = MenuContextProps & WithIconsProps & {
   //children?: React.ReactNode
 
 }
+
+export type SelectRenderProps =
+  // Omit<ReturnType<typeof useTrigger>, 'triggerRef' | 'triggerProps'> &
+  Omit<ReturnType<typeof useTrigger>, 'triggerProps'> &
+  SelectProps & {
+    // bodyClass: string
+    inputsClass: string
+    inputClass: string
+    suffixIcon: string
+    suffixClass: string
+    menuClass: string
+    openClass: string
+    closedClass: string
+    optionClass: string
+    separatorClass: string
+    headingClass: string
+    noOptions: string
+    noOptionsClass: string
+    placeholder: string
+    placeholderClass: string
+    activeClass: string
+    selectedClass: string
+    disabledClass: string
+
+    searchPlaceholder: string
+    searchFieldClass: string
+    searchInputsClass: string
+    searchPrefixClass: string
+    searchSuffixClass: string
+    searchClearClass: string
+    searchIcon: string
+    clearSearchIcon: string
+
+    cursor?:        number | null
+    setCursor:      (index: number) => void
+    // select?:        SelectOption      // FIXME => remove '?'
+    selected?:      SelectOption
+    value?:         SelectOption
+    selectOption:   (value: SelectOption) => void,
+    menuRef:        React.RefObject<HTMLDivElement>
+    activeRef:      (ref: HTMLElement | null) => void
+    findOption:     FindOption
+    validOption:    IsValidOption
+    displayValue:   WithIconsRenderer
+    displayOption:  WithIconsRenderer
+    displayHeading: WithIconsRenderer
+    onKeyDown:      (event: React.KeyboardEvent) => void
+    searchRef:      React.RefObject<HTMLInputElement>
+    searchInput?:   string
+    focusSearch:    React.FocusEventHandler<HTMLInputElement>
+    blurSearch:     React.FocusEventHandler<HTMLInputElement>
+    setSearch:      (searchInput: string | undefined) => void
+    clearSearch:    (e?: React.MouseEvent) => void
+  }
 
 export type SelectState = MenuContextState & {
   closeOnBlur?: boolean

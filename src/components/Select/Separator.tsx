@@ -7,7 +7,7 @@ export const SelectSeparator = Context.Consumer<
 >(
   ({
     option,
-    separatorClass='separator',
+    separatorClass
   }) =>
     <div
       className={

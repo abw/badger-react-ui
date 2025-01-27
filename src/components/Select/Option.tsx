@@ -1,8 +1,6 @@
 import Context from './Context'
 import { classes } from '@/src/utils/classes'
 import { SelectOptionProps } from './types'
-import { SELECT_OPTION_CLASS } from './Constants'
-import { ACTIVE_CLASS, DISABLED_CLASS, SELECTED_CLASS } from '@/src/constants'
 
 export const SelectOption = Context.Consumer<
   SelectOptionProps
@@ -16,10 +14,10 @@ export const SelectOption = Context.Consumer<
     onMouseEnter,
     validOption,
     displayOption,
-    optionClass=SELECT_OPTION_CLASS,
-    activeClass=ACTIVE_CLASS,
-    selectedClass=SELECTED_CLASS,
-    disabledClass=DISABLED_CLASS,
+    optionClass,
+    activeClass,
+    selectedClass,
+    disabledClass,
   }) =>
     <div
       className={

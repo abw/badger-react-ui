@@ -77,4 +77,16 @@ Convert Search context to functional component
 
 Convert Select context to functional component
 
+## Select Context
 
+    [ ] onFocus, onBlur, onOpen, onClose, etc.  Handlers could be passed in.
+    [X] menuRef, activeRef and scrolling
+    [ ] closeable should account for searchFocus
+    [X] Re-opening select should not reset existing cursor or current value
+        (displayed in input) but it SHOULD clear selected item that otherwise
+        would be highlighted in the menu
+    [ ] Search
+    [ ] Close should clear search input and reset options, e.g. if previously
+        limited by a search
+    [ ] Handle change of options (including search)
+    [ ] Initial value state

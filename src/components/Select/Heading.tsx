@@ -1,15 +1,14 @@
 import Context from './Context'
 import { classes } from '@/src/utils/classes'
 import { SelectHeadingProps } from './types'
-import { SELECT_HEADING_CLASS, SELECT_OPTION_CLASS } from './Constants'
 
 export const SelectHeading = Context.Consumer<
   SelectHeadingProps
 >(
   ({
     option,
-    optionClass = SELECT_OPTION_CLASS,
-    headingClass = SELECT_HEADING_CLASS,
+    optionClass,
+    headingClass,
     displayHeading,
   }) =>
     <div
@@ -21,7 +20,7 @@ export const SelectHeading = Context.Consumer<
         )
       }
     >
-      {displayHeading(option)}
+      { displayHeading(option) }
     </div>
 )
 

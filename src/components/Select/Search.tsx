@@ -1,12 +1,6 @@
 import Context  from './Context'
 import Icon     from '@/components/Icon/Icon'
 import { classes } from '@/src/utils/classes'
-import { INPUTS_CLASS } from '@/src/constants'
-import {
-  SELECT_CLEAR_SEARCH_ICON, SELECT_INPUT_CLASS, SELECT_SEARCH_CLEAR_CLASS,
-  SELECT_SEARCH_FIELD_CLASS, SELECT_SEARCH_ICON, SELECT_SEARCH_PLACEHOLDER,
-  SELECT_SEARCH_PREFIX_CLASS, SELECT_SEARCH_SUFFIX_CLASS
-} from './Constants'
 
 export const SelectSearch = Context.Consumer(
   ({
@@ -16,15 +10,15 @@ export const SelectSearch = Context.Consumer(
     searchRef,
     setSearch,
     clearSearch,
-    searchPlaceholder=SELECT_SEARCH_PLACEHOLDER,
-    searchFieldClass=SELECT_SEARCH_FIELD_CLASS,
-    searchInputsClass=INPUTS_CLASS,
-    searchPrefixClass=SELECT_SEARCH_PREFIX_CLASS,
-    searchSuffixClass=SELECT_SEARCH_SUFFIX_CLASS,
-    searchClearClass=SELECT_SEARCH_CLEAR_CLASS,
-    inputClass=SELECT_INPUT_CLASS,
-    searchIcon=SELECT_SEARCH_ICON,
-    clearSearchIcon=SELECT_CLEAR_SEARCH_ICON,
+    searchPlaceholder,
+    searchFieldClass,
+    searchInputsClass,
+    searchPrefixClass,
+    searchSuffixClass,
+    searchClearClass,
+    inputClass,
+    searchIcon,
+    clearSearchIcon,
   }) =>
     <div className={searchFieldClass}>
       <div className={searchInputsClass}>

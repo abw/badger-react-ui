@@ -287,6 +287,10 @@ const DevTests = {
       tocName: 'range-options',
     },
     {
+      to: '/testing/select',
+      text: 'Select',
+    },
+    {
       to: '/testing/select-opacity',
       text: 'Select Opacity',
     },

@@ -18,9 +18,11 @@ export const SelectItem = Context.Consumer<
     const optionObject = selectOptionAsObject(option)
     return (
       optionObject.heading
-        ? <Heading option={optionObject} {...props}/>
+        // ? <Heading option={optionObject} {...props}/>
+        ? <Heading option={optionObject}/>
         : optionObject.separator
-          ? <Separator option={optionObject} {...props}/>
+          // ? <Separator option={optionObject} {...props}/>
+          ? <Separator option={optionObject}/>
           : <Option option={optionObject} {...props}/>
     )
   }
