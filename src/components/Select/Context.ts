@@ -72,7 +72,6 @@ export const SelectContext = Model<SelectProps, SelectRenderProps>(
     } = useCursor({
       ...props,
       cursor: initialCursor,
-      // cursor: findOption(options, value)[1],
       options,
       validOption,
       debugPrefix
@@ -93,7 +92,6 @@ export const SelectContext = Model<SelectProps, SelectRenderProps>(
         resetSearch()
 
         const [ , valueCursor] = findOption(allOptions, value)
-
         if (hasValue(valueCursor)) {
           setCursor(valueCursor)
         }
@@ -113,8 +111,9 @@ export const SelectContext = Model<SelectProps, SelectRenderProps>(
 
     // search filters currently list of options
     const [searchInput, setSearchInput] = useState<string|undefined>(undefined)
-    // const [searchFocus, setSearchFocus] = useState<boolean>(false)
     const searchRef = useRef<HTMLInputElement>(null)
+    // Don't think we need this after all - maybe it's for openOnHover?
+    // const [searchFocus, setSearchFocus] = useState<boolean>(false)
 
     // When the search input changes we filter the initial set of options
     // (allOptions) and set the current options to be the filtered set.  We
@@ -212,6 +211,7 @@ export const SelectContext = Model<SelectProps, SelectRenderProps>(
       []
     )
 
+    // Select an option passed as an argument
     const selectOption = useCallback(
       (option: SelectOption) => {
         debug(`selectOption()`, option)
@@ -231,6 +231,7 @@ export const SelectContext = Model<SelectProps, SelectRenderProps>(
       [debug, onSelect, closeOnSelect, trigger]
     )
 
+    // Select the option currently indicated by the cursor
     const selectCursor = useCallback(
       () => {
         if (options && options.length && hasValue(cursor)) {
@@ -406,62 +407,19 @@ export const SelectContext = Model<SelectProps, SelectRenderProps>(
     }
   }
 )
+
+export const {
+  Provider: SelectProvider,
+  Consumer: SelectConsumer,
+  Use:      useSelect
+} = SelectContext
+
+export default SelectContext
+
 /*
-export const defaultSelectProps = {
-  ...defaultMenuContextProps,
-  searchOptions,
-}
+// Older version - some code left for notes / reminders
 
 class Context extends MenuContext<
-
-  // NOTE: we don't want to reset the cursor or value when closing
-  // PROBLEM: incompatible with base class Menu
-  static inactiveState = {
-    isOpen:         false,
-    selected:       undefined,
-    searchInput:    undefined,
-  }
-  static initialState = {
-    value:  BLANK,
-    cursor: undefined,
-    ...this.inactiveState
-  }
-  static initialProps = {
-    // value: 'initialValue',
-  }
-  static actions = [
-    'onFocus',
-    'onBlur',
-    'onClick',
-    'onKeyDown',
-    'open',
-    'close',
-    'setCursor',
-    'selectCursor',
-    'selectOption',
-    'menuRef',
-    'activeRef',
-    'searchRef',
-    'focusSearch',
-    'blurSearch',
-    'setSearch',
-    'clearSearch',
-  ]
-
-  constructor(
-  ) {
-    super(props)
-    this.config = {
-      ...defaultSelectProps,
-      ...props
-    }
-    this.state = {
-      ...this.state,
-      ...this.valueState(),
-      closeOnBlur: ! this.props.search,
-    }
-    this.debug(`search: ${this.props.search}  closeOnBlur: ${this.state.closeOnBlur}`)
-  }
 
   componentDidUpdate(prevProps: SelectProps) {
     let newState
@@ -490,46 +448,11 @@ class Context extends MenuContext<
     }
   }
 
-  initialCursor() {
-    return this.state.cursor
-  }
-
-  closeState() {
-    return {
-      ...(this.constructor as typeof Context).inactiveState,
-      options: this.props.options
-    }
-  }
-
-  searchOptions() {
-    this.debug('searchOptions(), searchInput: ', this.state.searchInput)
-    const { options, searchOptions } = this.config
-    this.setState(
-      state => ({
-        options: hasValue(state.searchInput)
-          ? searchOptions(state.searchInput, this.config.options.filter(this.config.validOption))
-          : options,
-        cursor: 0
-      })
-    )
-  }
-
   closeable(force?: boolean) {
     this.debug(`closeable()  force:${force}  hasHover:${this.state.hasHover}  searchFocus:${this.state.searchFocus}`)
     return force || ! (this.state.hasHover || this.state.searchFocus)
   }
 
-  menuOptions() {
-    // return this.state.options
-    return this.state.options || [ ]
-  }
 }
 */
 
-export const {
-  Provider: SelectProvider,
-  Consumer: SelectConsumer,
-  Use:      useSelect
-} = SelectContext
-
-export default SelectContext
