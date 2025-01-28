@@ -1,11 +1,11 @@
 import { Model } from '@abw/react-context'
-import { useCallback, useEffect, useMemo, useState } from 'react'
-import { debugFunction } from '@/src/utils/index'
+import { MouseEventHandler, useCallback, useEffect, useMemo, useState } from 'react'
+import { classes, debugFunction } from '@/src/utils/index'
 import { dataTableDefaults } from './defaults'
 import { Storage, useComplexState } from '@/src/index'
-import { DataTableColumnId, DataTableColumnIds, DataTableFilters, DataTableFilterValue, DataTableProps, DataTableRenderProps, DataTableState } from './types'
+import { DataTableFilters, DataTableFilterValue, DataTableProps, DataTableRenderProps, DataTableState } from './types'
 //import { doNothing, hasValue, isBoolean, splitHash } from '@abw/badger-utils'
-import { hasValue, isBoolean, splitHash, StringIndexedObject } from '@abw/badger-utils'
+import { hasValue, isBoolean, splitHash } from '@abw/badger-utils'
 import {
   dataTableColumnDefinitions, dataTableVisibleColumns, dataTableSortColumn,
   dataTableColumnOrder, dataTablePaginate, dataTableSort, dataTableFilter,
@@ -15,11 +15,15 @@ export const DataTableContext = Model<DataTableProps, DataTableRenderProps>(
   config => {
     const {
       rows,
+      // columns: columnsSource,
       storageKey,
       storageItem,
       debugPrefix,
       pageNo,
       pageSize,
+      className,
+      datatableClass,
+      color,
       ...props
     } = {
       ...dataTableDefaults,
@@ -69,6 +73,10 @@ export const DataTableContext = Model<DataTableProps, DataTableRenderProps>(
       [debug, props.columns, props.sortColumn, props.sortReverse, savedState]
     )
 
+    // Additional UI state variables for filters
+    const [showFilters, setShowFilters] = useState(false)
+    const [filters, setFilters] = useState<DataTableFilters>({ })
+
     // Define the state for the various options we need to track
     const [state, setters] = useComplexState<DataTableState>({
       pageNo: savedState.pageNo ?? pageNo,
@@ -77,14 +85,12 @@ export const DataTableContext = Model<DataTableProps, DataTableRenderProps>(
       sortReverse,
       columnOrder,
       visibleColumns,
+      filters: savedState.filters || filters
     })
 
-    // Additional UI state variables for filters
-    const [showFilters, setShowFilters] = useState(false)
-    const [filters, setFilters] = useState<DataTableFilters>({ })
 
-    const toggleFilters = useCallback(
-      (e: MouseEvent) => {
+    const toggleFilters: MouseEventHandler<HTMLDivElement> = useCallback(
+      e => {
         e.preventDefault()
         e.stopPropagation()
         setShowFilters( sf => ! sf )
@@ -123,16 +129,19 @@ export const DataTableContext = Model<DataTableProps, DataTableRenderProps>(
         setters.setColumnOrder(columnOrder)
         setters.setVisibleColumns(visibleColumns)
       },
-      [sortColumn, sortReverse, columnOrder, visibleColumns]
+      [debug, setters, props.columns, sortColumn, sortReverse, columnOrder, visibleColumns]
     )
-
+    */
+    /*
     useEffect(
       () => {
         debug(`rows, filters or sorting order has changed`)
         setters.setPageNo(1)
       },
-      [rows, state.sortColumn, state.sortReverse, state.filters]
+      [debug, setters, rows, state.sortColumn, state.sortReverse, state.filters]
     )
+    */
+    /*
 
     // Save any state changes back to the store, if defined
     useEffect(
@@ -178,9 +187,9 @@ export const DataTableContext = Model<DataTableProps, DataTableRenderProps>(
       [columns, debug, setters]
     )
 
-    const changeColumnOrder = (ids: DataTableColumnId[]) => {
-      const newOrder:   DataTableColumnIds = [ ]
-      const newVisible: DataTableColumnIds = [ ]
+    const changeColumnOrder = (ids: string[]) => {
+      const newOrder:   string[] = [ ]
+      const newVisible: string[] = [ ]
       const isVisible = splitHash(state.visibleColumns) as Record<string, boolean>
       ids.forEach(
         name => {
@@ -211,19 +220,28 @@ export const DataTableContext = Model<DataTableProps, DataTableRenderProps>(
       ]
     )
 
+    // CSS classes
+    const contentClass = classes(
+      className,
+      datatableClass,
+      color
+    )
+
     return {
       ...props,
+      ...setters,
+      ...state,
       rows,
       columns,
       page,
       showFilters, toggleFilters,
       filters, setFilter,
       toggleSortColumn, toggleVisibleColumn, changeColumnOrder,
+      hasFilters: Object.keys(filters).length > 0,
+      contentClass,
     }
     /*
-      hasFilters: Object.keys(filters).length,
       ...state,
-      ...setters
     */
   }
 )

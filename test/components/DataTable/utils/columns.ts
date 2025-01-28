@@ -103,6 +103,24 @@ test(
 )
 
 test(
+  'column from object with align',
+  () => expect(
+    dataTableColumnDefinition({
+      field: 'lefty',
+      align: 'left'
+    })
+  ).toStrictEqual({
+    field: 'lefty',
+    type: 'text',
+    heading: 'Lefty',
+    id: 'lefty',
+    sortable: true,
+    filterable: true,
+    align: 'left'
+  })
+)
+
+test(
   'column from object with other keys',
   () => expect(
     dataTableColumnDefinition({
@@ -486,7 +504,7 @@ test(
     dataTableSortColumn(
       dataTableColumnDefinitions('foo bar'),
     )
-  ).toStrictEqual([ null, null ])
+  ).toStrictEqual([ undefined, false ])
 )
 
 test(
@@ -516,7 +534,7 @@ test(
       dataTableColumnDefinitions('foo bar'),
       'bam', true
     )
-  ).toStrictEqual([ null, null ])
+  ).toStrictEqual([ undefined, false ])
 )
 
 test(
@@ -529,5 +547,5 @@ test(
       }),
       'bar', true
     )
-  ).toStrictEqual([ null, null ])
+  ).toStrictEqual([ undefined, false ])
 )

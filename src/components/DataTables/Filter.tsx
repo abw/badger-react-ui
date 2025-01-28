@@ -1,20 +1,20 @@
-import React   from 'react'
 import Context from '../DataTable/Context'
 import Components   from '../DataTable/Filter/index'
 import Icon         from '@/components/Icon/Icon'
 import { classes }  from '@/src/utils/classes'
-import { CROSS, FILTER, FILTERING } from '../DataTable/constants'
+import { DATATABLE_FILTER_CLASS, DATATABLE_FILTER_ICON, DATATABLE_FILTERING_CLASS } from '../DataTable/constants'
 import { hasValue, isBoolean } from '@abw/badger-utils'
+import { CLEAR_ICON } from '@/src/constants'
 
 export const Filter = ({
   name,
   column,
   filters,
   setFilter,
-  filterClass=FILTER,
-  filteringClass=FILTERING,
-  filterIcon=FILTER,
-  clearFilterIcon=CROSS,
+  filterClass=DATATABLE_FILTER_CLASS,
+  filteringClass=DATATABLE_FILTERING_CLASS,
+  filterIcon=DATATABLE_FILTER_ICON,
+  clearFilterIcon=CLEAR_ICON,
 }) => {
   const Component = column.filterComponent
     || Components[column.filterType]

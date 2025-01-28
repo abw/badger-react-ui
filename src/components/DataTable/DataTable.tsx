@@ -1,4 +1,3 @@
-import React            from 'react'
 import Context          from './Context'
 import DataTableContent from './Content'
 import { Themed }       from '@/src/Theme'

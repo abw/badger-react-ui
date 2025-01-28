@@ -20,7 +20,7 @@ export const PagerPages = Context.Consumer(
     Page=PagerPage
   }) =>
     <div className={pagesClass}>
-      { showFirstLast && prevPage && prevPage > firstPage &&
+      { Boolean(showFirstLast && prevPage && prevPage > firstPage) &&
         <>
           <Page
             page={firstPage}
@@ -28,7 +28,7 @@ export const PagerPages = Context.Consumer(
             className={pageClass}
             onClick={() => setPage(firstPage)}
           />
-          { prevPage > firstPage + 1 &&
+          { prevPage && prevPage > firstPage + 1 &&
             <Separator/>
           }
         </>

@@ -146,6 +146,6 @@ export const dataTableSortColumn = (
   if (savedColumn && columns[savedColumn] && ! columns[savedColumn].hidden) {
     return [savedColumn, savedReverse]
   }
-  return [null, null]
+  return [undefined, false]
 }
 

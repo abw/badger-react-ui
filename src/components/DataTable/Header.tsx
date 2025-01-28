@@ -1,10 +1,9 @@
-import React              from 'react'
-import Context            from './Context'
-import DataTableSummary   from './Summary'
-import DataTableControls  from './Controls'
-import Button             from '@/components/Button/Button'
-import { pagerPreviousPageLabel, pagerNextPageLabel } from '@/src/index'
+import Context           from './Context'
+import DataTableSummary  from './Summary'
+import DataTableControls from './Controls'
+import Button            from '@/components/Button/Button'
 import { maybeFunction } from '@abw/badger-utils'
+import { pagerPreviousPageLabel, pagerNextPageLabel } from '@/src/index'
 
 export const DataTableHeader = Context.Consumer(
   ({

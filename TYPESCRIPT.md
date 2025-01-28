@@ -69,13 +69,10 @@ as well as strings?
 
 ## Context Cleanup
 
-Convert DropdownMenu context to functional component and useTrigger / useCursor
-
-Convert Range context to functional component
-
-Convert Search context to functional component
-
-Convert Select context to functional component
+    [X] Convert DropdownMenu context to functional component and useTrigger / useCursor
+    [X] Convert Select context to functional component
+    [ ] Convert Range context to functional component
+    [ ] Convert Search context to functional component
 
 ## Select Context
 

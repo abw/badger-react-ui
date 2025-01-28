@@ -15,6 +15,7 @@ const DataTableColumns = () => {
   return (
     <div className="grid-1 gap-4">
       <DataTable
+        debug
         rows={animals}
         columns={columns}
         storageKey="testing-datatable-columns"

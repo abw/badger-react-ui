@@ -1,22 +1,23 @@
-import React    from 'react'
-import Context  from './Context'
-import { formatNumber } from '@abw/badger-utils'
+import Context from './Context'
 
 export const DataTableSummary = Context.Consumer(
   ({
     page,
-    summaryClass='flex center balance mar-b-2'
+    noRows,
+    oneRow,
+    allRows,
+    someRows,
+    summaryClass
   }) =>
     <div className={summaryClass}>
       Page {page.pageNo}/{page.lastPage}{' '}
       { page.none
-        ? 'no rows'
+        ? noRows
         : page.one
-          ? 'one row'
+          ? oneRow
           : page.all
-            ? `all ${formatNumber(page.total)} rows`
-            : `rows ${formatNumber(page.from)}-${formatNumber(page.to)} of ${formatNumber(page.total)}`
-
+            ? allRows(page.total)
+            : someRows(page.from, page.to, page.total)
       }
       {' '}
     </div>

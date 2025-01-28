@@ -1,20 +1,31 @@
 import { FALSE, TRUE } from '@/src/constants'
 import { coerceBoolean } from './Utils/Filter'
 import { formatNumber, capitalize, currency, hasValue } from '@abw/badger-utils'
+import { DataTableCellDisplayFn, DataTableCellDisplayFnProps } from './types'
 
-export const displayText = ({value}) =>
+export const displayText = (
+  { value }: DataTableCellDisplayFnProps<string>
+) =>
   hasValue(value) ? value : ''
 
-export const displayNumber = ({value}) =>
+export const displayNumber = (
+  { value }: DataTableCellDisplayFnProps<number>
+) =>
   hasValue(value) ? formatNumber(value) : ''
 
-export const displayCurrency = ({value}) =>
+export const displayCurrency = (
+  { value }: DataTableCellDisplayFnProps<number>
+) =>
   hasValue(value) ? currency(value) : ''
 
-export const displayTitle = ({value}) =>
+export const displayTitle = (
+  { value }: DataTableCellDisplayFnProps<string>
+) =>
   hasValue(value) ? capitalize(value) : ''
 
-export const displayBoolean = ({value, column}) =>
+export const displayBoolean = (
+  { value, column }: DataTableCellDisplayFnProps<unknown>
+) =>
   hasValue(value)
     ? coerceBoolean(value)
       ? (column.trueText  ?? TRUE)
@@ -40,7 +51,7 @@ export const displayBoolean = Themed(
 )
 */
 
-export const displayTypes = {
+export const displayTypes: Record<string, DataTableCellDisplayFn> = {
   default:    displayText,
   text:       displayText,
   id:         displayText,

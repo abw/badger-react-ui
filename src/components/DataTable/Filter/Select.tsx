@@ -1,20 +1,19 @@
-import React from 'react'
-import { Select } from '@/src/index'
+import { Select, SelectOption } from '@/src/index'
 import { isObject, doNothing } from '@abw/badger-utils'
-
+import { DataTableFilterProps } from '../types'
 
 const SelectFilter = ({
   value,
   setFilter,
   column,
   placeholder
-}) =>
+}: DataTableFilterProps) =>
   <Select
     options={column.selectOptions||[]}
     value={value}
     onUpdate={doNothing}
     onSelect={
-      option => setFilter(
+      (option: SelectOption) => setFilter(
         column.selectValue
           ? column.selectValue(option)
           : isObject(option)
