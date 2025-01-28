@@ -18,8 +18,8 @@ dependencies:
     specifier: ^0.0.1
     version: 0.0.1
   '@abw/badger-utils':
-    specifier: 1.2.2
-    version: 1.2.2
+    specifier: 1.2.4
+    version: 1.2.4
   '@abw/react-context':
     specifier: 2.3.0-alpha-5
     version: 2.3.0-alpha-5(react-dom@18.3.1)(react@18.3.1)
@@ -151,7 +151,7 @@ packages:
   /@abw/badger-codecs@1.0.3:
     resolution: {integrity: sha512-baUQcCcYcnEkTq+LEJotDluwVX2uBA332/u2fPaZrQwp7UhmqxOV7hIJ4sZel6JpaXtp9VWXU9LvZlhOB59+Gw==}
     dependencies:
-      '@abw/badger-utils': 1.2.2
+      '@abw/badger-utils': 1.2.4
       js-yaml: 4.1.0
 
   /@abw/badger-css@1.2.6:
@@ -164,7 +164,7 @@ packages:
     resolution: {integrity: sha512-Ip9CjSirOCUCFpBl6hkC3v3F9W4joE00PxnlDMJxzO45B6fgKIwCez4832XSjnBMfZBKAuZVPAuQTfhv5kRTrA==}
     dependencies:
       '@abw/badger-codecs': 1.0.3
-      '@abw/badger-utils': 1.2.2
+      '@abw/badger-utils': 1.2.4
 
   /@abw/badger-form@1.1.3(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-PrmoFB2Gxss8/rZGvqzWopxmlZJ4rjEiNIsuGr2mp9YHF+6Wh2n6lF5uE+L1vcCVSpjKpFcSdXYdtE7OPXw+iA==}
@@ -179,7 +179,7 @@ packages:
   /@abw/badger-icon@0.1.6:
     resolution: {integrity: sha512-llg968l7UyShOihzO9KjdZ+HLre3QgywaHasNzz/AwEz8UN/jQE86ZFms8hFAn3lK9y6Ei15XzIcfJCHEP2ZjA==}
     dependencies:
-      '@abw/badger-utils': 1.2.2
+      '@abw/badger-utils': 1.2.4
       '@abw/react-one-louder': 0.0.6
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -188,7 +188,7 @@ packages:
   /@abw/badger-icon@1.0.0-alpha-2:
     resolution: {integrity: sha512-vwSO+tcRaqApVqZv0pcz4sz7sILkcfdjP5UwLncDtRm/hbFsO5SPS2DiS9IZ3F7afiJYWlni4H17UbS0maNOdQ==}
     dependencies:
-      '@abw/badger-utils': 1.2.2
+      '@abw/badger-utils': 1.2.4
       '@abw/react-one-louder': 1.0.0-alpha-2(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -209,7 +209,7 @@ packages:
       '@abw/badger-css': 1.2.6
       '@abw/badger-form': 1.1.3(react-dom@18.3.1)(react@18.3.1)
       '@abw/badger-icon': 0.1.6
-      '@abw/badger-utils': 1.2.2
+      '@abw/badger-utils': 1.2.4
       '@abw/react-context': 2.1.1(react-dom@18.3.1)(react@18.3.1)
       '@abw/react-one-louder': 0.0.6
       '@dnd-kit/core': 6.3.1(react-dom@18.3.1)(react@18.3.1)
@@ -224,7 +224,7 @@ packages:
   /@abw/badger-timestamp@1.1.2:
     resolution: {integrity: sha512-ZXJ0luxgnQCXmL6eB++pACyNP0hUpdAFE78+UFnpD2qbpTcJiNrhjL+ZpA+NhuEHUzhK5HoP80fW2IWdL7TWIw==}
     dependencies:
-      '@abw/badger-utils': 1.2.2
+      '@abw/badger-utils': 1.2.4
 
   /@abw/badger-timestamp@1.2.0:
     resolution: {integrity: sha512-7dS6N0UI2p0j3yLXVXDD6SNN4EEowbUt8ho3bZ7S8/S4B9Pp7FLqiTJx3nXA1ACjwU37HipgVoScwJTqs/939g==}
@@ -236,8 +236,8 @@ packages:
     resolution: {integrity: sha512-7JZOL5m4HoT3MvAy09A+JlwfDi4eXqngUau8syfr4Wt897ylD5vGTavJQH+tNKdMe1Dc33Y6MjSngGyYQ7eqEQ==}
     dev: true
 
-  /@abw/badger-utils@1.2.2:
-    resolution: {integrity: sha512-ISEoqVhRfWXAa+bDbmm/qG+Osd33yCUKxnn+jV2FflDNeM1ieZggSahVLMex2d771pVtylBd6SKH2MrS2lGFdA==}
+  /@abw/badger-utils@1.2.4:
+    resolution: {integrity: sha512-CagLBQYx8/RBDjCmnqwZ11fu7hGwN3HstFay49yiUnBeEACrO3cap7MerBpe7E5G4k65Gi0oobAzACB0b+C2XQ==}
 
   /@abw/badger-website@0.3.3(@types/react@18.3.18)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-vpAatQ2OoPTIGP8+y/+Z1VoN6IM/emXqZt+Sor8vo2J8Cp+Xdge9Ayu87qI77GVXHOIcm9vPubagv/wUs0p+QQ==}
@@ -248,7 +248,7 @@ packages:
       '@abw/badger-css': 1.2.6
       '@abw/badger-react-ui': 1.3.13(react-dom@18.3.1)(react@18.3.1)
       '@abw/badger-timestamp': 1.2.0
-      '@abw/badger-utils': 1.2.2
+      '@abw/badger-utils': 1.2.4
       '@abw/react-context': 2.1.1(react-dom@18.3.1)(react@18.3.1)
       '@abw/react-night-and-day': 1.0.0-alpha-1(react-dom@18.3.1)(react@18.3.1)
       '@mdx-js/react': 3.1.0(@types/react@18.3.18)(react@18.3.1)
@@ -267,7 +267,7 @@ packages:
       '@abw/badger-codecs': 1.0.3
       '@abw/badger-filesystem': 1.1.0
       '@abw/badger-timestamp': 1.1.2
-      '@abw/badger-utils': 1.2.2
+      '@abw/badger-utils': 1.2.4
       chokidar: 3.6.0
       commander: 11.1.0
       dotenv: 16.4.7
