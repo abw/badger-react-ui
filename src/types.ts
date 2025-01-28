@@ -21,3 +21,6 @@ export type MaybeNumberStringFunction = string | ((arg: number | string) => stri
 
 export type OnClick = () => void
 export type ThisCallback = (that: React.Component) => void
+
+export type PartialWith<T, With extends keyof T> = Partial<T> & Pick<T, With>
+export type MaybeWithout<T, Without extends keyof T> = Omit<T, Without> & Partial<Pick<T, Without>>

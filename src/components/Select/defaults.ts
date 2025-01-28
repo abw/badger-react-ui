@@ -18,7 +18,6 @@ export const selectModelDefaults = {
   closeOnSelect:     true,
   debugPrefix:       'Select > ',
   findOption,
-  validOption,
   searchOptions,
 }
 
@@ -58,6 +57,7 @@ export const selectRenderDefaults = {
   //displayOption   = withIconsRenderer,
   //displayValue    = withIconsRenderer,
   //displayHeading  = withIconsRenderer,
+  validOption,
   displayValue:      defaultRenderer('displayValue') as WithIconsRenderer,
   displayOption:     defaultRenderer('displayOption') as WithIconsRenderer,
   displayHeading:    defaultRenderer('displayHeading') as WithIconsRenderer,

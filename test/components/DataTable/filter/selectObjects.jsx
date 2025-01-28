@@ -2,7 +2,7 @@ import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { it, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
-import { DataTable } from '@/src/index.jsx'
+import { DataTable } from '@/src/index'
 // import { screen } from '@testing-library/react'
 // import { prettyDOM } from '@testing-library/dom'
 

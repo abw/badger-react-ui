@@ -16,7 +16,7 @@ export type UseComplexValueFn<T> = (fn: (value: T) => T) => void
 export type UseComplexSetter<T> = UseComplexValueSet<T> & UseComplexValueFn<T>
 
 type UseComplexValuesSetters<Values> = {
-  [Property in keyof Values as `set${Capitalize<string & Property>}`]:
+  [Property in keyof Values as `set${Capitalize<string & Property>}`]-?:
     UseComplexSetter<Values[Property]>
 };
 

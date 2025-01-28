@@ -2,7 +2,7 @@ import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
-import { DataTable } from '@/src/index.jsx'
+import { DataTable } from '@/src/index'
 import { currency } from '@abw/badger-utils'
 
 const Alan  = { name: 'Alan',  salary: 23456  }

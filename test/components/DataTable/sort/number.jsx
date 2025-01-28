@@ -1,9 +1,9 @@
 import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
-import { render, act } from '@testing-library/react'
-import { DataTable } from '@/src/index.jsx'
-import { formatNumber } from '@abw/badger-utils'
+import { render, act, screen } from '@testing-library/react'
+import { DataTable } from '@/src/index'
+import { formatNumber, sleep } from '@abw/badger-utils'
 
 const Alan  = { name: 'Alan',  points: 200  }
 const Brian = { name: 'Brian', points: 100  }
@@ -11,6 +11,7 @@ const Chris = { name: 'Chris', points: 1010 }
 
 const DataTableExample = () =>
   <DataTable
+    // debug
     rows={[ Alan, Brian, Chris ]}
     columns={{
       name:   { },
@@ -34,12 +35,14 @@ test(
     const headings = table.querySelectorAll('thead > tr > th')
     expect(headings.length).toBe(2)
     const pointsHead = headings[1]
+    // console.log(`pointsHead: `, pointsHead)
 
     // There should be 3 rows in the body
     expectRows(table, [ Alan, Brian, Chris ])
 
     // click on heading to sort down
     await act( () => user.click(pointsHead) )
+    await act( () => sleep(500) )
     expectRows(table, [ Brian, Alan, Chris ])
 
     // click on heading again to sort up

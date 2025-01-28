@@ -2,7 +2,7 @@ import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
-import { DataTable } from '@/src/index.jsx'
+import { DataTable } from '@/src/index'
 
 const Alan  = { name: 'Alan',  id: 23456  }
 const Brian = { name: 'Brian', id: 100000 }

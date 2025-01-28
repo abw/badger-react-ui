@@ -2,7 +2,7 @@ import Context from './Context'
 import { classes } from '@/src/utils/classes'
 import { SelectOptionProps } from './types'
 
-export const SelectOption = Context.Consumer<
+export const SelectMenuOption = Context.Consumer<
   SelectOptionProps
 >(
   ({
@@ -39,4 +39,4 @@ export const SelectOption = Context.Consumer<
     </div>
 )
 
-export default SelectOption
+export default SelectMenuOption
