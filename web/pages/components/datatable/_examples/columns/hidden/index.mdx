@@ -1,0 +1,26 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component'
+import Source     from './Component.tsx?raw'
+
+<Example
+  code="hidden"
+  Component={Component}
+  Source={Source}
+  highlightLines="8,11"
+  undent={2}
+  expand
+>
+  The `hidden` property can be set to `true` to prevent the column from
+  being initially displayed.
+
+  The columns will still be listed in the columns dropdown menu for
+  subsequent selection
+
+  The `visible` property can also be set to be `false` for backwards
+  compatibility with earlier versions.  However it is recommended that all
+  new code use `hidden` because it's more logically consistent.  If `hidden`
+  is not specified then it is assumed to be `false`.  On the contrary, if
+  `visible` is not specified then it is assumed to be `true` which can be
+  counterintuitive.
+</Example>
