@@ -7,6 +7,7 @@ export const SelectMenuOption = Context.Consumer<
 >(
   ({
     option,
+    optionObject,
     active,
     activeRef,
     selected,
@@ -23,8 +24,8 @@ export const SelectMenuOption = Context.Consumer<
       className={
         classes(
           optionClass,
-          option.className,
-          option.indent ? `indent-${option.indent}` : null,
+          optionObject.className,
+          optionObject.indent ? `indent-${optionObject.indent}` : null,
           active   ? activeClass   : null,
           selected ? selectedClass : null,
           validOption(option) ? null : disabledClass,
@@ -33,7 +34,7 @@ export const SelectMenuOption = Context.Consumer<
       onMouseEnter={onMouseEnter}
       onClick={onClick}
       ref={active ? activeRef : null}
-      aria-disabled={option.disabled}
+      aria-disabled={optionObject.disabled}
     >
       {displayOption(option)}
     </div>

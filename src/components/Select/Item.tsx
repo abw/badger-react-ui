@@ -23,7 +23,11 @@ export const SelectItem = Context.Consumer<
         : optionObject.separator
           // ? <Separator option={optionObject} {...props}/>
           ? <Separator option={optionObject}/>
-          : <Option option={optionObject} {...props}/>
+          : <Option
+              option={option}
+              optionObject={optionObject}
+              {...props}
+            />
     )
   }
 )

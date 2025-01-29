@@ -162,7 +162,8 @@ export type SelectItemProps = {
 }
 
 export type SelectOptionProps = {
-  option: SelectOptionObject
+  option: SelectOption
+  optionObject: SelectOptionObject
   active: boolean
 }
 
