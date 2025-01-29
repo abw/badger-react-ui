@@ -37,7 +37,7 @@ Sub-optimal fix is to use a type instead.
         Consider changing `ref` to be `labelRef` (alongside `inputRef`)
     [X] Confirm
     [X] DataTable
-    [ ] DataTables
+    [X] DataTables
     [X] Details
     [X] Dropdown
     [X] DropdownMenu

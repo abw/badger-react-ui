@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
-import { render, act } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { DataTables } from '@/src/index'
 import animals from '@/test/lib/animals'
 
@@ -39,25 +39,30 @@ test(
     expectTables(container, 10, 10, 11)
 
     // page 2
-    await act( () => user.click(topButtons[1]) )
+    await user.click(topButtons[1])
     // screen.debug()
     expectTables(container, 10, 12, 33)
 
     // page 3
-    await act( () => user.click(topButtons[1]) )
+    await user.click(topButtons[1])
     // screen.debug()
     expectTables(container, 10, 41, 301)
 
     // page 4
-    await act( () => user.click(topButtons[1]) )
+    await user.click(topButtons[1])
     // screen.debug()
     expectTables(container, 4, 302, 1234)
   }
 )
 
-function expectTables(container, n, fromId, toId) {
+function expectTables(
+  container: Element,
+  n: number,
+  fromId: number,
+  toId: number
+) {
   const tables = container.querySelectorAll('table')
   expect(tables.length).toBe(n)
-  expect(tables[0].querySelector('tr:first-child td')).toHaveTextContent(fromId)
-  expect(tables[n-1].querySelector('tr:first-child td')).toHaveTextContent(toId)
+  expect(tables[0].querySelector('tr:first-child td')).toHaveTextContent(String(fromId))
+  expect(tables[n-1].querySelector('tr:first-child td')).toHaveTextContent(String(toId))
 }
