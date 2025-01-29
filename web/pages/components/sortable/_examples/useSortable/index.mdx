@@ -1,15 +1,15 @@
 import React      from 'react'
 import Example    from '@/page/ExampleSection.jsx'
-import Component  from './Component.jsx'
-import Source     from './Component.jsx?raw'
+import Component  from './Component'
+import Source     from './Component.tsx?raw'
 import { DNDKitLink } from '@/site/Links.jsx'
 
 <Example
-  code="MakeSortable"
+  code="useSortable"
   Component={Component}
   Source={Source}
 >
-  The above components are implemented using `MakeSortable`.
+  The above components are implemented using the `useSortable`.
 
   In most cases you don't need to worry about this.  However, if you're trying
   to render a sortable table then you may see React warnings telling you that
@@ -18,7 +18,7 @@ import { DNDKitLink } from '@/site/Links.jsx'
   for the sortable context and it will put it wherever you've inserted the
   `Sortable` component.
 
-  The solution is to use `MakeSortable`, passing it all the options supported
+  The solution is to use `useSortable`, passing it all the options supported
   by `Sortable`.  It will return an object containing `Context` and `Content`
   components. Put the `Context` around the outside of your table and then
   insert the `Content` where you want the sortable items to appear.

@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import { useState } from 'react'
 import { maybeFunction } from '@abw/badger-utils'
 import { capitalFirstLetter } from '@/src/utils/text'

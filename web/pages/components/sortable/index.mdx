@@ -1,7 +1,7 @@
 import Sortable     from './_examples/Sortable/index.mdx'
 import Vertical     from './_examples/Vertical/index.mdx'
 import Horizontal   from './_examples/Horizontal/index.mdx'
-import MakeSortable from './_examples/MakeSortable/index.mdx'
+import UseSortable  from './_examples/UseSortable/index.mdx'
 import Items        from './_examples/items.mdx'
 import Item         from './_examples/Item.mdx'
 import SetOrder     from './_examples/setOrder.mdx'
@@ -20,4 +20,24 @@ import SetOrder     from './_examples/setOrder.mdx'
 
 <Vertical/>
 <Horizontal/>
-<MakeSortable/>
+<UseSortable/>
+
+## Typescript Notes
+
+The above examples are written in Typescript.  If you're using plain old
+Javascript then you can ignore the types.
+
+The elements in the `items` array that you pass to the components should
+extend the `SortableDataItem` type.  This asserts that each item has an `id`
+property (number or string) to uniquely identify it.  Your `setOrder` function
+should receive an array of these typed items as the argument (e.g.
+`items: YourType[]`).
+
+The `Item` component you define should type the properties using the
+`SortableItemProps` generic type, specifying your item data type as a type
+parameter (e.g. `SortableItemProps<YourType>`).
+
+The `Sortable`, `VerticalSort` and `HorizontalSort` components also accept
+a type parameter (e.g. `<Sortable<YourType> ... >`) although it's not usually
+required as Typescript can infer the type from the `item`, `Item`
+and `setOrder` properties.

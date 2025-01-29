@@ -1,10 +1,15 @@
-import { MakeSortable, Button } from '@/src/index'
+import { VerticalSort, Button, SortableDataItem, SortableItemProps } from '@/src/index'
 
 /* START */
 import React from 'react'
-// PRETEND: import { MakeSortable, Button } from '@abw/badger-react-ui
+// PRETEND: import {
+// PRETEND:   VerticalSort, Button, SortableDataItem, SortableItemProps
+// PRETEND: } from '@abw/badger-react-ui
 
-export const animals = [
+type Animal = SortableDataItem & {
+  animal: string
+}
+export const animals: Animal[] = [
   { id: 100, animal: 'Alan Aardvark' },
   { id: 101, animal: 'Brian Badger' },
   { id: 102, animal: 'Colin Camel' },
@@ -15,11 +20,11 @@ export const animals = [
   { id: 107, animal: 'Hector Hedgehog' },
 ]
 
-const MakeSortableExample = () => {
+const VerticalSortExample = () => {
   const [changed, setChanged] = React.useState(false)
   const [items, setItems] = React.useState(animals)
 
-  const setOrder = items => {
+  const setOrder = (items: Animal[]) => {
     setItems(items)
     setChanged(true)
   }
@@ -35,33 +40,20 @@ const MakeSortableExample = () => {
 
   const Item = ({
     item, setNodeRef, style, listeners, ...props
-  }) =>
-    <tr
-      ref={setNodeRef}
-      style={style}
-      className={`sortable item border mar-r-2 mar-b-2 pad pad-h-2 bgc-95 bgd-5 ${item.moved ? 'moved' : ''}`}
+  }: SortableItemProps<Animal>) =>
+    <div
+      ref={setNodeRef} style={style}
+      className={`sortable item border mar-b-2 pad pad-h-2 bgc-95 bgd-5 ${item.moved ? 'moved' : ''}`}
       {...props}
       {...listeners}
     >
-      <td>
-        {item.id}
-      </td>
-      <td>
-        {item.animal}
-      </td>
-    </tr>
-
-  const { Context, Content } = MakeSortable({
-    items: items,
-    Item: Item,
-    setOrder: setOrder
-  })
-
+      {item.animal}
+    </div>
 
   return (
     <>
       <div className="flex space middle mar-b-4">
-        <h3>Drag Items to Set Order</h3>
+        <h3 className="mar-t-none">Drag Items to Set Order</h3>
         { changed &&
           <div>
             <Button
@@ -74,15 +66,15 @@ const MakeSortableExample = () => {
           </div>
         }
       </div>
-      <Context>
-        <table className="wide celled shaded sortable">
-          <tbody>
-            <Content/>
-          </tbody>
-        </table>
-      </Context>
+      <div className="sortable list vertical">
+        <VerticalSort
+          items={items}
+          Item={Item}
+          setOrder={setOrder}
+        />
+      </div>
     </>
   )
 }
 
-export default MakeSortableExample
+export default VerticalSortExample

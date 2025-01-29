@@ -1,10 +1,15 @@
-import { HorizontalSort, Button } from '@/src/index'
+import { HorizontalSort, Button, SortableDataItem, SortableItemProps } from '@/src/index'
 
 /* START */
 import React from 'react'
-// PRETEND: import { HorizontalSort, Button } from '@abw/badger-react-ui
+// PRETEND: import {
+// PRETEND:   HorizontalSort, Button, SortableDataItem, SortableItemProps
+// PRETEND: } from '@abw/badger-react-ui
 
-const animals = [
+type Animal = SortableDataItem & {
+  animal: string
+}
+const animals: Animal[] = [
   { id: 100, animal: 'Ant' },
   { id: 101, animal: 'Bat' },
   { id: 102, animal: 'Cat' },
@@ -15,7 +20,7 @@ const HorizontalSortExample = () => {
   const [changed, setChanged] = React.useState(false)
   const [items, setItems] = React.useState(animals)
 
-  const setOrder = items => {
+  const setOrder = (items: Animal[]) => {
     setItems(items)
     setChanged(true)
   }
@@ -31,7 +36,7 @@ const HorizontalSortExample = () => {
 
   const Item = ({
     item, setNodeRef, style, listeners, ...props
-  }) =>
+  }: SortableItemProps<Animal>) =>
     <div
       ref={setNodeRef} style={style}
       className={`sortable border item mar-r-2 pad pad-h-2 bgc-95 bgd-5 ${item.moved ? 'moved' : ''}`}

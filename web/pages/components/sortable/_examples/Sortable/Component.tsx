@@ -1,10 +1,15 @@
-import { Sortable, Button } from '@/src/index'
+import { Sortable, Button, SortableDataItem, SortableItemProps } from '@/src/index'
 
 /* START */
 import React from 'react'
-// PRETEND: import { Sortable, Button } from '@abw/badger-react-ui
+// PRETEND: import {
+// PRETEND:   Sortable, Button, SortableDataItem, SortableItemProps
+// PRETEND: } from '@abw/badger-react-ui
 
-export const animals = [
+type Animal = SortableDataItem & {
+  animal: string
+}
+export const animals: Animal[] = [
   { id: 100, animal: 'Alan Aardvark' },
   { id: 101, animal: 'Brian Badger' },
   { id: 102, animal: 'Colin Camel' },
@@ -19,7 +24,7 @@ const SortableExample = () => {
   const [changed, setChanged] = React.useState(false)
   const [items, setItems] = React.useState(animals)
 
-  const setOrder = items => {
+  const setOrder = (items: Animal[]) => {
     setItems(items)
     setChanged(true)
   }
@@ -35,7 +40,7 @@ const SortableExample = () => {
 
   const Item = ({
     item, setNodeRef, style, listeners, ...props
-  }) =>
+  }: SortableItemProps<Animal>) =>
     <div
       ref={setNodeRef}
       style={style}

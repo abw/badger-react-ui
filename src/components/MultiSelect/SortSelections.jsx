@@ -1,6 +1,6 @@
 import React            from 'react'
 import Context          from './Context.js'
-import Sortable         from '@/components/Sortable/Sortable.jsx'
+import Sortable         from '@/components/Sortable/Sortable'
 import Icon             from '@/components/Icon/Icon'
 import DefaultSelection from './Selection.jsx'
 

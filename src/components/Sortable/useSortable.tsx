@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
-import SortableItem from './SortableItem.jsx'
+import SortableItem from './SortableItem'
+import { ReactNode, useState } from 'react'
+import { SortableDataItem, SortableDirections, SortableProps } from './types'
 import {
   DndContext, closestCenter,
   KeyboardSensor, PointerSensor,
   useSensor, useSensors, DragOverlay,
+  DragStartEvent,
+  DragEndEvent,
 } from '@dnd-kit/core'
 import {
   arrayMove,
@@ -18,7 +21,7 @@ import {
   restrictToVerticalAxis, restrictToHorizontalAxis
 } from '@dnd-kit/modifiers'
 
-const directions = {
+const directions: SortableDirections = {
   default: {
     modifiers: [restrictToParentElement],
     strategy: rectSortingStrategy,
@@ -33,43 +36,51 @@ const directions = {
   }
 }
 
-export const MakeSortable = ({
+export const useSortable = <T extends SortableDataItem = SortableDataItem>({
   items,
   setOrder,
   List=({children}) => children,
   Item,
-  direction,
+  direction = 'default',
   options = directions[direction] || directions.default,
   modifiers = options.modifiers,
   strategy = options.strategy,
   Overlay,
   ...props
-}) => {
-  const Context = ({ children }) => {
-    const [activeItem, setActiveItem] = useState(null)
+}: SortableProps<T>) => {
+  const Context = ({ children }: { children: ReactNode }) => {
+    const [activeIndex, setActiveIndex] = useState<number|null>(null)
     const sensors = useSensors(
       useSensor(PointerSensor),
       useSensor(KeyboardSensor, {
         coordinateGetter: sortableKeyboardCoordinates,
       })
     )
-    function handleDragStart(event) {
-      const item = items.findIndex( item => item.id === event.active.id )
-      setActiveItem(item)
+
+    const handleDragStart = (event: DragStartEvent) => {
+      const index = items.findIndex(
+        item => item.id === event.active.id
+      )
+      setActiveIndex(index)
     }
-    function handleDragCancel() {
-      setActiveItem(null)
-    }
-    function handleDragEnd(event) {
-      const {active, over} = event
-      if (active.id !== over.id) {
+
+    const handleDragCancel = () =>
+      setActiveIndex(null)
+
+    const handleDragEnd = (event: DragEndEvent) => {
+      const { active, over } = event
+      if (! over) {
+        return
+      }
+      if (active.id !== over?.id) {
         const oldIndex = items.findIndex( item => item.id === active.id )
         const newIndex = items.findIndex( item => item.id === over.id )
         items[oldIndex].moved = true
         setOrder(arrayMove(items, oldIndex, newIndex))
       }
-      setActiveItem(null)
+      setActiveIndex(null)
     }
+
     return (
       <DndContext
         sensors={sensors}
@@ -85,9 +96,9 @@ export const MakeSortable = ({
         >
           { children }
         </SortableContext>
-        { Overlay && activeItem &&
+        { Overlay && activeIndex &&
         <DragOverlay>
-          <Overlay item={activeItem} {...props}/>
+          <Overlay index={activeIndex} {...props}/>
         </DragOverlay>
         }
       </DndContext>
@@ -98,7 +109,7 @@ export const MakeSortable = ({
     <List {...props}>
       { items.map(
         item =>
-          <SortableItem
+          <SortableItem<T>
             key={item.id}
             id={item.id}
             item={item}
@@ -112,4 +123,4 @@ export const MakeSortable = ({
   return { Context, Content }
 }
 
-export default MakeSortable
+export default useSortable
