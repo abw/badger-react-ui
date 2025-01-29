@@ -1,7 +1,6 @@
-import React from 'react'
 import { it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { useContainer } from '@/src/index.jsx'
+import { useContainer } from '@/src/index'
 
 const UseContainerTest = () => {
   const { ref, width, height, breakpoint, boxWidth, boxHeight } = useContainer()
