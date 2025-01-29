@@ -4,6 +4,7 @@ import { MaybeWithout, PartialWith } from '@/src/types'
 import { MouseEventHandler } from 'react'
 import { UseComplexValuesSetters } from '@/src/hooks'
 import { PagerProps } from '../Pager/types'
+import { SortableDataItem } from '../Sortable'
 
 export type DataTableModelDefaults = typeof dataTableModelDefaults
 export type DataTableRenderDefaults = typeof dataTableRenderDefaults
@@ -13,7 +14,7 @@ export type DataTableProps =
   Partial<DataTableModelDefaults> &
   Partial<DataTableRenderDefaults> &
   DataTableCommonProps & {
-  rows: DataTableRow[]
+  rows: DataTableRowData[]
   columns: DataTableColumnsSource,
   storageKey?: string
   // columns: string | unknown    // FIXME
@@ -33,38 +34,36 @@ export type DataTableRenderProps =
   page: DataTablePage
   showFilters: boolean
   toggleFilters: MouseEventHandler<HTMLDivElement>
-  // filters: DataTableFilters
   setFilter: (name: string, value: DataTableFilterValue) => void
   toggleSortColumn: (column: string) => void
   toggleVisibleColumn:  (column: string) => void
   changeColumnOrder: (ids: string[]) => void
   contentClass: string,
   hasFilters: boolean
-  // setPageNo: (page: number) => void
 }
 
 export type DataTableCommonProps = {
   scrollX?:       boolean
-  onRowClick?:    (row: DataTableRow) => void
+  onRowClick?:    (row: DataTableRowData) => void
   displayTypes?:  DataTableDisplayTypes
-  Content?:       DataTableContentType
-  Header?:        DataTableHeaderType
-  Body?:          DataTableBodyType
-  Table?:         DataTableTableType
-  Headings?:      DataTableHeadingsType
-  Heading?:       DataTableHeadingType
-  Filters?:       DataTableFiltersType,
-  Filter?:        DataTableFilterType,
-  Rows?:          DataTableRowsType,
-  Row?:           DataTableRowType,
-  NoRows?:        DataTableNoRowsType,
-  Cell?:          DataTableCellType,
-  Footer?:        DataTableFooterType
-  Summary?:       DataTableSummaryType
-  Controls?:      DataTableControlsType
-  PageSize?:      DataTablePageSizeType
-  Columns?:       DataTableColumnsType
-  Filtering?:     DataTableFilteringType
+  Content?:       DataTableContentComponent
+  Header?:        DataTableHeaderComponent
+  Body?:          DataTableBodyComponent
+  Table?:         DataTableTableComponent
+  Headings?:      DataTableHeadingsComponent
+  Heading?:       DataTableHeadingComponent
+  Filters?:       DataTableFiltersComponent
+  Filter?:        DataTableFilterComponent
+  Rows?:          DataTableRowsComponent
+  Row?:           DataTableRowComponent
+  NoRows?:        DataTableNoRowsComponent
+  Cell?:          DataTableCellComponent
+  Footer?:        DataTableFooterComponent
+  Summary?:       DataTableSummaryComponent
+  Controls?:      DataTableControlsComponent
+  PageSize?:      DataTablePageSizeComponent
+  Columns?:       DataTableColumnsComponent
+  Filtering?:     DataTableFilteringComponent
   pager?:         PagerProps
 }
 
@@ -75,7 +74,7 @@ export type DataTableState = {
   sortReverse: boolean
   columnOrder: string[]
   visibleColumns: string[]
-  filters: DataTableFilters
+  filters: DataTableFilterValues
 }
 export type DataTableStateSetters = UseComplexValuesSetters<DataTableState>
 
@@ -94,7 +93,7 @@ export type DataTableColumn = {
   right?: boolean
   center?: boolean
   selectValue?: (option: SelectOption) => DataTableFilterValue
-  filterComponent?: DataTableFilterInputType
+  filterComponent?: DataTableFilterInputComponent
   filterPlaceholder?: string
   filterType?: string
   filter?: DataTableFilterFn
@@ -106,7 +105,7 @@ export type DataTableColumn = {
 }
 
 export type DataTableCellClassProps = {
-  row: DataTableRow
+  row: DataTableRowData
   column: DataTableColumn
   value: unknown,
   name: string,
@@ -137,7 +136,7 @@ export type DataTableColumnsSource =
 
 export type DataTableSortColumnPair = [string|undefined, boolean]
 export type DataTableFilterValue = boolean | string | number | undefined
-export type DataTableFilters = Record<string, DataTableFilterValue>
+export type DataTableFilterValues = Record<string, DataTableFilterValue>
 export type DataTableFilterInputProps = {
   value: unknown
   type?: string,
@@ -152,10 +151,19 @@ export type DataTableFilterProps = {
 }
 
 export type DataTableSortProps = {
-  rows: DataTableRows,
+  rows: DataTableRowsData,
   columns: DataTableColumns,
   sortColumn?: string,
   sortReverse?: boolean
+}
+
+export type DataTableSortItem = SortableDataItem & {
+  heading: string
+}
+
+export type DataTableSortColumnExtraProps =  {
+  toggleVisibleColumn: (column: string) => void
+  isVisible: Record<string, boolean>
 }
 
 export type DataTableHeadingProps = {
@@ -164,7 +172,7 @@ export type DataTableHeadingProps = {
 }
 
 export type DataTableRowProps = {
-  row: DataTableRow
+  row: DataTableRowData
   rowIndex: number
   rowClass?: string
 }
@@ -184,12 +192,12 @@ export type DataTableFilterFnSearch = string | number | boolean
 export type DataTableFilterFnProps = {
   value: unknown
   search: DataTableFilterFnSearch
-  row?: DataTableRow
+  row?: DataTableRowData
   field?: string
 }
 
 export type DataTableCellProps = {
-  row: DataTableRow
+  row: DataTableRowData
   rowIndex: number
   cellIndex: number
   cellClass?: string
@@ -199,8 +207,8 @@ export type DataTableCellProps = {
   value?: unknown
 }
 
-export type DataTableRow = Record<string, unknown>
-export type DataTableRows = DataTableRow[]
+export type DataTableRowData = Record<string, unknown>
+export type DataTableRowsData = DataTableRowData[]
 
 export type DataTablePage = {
   pageSize: number
@@ -218,25 +226,25 @@ export type DataTablePage = {
   all: boolean
   one: boolean
   none: boolean
-  rows: DataTableRows
+  rows: DataTableRowsData
 }
 
-export type DataTableContentType      = React.FC
-export type DataTableHeaderType       = React.FC
-export type DataTableBodyType         = React.FC
-export type DataTableTableType        = React.FC
-export type DataTableFooterType       = React.FC
-export type DataTableSummaryType      = React.FC
-export type DataTableControlsType     = React.FC
-export type DataTablePageSizeType     = React.FC
-export type DataTableColumnsType      = React.FC
-export type DataTableFilteringType    = React.FC
-export type DataTableFilterInputType  = React.FC<DataTableFilterInputProps>
-export type DataTableHeadingsType     = React.FC
-export type DataTableFiltersType      = React.FC
-export type DataTableFilterType       = React.FC
-export type DataTableRowsType         = React.FC
-export type DataTableRowType          = React.FC
-export type DataTableNoRowsType       = React.FC
-export type DataTableCellType         = React.FC
-export type DataTableHeadingType      = React.FC
+export type DataTableContentComponent      = React.FC
+export type DataTableHeaderComponent       = React.FC
+export type DataTableBodyComponent         = React.FC
+export type DataTableTableComponent        = React.FC
+export type DataTableFooterComponent       = React.FC
+export type DataTableSummaryComponent      = React.FC
+export type DataTableControlsComponent     = React.FC
+export type DataTablePageSizeComponent     = React.FC
+export type DataTableColumnsComponent      = React.FC
+export type DataTableFilteringComponent    = React.FC
+export type DataTableFilterInputComponent  = React.FC<DataTableFilterInputProps>
+export type DataTableHeadingsComponent     = React.FC
+export type DataTableFiltersComponent      = React.FC
+export type DataTableFilterComponent       = React.FC
+export type DataTableRowsComponent         = React.FC
+export type DataTableRowComponent          = React.FC
+export type DataTableNoRowsComponent       = React.FC
+export type DataTableCellComponent         = React.FC
+export type DataTableHeadingComponent      = React.FC

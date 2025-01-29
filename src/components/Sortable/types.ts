@@ -54,7 +54,9 @@ export type SortableOverlayProps = {
   [key:string]: unknown
 }
 
-export type SortableProps<T extends SortableDataItem = SortableDataItem> = {
+export type SortableProps<
+  T extends SortableDataItem = SortableDataItem
+> = {
   items: T[]
   setOrder: (items: T[]) => void
   List?: SortableListComponent

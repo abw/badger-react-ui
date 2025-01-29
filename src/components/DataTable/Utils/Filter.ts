@@ -1,6 +1,9 @@
 import { hasValue, isBoolean } from '@abw/badger-utils'
-import { DataTableColumns, DataTableFilterFn, DataTableFilters, DataTableFilterTypes, DataTableRows } from '../types'
 import { coerceBoolean, coerceFloat, coerceInteger } from '@/src/utils'
+import {
+  DataTableColumns, DataTableFilterFn, DataTableFilterTypes,
+  DataTableFilterValues, DataTableRowsData
+} from '../types'
 
 export const filterStringExact: DataTableFilterFn = ({ value, search }) =>
   // we have to do woolly string searching because the value returned from a select
@@ -58,9 +61,9 @@ export const dataTableFilterTypes: DataTableFilterTypes = {
 }
 
 export const dataTableFilter = (
-  rows: DataTableRows,
+  rows: DataTableRowsData,
   columns: DataTableColumns,
-  filters: DataTableFilters
+  filters: DataTableFilterValues
 ) => {
   const fkeys = Object
     .keys(filters)

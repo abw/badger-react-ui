@@ -2,9 +2,9 @@ import Boolean  from './Boolean'
 import Number   from './Number'
 import Text     from './Text'
 import Select   from './Select'
-import { DataTableFilterInputType } from '../types'
+import { DataTableFilterInputComponent } from '../types'
 
-export const dataTableFilterComponents: Record<string, DataTableFilterInputType> = {
+export const dataTableFilterComponents: Record<string, DataTableFilterInputComponent> = {
   default: Text,
   string:  Text,
   text:    Text,

@@ -17,6 +17,5 @@ export * from './PageSize'
 export * from './Row'
 export * from './Rows'
 export * from './Summary'
-// FIXME: conflict between DataTableFilters, DataTableRow, DataTableRows
-// export * from './types'
+export * from './types'
 export * from './Utils/index'

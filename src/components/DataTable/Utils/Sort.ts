@@ -1,4 +1,4 @@
-import { DataTableColumns, DataTableRows } from '../types'
+import { DataTableColumns, DataTableRowsData } from '../types'
 import {
   descendingOrder, FieldSelector, integerSort, isFunction, numberSort,
   ObjectSortFunction, stringSort
@@ -18,11 +18,11 @@ export const dataTableSorters: Record<string, Sorter> = {
 }
 
 export const dataTableSort = (
-  rows: DataTableRows,
+  rows: DataTableRowsData,
   columns: DataTableColumns,
   sortColumn?: string,
   sortReverse?: boolean
-): DataTableRows => {
+): DataTableRowsData => {
   if (! sortColumn || ! columns[sortColumn]) {
     return rows
   }

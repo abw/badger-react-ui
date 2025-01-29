@@ -1,6 +1,7 @@
-import React    from 'react'
 import Checkbox from '@/components/Checkbox/Checkbox'
 import Icon from '@/components/Icon/Icon'
+import { SortableItemProps } from '@/components/Sortable'
+import { DataTableSortColumnExtraProps, DataTableSortItem } from '../types'
 
 const DataTableColumn = ({
   item,
@@ -10,7 +11,7 @@ const DataTableColumn = ({
   toggleVisibleColumn,
   isVisible,
   ...props
-}) =>
+}: SortableItemProps<DataTableSortItem> & DataTableSortColumnExtraProps) =>
   <div
     ref={setNodeRef} style={style}
     className={`sortable item flex middle outline pad-v-none pad-h-1 border mar-b-2 ${item.moved ? 'moved' : ''}`}
@@ -20,7 +21,7 @@ const DataTableColumn = ({
       className="fluid flex middle no-focus"
       key={item.id}
       checked={isVisible[item.id]|| false}
-      onChange={() => toggleVisibleColumn(item.id)}
+      onChange={() => toggleVisibleColumn(String(item.id))}
       text={item.heading}
     />
     <div

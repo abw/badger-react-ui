@@ -4,6 +4,8 @@ import Column   from './Column'
 import Close    from './Close'
 import VerticalSort from '@/components/Sortable/Vertical'
 import { extract, splitHash } from '@abw/badger-utils'
+import { DataTableSortItem } from '../types'
+import { SortableItemProps } from '../../Sortable'
 
 export const DataTableColumns = Context.Consumer(
   ({
@@ -16,17 +18,23 @@ export const DataTableColumns = Context.Consumer(
     columnsHelpDrag='Drag handle to order.',
     changeColumnOrder
   }) => {
-    const isVisible = splitHash(visibleColumns)
-    const items = columnOrder
+    const isVisible = splitHash(visibleColumns) as Record<string, boolean>
+    const items: DataTableSortItem[] = columnOrder
       .filter( name => columns[name] )
       .map(
-        id => extract(columns[id], 'id heading')
+        id => extract(columns[id], 'id heading') as DataTableSortItem
       )
-    const setOrder = items => {
+    const setOrder = (items: DataTableSortItem[]) => {
       changeColumnOrder(
-        items.map( i => i.id )
+        items.map( i => String(i.id) )
       )
     }
+    const Item = (props: SortableItemProps<DataTableSortItem>) =>
+      <Column
+        {...props}
+        isVisible={isVisible}
+        toggleVisibleColumn={toggleVisibleColumn}
+      />
 
     return (
       <Dropdown
@@ -40,10 +48,14 @@ export const DataTableColumns = Context.Consumer(
         <div className="sortable list vertical">
           <VerticalSort
             items={items}
-            Item={Column}
+            Item={Item}
             setOrder={setOrder}
-            isVisible={isVisible}
-            toggleVisibleColumn={toggleVisibleColumn}
+            // More work needs to be done on Sortable to make these get
+            // passed to Item without type errors.  Until then the workaround
+            // is to define the custom Item component above which forwards the
+            // isVisible and toggleVisibleColumn properties on.
+            // isVisible={isVisible}
+            // toggleVisibleColumn={toggleVisibleColumn}
           />
         </div>
         <div className="smaller mar-b-2">

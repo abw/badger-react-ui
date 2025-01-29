@@ -36,7 +36,7 @@ Sub-optimal fix is to use a type instead.
     [X] Checkbox
         Consider changing `ref` to be `labelRef` (alongside `inputRef`)
     [X] Confirm
-    [ ] DataTable
+    [X] DataTable
     [ ] DataTables
     [X] Details
     [X] Dropdown
@@ -53,7 +53,7 @@ Sub-optimal fix is to use a type instead.
     [X] RangeMin
     [X] Search
     [X] Select
-    [ ] Sortable
+    [X] Sortable
     [X] Spinner
     [ ] Table
     [X] Tabset
@@ -89,3 +89,9 @@ as well as strings?
     [X] Initial value state
     [X] Pressing space defaults to being search input, but can we make it
         select if there's no search input... we only need spaces between words.
+
+## Sortable
+
+Overlay used to take `item` but confusingly that's the index of the item,
+not the data item itself.  Changed that to `index` and made `item` the
+actual item

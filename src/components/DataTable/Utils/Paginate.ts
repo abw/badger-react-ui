@@ -1,12 +1,12 @@
 
-import { DataTablePage, DataTableRows } from '../types'
+import { DataTablePage, DataTableRowsData } from '../types'
 
 // NOTES:
 // * pageNo is a "human readable" page number, starting at 1
 // * page is the "machine readable" page number, starting at 0
 
 export const dataTablePaginate = (
-  rows: DataTableRows,
+  rows: DataTableRowsData,
   pageNo: number = 1,
   pageSize: number = rows.length
 ): DataTablePage => {

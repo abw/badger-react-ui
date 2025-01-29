@@ -5,7 +5,7 @@ import { dataTableDefaults } from './defaults'
 import { Storage, useComplexState } from '@/src/index'
 import { hasValue, isBoolean, splitHash } from '@abw/badger-utils'
 import {
-  DataTableFilters, DataTableFilterValue, DataTableProps,
+  DataTableFilterValue, DataTableFilterValues, DataTableProps,
   DataTableRenderProps, DataTableState
 } from './types'
 import {
@@ -80,7 +80,7 @@ export const DataTableContext = Model<DataTableProps, DataTableRenderProps>(
 
     // Additional UI state variables for filters
     const [showFilters, setShowFilters] = useState(false)
-    const [filters, setFilters] = useState<DataTableFilters>({ })
+    const [filters, setFilters] = useState<DataTableFilterValues>({ })
 
     // Define the state for the various options we need to track
     const [state, setters] = useComplexState<DataTableState>({
