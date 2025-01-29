@@ -47,17 +47,18 @@ export type DataTableCommonProps = {
   scrollX?:       boolean
   onRowClick?:    (row: DataTableRow) => void
   displayTypes?:  DataTableDisplayTypes
+  Content?:       DataTableContentType
   Header?:        DataTableHeaderType
   Body?:          DataTableBodyType
   Table?:         DataTableTableType
-  Headings:       DataTableHeadingsType
+  Headings?:      DataTableHeadingsType
   Heading?:       DataTableHeadingType
-  Filters:        DataTableFiltersType,
-  Filter:         DataTableFilterType,
-  Rows:           DataTableRowsType,
-  Row:            DataTableRowType,
-  NoRows:         DataTableNoRowsType,
-  Cell:           DataTableCellType,
+  Filters?:       DataTableFiltersType,
+  Filter?:        DataTableFilterType,
+  Rows?:          DataTableRowsType,
+  Row?:           DataTableRowType,
+  NoRows?:        DataTableNoRowsType,
+  Cell?:          DataTableCellType,
   Footer?:        DataTableFooterType
   Summary?:       DataTableSummaryType
   Controls?:      DataTableControlsType
@@ -99,7 +100,7 @@ export type DataTableColumn = {
   className?: string | ((props: DataTableCellClassProps) => string)
   trueText?: string
   falseText?: string
-  display: DataTableCellDisplayFn
+  display?: DataTableCellDisplayFn
   [key:string]: unknown
 }
 
@@ -148,6 +149,14 @@ export type DataTableFilterProps = {
   name: string
   column: DataTableColumn
 }
+
+export type DataTableSortProps = {
+  rows: DataTableRows,
+  columns: DataTableColumns,
+  sortColumn?: string,
+  sortReverse?: boolean
+}
+
 export type DataTableHeadingProps = {
   name: string
   column: DataTableColumn
@@ -204,6 +213,7 @@ export type DataTablePage = {
   rows: DataTableRows
 }
 
+export type DataTableContentType      = React.FC
 export type DataTableHeaderType       = React.FC
 export type DataTableBodyType         = React.FC
 export type DataTableTableType        = React.FC

@@ -1,13 +1,13 @@
 import { Select, SelectOption } from '@/src/index'
 import { isObject, doNothing } from '@abw/badger-utils'
-import { DataTableFilterProps } from '../types'
+import { DataTableFilterInputProps } from '../types'
 
 const SelectFilter = ({
   value,
   setFilter,
   column,
   placeholder
-}: DataTableFilterProps) =>
+}: DataTableFilterInputProps) =>
   <Select
     options={column.selectOptions||[]}
     value={value}

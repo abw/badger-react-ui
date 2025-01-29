@@ -1,8 +1,12 @@
+import { DataTableColumns, DataTableRows } from '../types'
 import {
-  descendingOrder, integerSort, isFunction, numberSort, stringSort
+  descendingOrder, FieldSelector, integerSort, isFunction, numberSort,
+  ObjectSortFunction, stringSort
 } from '@abw/badger-utils'
 
-export const dataTableSorters = {
+type Sorter = (field: FieldSelector) => ObjectSortFunction
+
+export const dataTableSorters: Record<string, Sorter> = {
   string:   stringSort,
   text:     stringSort,
   select:   stringSort,
@@ -14,11 +18,11 @@ export const dataTableSorters = {
 }
 
 export const dataTableSort = (
-  rows,
-  columns,
-  sortColumn,
-  sortReverse
-) => {
+  rows: DataTableRows,
+  columns: DataTableColumns,
+  sortColumn?: string,
+  sortReverse?: boolean
+): DataTableRows => {
   if (! sortColumn || ! columns[sortColumn]) {
     return rows
   }
@@ -26,7 +30,7 @@ export const dataTableSort = (
   const sort   = column.sort
   const type   = column.type || 'text'
   const sorter = isFunction(sort)
-    ? sort
+    ? sort as ObjectSortFunction
     : (dataTableSorters[type] || dataTableSorters.text)(sortColumn)
 
   return rows.sort(

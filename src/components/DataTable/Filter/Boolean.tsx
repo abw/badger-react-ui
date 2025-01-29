@@ -1,14 +1,14 @@
 import { Select } from '@/src/index'
 import { FALSE, TRUE } from '@/src/constants'
 import { doNothing } from '@abw/badger-utils'
-import { DataTableFilterProps, DataTableFilterValue } from '../types'
+import { DataTableFilterInputProps, DataTableFilterValue } from '../types'
 
 const Boolean = ({
   value,
   setFilter,
   column,
   placeholder
-}: DataTableFilterProps ) =>
+}: DataTableFilterInputProps ) =>
   <Select
     options={[
       { value: true,  text: column.trueText  ?? TRUE  },

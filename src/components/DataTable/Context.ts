@@ -3,9 +3,11 @@ import { MouseEventHandler, useCallback, useEffect, useMemo, useState } from 're
 import { classes, debugFunction } from '@/src/utils/index'
 import { dataTableDefaults } from './defaults'
 import { Storage, useComplexState } from '@/src/index'
-import { DataTableFilters, DataTableFilterValue, DataTableProps, DataTableRenderProps, DataTableState } from './types'
-//import { doNothing, hasValue, isBoolean, splitHash } from '@abw/badger-utils'
 import { hasValue, isBoolean, splitHash } from '@abw/badger-utils'
+import {
+  DataTableFilters, DataTableFilterValue, DataTableProps,
+  DataTableRenderProps, DataTableState
+} from './types'
 import {
   dataTableColumnDefinitions, dataTableVisibleColumns, dataTableSortColumn,
   dataTableColumnOrder, dataTablePaginate, dataTableSort, dataTableFilter,
@@ -15,7 +17,6 @@ export const DataTableContext = Model<DataTableProps, DataTableRenderProps>(
   config => {
     const {
       rows,
-      // columns: columnsSource,
       storageKey,
       storageItem,
       debugPrefix,
@@ -30,10 +31,14 @@ export const DataTableContext = Model<DataTableProps, DataTableRenderProps>(
       ...config
     }
 
-    const debug = debugFunction({
-      debugPrefix,
-      ...props
-    })
+    const debug = useMemo(
+      () => debugFunction({
+        debug: props.debug,
+        debugColor: props.debugColor,
+        debugPrefix
+      }),
+      [props.debug, props.debugColor, debugPrefix]
+    )
 
     debug(`rows:`, rows)
     debug(`storageKey:`, storageKey)
@@ -88,7 +93,6 @@ export const DataTableContext = Model<DataTableProps, DataTableRenderProps>(
       filters: savedState.filters || filters
     })
 
-
     const toggleFilters: MouseEventHandler<HTMLDivElement> = useCallback(
       e => {
         e.preventDefault()
@@ -120,7 +124,8 @@ export const DataTableContext = Model<DataTableProps, DataTableRenderProps>(
       [setters]
     )
 
-    /*
+    // We have to be careful here because listing other dependencies in these
+    // useEffect hooks can cause an infinite loop... infinite loop...
     useEffect(
       () => {
         debug(`columns have changed: `, columns)
@@ -129,19 +134,18 @@ export const DataTableContext = Model<DataTableProps, DataTableRenderProps>(
         setters.setColumnOrder(columnOrder)
         setters.setVisibleColumns(visibleColumns)
       },
-      [debug, setters, props.columns, sortColumn, sortReverse, columnOrder, visibleColumns]
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      [props.columns]
     )
-    */
-    /*
+
     useEffect(
       () => {
         debug(`rows, filters or sorting order has changed`)
         setters.setPageNo(1)
       },
-      [debug, setters, rows, state.sortColumn, state.sortReverse, state.filters]
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      [rows, state.sortColumn, state.sortReverse, state.filters]
     )
-    */
-    /*
 
     // Save any state changes back to the store, if defined
     useEffect(
@@ -151,9 +155,9 @@ export const DataTableContext = Model<DataTableProps, DataTableRenderProps>(
           store.set(storageItem, state)
         }
       },
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       [state, store]
     )
-    */
 
     const toggleSortColumn = useCallback(
       (column: string) => {
@@ -231,7 +235,6 @@ export const DataTableContext = Model<DataTableProps, DataTableRenderProps>(
       ...props,
       ...setters,
       ...state,
-      rows,
       columns,
       page,
       showFilters, toggleFilters,
@@ -240,9 +243,6 @@ export const DataTableContext = Model<DataTableProps, DataTableRenderProps>(
       hasFilters: Object.keys(filters).length > 0,
       contentClass,
     }
-    /*
-      ...state,
-    */
   }
 )
 
@@ -262,10 +262,6 @@ const DataTableContext = ({
   debug,
   ...props
 }) => {
-  const Debug = debug
-    ? console.log
-    : doNothing
-
   // If we have a storageKey defined then create a store and load any
   // previously saved state
   const [store, savedState] = useMemo(

@@ -1,11 +1,11 @@
-import { DataTableFilterProps } from '../types'
+import { DataTableFilterInputProps } from '../types'
 
 const Text = ({
   value,
   setFilter,
   type='text',
   placeholder
-}: DataTableFilterProps) =>
+}: DataTableFilterInputProps) =>
   <input
     type={type}
     value={String(value ?? '')}

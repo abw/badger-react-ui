@@ -112,7 +112,7 @@ export const dataTableColumnOrder = (
   if (saved) {
     const order = saved
       .filter(
-        column => columns[column] && ! columns[column].hidden
+        column => columns[column]
       )
     // we must also add on any new columns
     const orderHas = splitHash(order) as Record<string, boolean>
@@ -120,7 +120,7 @@ export const dataTableColumnOrder = (
       ...Object
         .keys(columns)
         .filter(
-          name => ! orderHas[name] && ! columns[name].hidden
+          name => ! orderHas[name]
         )
 
     )
@@ -130,9 +130,6 @@ export const dataTableColumnOrder = (
   }
   return Object
     .keys(columns)
-    .filter(
-      column => ! columns[column].hidden
-    )
 }
 
 export const dataTableSortColumn = (
