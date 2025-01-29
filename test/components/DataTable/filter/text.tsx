@@ -1,8 +1,8 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { it, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
 import { DataTable } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 // import { screen } from '@testing-library/react'
 // import { prettyDOM } from '@testing-library/dom'
 
@@ -39,13 +39,13 @@ it(
   }
 )
 
-async function filter(text, rows) {
+async function filter(text: string, rows: string[]) {
   const user = userEvent.setup()
   const { container } = render(<DataTableExample/>)
 
-  const datatable = container.querySelector('section.datatable')
-  const header = datatable.querySelector('header')
-  const table = datatable.querySelector('table')
+  const datatable = container.querySelector('section.datatable') || fail('no datatable')
+  const header = datatable.querySelector('header') || fail('no header')
+  const table = datatable.querySelector('table') || fail('no table')
 
   // There should be 6 rows in the body
   const trows = table.querySelectorAll('tbody tr')
@@ -65,7 +65,7 @@ async function filter(text, rows) {
   expect(theads.length).toBe(2)
 
   // The second one should contain a <th> element with an <input>
-  const input = theads[1].querySelector('th input')
+  const input = theads[1].querySelector('th input') || fail('no input')
   expect(input).toBeDefined()
 
   await act( () => user.click(input) )
@@ -77,11 +77,11 @@ async function filter(text, rows) {
   // check the rows match
   let i = 0
   for (const row of rows) {
-    expectRowName(trowsSel[i++], row, text)
+    expectRowName(trowsSel[i++], row)
   }
 }
 
-function expectRowName(row, name) {
+function expectRowName(row: Element, name: string) {
   const tds = row.querySelectorAll('td')
   expect(tds[0]).toHaveTextContent(name)
 }

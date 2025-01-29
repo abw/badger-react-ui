@@ -1,9 +1,8 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
-import { DataTables } from '@/src/index.jsx'
-import animals from '@/test/lib/animals.js'
+import { DataTables } from '@/src/index'
+import animals from '@/test/lib/animals'
 
 const DataTablesExample = () =>
   <DataTables

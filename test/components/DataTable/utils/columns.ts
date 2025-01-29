@@ -460,7 +460,10 @@ test(
       }),
       ['foo', 'nope', 'bar', 'nada', 'baz']
     )
-  ).toStrictEqual(['foo', 'bar', 'baz'])
+  ).toStrictEqual(['foo', 'nope', 'bar', 'nada', 'baz'])
+  // My mistake - the columns order SHOULD include hidden columns.  We need
+  // them to display hidden columns in the column selection dropdown.
+  // ).toStrictEqual(['foo', 'bar', 'baz'])
 )
 
 test(
@@ -478,11 +481,12 @@ test(
       }),
       ['foo', 'nope', 'bar', 'nada', 'baz']
     )
-  ).toStrictEqual(['foo', 'bar', 'baz', 'more'])
+  // Ditto
+  ).toStrictEqual(['foo', 'nope', 'bar', 'nada', 'baz', 'more', 'none'])
 )
 
 test(
-  'column order defaults to visible columns',
+  'column order defaults to all columns',
   () => expect(
     dataTableColumnOrder(
       dataTableColumnDefinitions({
@@ -495,7 +499,8 @@ test(
         none: { hidden: true }
       })
     )
-  ).toStrictEqual(['foo', 'bar', 'baz', 'more'])
+  // Ditto
+  ).toStrictEqual(['foo', 'nope', 'bar', 'nada', 'baz', 'more', 'none'])
 )
 
 test(

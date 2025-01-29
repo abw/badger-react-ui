@@ -1,10 +1,8 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { it, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
-import { DataTable } from '@/src/index'
-// import { screen } from '@testing-library/react'
-// import { prettyDOM } from '@testing-library/dom'
+import { DataTable, SelectOptionObject } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 
 const rows = [
   { name: 'Alan',     role: 'admin' },
@@ -19,10 +17,11 @@ const columns = {
   name: true,
   role: {
     type: 'select',
+    selectValue: (option: SelectOptionObject) => option.text,
     selectOptions: [
-      { value: 'admin', text: 'admin' },
-      { value: 'user',  text: 'user'  },
-      { value: 'guest', text: 'guest' }
+      { text: 'admin' },
+      { text: 'user'  },
+      { text: 'guest' }
     ]
   },
 }
@@ -54,13 +53,13 @@ it(
   }
 )
 
-async function selectOption(n, text, rows) {
+async function selectOption(n: number, text: string, rows: string[]) {
   const user = userEvent.setup()
   const { container } = render(<DataTableExample/>)
 
-  const datatable = container.querySelector('section.datatable')
-  const header = datatable.querySelector('header')
-  const table = datatable.querySelector('table')
+  const datatable = container.querySelector('section.datatable') || fail('no datatable')
+  const header = datatable.querySelector('header') || fail('no header')
+  const table = datatable.querySelector('table') || fail('no table')
 
   // There should be 6 rows in the body
   const trows = table.querySelectorAll('tbody tr')
@@ -87,18 +86,18 @@ async function selectOption(n, text, rows) {
   const admin = ths[1]
 
   // It should contain a Select component which is initially closed
-  const select = admin.querySelector('div.select')
+  const select = admin.querySelector('div.select') || fail('no select')
   expect(select).toBeDefined()
   expect(select).toHaveClass('closed')
 
   // Click on the select inputs to open it
-  const inputs = select.querySelector('div.inputs')
+  const inputs = select.querySelector('div.inputs') || fail('no input')
   expect(inputs).toBeDefined()
   await act( () => user.click(inputs) )
   expect(select).toHaveClass('open')
 
   // There should now be a menu
-  const menu = select.querySelector('div.menu')
+  const menu = select.querySelector('div.menu') || fail('no menu')
   expect(menu).toBeDefined()
 
   // There should be three items
@@ -121,7 +120,7 @@ async function selectOption(n, text, rows) {
   }
 }
 
-function expectRowNameRole(row, name, role) {
+function expectRowNameRole(row: Element, name: string, role: string) {
   const tds = row.querySelectorAll('td')
   expect(tds[0]).toHaveTextContent(name)
   expect(tds[1]).toHaveTextContent(role)

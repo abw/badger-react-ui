@@ -1,8 +1,8 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { it, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
 import { DataTable } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 
 const rows = [
   { name: 'Alan',    isadmin: true,  isdev: true  },
@@ -38,10 +38,10 @@ it(
     const user = userEvent.setup()
     const { container } = render(<DataTableExample/>)
 
-    const datatable = container.querySelector('section.datatable')
+    const datatable = container.querySelector('section.datatable') || fail('no datatable')
 
-    const header = datatable.querySelector('header')
-    const table = datatable.querySelector('table')
+    const header = datatable.querySelector('header') || fail('no header')
+    const table = datatable.querySelector('table') || fail('no table')
     const trows = table.querySelectorAll('tbody tr')
     expect(trows.length).toBe(6)
 

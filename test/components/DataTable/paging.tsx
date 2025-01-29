@@ -1,9 +1,9 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
 import { DataTable } from '@/src/index'
-import animals from '@/test/lib/animals.js'
+import animals from '@/test/lib/animals'
+import { fail } from '@abw/badger-utils'
 
 const DataTableExample = () =>
   <DataTable
@@ -18,9 +18,9 @@ test(
     const { container } = render(
       <DataTableExample/>
     )
-    const datatable = container.querySelector('section.datatable')
-    const header = datatable.querySelector('header')
-    const table = datatable.querySelector('table')
+    const datatable = container.querySelector('section.datatable') || fail('no datatable')
+    const header = datatable.querySelector('header') || fail('no header')
+    const table = datatable.querySelector('table') || fail('no table')
 
     const topButtons = header.querySelectorAll('button[role=navigation]')
     expect(topButtons.length).toBe(2)
@@ -55,9 +55,9 @@ test(
     const { container } = render(
       <DataTableExample/>
     )
-    const datatable = container.querySelector('section.datatable')
-    const footer = datatable.querySelector('footer')
-    const table = datatable.querySelector('table')
+    const datatable = container.querySelector('section.datatable') || fail('no datatable')
+    const footer = datatable.querySelector('footer') || fail('no footer')
+    const table = datatable.querySelector('table') || fail('no table')
 
     // There should be 10 rows in the body from Alan to Gertrude
     expectRows(table, 10, ['Alan', 'Gertrude'])
@@ -82,14 +82,14 @@ test(
   }
 )
 
-function expectRows(table, n, fromTo) {
+function expectRows(table: HTMLTableElement, n: number, fromTo: string[]) {
   const trows = table.querySelectorAll('tbody tr')
   expect(trows.length).toBe(n)
   expectName(trows[0], fromTo[0])
   expectName(trows[n - 1], fromTo[1])
 }
 
-function expectName(row, name) {
+function expectName(row: Element, name: string) {
   const tds = row.querySelectorAll('td')
   expect(tds[1]).toHaveTextContent(name)
 }

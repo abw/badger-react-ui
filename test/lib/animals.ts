@@ -1,4 +1,10 @@
-export const animals = [
+type Animal = {
+  name: string
+  animal: string
+  id: number
+  role: string
+}
+export const animals: Animal[] = [
   { name: 'Alan',       animal: 'Anteater', id: 10,  role: 'admin' },
   { name: 'Bobby',      animal: 'Badger',   id: 20,  role: 'admin' },
   { name: 'Brenda',     animal: 'Badger',   id: 30,  role: 'admin' },

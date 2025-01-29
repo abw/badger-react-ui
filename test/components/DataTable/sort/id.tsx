@@ -1,12 +1,16 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
 import { DataTable } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 
-const Alan  = { name: 'Alan',  id: 23456  }
-const Brian = { name: 'Brian', id: 100000 }
-const Chris = { name: 'Chris', id: 3000   }
+type Person = {
+  name: string
+  id: number
+}
+const Alan  : Person = { name: 'Alan',  id: 23456  }
+const Brian : Person = { name: 'Brian', id: 100000 }
+const Chris : Person = { name: 'Chris', id: 3000   }
 
 const DataTableExample = () =>
   <DataTable
@@ -26,8 +30,8 @@ test(
     const { container } = render(
       <DataTableExample/>
     )
-    const datatable = container.querySelector('section.datatable')
-    const table = datatable.querySelector('table')
+    const datatable = container.querySelector('section.datatable') || fail('no datatable')
+    const table = datatable.querySelector('table') || fail('no table')
 
     // There should be one heading
     const headings = table.querySelectorAll('thead > tr > th')
@@ -47,7 +51,7 @@ test(
   }
 )
 
-function expectRows(table, rows) {
+function expectRows(table: HTMLTableElement, rows: Person[]) {
   const trows = table.querySelectorAll('tbody tr')
   expect(trows.length).toBe(rows.length)
   trows.forEach(
@@ -55,9 +59,9 @@ function expectRows(table, rows) {
   )
 }
 
-function expectRow(row, expectRow) {
+function expectRow(row: Element, expectRow: Person) {
   const tds = row.querySelectorAll('td')
   expect(tds.length).toBe(2)
   expect(tds[0]).toHaveTextContent(expectRow.name)
-  expect(tds[1]).toHaveTextContent(expectRow.id)
+  expect(tds[1]).toHaveTextContent(String(expectRow.id))
 }

@@ -1,8 +1,8 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
 import { DataTable } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 
 const DataTableExample = () =>
   <DataTable
@@ -23,11 +23,11 @@ test(
     const { container } = render(
       <DataTableExample/>
     )
-    const datatable = container.querySelector('section.datatable')
-    const table = datatable.querySelector('table')
+    const datatable = container.querySelector('section.datatable') || fail('no datatable')
+    const table = datatable.querySelector('table') || fail('no table')
 
     // There should be one heading
-    const heading = table.querySelector('thead > tr > th')
+    const heading = table.querySelector('thead > tr > th') || fail('no heading')
     expect(heading).toBeTruthy()
 
     // There should be 3 rows in the body

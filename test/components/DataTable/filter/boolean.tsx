@@ -1,8 +1,8 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { it, expect } from 'vitest'
-import { render, act } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { DataTable } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 // import { screen } from '@testing-library/react'
 // import { prettyDOM } from '@testing-library/dom'
 
@@ -41,9 +41,9 @@ it(
     const user = userEvent.setup()
     const { container } = render(<DataTableExample/>)
 
-    const datatable = container.querySelector('section.datatable')
-    const header = datatable.querySelector('header')
-    const table = datatable.querySelector('table')
+    const datatable = container.querySelector('section.datatable') || fail('no datatable')
+    const header = datatable.querySelector('header') || fail('no header')
+    const table = datatable.querySelector('table') || fail('no table')
 
     // There should be 7 rows in the body
     const trows = table.querySelectorAll('tbody tr')
@@ -55,7 +55,7 @@ it(
 
     // Click on the first 'filter' control
     const filters = controls[0]
-    await act( () => user.click(filters) )
+    await user.click(filters)
 
     // There should be 2 <theads> in the table, the second containing the
     // filter inputs
@@ -70,18 +70,17 @@ it(
     const admin = ths[1]
 
     // It should contain a Select component which is initially closed
-    const select = admin.querySelector('div.select')
+    const select = admin.querySelector('div.select') || fail('no select')
     expect(select).toBeDefined()
     expect(select).toHaveClass('closed')
 
     // Click on the select inputs to open it
-    const inputs = select.querySelector('div.inputs')
-    expect(inputs).toBeDefined()
-    await act( () => user.click(inputs) )
+    const inputs = select.querySelector('div.inputs') || fail('no inputs')
+    await user.click(inputs)
     expect(select).toHaveClass('open')
 
     // There should now be a menu
-    const menu = select.querySelector('div.menu')
+    const menu = select.querySelector('div.menu') || fail('no menu')
     expect(menu).toBeDefined()
 
     // There should be two items
@@ -93,7 +92,7 @@ it(
     expect(trueItem).toHaveTextContent('True')
 
     // Click on the item, and only 3 rows should be displayed
-    await act( () => user.click(trueItem) )
+    await user.click(trueItem)
     const trowsTrue = table.querySelectorAll('tbody tr')
     expect(trowsTrue.length).toBe(3)
 
@@ -110,9 +109,9 @@ it(
     const user = userEvent.setup()
     const { container } = render(<DataTableExample/>)
 
-    const datatable = container.querySelector('section.datatable')
-    const header = datatable.querySelector('header')
-    const table = datatable.querySelector('table')
+    const datatable = container.querySelector('section.datatable') || fail('no datatable')
+    const header = datatable.querySelector('header') || fail('no header')
+    const table = datatable.querySelector('table') || fail('no table')
 
     // There should be 7 rows in the body
     const trows = table.querySelectorAll('tbody tr')
@@ -124,7 +123,7 @@ it(
 
     // Click on the first 'filter' control
     const filters = controls[0]
-    await act( () => user.click(filters) )
+    await user.click(filters)
 
     // There should be 2 <theads> in the table, the second containing the
     // filter inputs
@@ -139,18 +138,18 @@ it(
     const admin = ths[1]
 
     // It should contain a Select component which is initially closed
-    const select = admin.querySelector('div.select')
+    const select = admin.querySelector('div.select') || fail('no select')
     expect(select).toBeDefined()
     expect(select).toHaveClass('closed')
 
     // Click on the select inputs to open it
-    const inputs = select.querySelector('div.inputs')
+    const inputs = select.querySelector('div.inputs') || fail('no inputs')
     expect(inputs).toBeDefined()
-    await act( () => user.click(inputs) )
+    await user.click(inputs)
     expect(select).toHaveClass('open')
 
     // There should now be a menu
-    const menu = select.querySelector('div.menu')
+    const menu = select.querySelector('div.menu') || fail('no menu')
     expect(menu).toBeDefined()
 
     // There should be two items
@@ -162,7 +161,7 @@ it(
     expect(falseItem).toHaveTextContent('False')
 
     // Click on the item, and only 4 rows should be displayed
-    await act( () => user.click(falseItem) )
+    await user.click(falseItem)
     const trowsFalse = table.querySelectorAll('tbody tr')
     expect(trowsFalse.length).toBe(4)
 
@@ -180,9 +179,9 @@ it(
     const user = userEvent.setup()
     const { container } = render(<DataTableExample/>)
 
-    const datatable = container.querySelector('section.datatable')
-    const header = datatable.querySelector('header')
-    const table = datatable.querySelector('table')
+    const datatable = container.querySelector('section.datatable') || fail('no datatable')
+    const header = datatable.querySelector('header') || fail('no header')
+    const table = datatable.querySelector('table') || fail('no table')
 
     // There should be 7 rows in the body
     const trows = table.querySelectorAll('tbody tr')
@@ -194,7 +193,7 @@ it(
 
     // Click on the first 'filter' control
     const filters = controls[0]
-    await act( () => user.click(filters) )
+    await user.click(filters)
 
     // There should be 2 <theads> in the table, the second containing the
     // filter inputs
@@ -209,18 +208,18 @@ it(
     const admin = ths[2]
 
     // It should contain a Select component which is initially closed
-    const select = admin.querySelector('div.select')
+    const select = admin.querySelector('div.select') || fail('no select')
     expect(select).toBeDefined()
     expect(select).toHaveClass('closed')
 
     // Click on the select inputs to open it
-    const inputs = select.querySelector('div.inputs')
+    const inputs = select.querySelector('div.inputs') || fail('no inputs')
     expect(inputs).toBeDefined()
-    await act( () => user.click(inputs) )
+    await user.click(inputs)
     expect(select).toHaveClass('open')
 
     // There should now be a menu
-    const menu = select.querySelector('div.menu')
+    const menu = select.querySelector('div.menu') || fail('no menu')
     expect(menu).toBeDefined()
 
     // There should be two items
@@ -232,7 +231,7 @@ it(
     expect(devItem).toHaveTextContent('Developer')
 
     // Click on the item, and only 3 rows should be displayed
-    await act( () => user.click(devItem) )
+    await user.click(devItem)
     const trowsDev = table.querySelectorAll('tbody tr')
     expect(trowsDev.length).toBe(3)
 
@@ -249,9 +248,9 @@ it(
     const user = userEvent.setup()
     const { container } = render(<DataTableExample/>)
 
-    const datatable = container.querySelector('section.datatable')
-    const header = datatable.querySelector('header')
-    const table = datatable.querySelector('table')
+    const datatable = container.querySelector('section.datatable') || fail('no datatable')
+    const header = datatable.querySelector('header') || fail('no header')
+    const table = datatable.querySelector('table') || fail('no table')
 
     // There should be 7 rows in the body
     const trows = table.querySelectorAll('tbody tr')
@@ -263,7 +262,7 @@ it(
 
     // Click on the first 'filter' control
     const filters = controls[0]
-    await act( () => user.click(filters) )
+    await user.click(filters)
 
     // There should be 2 <theads> in the table, the second containing the
     // filter inputs
@@ -278,18 +277,18 @@ it(
     const admin = ths[2]
 
     // It should contain a Select component which is initially closed
-    const select = admin.querySelector('div.select')
+    const select = admin.querySelector('div.select') || fail('no select')
     expect(select).toBeDefined()
     expect(select).toHaveClass('closed')
 
     // Click on the select inputs to open it
-    const inputs = select.querySelector('div.inputs')
+    const inputs = select.querySelector('div.inputs') || fail('no inputs')
     expect(inputs).toBeDefined()
-    await act( () => user.click(inputs) )
+    await user.click(inputs)
     expect(select).toHaveClass('open')
 
     // There should now be a menu
-    const menu = select.querySelector('div.menu')
+    const menu = select.querySelector('div.menu') || fail('no menu')
     expect(menu).toBeDefined()
 
     // There should be two items
@@ -301,7 +300,7 @@ it(
     expect(mortalItem).toHaveTextContent('Mortal')
 
     // Click on the item, and only 4 rows should be displayed
-    await act( () => user.click(mortalItem) )
+    await user.click(mortalItem)
     const trowsMortal = table.querySelectorAll('tbody tr')
     expect(trowsMortal.length).toBe(4)
 
@@ -313,13 +312,13 @@ it(
   }
 )
 
-function expectRowNameAdmin(row, name, admin) {
+function expectRowNameAdmin(row: Element, name: string, admin: string) {
   const tds = row.querySelectorAll('td')
   expect(tds[0]).toHaveTextContent(name)
   expect(tds[1]).toHaveTextContent(admin)
 }
 
-function expectRowNameDeveloper(row, name, developer) {
+function expectRowNameDeveloper(row: Element, name: string, developer: string) {
   const tds = row.querySelectorAll('td')
   expect(tds[0]).toHaveTextContent(name)
   expect(tds[2]).toHaveTextContent(developer)

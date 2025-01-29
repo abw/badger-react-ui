@@ -17,6 +17,7 @@
       "@/svg/*":        ["./web/svg/*"],
       "@/ui/*":         ["./web/ui/*"],
       "@/utils/*":      ["./web/utils/*"],
+      "@/test/*":       ["./test/*"],
     },
     "target": "ES2020",
     "useDefineForClassFields": true,
