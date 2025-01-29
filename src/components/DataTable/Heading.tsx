@@ -2,8 +2,8 @@ import Context      from './Context'
 import Icon         from '@/components/Icon/Icon'
 import { classes }  from '@/src/utils/classes'
 import { hasValue } from '@abw/badger-utils'
-import { alignClasses } from './Utils/Align'
 import { DataTableHeadingProps } from './types'
+import { alignClasses } from '@/src/utils'
 
 export const DataTableHeading = Context.Consumer<DataTableHeadingProps>(
   ({

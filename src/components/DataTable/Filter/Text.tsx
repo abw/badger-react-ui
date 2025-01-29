@@ -1,6 +1,6 @@
 import { DataTableFilterInputProps } from '../types'
 
-const Text = ({
+const DataTableFilterText = ({
   value,
   setFilter,
   type='text',
@@ -13,4 +13,4 @@ const Text = ({
     placeholder={placeholder}
   />
 
-export default Text
+export default DataTableFilterText

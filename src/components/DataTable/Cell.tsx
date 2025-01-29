@@ -1,10 +1,10 @@
 import Context  from './Context'
 import defaultDisplayTypes from './Display'
 import { classes } from '@/src/utils/classes'
-import { alignClasses } from './Utils/Align'
 import { FILTERING, SORTING } from './constants'
 import { hasValue, maybeFunction } from '@abw/badger-utils'
 import { DataTableCellProps } from './types'
+import { alignClasses } from '@/src/utils'
 
 export const DataTableCell = Context.Consumer<DataTableCellProps>(
   ({

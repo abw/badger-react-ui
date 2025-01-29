@@ -1,4 +1,4 @@
-import { DebugOptions, SelectOption } from '@/src/utils'
+import { Alignment, DebugOptions, SelectOption } from '@/src/utils'
 import { dataTableModelDefaults, dataTableRenderDefaults } from './defaults'
 import { MaybeWithout, PartialWith } from '@/src/types'
 import { MouseEventHandler } from 'react'
@@ -90,13 +90,14 @@ export type DataTableColumn = {
   sortable: boolean
   filterable: boolean
   hidden?: boolean
-  align?: DataTableColumnAlign
+  align?: Alignment
   right?: boolean
   center?: boolean
   selectValue?: (option: SelectOption) => DataTableFilterValue
   filterComponent?: DataTableFilterInputType
   filterPlaceholder?: string
   filterType?: string
+  filter?: DataTableFilterFn
   className?: string | ((props: DataTableCellClassProps) => string)
   trueText?: string
   falseText?: string
@@ -168,14 +169,24 @@ export type DataTableRowProps = {
   rowClass?: string
 }
 
+export type DataTableDisplayTypes = Record<string, DataTableCellDisplayFn>
+export type DataTableCellDisplayFn = (props: DataTableCellDisplayFnProps) => string
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type DataTableCellDisplayFnProps<V=any> = {
   value: V,
   column: DataTableColumn
   [key:string]: unknown
 }
-export type DataTableCellDisplayFn = (props: DataTableCellDisplayFnProps) => string
-export type DataTableDisplayTypes = Record<string, DataTableCellDisplayFn>
+
+export type DataTableFilterTypes= Record<string, DataTableFilterFn>
+export type DataTableFilterFn = (props: DataTableFilterFnProps) => boolean
+export type DataTableFilterFnSearch = string | number | boolean
+export type DataTableFilterFnProps = {
+  value: unknown
+  search: DataTableFilterFnSearch
+  row?: DataTableRow
+  field?: string
+}
 
 export type DataTableCellProps = {
   row: DataTableRow
@@ -190,9 +201,6 @@ export type DataTableCellProps = {
 
 export type DataTableRow = Record<string, unknown>
 export type DataTableRows = DataTableRow[]
-
-export type DataTableColumnAlign = 'left' | 'right' | 'center' | 'centre'
-export type DataTableAlignClasses = Record<DataTableColumnAlign, string>
 
 export type DataTablePage = {
   pageSize: number

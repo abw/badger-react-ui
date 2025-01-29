@@ -2,7 +2,7 @@ import { Select, SelectOption } from '@/src/index'
 import { isObject, doNothing } from '@abw/badger-utils'
 import { DataTableFilterInputProps } from '../types'
 
-const SelectFilter = ({
+const DataTableFilterSelect = ({
   value,
   setFilter,
   column,
@@ -25,4 +25,4 @@ const SelectFilter = ({
     wide
   />
 
-export default SelectFilter
+export default DataTableFilterSelect

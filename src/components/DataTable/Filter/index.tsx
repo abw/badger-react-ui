@@ -4,9 +4,6 @@ import Text     from './Text'
 import Select   from './Select'
 import { DataTableFilterInputType } from '../types'
 
-export const filterComponents = {
-  text: Text
-}
 export const dataTableFilterComponents: Record<string, DataTableFilterInputType> = {
   default: Text,
   string:  Text,

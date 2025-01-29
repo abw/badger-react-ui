@@ -1,7 +1,7 @@
 import Context from '@/components/Dropdown/Context'
 import Button from '@/components/Button/Button'
 
-export const ColumnsClose = Context.Consumer(
+export const DataTableColumnsClose = Context.Consumer(
   ({
     close,
   }) =>
@@ -14,4 +14,4 @@ export const ColumnsClose = Context.Consumer(
     />
 )
 
-export default ColumnsClose
+export default DataTableColumnsClose

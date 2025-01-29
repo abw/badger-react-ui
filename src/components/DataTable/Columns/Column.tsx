@@ -2,7 +2,7 @@ import React    from 'react'
 import Checkbox from '@/components/Checkbox/Checkbox'
 import Icon from '@/components/Icon/Icon'
 
-const Column = ({
+const DataTableColumn = ({
   item,
   setNodeRef,
   style,
@@ -31,4 +31,4 @@ const Column = ({
     </div>
   </div>
 
-export default Column
+export default DataTableColumn

@@ -1,7 +1,7 @@
 import Text from './Text'
 import { DataTableFilterInputProps } from '../types'
 
-const Number = (props: DataTableFilterInputProps) =>
+const DataTableFilterNumber = (props: DataTableFilterInputProps) =>
   <Text type="number" {...props}/>
 
-export default Number
+export default DataTableFilterNumber

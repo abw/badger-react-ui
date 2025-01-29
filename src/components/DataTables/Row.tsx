@@ -2,10 +2,10 @@ import React from 'react'
 import Context from '../DataTable/Context'
 import defaultDisplayTypes from '@/components/DataTable/Display'
 import { classes } from '@/src/utils/classes'
-import { alignClasses } from '@/components/DataTable/Utils/Align'
 import { FILTERING, SORTING, HEADING } from '@/components/DataTable/constants'
 import { hasValue, maybeFunction } from '@abw/badger-utils'
 import Icon from '@/components/Icon/Icon'
+import { alignClasses } from '@/src/utils'
 
 
 const Row = ({

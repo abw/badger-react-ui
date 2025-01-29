@@ -3,7 +3,7 @@ import { FALSE, TRUE } from '@/src/constants'
 import { doNothing } from '@abw/badger-utils'
 import { DataTableFilterInputProps, DataTableFilterValue } from '../types'
 
-const Boolean = ({
+const DataTableFilterBoolean = ({
   value,
   setFilter,
   column,
@@ -23,4 +23,4 @@ const Boolean = ({
     placeholder={placeholder}
   />
 
-export default Boolean
+export default DataTableFilterBoolean

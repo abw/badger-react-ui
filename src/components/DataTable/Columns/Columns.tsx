@@ -2,7 +2,7 @@ import Context  from '../Context'
 import Dropdown from '@/components/Dropdown/Dropdown'
 import Column   from './Column'
 import Close    from './Close'
-import VerticalSort from '@/components/Sortable/Vertical.jsx'
+import VerticalSort from '@/components/Sortable/Vertical'
 import { extract, splitHash } from '@abw/badger-utils'
 
 export const DataTableColumns = Context.Consumer(
