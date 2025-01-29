@@ -273,6 +273,10 @@ const DevTests = {
       text: 'Dynamic Select',
     },
     {
+      to: '/testing/multiselect',
+      text: 'MultiSelect',
+    },
+    {
       to: '/testing/range',
       text: 'Range',
     },

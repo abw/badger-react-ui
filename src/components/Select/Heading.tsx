@@ -16,6 +16,7 @@ export const SelectHeading = Context.Consumer<
         classes(
           optionClass,
           headingClass,
+          option.className,
           option.indent ? `indent-${option.indent}` : null,
         )
       }

@@ -1,5 +1,5 @@
 import React from 'react'
-import UIMultiSelect from '@/components/MultiSelect/MultiSelect.jsx'
+import UIMultiSelect from '@/components/MultiSelect/MultiSelect'
 import { useField } from '@abw/badger-form'
 import { identity, hasValue, isArray } from '@abw/badger-utils'
 import { doNothing } from '@abw/badger-utils'

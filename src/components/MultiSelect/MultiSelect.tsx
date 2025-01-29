@@ -1,12 +1,12 @@
-import React   from 'react'
-import Context from './Context.js'
-import MultiSelectContent from './Content.jsx'
+import Context from './Context'
+import MultiSelectContent from './Content.js'
 import { Themed } from '@/src/Theme'
+import { MultiSelectProps } from './types.js'
 
 const MultiSelect = ({
   Content=MultiSelectContent,
   ...props
-}) =>
+}: MultiSelectProps) =>
   <Context.Provider {...props}>
     <Content/>
   </Context.Provider>

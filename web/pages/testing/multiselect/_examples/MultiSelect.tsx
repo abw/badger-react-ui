@@ -1,0 +1,27 @@
+import { MultiSelect } from '@/src/index'
+
+const animals = [
+  'Alan Aardvark',
+  'Amy Aardvark',
+  'Anne Aardvark',
+  'Bart Badger',
+  'Betty Badger',
+  'Bobby Badger',
+  'Brenda Badger',
+  'Brian Badger',
+  //'Colin Camel',
+  //'David Donkey',
+  //'Eddie Elephant',
+  //'Franky Ferret',
+  //'Gina Goat',
+  //'Helen Horse',
+  //'Ian Iguana',
+  //'Juliet Jackdaw',
+  //'Kevin Kangaroo',
+  //'Linda Llama',
+]
+
+const MultiSelectExample = () =>
+  <MultiSelect options={animals} search debug/>
+
+export default MultiSelectExample
