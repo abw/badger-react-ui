@@ -30,6 +30,7 @@ const animals = [
 ]
 
 const MultiSelectExample = () =>
+  // <MultiSelect options={animals}/>
   <MultiSelect options={animals} sortable/>
 
 test(

@@ -15,7 +15,10 @@ export const MultiSelectSortSelections = Context.Consumer(
     Selection=DefaultSelection,
   }) => {
     if (! values?.length) {
-      return null
+      return (
+        <div className={selectionsClass}>
+        </div>
+      )
     }
     const setOrder = (items: MultiSelectSortItem[]) =>
       setValuesOrder(

@@ -385,8 +385,7 @@ export const SelectContext = Model<SelectProps, SelectRenderProps>(
         const [newValue] = findOption(
           allOptions, value
         )
-        console.log(`allOptions changed => `, newValue)
-
+        debug(`allOptions changed => `, newValue)
         setValue(newValue)
         const onChange = onUpdate || onSelect
         if (onChange) {
@@ -406,7 +405,7 @@ export const SelectContext = Model<SelectProps, SelectRenderProps>(
         const [newValue] = findOption(
           allOptions, initialValue
         )
-        console.log(`initialValue changed (${initialValue}) => `, newValue)
+        debug(`initialValue changed (${initialValue}) => `, newValue)
         setValue(newValue)
         const onChange = onUpdate || onSelect
         if (onChange) {
