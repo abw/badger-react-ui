@@ -3,29 +3,29 @@ import Strings      from './Strings.jsx'
 import StringsSrc   from './Strings.jsx?raw'
 import Values       from './Values.jsx'
 import ValuesSrc    from './Values.jsx?raw'
-import { Example, Section } from '@abw/badger-website'
+import { Example, SubSection } from '@abw/badger-website'
 
-<Section code="values">
-  The `values` property can be used to pre-select one or more values.
+### `values`
 
-  <Example
-    Component={Strings}
-    code={StringsSrc}
-    caption="values"
-    highlightLines="7"
-    expand={false}
-  />
+The `values` property can be used to pre-select one or more values.
 
-  When the `options` are defined as an array of objects, the elements in the
-  `values` should correspond to the `value` or `id` property of elements in
-  the `options` array.  Or they can be defined as objects that contains a
-  matching `value` or `id`.
+<Example
+  Component={Strings}
+  code={StringsSrc}
+  caption="values"
+  highlightLines="7"
+  expand={false}
+/>
 
-  <Example
-    Component={Values}
-    code={ValuesSrc}
-    caption="values"
-    highlightLines="7"
-    expand={false}
-  />
-</Section>
+When the `options` are defined as an array of objects, the elements in the
+`values` should correspond to the `value` or `id` property of elements in
+the `options` array.  Or they can be defined as objects that contains a
+matching `value` or `id`.
+
+<Example
+  Component={Values}
+  code={ValuesSrc}
+  caption="values"
+  highlightLines="7"
+  expand={false}
+/>

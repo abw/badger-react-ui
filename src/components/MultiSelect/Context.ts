@@ -1,19 +1,16 @@
 import { Model } from '@abw/react-context'
 import { MultiSelectProps, MultiSelectRenderProps } from './types'
 import { multiSelectDefaults } from './defaults'
-import { useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { classes, debugFunction, SelectOption } from '@/src/utils'
-import { hasValue } from '@abw/badger-utils'
-//import { optionValue, findOption, defaultRenderer, anyPropsChanged } from '@/src/utils/index'
-//import { doNothing, hasValue, splitList } from '@abw/badger-utils'
-//const VALUE_PROPS = splitList(
-//  'value values'
-//)
+import { hasValue, isArray } from '@abw/badger-utils'
 
 export const MultiSelectContext = Model<MultiSelectProps, MultiSelectRenderProps>(
   config => {
     const {
       options,
+      value: initialValue,
+      values: initialValues = initialValue,
       debugPrefix,
       className,
       multiSelectClass,
@@ -33,16 +30,68 @@ export const MultiSelectContext = Model<MultiSelectProps, MultiSelectRenderProps
       }),
       [props.debug, props.debugColor, debugPrefix]
     )
-    debug('multiselect options: ', options)
 
-    const [values, setValues] = useState<SelectOption[]>([])
+    // Lookup the valid options that correspond to any values specified.
+    // Options can be simple values (e.g. ['Cat', 'Dog']) or can be objects
+    // containing a value or id property (e.g. [{ text: 'Cat', id: 123 }])
+    const findValues = useCallback(
+      (
+        options: SelectOption[],
+        values: undefined | SelectOption | (SelectOption | undefined)[]
+      ) =>
+        hasValue(values)
+          ? (isArray(values) ? values : [values])
+              .map(
+                value => hasValue(value)
+                  ? findOption(
+                    options,
+                    optionValue(value)
+                  )[0]
+                  : null
+              )
+              .filter(hasValue)
+          : [ ],
+      [findOption, optionValue]
+    )
 
+    // Store the currently selected values
+    const [values, setValues] = useState<SelectOption[]>(
+      findValues(options, initialValues)
+    )
+
+    // If the initial values change then we have to update the selected values
+    useEffect(
+      () => setValues(
+        findValues(options, initialValues)
+      ),
+      // IMPORTANT!  We only want this to run when the list of initial values
+      // change. We want to select the valid options that correspond to the
+      // new values.  We DON'T want this to run any time the options change
+      // as that's handled below.  So it's correct that options is NOT listed
+      // as a dependency.
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      [initialValues, findValues]
+    )
+
+    // If the list of options changes then we need to re-select the current
+    // values in the context of the new list.  For example, we might have some
+    // options that change their text values, e.g. { text: 'Dog', id: 'dog' }
+    // could switch to { text: 'Chien', id: 'dog' } when a different language
+    // is selected
+    useEffect(
+      () => setValues(
+        values => findValues(options, values)
+      ),
+      [options, findValues]
+    )
+
+    // Look to see if an option is selected.  The option passed can be a
+    // simple value (e.g. 'Dog') or select option object with a value or id
+    // property (e.g. { text: 'Daisy', value: 'dog' }).  The optionValue()
+    // takes care of that and returns a simple value.  The findOption()
+    // function then finds any option that matches the simple value or has
+    // the value defined as an object property.
     const optionIsSelected = (option: SelectOption) => {
-      console.log(`optionIsSelected:`, option)
-      console.log(`value:`, optionValue(option))
-      console.log(`values:`, values)
-      console.log(`find:`, findOption(values, optionValue(option)))
-
       const [ , index] = findOption(
         values,
         optionValue(option)
@@ -108,8 +157,6 @@ export const MultiSelectContext = Model<MultiSelectProps, MultiSelectRenderProps
     return {
       test: 99,
       ...props,
-      //...setters,
-      //...state,
       options,
       values,
       optionIsSelected,

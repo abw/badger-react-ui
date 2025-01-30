@@ -1,8 +1,12 @@
-import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
-import { render, act } from '@testing-library/react'
-import { MultiSelect } from '@/src/index.jsx'
+import { render } from '@testing-library/react'
+import { MultiSelect } from '@/src/index'
+import { fail } from '@abw/badger-utils'
+
+// TODO: This doesn't actually test the sort functionality.  I suspect I
+// decided it was too hard.
+
 
 const animals = [
   'Alan Aardvark',
@@ -35,11 +39,11 @@ test(
     const { container } = render(
       <MultiSelectExample/>
     )
-    const multiselect = container.querySelector('div.multiselect')
+    const multiselect = container.querySelector('div.multiselect') || fail('no multiselect')
 
     // click on select input
-    const inputs = multiselect.querySelector('div.inputs')
-    await act( () => user.click(inputs) )
+    const inputs = multiselect.querySelector('div.inputs') || fail('no inputs')
+    await user.click(inputs)
 
     // check menu is displayed
     const items = multiselect.querySelectorAll('div.menu div.item')
@@ -49,7 +53,7 @@ test(
     }
 
     // fetch selections container
-    const selections = multiselect.querySelector('div.selections')
+    const selections = multiselect.querySelector('div.selections') || fail('no selections')
 
     // select 4 options
     const test = [0, 3, 6, 9]
@@ -57,7 +61,7 @@ test(
 
     for (const t of test)  {
       const item = items[t]
-      await act( () => user.click(item) )
+      await user.click(item)
       done.push(animals[t])
       //const selections = select.querySelector('div.selections')
       const selected = selections.querySelectorAll('div.selection')
@@ -74,9 +78,9 @@ test(
     )
 
     // click on the first and last
-    await act( () => user.click(selected[0]) )
+    await user.click(selected[0])
     const last = selections.querySelectorAll('div.selection')[2]
-    await act( () => user.click(last) )
+    await user.click(last)
 
     // remove the first and last items from our "done" expected array
     done.shift()

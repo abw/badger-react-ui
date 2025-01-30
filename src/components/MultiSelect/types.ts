@@ -12,6 +12,8 @@ export type MultiSelectProps =
   Partial<MultiSelectModelDefaults> &
   Partial<MultiSelectRenderDefaults> &
   MultiSelectCommonProps & {
+  value?: SelectOption | SelectOption[]
+  values?: SelectOption[]
 }
 
 export type MultiSelectRenderProps =
@@ -20,7 +22,6 @@ export type MultiSelectRenderProps =
   MultiSelectCommonProps & {
   // MultiSelectState &
   // MultiSelectStateSetters & {
-  values: SelectOption[]
   contentClass: string
   optionIsSelected: (option: SelectOption) => boolean,
   onSelect: (option: SelectOption) => void
