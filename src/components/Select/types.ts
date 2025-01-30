@@ -17,44 +17,11 @@ export type SelectProps =
   wide?: boolean
 
   // className?: string      // FIXME: vs className (as an add-in?)
-  // closeOnSelect?: boolean
-  // search?: boolean
   // selectClass?: string    // FIXME: vs className (as an add-in?)
-  // suffixIcon?: string
-  // inputsClass?: string
-  // inputClass?: string
-  // suffixClass?: string
-  // menuClass?: string
-  // openClass?: string
-  // closedClass?: string
-  // optionClass?: string
-  // separatorClass?: string
-  // headingClass?: string
-  // noOptions?: string
-  // noOptionsClass?: string
-  // placeholder?: string
-  // placeholderClass?: string
-  // activeClass?: string
-  // selectedClass?: string
-  // disabledClass?: string
-
-  //searchPlaceholder?: string
-  //searchFieldClass?: string
-  //searchInputsClass?: string
-  //searchPrefixClass?: string
-  //searchSuffixClass?: string
-  //searchClearClass?: string
-  //searchIcon?: string
-  //clearSearchIcon?: string
-
-  onUpdate?: (value: SelectOption) => void
-  onSelect?: (value: SelectOption) => void,
+  onUpdate?: (value?: SelectOption) => void
+  onSelect?: (value?: SelectOption) => void,
   findOption?: FindOption
-  // validOption?: IsValidOption
   searchOptions?: SearchOptions
-  // displayValue?:   WithIconsRenderer
-  // displayOption?:  WithIconsRenderer
-  // displayHeading?: WithIconsRenderer
   Content?: SelectContentType
   Input?: SelectInputType,
   Search?: SelectSearchType,
@@ -66,7 +33,6 @@ export type SelectProps =
   Option?: SelectOptionType
   //content?: React.ReactNode
   //children?: React.ReactNode
-
 }
 
 export type SelectRenderProps =
@@ -74,34 +40,6 @@ export type SelectRenderProps =
   Omit<ReturnType<typeof useTrigger>, 'triggerProps'> &
   SelectProps &
   SelectRenderDefaults & {
-    // bodyClass: string
-    // inputsClass: string
-    // inputClass: string
-    // suffixIcon: string
-    // suffixClass: string
-    // menuClass: string
-    // openClass: string
-    // closedClass: string
-    // optionClass: string
-    // separatorClass: string
-    // headingClass: string
-    // noOptions: string
-    // noOptionsClass: string
-    // placeholder: string
-    // placeholderClass: string
-    // activeClass: string
-    // selectedClass: string
-    // disabledClass: string
-
-    // searchPlaceholder: string
-    // searchFieldClass: string
-    // searchInputsClass: string
-    // searchPrefixClass: string
-    // searchSuffixClass: string
-    // searchClearClass: string
-    // searchIcon: string
-    // clearSearchIcon: string
-
     cursor?:        number | null
     setCursor:      (index: number) => void
     // select?:        SelectOption      // FIXME => remove '?'
@@ -110,11 +48,6 @@ export type SelectRenderProps =
     selectOption:   (value: SelectOption) => void,
     menuRef:        React.RefObject<HTMLDivElement>
     activeRef:      (ref: HTMLElement | null) => void
-    // findOption:     FindOption
-    // validOption:    IsValidOption
-    // displayValue:   WithIconsRenderer
-    // displayOption:  WithIconsRenderer
-    // displayHeading: WithIconsRenderer
     onKeyDown:      (event: React.KeyboardEvent) => void
     searchRef:      React.RefObject<HTMLInputElement>
     searchInput?:   string
@@ -123,38 +56,6 @@ export type SelectRenderProps =
     setSearch:      (searchInput: string | undefined) => void
     clearSearch:    (e?: React.MouseEvent) => void
   }
-
-/*
-export type SelectState = MenuContextState & {
-  closeOnBlur?: boolean
-  searchInput?: string
-  searchFocus?: boolean
-  value?: SelectOption
-  options?: SelectOption[]
-}
-
-export type SelectActions = MenuContextActions & {
-  onMouseEnter: () => void
-  onMouseLeave: () => void
-  onFocus: () => void
-  onBlur: () => void
-  onClick: () => void,
-  onKeyDown: (event: React.KeyboardEvent) => void
-  open: () => void
-  close: () => void
-  setCursor: (cursor: number | null) => void
-  selectCursor: () => void
-  selectOption: (value: SelectOption) => void
-  menuRef: (ref: HTMLElement | null) => void
-  activeRef: (ref: HTMLElement | null) => void
-  searchRef: (ref: HTMLElement | null) => void
-  focusSearch: (e: React.FocusEvent) => void
-  blurSearch: () => void,
-  setSearch: (search: string) => void
-  clearSearch: () => void
-  //triggerRef: (ref: HTMLElement) => void
-}
-*/
 
 export type SelectItemProps = {
   option: SelectOption

@@ -2,8 +2,8 @@ import { Model } from '@abw/react-context'
 import { MultiSelectProps, MultiSelectRenderProps } from './types'
 import { multiSelectDefaults } from './defaults'
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { classes, debugFunction, SelectOption } from '@/src/utils'
-import { hasValue, isArray } from '@abw/badger-utils'
+import { arraysDiffer, classes, debugFunction, SelectOption } from '@/src/utils'
+import { hasValue, isArray, isFunction } from '@abw/badger-utils'
 
 export const MultiSelectContext = Model<MultiSelectProps, MultiSelectRenderProps>(
   config => {
@@ -16,6 +16,8 @@ export const MultiSelectContext = Model<MultiSelectProps, MultiSelectRenderProps
       multiSelectClass,
       findOption,
       optionValue,
+      onChange,
+      onUpdate,
       ...props
     } = {
       ...multiSelectDefaults,
@@ -55,14 +57,44 @@ export const MultiSelectContext = Model<MultiSelectProps, MultiSelectRenderProps
     )
 
     // Store the currently selected values
-    const [values, setValues] = useState<SelectOption[]>(
+    const [values, setValuesState] = useState<SelectOption[]>(
       findValues(options, initialValues)
+    )
+    type NewValues = SelectOption[] | NewValuesFn
+    type NewValuesFn = (newValues: SelectOption[]) => SelectOption[]
+
+    const setValues = useCallback(
+      (newValues: NewValues, onChange?: (changed: SelectOption[]) => void) => {
+        setValuesState(
+          (values: SelectOption[] = []) => {
+            debug(`setValues old values: `, values)
+            newValues = isFunction<NewValuesFn>(newValues)
+              ? newValues(values)
+              : newValues
+            debug(`setValues new values: `, newValues)
+            const changed = arraysDiffer(values, newValues)
+            if (changed) {
+              debug(`values have changed: `, newValues)
+              if (onChange) {
+                onChange(newValues)
+              }
+              return newValues
+            }
+            else {
+              debug(`values have not changed: `, values)
+              return values
+            }
+          }
+        )
+      },
+      [debug]
     )
 
     // If the initial values change then we have to update the selected values
     useEffect(
       () => setValues(
-        findValues(options, initialValues)
+        () => findValues(options, initialValues),
+        onUpdate || onChange
       ),
       // IMPORTANT!  We only want this to run when the list of initial values
       // change. We want to select the valid options that correspond to the
@@ -70,7 +102,7 @@ export const MultiSelectContext = Model<MultiSelectProps, MultiSelectRenderProps
       // as that's handled below.  So it's correct that options is NOT listed
       // as a dependency.
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      [initialValues, findValues]
+      [initialValues]
     )
 
     // If the list of options changes then we need to re-select the current
@@ -80,9 +112,10 @@ export const MultiSelectContext = Model<MultiSelectProps, MultiSelectRenderProps
     // is selected
     useEffect(
       () => setValues(
-        values => findValues(options, values)
+        values => findValues(options, values),
+        onUpdate || onChange
       ),
-      [options, findValues]
+      [options, findValues, setValues, onUpdate, onChange]
     )
 
     // Look to see if an option is selected.  The option passed can be a
@@ -113,7 +146,8 @@ export const MultiSelectContext = Model<MultiSelectProps, MultiSelectRenderProps
       }
       debug(`selecting item at ${index}:`, select)
       setValues(
-        values => [...values, select]
+        values => [...values, select],
+        onChange
       )
       return true
     }
@@ -134,14 +168,14 @@ export const MultiSelectContext = Model<MultiSelectProps, MultiSelectRenderProps
       setValues(
         values => values.filter(
           (_, n) => n !== index
-        )
+        ),
+        onChange
       )
       return true
     }
 
     const setValuesOrder = (values: SelectOption[]) => {
-      setValues(values)
-      // TODO: onChange
+      setValues(values, onChange)
     }
     const onSelect = (option: SelectOption) => {
       debug('selected option:', option)

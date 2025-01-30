@@ -1,10 +1,12 @@
 import React from 'react'
 import DynamicSelect from './_examples/DynamicSelect.jsx'
-import DynamicMultiSelect from './_examples/DynamicMultiSelect.jsx'
+import DynamicSelectValue from './_examples/DynamicSelectValue'
+import DynamicMultiSelect from './_examples/DynamicMultiSelect'
 
 const Testing = () =>
   <div className="flow">
     <h1>Dynamic Select</h1>
+    <h2>Changing Options</h2>
     <p>
       Sam &quot;Bugfynder General&quot; Matthews found another bug that can
       surface when options in a select input change on some external trigger.
@@ -22,6 +24,13 @@ const Testing = () =>
       corresponding value should be selected from the other set.
     </p>
     <DynamicSelect/>
+    <h2>Changing Value</h2>
+    <p>
+      If the value that's passed into the select component changes then it
+      should also update.
+    </p>
+    <DynamicSelectValue/>
+    <h2>Changing MultiSelect Options</h2>
     <p>
       And here&apos;s the same thing for <code>MultiSelect</code>
     </p>

@@ -1,0 +1,17 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import HashLink   from '@/page/HashLink.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+import { SelectLink } from '@/site/Links.jsx'
+
+<Example
+  code="select"
+  Component={Component}
+  Source={Source}
+  highlightLines="20-22"
+  expand
+>
+  The `select` property can be used to define any additional properties
+  for the <SelectLink/> component.
+</Example>

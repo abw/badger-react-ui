@@ -20,6 +20,9 @@ const animals = [
 const OptionsExample = () =>
   <MultiSelect
     options={animals}
+    select={{
+      placeholder: 'Select something'
+    }}
   />
 
 export default OptionsExample

@@ -16,12 +16,11 @@ export const MultiSelectContent = Context.Consumer(
     SortSelections=DefaultSortSelections,
     options,
     onSelect,
-    search
-    // ...props   TODO: any other props
+    search,
+    select
   }) =>
     <div className={contentClass}>
       <Select
-        // {...props}
         search={search}
         options={options}
         onSelect={onSelect}
@@ -30,6 +29,7 @@ export const MultiSelectContent = Context.Consumer(
           (option: SelectOption) =>
             <Option option={option}/>
         }
+        {...select}
       />
       { sortable
         ? <SortSelections/>

@@ -11,7 +11,6 @@ const ValuesExample = () =>
     unselectedIcon={{
       name: 'cross-thinner',
       color: 'red-80--30',
-      // className: 'border pad-a-2 bdr-2'
     }}
   />
 

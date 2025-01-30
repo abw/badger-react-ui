@@ -2,6 +2,7 @@ import { DebugOptions, SelectOption } from '@/src/utils'
 import { multiSelectModelDefaults, multiSelectRenderDefaults } from './defaults'
 import { PropsObject } from '@/src/types'
 import { SortableDataItem } from '../Sortable'
+import { SelectProps } from '../Select/types'
 // import { UseComplexValuesSetters } from '@/src/hooks'
 
 export type MultiSelectModelDefaults  = typeof multiSelectModelDefaults
@@ -14,6 +15,8 @@ export type MultiSelectProps =
   MultiSelectCommonProps & {
   value?: SelectOption | SelectOption[]
   values?: SelectOption[]
+  onChange?: (values: SelectOption[]) => void
+  onUpdate?: (values: SelectOption[]) => void
 }
 
 export type MultiSelectRenderProps =
@@ -22,6 +25,7 @@ export type MultiSelectRenderProps =
   MultiSelectCommonProps & {
   // MultiSelectState &
   // MultiSelectStateSetters & {
+  values: SelectOption[]
   contentClass: string
   optionIsSelected: (option: SelectOption) => boolean,
   onSelect: (option: SelectOption) => void
@@ -43,6 +47,9 @@ export type MultiSelectCommonProps = {
   Selection?: React.FC
   Selections?: React.FC
   SortSelections?: React.FC
+  select?: Omit<SelectProps, 'options' | 'value' | 'onUpdate' | 'onSelect'>
+    // findOption?: FindOption
+    // searchOptions?: SearchOptions
 }
 
 /*

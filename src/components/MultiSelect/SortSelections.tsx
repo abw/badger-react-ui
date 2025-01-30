@@ -14,6 +14,9 @@ export const MultiSelectSortSelections = Context.Consumer(
     dragIconClass='drag-icon',
     Selection=DefaultSelection,
   }) => {
+    if (! values?.length) {
+      return null
+    }
     const setOrder = (items: MultiSelectSortItem[]) =>
       setValuesOrder(
         items.map( item => item.value )

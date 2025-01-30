@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, MultiSelect } from '@/src/index'
+import { Button, MultiSelect, SelectOption } from '@/src/index'
 
 const nato = [
   { id: 'a', name: 'Alpha'   },
@@ -23,19 +23,24 @@ const animals = [
 ]
 
 const DynamicMultiSelect = () => {
-  const [options, setOptions] = React.useState(nato)
+  const [options, setOptions] = React.useState<SelectOption[]>(nato)
   const [using, setUsing] = React.useState('NATO')
-  const changeOptions = (using, options) => {
+  const onChange = (values: SelectOption[]) => console.log(`changed: `, values)
+  const onUpdate = (values: SelectOption[]) => console.log(`updated: `, values)
+
+  const changeOptions = (using: string, options: SelectOption[]) => {
     setUsing(using)
     setOptions(options)
   }
   return (
-    <>
+    <div className="border bdr-2 surface-0 pad-2">
       <div className="field">
         <label>{using}</label>
         <MultiSelect
           search
           options={options}
+          onChange={onChange}
+          onUpdate={onUpdate}
           // debug
         />
       </div>
@@ -49,7 +54,7 @@ const DynamicMultiSelect = () => {
           onClick={() => changeOptions('Animals', animals)}
         />
       </div>
-    </>
+    </div>
   )
 }
 

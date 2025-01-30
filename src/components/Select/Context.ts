@@ -2,7 +2,7 @@ import { Model } from '@abw/react-context'
 import { selectDefaults } from './defaults'
 import { hasValue, sleep } from '@abw/badger-utils'
 import { useCursor, useTrigger } from '@/src/hooks'
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { SelectProps, SelectRenderProps } from './types'
 import { debugFunction, SelectOption, scrollParentChild } from '@/src/utils'
 import {
@@ -21,6 +21,7 @@ export const SelectContext = Model<SelectProps, SelectRenderProps>(
       validOption,
       searchOptions,
       onSelect,
+      onUpdate,
       debugPrefix,
       ...props
     } = {
@@ -378,7 +379,46 @@ export const SelectContext = Model<SelectProps, SelectRenderProps>(
       [menuRef, debug]
     )
 
-    // TODO: do we need to detect when allOptions change and update value?
+    // Detect when allOptions has changed and update value
+    useEffect(
+      () => {
+        const [newValue] = findOption(
+          allOptions, value
+        )
+        console.log(`allOptions changed => `, newValue)
+
+        setValue(newValue)
+        const onChange = onUpdate || onSelect
+        if (onChange) {
+          onChange(newValue)
+        }
+      },
+      // This is correct.  We only want this to fire if the list of options
+      // have changed.  We want to then match the current value with any
+      // corresponding value in the new set of options
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      [allOptions]
+    )
+
+    // Detect when initialValue changes
+    useEffect(
+      () => {
+        const [newValue] = findOption(
+          allOptions, initialValue
+        )
+        console.log(`initialValue changed (${initialValue}) => `, newValue)
+        setValue(newValue)
+        const onChange = onUpdate || onSelect
+        if (onChange) {
+          onChange(newValue)
+        }
+      },
+      // This is correct.  We only want this to fire if the initialValue has
+      // changed.  We want to then match the new value with any corresponding
+      // value in the set of options
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      [initialValue]
+    )
 
     return {
       ...props,

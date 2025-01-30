@@ -37,8 +37,11 @@ const MultiSelectExample = () => {
     <div>
       <MultiSelect
         options={animals}
-        search
+        search sortable
         values={values}
+        select={{
+          menuClass: "menu border bdr-1 bgc-90 pad-4"
+        }}
       />
       <div className="flex gap-4 mar-t-4">
         <Button text="Alan and Bobby" onClick={select1}/>

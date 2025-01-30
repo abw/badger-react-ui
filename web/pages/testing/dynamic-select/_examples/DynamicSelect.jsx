@@ -26,7 +26,7 @@ const DynamicSelect = () => {
     setOptions(options)
   }
   return (
-    <>
+    <div className="border bdr-2 surface-0 pad-2">
       <div className="field">
         <label>{using}</label>
         <Select
@@ -52,7 +52,7 @@ const DynamicSelect = () => {
           onClick={() => changeOptions('Spinal Tap', tap)}
         />
       </div>
-    </>
+    </div>
   )
 }
 
