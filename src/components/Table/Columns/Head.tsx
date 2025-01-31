@@ -1,11 +1,13 @@
 import Cell from '../Cell'
 import { cellProps } from '../Utils'
-import { TableColumnHeadProps } from '../types'
+import { TableColumnsHeadProps } from '../types'
 
 const Head = ({
-  columns
-}: TableColumnHeadProps) =>
-  <thead>
+  columns,
+  // TODO: Cell
+  ...props
+}: TableColumnsHeadProps) =>
+  <thead {...props}>
     <tr>
       { Object.entries(columns).map(
         ([name, column]) => {

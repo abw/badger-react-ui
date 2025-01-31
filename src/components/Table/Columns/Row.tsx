@@ -1,17 +1,17 @@
-import Cell from './Cell.jsx'
-import { cellProps } from '../Utils.js'
-import { TableColumnRowProps } from '../types.js'
+import Cell from './Cell'
+import { cellProps } from '../Utils'
+import { TableCellProps, TableColumnsRowProps } from '../types'
 
 const Row = ({
   row,
   columns,
-}: TableColumnRowProps) =>
+}: TableColumnsRowProps) =>
   <tr>
     { Object.entries(columns).map(
       ([name, column]) => {
         const cell = column.body
           ? cellProps(column.body)
-          : { text: row[name] }
+          : { text: row[name] } as TableCellProps
         return (
           <Cell
             key={name}

@@ -1,9 +1,8 @@
 import Rows from './Rows.jsx'
 import Columns from './Columns.jsx'
 import { Themed } from '@/src/Theme'
-import { ReactNode } from 'react'
 import { splitHash } from '@abw/badger-utils'
-import { TableProps } from './types.js'
+import { TableColumns, TableColumnsRows, TableProps, TableRows } from './types.js'
 import { capitalFirstLetter } from '@/src/utils/text'
 import { borderClass, classes, colorClass, radiusClass, shadowClass } from '@/src/utils/classes'
 
@@ -26,11 +25,11 @@ const Table = ({
   rows,
   footings,
   columns,
-  bodyRows = rows,
+  bodyRows,
   headRows = headings && [headings],
   footRows = footings && [footings],
   ...props
-}: TableProps): ReactNode => {
+}: TableProps): JSX.Element => {
   const cls = classes(
     className, size,
     colorClass(color),
@@ -47,14 +46,14 @@ const Table = ({
               splitHash(
                 columns,
                 (k: string) => ({ head: capitalFirstLetter(k) })
-              )
+              ) as TableColumns
             }
-            rows={rows}
+            rows={(rows ?? []) as TableColumnsRows}
             {...props}
           />
         : <Rows
             headRows={headRows}
-            bodyRows={bodyRows}
+            bodyRows={bodyRows ?? rows as TableRows}
             footRows={footRows}
             {...props}
           />

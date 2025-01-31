@@ -1,19 +1,18 @@
 import Row from './Row'
-import { TableColumnBodyProps } from '../types'
+import { TableColumnsBodyProps } from '../types'
 
 const Body = ({
   columns,
   rows=[],
   ...props
-}: TableColumnBodyProps) =>
-  <tbody>
+}: TableColumnsBodyProps) =>
+  <tbody {...props}>
     { rows.map(
       (row, n) =>
         <Row
-          key={row.id ?? n}
+          key={String(row.id ?? n)}
           row={row}
           columns={columns}
-          {...props}
         />
     )}
   </tbody>

@@ -1,15 +1,17 @@
 import { isArray, isObject } from '@abw/badger-utils'
-import { TableCellProps } from './types'
+import { TableCell, TableCellProps, TableRow, TableRowProps } from './types'
 
-export const rowProps = row =>
+export const rowProps = (
+  row: TableRow
+): TableRowProps =>
   isArray(row)
     ? { cells: row }
     : row
 
 export const cellProps = (
-  cell: string | number | TableCellProps
-) =>
+  cell: TableCell
+): TableCellProps =>
   isObject(cell)
-    ? cell
+    ? cell as TableCellProps
     : { text: cell }
 

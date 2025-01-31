@@ -1,6 +1,7 @@
 import { MaybeTrueOrNumberString } from '@/src/types'
 
-export type TableProps = {
+export type TableProps =
+  TableRowsProps & {
   className?: string,
   size?: string
   color?: string
@@ -15,43 +16,10 @@ export type TableProps = {
   compact?: boolean
   compressed?: boolean
   expanded?: boolean
-  headings?: TableHeadRow,
-  rows?: TableBodyRow[],
-  footings?: TableFootRow,
-  headRows?: TableHeadRow[]
-  bodyRows?: TableBodyRow[]
-  footRows?: TableFootRow[]
-  // columns,
-}
-
-export type TableHeadProps = {
-  headRows: TableHeadRow[]
-  Row?: TableRowType
-  HeadRow?: TableRowType
-}
-
-export type TableBodyProps = {
-  bodyRows: TableBodyRow[]
-  Row?: TableRowType
-  BodyRow?: TableRowType
-}
-
-export type TableFootProps = {
-  footRows: TableFootRow[]
-  Row?: TableRowType
-  FootRow?: TableRowType
-}
-
-export type TableHeadRow = TableRowProps & {
-  key?: string | number
-}
-
-export type TableBodyRow = TableRowProps & {
-  key?: string | number
-}
-
-export type TableFootRow = TableRowProps & {
-  key?: string | number
+  headings?: TableRow,
+  footings?: TableRow,
+  rows?: TableRows | TableColumnsRows,
+  columns?: TableColumns,
 }
 
 export type TableRowsProps =
@@ -61,35 +29,108 @@ export type TableRowsProps =
   Head?: TableHeadType
   Body?: TableBodyType
   Foot?: TableFootType
+  headProps?: HeadProps
+  bodyProps?: BodyProps
+  footProps?: FootProps
+}
+
+export type TableHeadProps =
+  HeadProps & {
+  headRows: TableRows
+  Row?: TableRowType
+  HeadRow?: TableRowType
+}
+
+export type TableBodyProps =
+  BodyProps & {
+  bodyRows: TableRows
+  Row?: TableRowType
+  BodyRow?: TableRowType
+}
+
+export type TableFootProps =
+  FootProps & {
+  footRows: TableRows
+  Row?: TableRowType
+  FootRow?: TableRowType
+}
+
+export type TableRows = TableRow[]
+export type TableRow = TableRowObject | TableCells
+export type TableRowObject = TableRowProps & {
+  key?: string | number
 }
 
 export type TableRowProps =
-  React.ComponentProps<'tr'> & {
+  TrProps & {
   th?: boolean,
-  Cell?: TableCellType
-  cells: Array<string | TableCellProps>
+  Cell?: TableCellComponent
+  cells: TableCells
 }
 
-export type TableCellProps =
-  React.ComponentProps<'th'> &
-  React.ComponentProps<'td'> & {
+export type HeadProps = React.ComponentProps<'thead'>
+export type BodyProps = React.ComponentProps<'tbody'>
+export type FootProps = React.ComponentProps<'tfoot'>
+export type TrProps = React.ComponentProps<'tr'>
+export type ThProps = React.ComponentProps<'th'>
+export type TdProps = React.ComponentProps<'th'>
+export type TableAnyCellProps = Partial<ThProps> & Partial<TdProps> // Record<string, unknown>
+export type TableCellFn<Props> = (props: Props) => React.ReactNode
+export type TableCellText<Props extends TableAnyCellProps = TableAnyCellProps> =
+  string | number | TableCellFn<Props>
+
+export type TableThProps<
+  Props extends ThProps = ThProps
+> =
+  ThProps & {
+  text: TableCellText<Props>
+}
+export type TableTdProps<
+  Props extends TdProps = TdProps
+> =
+  TdProps & {
+  text: TableCellText<Props>
+}
+
+export type TableCellProps<
+  Props extends TableAnyCellProps = TableAnyCellProps
+> =
+  TableAnyCellProps & {
   th?: boolean
-  text: string | number | ((...args: unknown[]) => React.ReactNode)
+  text: TableCellText<Props>
+  Th?: TableThComponent
+  Td?: TableTdComponent
 }
 
-export type TableCellType = React.FC<TableCellProps>
+export type TableCell<
+  Props extends TableAnyCellProps = TableAnyCellProps
+> = TableCellText<Props> | TableCellProps<Props>
+
+export type TableCells<
+  Props extends TableAnyCellProps = TableAnyCellProps
+> = TableCell<Props>[]
+
+
+export type TableCellComponent = React.FC<TableCellProps>
+export type TableThComponent   = React.FC<TableThProps>
+export type TableTdComponent   = React.FC<TableTdProps>
+
 export type TableHeadType = React.FC<TableHeadProps>
 export type TableBodyType = React.FC<TableBodyProps>
 export type TableFootType = React.FC<TableFootProps>
 export type TableRowType  = React.FC<TableRowProps>
 
-// Columns
+
+//--------------------------------------------------------------------------
+// Columns mode
+//--------------------------------------------------------------------------
 export type TableColumns = Record<string, TableColumn>
 export type TableColumn = {
   head?: string | number | TableColumnSpec
   body?: string | number | TableColumnRowFn | TableColumnSpec
 }
 export type TableColumnSpec = TableCellProps
+
 /*
 export type TableColumnSpec =
   React.ComponentProps<'th'> &
@@ -98,24 +139,67 @@ export type TableColumnSpec =
   text: string | number | TableColumnRowFn
 }
 */
-export type TableColumnHeadProps = {
-  columns: TableColumns
-}
-export type TableColumnBodyProps = {
-  columns: TableColumns
-  rows: TableColumnRow[]
-}
-export type TableColumnRowProps = {
-  columns: TableColumns
-  row: TableColumnRow
+
+/*
+const TableColumns = ({
+  rows,
+  columns,
+  ...props
+}) =>
+*/
+
+export type TableColumnsProps =
+  Partial<TableColumnsHeadProps> &
+  Partial<TableColumnsBodyProps> &
+  Partial<TableColumnsFootProps> & {
+  rows: TableColumnsRows,
+  columns: TableColumns,
+  Head?: TableColumnsHeadComponent
+  Body?: TableColumnsBodyComponent
+  Foot?: TableColumnsFootComponent
+  headProps?: HeadProps
+  bodyProps?: BodyProps
+  footProps?: FootProps
 }
 
-export type TableColumnRow = Record<string, unknown>
-export type TableColumnRowFn = (row: TableColumnRow) => React.ReactNode
-export type TableColumnWithRow<T> = T & { row: TableColumnRow }
-export type TableColumnCellProps = TableColumnWithRow<TableCellProps>
+export type TableColumnsHeadProps =
+  HeadProps & {
+  columns: TableColumns
+//  Row?: TableColumnsRowType
+//  HeadRow?: TableColumnsRowType
+}
 
-export type TableColumnHeadType = React.FC<TableColumnHeadProps>
+export type TableColumnsBodyProps =
+  BodyProps & {
+  columns: TableColumns
+  rows: TableColumnsRows
+//  BodyRow?: TableColumnsRowType
+}
+export type TableColumnsFootProps =
+  FootProps & {
+  columns: TableColumns
+  rows: TableColumnsRows
+//  Row?: TableColumnsRowType
+//  FootRow?: TableColumnsRowType
+}
+
+export type TableColumnsRowProps = {
+  // key?: string | number
+  columns: TableColumns
+  row: TableColumnsRow
+}
+
+export type TableColumnsRow = Record<string, unknown>
+export type TableColumnsRows = TableColumnsRow[]
+export type TableColumnRowFn = (row: TableColumnsRow) => React.ReactNode
+export type TableColumnsWithRow<T> = T & { row: TableColumnsRow }
+export type TableColumnsCellProps = TableColumnsWithRow<TableCellProps>
+
+export type TableColumnsHeadType = React.FC<TableColumnsHeadProps>
+
+export type TableColumnsHeadComponent = React.FC<TableColumnsHeadProps>
+export type TableColumnsBodyComponent = React.FC<TableColumnsBodyProps>
+export type TableColumnsFootComponent = React.FC<TableColumnsFootProps>
 
 /*
   headings,
@@ -127,3 +211,13 @@ export type TableColumnHeadType = React.FC<TableColumnHeadProps>
   footRows = footings && [footings],
   ...props
   */
+
+
+/*
+export type TableThFn<Props extends ThProps = ThProps> =
+  (props: Props) => React.ReactNode
+
+export type TableTdFn<Props extends TdProps = ThProps> =
+  (props: Props) => React.ReactNode
+*/
+

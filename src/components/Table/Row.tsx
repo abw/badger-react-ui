@@ -2,7 +2,7 @@ import TableCell from './Cell'
 import { cellProps } from './Utils'
 import { TableRowProps } from './types'
 
-const TableRow = ({
+export const TableRow = ({
   cells,
   th=false,
   Cell=TableCell,
@@ -18,7 +18,7 @@ const TableRow = ({
           <Cell
             key={cell.key ?? n}
             th={cell.th ?? th}
-            {...cellProps(cell)}
+            {...cell}
           />
       )}
   </tr>

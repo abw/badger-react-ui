@@ -1,18 +1,15 @@
-import { ReactNode } from 'react'
-import { maybeFunction } from '@abw/badger-utils'
+import TableTh from './Th'
+import TableTd from './Td'
 import { TableCellProps } from './types'
 
 export const TableCell = ({
-  th,
-  text,
+  th=false,
+  Th=TableTh,
+  Td=TableTd,
   ...props
 }: TableCellProps) =>
   th
-    ? <th {...props}>
-        { maybeFunction(text, props) as ReactNode }
-      </th>
-    : <td {...props}>
-        { maybeFunction(text, props) as ReactNode }
-      </td>
+    ? <Th {...props}/>
+    : <Td {...props}/>
 
 export default TableCell

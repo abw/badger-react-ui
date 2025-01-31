@@ -1,43 +1,43 @@
-import React from 'react'
 import { test, expect } from 'vitest'
 import { render } from '@testing-library/react'
-import { Table } from '@/src/index.jsx'
+import { Table } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 
-export const rows = [
-  // simple rows as arrays of text
+const headings = ['Name', 'Instrument']
+const bodyRows = [
   ['Nigel Tufnel', 'Guitar'],
   ['David St. Hubbins', 'Guitar'],
   ['Derek Smalls', 'Bass'],
   ['Viv Savage', 'Keyboards'],
-  // row as an object with cells array
-  {
-    className: 'error',
-    cells: ['Mick Shrimpton', 'Drums']
-  },
-  // row with cells as objects
-  [
-    { th: true, text: 'Ian Faith' },
-    { th: true, className: 'green inverse', text: 'Manager' }
-  ]
+  ['Mick Shrimpton', 'Drums']
 ]
 
 const TableExample = () =>
   <Table
     celled shaded
-    rows={rows}
+    headings={headings}
+    bodyRows={bodyRows}
   />
 
 test(
-  'table rows',
+  'table headings',
   async () => {
     const { container } = render(
       <TableExample/>
     )
-    const table = container.querySelector('table')
+    const table = container.querySelector('table') || fail('no table')
     expect(table).toBeDefined()
 
-    const rows = table.querySelectorAll('tr')
-    expect(rows.length).toBe(6)
+    const heads = table.querySelectorAll('thead tr')
+    expect(heads.length).toBe(1)
+
+    const h1ths = heads[0].querySelectorAll('th')
+    expect(h1ths.length).toBe(2)
+    expect(h1ths[0]).toHaveTextContent('Name')
+    expect(h1ths[1]).toHaveTextContent('Instrument')
+
+    const rows = table.querySelectorAll('tbody tr')
+    expect(rows.length).toBe(5)
 
     const tds1 = rows[0].querySelectorAll('td')
     expect(tds1[0]).toHaveTextContent('Nigel Tufnel')
@@ -56,13 +56,7 @@ test(
     expect(tds4[1]).toHaveTextContent('Keyboards')
 
     const tds5 = rows[4].querySelectorAll('td')
-    expect(rows[4]).toHaveClass('error')
     expect(tds5[0]).toHaveTextContent('Mick Shrimpton')
     expect(tds5[1]).toHaveTextContent('Drums')
-
-    const ths6 = rows[5].querySelectorAll('th')
-    expect(ths6[0]).toHaveTextContent('Ian Faith')
-    expect(ths6[1]).toHaveTextContent('Manager')
-    expect(ths6[1]).toHaveClass('green inverse')
   }
 )

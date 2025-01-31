@@ -1,7 +1,6 @@
-import React from 'react'
 import { test, expect } from 'vitest'
 import { render } from '@testing-library/react'
-import { Table, Icon } from '@/src/index.jsx'
+import { Table, Icon } from '@/src/index'
 
 const columns = {
   name: { },    // heading defaults to 'name'
@@ -60,6 +59,7 @@ const rows = [
 const TableExample = () =>
   <Table
     wide celled shaded
+    // columns="foo bar"
     columns={columns}
     rows={rows}
   />
