@@ -1,6 +1,8 @@
 import TableContent from './Content'
 import { Themed } from '@/src/Theme'
 import { TableProps } from './types.js'
+import { hasValue } from '@abw/badger-utils'
+import { expandTableColumns } from './Utils.js'
 import {
   borderClass, classes, colorClass, radiusClass, shadowClass
 } from '@/src/utils/classes'
@@ -24,6 +26,8 @@ const Table = ({
   Head, Body, Foot,
   HeadRow, BodyRow, FootRow,
   Rows, Row,
+  columns,
+  rows,
   Content=TableContent,
   ...props
 }: TableProps): JSX.Element => {
@@ -46,6 +50,9 @@ const Table = ({
   //if (isArray(foot)) {
   //  foot = { rows: foot }
   //}
+  if (hasValue(columns) && hasValue(rows)) {
+    [head, body] = expandTableColumns(columns, rows)
+  }
   const contentProps = {
     head, body, foot,
     Head, Body, Foot,

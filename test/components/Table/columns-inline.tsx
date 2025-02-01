@@ -1,8 +1,10 @@
 import { test, expect } from 'vitest'
 import { render } from '@testing-library/react'
 import { Table, Icon } from '@/src/index'
+import { fail } from '@abw/badger-utils'
 
-const columns = {
+/*
+const columns: TableColumns = {
   name: { },    // heading defaults to 'name'
   instrument: {
     head: 'Instrument',
@@ -22,6 +24,7 @@ const columns = {
     }
   }
 }
+*/
 
 const rows = [
   {
@@ -56,22 +59,49 @@ const rows = [
   }
 ]
 
-const TableExample = () =>
+const TableExample1 = () =>
   <Table
     wide celled shaded
-    // columns="foo bar"
-    columns={columns}
     rows={rows}
+    columns={{
+      name: {
+      },
+      instrument: {
+        head: 'Instrument',
+        body: ({ row }) => `${row.instrument} (${row.volume})`,
+      },
+      alive: {
+        head: {
+          className: 'text-center',
+          text: 'Living',
+        },
+        body: {
+          th: true,
+          className: 'text-center',
+          text: ({ row }) => row.alive
+            ? <Icon name="check" color="green-50"/>
+            : <Icon name="cross" color="red-50"/>
+        }
+      }
+    }}
   />
 
+/*
+const TableExample2 = () =>
+  <Table
+    wide celled shaded
+    rows={rows}
+    columns={columns}
+  />
+*/
 
 test(
   'table columns',
   async () => {
     const { container } = render(
-      <TableExample/>
+      <TableExample1/>
     )
-    const table = container.querySelector('table')
+    const table = container.querySelector('table') || fail('no table')
     expect(table).toBeDefined()
 
     const heads = table.querySelectorAll('thead tr')
@@ -94,9 +124,14 @@ test(
   }
 )
 
-function expectRow(row, name, instrument, iconClass) {
+function expectRow(
+  row: Element,
+  name: string,
+  instrument: string,
+  iconClass: string
+) {
   const tds = row.querySelectorAll('td')
-  const th  = row.querySelector('th')
+  const th  = row.querySelector('th') || fail('no th')
   const svg = th.querySelector('svg')
   expect(tds[0]).toHaveTextContent(name)
   expect(tds[1]).toHaveTextContent(instrument)

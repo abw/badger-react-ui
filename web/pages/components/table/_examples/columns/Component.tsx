@@ -1,10 +1,9 @@
-import { Table, Icon } from '@/src/index'
+import { Table, Icon, TableColumns } from '@/src/index'
 
 /* START */
-import React from 'react'
-// PRETEND: import { Table, Icon } from '@abw/badger-react-ui
+// PRETEND: import { Table, Icon, TableColumns } from '@abw/badger-react-ui
 
-const columns = {
+const columns: TableColumns = {
   name: {
     head: 'Musician',
   },

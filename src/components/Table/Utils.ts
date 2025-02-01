@@ -1,8 +1,10 @@
-import { isArray, isObject } from '@abw/badger-utils'
+import { isArray, isFunction, isObject, isString } from '@abw/badger-utils'
 import {
   TableCellProps, TableRowSpec, TableRowProps, TableCellSpec,
   TableSectionSpec, TableSectionProps, TableRowsSpec,
+  TableColumns, TableColumnsRows, TableCellsSpec, TableColumnsRowProp,
 } from './types'
+import { capitalFirstLetter } from '@/src/utils'
 
 export const tableSectionProps = (
   section: TableSectionSpec
@@ -40,6 +42,78 @@ export const tableCellProps = (
     ? cell as TableCellProps
     : { text: cell }
 
+export const expandTableColumns = (
+  columns: TableColumns,
+  rows: TableColumnsRows
+) => {
+  // console.log(`pre-columns: `, columns)
+  columns = isString(columns)
+    ? columns.split(/,\s*|\s+/).reduce(
+      (columns, column) => ({
+        ...columns,
+        [column]: { head: capitalFirstLetter(column)}
+      }),
+      { }
+    )
+    : isArray(columns)
+      ? columns.reduce(
+        (columns, column) => ({ ...columns, [column]: { } }),
+        { }
+      )
+      : columns
+  // console.log(`post-expand: `, columns)
+
+  // Construct a row of cells for the head
+  const heads = Object.entries(columns)
+    .reduce(
+      (heads: TableCellsSpec, [name, spec]) => {
+        const head = spec.head ?? ({ })
+        const row = isObject(head)
+          ? { text: name, ...head }
+          : { text: head }
+        heads.push(row as TableCellProps)
+        return heads
+      },
+      [ ] as TableCellsSpec
+    )
+  const head: TableSectionProps = { rows: [heads] }
+
+  // Construct the column specs for the body rows
+  const bodyCols = Object.entries(columns)
+    .reduce(
+      (bodyCols: TableCellProps[], [name, spec]) => {
+        const body = spec.body ?? ({ })
+        const text = ({ row }: TableColumnsRowProp) => row[name]
+        const row = isObject(body)
+          ? { text, ...body }
+          : { text: body }
+        // console.log(`body row: `, row)
+        bodyCols.push(row as TableCellProps)
+        return bodyCols
+      },
+      [ ] as TableCellProps[]
+    )
+  // console.log(`bodyCols: `, bodyCols)
+
+  // Now iterate over rows and extract each column
+  const bodyRows = rows
+    .map(
+      row => bodyCols.map(
+        bodyCol => {
+          const { text, ...props } = bodyCol
+          const textVal = isFunction(text)
+            ? text({ row })
+            : text
+          // console.log(`row: `, row)
+          // console.log(`text: `, textVal)
+          return { ...props, text: textVal } as TableCellProps
+        }
+      )
+    )
+  // console.log(`bodyRows: `, bodyRows)
+  const body: TableSectionProps = { rows: bodyRows }
+  return [head, body]
+}
 
 /**
  * Alias for `tableRowProps` for backwards compatibility

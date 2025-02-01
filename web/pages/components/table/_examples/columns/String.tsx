@@ -1,6 +1,4 @@
-import React from 'react'
 import { Table } from '@/src/index'
-
 
 const TableExample = () =>
   /* START */
