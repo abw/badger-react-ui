@@ -12,17 +12,33 @@ export const TableContent = ({
   Head=TableHead,
   Body=TableBody,
   Foot=TableFoot,
+  Row,
+  HeadRow=Row,
+  BodyRow=Row,
+  FootRow=Row,
   ...props
 }: TableContentProps) =>
   <>
     { hasValue(head) &&
-      <Head {...props} {...tableSectionProps(head)}/>
+      <Head
+        Row={HeadRow}
+        {...props}
+        {...tableSectionProps(head)}
+      />
     }
     { hasValue(body) &&
-      <Body {...props} {...tableSectionProps(body)}/>
+      <Body
+        Row={BodyRow}
+        {...props}
+        {...tableSectionProps(body)}
+      />
     }
     { hasValue(foot) &&
-      <Foot {...props} {...tableSectionProps(foot)}/>
+      <Foot
+        Row={FootRow}
+        {...props}
+        {...tableSectionProps(foot)}
+      />
     }
   </>
 

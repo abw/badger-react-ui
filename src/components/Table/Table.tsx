@@ -22,6 +22,7 @@ const Table = ({
   expanded,
   head, body, foot,
   Head, Body, Foot,
+  HeadRow, BodyRow, FootRow,
   Rows, Row,
   Content=TableContent,
   ...props
@@ -48,7 +49,7 @@ const Table = ({
   const contentProps = {
     head, body, foot,
     Head, Body, Foot,
-    Rows, Row
+    Rows, Row, HeadRow, BodyRow, FootRow
   }
 
   return (

@@ -1,7 +1,7 @@
 export { default as Table } from './Table.jsx'
 export * from './Body'
 export * from './Cell'
-export * from './Columns'
+// export * from './Columns'
 export * from './Content'
 export * from './Foot'
 export * from './Head'
