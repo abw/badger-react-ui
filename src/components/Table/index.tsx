@@ -11,3 +11,5 @@ export * from './Td'
 export * from './Th'
 export * from './Utils'
 export * from './types'
+// @ts-expect-error This is left as JSX for backwards compatibility
+export { default as TableV1 } from './TableV1.jsx'

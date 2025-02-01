@@ -1,0 +1,15 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="HeadRow"
+  Component={Component}
+  Source={Source}
+  highlightLines="20-24,30"
+  expand
+>
+  The `HeadRow` property allows you to define your own component for rendering
+  rows in the header.  This will override any value defined for `Row`.
+</Example>

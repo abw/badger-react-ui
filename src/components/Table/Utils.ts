@@ -40,3 +40,15 @@ export const tableCellProps = (
     ? cell as TableCellProps
     : { text: cell }
 
+
+/**
+ * Alias for `tableRowProps` for backwards compatibility
+ * @deprecated Use `tableRowProps` instead
+ */
+export const rowProps = tableRowProps
+
+/**
+ * Alias for `tableCellProps` for backwards compatibility
+ * @deprecated Use `tableCellProps` instead
+ */
+export const cellProps = tableCellProps

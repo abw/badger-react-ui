@@ -1,33 +1,29 @@
 import Table      from './_examples/Table/index.mdx'
-import Body       from './_examples/body/index.mdx'
-import Head       from './_examples/head/index.mdx'
-import Foot       from './_examples/foot/index.mdx'
+import Rows       from './_examples/rows/index.mdx'
+import HeadRows   from './_examples/headRows/index.mdx'
+import FootRows   from './_examples/footRows/index.mdx'
+import Headings   from './_examples/headings/index.mdx'
+import Footings   from './_examples/footings/index.mdx'
+import Columns    from './_examples/columns/index.mdx'
 import ClassName  from './_examples/className/index.mdx'
+import Border     from './_examples/border/index.mdx'
+import Color      from './_examples/color/index.mdx'
+import Compressed from './_examples/compressed/index.mdx'
+import Expanded   from './_examples/expanded/index.mdx'
+import Radius     from './_examples/radius/index.mdx'
+import Shadow     from './_examples/shadow/index.mdx'
+import Size       from './_examples/size/index.mdx'
+import Wide       from './_examples/wide/index.mdx'
 import Lined      from './_examples/lined/index.mdx'
 import Celled     from './_examples/celled/index.mdx'
 import Shaded     from './_examples/shaded/index.mdx'
 import Striped    from './_examples/striped/index.mdx'
-import Wide       from './_examples/wide/index.mdx'
-import Size       from './_examples/size/index.mdx'
-import Compressed from './_examples/compressed/index.mdx'
-import Expanded   from './_examples/expanded/index.mdx'
-import Color      from './_examples/color/index.mdx'
-import Border     from './_examples/border/index.mdx'
-import Radius     from './_examples/radius/index.mdx'
-import Shadow     from './_examples/shadow/index.mdx'
 import Row        from './_examples/Row/index.mdx'
 import HeadRow    from './_examples/HeadRow/index.mdx'
-import BodyRow    from './_examples/BodyRow/index.mdx'
 import FootRow    from './_examples/FootRow/index.mdx'
 import { Warning } from '@/src/index'
 
-{/*
-//import Headings   from './_examples/headings/index.mdx'
-//import Footings   from './_examples/footings/index.mdx'
-//import Columns    from './_examples/columns/index.mdx'
-*/}
-
-# Table
+# TableV1
 
 <Table/>
 
@@ -35,6 +31,14 @@ import { Warning } from '@/src/index'
   There were some breaking changes in the `Table` component between version
   1 and 2.  This was done to standardise some of the properties and make them
   more amenable to strict type checking with Typescript.
+
+  <div className="surface pad-a-4 pad-l-none mar-b-2 border">
+  * `rows` is now only used in `columns` mode
+  * `bodyRows` (and `rows` when not in `columns` mode) is now `body`
+  * `headRows` is now `head`
+  * `footRows` is now `foot`
+  * `headings` and `footings` are no longer supported
+  </div>
 
   The `TableV1` component is provided as an adapter to help with migration.
   It supports the same interface as the `Table` component from version 1 and
@@ -49,22 +53,21 @@ import { Warning } from '@/src/index'
 
   and it should continue to work as before.
 
-  The documentation for `TableV1` is [here](table-v1).
+  This documentation is for `TableV1` from version 1.  Read the documentation
+  for the version 2 `Table` module [here](table).
 </Warning>
 
 ## Properties
 
-<Body/>
-<Head/>
-<Foot/>
-{/*
+<Rows/>
+<HeadRows/>
 <Headings/>
+<FootRows/>
 <Footings/>
 
 ## Columns Mode
 
 <Columns/>
-*/}
 
 ## Styling Properties
 
@@ -86,5 +89,4 @@ import { Warning } from '@/src/index'
 
 <Row/>
 <HeadRow/>
-<BodyRow/>
 <FootRow/>

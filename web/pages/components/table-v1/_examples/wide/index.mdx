@@ -1,0 +1,16 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="wide"
+  Component={Component}
+  Source={Source}
+  highlightLines="2"
+  expand
+  undent={2}
+>
+  The `wide` property is a shortcut to add the `wide` CSS class which sets
+  the table width to be 100% of the parent element.
+</Example>

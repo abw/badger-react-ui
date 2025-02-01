@@ -1,0 +1,20 @@
+import React from 'react'
+import { TableV1 as Table } from '@/src/index'
+
+
+const TableExample = () =>
+  /* START */
+  <Table
+    wide celled shaded
+    columns="name instrument"
+    rows={[
+      { name: 'Nigel Tufnel',       instrument: 'Guitar'    },
+      { name: 'David St. Hubbins',  instrument: 'Guitar'    },
+      { name: 'Derek Smalls',       instrument: 'Bass'      },
+      { name: 'Viv Savage',         instrument: 'Keyboards' },
+      { name: 'Mick Shrimpton',     instrument: 'Drums'     }
+    ]}
+  />
+  /* END */
+
+export default TableExample

@@ -1,0 +1,17 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="size"
+  Component={Component}
+  Source={Source}
+  highlightLines="2"
+  expand
+  undent={2}
+>
+  The `size` property can be used to set the table size using one of the
+  semantic size classes (`smallest`, `smaller`, `small`, `large`, `larger`
+  or `largest`), or one of the size multipliers (`x2`, `x3`, etc).
+</Example>
