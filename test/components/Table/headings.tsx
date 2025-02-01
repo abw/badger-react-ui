@@ -3,8 +3,8 @@ import { render } from '@testing-library/react'
 import { Table } from '@/src/index'
 import { fail } from '@abw/badger-utils'
 
-const headings = ['Name', 'Instrument']
-const bodyRows = [
+const head = ['Name', 'Instrument']
+const body = [
   ['Nigel Tufnel', 'Guitar'],
   ['David St. Hubbins', 'Guitar'],
   ['Derek Smalls', 'Bass'],
@@ -15,8 +15,8 @@ const bodyRows = [
 const TableExample = () =>
   <Table
     celled shaded
-    headings={headings}
-    bodyRows={bodyRows}
+    head={head}
+    body={body}
   />
 
 test(

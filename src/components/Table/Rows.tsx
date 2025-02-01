@@ -1,47 +1,23 @@
-import TableHead from './Head'
-import TableBody from './Body'
-import TableFoot from './Foot'
-import TableRow  from './Row'
+import TableRow from './Row'
+import { tableRowProps } from './Utils'
 import { TableRowsProps } from './types'
-import { hasValue } from '@abw/badger-utils'
 
 export const TableRows = ({
-  bodyRows,
-  headRows,
-  footRows,
-  headProps={},
-  bodyProps={},
-  footProps={},
-  Head=TableHead,
-  Body=TableBody,
-  Foot=TableFoot,
+  rows,
+  th=false,
   Row=TableRow,
-  HeadRow=Row,
-  BodyRow=Row,
-  FootRow=Row,
 }: TableRowsProps) =>
-  <>
-    { hasValue(headRows) &&
-      <Head
-        headRows={headRows}
-        HeadRow={HeadRow}
-        {...headProps}
-      />
-    }
-    { hasValue(bodyRows) &&
-      <Body
-        bodyRows={bodyRows}
-        BodyRow={BodyRow}
-        {...bodyProps}
-      />
-    }
-    { hasValue(footRows) &&
-      <Foot
-        footRows={footRows}
-        FootRow={FootRow}
-        {...footProps}
-      />
-    }
-  </>
+  rows
+    .map(
+      row => tableRowProps(row)
+    )
+    .map(
+      (row, n) =>
+        <Row
+          key={row.key ?? n}
+          th={th}
+          {...row}
+        />
+    )
 
 export default TableRows

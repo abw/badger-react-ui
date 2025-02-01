@@ -1,27 +1,19 @@
 import TableRow from './Row'
-import { rowProps } from './Utils'
+import TableRows from './Rows'
 import { TableHeadProps } from './types'
 
 export const TableHead = ({
-  headRows,
+  rows,
   Row=TableRow,
-  HeadRow=Row,
+  Rows=TableRows,
   ...props
 }: TableHeadProps) =>
   <thead {...props}>
-    { headRows
-      .map(
-        row => rowProps(row)
-      )
-      .map(
-        (row, n) =>
-          <HeadRow
-            key={row.key ?? n}
-            th
-            {...row}
-          />
-      )
-    }
+    <Rows
+      rows={rows}
+      Row={Row}
+      th
+    />
   </thead>
 
 export default TableHead

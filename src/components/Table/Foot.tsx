@@ -1,26 +1,18 @@
 import TableRow from './Row'
-import { rowProps } from './Utils'
+import TableRows from './Rows'
 import { TableFootProps } from './types'
 
 export const TableFoot = ({
-  footRows,
+  rows,
   Row=TableRow,
-  FootRow=Row,
+  Rows=TableRows,
   ...props
 }: TableFootProps) =>
   <tfoot {...props}>
-    { footRows
-      .map(
-        row => rowProps(row)
-      )
-      .map(
-        (row, n) =>
-          <FootRow
-            key={row.key ?? n}
-            {...row}
-          />
-      )
-    }
+    <Rows
+      rows={rows}
+      Row={Row}
+    />
   </tfoot>
 
 export default TableFoot

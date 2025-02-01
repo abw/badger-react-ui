@@ -14,7 +14,7 @@ test(
     render(
       <TableWrapper>
         <TableBody
-          bodyRows={[
+          rows={[
             ['foo', 'bar', 'baz'],
           ]}
           data-testid="tbody"
@@ -38,7 +38,7 @@ test(
     render(
       <TableWrapper>
         <TableBody
-          bodyRows={[
+          rows={[
             ['foo', 'bar', 'baz'],
             {
               className: 'wibble',
@@ -72,7 +72,7 @@ test(
     render(
       <TableWrapper>
         <TableBody
-          bodyRows={[
+          rows={[
             {
               className: 'wibble',
               cells: [

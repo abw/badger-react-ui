@@ -3,10 +3,10 @@ import { render } from '@testing-library/react'
 import { Table } from '@/src/index'
 import { fail } from '@abw/badger-utils'
 
-const headRows = [
-  ['Name', 'Instrument']
+const head = [
+  [{ text: 'Name', className: 'bold' }, 'Instrument']
 ]
-const footRows = [
+const foot = [
   {
     className: 'green text-center',
     cells: [
@@ -14,7 +14,7 @@ const footRows = [
     ]
   },
 ]
-const bodyRows = [
+const body = [
   ['Nigel Tufnel', 'Guitar'],
   ['David St. Hubbins', 'Guitar'],
   ['Derek Smalls', 'Bass'],
@@ -25,9 +25,9 @@ const bodyRows = [
 const TableExample = () =>
   <Table
     celled shaded
-    headRows={headRows}
-    bodyRows={bodyRows}
-    footRows={footRows}
+    head={head}
+    body={body}
+    foot={foot}
   />
 
 test(
@@ -45,6 +45,7 @@ test(
     const h1ths = heads[0].querySelectorAll('th')
     expect(h1ths.length).toBe(2)
     expect(h1ths[0]).toHaveTextContent('Name')
+    expect(h1ths[0]).toHaveClass('bold')
     expect(h1ths[1]).toHaveTextContent('Instrument')
 
     const rows = table.querySelectorAll('tbody tr')

@@ -3,15 +3,15 @@ import { render } from '@testing-library/react'
 import { Table } from '@/src/index'
 import { fail } from '@abw/badger-utils'
 
-const headings = ['Name', 'Loudness']
-const bodyRows = [
+const head = ['Name', 'Loudness']
+const body = [
   ['Nigel Tufnel', 11],
   ['David St. Hubbins', 10],
   ['Derek Smalls', 10],
   ['Viv Savage', 8],
   ['Mick Shrimpton', 0]
 ]
-const footings = [
+const foot = [
   { className: 'text-right', text: 'Total' },
   39
 ]
@@ -19,9 +19,9 @@ const footings = [
 const TableExample = () =>
   <Table
     celled shaded
-    headings={headings}
-    bodyRows={bodyRows}
-    footings={footings}
+    head={head}
+    body={body}
+    foot={foot}
   />
 
 test(

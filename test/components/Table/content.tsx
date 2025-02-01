@@ -1,6 +1,6 @@
 import { test, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { TableRows } from '@/src/index'
+import { TableContent } from '@/src/index'
 import { ReactNode } from 'react'
 import { fail } from '@abw/badger-utils'
 
@@ -10,21 +10,21 @@ export const TableWrapper = ({ children }: { children: ReactNode }) =>
   </table>
 
 test(
-  'rows with just headRows',
+  'content with just head',
   async () => {
     render(
       <TableWrapper>
-        <TableRows
-          headRows={[
-            ['foo', { text: 'bar' }, () => 'baz'],
-            {
-              className: 'wobble',
-              th: false,
-              cells: ['wam', 'bam', { text: () => 'sham', th: true }]
-            }
-          ]}
-          headProps={{
-            'className': 'wibble'
+        <TableContent
+          head={{
+            'className': 'wibble',
+            rows: [
+              ['foo', { text: 'bar' }, () => 'baz'],
+              {
+                className: 'wobble',
+                th: false,
+                cells: ['wam', 'bam', { text: () => 'sham', th: true }]
+              }
+            ]
           }}
         />
       </TableWrapper>
@@ -50,12 +50,12 @@ test(
 )
 
 test(
-  'rows with just bodyRows',
+  'content with just body',
   async () => {
     render(
       <TableWrapper>
-        <TableRows
-          bodyRows={[
+        <TableContent
+          body={[
             ['foo', { text: 'bar' }, () => 'baz'],
             {
               className: 'wobble',
@@ -63,15 +63,11 @@ test(
               cells: ['wam', 'bam', { text: 'sham', th: false }]
             }
           ]}
-          bodyProps={{
-            'className': 'wibble'
-          }}
         />
       </TableWrapper>
     )
     const table = screen.getByTestId('table')
     const tbody = table.querySelector('tbody') || fail('no tbody')
-    expect(tbody).toHaveClass('wibble')
     const trs = tbody.querySelectorAll('tr')
     expect(trs.length).toBe(2)
     const tds = trs[0].querySelectorAll('td')
@@ -90,21 +86,21 @@ test(
 )
 
 test(
-  'rows with just footRows',
+  'content with just foot',
   async () => {
     render(
       <TableWrapper>
-        <TableRows
-          footRows={[
-            ['foo', { text: 'bar' }, () => 'baz'],
-            {
-              className: 'wobble',
-              th: true,
-              cells: ['wam', 'bam', 'sham']
-            }
-          ]}
-          footProps={{
-            'className': 'wibble'
+        <TableContent
+          foot={{
+            'className': 'wibble',
+            rows: [
+              ['foo', { text: 'bar' }, () => 'baz'],
+              {
+                className: 'wobble',
+                th: true,
+                cells: ['wam', 'bam', 'sham']
+              }
+            ]
           }}
         />
       </TableWrapper>
@@ -128,7 +124,7 @@ test(
 )
 
 /*
-export const TableRows = ({
+export const TableContent = ({
   bodyRows,
   headRows,
   footRows,
@@ -136,7 +132,7 @@ export const TableRows = ({
   Body=TableBody,
   Foot=TableFoot,
   ...props
-}: TableRowsProps) =>
+}: TableContentProps) =>
 */
 /*
 export const rows = [

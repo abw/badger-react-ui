@@ -14,7 +14,7 @@ test(
     render(
       <TableWrapper>
         <TableFoot
-          footRows={[
+          rows={[
             ['foo', 'bar', 'baz'],
           ]}
           data-testid="tfoot"
@@ -38,7 +38,7 @@ test(
     render(
       <TableWrapper>
         <TableFoot
-          footRows={[
+          rows={[
             ['foo', 'bar', 'baz'],
             {
               className: 'wibble',
@@ -72,7 +72,7 @@ test(
     render(
       <TableWrapper>
         <TableFoot
-          footRows={[
+          rows={[
             {
               className: 'wibble',
               cells: [

@@ -1,26 +1,18 @@
 import TableRow from './Row'
-import { rowProps } from './Utils'
+import TableRows from './Rows'
 import { TableBodyProps } from './types'
 
 export const TableBody = ({
-  bodyRows,
+  rows,
   Row=TableRow,
-  BodyRow=Row,
+  Rows=TableRows,
   ...props
 }: TableBodyProps) =>
   <tbody {...props}>
-    { bodyRows
-      .map(
-        row => rowProps(row)
-      )
-      .map(
-        (row, n) =>
-          <BodyRow
-            key={row.key ?? n}
-            {...row}
-          />
-      )
-    }
+    <Rows
+      rows={rows}
+      Row={Row}
+    />
   </tbody>
 
 export default TableBody

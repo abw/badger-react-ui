@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import { Table } from '@/src/index'
 import { fail } from '@abw/badger-utils'
 
-const headRows = [
+const head = [
   {
     className: 'green text-center',
     cells: [
@@ -12,7 +12,7 @@ const headRows = [
   },
   ['Name', 'Instrument']
 ]
-const bodyRows = [
+const body = [
   ['Nigel Tufnel', 'Guitar'],
   ['David St. Hubbins', 'Guitar'],
   ['Derek Smalls', 'Bass'],
@@ -23,8 +23,8 @@ const bodyRows = [
 const TableExample = () =>
   <Table
     celled shaded
-    headRows={headRows}
-    bodyRows={bodyRows}
+    head={head}
+    body={body}
   />
 
 

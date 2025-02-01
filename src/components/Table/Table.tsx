@@ -1,10 +1,9 @@
-import Rows from './Rows.jsx'
-import Columns from './Columns.jsx'
+import TableContent from './Content'
 import { Themed } from '@/src/Theme'
-import { splitHash } from '@abw/badger-utils'
-import { TableColumns, TableColumnsRows, TableProps, TableRows } from './types.js'
-import { capitalFirstLetter } from '@/src/utils/text'
-import { borderClass, classes, colorClass, radiusClass, shadowClass } from '@/src/utils/classes'
+import { TableProps } from './types.js'
+import {
+  borderClass, classes, colorClass, radiusClass, shadowClass
+} from '@/src/utils/classes'
 
 const Table = ({
   className,
@@ -21,13 +20,10 @@ const Table = ({
   compact,
   compressed=compact,
   expanded,
-  headings,
-  rows,
-  footings,
-  columns,
-  bodyRows,
-  headRows = headings && [headings],
-  footRows = footings && [footings],
+  head, body, foot,
+  Head, Body, Foot,
+  Rows, Row,
+  Content=TableContent,
   ...props
 }: TableProps): JSX.Element => {
   const cls = classes(
@@ -38,28 +34,30 @@ const Table = ({
     shadowClass(shadow),
     { celled, lined, shaded, striped, wide, compressed, expanded }
   )
+  // TODO: morph columns
+  // These are now handled by tableSectionProps
+  //if (isArray(head)) {
+  //  head = { rows: head }
+  //}
+  //if (isArray(body)) {
+  //  body = { rows: body }
+  //}
+  //if (isArray(foot)) {
+  //  foot = { rows: foot }
+  //}
+  const contentProps = {
+    head, body, foot,
+    Head, Body, Foot,
+    Rows, Row
+  }
+
   return (
-    <table className={cls}>
-      { columns
-        ? <Columns
-            columns={
-              splitHash(
-                columns,
-                (k: string) => ({ head: capitalFirstLetter(k) })
-              ) as TableColumns
-            }
-            rows={(rows ?? []) as TableColumnsRows}
-            {...props}
-          />
-        : <Rows
-            headRows={headRows}
-            bodyRows={bodyRows ?? rows as TableRows}
-            footRows={footRows}
-            {...props}
-          />
-      }
+    <table className={cls} {...props}>
+      <Content {...contentProps}/>
     </table>
   )
 }
 
-export default Themed(Table, 'Table')
+export const ThemedTable = Themed(Table)
+// export default Themed(Table, 'Table')
+export default Table

@@ -1,5 +1,5 @@
 import TableCell from './Cell'
-import { cellProps } from './Utils'
+import { tableCellProps } from './Utils'
 import { TableRowProps } from './types'
 
 export const TableRow = ({
@@ -11,7 +11,7 @@ export const TableRow = ({
   <tr {...props}>
     { cells
       .map(
-        cell => cellProps(cell)
+        cell => tableCellProps(cell)
       )
       .map(
         (cell, n) =>
