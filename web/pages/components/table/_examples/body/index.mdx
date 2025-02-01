@@ -1,0 +1,57 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component'
+import Source     from './Component.tsx?raw'
+
+<Example
+  code="body"
+  Component={Component}
+  Source={Source}
+  highlightLines="3-25,30"
+  expand
+>
+  The `body` property is used to define an array of rows for the main table
+  body. Each element in the `body` array can be an array of cells. Or it can
+  be an object containing an array of cells as the `cells` property and any
+  other properties for the row (e.g. `className` to set the CSS class for the
+  row).
+
+  Each cell can be a simple text string or other value, a function returning
+  any renderable content, or an object containing the value as the `text`
+  property along with any other attributes you want to add to the cell
+  element (e.g. `className`).
+
+  Cells in the header are rendered as `th` elements.  Cells in the body and
+  footer are rendered as `td` element.  The boolean `th` property can be added
+  to a cell to change this behaviour.
+</Example>
+
+You can also define the `body` as an object with the rows defined as the `rows`
+property.  This allows you to specify other properties that should be added
+to the `tbody` HTML element as attributes.
+
+```tsx
+<Table
+  body={{
+    className: 'my-body-class',
+    rows: [
+      ['Nigel Tufnel', 'Guitar'],
+      ['David St. Hubbins', 'Guitar'],
+      ['Derek Smalls', 'Bass'],
+      ['Viv Savage', 'Keyboards'],
+    ]
+  }}
+/>
+```
+
+If you only have a single row in the `body` (or more likely, in the `head`
+or `foot` sections), then you can define it as an array of cells (rather than
+an array containing a single array of cells).
+
+```tsx
+<Table
+  head={[ 'Name', 'Instrument' ]}
+  // shortcut for:
+  // head={[ ['Name', 'Instrument'] ]}
+/>
+```

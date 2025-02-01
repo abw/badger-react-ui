@@ -1,10 +1,9 @@
 import { Table } from '@/src/index'
 
 /* START */
-import React from 'react'
 // PRETEND: import { Table } from '@abw/badger-react-ui
 
-const headRows = [
+const head = [
   {
     className: 'green text-center',
     cells: [
@@ -13,7 +12,7 @@ const headRows = [
   },
   ['Name', 'Instrument']
 ]
-const bodyRows = [
+const body = [
   ['Nigel Tufnel', 'Guitar'],
   ['David St. Hubbins', 'Guitar'],
   ['Derek Smalls', 'Bass'],
@@ -24,8 +23,8 @@ const bodyRows = [
 const TableExample = () =>
   <Table
     celled shaded
-    headRows={headRows}
-    bodyRows={bodyRows}
+    head={head}
+    body={body}
   />
 
 export default TableExample

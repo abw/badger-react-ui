@@ -1,16 +1,21 @@
 import { Table } from '@/src/index'
 
 /* START */
-import React from 'react'
 // PRETEND: import { Table } from '@abw/badger-react-ui
 
-export const rows = [
+export const body = [
   // simple rows as arrays of text
   ['Nigel Tufnel', 'Guitar'],
   ['David St. Hubbins', 'Guitar'],
   ['Derek Smalls', 'Bass'],
-  ['Viv Savage', 'Keyboards'],
-  // row as an object with cells array
+  // cells can be functions returning JSX content
+  ['Viv Savage',
+    () => <div>
+      Keyboards
+      <small>(and rocket fuel)</small>
+    </div>
+  ],
+  // row as an object with cells array and other row attributes
   {
     className: 'error',
     cells: ['Mick Shrimpton', 'Drums']
@@ -25,7 +30,7 @@ export const rows = [
 const TableExample = () =>
   <Table
     celled shaded
-    rows={rows}
+    body={body}
   />
 
 export default TableExample

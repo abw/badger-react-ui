@@ -1,12 +1,10 @@
-import React from 'react'
 import { Table } from '@/src/index'
 import { head, body } from '../spinal-tap'
 
 const TableExample = () =>
   /* START */
   <Table
-    color="brand"
-    celled striped
+    lined
     head={head}
     body={body}
   />

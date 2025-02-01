@@ -1,14 +1,13 @@
-import React from 'react'
 import { Table } from '@/src/index'
-import { headings, rows } from '../spinal-tap.jsx'
+import { head, body } from '../spinal-tap'
 
 const TableExample = () =>
   /* START */
   <Table
-    shadow={3}
+    border={2}
     celled striped
-    headings={headings}
-    rows={rows}
+    head={head}
+    body={body}
   />
   /* END */
 

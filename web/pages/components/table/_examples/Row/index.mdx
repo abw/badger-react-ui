@@ -1,13 +1,13 @@
 import React      from 'react'
 import Example    from '@/page/ExampleSection.jsx'
-import Component  from './Component.jsx'
-import Source     from './Component.jsx?raw'
+import Component  from './Component'
+import Source     from './Component.tsx?raw'
 
 <Example
   code="Row"
   Component={Component}
   Source={Source}
-  highlightLines="14-25,30"
+  highlightLines="15-26,31"
   expand
 >
   The `Row` property allows you to define your own component for rendering
@@ -19,7 +19,10 @@ import Source     from './Component.jsx?raw'
   being rendered.  You can forward this property to the `TableCell` component
   and it will take care of it for you.
 
-  The `cellProps` utility function can be used to handle cells that are either
-  simple values (strings, numbers, etc) and those that are objects.  It will
-  convert a simple value to an object of the form `{ text: ... }`
+  The `tableCellProps` utility function can be used to handle cells that are
+  either simple values (strings, numbers, etc) and those that are objects.
+  It will convert a simple value to an object of the form `{ text: ... }`.
+
+  If you're using Typescript then you can type the component using the
+  `TableRowComponent` type.
 </Example>

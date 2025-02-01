@@ -1,5 +1,5 @@
-export const headings = ['Name', 'Instrument']
-export const rows = [
+export const head = ['Name', 'Instrument']
+export const body = [
   ['Nigel Tufnel', 'Guitar'],
   ['David St. Hubbins', 'Guitar'],
   ['Derek Smalls', 'Bass'],

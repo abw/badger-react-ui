@@ -1,15 +1,30 @@
 import React      from 'react'
 import Example    from '@/page/ExampleSection.jsx'
-import Component  from './Component.jsx'
-import Source     from './Component.jsx?raw'
+import Component  from './Component'
+import Source     from './Component.tsx?raw'
 
 <Example
   code="HeadRow"
   Component={Component}
   Source={Source}
-  highlightLines="20-24,30"
+  highlightLines="21-25,31"
   expand
 >
   The `HeadRow` property allows you to define your own component for rendering
   rows in the header.  This will override any value defined for `Row`.
+
+  This example shows two different ways to render a cell in the `HeadRow`.
+  You can use `TableCell` and set the `th` property.  Or you can use `TableTh`
+  which has the same effect.
+
+  A cell can be a simple string, a function returning any renderable content
+  (i.e. `React.ReactNode`) or an object containing a `text` property and other
+  attributes for the cell element.
+
+  In both cases we use the `tableCellProps` function to handle the case where
+  a cell might be an object containing other attributes for the cell.  If
+  you're sure that your rows will only contain text then you can directly
+  embed the cell content as shown in the `Row` component on lines 15 and 16.
+  If you're using Typescript then you'll need to add an `as string` assertion
+  if you want to avoid the red squigglies from Typescript.
 </Example>
