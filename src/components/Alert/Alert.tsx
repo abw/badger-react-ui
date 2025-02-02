@@ -133,5 +133,15 @@ Alert.Warning = Warning
 Alert.Error   = Error
 */
 
+/**
+ * Render an alert box
+ *
+ * Example:
+ * ```tsx
+ *  <Alert type="info" title="Hello World!">
+ *   This is an alert.
+ * </Alert>
+ * ```
+ */
 export const ThemedAlert = Themed(Alert, 'Alert')
 export default ThemedAlert

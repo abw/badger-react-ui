@@ -64,5 +64,18 @@ const Badge = ({
   </div>
 }
 
+/**
+ * Render a badge with text and optional prefix/suffix.
+ *
+ * Example:
+ * ```tsx
+ * <Badge
+ *   prefix="Hello"
+ *   text="World"
+ *   size="smaller"
+ *   color="green"
+ * />
+ * ```
+ */
 const ThemedBadge = Themed(Badge, 'Badge')
 export default ThemedBadge

@@ -19,8 +19,7 @@ export type ButtonProps = {
   tabIndex?: number,
   tooltip?: string,
   Content?: WithIconsType,
-} &
-  WithIconsProps &
-  Omit<ButtonHTMLAttrs, 'className'>
+} & WithIconsProps
+  & Omit<ButtonHTMLAttrs, 'className'>
 
 export type ButtonComponent = React.FC<ButtonProps>

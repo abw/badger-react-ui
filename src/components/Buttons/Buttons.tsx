@@ -25,5 +25,26 @@ const Buttons = ({
     }
   </div>
 
+/**
+ * Render a group of buttons.
+ *
+ * Example:
+ * ```tsx
+ * <Buttons
+ *   buttons={[
+ *     {
+ *       text: 'One',
+ *       outline: true,
+ *       iconLeft: 'arrow-left'
+ *     },
+ *     {
+ *       text: 'Two',
+ *       outline: true,
+ *       iconRight: 'arrow-right'
+ *     },
+ *   ]}
+ * />
+ * ```
+ */
 const ThemedButtons = Themed(Buttons, 'Buttons')
 export default ThemedButtons

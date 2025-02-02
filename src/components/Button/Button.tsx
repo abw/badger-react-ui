@@ -65,5 +65,17 @@ const Button = ({
   )
 }
 
+/**
+ * Render a button.
+ *
+ * Example:
+ * ```tsx
+ * <Button
+ *    text="A Red Button"
+ *    color="red"
+ *    onClick={ () => console.log('button clicked') }
+ *  />
+ * ```
+ */
 const ThemedButton = Themed(Button, 'Button')
 export default ThemedButton
