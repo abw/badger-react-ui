@@ -1,4 +1,3 @@
-import React from 'react'
 import { Details } from '@/src/index'
 
 const DetailsExample = () =>

@@ -1,5 +1,6 @@
 import { MaybeTrueOrNumberString, OnClick } from '@/src/types'
 import { WithIconsProps } from '@/components/Icon'
+import { ReactNode } from 'react'
 
 export type DetailsProps = {
   native?: boolean
@@ -25,8 +26,8 @@ export type DetailsContainerProps = {
   & Omit<DetailsSummaryProps, 'toggleOpen'>
 
 export type DetailsContentProps = {
-  content?: string
-  children?: React.ReactNode
+  content?: ReactNode
+  children?: ReactNode
   contentClass?: string
 }
 
@@ -42,7 +43,7 @@ export type DetailsContextRenderProps = {
 }
 
 export type DetailsSummaryProps = {
-  summary: string
+  summary: ReactNode
   summaryClass?: string
   toggleOpen: OnClick
   detailsSummaryClass?: string

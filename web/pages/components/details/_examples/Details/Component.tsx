@@ -1,7 +1,6 @@
 import { Details } from '@/src/index'
 
 /* START */
-import React from 'react'
 // PRETEND: import { Details } from '@abw/badger-react-ui
 
 const DetailsExample = () =>

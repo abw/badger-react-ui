@@ -1,16 +1,16 @@
 import React      from 'react'
 import Example    from '@/page/ExampleSection.jsx'
-import Component  from './Component.jsx'
-import Source     from './Component.jsx?raw'
+import Component  from './Component'
+import Source     from './Component.tsx?raw'
 
 <Example
   code="content"
   Component={Component}
   Source={Source}
-  highlightLines="3"
+  highlightLines="3,7"
   undent={4}
   expand
 >
   The `content` property can be used as a short-cut to set the body content
-  for simple cases.
+  for simple cases.  It can be a text string or any JSX content.
 </Example>

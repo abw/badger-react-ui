@@ -1,11 +1,11 @@
-import React from 'react'
 import { Details } from '@/src/index'
 
 const DetailsExample = () =>
   /* START */
   <Details
-    summary="Lined Details"
-    lined
+    summary="Custom Icon on Right"
+    iconLeft={false}
+    iconRight="angle-left"
   >
     This is the content that is revealed.
   </Details>

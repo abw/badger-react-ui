@@ -1,23 +1,22 @@
-import React from 'react'
 import { Details } from '@/src/index'
 
 const DetailsExample = () =>
   <div className="grid-1 gap-4">
     {/* START */}
     <Details
-      summary="Small"
-      size="small"
+      summary="Border Radius"
       border lined
+      radius={2}
     >
-      This is small
+      This is the content that is revealed.
     </Details>
 
     <Details
-      summary="Large"
-      size="large"
+      summary="Border Radius"
       border lined
+      radius={4}
     >
-      This is large
+      This is the content that is revealed.
     </Details>
     {/* END */}
   </div>

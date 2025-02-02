@@ -8,7 +8,7 @@ import { DetailsProps } from '@/components/Details/types'
 export type AccordionProps = {
   items: AccordionItem[]
   accordionClass?: string
-} & DetailsProps
+} & Omit<DetailsProps, 'summary'>
 
 export type AccordionItem = {
   key?: string | number

@@ -1,30 +1,34 @@
-import React from 'react'
 import { Details } from '@/src/index'
 
 const DetailsExample = () =>
   <div className="grid-1 gap-4">
     {/* START */}
     <Details
-      summary="Shaded"
-      shaded
-    >
-      This is the content that is revealed.
-    </Details>
-
-    <Details
-      summary="Shaded and Border"
+      summary="Bordered"
       border
-      shaded
     >
       This is the content that is revealed.
     </Details>
 
     <Details
-      summary="Shaded, Lined and Border"
-      border lined
-      shaded
+      summary="Bordered and Lined"
+      lined
+      border
     >
       This is the content that is revealed.
+    </Details>
+
+    <Details
+      summary="Wide Border"
+      lined
+      border={3}
+    >
+      This is the content that is revealed.
+      <Details
+        summary="Inner Details"
+        lined border
+        content="Inner Content"
+      />
     </Details>
     {/* END */}
   </div>

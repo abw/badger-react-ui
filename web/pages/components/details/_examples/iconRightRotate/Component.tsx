@@ -1,12 +1,12 @@
-import React from 'react'
 import { Details } from '@/src/index'
 
 const DetailsExample = () =>
   /* START */
   <Details
-    summary="Custom Icon on Right"
+    summary="Icon Rotation"
     iconLeft={false}
-    iconRight="angle-left"
+    iconRight="angle-down"
+    iconRightRotate={180}
   >
     This is the content that is revealed.
   </Details>

@@ -1,7 +1,6 @@
 import { Accordion } from '@/src/index'
 
 {/* START */}
-import React from 'react'
 // PRETEND: import { Accordion } from '@abw/badger-react-ui'
 
 const AccordionExample = () =>
