@@ -1,4 +1,3 @@
-import React from 'react'
 import { Confirm } from '@/src/index'
 
 const ConfirmExample = () =>
@@ -6,7 +5,6 @@ const ConfirmExample = () =>
   <Confirm
     text="Delete"
     color="red"
-    title="You are about to delete something!"
     modal
   />
   /* END */

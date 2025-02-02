@@ -1,5 +1,6 @@
 import { ButtonProps } from '@/components/Button'
 import { OnClick } from '@/src/types'
+import { ReactNode } from 'react'
 
 export type ConfirmProps = {
   initiallyRevealed?: boolean
@@ -24,7 +25,14 @@ export type ConfirmProps = {
     color?:      string
     className?:  string
   },
-  prompt?: React.ReactNode
+  text?: string,
+  color?: string
+  icon?: string
+  iconRight?: string
+  iconLeft?: string
+  title?: ReactNode
+  header?: ReactNode
+  prompt?: ReactNode
   buttonsClass?: string
   className?: string
   modal?: boolean
@@ -40,9 +48,9 @@ export type ConfirmButtonsProps = {
 
 export type ConfirmModalProps = {
   isVisible?: boolean
-  title?: React.ReactNode
-  header?: React.ReactNode
-  prompt?: React.ReactNode
+  title?: ReactNode
+  header?: ReactNode
+  prompt?: ReactNode
   modalClass?: string
 } & ConfirmButtonsProps
 

@@ -1,7 +1,6 @@
 import { Confirm } from '@/src/index'
 
 /* START */
-import React from 'react'
 // PRETEND: import { Confirm } from '@abw/badger-react-ui
 
 const ConfirmExample = () =>

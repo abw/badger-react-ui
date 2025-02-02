@@ -2,9 +2,9 @@ import Buttons    from '@/components/Buttons/Buttons'
 import Visible    from '@/state/Visible'
 import Modal      from './Modal'
 import { Themed } from '@/src/Theme'
-import { ConfirmType } from './types'
+import { ConfirmProps } from './types'
 
-const Confirm: ConfirmType = ({
+const Confirm = ({
   initiallyRevealed=false,
   open=initiallyRevealed,
   confirmIcon='check',
@@ -33,9 +33,11 @@ const Confirm: ConfirmType = ({
   buttonClass,
   modal,
   modalClass,
+  title,
+  header,
   onClick = () => window.alert('No confirm action defined'),
   ...props
-}) => {
+}: ConfirmProps) => {
   const { isVisible, hide, show } = Visible({ visible: open })
   const onConfirm = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
@@ -75,6 +77,8 @@ const Confirm: ConfirmType = ({
           confirm={confirmProps}
           cancel={cancelProps}
           modalClass={modalClass}
+          title={title}
+          header={header}
           {...props}
         />
       </>
@@ -90,4 +94,5 @@ const Confirm: ConfirmType = ({
       />
 }
 
-export default Themed(Confirm, 'Confirm')
+const ThemedConfirm = Themed(Confirm, 'Confirm')
+export default ThemedConfirm

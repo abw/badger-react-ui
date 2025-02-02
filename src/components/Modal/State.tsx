@@ -2,7 +2,7 @@ import Visible  from '@/state/Visible'
 import Modal    from './Modal.jsx'
 import { ModalProps } from './types'
 
-const ModalState = ({
+export const ModalState = ({
   open=false
 } = { }) => {
   const { isVisible, show, hide } = Visible({ visible: open })
