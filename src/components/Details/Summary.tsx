@@ -1,16 +1,16 @@
 import WithIcons from '@/components/Icon/WithIcons'
 import { classes } from '@/src/utils/classes'
 import { extract } from '@abw/badger-utils'
-import { DetailsSummaryType } from './types'
+import { DetailsSummaryProps } from './types'
 
-const DetailsSummary: DetailsSummaryType = ({
+const DetailsSummary = ({
   summary,
   summaryClass,
   toggleOpen,
   detailsSummaryClass='summary',
   summarySpanClass='summary-text',
   ...props
-}) =>
+}: DetailsSummaryProps) =>
   <div
     onClick={toggleOpen}
     className={classes(detailsSummaryClass, summaryClass)}

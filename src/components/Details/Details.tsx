@@ -2,7 +2,7 @@ import Context          from './Context.js'
 import DetailsContainer from './Container'
 import NativeContainer  from './Native/Container'
 import { Themed }       from '@/src/Theme'
-import { DetailsType } from './types.js'
+import { DetailsProps } from './types.js'
 
 const defaults = {
   iconLeft: 'angle-right',
@@ -10,11 +10,11 @@ const defaults = {
   iconRightRotate: -90,
 }
 
-const Details: DetailsType = ({
+const Details = ({
   native,
   open=false,
   ...props
-}) =>
+}: DetailsProps) =>
   <Context.Provider open={open}>
     { native
       ? <NativeContainer open={open} {...defaults} {...props}/>

@@ -1,9 +1,9 @@
-import { DetailsSummaryType } from '../types'
+import { DetailsSummaryProps } from '../types'
 
-const NativeDetailsSummary: DetailsSummaryType = ({
+const NativeDetailsSummary = ({
   summary,
   summaryClass
-}) =>
+}: DetailsSummaryProps) =>
   <summary className={summaryClass}>
     {summary}
   </summary>

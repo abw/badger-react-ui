@@ -1,10 +1,10 @@
-import { DetailsContentType } from './types'
+import { DetailsContentProps } from './types'
 
-export const DetailsContent: DetailsContentType = ({
+export const DetailsContent = ({
   content,
   children,
   contentClass
-}) =>
+}: DetailsContentProps) =>
   <div className={contentClass}>
     {content||children}
   </div>

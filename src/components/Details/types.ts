@@ -12,24 +12,21 @@ export type DetailsContextRenderProps = {
   close: OnClick
 }
 
-export type DetailsSummaryProps = WithIconsProps & {
+export type DetailsSummaryProps = {
   summary: string
   summaryClass?: string
   toggleOpen: OnClick
   detailsSummaryClass?: string
   summarySpanClass?: string
-}
+} & WithIconsProps
+
 export type DetailsContentProps = {
   content?: string
   children?: React.ReactNode
   contentClass?: string
 }
 
-// DetailsContextRenderProps &
-
-export type DetailsContainerProps =
-  DetailsContentProps &
-  Omit<DetailsSummaryProps, 'toggleOpen'> & {
+export type DetailsContainerProps = {
   className?: string
   detailsClass?: string
   noIconClass?: string
@@ -40,26 +37,24 @@ export type DetailsContainerProps =
   shadow?: MaybeTrueOrNumberString
   lined?: boolean
   shaded?: boolean
-  // isOpen?: boolean
   wideSummary?: boolean
   wideSummaryClass?: string
-  // toggleOpen: OnClick
-  Summary?: DetailsSummaryType,
-  Content?: DetailsContentType,
-}
+  Summary?: DetailsSummaryComponent,
+  Content?: DetailsContentComponent,
+} & DetailsContentProps
+  & Omit<DetailsSummaryProps, 'toggleOpen'>
 
-export type DetailsNativeContainerProps =
-  DetailsContainerProps & {
+export type DetailsNativeContainerProps = {
   open: boolean
-}
+} & DetailsContainerProps
 
-export type DetailsProps = DetailsContainerProps & {
+export type DetailsProps = {
   native?: boolean
   open?: boolean
-}
+} & DetailsContainerProps
 
-export type DetailsSummaryType = React.FC<DetailsSummaryProps>
-export type DetailsContentType = React.FC<DetailsContentProps>
-export type DetailsContainerType = React.FC<DetailsContainerProps>
-export type DetailsNativeContainerType = React.FC<DetailsNativeContainerProps>
-export type DetailsType = React.FC<DetailsProps>
+export type DetailsSummaryComponent = React.FC<DetailsSummaryProps>
+export type DetailsContentComponent = React.FC<DetailsContentProps>
+// export type DetailsContainerComponent = React.FC<DetailsContainerProps>
+// export type DetailsNativeContainerComponent = React.FC<DetailsNativeContainerProps>
+// export type DetailsComponent = React.FC<DetailsProps>

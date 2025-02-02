@@ -1,9 +1,9 @@
 import DetailsSummary from './Summary'
 import DetailsContent from '../Content'
 import { classes, borderClass, radiusClass, shadowClass } from '@/src/utils/classes'
-import { DetailsNativeContainerType, DetailsSummaryProps } from '../types'
+import { DetailsNativeContainerProps, DetailsSummaryProps } from '../types'
 
-const DetailsNativeContainer: DetailsNativeContainerType = ({
+const DetailsNativeContainer = ({
   className,
   size,
   color,
@@ -16,7 +16,7 @@ const DetailsNativeContainer: DetailsNativeContainerType = ({
   Summary=DetailsSummary,
   Content=DetailsContent,
   ...props
-}) =>
+}: DetailsNativeContainerProps) =>
   <details
     className={
       classes(
