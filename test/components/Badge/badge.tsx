@@ -1,6 +1,6 @@
 import { test, expect } from 'vitest'
 import { render } from '@testing-library/react'
-import { Badge, BadgePrefixType, BadgeSuffixType } from '@/src/index'
+import { Badge, BadgePrefixProps, BadgeSuffixProps } from '@/src/index'
 import { fail } from '@abw/badger-utils'
 
 test(
@@ -117,16 +117,16 @@ test(
 test(
   'prefix and suffix components',
   async () => {
-    const MyPrefix: BadgePrefixType = ({
+    const MyPrefix = ({
       prefix,
       prefixClass='prefix'
-    }) =>
+    }: BadgePrefixProps) =>
       <span className={prefixClass}>PREFIX: {prefix}</span>
 
-    const MySuffix: BadgeSuffixType = ({
+    const MySuffix = ({
       suffix,
       suffixClass='prefix'
-    }) =>
+    }: BadgeSuffixProps) =>
       <span className={suffixClass}>SUFFIX: {suffix}</span>
 
     const { container } = render(
