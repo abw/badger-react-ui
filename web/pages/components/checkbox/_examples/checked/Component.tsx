@@ -1,7 +1,7 @@
 import { Checkbox } from '@/src/index'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
-const OnChangeExample = () => {
+const CheckedExample = () => {
   const [checked, setChecked] = useState(false)
   return (
     /* START */
@@ -10,8 +10,8 @@ const OnChangeExample = () => {
       checked={checked}
       onChange={setChecked}
     />
-  /* END */
+    /* END */
   )
 }
 
-export default OnChangeExample
+export default CheckedExample

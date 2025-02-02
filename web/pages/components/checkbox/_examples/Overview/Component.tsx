@@ -1,18 +1,18 @@
 import { Checkbox } from '@/src/index'
-import React, { useState } from 'react'
 
-const ClassName = () => {
+/* START */
+import { useState } from 'react'
+// PRETEND: import { Checkbox } from '@abw/badger-react-ui
+
+const CheckboxExample = () => {
   const [checked, setChecked] = useState(false)
   return (
-    /* START */
     <Checkbox
       text="I like badgers"
-      className="large border"
       checked={checked}
       onChange={setChecked}
     />
-    /* END */
   )
 }
 
-export default ClassName
+export default CheckboxExample

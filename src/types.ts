@@ -26,3 +26,4 @@ export type PartialWith<T, With extends keyof T> = Partial<T> & Pick<T, With>
 export type MaybeWithout<T, Without extends keyof T> = Omit<T, Without> & Partial<Pick<T, Without>>
 
 export type DivHTMLAttrs = React.ComponentPropsWithoutRef<'div'>
+export type InputHTMLAttrs = React.ComponentPropsWithoutRef<'input'>

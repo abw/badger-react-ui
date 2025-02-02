@@ -1,7 +1,6 @@
 import { CheckboxState } from '@/src/index'
 
 /* START */
-import React from 'react'
 // PRETEND: import { CheckboxState } from '@abw/badger-react-ui
 
 const CheckboxStateExample = () =>

@@ -1,7 +1,7 @@
 import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
-import { render, act } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { Checkbox } from '@/src/index'
 import { fail } from '@abw/badger-utils'
 // import { prettyDOM } from '@testing-library/dom'
@@ -19,10 +19,10 @@ test(
     expect(label).toHaveTextContent('Hello')
     expect(input.checked).toBe(false)
 
-    await act( () => user.click(input) )
+    await user.click(input)
     expect(input.checked).toBe(true)
 
-    await act( () => user.click(label) )
+    await user.click(label)
     expect(input.checked).toBe(false)
   }
 )
@@ -50,10 +50,10 @@ test(
     expect(label).toHaveTextContent('Hello')
     expect(input.checked).toBe(true)
 
-    await act( () => user.click(input) )
+    await user.click(input)
     expect(input.checked).toBe(false)
 
-    await act( () => user.click(label) )
+    await user.click(label)
     expect(input.checked).toBe(true)
   }
 )
@@ -87,11 +87,11 @@ test(
     expect(label).toHaveTextContent('Hello')
     expect(input.checked).toBe(false)
 
-    await act( () => user.click(label) )
+    await user.click(label)
     expect(input.checked).toBe(true)
     expect(n).toBe(1)
 
-    await act( () => user.click(label) )
+    await user.click(label)
     expect(input.checked).toBe(false)
     expect(n).toBe(2)
   }
@@ -122,6 +122,5 @@ test(
     expect(input.checked).toBe(false)
     expect(ir).toBe(1)
     expect(lr).toBe(1)
-
   }
 )

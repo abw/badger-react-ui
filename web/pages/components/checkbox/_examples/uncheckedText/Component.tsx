@@ -1,13 +1,13 @@
 import { Checkbox } from '@/src/index'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
-const ClassName = () => {
+const CheckedTextExample = () => {
   const [checked, setChecked] = useState(false)
   return (
     /* START */
     <Checkbox
-      border
-      text="I like badgers"
+      text="Badger Fans!"
+      uncheckedText="Click Here"
       checked={checked}
       onChange={setChecked}
     />
@@ -15,4 +15,4 @@ const ClassName = () => {
   )
 }
 
-export default ClassName
+export default CheckedTextExample

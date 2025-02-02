@@ -1,12 +1,12 @@
 import Checked  from '@/src/state/Checked'
 import Checkbox from './Checkbox'
-import { CheckboxType } from './types.js'
+import { CheckboxProps } from './types.js'
 
-const CheckboxState: CheckboxType = ({
+const CheckboxState = ({
   checked=false,
   onChange,
   ...props
-}) => {
+}: CheckboxProps) => {
   const { isChecked, setChecked } = Checked({ checked })
   const change = (checked: boolean) => {
     setChecked(checked)

@@ -1,10 +1,10 @@
 import CheckboxLabel  from './Label'
 import CheckboxInput  from './Input'
 import { Themed }     from '@/src/Theme'
-import { CheckboxType } from './types'
+import { CheckboxProps } from './types'
 import { borderClass, classes } from '@/src/utils/classes'
 
-const Checkbox: CheckboxType = ({
+const Checkbox = ({
   size,
   color,
   border,
@@ -24,7 +24,7 @@ const Checkbox: CheckboxType = ({
   // uncheckedIcon=icon,
   // iconClass,
   ...props
-}) =>
+}: CheckboxProps) =>
   <Label
     className={
       classes(
@@ -34,13 +34,13 @@ const Checkbox: CheckboxType = ({
       )
     }
     disabled={disabled}
-    ref={labelRef}
+    labelRef={labelRef}
     {...props}
   >
     <Input
       checked={checked}
       disabled={disabled}
-      ref={inputRef}
+      inputRef={inputRef}
       {...props}
     />
     {checked ? checkedText : uncheckedText}

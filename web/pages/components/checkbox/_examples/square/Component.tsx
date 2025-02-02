@@ -1,15 +1,15 @@
 import { Checkbox } from '@/src/index'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const CheckedExample = () => {
   const [checked, setChecked] = useState(false)
   return (
     /* START */
     <Checkbox
-      text="Turn it on"
+      text="Turn it on again"
       checked={checked}
       onChange={setChecked}
-      switch
+      switch square
     />
     /* END */
   )
