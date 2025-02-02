@@ -1,7 +1,6 @@
 import { MaybeTrueOrNumberString } from '@/src/types'
 
-export type TableProps =
-  HTMLTableAttrs & {
+export type TableProps = {
   className?: string,
   size?: string
   color?: string
@@ -30,7 +29,8 @@ export type TableProps =
   Content?: TableContentComponent
   rows?: TableColumnsRows
   columns?: TableColumns
-}
+} & HTMLTableAttrs
+
 
 // Content renders the thead, tbody and tfoot
 export type TableContentProps = {
@@ -45,19 +45,17 @@ export type TableContentProps = {
   HeadRow?: TableRowComponent
   BodyRow?: TableRowComponent
   FootRow?: TableRowComponent
-
 }
 
 // A table section (thead, tbody or tfoot) can be an array of rows or an
 // object containing attributes for the HTML element, rows and optional Row
 // component
 export type TableSectionSpec = TableSectionProps | TableRowsSpec | TableCellsSpec
-export type TableSectionProps =
-  HTMLTableSectionAttrs & {
+export type TableSectionProps ={
   rows: TableRowsSpec
   Rows?: TableRowsComponent
   Row?: TableRowComponent
-}
+} & HTMLTableSectionAttrs
 
 export type TableHeadSpec  = TableSectionSpec
 export type TableBodySpec  = TableSectionSpec
@@ -69,12 +67,11 @@ export type TableFootProps = TableSectionProps
 // A table row is an array of cells or an object containing cells, other
 // attributes for the tr element, an optional th flag and Cell component
 export type TableRowSpec = TableCellsSpec | TableRowProps
-export type TableRowProps =
-  HTMLTrAttrs & {
+export type TableRowProps = {
   cells: TableCellsSpec
   th?: boolean
   Cell?: TableCellComponent
-}
+} & HTMLTrAttrs
 
 export type TableRowsSpec = TableRowSpec[]
 export type TableRowsProps = {
@@ -87,25 +84,23 @@ export type TableRowsProps = {
 // text item and optional th flag.  Can also contain Th, Td and Cell components.
 export type TableCellsSpec = TableCellSpec[]
 export type TableCellSpec = TableText | TableCellProps
-export type TableCellProps<Props=HTMLCellAttrs> =
-  HTMLCellAttrs & {
+export type TableCellProps<Props=HTMLCellAttrs> = {
   text: TableText<Props>
   th?: boolean
   Th?: TableThComponent
   Td?: TableTdComponent
   // Cell?: TableCellComponent
-}
+} & HTMLCellAttrs
 
 // Th and Td are specialised cells that only receive the text and other
 // attributes for the HTML element
-export type TableThProps =
-  HTMLThAttrs & {
+export type TableThProps = {
   text: TableText
-}
-export type TableTdProps =
-  HTMLTdAttrs & {
+} & HTMLThAttrs
+
+export type TableTdProps = {
   text: TableText
-}
+} & HTMLTdAttrs
 
 // Table cell text can be a simple value or a function which returns a
 // ReactNode (TODO: or a ReactNode?)
@@ -116,13 +111,13 @@ export type TableTextFn<Props=HTMLCellAttrs> = (props: Props) => React.ReactNode
 
 // Aliases for HTML attributes for table section (thead, tbody, tfoot),
 // row (tr) header (th) and data (td) cells.
-export type HTMLTableAttrs = React.ComponentProps<'table'>
+export type HTMLTableAttrs = React.ComponentPropsWithoutRef<'table'>
 export type HTMLTableSectionAttrs =
   React.ClassAttributes<HTMLTableSectionElement> &
   React.HTMLAttributes<HTMLTableSectionElement>
-export type HTMLTrAttrs = React.ComponentProps<'tr'>
-export type HTMLThAttrs = React.ComponentProps<'th'>
-export type HTMLTdAttrs = React.ComponentProps<'td'>
+export type HTMLTrAttrs = React.ComponentPropsWithoutRef<'tr'>
+export type HTMLThAttrs = React.ComponentPropsWithoutRef<'th'>
+export type HTMLTdAttrs = React.ComponentPropsWithoutRef<'td'>
 export type HTMLCellAttrs = HTMLThAttrs & HTMLTdAttrs
 
 // Component types

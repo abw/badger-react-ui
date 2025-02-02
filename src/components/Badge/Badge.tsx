@@ -1,11 +1,11 @@
 import BadgePrefix    from './Prefix'
 import BadgeSuffix    from './Suffix'
 import { Themed }     from '@/src/Theme'
-import { BadgeType }  from './types'
+import { BadgeProps }  from './types'
 import { WithIcons, WithIconsProps }  from '@/components/Icon/index'
 import { borderClass, classes, radiusClass, shadowClass } from '@/src/utils/classes'
 
-const Badge: BadgeType = ({
+const Badge = ({
   size,
   color,
   compact,
@@ -30,7 +30,7 @@ const Badge: BadgeType = ({
   Suffix=BadgeSuffix,
   Content=WithIcons,
   ...props
-}) => {
+}: BadgeProps) => {
   const cname = classes(
     'badge', size, color, className,
     {
@@ -64,4 +64,5 @@ const Badge: BadgeType = ({
   </div>
 }
 
-export default Themed(Badge, 'Badge')
+const ThemedBadge = Themed(Badge, 'Badge')
+export default ThemedBadge

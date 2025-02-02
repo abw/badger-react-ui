@@ -1,22 +1,7 @@
-import { MaybeTrueOrNumberString } from '@/src/types'
+import { DivHTMLAttrs, MaybeTrueOrNumberString } from '@/src/types'
 import { WithIconsProps, WithIconsType } from '../Icon'
 
-export interface BadgePrefixProps {
-  prefix: string
-  prefixClass?: string
-}
-
-export interface BadgeSuffixProps {
-  suffix: string
-  suffixClass?: string
-}
-
-export interface BadgeProps extends
-  WithIconsProps,
-  Omit<
-    React.ComponentProps<'div'>,
-    'className' | 'name' | 'onClick' | 'ref'
-  > {
+export type BadgeProps = {
   size?: string,
   color?: string,
   compact?: boolean,
@@ -29,11 +14,24 @@ export interface BadgeProps extends
   label?: string,
   prefix?: string,
   suffix?: string,
-  Prefix?: BadgePrefixType,
-  Suffix?: BadgeSuffixType,
+  Prefix?: BadgePrefixComponent,
+  Suffix?: BadgeSuffixComponent,
   Content?: WithIconsType,
+} & WithIconsProps
+  & Omit<
+      DivHTMLAttrs,
+      'className' | 'name' | 'onClick' | 'ref'
+    >
+
+export type BadgePrefixProps = {
+  prefix: string
+  prefixClass?: string
 }
 
-export type BadgeType = React.FC<BadgeProps>
-export type BadgePrefixType = React.FC<BadgePrefixProps>
-export type BadgeSuffixType = React.FC<BadgeSuffixProps>
+export type BadgeSuffixProps = {
+  suffix: string
+  suffixClass?: string
+}
+
+export type BadgePrefixComponent = React.FC<BadgePrefixProps>
+export type BadgeSuffixComponent = React.FC<BadgeSuffixProps>

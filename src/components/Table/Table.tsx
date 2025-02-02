@@ -30,7 +30,7 @@ const Table = ({
   rows,
   Content=TableContent,
   ...props
-}: TableProps): JSX.Element => {
+}: TableProps) => {
   const cls = classes(
     className, size,
     colorClass(color),
@@ -66,6 +66,10 @@ const Table = ({
   )
 }
 
+// export default Table
+// import { Themer } from '@/src/Themer'
+
 export const ThemedTable = Themed(Table)
+// export const ThemedTable = Themer(Table)
 // export default Themed(Table, 'Table')
-export default Table
+export default ThemedTable
