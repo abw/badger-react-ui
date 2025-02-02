@@ -1,4 +1,4 @@
-import { Themer } from '@/src/Themer'
+import { Themer } from 'tmp/Themer'
 
 type BarProps =
   React.ComponentProps<'div'> &{

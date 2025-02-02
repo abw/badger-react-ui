@@ -3,7 +3,7 @@ import { Model } from '@abw/react-context'
 import { useState } from 'react'
 import Foo from './Foo'
 import Bar from './Bar'
-import { Themer } from '@/src/Themer'
+import { Themer } from 'tmp/Themer'
 
 type MyComponentProps = {
   volume: number

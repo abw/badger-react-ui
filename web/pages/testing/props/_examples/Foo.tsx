@@ -1,5 +1,5 @@
 import { Themed } from '@/src/index'
-import { Themer } from '@/src/Themer'
+import { Themer } from 'tmp/Themer'
 import React from 'react'
 
 type FooProps =
