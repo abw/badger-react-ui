@@ -1,15 +1,15 @@
-import DefaultButton   from '@/components/Button/Button'
-import { Themed }      from '@/src/Theme'
-import { ButtonsType } from './types'
+import DefaultButton from '@/components/Button/Button'
+import { Themed }    from '@/src/Theme'
+import { ButtonsProps } from './types'
 
-const Buttons: ButtonsType = ({
+const Buttons = ({
   buttons,
   children,
   className='buttons',
   buttonClass,
   Button=DefaultButton,
   ...props
-}) =>
+}: ButtonsProps) =>
   <div className={className}>
     { buttons
       ? buttons.map(
@@ -25,4 +25,5 @@ const Buttons: ButtonsType = ({
     }
   </div>
 
-export default Themed(Buttons, 'Buttons')
+const ThemedButtons = Themed(Buttons, 'Buttons')
+export default ThemedButtons

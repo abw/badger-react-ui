@@ -1,11 +1,11 @@
-import { ButtonProps, ButtonType } from '@/components/Button/types'
+import { ButtonProps, ButtonComponent } from '@/components/Button/types'
 
 export interface ButtonsProps extends ButtonProps {
   buttons?: Array<ButtonProps>,
   children?: React.ReactNode,
   className?: string,
   buttonClass?: string,
-  Button?: ButtonType
+  Button?: ButtonComponent
 }
 
-export type ButtonsType = React.FC<ButtonsProps>
+export type ButtonsComponent = React.FC<ButtonsProps>

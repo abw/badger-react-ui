@@ -22,3 +22,5 @@ export type ButtonProps = {
 } &
   WithIconsProps &
   Omit<ButtonHTMLAttrs, 'className'>
+
+export type ButtonComponent = React.FC<ButtonProps>

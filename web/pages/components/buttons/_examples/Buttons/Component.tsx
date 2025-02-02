@@ -1,7 +1,6 @@
 import { Buttons, Button } from '@/src/index'
 
 {/* START */}
-import React from 'react'
 // PRETEND: import { Buttons, Button } from '@abw/badger-react-ui'
 
 const ButtonsExample = () =>

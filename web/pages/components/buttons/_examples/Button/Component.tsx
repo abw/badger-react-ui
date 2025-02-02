@@ -1,10 +1,9 @@
-import { Buttons } from '@/src/index'
+import { ButtonProps, Buttons } from '@/src/index'
 
 {/* START */}
-import React from 'react'
-// PRETEND: import { Buttons } from '@abw/badger-react-ui'
+// PRETEND: import { Buttons, ButtonProps } from '@abw/badger-react-ui'
 
-const MyButton = ({text}) =>
+const MyButton = ({ text }: ButtonProps) =>
   <span className="border pad pad-h-4 mar">
     {text}
   </span>

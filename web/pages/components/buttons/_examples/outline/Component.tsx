@@ -1,4 +1,3 @@
-import React from 'react'
 import { Buttons } from '@/src/index'
 
 const ButtonsExample = () =>
@@ -6,10 +5,13 @@ const ButtonsExample = () =>
     {/* START */}
     <Buttons
       outline
-      className="buttons border pad-2 bgc-90 bgd-10 bdr-2"
       buttons={[
         { text: 'One' },
         { text: 'Two' },
+        { text: 'Three',
+          outline: false,
+          color: 'orange'
+        },
       ]}
     />
     {/* END */}

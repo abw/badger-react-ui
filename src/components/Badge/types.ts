@@ -14,6 +14,8 @@ export type BadgeProps = {
   label?: string,
   prefix?: string,
   suffix?: string,
+  prefixClass?: string,
+  suffixClass?: string,
   Prefix?: BadgePrefixComponent,
   Suffix?: BadgeSuffixComponent,
   Content?: WithIconsType,
