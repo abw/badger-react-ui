@@ -21,6 +21,9 @@
   h3 {
     font-size: 1.25em;
   }
+  div.headline + h3 {
+    margin-top: 0;
+  }
   .headline {
     .on-left {
       margin-right: var(--icon-margin);
