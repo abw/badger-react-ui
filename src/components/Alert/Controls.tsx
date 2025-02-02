@@ -1,8 +1,8 @@
 import { Icon } from '@/src/components/Icon/index'
 import { doNothing } from '@abw/badger-utils'
-import { AlertControlsType } from './types'
+import { AlertControlsProps } from './types'
 
-const AlertControls: AlertControlsType = ({
+const AlertControls = ({
   dismissable,
   revealable,
   isRevealed,
@@ -10,7 +10,7 @@ const AlertControls: AlertControlsType = ({
   openIcon = 'angle-down',
   closedIcon = 'angle-left',
   dismissIcon = 'cross',
-}) =>
+}: AlertControlsProps) =>
   <div className="on-right">
     { Boolean(dismissable) &&
       <Icon

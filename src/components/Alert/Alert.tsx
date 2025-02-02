@@ -1,18 +1,18 @@
-import { useState }  from 'react'
 import AlertControls from './Controls.jsx'
 import AlertHeadline from './Headline.jsx'
 import AlertContent  from './Content.jsx'
 import AlertIcon     from './Icon'
 import { Themed }    from '@/src/Theme'
+import { useState }  from 'react'
 import {
   borderClass, classes, radiusClass, shadowClass
 } from '@/src/utils/index'
 import {
   AlertContentProps, AlertControlsProps, AlertHeadlineProps,
-  AlertIconProps, AlertProps, AlertType
+  AlertIconProps, AlertProps
 } from './types.js'
 
-const Alert: AlertType = ({
+const Alert = ({
   title,
   headline,
   headicon,
@@ -40,7 +40,7 @@ const Alert: AlertType = ({
   Controls=AlertControls,
   Content=AlertContent,
   Icon=AlertIcon,
-}) => {
+}: AlertProps) => {
   const [isRevealed, setRevealed] = useState(revealable ? revealed : true)
   const [dismissed, setDismissed] = useState(false)
   const cname = classes(
@@ -132,4 +132,5 @@ Alert.Warning = Warning
 Alert.Error   = Error
 */
 
-export default Themed(Alert, 'Alert')
+export const ThemedAlert = Themed(Alert, 'Alert')
+export default ThemedAlert

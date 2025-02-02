@@ -22,5 +22,6 @@ const Details = ({
     }
   </Context.Provider>
 
-export default Themed(Details, 'Details')
+const ThemedDetails = Themed(Details, 'Details')
+export default ThemedDetails
 

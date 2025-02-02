@@ -1,12 +1,12 @@
 import AlertContent from './Content.jsx'
 import Icon         from '@/src/components/Icon/Icon'
-import { AlertIconType } from './types'
+import { AlertIconProps } from './types'
 
-const AlertIcon: AlertIconType = ({
+const AlertIcon = ({
   icon,
   Content=AlertContent,
   ...props
-}) =>
+}: AlertIconProps) =>
   <div className="side-icon">
     <Icon name={icon}/>
     <div className="wide">

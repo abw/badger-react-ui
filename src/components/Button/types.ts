@@ -1,12 +1,8 @@
 import { WithIconsProps, WithIconsType } from '@/components/Icon'
 import { MaybeTrueOrNumberString } from '@/src/types'
 
-export interface ButtonProps extends
-  WithIconsProps,
-  Omit<
-    React.ComponentPropsWithoutRef<'button'>,
-    'className'
-  > {
+export type ButtonHTMLAttrs = React.ComponentPropsWithoutRef<'button'>
+export type ButtonProps = {
   size?: string,
   color?: string,
   className?: string,
@@ -23,6 +19,6 @@ export interface ButtonProps extends
   tabIndex?: number,
   tooltip?: string,
   Content?: WithIconsType,
-}
-
-export type ButtonType = React.FC<ButtonProps>
+} &
+  WithIconsProps &
+  Omit<ButtonHTMLAttrs, 'className'>

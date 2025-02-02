@@ -1,30 +1,10 @@
 import { MaybeTrueOrNumberString, OnClick } from '@/src/types'
 import { WithIconsProps } from '@/components/Icon'
 
-export type DetailsContextProps = {
-  open: boolean
-}
-
-export type DetailsContextRenderProps = {
-  isOpen: boolean
-  toggleOpen: OnClick
-  open: OnClick
-  close: OnClick
-}
-
-export type DetailsSummaryProps = {
-  summary: string
-  summaryClass?: string
-  toggleOpen: OnClick
-  detailsSummaryClass?: string
-  summarySpanClass?: string
-} & WithIconsProps
-
-export type DetailsContentProps = {
-  content?: string
-  children?: React.ReactNode
-  contentClass?: string
-}
+export type DetailsProps = {
+  native?: boolean
+  open?: boolean
+} & DetailsContainerProps
 
 export type DetailsContainerProps = {
   className?: string
@@ -44,17 +24,35 @@ export type DetailsContainerProps = {
 } & DetailsContentProps
   & Omit<DetailsSummaryProps, 'toggleOpen'>
 
+export type DetailsContentProps = {
+  content?: string
+  children?: React.ReactNode
+  contentClass?: string
+}
+
+export type DetailsContextProps = {
+  open: boolean
+}
+
+export type DetailsContextRenderProps = {
+  isOpen: boolean
+  toggleOpen: OnClick
+  open: OnClick
+  close: OnClick
+}
+
+export type DetailsSummaryProps = {
+  summary: string
+  summaryClass?: string
+  toggleOpen: OnClick
+  detailsSummaryClass?: string
+  summarySpanClass?: string
+} & WithIconsProps
+
 export type DetailsNativeContainerProps = {
   open: boolean
 } & DetailsContainerProps
 
-export type DetailsProps = {
-  native?: boolean
-  open?: boolean
-} & DetailsContainerProps
 
 export type DetailsSummaryComponent = React.FC<DetailsSummaryProps>
 export type DetailsContentComponent = React.FC<DetailsContentProps>
-// export type DetailsContainerComponent = React.FC<DetailsContainerProps>
-// export type DetailsNativeContainerComponent = React.FC<DetailsNativeContainerProps>
-// export type DetailsComponent = React.FC<DetailsProps>

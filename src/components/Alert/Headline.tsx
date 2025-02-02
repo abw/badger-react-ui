@@ -1,9 +1,9 @@
 import AlertControls from './Controls.jsx'
 import { Icon }      from '@/src/components/Icon/index'
 import { doNothing } from '@abw/badger-utils'
-import { AlertHeadlineType } from './types'
+import { AlertHeadlineProps } from './types'
 
-const AlertHeadline: AlertHeadlineType = ({
+const AlertHeadline = ({
   headline,
   headIcon,
   headicon=headIcon,
@@ -11,7 +11,7 @@ const AlertHeadline: AlertHeadlineType = ({
   revealable = false,
   controlProps,
   Controls=AlertControls,
-}) =>
+}: AlertHeadlineProps) =>
   <div
     className="headline flex space"
     onClick={revealable ? toggle : undefined}

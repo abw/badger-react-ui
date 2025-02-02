@@ -1,9 +1,4 @@
-export interface AlertProps extends
-  AlertContentProps,
-  AlertControlsProps,
-  Partial<AlertHeadlineProps>,
-  Partial<AlertIconProps>
-{
+export type AlertProps = {
   type?: string,
   size?: string,
   color?: string,
@@ -15,17 +10,20 @@ export interface AlertProps extends
   className?: string,
   revealed?: boolean,
   onDismiss?: () => void,
-  Headline?: AlertHeadlineType,
-  Icon?: AlertIconType,
-}
+  Headline?: AlertHeadlineComponent,
+  Icon?: AlertIconComponent,
+} & AlertContentProps
+  & AlertControlsProps
+  & Partial<AlertHeadlineProps>
+  & Partial<AlertIconProps>
 
-export interface AlertContentProps {
+export type AlertContentProps = {
   title?: string,
   text?: string,
   children?: React.ReactNode
 }
 
-export interface AlertControlsProps {
+export type AlertControlsProps = {
   dismissable?: boolean,
   revealable?: boolean,
   isRevealed?: boolean,
@@ -35,23 +33,23 @@ export interface AlertControlsProps {
   dismissIcon?: string,
 }
 
-export interface AlertHeadlineProps {
+export type AlertHeadlineProps = {
   headline: React.ReactNode,
   headIcon?: string,
   headicon?: string,
   revealable?: boolean,
   toggle?: () => void,
   controlProps: AlertControlsProps,
-  Controls: AlertControlsType
+  Controls: AlertControlsComponent
 }
 
-export interface AlertIconProps extends AlertContentProps {
+export type AlertIconProps = {
   icon: string,
-  Content?: AlertContentType
-}
+  Content?: AlertContentComponent
+} & AlertContentProps
 
-export type AlertType = React.FC<AlertProps>
-export type AlertContentType = React.FC<AlertContentProps>
-export type AlertControlsType = React.FC<AlertControlsProps>
-export type AlertHeadlineType = React.FC<AlertHeadlineProps>
-export type AlertIconType = React.FC<AlertIconProps>
+// export type AlertType = React.FC<AlertProps>
+export type AlertContentComponent = React.FC<AlertContentProps>
+export type AlertControlsComponent = React.FC<AlertControlsProps>
+export type AlertHeadlineComponent = React.FC<AlertHeadlineProps>
+export type AlertIconComponent = React.FC<AlertIconProps>
