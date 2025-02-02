@@ -1,5 +1,5 @@
 /* eslint-disable indent */
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { maybeFunction } from '@abw/badger-utils'
 import { capitalFirstLetter } from '@/src/utils/text'
 
@@ -10,8 +10,6 @@ export type UseComplexStateOptions<Values> = {
   setterNamer?: (key: string) => string
 }
 export type UseComplexStateOnChange<Values> = (values: Values) => Values
-
-
 export type UseComplexValueSet<T> = (value: T) => void
 export type UseComplexValueFn<T> = (fn: (value: T) => T) => void
 export type UseComplexSetter<T> = UseComplexValueSet<T> & UseComplexValueFn<T>
@@ -33,15 +31,21 @@ export const useComplexState = <
     convertCase = capitalFirstLetter,
     setterNamer = key => `set${convertCase(key)}`
   } = options
-  const [state, setState] = useState<Values>(
-    onChange
-      ? onChange(values)
-      : values
+
+  const initialValues = useMemo(
+    () => {
+      const initialValues = onChange
+        ? onChange(values)
+        : values
+      return initialValues
+    },
+    [values, onChange]
   )
+  const [state, setState] = useState<Values>(initialValues)
 
   const setters = Object.keys(values).reduce(
-    (setters, key) => {
-      const setter = setterNamer(key)
+    (setters, key: keyof Values) => {
+      const setter = setterNamer(String(key)) as keyof Setters
       // @ts-expect-error - FIXME!
       setters[setter] = (value: unknown) => setState(
         oldState => {
