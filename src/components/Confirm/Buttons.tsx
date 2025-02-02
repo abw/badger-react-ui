@@ -1,14 +1,14 @@
 import { Button } from '@/components/Button'
-import { ConfirmButtonsType } from './types'
+import { ConfirmButtonsProps } from './types'
 
-const Buttons: ConfirmButtonsType = ({
+const ConfirmButtons = ({
   buttonClass,
   cancel,
   confirm
-}) =>
+}: ConfirmButtonsProps) =>
   <div className="flex space gap-4">
     <Button className={buttonClass} {...cancel}/>
     <Button className={buttonClass} {...confirm}/>
   </div>
 
-export default Buttons
+export default ConfirmButtons

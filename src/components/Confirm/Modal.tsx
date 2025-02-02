@@ -1,15 +1,15 @@
 import Modal  from '@/components/Modal/Modal'
 import Buttons from './Buttons'
-import { ConfirmModalType } from './types'
+import { ConfirmModalProps } from './types'
 
-const ConfirmModal: ConfirmModalType = ({
+const ConfirmModal = ({
   isVisible,
   title,
   header,
   prompt,
   modalClass,
   ...props
-}) =>
+}: ConfirmModalProps) =>
   <Modal
     {...props}
     open={isVisible}

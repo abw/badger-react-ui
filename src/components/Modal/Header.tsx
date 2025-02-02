@@ -1,9 +1,9 @@
-import { ModalHeaderType } from './types'
+import { ModalHeaderProps } from './types'
 
-const ModalHeader: ModalHeaderType = ({
+const ModalHeader = ({
   title,
   header
-}) =>
+}: ModalHeaderProps) =>
   (title || header)
     ? <header>
         { Boolean(title) &&

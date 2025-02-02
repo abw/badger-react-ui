@@ -1,11 +1,11 @@
 import Icon from '@/components/Icon/Icon'
-import { ModalCloseType } from './types'
+import { ModalCloseProps } from './types'
 
-const ModalClose: ModalCloseType = ({
+const ModalClose = ({
   close,
   icon='cross',
   className='close'
-}) =>
+}: ModalCloseProps) =>
   <div className={className} onClick={close}>
     <Icon name={icon}/>
   </div>

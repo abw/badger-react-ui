@@ -3,9 +3,9 @@ import ModalClose   from './Close'
 import ModalContent from './Content'
 import { Themed }   from '@/src/Theme'
 import { doNothing } from '@abw/badger-utils'
-import { ModalCSSProperties, ModalType } from './types'
+import { ModalCSSProperties, ModalProps } from './types'
 
-const Modal: ModalType = ({
+const Modal = ({
   ref,
   open,
   close,
@@ -21,7 +21,7 @@ const Modal: ModalType = ({
   maxWidth,
   maxHeight,
   ...props
-}) => {
+}: ModalProps) => {
   const spareRef = useRef<HTMLDialogElement>(null)
   ref ||= spareRef
 
@@ -70,4 +70,5 @@ const Modal: ModalType = ({
   )
 }
 
-export default Themed(Modal, 'Modal')
+const ThemedModal = Themed(Modal, 'Modal')
+export default ThemedModal

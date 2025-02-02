@@ -1,8 +1,8 @@
-import { ModalFooterType } from './types'
+import { ModalFooterProps } from './types'
 
-const ModalFooter: ModalFooterType = ({
+const ModalFooter = ({
   footer
-}) =>
+}: ModalFooterProps) =>
   Boolean(footer) &&
     <footer>
       {footer}

@@ -1,21 +1,7 @@
 import { ButtonProps } from '@/components/Button'
 import { OnClick } from '@/src/types'
 
-export interface ConfirmButtonsProps {
-  buttonClass?: string
-  cancel?: ButtonProps
-  confirm?: ButtonProps,
-}
-
-export interface ConfirmModalProps extends ConfirmButtonsProps {
-  isVisible?: boolean
-  title?: React.ReactNode
-  header?: React.ReactNode
-  prompt?: React.ReactNode
-  modalClass?: string
-}
-
-export interface ConfirmProps extends ConfirmButtonsProps {
+export type ConfirmProps = {
   initiallyRevealed?: boolean
   open?: boolean
   confirmIcon?: string
@@ -44,8 +30,22 @@ export interface ConfirmProps extends ConfirmButtonsProps {
   modal?: boolean
   modalClass?: string
   onClick?: OnClick
+} & ConfirmButtonsProps
+
+export type ConfirmButtonsProps = {
+  buttonClass?: string
+  cancel?: ButtonProps
+  confirm?: ButtonProps,
 }
 
-export type ConfirmType = React.FC<ConfirmProps>
-export type ConfirmModalType = React.FC<ConfirmModalProps>
-export type ConfirmButtonsType = React.FC<ConfirmButtonsProps>
+export type ConfirmModalProps = {
+  isVisible?: boolean
+  title?: React.ReactNode
+  header?: React.ReactNode
+  prompt?: React.ReactNode
+  modalClass?: string
+} & ConfirmButtonsProps
+
+export type ConfirmComponent = React.FC<ConfirmProps>
+export type ConfirmModalComponent = React.FC<ConfirmModalProps>
+export type ConfirmButtonsComponent = React.FC<ConfirmButtonsProps>
