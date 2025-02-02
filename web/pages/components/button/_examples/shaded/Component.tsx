@@ -1,17 +1,22 @@
-import React from 'react'
 import { Button } from '@/src/index'
 
 const Component = () =>
 /* START */
   <div className="flex wrap gap-4">
     <Button
-      text="Yellow Button"
-      color="yellow"
+      text="Red Shaded"
+      color="red"
+      shaded
     />
     <Button
-      text="Bright Yellow Button"
-      color="yellow"
-      bright
+      text="Green Shaded"
+      color="green"
+      shaded
+    />
+    <Button
+      text="Blue Shaded"
+      color="blue"
+      shaded
     />
   </div>
 /* END */

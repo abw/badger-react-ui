@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
-import { render, act } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { Button } from '@/src/index'
 import { fail } from '@abw/badger-utils'
 
@@ -62,10 +62,10 @@ test(
     const button1 = container.querySelector('#button1') || fail('no button')
     expect(button1).toHaveTextContent('Hello World')
 
-    await act( () => user.click(button1) )
+    await user.click(button1)
     expect(n).toBe(1)
 
-    await act( () => user.click(button1) )
+    await user.click(button1)
     expect(n).toBe(2)
   }
 )

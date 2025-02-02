@@ -1,12 +1,10 @@
-import React from 'react'
 import { Button } from '@/src/index'
 
 const Component = () =>
 /* START */
   <Button
-    text="Tooltip"
-    label="This is a tooltip"
-    tooltip="top left"
+    text="Disabled Button"
+    disabled
   />
 /* END */
 
