@@ -298,6 +298,10 @@ const DevTests = {
       to: '/testing/select-opacity',
       text: 'Select Opacity',
     },
+    {
+      to: '/testing/useComplexState',
+      text: 'useComplexState',
+    },
   ]
 }
 
