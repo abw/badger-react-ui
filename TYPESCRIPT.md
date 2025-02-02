@@ -25,6 +25,9 @@ revisit react-one-louder.
 UPDATE: so it's seems it's an inherent issue when using an interface.
 Sub-optimal fix is to use a type instead.
 
+Actually, there seems to be a larger problem with Themed(), e.g. Table
+which loses all type checking when a themed component.
+
 ## Components
 
     [X] Accordion
@@ -44,7 +47,7 @@ Sub-optimal fix is to use a type instead.
     [ ] Form
     [X] Icon
     [X] Modal
-    [ ] MultiSelect
+    [X] MultiSelect
     [X] Overlay
     [X] Pager
     [X] Radio
@@ -55,7 +58,7 @@ Sub-optimal fix is to use a type instead.
     [X] Select
     [X] Sortable
     [X] Spinner
-    [ ] Table
+    [X] Table
     [X] Tabset
     [X] Tiles
     [X] Toggle
@@ -86,6 +89,7 @@ as well as strings?
     [X] Close should clear search input and reset options, e.g. if previously
         limited by a search
     [ ] Handle change of options (including search)
+    [ ] onUpdate vs onSelect
     [X] Initial value state
     [X] Pressing space defaults to being search input, but can we make it
         select if there's no search input... we only need spaces between words.
@@ -95,3 +99,15 @@ as well as strings?
 Overlay used to take `item` but confusingly that's the index of the item,
 not the data item itself.  Changed that to `index` and made `item` the
 actual item
+
+## Multiselect
+
+    [X] sortable option isn't working (yes it is - you have to drag handle)
+
+## Table
+
+TableV1 compatibility.
+
+* rows => body
+* headings?: TableRow
+* footings?: TableRow
