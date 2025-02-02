@@ -1,25 +1,25 @@
 export type AlertProps = {
-  type?: string,
-  size?: string,
-  color?: string,
-  compact?: boolean,
-  stripe?: boolean,
-  border?: boolean | number | string,
-  radius?: boolean | number | string,
-  shadow?: boolean | number | string,
-  className?: string,
+  type?: 'info' | 'warning' | 'success' | 'error'
+  size?: string
+  color?: string
+  compact?: boolean
+  stripe?: boolean
+  border?: boolean | number | string
+  radius?: boolean | number | string
+  shadow?: boolean | number | string
+  className?: string
   alertClass?: string
-  revealed?: boolean,
-  onDismiss?: () => void,
-  Headline?: AlertHeadlineComponent,
-  Icon?: AlertIconComponent,
+  revealed?: boolean
+  onDismiss?: () => void
+  Headline?: AlertHeadlineComponent
+  Icon?: AlertIconComponent
 } & AlertContentProps
   & AlertControlsProps
   & Partial<AlertHeadlineProps>
   & Partial<AlertIconProps>
 
 export type AlertContentProps = {
-  title?: string,
+  title?: string
   text?: string,
   children?: React.ReactNode
 }
