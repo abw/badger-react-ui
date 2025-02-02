@@ -19,8 +19,8 @@ export const PagerPage = Context.Consumer<PagerPageProps>(
       text={text}
       className={className}
       onClick={onClick}
-      label={current ? null : maybeFunction(pageLabel, pageNo)}
-      aria-current={current ? 'page' : null}
+      label={current ? undefined : maybeFunction(pageLabel, pageNo) as string}
+      aria-current={current ? 'page' : undefined}
       disabled={disabled}
     />
 )

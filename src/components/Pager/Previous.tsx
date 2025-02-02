@@ -19,7 +19,7 @@ export const PagerPrevious = Context.Consumer(
       icon={prevIcon}
       onClick={prevPage ? () => setPage(prevPage) : doNothing}
       disabled={noValue(prevPage)}
-      label={maybeFunction(prevLabel, prevPageNo)}
+      label={maybeFunction(prevLabel, prevPageNo) as string}
     />
 )
 

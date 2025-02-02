@@ -18,7 +18,7 @@ export const PagerNext = Context.Consumer(
       icon={nextIcon}
       onClick={nextPage ? () => setPage(nextPage) : doNothing}
       disabled={! nextPage}
-      label={maybeFunction(nextLabel, nextPageNo)}
+      label={maybeFunction(nextLabel, nextPageNo) as string}
     />
 )
 
