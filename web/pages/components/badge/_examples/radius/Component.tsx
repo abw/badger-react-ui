@@ -1,25 +1,27 @@
-import React from 'react'
 import { Badge } from '@/src/index'
 
 const Component = () =>
 /* START */
   <div className="flex middle wrap gap-4">
     <Badge
-      suffix="Suffix"
-      text="Badge"
-    />
-    <Badge
-      suffix="Suffix"
-      text="Badge"
-      color="teal"
+      text="Radius 0"
+      color="olive"
       radius={0}
     />
     <Badge
-      suffix="Suffix"
-      text="Badge"
-      size="smaller"
+      text="Radius 2"
+      color="green"
+      radius={2}
+    />
+    <Badge
+      text="Radius 4"
+      color="teal"
+      radius={3}
+    />
+    <Badge
+      text="Radius 6"
       color="blue"
-      compact
+      radius={4}
     />
   </div>
 /* END */

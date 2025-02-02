@@ -1,12 +1,12 @@
-import React from 'react'
 import { Badge } from '@/src/index'
 
 const Component = () =>
-  /* START */
+/* START */
   <Badge
-    text="Tag Badge"
-    tag
+    color="green"
+    text="Unlocked"
+    iconLeft="unlocked"
   />
-  /* END */
+/* END */
 
 export default Component

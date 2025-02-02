@@ -1,12 +1,11 @@
-import React from 'react'
 import { Badge } from '@/src/index'
 
 const Component = () =>
 /* START */
   <Badge
-    text="Tooltip"
-    label="This is a tooltip"
-    tooltip="top left"
+    color="red"
+    text="Locked"
+    iconRight="locked"
   />
 /* END */
 
