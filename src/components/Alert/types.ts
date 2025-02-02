@@ -8,6 +8,7 @@ export type AlertProps = {
   radius?: boolean | number | string,
   shadow?: boolean | number | string,
   className?: string,
+  alertClass?: string
   revealed?: boolean,
   onDismiss?: () => void,
   Headline?: AlertHeadlineComponent,

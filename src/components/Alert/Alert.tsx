@@ -26,6 +26,7 @@ const Alert = ({
   radius,
   shadow,
   className,
+  alertClass='alert',
   text,
   children,
   onDismiss,
@@ -44,7 +45,7 @@ const Alert = ({
   const [isRevealed, setRevealed] = useState(revealable ? revealed : true)
   const [dismissed, setDismissed] = useState(false)
   const cname = classes(
-    'alert', type, size, color, className,
+    alertClass, type, size, color, className,
     {
       compact, revealable, dismissable, stripe
     },
