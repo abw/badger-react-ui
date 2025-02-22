@@ -1,13 +1,13 @@
 import { Generator, Context as Base, WithRequiredFrom } from '@abw/react-context'
 import { anyPropsChanged, classes, extractStyleProps } from '@/src/utils/index'
-import { doNothing, identity, splitList, sleep } from '@abw/badger-utils'
+import { doNothing, identity, splitList, sleep, hasValue } from '@abw/badger-utils'
 import { clamp, multiply, divide } from '@abw/badger-maths'
 import { ANY, ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT } from '@/src/constants'
 import { displayValueFromOptions, initRange, rangeNormalClick } from './Utils'
 import { RANGE_DRAGGING_CLASS, RANGE_HAS_SCALE_CLASS } from './Constants.js'
 import {
   RangeActions, RangeConstructorProps, RangeDragging, RangeEventListeners,
-  RangeNormalClick, RangeNormalToValue, RangeOnChangeHandler, RangeProps,
+  RangeNormalClick, RangeNormalToValue, RangeOnChange, RangeProps,
   RangeQuantizer, RangeRenderPropsPrepare, RangeState, RangeValueToNormal
 } from './types'
 
@@ -16,8 +16,8 @@ const WATCH_PROPS = splitList(
 )
 
 export const defaultRangeProps = {
-  onChange: doNothing as RangeOnChangeHandler,
-  onChangeValue: doNothing as RangeOnChangeHandler,
+  onChange: doNothing as RangeOnChange,
+  onChangeValue: doNothing as RangeOnChange,
   normalClick: rangeNormalClick,
   prepareRenderProps: identity as RangeRenderPropsPrepare,
   displayValue: displayValueFromOptions,
@@ -443,7 +443,7 @@ class Context extends Base<
         rangeClass,
         className,
         color,
-        size,
+        hasValue(size) ? String(size) : null,
         {
           [hasScaleClass]: showScale,
           [draggingClass]: dragging,

@@ -27,4 +27,4 @@ export type SpinnerProps = {
   animation?: string
 }
 
-export type SpinnerType = React.FC<SpinnerProps>
+export type SpinnerComponent = React.FC<SpinnerProps>

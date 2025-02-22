@@ -7,7 +7,7 @@ import { rangeMinNormalClick, rangeMinPrepareRenderProps } from './Utils'
 import { doNothing } from '@abw/badger-utils'
 import { RangeState } from '../Range/types'
 
-export type RangeMinComponentProps = RangeComponentProps & {
+export type RangeMinComponentProps = Omit<RangeComponentProps, 'onChange'> & {
   onChange?: (
     maxValue: number,
     state: RangeState

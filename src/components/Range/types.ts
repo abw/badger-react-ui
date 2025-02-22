@@ -3,7 +3,7 @@ import { SelectProps } from '../Select/types'
 import { ContextConstructorProps, ContextProps, RenderChildren } from '@abw/react-context'
 
 export type RangeProps = ContextProps<{
-  value?: number | [number, number] | { min: number, max: number }
+  value?: RangeValue
   min?: number | string
   max?: number | string
   minValue?: number
@@ -19,7 +19,7 @@ export type RangeProps = ContextProps<{
 
   disabled?: boolean
   color?: string
-  size?: string
+  size?: string | number
 
   showTicks?: boolean
   showInput?: boolean
@@ -78,8 +78,8 @@ export type RangeProps = ContextProps<{
   prepareRenderProps?: RangeRenderPropsPrepare
   selectOptions?: SelectProps
 
-  onChange?: RangeOnChangeHandler
-  onChangeValue?: RangeOnChangeHandler
+  onChange?: RangeOnChange
+  onChangeValue?: RangeOnChange
 
   Debug?: RangeDebugType
   Input?: RangeInputType
@@ -168,6 +168,8 @@ export type RangeConstructorProps = ContextConstructorProps<
   RangeProps, RangeState, RangeActions
 >
 
+export type RangeValue = number | [number, number] | { min: number, max: number }
+
 export type RangeOption = string | number
 
 export type RangeDisplayValueFromOptions = (
@@ -244,9 +246,19 @@ export type RangeSelectOption = {
   text: string
 }
 
-export type RangeOnChangeHandler = (
-  minValue: number,
+export type RangeOnChange = (
+  min: number,
+  max: number,
+  state: RangeState
+) => void
+
+export type RangeMaxOnChange = (
   maxValue: number,
+  state: RangeState
+) => void
+
+export type RangeMinOnChange = (
+  minValue: number,
   state: RangeState
 ) => void
 

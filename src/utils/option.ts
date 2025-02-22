@@ -14,12 +14,6 @@ export type SelectOptionObject = ObjectWithRenderable & {
   value?: SelectValue
   className?: string
   indent?: string | number
-  // value?: unknown
-  //search?: string,
-  //text?: string,
-  //label?: string,
-  //name?: string,
-  //value?: unknown
 }
 
 // export type SelectOption = SelectOptionObject | string | number | boolean | undefined | null

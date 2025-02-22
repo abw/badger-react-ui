@@ -1,9 +1,9 @@
-import React          from 'react'
 import Overlay        from '../Overlay/Overlay'
 import DefaultSpinner from '../Spinner/Spinner'
 import { Status }     from '@abw/badger-form'
 import { classes }    from '@/src/utils/classes'
 import { Themed }     from '@/src/Theme'
+import { SubmittingProps } from './types'
 
 const Submitting = ({
   text='Submitting...',
@@ -13,7 +13,7 @@ const Submitting = ({
   spinnerSize='x4',
   Spinner=DefaultSpinner,
   ...props
-}) =>
+}: SubmittingProps) =>
   <Status submitting>
     <Overlay
       className={classes(className, size)}

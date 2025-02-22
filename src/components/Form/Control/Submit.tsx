@@ -1,7 +1,7 @@
-import React          from 'react'
 import DefaultButton  from '@/components/Button/Button'
 import { useForm }    from '@abw/badger-form'
 import { Themed }     from '@/src/Theme'
+import { SubmitProps } from '../types'
 
 const Submit = ({
   type='submit',
@@ -9,7 +9,7 @@ const Submit = ({
   className='submit',
   Button=DefaultButton,
   ...props
-}) => {
+}: SubmitProps) => {
   const { submit, status } = useForm()
   return (
     <Button

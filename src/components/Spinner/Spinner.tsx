@@ -1,10 +1,10 @@
 import Icon from '@/components/Icon/Icon'
 import { classes } from '@/src/utils/classes'
 import { Themed }    from '@/src/Theme'
-import { SpinnerType } from './types'
+import { SpinnerProps } from './types'
 import { iconFill, iconParts, iconStroke } from './Utils'
 
-const Spinner: SpinnerType = ({
+const Spinner = ({
   size,
   className,
   icon='cog',
@@ -32,7 +32,7 @@ const Spinner: SpinnerType = ({
   slow=false,
   speed=fast ? 'fast' : slow ? 'slow' : null,
   animation=reverse ? 'spin.reverse' : 'spin',
-}) => {
+}: SpinnerProps) => {
   const cname = classes(
     size, className,
   )

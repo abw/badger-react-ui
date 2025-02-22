@@ -1,9 +1,9 @@
-import MultiSelect from './Input/MultiSelect.jsx'
-import Select from './Input/Select.jsx'
-import Search from './Input/Search.jsx'
-import Range from './Input/Range.jsx'
-import RangeMin from './Input/RangeMin.jsx'
-import RangeMax from './Input/RangeMax.jsx'
+import MultiSelect from './Input/MultiSelect'
+import Select from './Input/Select'
+import Search from './Input/Search'
+import Range from './Input/Range'
+import RangeMin from './Input/RangeMin'
+import RangeMax from './Input/RangeMax'
 import * as BadgerForm from '@abw/badger-form'
 import { addInputType } from '@abw/badger-form'
 import { Themed }     from '@/src/Theme'
@@ -39,6 +39,6 @@ export const SelectField   = Themed(BadgerForm.Select,    'SelectField')
 export const TextField     = Themed(BadgerForm.Text,      'TextField')
 export const TextAreaField = Themed(BadgerForm.TextArea,  'TextAreaField')
 
-export { default as Submitting } from './Submitting.jsx'
-export * from './Control/index.js'
+export { default as Submitting } from './Submitting'
+export * from './Control/index'
 

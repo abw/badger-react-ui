@@ -8,7 +8,7 @@ export type SearchResult = RenderableValue & {
 export type SearchResults = Array<SearchResult> | null
 
 export type SearchProps = ContextProps<{
-  onSearch: (input: string, search: React.Component) => SearchResult[] | Promise<SearchResult[]>
+  onSearch: SearchOnSearch
   value?: SearchResult
   initialValue?: string
   minLength?: number
@@ -92,6 +92,7 @@ export type SearchConstructorProps = ContextConstructorProps<
   SearchActions
 >
 
+export type SearchOnSearch = (input: string, search: React.Component) => SearchResult[] | Promise<SearchResult[]>
 export type SearchThisCallback = (search: React.Component) => void
 export type SearchResultCallback = (result: SearchResult) => void
 export type SearchContentType = React.FC
