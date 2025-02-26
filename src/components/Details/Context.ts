@@ -1,5 +1,5 @@
 import React from 'react'
-import { Model } from '@abw/react-context'
+import { Model } from '@abw/react-model'
 import { DetailsContextProps, DetailsContextRenderProps } from './types'
 
 const DetailsContext = Model<DetailsContextProps, DetailsContextRenderProps>(

@@ -1,4 +1,4 @@
-import { Model } from '@abw/react-context'
+import { Model } from '@abw/react-model'
 import { selectDefaults } from './defaults'
 import { hasValue, sleep } from '@abw/badger-utils'
 import { useCursor, useTrigger } from '@/src/hooks'

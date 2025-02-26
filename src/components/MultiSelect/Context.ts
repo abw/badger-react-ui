@@ -1,4 +1,4 @@
-import { Model } from '@abw/react-context'
+import { Model } from '@abw/react-model'
 import { MultiSelectProps, MultiSelectRenderProps } from './types'
 import { multiSelectDefaults } from './defaults'
 import { useCallback, useEffect, useMemo, useState } from 'react'

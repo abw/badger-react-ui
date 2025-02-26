@@ -1,5 +1,5 @@
 import { Button, MultiSelect, Table, Themed } from '@/src/index'
-import { Model } from '@abw/react-context'
+import { Model } from '@abw/react-model'
 import { useState } from 'react'
 import Foo from './Foo'
 import Bar from './Bar'

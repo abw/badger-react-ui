@@ -1,4 +1,4 @@
-import { Model } from '@abw/react-context'
+import { Model } from '@abw/react-model'
 import { extract } from '@abw/badger-utils'
 import { classes, mergeRefs } from '@/src/utils'
 import { useFloating, useTrigger } from '@/src/hooks'

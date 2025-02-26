@@ -1,4 +1,4 @@
-import { Model } from '@abw/react-context'
+import { Model } from '@abw/react-model'
 import { useCallback, useMemo, useRef, useState } from 'react'
 import { extract, hasValue } from '@abw/badger-utils'
 import { useCursor, useFloating, useTrigger } from '@/src/hooks'

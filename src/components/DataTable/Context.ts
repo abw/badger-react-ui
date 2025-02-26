@@ -1,4 +1,4 @@
-import { Model } from '@abw/react-context'
+import { Model } from '@abw/react-model'
 import { MouseEventHandler, useCallback, useEffect, useMemo, useState } from 'react'
 import { classes, debugFunction } from '@/src/utils/index'
 import { dataTableDefaults } from './defaults'
