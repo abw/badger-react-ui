@@ -47,7 +47,7 @@
   "dependencies": {
     "@abw/badger-css": "^1.2.6",
     "@abw/badger-form": "^1.1.4",
-    "@abw/badger-icon": "^1.0.0",
+    "@abw/badger-icon": "^1.0.1",
     "@abw/badger-utils": "^1.2.4",
     "@abw/react-context": "^3.0.0",
     "@abw/react-one-louder": "^1.0.0",

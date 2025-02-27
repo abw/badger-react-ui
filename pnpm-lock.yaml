@@ -12,8 +12,8 @@ dependencies:
     specifier: ^1.1.4
     version: 1.1.4(react-dom@18.3.1)(react@18.3.1)
   '@abw/badger-icon':
-    specifier: ^1.0.0
-    version: 1.0.0(react-dom@18.3.1)(react@18.3.1)
+    specifier: ^1.0.1
+    version: 1.0.1(react-dom@18.3.1)(react@18.3.1)
   '@abw/badger-utils':
     specifier: ^1.2.4
     version: 1.2.4
@@ -39,10 +39,10 @@ dependencies:
     specifier: ^0.26.28
     version: 0.26.28(react-dom@18.3.1)(react@18.3.1)
   react:
-    specifier: ^18.2.0
+    specifier: ^18.2.0 || ^19.0.0
     version: 18.3.1
   react-dom:
-    specifier: ^18.2.0
+    specifier: ^18.2.0 || ^19.0.0
     version: 18.3.1(react@18.3.1)
 
 devDependencies:
@@ -164,8 +164,8 @@ packages:
       react-dom: 18.3.1(react@18.3.1)
     dev: true
 
-  /@abw/badger-icon@1.0.0(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-bQB6fY8BH/Edls8JAhecj6Xm8et64s2PDf3wsUxgB0BAdEcoj/aBEg1Xu0O8vK9r5sr50X+V/i0qRfus05pVaQ==}
+  /@abw/badger-icon@1.0.1(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-4bQ8MBaW4SaYSjsG6S4/qq8JryLMeFrQXHxvX9Y1U2R9EjRSwZFp+KSMDLX51JqCoKKLd/WXD2bISBCkJuPL4Q==}
     peerDependencies:
       react: ^18.2.0 || ^19.0.0
       react-dom: ^18.2.0 || ^19.0.0
