@@ -5,12 +5,20 @@ import react            from '@vitejs/plugin-react-swc'
 // import react            from '@vitejs/plugin-react'
 import define           from  './vite.defs.js'
 import copy             from 'rollup-plugin-copy'
+import dts              from 'vite-plugin-dts'
 
 export default defineConfig({
   plugins: [
     react(),
     svgr(),
-    jsconfigPaths()
+    jsconfigPaths(),
+    dts({
+      tsconfigPath: './tsconfig.json',
+      exclude: [
+        'test',
+        'web'
+      ],
+    })
   ],
   test: {
     environment: 'jsdom',
