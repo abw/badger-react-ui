@@ -10,7 +10,7 @@ export type DropdownMenuProps =
   UseTriggerProps &
   WithIconsProps & {
   options: SelectOption[]
-  closeOnSelect: boolean
+  closeOnSelect?: boolean
   bodyClass?: string
   //content?: React.ReactNode
   //children?: React.ReactNode

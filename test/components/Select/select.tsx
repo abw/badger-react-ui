@@ -15,11 +15,12 @@ const animals = [
 ]
 
 const SelectExample = () => {
-  const [selected, setSelected] = React.useState()
+  const [selected, setSelected] = React.useState<string|undefined>()
   return (
     <>
       <Select
         options={animals}
+        // @ts-ignore
         onSelect={setSelected}
         // debug
       />

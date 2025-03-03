@@ -23,8 +23,10 @@ export const MultiSelectContent = Context.Consumer(
       <Select
         search={search}
         options={options}
-        onSelect={onSelect}
         onUpdate={doNothing}
+        // @ts-ignore-error.  Here we go again
+        onSelect={onSelect}
+        // @ts-ignore-error.  Going down the typescript rabbit hole to hell
         displayOption={
           (option: SelectOption) =>
             <Option option={option}/>

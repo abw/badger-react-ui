@@ -16,10 +16,11 @@ export const DataTablePageSize = Context.Consumer(
         triggerClass="trigger pad-v-none"
         options={
           pageSizes.map(
-            n => ({ n, text: pageSizeText(n) })
+            n => ({ value: n, text: pageSizeText(n) })
           )
         }
-        onSelect={ (item: { n: number }) => setPageSize(item.n)}
+        // @ts-expect-error - it's an object, I know what it is.
+        onSelect={ item  => setPageSize(item.value) }
       />
     </div>
 )

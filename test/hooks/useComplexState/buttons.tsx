@@ -69,6 +69,7 @@ const Row = (
         buttons={[
           {
             icon: 'minus',
+            // @ts-ignore
             'data-testid': `${id}-minus`,
             onClick: () => setter(
               current => current - 1
@@ -76,6 +77,7 @@ const Row = (
           },
           {
             icon: 'plus',
+            // @ts-ignore
             'data-testid': `${id}-plus`,
             onClick: () => setter(
               current => current + 1

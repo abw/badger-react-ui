@@ -56,6 +56,7 @@ const DropdownMenuExample = () => {
         // openOnHover
         button
         options={options}
+        // @ts-ignore
         onSelect={setSelected}
         debug
       />

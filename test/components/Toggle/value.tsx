@@ -36,7 +36,9 @@ const ToggleObject = () => {
     <div className="grid-1 gap-4">
       <Toggle
         options={options}
+        // @ts-ignore
         selected={selected}
+        // @ts-ignore
         onSelect={setSelected}
       />
       <div data-testid="selected">

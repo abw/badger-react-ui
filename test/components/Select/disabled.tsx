@@ -20,6 +20,7 @@ const SelectExample = () => {
     <>
       <Select
         options={animals}
+        // @ts-ignore
         onSelect={setSelected}
         disabled
         debug

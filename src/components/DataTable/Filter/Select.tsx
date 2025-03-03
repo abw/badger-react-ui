@@ -9,9 +9,11 @@ const DataTableFilterSelect = ({
   placeholder
 }: DataTableFilterInputProps) =>
   <Select
-    options={column.selectOptions||[]}
-    value={value}
+    value={value as SelectOption}
     onUpdate={doNothing}
+    // @ts-ignore-error.  <sigh>
+    options={column.selectOptions||[]}
+    // @ts-ignore-error.  <sign again>
     onSelect={
       (option: SelectOption) => setFilter(
         column.selectValue

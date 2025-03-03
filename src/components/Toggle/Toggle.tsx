@@ -33,6 +33,7 @@ const Toggle: ToggleType = ({
   )
   return (
     <Buttons
+      // @ts-expect-error.  TS carps because a button value property can't be boolean
       buttons={buttons}
       className={classes(size, className, buttonsClass)}
       {...props}

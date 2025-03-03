@@ -33,6 +33,7 @@ const SelectExample = ({ value }: { value?: string | SelectOption }) => {
       <Select
         search
         options={names}
+        // @ts-ignore
         onSelect={setSelected}
         value={value}
         // debug

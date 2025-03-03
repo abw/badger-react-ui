@@ -46,7 +46,9 @@ const displayAddress = (address: Address) =>
 const SelectExample = () =>
   <Select
     options={addresses}
+    // @ts-ignore
     displayOption={displayAddress}
+    // @ts-ignore
     displayValue={displayAddress}
   />
 

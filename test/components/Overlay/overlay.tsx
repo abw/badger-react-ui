@@ -15,7 +15,6 @@ const App = () => {
       { visible &&
         <Overlay
           fixed
-          flumpet="20"
           data-testid="overlay"
         >
           Hello World!

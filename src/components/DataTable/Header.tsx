@@ -26,7 +26,7 @@ export const DataTableHeader = Context.Consumer(
         outline
         onClick={() => setPageNo(page.pageNo - 1)}
         role="navigation"
-        label={maybeFunction(prevLabel(page.pageNo - 1))}
+        label={maybeFunction(prevLabel(page.pageNo - 1)) as string|undefined}
       />
       <div>
         <Summary/>
@@ -39,7 +39,7 @@ export const DataTableHeader = Context.Consumer(
         outline
         onClick={() => setPageNo(page.pageNo + 1)}
         role="navigation"
-        label={maybeFunction(nextLabel(page.pageNo + 1))}
+        label={maybeFunction(nextLabel(page.pageNo + 1)) as string|undefined}
       />
     </header>
 )

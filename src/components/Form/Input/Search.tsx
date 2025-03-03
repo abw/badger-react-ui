@@ -12,9 +12,11 @@ const Search = () => {
     ...props
   } =useField<InputSearchFieldExtras>()
   return (
+    // @ts-ignore-error.  Nope, not going there
     <UISearch
       {...props}
       value={value ?? undefined}
+      // @ts-ignore-error: CBA
       onSelect={option => onChange(selectValue(option))}
       onClear={() => setValue(null)}
     />

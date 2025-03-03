@@ -6,7 +6,7 @@ import ShadowSelect     from '@/web/demo/control/ShadowSelect'
 import CheckOption      from '@/web/demo/control/CheckOption'
 import BorderSelect     from '@/web/demo/control/BorderSelect'
 import IconSelect       from '@/web/demo/control/IconSelect'
-import { Alert, Icon }  from '@/src/index'
+import { Alert, AlertType, Icon }  from '@/src/index'
 // @ts-expect-error No types
 import { Source }       from '@abw/badger-website'
 
@@ -16,7 +16,7 @@ type Options = {
   text: string
   revealable: boolean
   stripe: boolean
-  type?: string
+  type?: AlertType
   color?: string
   size?: string
   shadow?: string

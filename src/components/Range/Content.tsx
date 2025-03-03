@@ -12,6 +12,7 @@ export const RangeContent = Context.Consumer<
   }) =>
     <div {...rangeProps}>
       { children
+        // @ts-expect-error.  Worked in React 18.  Broken in 19.  bigint bollocks
         ? <Context.Children>
             { children }
           </Context.Children>

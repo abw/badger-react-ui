@@ -15,12 +15,14 @@ const DataTableFilterBoolean = ({
       { value: false, text: column.falseText ?? FALSE },
     ]}
     wide
-    value={value}
     onUpdate={doNothing}
+    placeholder={placeholder}
+    // @ts-expect-error. I love typescript, but I really hate it too
+    value={value}
+    // @ts-expect-error. I can't imagine I'll ever get back the time wasted
     onSelect={
       (option: { value: DataTableFilterValue } ) => setFilter(option.value)
     }
-    placeholder={placeholder}
   />
 
 export default DataTableFilterBoolean

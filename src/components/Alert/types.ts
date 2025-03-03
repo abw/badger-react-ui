@@ -1,5 +1,6 @@
+export type AlertType = 'info' | 'warning' | 'success' | 'error'
 export type AlertProps = {
-  type?: 'info' | 'warning' | 'success' | 'error'
+  type?: AlertType
   size?: string
   color?: string
   compact?: boolean

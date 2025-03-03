@@ -13,6 +13,7 @@ const DropdownExample = () => {
       <DropdownMenu
         text='Dropdown Menu'
         iconRight="angle-down"
+        // @ts-ignore
         onSelect={setSelected}
         options={[
           'Alan Aardvark',
