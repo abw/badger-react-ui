@@ -2,7 +2,7 @@ import React from 'react'
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
 import { render, act } from '@testing-library/react'
-import { Form, Field, ResetSubmit, Debug, Button, Submitting } from '@/src/index.jsx'
+import { Form, Field, ResetSubmit, Debug, Button, Submitting } from '@/src/index'
 import { sleep } from '@abw/badger-utils'
 
 const instruments = [
