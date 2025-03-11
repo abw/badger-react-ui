@@ -216,7 +216,7 @@ export const SelectContext = Model<SelectProps, SelectRenderProps>(
     const selectOption = useCallback(
       (option: SelectOption) => {
         debug(`selectOption()`, option)
-        if (! option) {
+        if (! hasValue(option)) {
           return
         }
         setSelected(option)
@@ -391,7 +391,7 @@ export const SelectContext = Model<SelectProps, SelectRenderProps>(
         debug(`allOptions changed => `, newValue)
         setValue(newValue)
         const onChange = onUpdate || onSelect
-        if (onChange) {
+        if (onChange && hasValue(newValue)) {
           onChange(newValue)
         }
       },
@@ -411,7 +411,7 @@ export const SelectContext = Model<SelectProps, SelectRenderProps>(
         debug(`initialValue changed (${initialValue}) => `, newValue)
         setValue(newValue)
         const onChange = onUpdate || onSelect
-        if (onChange) {
+        if (onChange && hasValue(newValue)) {
           onChange(newValue)
         }
       },
