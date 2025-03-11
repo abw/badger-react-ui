@@ -92,7 +92,7 @@ class SearchContext extends Context<
       resultsRef:   this.resultsRef.bind(this),
       activeRef:    this.activeRef.bind(this),
       // Hack
-      displayResult: defaultSearchProps.displayResult
+      displayResult: this.props.displayResult || defaultSearchProps.displayResult
     }
   }
   componentDidMount() {
