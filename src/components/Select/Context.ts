@@ -216,6 +216,9 @@ export const SelectContext = Model<SelectProps, SelectRenderProps>(
     const selectOption = useCallback(
       (option: SelectOption) => {
         debug(`selectOption()`, option)
+        if (! option) {
+          return
+        }
         setSelected(option)
         setValue(option)
         if (onSelect) {
