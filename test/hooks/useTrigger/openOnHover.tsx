@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event'
 import { it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, act } from '@testing-library/react'
 import { useTrigger } from '@/src/index'
 import { sleep } from '@abw/badger-utils'
 
@@ -67,15 +67,15 @@ it(
     expect(isOpen).toHaveTextContent('false')
 
     // hover on trigger to open...
-    await user.hover(trigger)
+    await act( () => user.hover(trigger) )
     expect(content).toHaveTextContent('Hello World')
     expect(hasHover).toHaveTextContent('true')
     expect(isOpen).toHaveTextContent('true')
 
     // ...and close again
-    await user.hover(content)
+    await act( () => user.hover(content) )
     // sleep for a bit to accommodate close delay
-    await sleep(400)
+    await act( () => sleep(400) )
     expect(hasHover).toHaveTextContent('false')
     expect(isOpen).toHaveTextContent('false')
     expect(content).toHaveTextContent('closed')

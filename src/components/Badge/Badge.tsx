@@ -25,6 +25,8 @@ const Badge = ({
   text,
   prefix,
   suffix,
+  prefixClass,
+  suffixClass,
   children,
   Prefix=BadgePrefix,
   Suffix=BadgeSuffix,
@@ -46,22 +48,32 @@ const Badge = ({
     iconRight, iconRightClass,
     text, children
   }
-  return <div
-    className={cname}
-    data-tooltip={tooltip}
-    aria-label={label}
-    {...props}
-  >
-    { Boolean(prefix) &&
-      <Prefix prefix={prefix as string} {...props}/>
-    }
-    <Content
-      {...bodyProps as WithIconsProps}
-    />
-    { Boolean(suffix) &&
-      <Suffix suffix={suffix as string} {...props}/>
-    }
-  </div>
+  return (
+    <div
+      className={cname}
+      data-tooltip={tooltip}
+      aria-label={label}
+      {...props}
+    >
+      { Boolean(prefix) &&
+        <Prefix
+          prefix={prefix as string}
+          prefixClass={prefixClass}
+          {...props}
+        />
+      }
+      <Content
+        {...bodyProps as WithIconsProps}
+      />
+      { Boolean(suffix) &&
+        <Suffix
+          suffix={suffix as string}
+          suffixClass={suffixClass}
+          {...props}
+        />
+      }
+    </div>
+  )
 }
 
 /**

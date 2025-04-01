@@ -69,7 +69,7 @@ it(
         { withIconsRenderer({ iconLeft: 'check', text: 'Hello' }) as JSX.Element }
       </div>
     )
-    screen.debug()
+    // screen.debug()
     const foo = screen.getByTestId('foo')
     expect(foo).toHaveTextContent('Hello')
 

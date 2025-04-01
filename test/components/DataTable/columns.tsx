@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event'
 import { test, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { DataTable } from '@/src/index'
 import animals from '@/test/lib/animals'
 import { fail } from '@abw/badger-utils'
@@ -39,7 +39,7 @@ test(
 
     // enable id
     let labels = dropdown.querySelectorAll('div.body div.sortable.list label')
-    screen.debug()
+    // screen.debug()
     expect(labels.length).toBe(4)
     await user.click(labels[2])
     expectColumns(table, ['Name', 'Animal', 'Id'])
