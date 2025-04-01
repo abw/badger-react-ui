@@ -13,7 +13,7 @@ const DropdownExample = () => {
       <DropdownMenu
         text='Dropdown Menu'
         iconRight="angle-down"
-        // @ts-ignore
+        // @ts-expect-error: Need to sort out SelectOption
         onSelect={setSelected}
         options={[
           { heading: 'Aardvarks' },

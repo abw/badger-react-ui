@@ -69,7 +69,7 @@ const Row = (
         buttons={[
           {
             icon: 'minus',
-            // @ts-ignore
+            // @ts-expect-error: data-testid is not a valid property
             'data-testid': `${id}-minus`,
             onClick: () => setter(
               current => current - 1
@@ -77,7 +77,7 @@ const Row = (
           },
           {
             icon: 'plus',
-            // @ts-ignore
+            // @ts-expect-error: data-testid is not a valid property
             'data-testid': `${id}-plus`,
             onClick: () => setter(
               current => current + 1

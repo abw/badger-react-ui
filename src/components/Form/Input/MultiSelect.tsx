@@ -16,7 +16,7 @@ const MultiSelect = () => {
   return (
     <UIMultiSelect
       {...props}
-      // @ts-ignore-error.  I'm giving up
+      // @ts-expect-error.  I'm giving up
       values={
         hasValue(value)
           ? isArray(value)
@@ -26,7 +26,7 @@ const MultiSelect = () => {
               : [ ]
           : [ ]
       }
-      // @ts-ignore-error.  Really had enough of this shit
+      // @ts-expect-error.  Really had enough of this shit
       onUpdate={onUpdate}
       onChange={
         values => onChange(

@@ -20,7 +20,7 @@ const SelectExample = () => {
     <>
       <Select
         options={animals}
-        // @ts-ignore
+        // @ts-expect-error: Need to sort out SelectOption
         onSelect={setSelected}
         // debug
       />

@@ -36,9 +36,9 @@ const ToggleObject = () => {
     <div className="grid-1 gap-4">
       <Toggle
         options={options}
-        // @ts-ignore
+        // @ts-expect-error: Need to sort out SelectOption
         selected={selected}
-        // @ts-ignore
+        // @ts-expect-error: Need to sort out SelectOption
         onSelect={setSelected}
       />
       <div data-testid="selected">

@@ -47,7 +47,7 @@ export const RangeSelect = Context.Consumer<
               })
             ) as RangeSelectOption[]
           }
-          // @ts-ignore-error.  Not playing
+          // @ts-expect-error.  Not playing
           onSelect={
             (option: RangeSelectOption) => setInput(option?.value || 0)
           }

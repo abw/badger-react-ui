@@ -222,6 +222,7 @@ export const SelectContext = Model<SelectProps, SelectRenderProps>(
         setSelected(option)
         setValue(option)
         if (onSelect) {
+          // console.log(`calling onSelect #1: `, option)
           onSelect(option)
         }
         if (closeOnSelect) {
@@ -392,6 +393,7 @@ export const SelectContext = Model<SelectProps, SelectRenderProps>(
         setValue(newValue)
         const onChange = onUpdate || onSelect
         if (onChange && hasValue(newValue)) {
+          // console.log(`calling onSelect #2: `, newValue)
           onChange(newValue)
         }
       },
@@ -412,6 +414,7 @@ export const SelectContext = Model<SelectProps, SelectRenderProps>(
         setValue(newValue)
         const onChange = onUpdate || onSelect
         if (onChange && hasValue(newValue)) {
+          // console.log(`calling onSelect #3: `, newValue)
           onChange(newValue)
         }
       },

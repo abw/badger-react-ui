@@ -11,9 +11,9 @@ const DataTableFilterSelect = ({
   <Select
     value={value as SelectOption}
     onUpdate={doNothing}
-    // @ts-ignore-error.  <sigh>
+    // @ts-expect-error.  <sigh>
     options={column.selectOptions||[]}
-    // @ts-ignore-error.  <sign again>
+    // @ts-expect-error.  <sign again>
     onSelect={
       (option: SelectOption) => setFilter(
         column.selectValue

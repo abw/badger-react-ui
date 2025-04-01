@@ -46,9 +46,9 @@ const displayAddress = (address: Address) =>
 const SelectExample = () =>
   <Select
     options={addresses}
-    // @ts-ignore
+    // @ts-expect-error: Need to sort out SelectOption
     displayOption={displayAddress}
-    // @ts-ignore
+    // @ts-expect-error: Need to sort out SelectOption
     displayValue={displayAddress}
   />
 
