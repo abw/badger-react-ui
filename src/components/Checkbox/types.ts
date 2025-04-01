@@ -1,4 +1,5 @@
 import { InputHTMLAttrs, MaybeTrueOrNumberString } from '@/src/types'
+import { ReactNode } from 'react'
 
 export type CheckboxProps  = {
   size?: string
@@ -8,9 +9,9 @@ export type CheckboxProps  = {
   inline?: boolean
   disabled?: boolean
   checked?: boolean
-  text?: string
-  checkedText?: string
-  uncheckedText?: string
+  text?: ReactNode
+  checkedText?: ReactNode
+  uncheckedText?: ReactNode
   labelRef?: React.Ref<HTMLLabelElement>
   inputRef?: React.Ref<HTMLInputElement>
   Label?: CheckboxLabelComponent

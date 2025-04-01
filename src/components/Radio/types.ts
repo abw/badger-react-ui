@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 export type RadioOnChange = (value: unknown) => void
 
 export type RadioLabelProps = {
@@ -17,7 +19,7 @@ export type RadioInputProps = {
 
 export type RadioOptionObject = {
   value: unknown
-  text?: string
+  text?: ReactNode
   label?: string
   name?: string
   labelClass?: string
