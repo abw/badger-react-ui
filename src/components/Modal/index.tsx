@@ -1,6 +1,7 @@
-export { default as Modal        } from './Modal'
+export { default as Modal } from './Modal'
 export * from './Close'
 export * from './Content'
 export * from './Footer'
 export * from './Header'
 export * from './State'
+export * from './types'

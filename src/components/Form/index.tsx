@@ -7,6 +7,7 @@ import RangeMax from './Input/RangeMax'
 import * as BadgerForm from '@abw/badger-form'
 import { addInputType } from '@abw/badger-form'
 import { Themed }     from '@/src/Theme'
+export * from './types'
 export {
   UseField, UseForm, useField, useForm,
   inputClasses, statusClasses, fieldClass,

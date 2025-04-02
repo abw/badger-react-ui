@@ -12,4 +12,4 @@ export {
   default as SelectContext,
   SelectProvider, SelectConsumer, useSelect
 } from './Context'
-
+export * from './types'

@@ -20,8 +20,8 @@ export * from './ValueMax'
 export * from './ValueMin'
 export * from './Values'
 export * from './Utils'
+export * from './types'
 export {
   default as RangeContext,
   RangeProvider, RangeConsumer, RangeChildren, useRange
 } from './Context'
-
