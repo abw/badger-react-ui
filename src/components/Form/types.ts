@@ -4,6 +4,7 @@ import { SpinnerComponent, SpinnerProps } from '../Spinner/types'
 import { SelectOption } from '@/src/utils'
 import { RangeOption, RangeState, RangeValue } from '../Range/types'
 import { SearchOnSearch } from '../Search/types'
+export type * as BadgerFormTypes from '@abw/badger-form'
 
 export interface SubmittingProps extends SpinnerProps {
   text?: string
