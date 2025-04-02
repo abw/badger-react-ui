@@ -30,6 +30,7 @@ export type ConfirmProps = {
   icon?: string
   iconRight?: string
   iconLeft?: string
+  disabled?: boolean
   title?: ReactNode
   header?: ReactNode
   prompt?: ReactNode

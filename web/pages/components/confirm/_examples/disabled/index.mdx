@@ -1,0 +1,16 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component'
+import Source     from './Component.tsx?raw'
+
+<Example
+  code="disabled"
+  Component={Component}
+  Source={Source}
+  highlightLines="4"
+  undent={2}
+  expand
+>
+  The `disabled` property can be used to disable the component, preventing
+  it from being clicked.
+</Example>
