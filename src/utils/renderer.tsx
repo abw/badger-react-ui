@@ -1,3 +1,4 @@
+import React from 'react'
 import { isObject, isSimple } from '@abw/badger-utils'
 import WithIcons from '@/src/components/Icon/WithIcons'
 import { PropsObject } from '../types.js'
@@ -11,7 +12,7 @@ export type ObjectWithRenderable = {
   heading?: RenderableSimpleValue
 }
 export type RenderableValue = RenderableSimpleValue | ObjectWithRenderable
-export type WithIconsRenderer = (option: RenderableValue) => string | JSX.Element
+export type WithIconsRenderer = (option: RenderableValue) => string | React.JSX.Element
 
 export const defaultRenderer = (name: string) => {
   const fallback = `HINT: define ${name}() to render this value`

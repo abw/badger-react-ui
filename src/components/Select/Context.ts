@@ -10,6 +10,7 @@ import {
 } from '@/src/constants'
 
 export const SelectContext = Model<SelectProps, SelectRenderProps>(
+  // @ts-expect-error: Type 'HTMLDivElement | null' is not assignable to type 'HTMLDivElement'.
   config => {
     const {
       options: allOptions,

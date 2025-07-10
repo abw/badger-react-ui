@@ -1,3 +1,4 @@
+import React from 'react'
 import { DebugOptions, SelectOption } from '@/src/utils'
 import { multiSelectModelDefaults, multiSelectRenderDefaults } from './defaults'
 import { PropsObject } from '@/src/types'
@@ -67,7 +68,7 @@ export type MultiSelectSelectionProps = {
   selection: SelectOption,
   //displaySelection,
   //unselectMultiOption,
-  dragHandle?: JSX.Element
+  dragHandle?: React.JSX.Element
 }
 
 export type MultiSelectSortItem = SortableDataItem & {

@@ -1,3 +1,4 @@
+import React from 'react'
 import { MaybeTrueOrNumberString } from '@/src/types'
 
 export type TableProps = {
@@ -149,5 +150,5 @@ export type TableColumnsRowProp = {
 }
 export type TableColumnsRow = Record<string, unknown>
 export type TableColumnsRows = TableColumnsRow[]
-export type TableColumnsRowFn = (row: TableColumnsRow) => JSX.Element
+export type TableColumnsRowFn = (row: TableColumnsRow) => React.JSX.Element
 
