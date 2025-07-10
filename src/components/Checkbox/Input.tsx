@@ -15,13 +15,13 @@ const CheckboxInput = ({
 }: CheckboxInputProps) =>
   <input
     type="checkbox"
-    ref={inputRef}
     aria-disabled={disabled}
     tabIndex={disabled ? -1 : tabIndex}
     onChange={e => onChange(e.target.checked)}
     className={classes(inputClass, { round, square })}
     role={asSwitch ? 'switch' : undefined}
     {...props}
+    ref={inputRef}
   />
 
 export default CheckboxInput
