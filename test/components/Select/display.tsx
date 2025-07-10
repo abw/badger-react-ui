@@ -71,9 +71,8 @@ test(
     expectItem(items[2], addresses[2])
 
     await user.click(items[1])
-    const selected = select.querySelector('div.inputs > div.input > div > div') || fail('no selected')
+    const selected = select.querySelector('div.inputs > div.input') || fail('no selected')
     expectItem(selected, addresses[1])
-    // screen.debug()
   }
 )
 
