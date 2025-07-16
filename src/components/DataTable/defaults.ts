@@ -27,7 +27,9 @@ export const dataTableRenderDefaults = {
   allRows: (total: number) =>
     `all ${formatNumber(total)} rows`,
   someRows: (from: number, to: number, total: number) =>
-    `rows ${formatNumber(from)}-${formatNumber(to)} of ${formatNumber(total)}`,
+    from === to
+      ? `row ${formatNumber(from)} of ${formatNumber(total)}`
+      : `rows ${formatNumber(from)}-${formatNumber(to)} of ${formatNumber(total)}`,
   filtersClass: 'filters',
   filterClass: DATATABLE_FILTER_CLASS,
   filterIcon: DATATABLE_FILTER_ICON,

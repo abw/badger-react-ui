@@ -265,6 +265,10 @@ const DevTests = {
       text: 'DataTable Rows',
     },
     {
+      to: '/testing/datatable-last-page',
+      text: 'DataTable Last Page',
+    },
+    {
       to: '/testing/dropdown',
       text: 'Dropdown',
     },

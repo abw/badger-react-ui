@@ -37,7 +37,7 @@ export const dataTablePaginate = (
     thisSize:   items.length,
     from:       firstIndex + 1,
     to:         lastIndex + 1,
-    all:        firstIndex === lastIndex,
+    all:        firstIndex === 0 && lastIndex === total - 1,
     one:        total === 1,
     none:       total === 0,
     rows:       items,
