@@ -1,0 +1,20 @@
+button, .button {
+  .icons {
+    font-size: calc(1em + var(--padding-v));
+    margin: calc(var(--padding-v) / 2);
+    &.on-left, &:first-child:not(:last-child) {
+      margin-left: var(--icon-pull);
+      margin-right: var(--icon-margin);
+    }
+    &.on-right, &:last-child:not(:first-child) {
+      margin-left: var(--icon-margin);
+      margin-right: var(--icon-pull);
+    }
+    .icon {
+      border: none;
+      font-size: 1em !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+  }
+}

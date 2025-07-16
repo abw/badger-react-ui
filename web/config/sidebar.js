@@ -253,6 +253,10 @@ const DevTests = {
       text: 'Accordion Select',
     },
     {
+      to: '/testing/button-icons',
+      text: 'Button Icons',
+    },
+    {
       to: '/testing/datatable-columns',
       text: 'DataTable Columns',
     },
