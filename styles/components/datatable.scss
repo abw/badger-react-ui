@@ -1,7 +1,8 @@
 section.datatable {
   --header-icon-color: var(--brand-30);
   --header-icon-opacity: 0.2;
-  --header-icon-hover-opacity: 0.5;
+  --header-icon-sorting-opacity: 0.85;
+  --header-icon-hover-opacity: 1;
   --header-size: 0.875em;
   --filters-shade: var(--color-95);
   --filtering-color: var(--brand-70);
@@ -79,7 +80,7 @@ section.datatable {
       &.sorting {
         --background-color: var(--sorting-shade-3);
         .sort-icon {
-          opacity: 1;
+          opacity: var(--header-icon-sorting-opacity);
         }
       }
       &.filtering {
