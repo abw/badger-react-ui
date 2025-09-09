@@ -1,6 +1,6 @@
 import Context from './Context'
 import Button  from '@/components/Button/Button'
-import { doNothing, noValue } from '@abw/badger-utils'
+import { doNothing, isNull, noValue } from '@abw/badger-utils'
 import { maybeFunction } from '@abw/badger-utils'
 import { pagerPreviousPageLabel } from './Utils'
 
@@ -17,7 +17,7 @@ export const PagerPrevious = Context.Consumer(
     <Button
       className={prevClass}
       icon={prevIcon}
-      onClick={prevPage ? () => setPage(prevPage) : doNothing}
+      onClick={isNull(prevPage) ? doNothing : () => setPage(prevPage)}
       disabled={noValue(prevPage)}
       label={maybeFunction(prevLabel, prevPageNo) as string}
     />
