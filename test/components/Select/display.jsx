@@ -51,6 +51,7 @@ test(
     )
     const select = container.querySelector('div.select')
     const inputs = select.querySelector('div.inputs')
+
     await act( () => user.click(inputs) )
 
     const items = select.querySelectorAll('div.item')
@@ -61,13 +62,14 @@ test(
     expectItem(items[2], addresses[2])
 
     await act( () => user.click(items[1]) )
-    const selected = select.querySelector('div.inputs > div.input > div > div')
+    const selected = select.querySelector('div.inputs > div.input')
     expectItem(selected, addresses[1])
-    // screen.debug()
   }
 )
 
 function expectItem(item, address) {
+  // console.log(`expectItem: `, item);
+
   const divs = item.querySelectorAll(':scope > div > div > div')
   expect(divs.length).toBe(3)
   expect(divs[0]).toHaveTextContent(address.line1)
