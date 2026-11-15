@@ -3,6 +3,8 @@
 This is a collection of React UI components using the
 [Badger CSS](https://badgerpower.com/badger-css/) styles.
 
+[![blazingly fast](https://blazingly.fast/api/badge.svg?repo=abw%2Fbadger-react-ui)](https://blazingly.fast/hall-of-speed)
+
 ## Documentation Website
 
 See the website for documentation and demonstrations.
