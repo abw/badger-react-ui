@@ -1,0 +1,17 @@
+import React      from 'react'
+import Example    from '@/page/ExampleSection.jsx'
+import Component  from './Component.jsx'
+import Source     from './Component.jsx?raw'
+
+<Example
+  code="onClick"
+  Component={Component}
+  Source={Source}
+  highlightLines="3"
+  undent={6}
+  expand
+>
+  If you want to be able to click outside the dialog to close the modal,
+  but without adding a close icon in the top right corner, you can use the
+  `onClick` property to define a close handler.
+</Example>
