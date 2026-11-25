@@ -7,7 +7,6 @@ const ModalExample = () => {
   return (
     <>
       {/* START */}
-      OPEN: {open}
       <Modal
         open={open}
         onClick={() => setOpen(false)}

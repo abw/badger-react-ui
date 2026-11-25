@@ -5600,7 +5600,7 @@ const ModalExample = () => {
 
 export default ModalExample`;function _M(A){const e={code:"code",p:"p",...d(),...A.components};return t.jsx(D,{code:"maxWidth",Component:tkA,Source:nkA,highlightLines:"4",undent:6,expand:!0,children:t.jsxs(e.p,{children:["The ",t.jsx(e.code,{children:"maxWidth"}),` property can be used as a shortcut to set the maximum width
 for the dialog.  Internally this adds a `,t.jsx(e.code,{children:"--max-width"}),` CSS custom property
-via a `,t.jsx(e.code,{children:"style"})," attribute."]})})}function JU(A={}){const{wrapper:e}={...d(),...A.components};return e?t.jsx(e,{...A,children:t.jsx(_M,{...A})}):_M(A)}const okA=Object.freeze(Object.defineProperty({__proto__:null,default:JU},Symbol.toStringTag,{value:"Module"})),skA=()=>{const[A,e]=E.useState(!1);return t.jsxs(t.Fragment,{children:["OPEN: ",A,t.jsxs(qt,{open:A,onClick:()=>e(!1),children:[t.jsx("p",{children:"This is a modal which doesn't have a close button or icon. But you can click anywhere outside the dialog to close the modal."}),t.jsx(R,{text:"Say Hello",color:"green",onClick:()=>alert("Hello World!")})]}),t.jsx(R,{color:"green",text:"Open Modal",onClick:()=>e(!0)})]})},akA=`import React, { useState } from 'react'
+via a `,t.jsx(e.code,{children:"style"})," attribute."]})})}function JU(A={}){const{wrapper:e}={...d(),...A.components};return e?t.jsx(e,{...A,children:t.jsx(_M,{...A})}):_M(A)}const okA=Object.freeze(Object.defineProperty({__proto__:null,default:JU},Symbol.toStringTag,{value:"Module"})),skA=()=>{const[A,e]=E.useState(!1);return t.jsxs(t.Fragment,{children:[t.jsxs(qt,{open:A,onClick:()=>e(!1),children:[t.jsx("p",{children:"This is a modal which doesn't have a close button or icon. But you can click anywhere outside the dialog to close the modal."}),t.jsx(R,{text:"Say Hello",color:"green",onClick:()=>alert("Hello World!")})]}),t.jsx(R,{color:"green",text:"Open Modal",onClick:()=>e(!0)})]})},akA=`import React, { useState } from 'react'
 import { Modal, Button } from '@/src/index.jsx'
 
 const ModalExample = () => {
@@ -5609,7 +5609,6 @@ const ModalExample = () => {
   return (
     <>
       {/* START */}
-      OPEN: {open}
       <Modal
         open={open}
         onClick={() => setOpen(false)}
